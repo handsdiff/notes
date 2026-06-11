@@ -1,4 +1,4 @@
- What UX to best track all historical learnings (RSI here, compute-as-bottleneck, subposition as scaling, etc) and open questions \+ share in real time to team? Ideas below   ^fbaeb6
+ What UX to best track all historical learnings (RSI here, compute-as-bottleneck, subposition as scaling, etc) and open questions \+ share in real time to team? Ideas below
    8. Shared open tabs  
    9. Shared claude/gemini conversations  
    10. –  
