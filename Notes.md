@@ -1,4 +1,4 @@
-1. Multi agent RL frontiers testing git
+1. Multi agent RL frontiers
    2. MARL seems downstream of the difference between emotional/social and logical intelligence  
    3. [https://www.youtube.com/watch?v=t1Z2UJJMEak\&list=PLYXvCE1En13epbogBmgafC\_Yyyk9oQogl\&index=5](https://www.youtube.com/watch?v=t1Z2UJJMEak&list=PLYXvCE1En13epbogBmgafC_Yyyk9oQogl&index=5)   
    4. [\[2605.17698\] Agent Bazaar: Enabling Economic Alignment in Multi-Agent Marketplaces](https://arxiv.org/abs/2605.17698)   
