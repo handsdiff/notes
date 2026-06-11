@@ -1,0 +1,31 @@
+name: Trigger garden deploy
+
+# When the vault is pushed, tell handsdiff/handsdiff.github.io to rebuild the
+# site immediately (repository_dispatch), instead of waiting on its throttled
+# */10 schedule. Needs a fine-grained PAT (Contents: write on the garden repo)
+# stored as the GARDEN_DISPATCH_TOKEN secret in this repo. Until that secret
+# exists the dispatch step skips gracefully (no failed runs).
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  dispatch:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Notify garden repo to rebuild
+        env:
+          TOKEN: ${{ secrets.GARDEN_DISPATCH_TOKEN }}
+        run: |
+          if [ -z "$TOKEN" ]; then
+            echo "GARDEN_DISPATCH_TOKEN not set yet — skipping dispatch."
+            exit 0
+          fi
+          curl -sS -f -X POST \
+            -H "Authorization: Bearer $TOKEN" \
+            -H "Accept: application/vnd.github+json" \
+            -H "X-GitHub-Api-Version: 2022-11-28" \
+            https://api.github.com/repos/handsdiff/handsdiff.github.io/dispatches \
+            -d '{"event_type":"notes-updated"}'
