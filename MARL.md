@@ -1,5 +1,4 @@
-1. Multi agent RL frontiers
-2. MARL seems downstream of the difference between emotional/social and logical intelligence  
+1. MARL seems downstream of the difference between emotional/social and logical intelligence  
 3. [https://www.youtube.com/watch?v=t1Z2UJJMEak\&list=PLYXvCE1En13epbogBmgafC\_Yyyk9oQogl\&index=5](https://www.youtube.com/watch?v=t1Z2UJJMEak&list=PLYXvCE1En13epbogBmgafC_Yyyk9oQogl&index=5)   
 4. [\[2605.17698\] Agent Bazaar: Enabling Economic Alignment in Multi-Agent Marketplaces](https://arxiv.org/abs/2605.17698)  
     1. [https://gemini.google.com/app/4b02be329d898e77](https://gemini.google.com/app/4b02be329d898e77) this relates to the drone racing (great visceral example of MARL benefits [Superhuman Safe and Agile Racing through Multi-Agent Reinforcement Learning](https://www.youtube.com/watch?v=TSwtrHQgjD8)) since it shows that individual optimization actively degrades collaborative performance and you need joint training to perform well in multiplayer environments. Reminds me of how humans need to be socialized otherwise they’re unaligned.  
