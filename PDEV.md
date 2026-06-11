@@ -26,4 +26,4 @@
 
 probably need to ensure mobile + desktop along with core features
 
-still need easy mobile entry into entry tab, needs to be more convenient than slack
+still need easy mobile entry into entry tab, needs to be more convenient than slack. doing now

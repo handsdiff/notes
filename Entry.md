@@ -79,3 +79,7 @@
 75. https://gwern.net/guardian-angel
 76. [https://gwern.net/rl-children](https://gwern.net/rl-children)  
 77. models struggle with me internalizing an understanding of my environment
+78. https://x.com/RyanPGreenblatt/status/2065185280295100481?s=20
+79. https://x.com/emollick/status/2065200484613296269?s=20
+80. https://x.com/robinhanson/status/2065122280875946014?s=20
+81. 
