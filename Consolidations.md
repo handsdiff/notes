@@ -1,0 +1,3 @@
+- RSI is here
+- compute is the bottleneck
+- decreased superposition explains scaling laws
