@@ -16,7 +16,7 @@
 14. Feel like i cant delete anything because it wont be tracked properly  
 15. Would be nice if i didnt have to copy paste and i could just press a button to flag a visited site as ‘important’
 
-- step 1 to making something intelligent is realtime context origination
+
 - my context comes from my thoughts, browser history, and AI chats
 - need mobile + desktop sync to quickly write things down
 - want to auto scrape and index browser history
@@ -25,3 +25,5 @@
 - current real issue is fear that deleting something loses it. the friction of referencing prior deleted data is too high right now, leading to a cluttered workspace. once i feel comfortable deleting things while being able to easily reference them in the future, can increase focus. first part is capturing history. second step is intelligent fetch based on semantic query
 
 probably need to ensure mobile + desktop along with core features
+
+still need easy mobile entry into entry tab, needs to be more convenient than slack
