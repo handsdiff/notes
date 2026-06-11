@@ -78,3 +78,4 @@
 74. fei fei li's world model taxonomy substack post
 75. https://gwern.net/guardian-angel
 76. [https://gwern.net/rl-children](https://gwern.net/rl-children)  
+77. models struggle with me internalizing an understanding of my environment
