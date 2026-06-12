@@ -75,5 +75,6 @@
 	1. this is basically saying that goal setting is the problem and once you do that its easy. well written though
 69. https://x.com/jjacky/status/2064767118118117491?s=20
 70. https://substack.com/@gwern/note/c-266997559?r=4r3bqf&utm_medium=ios&utm_source=notes-share-action
-71. https://arxiv.org/html/2604.09855v1#:~:text=The%20agent%20progresses%20from%20naive,ultimately%20develops%20sophisticated%20persuasive%20skills.
-72. https://arxiv.org/html/2603.10476v2#:~:text=Together%2C%20these%20findings%20suggest%20that,making%20in%20value%2Dconflict%20scenarios.&text=Specifically%2C%20we%20formulate%20a%20two,an%20overview%20of%20the%20framework.
+71. https://arxiv.org/pdf/2603.10476
+72. https://arxiv.org/pdf/2604.09855
+73. https://arxiv.org/pdf/2606.13681 
