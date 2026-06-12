@@ -13,3 +13,4 @@
 5. Play around with Pufferlib  
 6. Play around with Tinker  
 7. Play around with Prime Intellect  
+8. https://sfp.paradigm-36f.workers.dev/ submit to this with ideas from Goedel prover v2 from chi jin?
