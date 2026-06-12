@@ -72,3 +72,4 @@
 66. https://www.notboring.co/p/return-on-tokens-rot
 	1. this is basically saying that goal setting is the problem and once you do that its easy. well written though
 67. https://x.com/jjacky/status/2064767118118117491?s=20
+68. https://substack.com/@gwern/note/c-266997559?r=4r3bqf&utm_medium=ios&utm_source=notes-share-action
