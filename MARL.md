@@ -86,7 +86,7 @@
     1. Kind of relates to models as tools for models since training that would require user turns for the base model to learn how to update its user specific understanding model?  
 70. He also mentioned transfer amongst RL tasks as being often negative. Definitely not positive consistently.  
 71. His overall worry is local incentives of labs causing us to squander intelligence, rather than broad misalignment issues. Labs will do the easiest ROI to sell investors on, which is test time compute scaling on RSI.   
-72. RL at that stage was simply   
+72. RL at that stage was simply seeing when coding/math tasks failed, properly assigning rewards to what people wanted, do that in a loop. very simple.
 73. Follow up with him  
     1. Thoughts on thinking machines interaction model?  
     2. Seth karten says “agent action-\>env looped is the only paradigm. the real new paradigm is realtime envs with agent actions”  
