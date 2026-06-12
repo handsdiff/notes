@@ -66,3 +66,4 @@
 50. [https://gemini.google.com/app/fbf9b5b8608d37b9](https://gemini.google.com/app/fbf9b5b8608d37b9) (\!)  
 51. I previously had a take that models would increasingly be trained on their serving harnesses, rather than stateless APIs, then I saw some invalidating data from METR around Claude/GPT performance outside of Code/Codex as well as the existence of Claude within a dozen ‘harnesses’ for Anthropic’s enterprise customers (Claude for Life Sciences, Claude for Chrome, etc). But Prime Intellect team intern discussing ‘Gemini Plays Pokemon’ comes to the same (initial) conclusion. More Prime Intellect content in the same direction  
 52. [https://x.com/eliebakouch/status/2060301471019659274?s=20](https://x.com/eliebakouch/status/2060301471019659274?s=20)   
+53. Where was Andon Labs complaining about the assistant paradigm? Find link and watch. [[MARL]] seems related to that
