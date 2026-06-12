@@ -93,5 +93,5 @@
 74. Another take was that a larger risk than civilization level misalignment is local incentives of companies making AI falling suspect to classic big tech slop issues, focusing on benchmaxxing rather than real value  
 75. What data strongly assists LLM ability to engage in game theoretical situations like Mafia, Avalon, etc? Thereby boosting EQ by learning theory of mind with engaged parties  
 76. Which RL tasks have negative transfer? 
-77. what is social intelligence, in an aloof sense? is it predicting the actions of others?
+77. what is social intelligence, in an aloof sense? seemingly, predicting the internal state and/or actions of others, conditioned on your action or the actions of others or the environment
 
