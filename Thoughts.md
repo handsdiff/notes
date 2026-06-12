@@ -61,10 +61,10 @@
 45. question context when environment sampling shows different and they directly conflict?  
 46. Forecasting \+ RL in the wild: [https://arxiv.org/abs/2605.12817](https://arxiv.org/abs/2605.12817)   
 47. Gwern’s “almost thinks there's no such thing as general intelligence. Humans and AIs just learn a large number of individual specialized tricks. In any given situation we're doing search over special cases, nothing more. What matters is just the number of individual tricks that we can search over \- which is mostly determined by compute.“ relates to our idea around agi being achieved by models creating their own (rl) models for environments they run into and updating them in real time  
-48. CODE WORLD MODELS as it relates to the above as well  
-49. ECHO as directionally this [https://arxiv.org/abs/2605.24517](https://arxiv.org/abs/2605.24517)   
-50. [https://gemini.google.com/app/fbf9b5b8608d37b9](https://gemini.google.com/app/fbf9b5b8608d37b9) (\!)  
-51. I previously had a take that models would increasingly be trained on their serving harnesses, rather than stateless APIs, then I saw some invalidating data from METR around Claude/GPT performance outside of Code/Codex as well as the existence of Claude within a dozen ‘harnesses’ for Anthropic’s enterprise customers (Claude for Life Sciences, Claude for Chrome, etc). But Prime Intellect team intern discussing ‘Gemini Plays Pokemon’ comes to the same (initial) conclusion. More Prime Intellect content in the same direction  
-52. [https://x.com/eliebakouch/status/2060301471019659274?s=20](https://x.com/eliebakouch/status/2060301471019659274?s=20)   
-53. Where was Andon Labs complaining about the assistant paradigm? Find link and watch. [[MARL]] seems related to that
-54. the only people who care to run benchmarks are frontier labs, research PhDs, or people selling a product that benchmaxxes the eval
+	1. CODE WORLD MODELS as it relates to the above as well  
+	2. ECHO as directionally this [https://arxiv.org/abs/2605.24517](https://arxiv.org/abs/2605.24517)   
+	3. [https://gemini.google.com/app/fbf9b5b8608d37b9](https://gemini.google.com/app/fbf9b5b8608d37b9) (\!)  
+48. I previously had a take that models would increasingly be trained on their serving harnesses, rather than stateless APIs, then I saw some invalidating data from METR around Claude/GPT performance outside of Code/Codex as well as the existence of Claude within a dozen ‘harnesses’ for Anthropic’s enterprise customers (Claude for Life Sciences, Claude for Chrome, etc). But Prime Intellect team intern discussing ‘Gemini Plays Pokemon’ comes to the same (initial) conclusion. More Prime Intellect content in the same direction  
+49. [https://x.com/eliebakouch/status/2060301471019659274?s=20](https://x.com/eliebakouch/status/2060301471019659274?s=20)   
+50. Where was Andon Labs complaining about the assistant paradigm? Find link and watch. [[MARL]] seems related to that
+51. the only people who care to run benchmarks are frontier labs, research PhDs, or people selling a product that benchmaxxes the eval
