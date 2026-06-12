@@ -71,4 +71,5 @@
 64. https://x.com/robinhanson/status/2065122280875946014?s=20
 65. are all issues because my AI is shorter time horizon than I am? how does that relate to Randall's RL training takes, and training distributions in general?
 	1. for example when i make a decision in thread A, but the AI doesn't proactively write that down for thread B later, so thread B views it as not native / hostile / to be reviewed, wasting time and resources. also solved via 'continual learning' whatever that means but just proactively writing it down seems simpler
-66. 
+66. https://foundersfund.com/2023/06/choose-good-quests/
+67. 
