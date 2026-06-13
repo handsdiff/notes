@@ -80,3 +80,4 @@
 73. https://arxiv.org/pdf/2606.13681 
 74. https://arxiv.org/abs/2606.12683 new AIXI paper
 75. https://x.com/chelseabfinn/status/2065559130929291630?s=20 CHELSEA
+76. https://arxiv.org/abs/1709.04326 LOLA
