@@ -78,3 +78,4 @@
 71. https://arxiv.org/pdf/2603.10476
 72. https://arxiv.org/pdf/2604.09855
 73. https://arxiv.org/pdf/2606.13681 
+74. https://arxiv.org/abs/2606.12683 new AIXI paper
