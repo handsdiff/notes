@@ -1,5 +1,5 @@
 
-1. [[MARL]]
+1. [[MARL]] (current focus is posting about MARL, and in the process understanding how its productizable, if at all)
 2. [[Interaction]]
 3. [[Inference]]
 4. [[PDEV]]
