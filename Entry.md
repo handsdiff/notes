@@ -1,6 +1,7 @@
 
-1. 
-2. 
+1. i wonder whether a better model for agents is not to have users label responses in a chat, but rather the human does its work and the agent attempts to learn to follow it, and then eventually push it forward, via something like inverse RL or cooperative inverse RL.
+	1. how are assistance games related to CIRL related to interaction/corrigibility/MARL?
+2. https://arxiv.org/pdf/2307.15217 https://cassidylaidlaw.github.io/minecraft-building-assistance-game/ assistance games from head of AI safety at deepmind
 3. https://x.com/teortaxesTex/status/2065962301195178212?s=20
 4. https://x.com/JoshPurtell/status/2065989651752464486?s=20
 5. https://x.com/kalomaze/status/2065498921443438928?s=20
