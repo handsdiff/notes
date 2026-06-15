@@ -85,3 +85,4 @@
 78. https://x.com/chelseabfinn/status/2065559130929291630?s=20 CHELSEA
 79. https://arxiv.org/abs/1709.04326 LOLA
 80. difference between messaging each other to optimally explore or maximize rewards in states you couldn't otherwise get to vs optimizing actions in the fact of another agent that is also learning and changing their actions in a competitive environment
+81. https://antikythera.org/
