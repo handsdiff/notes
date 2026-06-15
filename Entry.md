@@ -1,96 +1,94 @@
 
-1. https://x.com/vincentweisser/status/2066274179423605023?s=20
-2. https://x.com/satyanadella/status/2066182223213293753?s=20
-3. Summarizing the rl children blog would illuminate similarities and differences in thinking that would help with the framing of the issues with the multiplayer agents and why MARL is interesting. Basically the agents couldn’t represent me, which gwern dives into, and I was focused on marl as a way to address the representation issue
-4. https://arxiv.org/abs/1606.03137
-5. Gwern agrees that all input going in as a single context makes multiplayer impossible since there’s no privileged or differing response type
-6. If enterprise is such a big business how do enterprises actually find products they want to use? It can’t be all inbound sales? What’s the equivalent of “where the customer hangs out” but for enterprise?
-7. They are trying to solve an imperfect-information game using a framework built for a fully observable logic puzzle. 
-8. Can LLMs reason through imperfect information games? Can they just code up a solution? Is the ability to out of the box code up a solution what should be benchmarked? Is the ability to natively reason about it the benchmark instead? 
-9. If they often say they’ve done something when they haven’t done it, its because their training rewards them for doing something when they haven’t done it
-10. Struggling to write because of the difference between collaborating for a shared joint action space and competing in a shared joint action space. And how does imperfect information or other game taxonomy’s relate to MARL? And how does each states problem within social intelligence actually differ in their game properties and solutions?
-11. https://x.com/teortaxesTex/status/2065962301195178212?s=20
-12. https://x.com/JoshPurtell/status/2065989651752464486?s=20
-13. Tesla autopilot doesn’t need MARL since it just has state transition dynamics? When is one needed over the other?
-14. https://x.com/kalomaze/status/2065498921443438928?s=20
-15. [https://x.com/badlogicgames/status/2061941296932004175?s=20](https://x.com/badlogicgames/status/2061941296932004175?s=20) as a stepping stone to models as tools for models? Dynamic workflows  
+1. Summarizing the rl children blog would illuminate similarities and differences in thinking that would help with the framing of the issues with the multiplayer agents and why MARL is interesting. Basically the agents couldn’t represent me, which gwern dives into, and I was focused on marl as a way to address the representation issue
+2. https://arxiv.org/abs/1606.03137
+3. Gwern agrees that all input going in as a single context makes multiplayer impossible since there’s no privileged or differing response type
+4. If enterprise is such a big business how do enterprises actually find products they want to use? It can’t be all inbound sales? What’s the equivalent of “where the customer hangs out” but for enterprise?
+5. They are trying to solve an imperfect-information game using a framework built for a fully observable logic puzzle. 
+6. Can LLMs reason through imperfect information games? Can they just code up a solution? Is the ability to out of the box code up a solution what should be benchmarked? Is the ability to natively reason about it the benchmark instead? 
+7. If they often say they’ve done something when they haven’t done it, its because their training rewards them for doing something when they haven’t done it
+8. Struggling to write because of the difference between collaborating for a shared joint action space and competing in a shared joint action space. And how does imperfect information or other game taxonomy’s relate to MARL? And how does each states problem within social intelligence actually differ in their game properties and solutions?
+9. https://x.com/teortaxesTex/status/2065962301195178212?s=20
+10. https://x.com/JoshPurtell/status/2065989651752464486?s=20
+11. Tesla autopilot doesn’t need MARL since it just has state transition dynamics? When is one needed over the other?
+12. https://x.com/kalomaze/status/2065498921443438928?s=20
+13. [https://x.com/badlogicgames/status/2061941296932004175?s=20](https://x.com/badlogicgames/status/2061941296932004175?s=20) as a stepping stone to models as tools for models? Dynamic workflows  
     1. [https://x.com/a1zhang/status/2060071701879066626](https://x.com/a1zhang/status/2060071701879066626)   
-16. [https://x.com/mustafasuleyman/status/2061880164498428188?s=20](https://x.com/mustafasuleyman/status/2061880164498428188?s=20)   
-17. [https://x.com/eliebakouch/status/2061965825037254947?s=20](https://x.com/eliebakouch/status/2061965825037254947?s=20)   
-18. [https://x.com/perplexity\_ai/status/2061506359326384319?s=20](https://x.com/perplexity_ai/status/2061506359326384319?s=20)   
-19. [https://variant.fund/articles/value-open-harnesses/](https://variant.fund/articles/value-open-harnesses/)   
-20. [https://x.com/kalomaze/status/2062261215116874223?s=20](https://x.com/kalomaze/status/2062261215116874223?s=20)  
-21. [https://x.com/dwarkesh\_sp/status/2062353335529935114?s=20](https://x.com/dwarkesh_sp/status/2062353335529935114?s=20)  
-22. [https://x.com/NVIDIAAI/status/2062521325076299981?s=20](https://x.com/NVIDIAAI/status/2062521325076299981?s=20)   
-23. [https://x.com/eglyman/status/2062526944265048285?s=20](https://x.com/eglyman/status/2062526944265048285?s=20)   
-24. [https://www.anthropic.com/institute/recursive-self-improvement](https://www.anthropic.com/institute/recursive-self-improvement)   
-25. [https://gemini.google.com/app/ecf40bd8459d2a5e](https://gemini.google.com/app/ecf40bd8459d2a5e)   
-26. [https://papers.ssrn.com/sol3/papers.cfm?abstract\_id=6833760](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6833760)   
-27. [https://x.com/srush\_nlp/status/2062359839783657816?s=20](https://x.com/srush_nlp/status/2062359839783657816?s=20)   
-28. [https://newsletter.semianalysis.com/p/to-boldly-go-the-case-for-space-datacenters?\_gl=1\*1gj8d24\*\_ga\*MTY2ODQ5MDQwMy4xNzc4MDI2NTY1\*\_ga\_FKWNM9FBZ3\*czE3ODA1OTc3MzEkbzYkZzAkdDE3ODA1OTc3MzEkajYwJGwwJGgxNDkzMjExMDk](https://newsletter.semianalysis.com/p/to-boldly-go-the-case-for-space-datacenters?_gl=1*1gj8d24*_ga*MTY2ODQ5MDQwMy4xNzc4MDI2NTY1*_ga_FKWNM9FBZ3*czE3ODA1OTc3MzEkbzYkZzAkdDE3ODA1OTc3MzEkajYwJGwwJGgxNDkzMjExMDk).   
-29. GEPA does not seem like it would work, how is this not overfitting / run into the same issues with a bunch of skills that end up being poorly used? I think chi jin’s goedel prover v2 runs into the issue but maybe thats specifically related to weight updating. Regardless, updating in ‘prompt space’ seems interesting to be able to improve frontier models instead of fine tuning. Also the labs will probably serve frontier models more cheaply than you can on rented GPUs  
-30. [https://docs.massgen.ai/en/latest/](https://docs.massgen.ai/en/latest/)   
-31. [https://substack.com/@gwern/note/c-270310673](https://substack.com/@gwern/note/c-270310673)   
-32. [What remains scarce after AGI? – Alex Imas and Phil Trammell](https://www.youtube.com/watch?v=Jj-kBHzUohs)   
-33. [https://x.com/PrimeIntellect/status/2062724179296952412?s=20](https://x.com/PrimeIntellect/status/2062724179296952412?s=20)  
-34. [https://x.com/abhijaymrana/status/2062817082518258060?s=20](https://x.com/abhijaymrana/status/2062817082518258060?s=20)  
-35. [https://x.com/tenobrus/status/2062729311233454363?s=20](https://x.com/tenobrus/status/2062729311233454363?s=20)  
-36. [https://x.com/geetkhosla/status/2062507967010730426?s=20](https://x.com/geetkhosla/status/2062507967010730426?s=20)  
-37. [https://x.com/JoshPurtell/status/2062605789454385338?s=20](https://x.com/JoshPurtell/status/2062605789454385338?s=20)  
-38. [https://x.com/gakonst/status/2062116487708512355?s=20](https://x.com/gakonst/status/2062116487708512355?s=20)  
-39. [https://substack.com/home/post/p-197387291](https://substack.com/home/post/p-197387291)   
+14. [https://x.com/mustafasuleyman/status/2061880164498428188?s=20](https://x.com/mustafasuleyman/status/2061880164498428188?s=20)   
+15. [https://x.com/eliebakouch/status/2061965825037254947?s=20](https://x.com/eliebakouch/status/2061965825037254947?s=20)   
+16. [https://x.com/perplexity\_ai/status/2061506359326384319?s=20](https://x.com/perplexity_ai/status/2061506359326384319?s=20)   
+17. [https://variant.fund/articles/value-open-harnesses/](https://variant.fund/articles/value-open-harnesses/)   
+18. [https://x.com/kalomaze/status/2062261215116874223?s=20](https://x.com/kalomaze/status/2062261215116874223?s=20)  
+19. [https://x.com/dwarkesh\_sp/status/2062353335529935114?s=20](https://x.com/dwarkesh_sp/status/2062353335529935114?s=20)  
+20. [https://x.com/NVIDIAAI/status/2062521325076299981?s=20](https://x.com/NVIDIAAI/status/2062521325076299981?s=20)   
+21. [https://x.com/eglyman/status/2062526944265048285?s=20](https://x.com/eglyman/status/2062526944265048285?s=20)   
+22. [https://www.anthropic.com/institute/recursive-self-improvement](https://www.anthropic.com/institute/recursive-self-improvement)   
+23. [https://gemini.google.com/app/ecf40bd8459d2a5e](https://gemini.google.com/app/ecf40bd8459d2a5e)   
+24. [https://papers.ssrn.com/sol3/papers.cfm?abstract\_id=6833760](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6833760)   
+25. [https://x.com/srush\_nlp/status/2062359839783657816?s=20](https://x.com/srush_nlp/status/2062359839783657816?s=20)   
+26. [https://newsletter.semianalysis.com/p/to-boldly-go-the-case-for-space-datacenters?\_gl=1\*1gj8d24\*\_ga\*MTY2ODQ5MDQwMy4xNzc4MDI2NTY1\*\_ga\_FKWNM9FBZ3\*czE3ODA1OTc3MzEkbzYkZzAkdDE3ODA1OTc3MzEkajYwJGwwJGgxNDkzMjExMDk](https://newsletter.semianalysis.com/p/to-boldly-go-the-case-for-space-datacenters?_gl=1*1gj8d24*_ga*MTY2ODQ5MDQwMy4xNzc4MDI2NTY1*_ga_FKWNM9FBZ3*czE3ODA1OTc3MzEkbzYkZzAkdDE3ODA1OTc3MzEkajYwJGwwJGgxNDkzMjExMDk).   
+27. GEPA does not seem like it would work, how is this not overfitting / run into the same issues with a bunch of skills that end up being poorly used? I think chi jin’s goedel prover v2 runs into the issue but maybe thats specifically related to weight updating. Regardless, updating in ‘prompt space’ seems interesting to be able to improve frontier models instead of fine tuning. Also the labs will probably serve frontier models more cheaply than you can on rented GPUs  
+28. [https://docs.massgen.ai/en/latest/](https://docs.massgen.ai/en/latest/)   
+29. [https://substack.com/@gwern/note/c-270310673](https://substack.com/@gwern/note/c-270310673)   
+30. [What remains scarce after AGI? – Alex Imas and Phil Trammell](https://www.youtube.com/watch?v=Jj-kBHzUohs)   
+31. [https://x.com/PrimeIntellect/status/2062724179296952412?s=20](https://x.com/PrimeIntellect/status/2062724179296952412?s=20)  
+32. [https://x.com/abhijaymrana/status/2062817082518258060?s=20](https://x.com/abhijaymrana/status/2062817082518258060?s=20)  
+33. [https://x.com/tenobrus/status/2062729311233454363?s=20](https://x.com/tenobrus/status/2062729311233454363?s=20)  
+34. [https://x.com/geetkhosla/status/2062507967010730426?s=20](https://x.com/geetkhosla/status/2062507967010730426?s=20)  
+35. [https://x.com/JoshPurtell/status/2062605789454385338?s=20](https://x.com/JoshPurtell/status/2062605789454385338?s=20)  
+36. [https://x.com/gakonst/status/2062116487708512355?s=20](https://x.com/gakonst/status/2062116487708512355?s=20)  
+37. [https://substack.com/home/post/p-197387291](https://substack.com/home/post/p-197387291)   
     1. Feeling like this post makes arguments that could be usefully extended by well analyzing the nvidia tech report and microsoft tech report recently and coming to novel conclusions about scaling complexity  
     2. This also seems to indicate that the karpathy hire on pretraining is due to the fact that pretraining was paused rather than saturated, but incoming compute will continue to deliver major scaling gains  
-40. [https://www.youtube.com/watch?v=3Yxmjf57sco](https://www.youtube.com/watch?v=3Yxmjf57sco)   
-41. Steven Byrnes less wrong writing  
-42. [https://vkrakovna.wordpress.com](https://vkrakovna.wordpress.com) specification gaming  
-43. [https://www.campbellramble.ai](https://www.campbellramble.ai)  
-44. Goodfire AI research  
-45. [https://x.com/dwarkesh\_sp/status/2063335334566621297?s=20](https://x.com/dwarkesh_sp/status/2063335334566621297?s=20)  
-46. [https://arxiv.org/abs/2606.02800](https://arxiv.org/abs/2606.02800)  
-47. [https://x.com/chelseabfinn/status/2063433906985005510?s=20](https://x.com/chelseabfinn/status/2063433906985005510?s=20) CHELSEA  
-48. [https://x.com/lateinteraction/status/2061242049622671746?s=20](https://x.com/lateinteraction/status/2061242049622671746?s=20)  
-49. [https://x.com/kalomaze/status/2063122579028889983?s=20](https://x.com/kalomaze/status/2063122579028889983?s=20)  
-50. [https://x.com/geetkhosla/status/2062507967010730426?s=20](https://x.com/geetkhosla/status/2062507967010730426?s=20)  
-51. [https://x.com/JoshPurtell/status/2062605789454385338?s=20](https://x.com/JoshPurtell/status/2062605789454385338?s=20)  
-52. [https://x.com/NoahZiems/status/2062311582580023607?s=20](https://x.com/NoahZiems/status/2062311582580023607?s=20)  
-53. [https://x.com/tenobrus/status/2062729311233454363?s=20](https://x.com/tenobrus/status/2062729311233454363?s=20)   
+38. [https://www.youtube.com/watch?v=3Yxmjf57sco](https://www.youtube.com/watch?v=3Yxmjf57sco)   
+39. Steven Byrnes less wrong writing  
+40. [https://vkrakovna.wordpress.com](https://vkrakovna.wordpress.com) specification gaming  
+41. [https://www.campbellramble.ai](https://www.campbellramble.ai)  
+42. Goodfire AI research  
+43. [https://x.com/dwarkesh\_sp/status/2063335334566621297?s=20](https://x.com/dwarkesh_sp/status/2063335334566621297?s=20)  
+44. [https://arxiv.org/abs/2606.02800](https://arxiv.org/abs/2606.02800)  
+45. [https://x.com/chelseabfinn/status/2063433906985005510?s=20](https://x.com/chelseabfinn/status/2063433906985005510?s=20) CHELSEA  
+46. [https://x.com/lateinteraction/status/2061242049622671746?s=20](https://x.com/lateinteraction/status/2061242049622671746?s=20)  
+47. [https://x.com/kalomaze/status/2063122579028889983?s=20](https://x.com/kalomaze/status/2063122579028889983?s=20)  
+48. [https://x.com/geetkhosla/status/2062507967010730426?s=20](https://x.com/geetkhosla/status/2062507967010730426?s=20)  
+49. [https://x.com/JoshPurtell/status/2062605789454385338?s=20](https://x.com/JoshPurtell/status/2062605789454385338?s=20)  
+50. [https://x.com/NoahZiems/status/2062311582580023607?s=20](https://x.com/NoahZiems/status/2062311582580023607?s=20)  
+51. [https://x.com/tenobrus/status/2062729311233454363?s=20](https://x.com/tenobrus/status/2062729311233454363?s=20)   
     1. im not seeing people talk about it much so just a heads up: dynamic workflows in claude code are actually insanely fucking useful and powerful. clearly the right / sane way to do "agent orchestration". very much worth trying  
-54. [https://www.dwarkesh.com/p/the-sample-efficiency-black-hole](https://www.dwarkesh.com/p/the-sample-efficiency-black-hole)   
-55. [https://x.com/eliebakouch/status/2063849409515843635?s=20](https://x.com/eliebakouch/status/2063849409515843635?s=20)   
-56. [https://www.lesswrong.com/posts/JT3qCYDimskcBdiEr/the-hard-core-of-alignment-is-robustifying-rl](https://www.lesswrong.com/posts/JT3qCYDimskcBdiEr/the-hard-core-of-alignment-is-robustifying-rl)   
-57. [https://x.com/teortaxesTex/status/2064264430980886774?s=20](https://x.com/teortaxesTex/status/2064264430980886774?s=20)   
-58. [https://github.com/NVIDIA-NeMo/Nemotron/tree/main](https://github.com/NVIDIA-NeMo/Nemotron/tree/main)   
-59. [https://x.com/svlevine/status/2064556220644839855?s=20](https://x.com/svlevine/status/2064556220644839855?s=20)   
-60. [https://x.com/teortaxesTex/status/2064605846546301124?s=20](https://x.com/teortaxesTex/status/2064605846546301124?s=20)   
-61. [https://x.com/teortaxesTex/status/2064550527979917631?s=20](https://x.com/teortaxesTex/status/2064550527979917631?s=20)   
-62. [https://x.com/svlevine/status/2064556217289318528?s=20](https://x.com/svlevine/status/2064556217289318528?s=20)   
-63. [https://x.com/dwarkesh\_sp/status/2064422596620472560?s=20](https://x.com/dwarkesh_sp/status/2064422596620472560?s=20)   
-64. [https://x.com/emollick/status/2064395281903346013?s=20](https://x.com/emollick/status/2064395281903346013?s=20)   
-65. [https://x.com/polynoamial/status/2064210146558136827?s=20](https://x.com/polynoamial/status/2064210146558136827?s=20)   
-66. [https://x.com/eliebakouch/status/2064086258687578348?s=20](https://x.com/eliebakouch/status/2064086258687578348?s=20)   
-67. [https://x.com/eliebakouch/status/2064736476995146014?s=20](https://x.com/eliebakouch/status/2064736476995146014?s=20)   
-68. [https://www.a16z.news/p/institutional-ai-vs-individual-ai](https://www.a16z.news/p/institutional-ai-vs-individual-ai) coordination as first pillar here very similar to my multi agent take. The signal part feels like what im trying to do with the future version of these notes and my listed problems. Unprompted is also a novel thought ive been exploring, similar to proactivity per the randall takes.   
-69. Is this guy super cracked out? How does his embodiment take relate to current work and/or multi agent work and/or AIXI? [https://scott.garrabrant.com/](https://scott.garrabrant.com/)   
-70. Magnetic mirror descent [https://arxiv.org/abs/2206.05825](https://arxiv.org/abs/2206.05825) 
-71. fei fei li's world model taxonomy substack post
-72. https://gwern.net/guardian-angel
-73. [https://gwern.net/rl-children](https://gwern.net/rl-children)  
-74. models struggle with me internalizing an understanding of my environment
-75. https://x.com/RyanPGreenblatt/status/2065185280295100481?s=20
-76. https://x.com/emollick/status/2065200484613296269?s=20
-77. https://x.com/robinhanson/status/2065122280875946014?s=20
-78. are all issues because my AI is shorter time horizon than I am? how does that relate to Randall's RL training takes, and training distributions in general?
+52. [https://www.dwarkesh.com/p/the-sample-efficiency-black-hole](https://www.dwarkesh.com/p/the-sample-efficiency-black-hole)   
+53. [https://x.com/eliebakouch/status/2063849409515843635?s=20](https://x.com/eliebakouch/status/2063849409515843635?s=20)   
+54. [https://www.lesswrong.com/posts/JT3qCYDimskcBdiEr/the-hard-core-of-alignment-is-robustifying-rl](https://www.lesswrong.com/posts/JT3qCYDimskcBdiEr/the-hard-core-of-alignment-is-robustifying-rl)   
+55. [https://x.com/teortaxesTex/status/2064264430980886774?s=20](https://x.com/teortaxesTex/status/2064264430980886774?s=20)   
+56. [https://github.com/NVIDIA-NeMo/Nemotron/tree/main](https://github.com/NVIDIA-NeMo/Nemotron/tree/main)   
+57. [https://x.com/svlevine/status/2064556220644839855?s=20](https://x.com/svlevine/status/2064556220644839855?s=20)   
+58. [https://x.com/teortaxesTex/status/2064605846546301124?s=20](https://x.com/teortaxesTex/status/2064605846546301124?s=20)   
+59. [https://x.com/teortaxesTex/status/2064550527979917631?s=20](https://x.com/teortaxesTex/status/2064550527979917631?s=20)   
+60. [https://x.com/svlevine/status/2064556217289318528?s=20](https://x.com/svlevine/status/2064556217289318528?s=20)   
+61. [https://x.com/dwarkesh\_sp/status/2064422596620472560?s=20](https://x.com/dwarkesh_sp/status/2064422596620472560?s=20)   
+62. [https://x.com/emollick/status/2064395281903346013?s=20](https://x.com/emollick/status/2064395281903346013?s=20)   
+63. [https://x.com/polynoamial/status/2064210146558136827?s=20](https://x.com/polynoamial/status/2064210146558136827?s=20)   
+64. [https://x.com/eliebakouch/status/2064086258687578348?s=20](https://x.com/eliebakouch/status/2064086258687578348?s=20)   
+65. [https://x.com/eliebakouch/status/2064736476995146014?s=20](https://x.com/eliebakouch/status/2064736476995146014?s=20)   
+66. [https://www.a16z.news/p/institutional-ai-vs-individual-ai](https://www.a16z.news/p/institutional-ai-vs-individual-ai) coordination as first pillar here very similar to my multi agent take. The signal part feels like what im trying to do with the future version of these notes and my listed problems. Unprompted is also a novel thought ive been exploring, similar to proactivity per the randall takes.   
+67. Is this guy super cracked out? How does his embodiment take relate to current work and/or multi agent work and/or AIXI? [https://scott.garrabrant.com/](https://scott.garrabrant.com/)   
+68. Magnetic mirror descent [https://arxiv.org/abs/2206.05825](https://arxiv.org/abs/2206.05825) 
+69. fei fei li's world model taxonomy substack post
+70. https://gwern.net/guardian-angel
+71. [https://gwern.net/rl-children](https://gwern.net/rl-children)  
+72. models struggle with me internalizing an understanding of my environment
+73. https://x.com/RyanPGreenblatt/status/2065185280295100481?s=20
+74. https://x.com/emollick/status/2065200484613296269?s=20
+75. https://x.com/robinhanson/status/2065122280875946014?s=20
+76. are all issues because my AI is shorter time horizon than I am? how does that relate to Randall's RL training takes, and training distributions in general?
 	1. for example when i make a decision in thread A, but the AI doesn't proactively write that down for thread B later, so thread B views it as not native / hostile / to be reviewed, wasting time and resources. also solved via 'continual learning' whatever that means but just proactively writing it down seems simpler
-79. https://foundersfund.com/2023/06/choose-good-quests/
-80. https://www.notboring.co/p/return-on-tokens-rot
+77. https://foundersfund.com/2023/06/choose-good-quests/
+78. https://www.notboring.co/p/return-on-tokens-rot
 	1. this is basically saying that goal setting is the problem and once you do that its easy. well written though
-81. https://x.com/jjacky/status/2064767118118117491?s=20
-82. https://substack.com/@gwern/note/c-266997559?r=4r3bqf&utm_medium=ios&utm_source=notes-share-action
-83. https://arxiv.org/pdf/2603.10476
-84. https://arxiv.org/pdf/2604.09855
-85. https://arxiv.org/pdf/2606.13681 
-86. https://arxiv.org/abs/2606.12683 new AIXI paper
-87. https://x.com/chelseabfinn/status/2065559130929291630?s=20 CHELSEA
-88. https://arxiv.org/abs/1709.04326 LOLA
-89. difference between messaging each other to optimally explore or maximize rewards in states you couldn't otherwise get to vs optimizing actions in the fact of another agent that is also learning and changing their actions in a competitive environment
+79. https://x.com/jjacky/status/2064767118118117491?s=20
+80. https://substack.com/@gwern/note/c-266997559?r=4r3bqf&utm_medium=ios&utm_source=notes-share-action
+81. https://arxiv.org/pdf/2603.10476
+82. https://arxiv.org/pdf/2604.09855
+83. https://arxiv.org/pdf/2606.13681 
+84. https://arxiv.org/abs/2606.12683 new AIXI paper
+85. https://x.com/chelseabfinn/status/2065559130929291630?s=20 CHELSEA
+86. https://arxiv.org/abs/1709.04326 LOLA
+87. difference between messaging each other to optimally explore or maximize rewards in states you couldn't otherwise get to vs optimizing actions in the fact of another agent that is also learning and changing their actions in a competitive environment
