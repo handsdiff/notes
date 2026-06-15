@@ -1,5 +1,5 @@
 
-1. 
+1. https://x.com/vincentweisser/status/2066274179423605023?s=20
 2. https://x.com/satyanadella/status/2066182223213293753?s=20
 3. Summarizing the rl children blog would illuminate similarities and differences in thinking that would help with the framing of the issues with the multiplayer agents and why MARL is interesting. Basically the agents couldn’t represent me, which gwern dives into, and I was focused on marl as a way to address the representation issue
 4. https://arxiv.org/abs/1606.03137
