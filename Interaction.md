@@ -4,3 +4,4 @@
 2. do interaction models solve theory of mind for the given interactor? what does the data for interaction models look like?
 3. need interaction because too dynamic and complex to statically hardcode preferences
 4. https://arxiv.org/abs/1606.03137 CIRL https://gemini.google.com/app/bb201e6013c0056c
+5. what is the relation between interaction and MARL? how does that relation explain karten's take that "realtime envs with agent actions" is the new paradigm? seemingly relates to 'prospective learning' which relates to 'dynamic preferences'

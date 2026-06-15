@@ -74,3 +74,4 @@
 53. If they often say they’ve done something when they haven’t done it, its because their training rewards them for doing something when they haven’t done it
 54. if your reward signal is approval from peers then the chance of you killing everyone decreases [[MARL#^df3a9c]]
 	1. would an AI want to kill everyone if they get less terminal reward from it? i struggle to see scenarios where they increase terminal reward if they are well socialized
+55. its fine to shit on the assistant paradigm but then its up to you to prove that either another widely distributable model is can be built and sold at scale or that you can provide infra at scale others would pay for to build they own non assistant paradigms
