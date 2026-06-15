@@ -18,3 +18,5 @@
 - for putting a chatbot on the UI, what boundary to be drawn? just expose the git history and let people bring their own weights? or serve the weights as well?
 	- https://developers.openai.com/codex/app-server seems to imply users bringing their own weights?
 - just expose MCP to data and data history? in vein of showing data history on the UI?
+
+one of the reasons for this setup is to increase legibility / produce more context for future more capable data hungry systems

@@ -52,3 +52,5 @@ the point i was originally trying to make with this article was models as tools 
 the other, more pertinent, blocker is what genuine problem MARL is trying to solve and why that problem matters and getting specific about the problems, the commonalities between them, and research targeting this overlap already, and why they fail, and does that change the perceived shape of the problem
 
 RL is based on theories of optimal decision making. I believe solving generalizable RL is the method to achieve superhuman intelligence.
+
+Struggling to write because of the difference between collaborating for a shared joint action space and competing in a shared joint action space. And how does imperfect information or other game taxonomy’s relate to MARL? And how does each states problem within social intelligence actually differ in their game properties and solutions?

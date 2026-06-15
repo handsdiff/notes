@@ -70,3 +70,5 @@
 49. [https://x.com/eliebakouch/status/2060301471019659274?s=20](https://x.com/eliebakouch/status/2060301471019659274?s=20)   
 50. Where was Andon Labs complaining about the assistant paradigm? Find link and watch. [[MARL]] seems related to that
 51. the only people who care to run benchmarks are frontier labs, research PhDs, or people selling a product that benchmaxxes the eval
+52. The bottleneck is human understanding/learning.
+53. If they often say they’ve done something when they haven’t done it, its because their training rewards them for doing something when they haven’t done it
