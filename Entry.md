@@ -1,6 +1,6 @@
 
 1. 
-2. prospective vs retrospective learning??
+2. 
 3. https://x.com/teortaxesTex/status/2065962301195178212?s=20
 4. https://x.com/JoshPurtell/status/2065989651752464486?s=20
 5. https://x.com/kalomaze/status/2065498921443438928?s=20
@@ -85,4 +85,3 @@
 78. https://x.com/chelseabfinn/status/2065559130929291630?s=20 CHELSEA
 79. https://arxiv.org/abs/1709.04326 LOLA
 80. difference between messaging each other to optimally explore or maximize rewards in states you couldn't otherwise get to vs optimizing actions in the fact of another agent that is also learning and changing their actions in a competitive environment
-81. https://antikythera.org/
