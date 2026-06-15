@@ -1,4 +1,5 @@
-1. Explore [https://arxiv.org/abs/2605.28816](https://arxiv.org/abs/2605.28816) (multi agent modeling)  
+1. https://gemini.google.com/app/9f79bc8534f3f938 this thread explaining tightly scoped experiments displaying the importance of holding a set of world priors within the context of prospective learning within the context of 'models as tools for models' and the context of sociality as the next intelligence frontier
+2. Explore [https://arxiv.org/abs/2605.28816](https://arxiv.org/abs/2605.28816) (multi agent modeling)  
     1. The concept of alpha necessitates modeling others  
 2. What low level technical experiment can you run and publish in X days that will be frontier in X days and resilient?  
     1. Models creating and training their own models for themselves in real time for generalization, social intelligence (one model for each person), etc. can even use ensemble models from a set it’s created. Then basically have a tool to call its trained models and refine them as needed. Natural extension of AI R\&D and RSI  
