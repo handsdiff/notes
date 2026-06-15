@@ -72,3 +72,5 @@
 51. the only people who care to run benchmarks are frontier labs, research PhDs, or people selling a product that benchmaxxes the eval
 52. The bottleneck is human understanding/learning.
 53. If they often say they’ve done something when they haven’t done it, its because their training rewards them for doing something when they haven’t done it
+54. if your reward signal is approval from peers then the chance of you killing everyone decreases [[MARL#^df3a9c]]
+	1. would an AI want to kill everyone if they get less terminal reward from it? i struggle to see scenarios where they increase terminal reward if they are well socialized

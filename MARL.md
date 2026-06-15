@@ -97,6 +97,6 @@
 76. What data strongly assists LLM ability to engage in game theoretical situations like Mafia, Avalon, etc? Thereby boosting EQ by learning theory of mind with engaged parties  
 77. Which RL tasks have negative transfer? 
 78. what is social intelligence, in an aloof sense? seemingly, predicting the internal state and/or actions of others, conditioned on your action or the actions of others or the environment
-79. social animals developed agency since reward signals were based on peer approval? how does societal us vs them relate to the issues with my writing around cooperative messaging vs competitive winning in marl?
+79. social animals developed agency since reward signals were based on peer approval? how does societal us vs them relate to the issues with my writing around cooperative messaging vs competitive winning in marl? ^df3a9c
 80. Can LLMs reason through imperfect information games? Can they just code up a solution? Is the ability to out of the box code up a solution what should be benchmarked? Is the ability to natively reason about it the benchmark instead? 
 
