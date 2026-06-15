@@ -75,3 +75,5 @@
 54. if your reward signal is approval from peers then the chance of you killing everyone decreases [[MARL#^df3a9c]]
 	1. would an AI want to kill everyone if they get less terminal reward from it? i struggle to see scenarios where they increase terminal reward if they are well socialized
 55. its fine to shit on the assistant paradigm but then its up to you to prove that either another widely distributable model is can be built and sold at scale or that you can provide infra at scale others would pay for to build they own non assistant paradigms
+56. operating well in collaborative settings -> predicting others -> predicting yourself
+57. predicting yourself -> predicting your (static) environment -> predicting your human (-> predicting your team?)
