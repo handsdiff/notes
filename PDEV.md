@@ -20,3 +20,5 @@
 - just expose MCP to data and data history? in vein of showing data history on the UI?
 
 one of the reasons for this setup is to increase legibility / produce more context for future more capable data hungry systems
+
+depth 1 recursive link fetching as part of the link indexing?
