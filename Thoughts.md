@@ -77,3 +77,4 @@
 55. its fine to shit on the assistant paradigm but then its up to you to prove that either another widely distributable model is can be built and sold at scale or that you can provide infra at scale others would pay for to build they own non assistant paradigms
 56. operating well in collaborative settings -> predicting others -> predicting yourself
 57. predicting yourself -> predicting your (static) environment -> predicting your human (-> predicting your team?)
+58. interesting discussion on the parallels between dissemination of writing and LLMs https://gemini.google.com/app/ed1bcebac9184bd3
