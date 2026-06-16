@@ -6,4 +6,4 @@
 
 2. Extremely based gemini thread on AIXI, instrumental convergence (“play rock or i kill your family”), and safety/alignment: [https://gemini.google.com/app/33869e6590f71ffa](https://gemini.google.com/app/33869e6590f71ffa)   
 3. i probably need an intuitive understanding of thompson sampling
-4. https://arxiv.org/abs/2606.12683 new AIXI paper, discusses collective intelligence [[Google Pi Team]]
+4. https://arxiv.org/abs/2606.12683 new AIXI paper, discusses collective intelligence [[Google Pi Team]] 
