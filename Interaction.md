@@ -11,3 +11,4 @@
 7. i defined an interaction model to jakub as a model that optimizes for a dynamic reward that is clear when hit but hard to codify before hand. so in some sense the model learns a function approximation of the reward model of its user in some ways superior to the user (it cannot necessarily produce ground truth but it may predict superhuman-ly)
 8. conceptually, it makes sense to prove that you can find a local or global minimum on a static loss function because trying to find a local or global minimum on a dynamic loss function (which theoretically is what continual learning is)
 9. Corrigibility might be a overlapping set of interaction
+10. https://arxiv.org/pdf/2307.15217 https://cassidylaidlaw.github.io/minecraft-building-assistance-game/ assistance games from head of AI safety at deepmind
