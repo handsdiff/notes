@@ -1,6 +1,6 @@
 
 1. https://www.forethought.org/research/will-ai-r-and-d-automation-cause-a-software-intelligence-explosion#bringing-it-all-together
-2. https://arxiv.org/abs/2506.14863
+2. https://arxiv.org/abs/2506.14863 intelligence explosion estimates around ai population growth
 3. its easier to share progress, and therefore make progress, if investment is permissionless. relates RPGF, but that seems a bit too idealistic
 4. how is epistemic integrity benchmarked in LLMs, if at all? the success of collective intelligence and non singleton outcomes is downstream of this.
 	1. games like avalon are a subset of epistemic integrity
