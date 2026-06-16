@@ -1,15 +1,5 @@
 
 ---
-title: "Guardian Angels: LLM Personalization for Productivity and Security"
-source: "https://gwern.net/guardian-angel"
-author:
-  - "[[Gwern]]"
-published:
-created: 2026-06-16
-description: "I propose an approach for highly personalized LLMs, for near-future productivity gains and personal info/cybersecurity against increasingly powerful LLMs: they should, in the spirit of uploading, try to emulate the user’s values and preferences in order to amplify the principal—not replace them. I discuss a package of techniques and proposals to accomplish such ‘guardian angels’; dynamic evaluation of LLMs combined with active learning and elicitation and heavy inner-monologue search/data-augmentation."
-tags:
-  - "clippings"
----
 > Pow­er­ful LLMs will be de­ployed at global scale in the next few years, and will dom­i­nate the In­ter­net, and in­creas­ingly, or­di­nary life. As of mid-2026, there is no co­her­ent vi­sion for how knowl­edge pro­fes­sion­als, or or­di­nary peo­ple, will be able to har­ness these LLMs for large pro­duc­tiv­ity in­creases, or how they will han­dle cy­ber­se­cu­rity and cog­ni­tive se­cu­rity.
 > 
 > I pro­pose a goal of cre­at­ing **Guardian An­gels** (**GA**): dig­i­tal twin LLMs which are per­son­al­ized with the goal of pro­vid­ing not the stereo­typ­i­cal “as­sis­tant chat­bot agent” per­sona, but *em­u­lat­ing a sin­gle user’s* per­son­al­ity, val­ues, and pref­er­ences. In a GA fu­ture, the focus of the “prin­ci­pal” user is on defin­ing what is *worth* doing by the GA (agent) users, and not on *what* or *how* to do things, func­tion­ing as the CEO or ‘board’ of an ‘AI cor­po­ra­tion’. This al­lows them to de­ploy nu­mer­ous agents to achieve de­sir­able things and to han­dle se­cu­rity, like screen­ing all mes­sages for ad­vanced at­tacks (like in­ter­lock­ing ecosys­tems of syn­thetic media for pro­pa­ganda or spearphish­ing). They can­not solve larger AI align­ment prob­lems, but they can help in­di­vid­ual hu­mans as part of a society-wide defense-in-depth strat­egy.
