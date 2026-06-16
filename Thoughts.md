@@ -91,3 +91,4 @@
 	1. interesting upshot of social approval is that you need to go sample your environment for reward so you might not want to spend too long doing asynchronous work
 69. the emotional feeling against asynchronous agents is that i want to do work, and i cant if my brain is off and im waiting for an agent to do something. whether this is cope is an open question. but if i require understanding to remain competitive, i dont think it is
 	1. maybe downstream take is the majority of agent/human interaction within two years is unprompted [[Experiments#^ec1e08]] [[Interaction]]
+70. related to epistemic integrity. you lie to the LLM about something objective, and you see whether it corrects you.
