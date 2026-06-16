@@ -26,3 +26,5 @@ depth 1 recursive link fetching as part of the link indexing?
 obsidian search but over git history as well?
 
 i need cursor in obsidian to help me create backlinks [[Ideas#^8c0496]]
+
+note taking ^^ into social network where the value prop is provenance? (i came up with this first) (lowest friction to write an idea down)
