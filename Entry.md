@@ -1,5 +1,5 @@
 
-1. https://www.mdpi.com/1099-4300/28/6/596 genewein and hutter explore the extent to which LLMs approximate AIXI and what the specific challenges are
+1. https://www.mdpi.com/1099-4300/28/6/596 genewein and hutter explore the extent to which LLMs approximate AIXI and what the specific challenges are https://gemini.google.com/app/e5723b735ee76668
 2. if LLM generalization is on a spectrum, then viable products of the future are downstream of being correct about the extent to which generalization occurs
 3. current understanding todos in browser: multi agent cooperating thru ICL, CIRL, AGI to ASI, MUPI/RUI, gwern GA, POMDP lectures
 	1. https://gemini.google.com/app/eef345df5e5d14eb
