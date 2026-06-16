@@ -15,3 +15,4 @@
 11. probably need an intuitive understading of POMDPs
 12. slow response times make it much much harder for "interaction" to occur
 13. https://arxiv.org/pdf/2606.03237 another paper as a call for cooperation paradigms during training. considered solipsistic. referenced in "from agi to asi"
+14. agi to asi paper called it 'interactive learning'
