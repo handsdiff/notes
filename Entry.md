@@ -1,5 +1,5 @@
 
-1. 
+1. current understanding todos in browser: multi agent cooperating thru ICL, CIRL, AGI to ASI, M
 2. https://x.com/teortaxesTex/status/2065962301195178212?s=20
 3. https://x.com/JoshPurtell/status/2065989651752464486?s=20
 4. https://x.com/kalomaze/status/2065498921443438928?s=20
