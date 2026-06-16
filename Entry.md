@@ -73,8 +73,7 @@
 68. https://arxiv.org/pdf/2603.10476
 69. https://arxiv.org/pdf/2604.09855
 70. https://arxiv.org/pdf/2606.13681 
-71. https://arxiv.org/abs/2606.12683 new AIXI paper
-72. https://x.com/chelseabfinn/status/2065559130929291630?s=20 CHELSEA
-73. https://arxiv.org/abs/1709.04326 LOLA
-74. 
-75. are hindsight and honcho history systems for solving POMDPs?
+71. https://x.com/chelseabfinn/status/2065559130929291630?s=20 CHELSEA
+72. https://arxiv.org/abs/1709.04326 LOLA
+73. 
+74. are hindsight and honcho history systems for solving POMDPs?
