@@ -1,7 +1,7 @@
 1. https://gemini.google.com/app/9f79bc8534f3f938 this thread explaining tightly scoped experiments displaying the importance of holding a set of world priors within the context of prospective learning within the context of 'models as tools for models' and the context of sociality as the next intelligence frontier [[AIXI#^4148c8]]
 2. lot of positive emotions when i read this
 	1. i wonder whether a better model for agents is not to have users label responses in a chat, but rather the human does its work and the agent attempts to learn to follow it, and then eventually push it forward, via something like inverse RL or cooperative inverse RL.
-		1. how are assistance games [[MARL#^0ac960]] related to CIRL related to interaction/corrigibility/MARL?
+		1. how are assistance games [[MARL#^0ac960]] related to CIRL related to interaction/corrigibility/MARL? seems like CIRL is an assistance game?
 	2. "An observational CIRL model provides a smooth, elegant multi-phase lifecycle for agent deployment:
 		- **Phase 1: Shadowing (Pure IRL):** The agent runs in the background of the user’s development environment or workspace, acting as a passive telemetry engine. It maps user keystrokes, shell commands, and file changes to construct an internal representation of the user’s workflows and style.
 		- **Phase 2: Assistance Game (CIRL):** The agent begins cautiously intervening. It might open a PR with the boilerplate code for a task it infers the human is about to do. If the human accepts or slightly adjusts it, the agent refines its belief distribution of the reward function $\theta$.
