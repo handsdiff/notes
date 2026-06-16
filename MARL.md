@@ -88,4 +88,9 @@
 75. what is social intelligence, in an aloof sense? seemingly, predicting the internal state and/or actions of others, conditioned on your action or the actions of others or the environment
 76. social animals developed agency since reward signals were based on peer approval? how does societal us vs them relate to the issues with my writing around cooperative messaging vs competitive winning in marl? ^df3a9c
 77. Can LLMs reason through imperfect information games? Can they just code up a solution? Is the ability to out of the box code up a solution what should be benchmarked? Is the ability to natively reason about it the benchmark instead? 
+78. https://openreview.net/forum?id=GCd5v3ehmr
+79. https://openreview.net/forum?id=IdF6JqXWzx
+80. https://arxiv.org/pdf/2602.01539
+81. https://arxiv.org/html/2510.11062v1
+82. 
 
