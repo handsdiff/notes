@@ -8,6 +8,7 @@
 6. its easier to share progress, and therefore make progress, if investment is permissionless. relates RPGF, but that seems a bit too idealistic
 7. how is epistemic integrity benchmarked in LLMs, if at all? the success of collective intelligence and non singleton outcomes is downstream of this.
 	1. games like avalon are a subset of epistemic integrity
+	2. "(e) Group alignment: How can AGI groups be effectively steered (either explicitly, or implicitly via, e.g., mechanism design for markets)? How can they be hardened and self-correct against epistemic hijacking and the spread of falsehoods, hallucinations & self-delusions? (f) How to ensure epistemic resilience and recoverability in asymmetric-intelligence collectives (e.g., mixed human-ASI collectives)?" from agi to asi paper
 8. agency arises when reward signal is peer approval in humans? how to set a dynamic reward signal of peer approval in LLMs? relates to CIRL. perhaps relates to (non)assistant training paradigm
 9. probably need to go through these (recent papers by ECHO author) https://arxiv.org/search/cs?searchtype=author&query=Shrivastava,+V
 10. https://www.mdpi.com/1099-4300/28/6/596 genewein and hutter explore the extent to which LLMs approximate AIXI and what the specific challenges are https://gemini.google.com/app/e5723b735ee76668
