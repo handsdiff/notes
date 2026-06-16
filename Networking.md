@@ -1,2 +1,1 @@
 1. need to understand what this is https://www.iroh.computer/blog/v1
-2. 

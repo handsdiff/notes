@@ -4,7 +4,6 @@
 2. difference between messaging each other to optimally explore or maximize rewards in states you couldn't otherwise get to vs optimizing actions in the fact of another agent that is also learning and changing their actions in a competitive environment
 3. [https://arxiv.org/pdf/2605.09998](https://arxiv.org/pdf/2605.09998)   
 4. **Probably need a working taxonomy of multiplayer environments to more quickly reason about. Assistance games?**   ^0ac960
-	1. 
 5. What type of game is pokemon showdown and why was it chosen and well regarded as an RL environment?  
 6. [https://arxiv.org/pdf/2606.02373](https://arxiv.org/pdf/2606.02373) search harness, relevant to maintaining memory as a requirement of MARL  
 7. MARL relates to continual learning because you *must* continuously update *something* to even maintain performance  
