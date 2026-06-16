@@ -1,4 +1,4 @@
-1. cursor for obsidian that recommends backlinks?
+1. cursor for obsidian that recommends backlinks? ^8c0496
 2. ECHO trained a model to predict the output of terminal commands and it improved performance on some benchmark.
 	1. the google paper says the model should predict itself as well. could we train the agent to predict its own actions in this context? what would that even mean/look like? isn't it already predicting next token?
 	2. could we apply echo but to the chat history of a specific user (myself)? what would that look like? how would you benchmark?

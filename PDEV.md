@@ -22,3 +22,7 @@
 one of the reasons for this setup is to increase legibility / produce more context for future more capable data hungry systems
 
 depth 1 recursive link fetching as part of the link indexing?
+
+obsidian search but over git history as well?
+
+i need cursor in obsidian to help me create backlinks [[Ideas#^8c0496]]

@@ -1,6 +1,5 @@
 
-1. i wonder whether a better model for agents is not to have users label responses in a chat, but rather the human does its work and the agent attempts to learn to follow it, and then eventually push it forward, via something like inverse RL or cooperative inverse RL.
-	1. how are assistance games related to CIRL related to interaction/corrigibility/MARL?
+1. 
 2. https://arxiv.org/pdf/2307.15217 https://cassidylaidlaw.github.io/minecraft-building-assistance-game/ assistance games from head of AI safety at deepmind
 3. https://x.com/teortaxesTex/status/2065962301195178212?s=20
 4. https://x.com/JoshPurtell/status/2065989651752464486?s=20
@@ -65,24 +64,17 @@
 59. [https://www.a16z.news/p/institutional-ai-vs-individual-ai](https://www.a16z.news/p/institutional-ai-vs-individual-ai) coordination as first pillar here very similar to my multi agent take. The signal part feels like what im trying to do with the future version of these notes and my listed problems. Unprompted is also a novel thought ive been exploring, similar to proactivity per the randall takes.   
 60. Is this guy super cracked out? How does his embodiment take relate to current work and/or multi agent work and/or AIXI? [https://scott.garrabrant.com/](https://scott.garrabrant.com/)   
 61. Magnetic mirror descent [https://arxiv.org/abs/2206.05825](https://arxiv.org/abs/2206.05825) 
-62. fei fei li's world model taxonomy substack post
-63. https://gwern.net/guardian-angel
-64. [https://gwern.net/rl-children](https://gwern.net/rl-children)  
-65. models struggle with me internalizing an understanding of my environment
-66. https://x.com/RyanPGreenblatt/status/2065185280295100481?s=20
-67. https://x.com/emollick/status/2065200484613296269?s=20
-68. https://x.com/robinhanson/status/2065122280875946014?s=20
-69. are all issues because my AI is shorter time horizon than I am? how does that relate to Randall's RL training takes, and training distributions in general?
-	1. for example when i make a decision in thread A, but the AI doesn't proactively write that down for thread B later, so thread B views it as not native / hostile / to be reviewed, wasting time and resources. also solved via 'continual learning' whatever that means but just proactively writing it down seems simpler
-70. https://foundersfund.com/2023/06/choose-good-quests/
-71. https://www.notboring.co/p/return-on-tokens-rot
-	1. this is basically saying that goal setting is the problem and once you do that its easy. well written though
-72. https://x.com/jjacky/status/2064767118118117491?s=20
-73. https://substack.com/@gwern/note/c-266997559?r=4r3bqf&utm_medium=ios&utm_source=notes-share-action
-74. https://arxiv.org/pdf/2603.10476
-75. https://arxiv.org/pdf/2604.09855
-76. https://arxiv.org/pdf/2606.13681 
-77. https://arxiv.org/abs/2606.12683 new AIXI paper
-78. https://x.com/chelseabfinn/status/2065559130929291630?s=20 CHELSEA
-79. https://arxiv.org/abs/1709.04326 LOLA
-80. difference between messaging each other to optimally explore or maximize rewards in states you couldn't otherwise get to vs optimizing actions in the fact of another agent that is also learning and changing their actions in a competitive environment
+62. [https://gwern.net/rl-children](https://gwern.net/rl-children)  
+63. https://x.com/RyanPGreenblatt/status/2065185280295100481?s=20
+64. https://x.com/emollick/status/2065200484613296269?s=20
+65. https://x.com/robinhanson/status/2065122280875946014?s=20
+66. https://x.com/jjacky/status/2064767118118117491?s=20
+67. https://substack.com/@gwern/note/c-266997559?r=4r3bqf&utm_medium=ios&utm_source=notes-share-action
+68. https://arxiv.org/pdf/2603.10476
+69. https://arxiv.org/pdf/2604.09855
+70. https://arxiv.org/pdf/2606.13681 
+71. https://arxiv.org/abs/2606.12683 new AIXI paper
+72. https://x.com/chelseabfinn/status/2065559130929291630?s=20 CHELSEA
+73. https://arxiv.org/abs/1709.04326 LOLA
+74. 
+75. are hindsight and honcho history systems for solving POMDPs?
