@@ -13,3 +13,4 @@
 9. Corrigibility might be a overlapping set of interaction
 10. https://arxiv.org/pdf/2307.15217 https://cassidylaidlaw.github.io/minecraft-building-assistance-game/ assistance games from head of AI safety at deepmind
 11. probably need an intuitive understading of POMDPs
+12. slow response times make it much much harder for "interaction" to occur
