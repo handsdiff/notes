@@ -1,3 +1,4 @@
 - RSI is here
 - compute is the bottleneck
 - decreased superposition explains scaling laws
+- increase the ceiling for a producer/originator in a way that enables a new network
