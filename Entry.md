@@ -2,7 +2,7 @@
 1. the idea of social approval as reward signal relates to CIRL. its just that its doing it for one person instead of many. how did the primary methods of receiving reward signals change over time? i.e. with social media
 	1. interesting upshot of social approval is that you need to go sample your environment for reward so you might not want to spend too long doing asynchronous work
 2. the emotional feeling against asynchronous agents is that i want to do work, and i cant if my brain is off and im waiting for an agent to do something. whether this is cope is an open question. but if i require understanding to remain competitive, i dont think it is
-3. maybe downstream take is the majority of agent/human interaction within two years is unprompted [[Experiments#^ec1e08]]
+3. maybe downstream take is the majority of agent/human interaction within two years is unprompted [[Experiments#^ec1e08]] [[Interaction]]
 4. https://www.forethought.org/research/will-ai-r-and-d-automation-cause-a-software-intelligence-explosion#bringing-it-all-together
 5. https://arxiv.org/abs/2506.14863 intelligence explosion estimates around ai population growth
 6. its easier to share progress, and therefore make progress, if investment is permissionless. relates RPGF, but that seems a bit too idealistic
