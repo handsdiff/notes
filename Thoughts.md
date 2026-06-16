@@ -79,3 +79,4 @@
 57. predicting yourself -> predicting your (static) environment -> predicting your human (-> predicting your team?) ^963ac3
 58. interesting discussion on the parallels between dissemination of writing and LLMs https://gemini.google.com/app/ed1bcebac9184bd3
 59. sociality from google Pi and CIRL have replaced competitive game MARL after i ran into an issue of lack of specificity during the blog post and discovering how different what i wanted vs what i thought i wanted were [[Thoughts#^963ac3]]. wanted more so cooperation than competition
+60. why exactly do I care about process legibility vs outcome legibility? [[Google Pi Team]] [[Interaction]]

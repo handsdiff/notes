@@ -2,7 +2,7 @@
 2. lot of positive emotions when i read this
 	1. i wonder whether a better model for agents is not to have users label responses in a chat, but rather the human does its work and the agent attempts to learn to follow it, and then eventually push it forward, via something like inverse RL or cooperative inverse RL.
 		1. how are assistance games [[MARL#^0ac960]] related to CIRL related to interaction/corrigibility/MARL? seems like CIRL is an assistance game?
-	2. "An observational CIRL model provides a smooth, elegant multi-phase lifecycle for agent deployment:
+	2. "An observational CIRL model provides a smooth, elegant multi-phase lifecycle for agent deployment: ^605490
 		- **Phase 1: Shadowing (Pure IRL):** The agent runs in the background of the user’s development environment or workspace, acting as a passive telemetry engine. It maps user keystrokes, shell commands, and file changes to construct an internal representation of the user’s workflows and style.
 		- **Phase 2: Assistance Game (CIRL):** The agent begins cautiously intervening. It might open a PR with the boilerplate code for a task it infers the human is about to do. If the human accepts or slightly adjusts it, the agent refines its belief distribution of the reward function $\theta$.
 		- **Phase 3: Pushing the Frontier:** Once the agent has accurately modeled the user's reward function $\theta$, it can use raw computing power (e.g., massive Monte Carlo Tree Search or Test-Time Compute) to discover paths to that reward that the human _never thought of_. It can optimize infrastructure, refactor code algorithms for extreme performance, or chain tool calls in ways that achieve the human’s desired state faster and cheaper than the human could manually execute."
