@@ -97,6 +97,5 @@
 80. https://arxiv.org/pdf/2606.13681 
 81. https://x.com/chelseabfinn/status/2065559130929291630?s=20 CHELSEA
 82. https://arxiv.org/abs/1709.04326 LOLA
-83. 
-84. are hindsight and honcho history systems for solving POMDPs?
-85. 
+83. are hindsight and honcho history systems for solving POMDPs?
+84. https://openreview.net/pdf?id=fh8EYKFKns
