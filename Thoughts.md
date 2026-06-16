@@ -81,3 +81,5 @@
 59. sociality from google Pi and CIRL have replaced competitive game MARL after i ran into an issue of lack of specificity during the blog post and discovering how different what i wanted vs what i thought i wanted were [[Thoughts#^963ac3]]. wanted more so cooperation than competition
 60. why exactly do I care about process legibility vs outcome legibility? [[Google Pi Team]] [[Interaction]]
 61. whats the difference between writing things down and loading them in versus updating weights, especially if context is shown to elicit activations anyways?
+62. perhaps simple, but if you can capture a ton of chain of thought reasoning, then compress the reasoning steps, then do this forever, i dont see why it would ever taper off. i guess if the reward function starts to become unclear, which is along the lines of a reduction in understanding of whats even happening in the first place. there was work around auditability of agents / mutual trust here [[Google Pi Team#^b203be]]
+63. 'causality' as an explanation of the issue

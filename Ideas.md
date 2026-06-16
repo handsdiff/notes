@@ -30,4 +30,4 @@
     3. [https://cs224r.stanford.edu/](https://cs224r.stanford.edu/) slides  
 12. What dynamic evals/benchmarks are practical and useful?  
     1. The concept of dynamic evals, likely related to human preference or predispositions, seems critical.   ^7afff1
-13. . Emotions as dense rewards in a sparse reward environment 
+13. Emotions as dense rewards in a sparse reward environment 
