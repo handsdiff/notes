@@ -13,6 +13,8 @@
 9. Corrigibility might be a overlapping set of interaction
 10. https://arxiv.org/pdf/2307.15217 https://cassidylaidlaw.github.io/minecraft-building-assistance-game/ assistance games from head of AI safety at deepmind
 11. probably need an intuitive understading of POMDPs
+	1. https://www.youtube.com/watch?v=FfT5VTfHj_s
+	2. https://www.youtube.com/watch?v=vmwq4w53e9Q
 12. slow response times make it much much harder for "interaction" to occur
 13. https://arxiv.org/pdf/2606.03237 another paper as a call for cooperation paradigms during training. considered solipsistic. referenced in "from agi to asi"
 14. agi to asi paper called it 'interactive learning'
