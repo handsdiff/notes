@@ -30,7 +30,7 @@
 27. Is what I’m searching for a best policy when multiple agents are adaptive? If so, then whoever is adaptive at the fastest rate wins?  
 28. Microsoft AI technical report thread  
 29. Epistemics as cdev vs pdev bc pdev implies not updating priors which implies robust priors. Priors and posterior relates to exploration vs exploitation as well. Investing lower risk lower reward way to express a prior, building higher risk higher reward way to express a prior  
-30. **Alpha go also used test time scaling during its PUCT search. Does test time scaling relate to exploration?**  
+30. Alpha go also used test time scaling during its PUCT search. Does test time scaling relate to exploration?  yes, they're the same
 31. V learning and optimistic nash VI are for zero sum and general sum tabular markov (stochastic) games. There are decentralized v learning algorithms that achieve better sample complexity [https://arxiv.org/abs/2110.14555](https://arxiv.org/abs/2110.14555)   
 32. Interesting that zaharia also claimed that sample complexity was the bottleneck, not cost or intelligence  
 33. Optimism during exploration, pessimism during exploitation  
