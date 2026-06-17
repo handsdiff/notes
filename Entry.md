@@ -1,6 +1,6 @@
 
 1. https://arxiv.org/pdf/2606.16475
-2. 
+2. how to deal with states that truthfully reward the user but the user doesn't recognize as such? this is probably the basis for sycophancy
 3. are RL rollouts equivalent to 'predicting the environment and predicting your own actions'? i dont see what the difference is. at least for single model rollouts not self play. https://claude.ai/chat/2c9bd8d1-5bb3-452b-9090-faaf8efd1ae7
 4. **described update to jakub as MARL -> epistemic integrity / prompt injection resistance / embedded agency AND/OR CIRL / interaction models / assistance games, with RSI asterisk looming over everything. is that comprehensive?** 
 	1. **his take was that epistemics is often grounded in human feeling/intuition which consolidates it with the latter point**
