@@ -8,6 +8,7 @@
     1. Persuasion is the ultimate skill.  
 4. Labs won’t train on non assistant paradigms? They train on assistant personas because it’s useful for people and they have the data for it. Non assistance related to gwern’s recent blog post related to multi agent?  
 5. **What would persuasionbench look like?** You enter, the model has to persuade you to do an unknown thing (essentially something small it is not directly able to do itself like get some data), if successful nothing, if failure you get a random monetary payout  
+	1. team thinks leaning into companion culture for this would make it work
 6. Coding and persuasion are the only tools needed for complete control  
     1. Does persuasion scale from intelligence? Definitely not coding intelligence, but yes for emotional intelligence. Who's evaling this?  
 7. Can superposition be quantified? Has it been?  
@@ -31,6 +32,6 @@
 12. What dynamic evals/benchmarks are practical and useful?  
     1. The concept of dynamic evals, likely related to human preference or predispositions, seems critical.   ^7afff1
 13. Emotions as dense rewards in a sparse reward environment 
-14. does GEPA as a CIRL implementation work? to learn the preferred prompt over time? [[Interaction#^2bff57]]
+14. **does GEPA as a CIRL implementation work**? to learn the preferred prompt over time? [[Interaction#^2bff57]]
 15. prompt inform an agent to predict the response from its environments (whether its a tool call, user input, etc) not just its turns, and see if it performs better? basically ECHO but for more than just terminal commands? what is ECHO's actual architecture, base model, quirks, and pitfalls? 
 	1. are these just inference time rollouts?
