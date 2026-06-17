@@ -1,5 +1,7 @@
 
-New data transitions from [[Entry]] -> [[Open]] -> [[Thoughts]] -> [[Id]]
+New data generally transitions from [[Entry]] -> [[Open]] -> [[Thoughts]] -> [[Ideas]]
+Broader topics of interest get their own pages while they're being explored, like [[MARL]],[[Interaction]], [[Inference]], [[Alignment]],
+I want to improve my flows for myself via [[PDEV]] and others via [[Team]]
 
 1. [[MARL]] 
 2. [[Interaction]]
