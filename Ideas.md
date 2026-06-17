@@ -32,3 +32,4 @@
     1. The concept of dynamic evals, likely related to human preference or predispositions, seems critical.   ^7afff1
 13. Emotions as dense rewards in a sparse reward environment 
 14. does GEPA as a CIRL implementation work? to learn the preferred prompt over time? [[Interaction#^2bff57]]
+15. prompt inform an agent to predict the response from its environments (whether its a tool call, user input, etc) not just its turns, and see if it performs better? basically ECHO but for more than just terminal commands? what is ECHO's actual architecture, base model, quirks, and pitfalls? 
