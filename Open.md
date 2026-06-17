@@ -1,1 +1,2 @@
 -  are hindsight and honcho history systems for solving POMDPs?
+- Seth karten says “agent action-\>env looped is the only paradigm. the real new paradigm is realtime envs with agent actions”  what does this mean

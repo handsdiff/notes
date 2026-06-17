@@ -70,26 +70,21 @@
 63. [https://gemini.google.com/app/576e572a98450c5f](https://gemini.google.com/app/576e572a98450c5f) relation between google embedded agents AIXI paper and levine work on modeling scenarios for better persuasion \+ avalon, as a parallel track to the in context learning done for Avalon in the other paper  
     1. [https://www.lesswrong.com/posts/AJ7qddr5imhhN2jHz/embedded-universal-predictive-intelligence](https://www.lesswrong.com/posts/AJ7qddr5imhhN2jHz/embedded-universal-predictive-intelligence)  
 
-64. Guy who did RL at OpenAI for 3 years thinks the frontier is simply better, more realistic reward modeling (reward modeling is the training version of evals, basically what are you pointing it at)  
-65. Randall take is that this long form thinking is encouraged in RL rather than just sampling the environment (what does this command do? rather than let me reason thru python garbage collection?), which is suboptimal  
-66. He says that interrupting the model is taking it out of training distribution. Backed up by the mythos model whitepaper where interruption causes it to perform worse  
-67. Including user turns in training data seems to be an important belief that he has  
-    1. Kind of relates to models as tools for models since training that would require user turns for the base model to learn how to update its user specific understanding model?  
-68. He also mentioned transfer amongst RL tasks as being often negative. Definitely not positive consistently.  
-69. His overall worry is local incentives of labs causing us to squander intelligence, rather than broad misalignment issues. Labs will do the easiest ROI to sell investors on, which is test time compute scaling on RSI.   
-70. RL at that stage was simply seeing when coding/math tasks failed, properly assigning rewards to what people wanted, do that in a loop. very simple.
-71. Follow up with him  
+  
+
+64. RL at that stage was simply seeing when coding/math tasks failed, properly assigning rewards to what people wanted, do that in a loop. very simple.
+65. Follow up with him  
     1. Thoughts on thinking machines interaction model?  
-    2. Seth karten says “agent action-\>env looped is the only paradigm. the real new paradigm is realtime envs with agent actions”  
-72. Another take was that a larger risk than civilization level misalignment is local incentives of companies making AI falling suspect to classic big tech slop issues, focusing on benchmaxxing rather than real value  
-73. What data strongly assists LLM ability to engage in game theoretical situations like Mafia, Avalon, etc? Thereby boosting EQ by learning theory of mind with engaged parties  
-74. Which RL tasks have negative transfer? 
-75. what is social intelligence, in an aloof sense? seemingly, predicting the internal state and/or actions of others, conditioned on your action or the actions of others or the environment
-76. social animals developed agency since reward signals were based on peer approval? how does societal us vs them relate to the issues with my writing around cooperative messaging vs competitive winning in marl? ^df3a9c
-77. Can LLMs reason through imperfect information games? Can they just code up a solution? Is the ability to out of the box code up a solution what should be benchmarked? Is the ability to natively reason about it the benchmark instead? 
-78. https://openreview.net/forum?id=GCd5v3ehmr
-79. https://openreview.net/forum?id=IdF6JqXWzx
-80. https://arxiv.org/pdf/2602.01539
-81. https://arxiv.org/html/2510.11062v1
-82. https://github.com/FareedKhan-dev/all-rl-algorithms
+    2.  
+66. Another take was that a larger risk than civilization level misalignment is local incentives of companies making AI falling suspect to classic big tech slop issues, focusing on benchmaxxing rather than real value  
+67. What data strongly assists LLM ability to engage in game theoretical situations like Mafia, Avalon, etc? Thereby boosting EQ by learning theory of mind with engaged parties  
+68. Which RL tasks have negative transfer? 
+69. what is social intelligence, in an aloof sense? seemingly, predicting the internal state and/or actions of others, conditioned on your action or the actions of others or the environment
+70. social animals developed agency since reward signals were based on peer approval? how does societal us vs them relate to the issues with my writing around cooperative messaging vs competitive winning in marl? ^df3a9c
+71. Can LLMs reason through imperfect information games? Can they just code up a solution? Is the ability to out of the box code up a solution what should be benchmarked? Is the ability to natively reason about it the benchmark instead? 
+72. https://openreview.net/forum?id=GCd5v3ehmr
+73. https://openreview.net/forum?id=IdF6JqXWzx
+74. https://arxiv.org/pdf/2602.01539
+75. https://arxiv.org/html/2510.11062v1
+76. https://github.com/FareedKhan-dev/all-rl-algorithms
 
