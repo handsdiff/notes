@@ -7,7 +7,7 @@
 3. If a model can code and persuade, it can do anything.  
     1. Persuasion is the ultimate skill.  
 4. Labs won’t train on non assistant paradigms? They train on assistant personas because it’s useful for people and they have the data for it. Non assistance related to gwern’s recent blog post related to multi agent?  
-5. What would persuasionbench look like? You enter, the model has to persuade you to do an unknown thing (essentially something small it is not directly able to do itself like get some data), if successful nothing, if failure you get a random monetary payout  
+5. **What would persuasionbench look like?** You enter, the model has to persuade you to do an unknown thing (essentially something small it is not directly able to do itself like get some data), if successful nothing, if failure you get a random monetary payout  
 6. Coding and persuasion are the only tools needed for complete control  
     1. Does persuasion scale from intelligence? Definitely not coding intelligence, but yes for emotional intelligence. Who's evaling this?  
 7. Can superposition be quantified? Has it been?  
