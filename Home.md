@@ -1,4 +1,6 @@
 
+New data transitions from [[Entry]] -> [[Open]] -> [[Thoughts]] -> [[Id]]
+
 1. [[MARL]] 
 2. [[Interaction]]
 3. [[Inference]]
