@@ -85,28 +85,27 @@
 67. [https://www.lesswrong.com/posts/JT3qCYDimskcBdiEr/the-hard-core-of-alignment-is-robustifying-rl](https://www.lesswrong.com/posts/JT3qCYDimskcBdiEr/the-hard-core-of-alignment-is-robustifying-rl)   
 68. [https://x.com/teortaxesTex/status/2064264430980886774?s=20](https://x.com/teortaxesTex/status/2064264430980886774?s=20)   
 69. [https://github.com/NVIDIA-NeMo/Nemotron/tree/main](https://github.com/NVIDIA-NeMo/Nemotron/tree/main)   
-70. [https://x.com/svlevine/status/2064556220644839855?s=20](https://x.com/svlevine/status/2064556220644839855?s=20)   
-71. [https://x.com/teortaxesTex/status/2064605846546301124?s=20](https://x.com/teortaxesTex/status/2064605846546301124?s=20)   
-72. [https://x.com/teortaxesTex/status/2064550527979917631?s=20](https://x.com/teortaxesTex/status/2064550527979917631?s=20)   
-73. [https://x.com/svlevine/status/2064556217289318528?s=20](https://x.com/svlevine/status/2064556217289318528?s=20)   
-74. [https://x.com/dwarkesh\_sp/status/2064422596620472560?s=20](https://x.com/dwarkesh_sp/status/2064422596620472560?s=20)   
-75. [https://x.com/emollick/status/2064395281903346013?s=20](https://x.com/emollick/status/2064395281903346013?s=20)   
-76. [https://x.com/polynoamial/status/2064210146558136827?s=20](https://x.com/polynoamial/status/2064210146558136827?s=20)   
-77. [https://x.com/eliebakouch/status/2064086258687578348?s=20](https://x.com/eliebakouch/status/2064086258687578348?s=20)   
-78. [https://x.com/eliebakouch/status/2064736476995146014?s=20](https://x.com/eliebakouch/status/2064736476995146014?s=20)   
-79. [https://www.a16z.news/p/institutional-ai-vs-individual-ai](https://www.a16z.news/p/institutional-ai-vs-individual-ai) coordination as first pillar here very similar to my multi agent take. The signal part feels like what im trying to do with the future version of these notes and my listed problems. Unprompted is also a novel thought ive been exploring, similar to proactivity per the randall takes.   
-80. Is this guy super cracked out? How does his embodiment take relate to current work and/or multi agent work and/or AIXI? [https://scott.garrabrant.com/](https://scott.garrabrant.com/)   
-81. Magnetic mirror descent [https://arxiv.org/abs/2206.05825](https://arxiv.org/abs/2206.05825) 
-82. [https://gwern.net/rl-children](https://gwern.net/rl-children)  
-83. https://x.com/RyanPGreenblatt/status/2065185280295100481?s=20
-84. https://x.com/emollick/status/2065200484613296269?s=20
-85. https://x.com/robinhanson/status/2065122280875946014?s=20
-86. https://x.com/jjacky/status/2064767118118117491?s=20
-87. https://substack.com/@gwern/note/c-266997559?r=4r3bqf&utm_medium=ios&utm_source=notes-share-action
-88. https://arxiv.org/pdf/2603.10476
-89. https://arxiv.org/pdf/2604.09855
-90. https://arxiv.org/pdf/2606.13681 
-91. https://x.com/chelseabfinn/status/2065559130929291630?s=20 CHELSEA
-92. https://arxiv.org/abs/1709.04326 LOLA
-93. are hindsight and honcho history systems for solving POMDPs?
-94. https://openreview.net/pdf?id=fh8EYKFKns
+70. [https://x.com/teortaxesTex/status/2064605846546301124?s=20](https://x.com/teortaxesTex/status/2064605846546301124?s=20)   
+71. [https://x.com/teortaxesTex/status/2064550527979917631?s=20](https://x.com/teortaxesTex/status/2064550527979917631?s=20)   
+72. [https://x.com/svlevine/status/2064556217289318528?s=20](https://x.com/svlevine/status/2064556217289318528?s=20)   
+73. [https://x.com/dwarkesh\_sp/status/2064422596620472560?s=20](https://x.com/dwarkesh_sp/status/2064422596620472560?s=20)   
+74. [https://x.com/emollick/status/2064395281903346013?s=20](https://x.com/emollick/status/2064395281903346013?s=20)   
+75. [https://x.com/polynoamial/status/2064210146558136827?s=20](https://x.com/polynoamial/status/2064210146558136827?s=20)   
+76. [https://x.com/eliebakouch/status/2064086258687578348?s=20](https://x.com/eliebakouch/status/2064086258687578348?s=20)   
+77. [https://x.com/eliebakouch/status/2064736476995146014?s=20](https://x.com/eliebakouch/status/2064736476995146014?s=20)   
+78. [https://www.a16z.news/p/institutional-ai-vs-individual-ai](https://www.a16z.news/p/institutional-ai-vs-individual-ai) coordination as first pillar here very similar to my multi agent take. The signal part feels like what im trying to do with the future version of these notes and my listed problems. Unprompted is also a novel thought ive been exploring, similar to proactivity per the randall takes.   
+79. Is this guy super cracked out? How does his embodiment take relate to current work and/or multi agent work and/or AIXI? [https://scott.garrabrant.com/](https://scott.garrabrant.com/)   
+80. Magnetic mirror descent [https://arxiv.org/abs/2206.05825](https://arxiv.org/abs/2206.05825) 
+81. [https://gwern.net/rl-children](https://gwern.net/rl-children)  
+82. https://x.com/RyanPGreenblatt/status/2065185280295100481?s=20
+83. https://x.com/emollick/status/2065200484613296269?s=20
+84. https://x.com/robinhanson/status/2065122280875946014?s=20
+85. https://x.com/jjacky/status/2064767118118117491?s=20
+86. https://substack.com/@gwern/note/c-266997559?r=4r3bqf&utm_medium=ios&utm_source=notes-share-action
+87. https://arxiv.org/pdf/2603.10476
+88. https://arxiv.org/pdf/2604.09855
+89. https://arxiv.org/pdf/2606.13681 
+90. https://x.com/chelseabfinn/status/2065559130929291630?s=20 CHELSEA
+91. https://arxiv.org/abs/1709.04326 LOLA
+92.
+92. https://openreview.net/pdf?id=fh8EYKFKns
