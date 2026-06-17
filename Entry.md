@@ -2,7 +2,7 @@
 1. epistemic integrity feels necessary for actually improving priors + discovering truth which feels necessary for collective intelligence to be value creative over singleton intelligence. otherwise as sutton puts it youre missing the selective retention part of variation and evaluation. although not sure why its not just variation and selection
 2. is china's open source culture an example of 'commodifying your complement'? i.e. they commodify algorithms because they likely win on compute longer term. by that analog anthropic should want to commodify compute but they can't really.
 3. if its written by AI, expect only AI to read it. if only AI is reading it, why write it without AI? feels pretty easy to tell the difference between something made for agents (AEO) and something made for humans (non-average voice)
-4. arena.ai is similar to LM arena except for frontend design. what was the GTM there?
+4. arena.ai is similar to LM arena except for frontend design. what was the GTM there? dynamic, real use evals still feel crucial. even better if they proxy things people would pay for
 5. https://x.com/JoshPurtell/status/2066967185818345674?s=20
 6. https://x.com/SemiAnalysis_/status/2066941079920791760?s=20
 7. https://www.forethought.org/research/will-ai-r-and-d-automation-cause-a-software-intelligence-explosion#bringing-it-all-together
