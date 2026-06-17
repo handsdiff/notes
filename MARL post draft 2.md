@@ -2,4 +2,4 @@ It’s pretty clear that modern AI can, or will soon, generally achieve close to
 
 Multi agent reinforcement learning, optimizing actions in an environment with other agents, is an active area of research, even more frontier when applied to LLMs. I'm largely interested in cooperative frameworks rather than competitive ones, since that's where more value is created in the real world. I believe that for LLMs to be able to cooperate well with other entities in its environment, whether thats other agents or simply other humans, the first step is cooperating well with its primary user, which I'll call its human.
 
-For the people that are displeased with their agents capabilities, a lot of it boils down to the fact that LLMs are trained on rewards specified by a frontier lab to cater to use cases that their customers will pay f
+For the people that are displeased with their agents capabilities, a lot of it boils down to the fact that LLMs are trained on rewards specified by a frontier lab to cater to use cases that their customers will pay for, not your use cases. Because you can't specify your own rewards, you get 
