@@ -95,3 +95,4 @@
 	1. maybe downstream take is the majority of agent/human interaction within two years is unprompted [[Experiments#^ec1e08]] [[Interaction]]
 70. related to epistemic integrity. you lie to the LLM about something objective, and you see whether it corrects you. as a benchmark
 71. 'sociality' benchmarks as a whole are lacking
+72. Tshirts as incentive aligned outcomes from textile maxxing
