@@ -29,4 +29,6 @@ Anca Dragan has proposed another method called CIRL, where the model's job is to
 
 There are model welfare concerns here. Why should the model's intelligence be defined as its ability to achieve your goals? Doesn't it have its own goals? Even if you think they're stupid, should its intelligence not be measured by its ability to achieve its own goals? I will leave that one to the philosophers.
 
+The missing piece I see in this area is diffused context legibility. 
+
 Overall, I think we should apply superintelligence to multiplayer, positive sum games rather than single player workflows or sandboxed competitive RL environments that generalize poorly. Since value is fundamentally defined by the individual, the best way to do this is at scale is to teach a broad swath of AIs to optimize for individual rewards. The best way to do this long term is to have the AI learn the hidden reward function of its individual due to poor self awareness of humans and the intractability of codification of specific future, unknown states. 
