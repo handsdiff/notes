@@ -1,6 +1,6 @@
 
 1. https://arxiv.org/pdf/2405.17713 AI Alignment with Changing and Influenceable Reward Functions Dragan 2024
-	1. https://people.eecs.berkeley.edu/~anca/publications.html worth exploring
+	1. https://people.eecs.berkeley.edu/~anca/publications.html worth exploring. lots of relevant information
 2. if its unclear what is latent in an LLM, then GEPA is the best way of figuring out whats latent?
 	1. definitely feels wasteful to have to spend a ton of tokens figuring out what the state of the computer even is, rather than just using it, especially since its expensive
 3. https://jacobxli.com/blog/2026/machine-studying/ seems very relevant to continual learning, possibly good benchmark
