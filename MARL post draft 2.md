@@ -15,6 +15,8 @@ I argue that 'superhuman' should be defined not as outperforming the average hum
 
 Consider a thought experiment. A superintelligent model has some representation of your reward function. You have a representation of your reward function. Both are acting to maximize rewards over the next 5 years. If you rolled each universe forward, in which would you be happier? The point where you'd be happier (or more generally, have accumulated higher rewards) in the model universe is the point at which the model is superintelligent: it achieved your goals for you better than you did.
 
+As an aside, I would similarly argue that being 'human' in an age of machine intelligence is the ability to choose your own reward model. Most of the work in the future will 
+
 The question becomes, who decides the rewards? This is actually just a governance question. Why do non democratically elected officials decide how to apply intelligence? Should we as a society vote for elected officials who then decide what rewards to give to superintelligent models? Should we vote on a case by case basis? Should we have general reward functions or user specific reward functions? Who decides who gets to have reward functions and who doesn't?
 
 I think many people, including Thinking Machines and Safe Superintelligence, view the least wrong path forward as one of diffusion. You give everyone a superintelligence whose job it is to follow the reward signals of its human. Then everyone avoids oppression in a post scarcity world.
