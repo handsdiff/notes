@@ -4,8 +4,10 @@
 3. [https://x.com/jsuarez/status/2067272190702256340?s=20](https://x.com/jsuarez/status/2067272190702256340?s=20)
 4. https://x.com/satyanadella/status/2066182223213293753
 5. https://arxiv.org/pdf/2405.17713 AI Alignment with Changing and Influenceable Reward Functions Dragan 2024
-	1. https://people.eecs.berkeley.edu/~anca/publications.html worth exploring. lots of relevant information
-6. https://arxiv.org/pdf/2408.16984 interesting paper that seems, from the abstract, to conclude anthropic's approach is superior, but then 
+	1. an example given here is if someone is trying to lose weight, should the model optimize for losing weight even if they get higher short term reward for eating candy? if the model says no candy the user might be mad. if the model says candy the user might be mad. not sure how they reconcile but the way i'd reconcile is always optimizing for long term rewards, and choosing short term rewards to the extent by which they increase intrinsic motivation to continue pursuing long term rewards.
+	2. probably relates to research around intrinsic motivation / laziness in models. there is likely an actual term for this in human psychology
+	3. https://people.eecs.berkeley.edu/~anca/publications.html worth exploring. lots of relevant information
+6. https://arxiv.org/pdf/2408.16984 interesting paper that seems, from the abstract, to conclude anthropic's approach is superior, but then says that this leads to pluralism?
 7. if its unclear what is latent in an LLM, then GEPA is the best way of figuring out whats latent?
 	1. definitely feels wasteful to have to spend a ton of tokens figuring out what the state of the computer even is, rather than just using it, especially since its expensive
 8. https://jacobxli.com/blog/2026/machine-studying/ seems very relevant to continual learning, possibly good benchmark
