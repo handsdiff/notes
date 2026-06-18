@@ -1,2 +1,4 @@
 1. [Problem Ideas](https://docs.google.com/spreadsheets/d/1ZaIFzWJuoBd3H7IRt1aaxykKebsF55Wkhw1AzQtPTcg/edit?gid=0#gid=0)  
 2. If enterprise is such a big business how do enterprises actually find products they want to use? It can’t be all inbound sales? What’s the equivalent of “where the customer hangs out” but for enterprise?
+3. probably should add Slate as a product of Precursor Labs somewhere?
+4. add the About section to the website
