@@ -1,5 +1,6 @@
 
 1. https://x.com/castformai
+	1. https://arxiv.org/abs/2606.15532v1 emotional intelligence bench
 2. https://river.ai/ how does this relate to my blog?
 3. https://x.com/oneill_c/status/2067673179536208062?s=20
 4. https://x.com/perplexity_ai/status/2067642139014742348?s=20
