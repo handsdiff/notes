@@ -1,3 +1,4 @@
-1. probably need to distribute the article well. push 'about' on landing page. restack on substack. (restack jakubs article on substack). cross post on twitter. inbound capability / interest form. also change substack to worldmodels.substack. could also change github.io to worldmodels and clean up index. want to push git history and possibly clean up UI on 'index' page
+1. probably need to distribute the article well. seems done maybe besidse
+	1. push 'about' on landing page. restack on substack. (restack jakubs article on substack). cross post on twitter. inbound capability / interest form. also change substack to worldmodels.substack. could also change github.io to worldmodels and clean up index. want to push git history and possibly clean up UI on 'index' page
 2. turn off old agents due to exe pricing and delete from twitter
 3. fix HL.
