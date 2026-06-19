@@ -30,6 +30,7 @@
 	6. https://gemini.google.com/app/f44fe68a684ec176
 		1. seems to relate to [[AIXI]] since the agent manages a set of possible 'true' reward functions and adopts a policy based on its observations + coupled with its environment a la MUPI if the fear of persuading the human to change to make its own job easier is well founded
 		2. git history as the history over which the agent learns in the [[PDEV]] sense feels directionally correct but overall lacking in context (what i read, what i see, what i conversate, etc)
+	7. https://gemini.google.com/app/f44fe68a684ec176 early part of this topic. it eventually degrades
 23. https://arxiv.org/pdf/2408.16984 interesting paper that seems, from the abstract, to conclude anthropic's approach is superior, but then says that this leads to pluralism?
 24. if its unclear what is latent in an LLM, then GEPA is the best way of figuring out whats latent?
 	1. definitely feels wasteful to have to spend a ton of tokens figuring out what the state of the computer even is, rather than just using it, especially since its expensive
