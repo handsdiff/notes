@@ -37,7 +37,7 @@ There are model welfare concerns here. Why should the model's intelligence be de
 
 The missing piece of this puzzle in this area is democratized legibilization. It's all well and good if everyone has a superintelligent algorithm at their whim, but if that algorithm doesn't have actual data to run on, it's the equivalent of a dead iPhone. Data for frontier labs is a billion dollar industry, and the enterprises that are first adopting 'RSI for what they want' today spend most of their time just making sure the work they do is somewhere an algorithm can reason over. 
 
-Democratized compute is another necessary piece of the puzzle for this to be a real
+Democratized compute is another necessary piece of the puzzle for this to be a reality, although to a lesser extent. There simply needs to be a plurality of compute providers, rather than unstoppable economies of scale to inference. Data is harder because its fundamentally personal, and thus requires relatively more democratization.
 
 There's a broad swath of prosumers today, powered by OpenClaw/Hermes, local models, GPU brokers, Obsidian, and open source tools that do the same thing. I suspect the market here will explode with the amount of liquidity flowing to technical people during the AI pump/IPO cycle who well understand the benefits of this setup.
 
