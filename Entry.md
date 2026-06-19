@@ -23,6 +23,8 @@
 	1. an example given here is if someone is trying to lose weight, should the model optimize for losing weight even if they get higher short term reward for eating candy? if the model says no candy the user might be mad. if the model says candy the user might be mad. not sure how they reconcile but the way i'd reconcile is always optimizing for long term rewards, and choosing short term rewards to the extent by which they increase intrinsic motivation to continue pursuing long term rewards.
 	2. probably relates to research around intrinsic motivation / laziness in models. there is likely an actual term for this in human psychology
 	3. https://people.eecs.berkeley.edu/~anca/publications.html worth exploring. lots of relevant information
+	4. https://claude.ai/chat/90f6570c-41ea-4cd4-8e2e-f54ef8df4197
+	5. https://claude.ai/chat/8d0ee16d-491f-4f94-b416-626b7c42b745
 21. https://arxiv.org/pdf/2408.16984 interesting paper that seems, from the abstract, to conclude anthropic's approach is superior, but then says that this leads to pluralism?
 22. if its unclear what is latent in an LLM, then GEPA is the best way of figuring out whats latent?
 	1. definitely feels wasteful to have to spend a ton of tokens figuring out what the state of the computer even is, rather than just using it, especially since its expensive
