@@ -1,5 +1,14 @@
 
-1. 
+1. We probably need to get more specific on the economies of scale I think our (my) current understanding is poor. Like if a Blackwell rack has 72 GPUs, and anthropic has 10 of those, and I have one. Is it that I can serve 1/10th of the customers at the same cost, or is it that we can serve the same amount of customers but i have to charge 10x the price for the same profit?
+
+  
+
+If it’s both, then there will always be a wedge for lower scale providers with fewer GPUs that can serve fewer customers with the same or lower pricing
+
+  
+
+Additionally a frontier open source model increases the ROI on compute for everyone else besides the people with better models, chipping away at economies of scale
+1. Meta is a data labeling org now? Twitter tweets about it
 2. https://x.com/jonchu/status/2063295773169910001?s=20 good startup advice as I consider markets
 3. https://thealliance.ai/projects/tapestry
 4. https://x.com/castformai
