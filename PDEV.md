@@ -34,3 +34,5 @@ note taking ^^ into social network where the value prop is provenance? (i came u
 the next step for the AI vision would be codifying the state, actions, observations, and rewards akin to how its done in the appendix of [[Google Pi Team#^b98596]]
 
 [[Actualization through superintelligence]]
+
+the app should enrich links to be able to more quickly skim and handle as needed. specifically X and arxiv
