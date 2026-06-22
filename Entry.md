@@ -1,5 +1,5 @@
 
-1. Theory of mind seems different from actually predicting wha
+1. Theory of mind seems different from actually predicting what someone else will do and taking advantage of that in a competitive environment
 2. https://www.youtube.com/watch?v=GwSl1OH1i4w
 3. Seem to have lost the tab with the list of thiel quotes, i think shared by richard https://www.youtube.com/watch?v=GwSl1OH1i4w
 4. Seem to have lost the tab with the list of thiel quotes, I think shared by Richard ngohave lost the tab with the list of thiel quotes, i think shared by richard 
