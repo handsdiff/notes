@@ -2,4 +2,4 @@
 - Seth karten says “agent action-\>env looped is the only paradigm. the real new paradigm is realtime envs with agent actions”  what does this mean
 - https://hari-sikchi.github.io/
 - https://rl-conference.cc/ should i go to this
-- 
+- need to understand what this is and how it works https://www.iroh.computer/blog/v1

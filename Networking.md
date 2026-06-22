@@ -1,1 +1,0 @@
-1. need to understand what this is and how it works https://www.iroh.computer/blog/v1
