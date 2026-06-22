@@ -6,6 +6,6 @@
 
 - useful verifiers for inference serving understanding
 	- explain intuitively how thinking machines' interaction model inference differs from typical large scale inference performed by frontier labs
-	- why can cerebras chips serve gpt oss 120b 3x faster than any other chip
+	- why can cerebras chips serve gpt oss 120b 3x faster than any other chip (answered by jakub)
 	- how does the design of rubin differ from the design of blackwell? predict what the design of feynman will be
 	- how does the current inference paradigm support or inhibit continual learning via weight updates? put another way, if you imagined a frontier model updating its weights based on daily data, would the hardware architecture of inference change? if so, how? if not, why?
