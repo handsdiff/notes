@@ -1,5 +1,6 @@
 
-1. subagents will run on LPUs within NVIDIA GPU racks (vera rubin -> feynman) and subagents will be used 10x more (from jakub)
+1. theres currently likely multiple options for the potential winner of frequency of weight updating vs cost vs value delivered to customer and it will likely schell around the first to pmf, for each unique market
+2. subagents will run on LPUs within NVIDIA GPU racks (vera rubin -> feynman) and subagents will be used 10x more (from jakub)
 	1. reminds me of [[Google Pi Team]] team take on collective intelligence occurring within frontier LLMs as well
 2. https://www.workshoplabs.ai/blog
 3. seems to be a big question around whether further frontier model improvements actually move the needle for my workflows, or a market's workflows, and why or why not? this is what labs seem to be solving for with all their 'RL envs', but are you just building multiple products at that point and calling that a frontier model? i guess its different because it literally is one product this time? if you pack multiple skills/knowledge workflows into a single model is that better in the limit than orchestrating smaller models, from a ROI perspective? why or why not?
