@@ -9,5 +9,3 @@ I am cofounder and CTO at [Precursor Labs](https://precursorlabs.org/), where we
 The title, "World Models", references the phenomenon of an agent (me) in an environment (the world) continuously updating its priors about how the world works (model) to best take actions to maximize terminal reward. This involves curiosity, research, critical thinking, [writing publicly](https://handsdiff.substack.com/), and shipping experiments and products, among other things.
 
 [[Home]] is a good place to start as a general ranking of my attention.
-
-'handsdiff' is a video game reference where one player beats another player due to the difference in 'hands' skills, which is generally reaction time, rather than some advantage in strategy or tactics.
