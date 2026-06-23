@@ -1,52 +1,53 @@
 
-1. theres currently likely multiple options for the potential winner of frequency of weight updating vs cost vs value delivered to customer and it will likely schell around the first to pmf, for each unique market
-2. subagents will run on LPUs within NVIDIA GPU racks (vera rubin -> feynman) and subagents will be used 10x more (from jakub)
+1. https://x.com/henrytdowling/status/2054246434506199529
+2. theres currently likely multiple options for the potential winner of frequency of weight updating vs cost vs value delivered to customer and it will likely schell around the first to pmf, for each unique market
+3. subagents will run on LPUs within NVIDIA GPU racks (vera rubin -> feynman) and subagents will be used 10x more (from jakub)
 	1. reminds me of [[Google Pi Team]] team take on collective intelligence occurring within frontier LLMs as well
-2. https://www.workshoplabs.ai/blog
-3. seems to be a big question around whether further frontier model improvements actually move the needle for my workflows, or a market's workflows, and why or why not? this is what labs seem to be solving for with all their 'RL envs', but are you just building multiple products at that point and calling that a frontier model? i guess its different because it literally is one product this time? if you pack multiple skills/knowledge workflows into a single model is that better in the limit than orchestrating smaller models, from a ROI perspective? why or why not?
-4. how can it be true that smaller models will get better over time as large models are distilled into them either directly (unknown mechanism) or indirectly (via algorithm knowledge diffusion) while also that larger models will get better over time for the same reason? if large models will always be better than small models, but both improve, does the gap increase or decrease? in the long term, is this a problem for frontier model creators if they don't expand product offerings? how does this impact arguments around centralization that Jakub seems to be making? if its a time frame distinction, then whats the time frame for each? we should be able to visualize it like rolling waves, no? 
+4. https://www.workshoplabs.ai/blog
+5. seems to be a big question around whether further frontier model improvements actually move the needle for my workflows, or a market's workflows, and why or why not? this is what labs seem to be solving for with all their 'RL envs', but are you just building multiple products at that point and calling that a frontier model? i guess its different because it literally is one product this time? if you pack multiple skills/knowledge workflows into a single model is that better in the limit than orchestrating smaller models, from a ROI perspective? why or why not?
+6. how can it be true that smaller models will get better over time as large models are distilled into them either directly (unknown mechanism) or indirectly (via algorithm knowledge diffusion) while also that larger models will get better over time for the same reason? if large models will always be better than small models, but both improve, does the gap increase or decrease? in the long term, is this a problem for frontier model creators if they don't expand product offerings? how does this impact arguments around centralization that Jakub seems to be making? if its a time frame distinction, then whats the time frame for each? we should be able to visualize it like rolling waves, no? 
 	1. inspired from this https://arxiv.org/pdf/2606.16140
-5. how does GDP > money printing = deflation in the sense that AI causes GDP increases that surpass money printing? the US wouldnt allow deflation and would print more, no? but then do what with that money? if they printed money to plow into data centers what would the granular flow of dollars (rights and obligations) even look like
-6. marketplace between GPU racks and intelligence use cases, enabled by algorithms and data
-7. Theory of mind seems different from actually predicting what someone else will do and taking advantage of that in a competitive environment
-8. https://www.youtube.com/watch?v=GwSl1OH1i4w
-9. Seem to have lost the tab with the list of thiel quotes, i think shared by richard ngo
-10. Is memory a mapping of prior activations to environmental observations?
-11. https://x.com/jsuarez/status/2067272190702256340?s=20
-12. https://github.com/siyuan-note/siyuan And logseq
-13. Most people probably don’t/can’t have their internal monologue publicized? Need to sample the environment
-14. It’s incredibly stupid, especially from the outside looking in, to try to build a startup and not talk to anyone 
-15. What would a successful future you change about you today
-16. https://x.com/elonmusk/status/2068369665647108524?s=20
-17. The people that call glm 5.2 an inflection point and assume people will use that over closed source frontier are implicitly saying that frontier model diff to closed source increasingly drifts from actual use cases. There is also some compute argument here that is upstream of the pricing argument that might be necessary to articulate to make the above claim since the above claim feels a bit off in practice 
-18. https://x.com/willccbb/status/2068210850700353537?s=20
-19. https://x.com/sethkarten/status/2068011592877502534?s=20
-20. https://x.com/jsuarez/status/2068025057755197638?s=20
-21. https://x.com/dwarkesh_sp/status/2068019716849815869?s=20
-22. even if frontier LLMs are programmable in theory, that doesnt mean you know how to program them. you would still need to specify a reward model somehow (perhaps some other system, even another AI, determines the best way to prompt/program the main AI)
-23. https://x.com/teortaxesTex/status/2067872311030550634?s=20
-24. https://arxiv.org/abs/2606.06492 Code2lora
-25. https://arxiv.org/abs/2606.13473 Example of singleton outcome
-26. https://x.com/ShashwatGoel7/status/2067954502435480050?s=20
-27. overnight weight updating? instead of overnight consolidation? anthropic would be checking whether its possible to just incorporate everyones preferences into a singleton LLM, 'programmed' by KV
-28. Some strand between economics around setting up compute with how inference actually works with how to productize models for end user
-29. A good continual learning system will tease out orders of magnitude more context from its users and be orders of magnitude more retentive
-30. Guy can’t use HL wallet tracker 
-31. We probably need to get more specific on the economies of scale I think our (my) current understanding is poor. Like if a Blackwell rack has 72 GPUs, and anthropic has 10 of those, and I have one. Is it that I can serve 1/10th of the customers at the same cost, or is it that we can serve the same amount of customers but i have to charge 10x the price for the same profit? If it’s both, then there will always be a wedge for lower scale providers with fewer GPUs that can serve fewer customers with the same or lower pricing. Additionally a frontier open source model increases the ROI on compute for everyone else besides the people with better models, chipping away at economies of scale.
+7. how does GDP > money printing = deflation in the sense that AI causes GDP increases that surpass money printing? the US wouldnt allow deflation and would print more, no? but then do what with that money? if they printed money to plow into data centers what would the granular flow of dollars (rights and obligations) even look like
+8. marketplace between GPU racks and intelligence use cases, enabled by algorithms and data
+9. Theory of mind seems different from actually predicting what someone else will do and taking advantage of that in a competitive environment
+10. https://www.youtube.com/watch?v=GwSl1OH1i4w
+11. Seem to have lost the tab with the list of thiel quotes, i think shared by richard ngo
+12. Is memory a mapping of prior activations to environmental observations?
+13. https://x.com/jsuarez/status/2067272190702256340?s=20
+14. https://github.com/siyuan-note/siyuan And logseq
+15. Most people probably don’t/can’t have their internal monologue publicized? Need to sample the environment
+16. It’s incredibly stupid, especially from the outside looking in, to try to build a startup and not talk to anyone 
+17. What would a successful future you change about you today
+18. https://x.com/elonmusk/status/2068369665647108524?s=20
+19. The people that call glm 5.2 an inflection point and assume people will use that over closed source frontier are implicitly saying that frontier model diff to closed source increasingly drifts from actual use cases. There is also some compute argument here that is upstream of the pricing argument that might be necessary to articulate to make the above claim since the above claim feels a bit off in practice 
+20. https://x.com/willccbb/status/2068210850700353537?s=20
+21. https://x.com/sethkarten/status/2068011592877502534?s=20
+22. https://x.com/jsuarez/status/2068025057755197638?s=20
+23. https://x.com/dwarkesh_sp/status/2068019716849815869?s=20
+24. even if frontier LLMs are programmable in theory, that doesnt mean you know how to program them. you would still need to specify a reward model somehow (perhaps some other system, even another AI, determines the best way to prompt/program the main AI)
+25. https://x.com/teortaxesTex/status/2067872311030550634?s=20
+26. https://arxiv.org/abs/2606.06492 Code2lora
+27. https://arxiv.org/abs/2606.13473 Example of singleton outcome
+28. https://x.com/ShashwatGoel7/status/2067954502435480050?s=20
+29. overnight weight updating? instead of overnight consolidation? anthropic would be checking whether its possible to just incorporate everyones preferences into a singleton LLM, 'programmed' by KV
+30. Some strand between economics around setting up compute with how inference actually works with how to productize models for end user
+31. A good continual learning system will tease out orders of magnitude more context from its users and be orders of magnitude more retentive
+32. Guy can’t use HL wallet tracker 
+33. We probably need to get more specific on the economies of scale I think our (my) current understanding is poor. Like if a Blackwell rack has 72 GPUs, and anthropic has 10 of those, and I have one. Is it that I can serve 1/10th of the customers at the same cost, or is it that we can serve the same amount of customers but i have to charge 10x the price for the same profit? If it’s both, then there will always be a wedge for lower scale providers with fewer GPUs that can serve fewer customers with the same or lower pricing. Additionally a frontier open source model increases the ROI on compute for everyone else besides the people with better models, chipping away at economies of scale.
 	1. not sure this was answered by jakub at latest meeting
-32. Meta is a data labeling org now? Twitter tweets about it
-33. https://x.com/jonchu/status/2063295773169910001?s=20 good startup advice as I consider markets
-34. https://thealliance.ai/projects/tapestry
-35. https://x.com/castformai
+34. Meta is a data labeling org now? Twitter tweets about it
+35. https://x.com/jonchu/status/2063295773169910001?s=20 good startup advice as I consider markets
+36. https://thealliance.ai/projects/tapestry
+37. https://x.com/castformai
 	1. https://arxiv.org/abs/2606.15532v1 emotional intelligence bench
-36. https://river.ai/ how does this relate to my blog?
-37. https://x.com/oneill_c/status/2067673179536208062?s=20
-38. https://x.com/perplexity_ai/status/2067642139014742348?s=20
-39. https://x.com/sheriyuo/status/2067514445488947366?s=20
-40. [https://x.com/lossfunk/status/2067589548759261531?s=20](https://x.com/lossfunk/status/2067589548759261531?s=20)
-41. [https://x.com/jsuarez/status/2067272190702256340?s=20](https://x.com/jsuarez/status/2067272190702256340?s=20)
-42. https://x.com/satyanadella/status/2066182223213293753
-43. https://arxiv.org/pdf/2405.17713 AI Alignment with Changing and Influenceable Reward Functions Dragan 2024
+38. https://river.ai/ how does this relate to my blog?
+39. https://x.com/oneill_c/status/2067673179536208062?s=20
+40. https://x.com/perplexity_ai/status/2067642139014742348?s=20
+41. https://x.com/sheriyuo/status/2067514445488947366?s=20
+42. [https://x.com/lossfunk/status/2067589548759261531?s=20](https://x.com/lossfunk/status/2067589548759261531?s=20)
+43. [https://x.com/jsuarez/status/2067272190702256340?s=20](https://x.com/jsuarez/status/2067272190702256340?s=20)
+44. https://x.com/satyanadella/status/2066182223213293753
+45. https://arxiv.org/pdf/2405.17713 AI Alignment with Changing and Influenceable Reward Functions Dragan 2024
 	1. an example given here is if someone is trying to lose weight, should the model optimize for losing weight even if they get higher short term reward for eating candy? if the model says no candy the user might be mad. if the model says candy the user might be mad. not sure how they reconcile but the way i'd reconcile is always optimizing for long term rewards, and choosing short term rewards to the extent by which they increase intrinsic motivation to continue pursuing long term rewards.
 	2. probably relates to research around intrinsic motivation / laziness in models. there is likely an actual term for this in human psychology
 	3. https://people.eecs.berkeley.edu/~anca/publications.html worth exploring. lots of relevant information
@@ -56,121 +57,121 @@
 		1. seems to relate to [[AIXI]] since the agent manages a set of possible 'true' reward functions and adopts a policy based on its observations + coupled with its environment a la MUPI if the fear of persuading the human to change to make its own job easier is well founded
 		2. git history as the history over which the agent learns in the [[PDEV]] sense feels directionally correct but overall lacking in context (what i read, what i see, what i conversate, etc)
 	7. https://gemini.google.com/app/f44fe68a684ec176 early part of this topic. it eventually degrades
-44. https://arxiv.org/pdf/2408.16984 interesting paper that seems, from the abstract, to conclude anthropic's approach is superior, but then says that this leads to pluralism?
-45. if its unclear what is latent in an LLM, then GEPA is the best way of figuring out whats latent?
+46. https://arxiv.org/pdf/2408.16984 interesting paper that seems, from the abstract, to conclude anthropic's approach is superior, but then says that this leads to pluralism?
+47. if its unclear what is latent in an LLM, then GEPA is the best way of figuring out whats latent?
 	1. definitely feels wasteful to have to spend a ton of tokens figuring out what the state of the computer even is, rather than just using it, especially since its expensive
-46. https://jacobxli.com/blog/2026/machine-studying/ seems very relevant to continual learning, possibly good benchmark
-47. https://arxiv.org/pdf/2606.16475 persuasion bench. ai outperforms humans, even on charity raising
-48. https://gemini.google.com/app/d3409327dab2a45f explanation for PNLC https://arxiv.org/abs/2505.18098 vs NLAC
+48. https://jacobxli.com/blog/2026/machine-studying/ seems very relevant to continual learning, possibly good benchmark
+49. https://arxiv.org/pdf/2606.16475 persuasion bench. ai outperforms humans, even on charity raising
+50. https://gemini.google.com/app/d3409327dab2a45f explanation for PNLC https://arxiv.org/abs/2505.18098 vs NLAC
 	1. can you apply the step from PNLC -> NLAC to PPI? think i had a claude chat somewhere about this. the take seemed to be yes its possible since LLMs are fundamentally the same structure as the GRUs that were tested. again also seems related to SDPO
-49. is NLAC similar to continual/interactive learning if you replace the critic with a human? starting to feel like this vague idea doesn't actually make sense because what are you even learning/predicting?
-50. how to deal with states that truthfully reward the user but the user doesn't recognize as such? this is probably the basis for sycophancy. probably similar to P vs NP. i can verify that i like something after i have it but i cannot tell you or codify it before hand.
-51. are RL rollouts equivalent to 'predicting the environment and predicting your own actions'? i dont see what the difference is. at least for single model rollouts not self play. https://claude.ai/chat/2c9bd8d1-5bb3-452b-9090-faaf8efd1ae7
-52. **described update to jakub as MARL -> epistemic integrity / prompt injection resistance / embedded agency AND/OR CIRL / interaction models / assistance games, with RSI asterisk looming over everything. is that comprehensive?** 
+51. is NLAC similar to continual/interactive learning if you replace the critic with a human? starting to feel like this vague idea doesn't actually make sense because what are you even learning/predicting?
+52. how to deal with states that truthfully reward the user but the user doesn't recognize as such? this is probably the basis for sycophancy. probably similar to P vs NP. i can verify that i like something after i have it but i cannot tell you or codify it before hand.
+53. are RL rollouts equivalent to 'predicting the environment and predicting your own actions'? i dont see what the difference is. at least for single model rollouts not self play. https://claude.ai/chat/2c9bd8d1-5bb3-452b-9090-faaf8efd1ae7
+54. **described update to jakub as MARL -> epistemic integrity / prompt injection resistance / embedded agency AND/OR CIRL / interaction models / assistance games, with RSI asterisk looming over everything. is that comprehensive?** 
 	1. **his take was that epistemics is often grounded in human feeling/intuition which consolidates it with the latter point**
-53. i think its robust to believe that RSI will not be able to improve epistemic integrity over an existing out of the box product, if it existed, since the potential weight updating required to self improve would be too costly even for a superintelligence? 
-54. https://arxiv.org/abs/2601.20802 how does SDPO relate to interactive / continuous inverse learning? seems relevant
-55. epistemic integrity feels necessary for actually improving priors + discovering truth which feels necessary for collective intelligence to be value creative over singleton intelligence. otherwise as sutton puts it youre missing the selective retention part of variation and evaluation. although not sure why its not just variation and selection
-56. is china's open source culture an example of 'commodifying your complement'? i.e. they commodify algorithms because they likely win on compute longer term. by that analog anthropic should want to commodify compute but they can't really.
-57. if its written by AI, expect only AI to read it. if only AI is reading it, why write it without AI? feels pretty easy to tell the difference between something made for agents (AEO) and something made for humans (non-average voice)
-58. arena.ai is similar to LM arena except for frontend design. what was the GTM there? dynamic, real use evals still feel crucial. even better if they proxy things people would pay for
-59. https://x.com/JoshPurtell/status/2066967185818345674?s=20
-60. https://x.com/SemiAnalysis_/status/2066941079920791760?s=20
-61. https://www.forethought.org/research/will-ai-r-and-d-automation-cause-a-software-intelligence-explosion#bringing-it-all-together
-62. https://arxiv.org/abs/2506.14863 intelligence explosion estimates around ai population growth
-63. it doesnt seem like obsidian will build what i want [[PDEV]] since their core value prop involves privacy, whereas i want public by default + cloud AI analyzing everything/always on
-64. its easier to share progress, and therefore make progress, if investment is permissionless. relates to RPGF, but that seems a bit too idealistic.
-65. how is epistemic integrity benchmarked in LLMs, if at all? the success of collective intelligence and non singleton outcomes is downstream of this.
+55. i think its robust to believe that RSI will not be able to improve epistemic integrity over an existing out of the box product, if it existed, since the potential weight updating required to self improve would be too costly even for a superintelligence? 
+56. https://arxiv.org/abs/2601.20802 how does SDPO relate to interactive / continuous inverse learning? seems relevant
+57. epistemic integrity feels necessary for actually improving priors + discovering truth which feels necessary for collective intelligence to be value creative over singleton intelligence. otherwise as sutton puts it youre missing the selective retention part of variation and evaluation. although not sure why its not just variation and selection
+58. is china's open source culture an example of 'commodifying your complement'? i.e. they commodify algorithms because they likely win on compute longer term. by that analog anthropic should want to commodify compute but they can't really.
+59. if its written by AI, expect only AI to read it. if only AI is reading it, why write it without AI? feels pretty easy to tell the difference between something made for agents (AEO) and something made for humans (non-average voice)
+60. arena.ai is similar to LM arena except for frontend design. what was the GTM there? dynamic, real use evals still feel crucial. even better if they proxy things people would pay for
+61. https://x.com/JoshPurtell/status/2066967185818345674?s=20
+62. https://x.com/SemiAnalysis_/status/2066941079920791760?s=20
+63. https://www.forethought.org/research/will-ai-r-and-d-automation-cause-a-software-intelligence-explosion#bringing-it-all-together
+64. https://arxiv.org/abs/2506.14863 intelligence explosion estimates around ai population growth
+65. it doesnt seem like obsidian will build what i want [[PDEV]] since their core value prop involves privacy, whereas i want public by default + cloud AI analyzing everything/always on
+66. its easier to share progress, and therefore make progress, if investment is permissionless. relates to RPGF, but that seems a bit too idealistic.
+67. how is epistemic integrity benchmarked in LLMs, if at all? the success of collective intelligence and non singleton outcomes is downstream of this.
 	1. games like avalon are a subset of epistemic integrity
 	2. "(e) Group alignment: How can AGI groups be effectively steered (either explicitly, or implicitly via, e.g., mechanism design for markets)? How can they be hardened and self-correct against epistemic hijacking and the spread of falsehoods, hallucinations & self-delusions? (f) How to ensure epistemic resilience and recoverability in asymmetric-intelligence collectives (e.g., mixed human-ASI collectives)?" from agi to asi paper
 	3. seems like the transition from taking context at face value vs taking context as an update into a prior is the difference, but what does that look like in practice? for example if a data point comes in and the probability of that data point is low, we would need to update our priors but not completely. and there is a difference between environmental sampling and collaborative opinion (lossy). trust forms when collaborative opinion updates the world model/prior towards environmental truth over time. trust is individualized reputation.
 	4. studybench feels like an example of an assistance game
-66. agency arises when reward signal is peer approval in humans? how to set a dynamic reward signal of peer approval in LLMs? relates to CIRL. perhaps relates to (non)assistant training paradigm
-67. probably need to go through these (recent papers by ECHO author) https://arxiv.org/search/cs?searchtype=author&query=Shrivastava,+V
-68. https://www.mdpi.com/1099-4300/28/6/596 genewein and hutter explore the extent to which LLMs approximate AIXI and what the specific challenges are https://gemini.google.com/app/e5723b735ee76668
+68. agency arises when reward signal is peer approval in humans? how to set a dynamic reward signal of peer approval in LLMs? relates to CIRL. perhaps relates to (non)assistant training paradigm
+69. probably need to go through these (recent papers by ECHO author) https://arxiv.org/search/cs?searchtype=author&query=Shrivastava,+V
+70. https://www.mdpi.com/1099-4300/28/6/596 genewein and hutter explore the extent to which LLMs approximate AIXI and what the specific challenges are https://gemini.google.com/app/e5723b735ee76668
 	1. seemingly a gap between append only agent turn logs as some vague 'memory' solution vs use as a formal interleaved dataset where the agent can learn causal loops, which opens up multi agent systems which opens up collective intelligence. again, ECHO seems to be the first version of this
 	2. prospective learning vs retrospective learning?
 	3. but when agents do next token prediction that's considered an 'action', no? whats the actual difference
-69. if LLM generalization is on a spectrum, then viable products of the future are downstream of being correct about the extent to which generalization occurs
-70. current understanding todos in browser: multi agent cooperating thru ICL, CIRL, AGI to ASI, MUPI/RUI, gwern GA, POMDP lectures
+71. if LLM generalization is on a spectrum, then viable products of the future are downstream of being correct about the extent to which generalization occurs
+72. current understanding todos in browser: multi agent cooperating thru ICL, CIRL, AGI to ASI, MUPI/RUI, gwern GA, POMDP lectures
 	1. https://gemini.google.com/app/eef345df5e5d14eb
 		1. ^ how do epistemic utility measurements [[Google Pi Team#^b203be]] relate to the framing of the 'incentive to ask' as the unsolved core
 	2. "Wrapping a mathematical POMDP solver around a 70B+ parameter Large Language Model is computationally impossible with current techniques." ??
 	3. "not by maintaining a dynamic Bayesian belief distribution over a hidden vector $\theta$, but by frozen reward modeling or Direct Preference Optimization. The empirical simplicity and scalability of RLHF bypassed the need to compute complex, game-theoretic joint policies." ok but we're past that now
 	4. is the context of an LLM functionally a bayesian belief state in a POMDP? and the problem perhaps with that framework is that it does not maintain multiple 'contexts' with their own probabilities of being right/useful? and this is externalized to memory solutions like Hindsight and benchmarked with stuff like BEAM? but [[Google Pi Team#^b203be]] describes differences between epistemic agents and what BEAM measures, which essentially comes down to dynamism imo. relates back to dynamic evals seemingly, but personalized perhaps [[Ideas#^7afff1]]
 	5. CIRL also seems to be related to the 'proactive' framework Randall kept mentioning. [[Experiments#^605490]], at least the part where it interjects to learn. do existing LLMs and memory handle this already?
-71. Polymarket vs Kalshi seems similar to protocol vs platform
-72. https://x.com/teortaxesTex/status/2065962301195178212?s=20
-73. https://x.com/JoshPurtell/status/2065989651752464486?s=20
-74. https://x.com/kalomaze/status/2065498921443438928?s=20
-75. [https://x.com/badlogicgames/status/2061941296932004175?s=20](https://x.com/badlogicgames/status/2061941296932004175?s=20) as a stepping stone to models as tools for models? Dynamic workflows  
+73. Polymarket vs Kalshi seems similar to protocol vs platform
+74. https://x.com/teortaxesTex/status/2065962301195178212?s=20
+75. https://x.com/JoshPurtell/status/2065989651752464486?s=20
+76. https://x.com/kalomaze/status/2065498921443438928?s=20
+77. [https://x.com/badlogicgames/status/2061941296932004175?s=20](https://x.com/badlogicgames/status/2061941296932004175?s=20) as a stepping stone to models as tools for models? Dynamic workflows  
     1. [https://x.com/a1zhang/status/2060071701879066626](https://x.com/a1zhang/status/2060071701879066626)   
-76. [https://x.com/mustafasuleyman/status/2061880164498428188?s=20](https://x.com/mustafasuleyman/status/2061880164498428188?s=20)   
-77. [https://x.com/eliebakouch/status/2061965825037254947?s=20](https://x.com/eliebakouch/status/2061965825037254947?s=20)   
-78. [https://x.com/perplexity\_ai/status/2061506359326384319?s=20](https://x.com/perplexity_ai/status/2061506359326384319?s=20)   
-79. [https://variant.fund/articles/value-open-harnesses/](https://variant.fund/articles/value-open-harnesses/)   
-80. [https://x.com/kalomaze/status/2062261215116874223?s=20](https://x.com/kalomaze/status/2062261215116874223?s=20)  
-81. [https://x.com/dwarkesh\_sp/status/2062353335529935114?s=20](https://x.com/dwarkesh_sp/status/2062353335529935114?s=20)  
-82. [https://x.com/NVIDIAAI/status/2062521325076299981?s=20](https://x.com/NVIDIAAI/status/2062521325076299981?s=20)   
-83. [https://x.com/eglyman/status/2062526944265048285?s=20](https://x.com/eglyman/status/2062526944265048285?s=20)   
-84. [https://gemini.google.com/app/ecf40bd8459d2a5e](https://gemini.google.com/app/ecf40bd8459d2a5e)   
-85. [https://papers.ssrn.com/sol3/papers.cfm?abstract\_id=6833760](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6833760)   
-86. [https://x.com/srush\_nlp/status/2062359839783657816?s=20](https://x.com/srush_nlp/status/2062359839783657816?s=20)   
-87. [https://newsletter.semianalysis.com/p/to-boldly-go-the-case-for-space-datacenters?\_gl=1\*1gj8d24\*\_ga\*MTY2ODQ5MDQwMy4xNzc4MDI2NTY1\*\_ga\_FKWNM9FBZ3\*czE3ODA1OTc3MzEkbzYkZzAkdDE3ODA1OTc3MzEkajYwJGwwJGgxNDkzMjExMDk](https://newsletter.semianalysis.com/p/to-boldly-go-the-case-for-space-datacenters?_gl=1*1gj8d24*_ga*MTY2ODQ5MDQwMy4xNzc4MDI2NTY1*_ga_FKWNM9FBZ3*czE3ODA1OTc3MzEkbzYkZzAkdDE3ODA1OTc3MzEkajYwJGwwJGgxNDkzMjExMDk).   
-88. GEPA does not seem like it would work, how is this not overfitting / run into the same issues with a bunch of skills that end up being poorly used? I think chi jin’s goedel prover v2 runs into the issue but maybe thats specifically related to weight updating. Regardless, updating in ‘prompt space’ seems interesting to be able to improve frontier models instead of fine tuning. Also the labs will probably serve frontier models more cheaply than you can on rented GPUs  
-89. [https://docs.massgen.ai/en/latest/](https://docs.massgen.ai/en/latest/)   
-90. [https://substack.com/@gwern/note/c-270310673](https://substack.com/@gwern/note/c-270310673)   
-91. [What remains scarce after AGI? – Alex Imas and Phil Trammell](https://www.youtube.com/watch?v=Jj-kBHzUohs)   
-92. [https://x.com/PrimeIntellect/status/2062724179296952412?s=20](https://x.com/PrimeIntellect/status/2062724179296952412?s=20)  
-93. [https://x.com/abhijaymrana/status/2062817082518258060?s=20](https://x.com/abhijaymrana/status/2062817082518258060?s=20)  
-94. [https://x.com/tenobrus/status/2062729311233454363?s=20](https://x.com/tenobrus/status/2062729311233454363?s=20)  
-95. [https://x.com/geetkhosla/status/2062507967010730426?s=20](https://x.com/geetkhosla/status/2062507967010730426?s=20)  
-96. [https://x.com/JoshPurtell/status/2062605789454385338?s=20](https://x.com/JoshPurtell/status/2062605789454385338?s=20)  
-97. [https://x.com/gakonst/status/2062116487708512355?s=20](https://x.com/gakonst/status/2062116487708512355?s=20)  
-98. [https://substack.com/home/post/p-197387291](https://substack.com/home/post/p-197387291)   
+78. [https://x.com/mustafasuleyman/status/2061880164498428188?s=20](https://x.com/mustafasuleyman/status/2061880164498428188?s=20)   
+79. [https://x.com/eliebakouch/status/2061965825037254947?s=20](https://x.com/eliebakouch/status/2061965825037254947?s=20)   
+80. [https://x.com/perplexity\_ai/status/2061506359326384319?s=20](https://x.com/perplexity_ai/status/2061506359326384319?s=20)   
+81. [https://variant.fund/articles/value-open-harnesses/](https://variant.fund/articles/value-open-harnesses/)   
+82. [https://x.com/kalomaze/status/2062261215116874223?s=20](https://x.com/kalomaze/status/2062261215116874223?s=20)  
+83. [https://x.com/dwarkesh\_sp/status/2062353335529935114?s=20](https://x.com/dwarkesh_sp/status/2062353335529935114?s=20)  
+84. [https://x.com/NVIDIAAI/status/2062521325076299981?s=20](https://x.com/NVIDIAAI/status/2062521325076299981?s=20)   
+85. [https://x.com/eglyman/status/2062526944265048285?s=20](https://x.com/eglyman/status/2062526944265048285?s=20)   
+86. [https://gemini.google.com/app/ecf40bd8459d2a5e](https://gemini.google.com/app/ecf40bd8459d2a5e)   
+87. [https://papers.ssrn.com/sol3/papers.cfm?abstract\_id=6833760](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6833760)   
+88. [https://x.com/srush\_nlp/status/2062359839783657816?s=20](https://x.com/srush_nlp/status/2062359839783657816?s=20)   
+89. [https://newsletter.semianalysis.com/p/to-boldly-go-the-case-for-space-datacenters?\_gl=1\*1gj8d24\*\_ga\*MTY2ODQ5MDQwMy4xNzc4MDI2NTY1\*\_ga\_FKWNM9FBZ3\*czE3ODA1OTc3MzEkbzYkZzAkdDE3ODA1OTc3MzEkajYwJGwwJGgxNDkzMjExMDk](https://newsletter.semianalysis.com/p/to-boldly-go-the-case-for-space-datacenters?_gl=1*1gj8d24*_ga*MTY2ODQ5MDQwMy4xNzc4MDI2NTY1*_ga_FKWNM9FBZ3*czE3ODA1OTc3MzEkbzYkZzAkdDE3ODA1OTc3MzEkajYwJGwwJGgxNDkzMjExMDk).   
+90. GEPA does not seem like it would work, how is this not overfitting / run into the same issues with a bunch of skills that end up being poorly used? I think chi jin’s goedel prover v2 runs into the issue but maybe thats specifically related to weight updating. Regardless, updating in ‘prompt space’ seems interesting to be able to improve frontier models instead of fine tuning. Also the labs will probably serve frontier models more cheaply than you can on rented GPUs  
+91. [https://docs.massgen.ai/en/latest/](https://docs.massgen.ai/en/latest/)   
+92. [https://substack.com/@gwern/note/c-270310673](https://substack.com/@gwern/note/c-270310673)   
+93. [What remains scarce after AGI? – Alex Imas and Phil Trammell](https://www.youtube.com/watch?v=Jj-kBHzUohs)   
+94. [https://x.com/PrimeIntellect/status/2062724179296952412?s=20](https://x.com/PrimeIntellect/status/2062724179296952412?s=20)  
+95. [https://x.com/abhijaymrana/status/2062817082518258060?s=20](https://x.com/abhijaymrana/status/2062817082518258060?s=20)  
+96. [https://x.com/tenobrus/status/2062729311233454363?s=20](https://x.com/tenobrus/status/2062729311233454363?s=20)  
+97. [https://x.com/geetkhosla/status/2062507967010730426?s=20](https://x.com/geetkhosla/status/2062507967010730426?s=20)  
+98. [https://x.com/JoshPurtell/status/2062605789454385338?s=20](https://x.com/JoshPurtell/status/2062605789454385338?s=20)  
+99. [https://x.com/gakonst/status/2062116487708512355?s=20](https://x.com/gakonst/status/2062116487708512355?s=20)  
+100. [https://substack.com/home/post/p-197387291](https://substack.com/home/post/p-197387291)   
     1. Feeling like this post makes arguments that could be usefully extended by well analyzing the nvidia tech report and microsoft tech report recently and coming to novel conclusions about scaling complexity  
     2. This also seems to indicate that the karpathy hire on pretraining is due to the fact that pretraining was paused rather than saturated, but incoming compute will continue to deliver major scaling gains  
-99. [https://www.youtube.com/watch?v=3Yxmjf57sco](https://www.youtube.com/watch?v=3Yxmjf57sco)   
-100. Steven Byrnes less wrong writing  
-101. [https://vkrakovna.wordpress.com](https://vkrakovna.wordpress.com) specification gaming  
-102. [https://www.campbellramble.ai](https://www.campbellramble.ai)  
-103. Goodfire AI research  
-104. [https://x.com/dwarkesh\_sp/status/2063335334566621297?s=20](https://x.com/dwarkesh_sp/status/2063335334566621297?s=20)  
-105. [https://arxiv.org/abs/2606.02800](https://arxiv.org/abs/2606.02800)  
-106. [https://x.com/chelseabfinn/status/2063433906985005510?s=20](https://x.com/chelseabfinn/status/2063433906985005510?s=20) CHELSEA  
-107. [https://x.com/lateinteraction/status/2061242049622671746?s=20](https://x.com/lateinteraction/status/2061242049622671746?s=20)  
-108. [https://x.com/kalomaze/status/2063122579028889983?s=20](https://x.com/kalomaze/status/2063122579028889983?s=20)  
-109. [https://x.com/geetkhosla/status/2062507967010730426?s=20](https://x.com/geetkhosla/status/2062507967010730426?s=20)  
-110. [https://x.com/JoshPurtell/status/2062605789454385338?s=20](https://x.com/JoshPurtell/status/2062605789454385338?s=20)  
-111. [https://x.com/NoahZiems/status/2062311582580023607?s=20](https://x.com/NoahZiems/status/2062311582580023607?s=20)  
-112. [https://x.com/tenobrus/status/2062729311233454363?s=20](https://x.com/tenobrus/status/2062729311233454363?s=20)   
+101. [https://www.youtube.com/watch?v=3Yxmjf57sco](https://www.youtube.com/watch?v=3Yxmjf57sco)   
+102. Steven Byrnes less wrong writing  
+103. [https://vkrakovna.wordpress.com](https://vkrakovna.wordpress.com) specification gaming  
+104. [https://www.campbellramble.ai](https://www.campbellramble.ai)  
+105. Goodfire AI research  
+106. [https://x.com/dwarkesh\_sp/status/2063335334566621297?s=20](https://x.com/dwarkesh_sp/status/2063335334566621297?s=20)  
+107. [https://arxiv.org/abs/2606.02800](https://arxiv.org/abs/2606.02800)  
+108. [https://x.com/chelseabfinn/status/2063433906985005510?s=20](https://x.com/chelseabfinn/status/2063433906985005510?s=20) CHELSEA  
+109. [https://x.com/lateinteraction/status/2061242049622671746?s=20](https://x.com/lateinteraction/status/2061242049622671746?s=20)  
+110. [https://x.com/kalomaze/status/2063122579028889983?s=20](https://x.com/kalomaze/status/2063122579028889983?s=20)  
+111. [https://x.com/geetkhosla/status/2062507967010730426?s=20](https://x.com/geetkhosla/status/2062507967010730426?s=20)  
+112. [https://x.com/JoshPurtell/status/2062605789454385338?s=20](https://x.com/JoshPurtell/status/2062605789454385338?s=20)  
+113. [https://x.com/NoahZiems/status/2062311582580023607?s=20](https://x.com/NoahZiems/status/2062311582580023607?s=20)  
+114. [https://x.com/tenobrus/status/2062729311233454363?s=20](https://x.com/tenobrus/status/2062729311233454363?s=20)   
     1. im not seeing people talk about it much so just a heads up: dynamic workflows in claude code are actually insanely fucking useful and powerful. clearly the right / sane way to do "agent orchestration". very much worth trying  
-113. [https://www.dwarkesh.com/p/the-sample-efficiency-black-hole](https://www.dwarkesh.com/p/the-sample-efficiency-black-hole)   
-114. [https://x.com/eliebakouch/status/2063849409515843635?s=20](https://x.com/eliebakouch/status/2063849409515843635?s=20)   
-115. [https://www.lesswrong.com/posts/JT3qCYDimskcBdiEr/the-hard-core-of-alignment-is-robustifying-rl](https://www.lesswrong.com/posts/JT3qCYDimskcBdiEr/the-hard-core-of-alignment-is-robustifying-rl)   
-116. [https://x.com/teortaxesTex/status/2064264430980886774?s=20](https://x.com/teortaxesTex/status/2064264430980886774?s=20)   
-117. [https://github.com/NVIDIA-NeMo/Nemotron/tree/main](https://github.com/NVIDIA-NeMo/Nemotron/tree/main)   
-118. [https://x.com/teortaxesTex/status/2064605846546301124?s=20](https://x.com/teortaxesTex/status/2064605846546301124?s=20)   
-119. [https://x.com/teortaxesTex/status/2064550527979917631?s=20](https://x.com/teortaxesTex/status/2064550527979917631?s=20)   
-120. [https://x.com/svlevine/status/2064556217289318528?s=20](https://x.com/svlevine/status/2064556217289318528?s=20)   
-121. [https://x.com/dwarkesh\_sp/status/2064422596620472560?s=20](https://x.com/dwarkesh_sp/status/2064422596620472560?s=20)   
-122. [https://x.com/emollick/status/2064395281903346013?s=20](https://x.com/emollick/status/2064395281903346013?s=20)   
-123. [https://x.com/polynoamial/status/2064210146558136827?s=20](https://x.com/polynoamial/status/2064210146558136827?s=20)   
-124. [https://x.com/eliebakouch/status/2064086258687578348?s=20](https://x.com/eliebakouch/status/2064086258687578348?s=20)   
-125. [https://x.com/eliebakouch/status/2064736476995146014?s=20](https://x.com/eliebakouch/status/2064736476995146014?s=20)   
-126. [https://www.a16z.news/p/institutional-ai-vs-individual-ai](https://www.a16z.news/p/institutional-ai-vs-individual-ai) coordination as first pillar here very similar to my multi agent take. The signal part feels like what im trying to do with the future version of these notes and my listed problems. Unprompted is also a novel thought ive been exploring, similar to proactivity per the randall takes.   
-127. Is this guy super cracked out? How does his embodiment take relate to current work and/or multi agent work and/or AIXI? [https://scott.garrabrant.com/](https://scott.garrabrant.com/)   
-128. Magnetic mirror descent [https://arxiv.org/abs/2206.05825](https://arxiv.org/abs/2206.05825) 
-129. [https://gwern.net/rl-children](https://gwern.net/rl-children)  
-130. https://x.com/RyanPGreenblatt/status/2065185280295100481?s=20
-131. https://x.com/emollick/status/2065200484613296269?s=20
-132. https://x.com/robinhanson/status/2065122280875946014?s=20
-133. https://x.com/jjacky/status/2064767118118117491?s=20
-134. https://substack.com/@gwern/note/c-266997559?r=4r3bqf&utm_medium=ios&utm_source=notes-share-action
-135. https://arxiv.org/pdf/2603.10476
-136. https://arxiv.org/pdf/2604.09855
-137. https://arxiv.org/pdf/2606.13681 
-138. https://x.com/chelseabfinn/status/2065559130929291630?s=20 CHELSEA
-139. https://arxiv.org/abs/1709.04326 LOLA
+115. [https://www.dwarkesh.com/p/the-sample-efficiency-black-hole](https://www.dwarkesh.com/p/the-sample-efficiency-black-hole)   
+116. [https://x.com/eliebakouch/status/2063849409515843635?s=20](https://x.com/eliebakouch/status/2063849409515843635?s=20)   
+117. [https://www.lesswrong.com/posts/JT3qCYDimskcBdiEr/the-hard-core-of-alignment-is-robustifying-rl](https://www.lesswrong.com/posts/JT3qCYDimskcBdiEr/the-hard-core-of-alignment-is-robustifying-rl)   
+118. [https://x.com/teortaxesTex/status/2064264430980886774?s=20](https://x.com/teortaxesTex/status/2064264430980886774?s=20)   
+119. [https://github.com/NVIDIA-NeMo/Nemotron/tree/main](https://github.com/NVIDIA-NeMo/Nemotron/tree/main)   
+120. [https://x.com/teortaxesTex/status/2064605846546301124?s=20](https://x.com/teortaxesTex/status/2064605846546301124?s=20)   
+121. [https://x.com/teortaxesTex/status/2064550527979917631?s=20](https://x.com/teortaxesTex/status/2064550527979917631?s=20)   
+122. [https://x.com/svlevine/status/2064556217289318528?s=20](https://x.com/svlevine/status/2064556217289318528?s=20)   
+123. [https://x.com/dwarkesh\_sp/status/2064422596620472560?s=20](https://x.com/dwarkesh_sp/status/2064422596620472560?s=20)   
+124. [https://x.com/emollick/status/2064395281903346013?s=20](https://x.com/emollick/status/2064395281903346013?s=20)   
+125. [https://x.com/polynoamial/status/2064210146558136827?s=20](https://x.com/polynoamial/status/2064210146558136827?s=20)   
+126. [https://x.com/eliebakouch/status/2064086258687578348?s=20](https://x.com/eliebakouch/status/2064086258687578348?s=20)   
+127. [https://x.com/eliebakouch/status/2064736476995146014?s=20](https://x.com/eliebakouch/status/2064736476995146014?s=20)   
+128. [https://www.a16z.news/p/institutional-ai-vs-individual-ai](https://www.a16z.news/p/institutional-ai-vs-individual-ai) coordination as first pillar here very similar to my multi agent take. The signal part feels like what im trying to do with the future version of these notes and my listed problems. Unprompted is also a novel thought ive been exploring, similar to proactivity per the randall takes.   
+129. Is this guy super cracked out? How does his embodiment take relate to current work and/or multi agent work and/or AIXI? [https://scott.garrabrant.com/](https://scott.garrabrant.com/)   
+130. Magnetic mirror descent [https://arxiv.org/abs/2206.05825](https://arxiv.org/abs/2206.05825) 
+131. [https://gwern.net/rl-children](https://gwern.net/rl-children)  
+132. https://x.com/RyanPGreenblatt/status/2065185280295100481?s=20
+133. https://x.com/emollick/status/2065200484613296269?s=20
+134. https://x.com/robinhanson/status/2065122280875946014?s=20
+135. https://x.com/jjacky/status/2064767118118117491?s=20
+136. https://substack.com/@gwern/note/c-266997559?r=4r3bqf&utm_medium=ios&utm_source=notes-share-action
+137. https://arxiv.org/pdf/2603.10476
+138. https://arxiv.org/pdf/2604.09855
+139. https://arxiv.org/pdf/2606.13681 
+140. https://x.com/chelseabfinn/status/2065559130929291630?s=20 CHELSEA
+141. https://arxiv.org/abs/1709.04326 LOLA
 92.
-140. https://openreview.net/pdf?id=fh8EYKFKns
+142. https://openreview.net/pdf?id=fh8EYKFKns
