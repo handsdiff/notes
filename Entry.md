@@ -1,10 +1,10 @@
 
-1. how does GDP > money printing = deflation in the sense that AI causes GDP increases that surpass money printing? the US wouldnt allow deflation and would print more, no? but then do what with that money? if they printed money to plow into data centers what would the granular flow of dollars (rights and obligations) even look like
-2. marketplace between GPU racks and intelligence use cases, enabled by algorithms and data
-3. Theory of mind seems different from actually predicting what someone else will do and taking advantage of that in a competitive environment
-4. https://www.youtube.com/watch?v=GwSl1OH1i4w
-5. Seem to have lost the tab with the list of thiel quotes, i think shared by richard https://www.youtube.com/watch?v=GwSl1OH1i4w
-6. Seem to have lost the tab with the list of thiel quotes, I think shared by Richard ngohave lost the tab with the list of thiel quotes, i think shared by richard 
+1. how can it be true that smaller models will get better over time as large models are distilled into them either directly (unknown mechanism) or indirectly (via algorithm knowledge diffusion) while also that larger models will get better over time for the same reason? if large models will always be better than small models, but both improve, does the gap increase or decrease? in the long term, is this a problem for frontier model creators if they don't expand product offerings? how does this impact arguments around centralization that Jakub seems to be making? if its a time frame distinction, then whats the time frame for each? we should be able to visualize it like rolling waves, no?
+2. how does GDP > money printing = deflation in the sense that AI causes GDP increases that surpass money printing? the US wouldnt allow deflation and would print more, no? but then do what with that money? if they printed money to plow into data centers what would the granular flow of dollars (rights and obligations) even look like
+3. marketplace between GPU racks and intelligence use cases, enabled by algorithms and data
+4. Theory of mind seems different from actually predicting what someone else will do and taking advantage of that in a competitive environment
+5. https://www.youtube.com/watch?v=GwSl1OH1i4w
+6. Seem to have lost the tab with the list of thiel quotes, i think shared by richard ngo
 7. Is memory a mapping of prior activations to environmental observations?
 8. https://x.com/jsuarez/status/2067272190702256340?s=20
 9. https://github.com/siyuan-note/siyuan And logseq
