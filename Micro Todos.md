@@ -7,3 +7,5 @@
 	6. possibly push git history and clean up UI on 'index' page 
 2. turn off old agents due to exe pricing and delete from precursor twitter
 3. fix HL?
+4. review inference takes from Jakub
+5. 
