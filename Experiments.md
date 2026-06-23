@@ -1,20 +1,20 @@
-1. https://gemini.google.com/app/9f79bc8534f3f938 this thread explaining tightly scoped experiments displaying the importance of holding a set of world priors within the context of prospective learning within the context of 'models as tools for models' and the context of sociality as the next intelligence frontier [[AIXI#^4148c8]]
-2. lot of positive emotions when i read this
-	1. i wonder whether a better model for agents is not to have users label responses in a chat, but rather the human does its work and the agent attempts to learn to follow it, and then eventually push it forward, via something like inverse RL or cooperative inverse RL.
-		1. how are assistance games [[MARL#^0ac960]] related to CIRL related to interaction/corrigibility/MARL? seems like CIRL is an assistance game?
-	2. "An observational CIRL model provides a smooth, elegant multi-phase lifecycle for agent deployment: ^605490
+- https://gemini.google.com/app/9f79bc8534f3f938 this thread explaining tightly scoped experiments displaying the importance of holding a set of world priors within the context of prospective learning within the context of 'models as tools for models' and the context of sociality as the next intelligence frontier [[AIXI#^4148c8]]
+- lot of positive emotions when i read this
+	- i wonder whether a better model for agents is not to have users label responses in a chat, but rather the human does its work and the agent attempts to learn to follow it, and then eventually push it forward, via something like inverse RL or cooperative inverse RL.
+		- how are assistance games [[MARL#^0ac960]] related to CIRL related to interaction/corrigibility/MARL? seems like CIRL is an assistance game?
+	- "An observational CIRL model provides a smooth, elegant multi-phase lifecycle for agent deployment: ^605490
 		- Phase 1: Shadowing (Pure IRL): The agent runs in the background of the user’s development environment or workspace, acting as a passive telemetry engine. It maps user keystrokes, shell commands, and file changes to construct an internal representation of the user’s workflows and style.
 		- Phase 2: Assistance Game (CIRL): The agent begins cautiously intervening. It might open a PR with the boilerplate code for a task it infers the human is about to do. If the human accepts or slightly adjusts it, the agent refines its belief distribution of the reward function $\theta$.
 		- Phase 3: Pushing the Frontier: Once the agent has accurately modeled the user's reward function $\theta$, it can use raw computing power (e.g., massive Monte Carlo Tree Search or Test-Time Compute) to discover paths to that reward that the human _never thought of_. It can optimize infrastructure, refactor code algorithms for extreme performance, or chain tool calls in ways that achieve the human’s desired state faster and cheaper than the human could manually execute." ^ec1e08
 	- really like this idea ^ when applied to predicting the next action of the user (as part of the agent's environment, as a step to predicting next action of a system of users or multiple users)
 	- https://gemini.google.com/app/f06bf6e9d84dec3c
-4. Play around with Centaur  
-    1. [https://x.com/gakonst/status/2059477808913777119?s=20](https://x.com/gakonst/status/2059477808913777119?s=20)  
-    2. [https://x.com/arjunblj/status/2057498237263822851?s=20](https://x.com/arjunblj/status/2057498237263822851?s=20)  
-    3. [https://github.com/paradigmxyz/centaur](https://github.com/paradigmxyz/centaur)   
-    4. [https://x.com/gakonst/status/2061004126465429534?s=20](https://x.com/gakonst/status/2061004126465429534?s=20)   
-5. Play around with Cogames  
-6. Play around with Pufferlib  
-7. Play around with Tinker  
-8. Play around with Prime Intellect  
-9. https://sfp.paradigm-36f.workers.dev/ submit to this with ideas from Goedel prover v2 from chi jin?
+- Play around with Centaur  
+    - [https://x.com/gakonst/status/2059477808913777119?s=20](https://x.com/gakonst/status/2059477808913777119?s=20)  
+    - [https://x.com/arjunblj/status/2057498237263822851?s=20](https://x.com/arjunblj/status/2057498237263822851?s=20)  
+    - [https://github.com/paradigmxyz/centaur](https://github.com/paradigmxyz/centaur)   
+    - [https://x.com/gakonst/status/2061004126465429534?s=20](https://x.com/gakonst/status/2061004126465429534?s=20)   
+- Play around with Cogames  
+- Play around with Pufferlib  
+- Play around with Tinker  
+- Play around with Prime Intellect  
+- https://sfp.paradigm-36f.workers.dev/ submit to this with ideas from Goedel prover v2 from chi jin?

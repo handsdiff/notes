@@ -1,8 +1,8 @@
-1. Understanding language modeling from scratch  
-2. [https://www.youtube.com/playlist?list=PLoROMvodv4rMqXOcazWaTUHhq-yembLCV](https://www.youtube.com/playlist?list=PLoROMvodv4rMqXOcazWaTUHhq-yembLCV) \+ [https://cs336.stanford.edu/](https://cs336.stanford.edu/)   
-3. [https://pub.sakana.ai/diffusionblocks/](https://pub.sakana.ai/diffusionblocks/)   
-4. [https://arxiv.org/pdf/2606.02437](https://arxiv.org/pdf/2606.02437) PEFT, multi lora, similar to models as models  
-5. https://loniss.com/cambrian-thesis
+- Understanding language modeling from scratch  
+- [https://www.youtube.com/playlist?list=PLoROMvodv4rMqXOcazWaTUHhq-yembLCV](https://www.youtube.com/playlist?list=PLoROMvodv4rMqXOcazWaTUHhq-yembLCV) \+ [https://cs336.stanford.edu/](https://cs336.stanford.edu/)   
+- [https://pub.sakana.ai/diffusionblocks/](https://pub.sakana.ai/diffusionblocks/)   
+- [https://arxiv.org/pdf/2606.02437](https://arxiv.org/pdf/2606.02437) PEFT, multi lora, similar to models as models  
+- https://loniss.com/cambrian-thesis
 
 - useful verifiers for inference serving understanding
 	- explain intuitively how thinking machines' interaction model inference differs from typical large scale inference performed by frontier labs
