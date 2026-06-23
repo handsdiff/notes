@@ -5,7 +5,5 @@
 	4. inbound capability / interest form
 	5. also change substack to worldmodels.substack. could also change github.io to worldmodels(dot). 
 	6. possibly push git history and clean up UI on 'index' page 
-2. turn off old agents due to exe pricing and delete from precursor twitter
-3. fix HL?
-4. review inference takes from Jakub
-5. 
+2. fix HL?
+3. review inference takes from Jakub
