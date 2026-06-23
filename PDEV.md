@@ -33,6 +33,6 @@ note taking ^^ into social network where the value prop is provenance? (i came u
 
 the next step for the AI vision would be codifying the state, actions, observations, and rewards akin to how its done in the appendix of [[Google Pi Team#^b98596]]
 
-[[Actualization through superintelligence]]
-
 the app should enrich links to be able to more quickly skim and handle as needed. specifically X and arxiv
+
+for showing git commit history on the UI, i scoped it out and its a bit complicated. my claude has a local md file with the spec in its own words. essentially what's needed is the right hand view of quartz should show a reverse chronological list of commits. when a commit is clicked it should be shaded to indicate its selected and quartz should show the version of the notes at the commit, along with the diff from the parent commit. the green/red highlighting should match the yellow highlighting for backlinks that already exists, and the files that are edited should be highlighted yellow in the left hand list. if deselected, the notes should go back to the current version.
