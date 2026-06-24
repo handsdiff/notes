@@ -18,3 +18,4 @@
 	- LPUs work up to 70B params (on vera rubin) and 1-4T (on feynman)
 	- 1-5T serve well on a 72 GPU rack
 	- nvidia working on 1152 GPU racks for feynman
+	- the other trend 
