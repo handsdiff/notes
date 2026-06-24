@@ -1,8 +1,6 @@
 
 - 
-- https://x.com/abhijaymrana/status/2069439586615386431
 - is it possible to iteratively test LLM search optimization by querying leading LLMs with a question, then pushing content to the internet, then seeing if the answer changes, and looping until all questions you want to mention you are mentioning you? why or why not (probably indexing speed)? does anyone do this?
-- https://x.com/EngramLab/status/2069465879696576844
 - https://x.com/henrytdowling/status/2054246434506199529
 - theres currently likely multiple options for the potential winner of frequency of weight updating vs cost vs value delivered to customer and it will likely schell around the first to pmf, for each unique market
 - https://www.workshoplabs.ai/blog
