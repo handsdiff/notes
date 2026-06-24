@@ -1,5 +1,5 @@
 
-- 
+- struggling with implementing the diff view on the UI vs doing something else. feels a bit uncomfortable in terms of having 'blinders' on. i have a scope listed to my ai
 - https://x.com/abhijaymrana/status/2069439586615386431
 - is it possible to iteratively test LLM search optimization by querying leading LLMs with a question, then pushing content to the internet, then seeing if the answer changes, and looping until all questions you want to mention you are mentioning you? why or why not (probably indexing speed)? does anyone do this?
 - https://x.com/EngramLab/status/2069465879696576844
