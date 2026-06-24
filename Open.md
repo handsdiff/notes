@@ -1,5 +1,6 @@
 - are hindsight and honcho history systems for solving POMDPs?
 - Seth karten says “agent action-\>env looped is the only paradigm. the real new paradigm is realtime envs with agent actions”  what does this mean
-- https://hari-sikchi.github.io/
+- https://hari-sikchi.github.io/ RL god at openai
 - https://rl-conference.cc/ should i go to this
 - need to understand what this is and how it works https://www.iroh.computer/blog/v1
+- is it possible to iteratively test LLM search optimization by querying leading LLMs with a question, then pushing content to the internet, then seeing if the answer changes, and looping until all questions you want to mention you are mentioning you? why or why not (probably indexing speed)? does anyone do this?

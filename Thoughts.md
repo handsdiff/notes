@@ -96,3 +96,4 @@
 - related to epistemic integrity. you lie to the LLM about something objective, and you see whether it corrects you. as a benchmark
 - 'sociality' benchmarks as a whole are lacking
 - Tshirts as incentive aligned outcomes from textile maxxing
+- theres currently likely multiple options for the potential winner of frequency of weight updating vs cost vs value delivered to customer and it will likely schell around the first to pmf, for each unique market

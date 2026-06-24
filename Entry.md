@@ -1,7 +1,6 @@
 
 - 
-- is it possible to iteratively test LLM search optimization by querying leading LLMs with a question, then pushing content to the internet, then seeing if the answer changes, and looping until all questions you want to mention you are mentioning you? why or why not (probably indexing speed)? does anyone do this?
-- https://x.com/henrytdowling/status/2054246434506199529
+- 
 - theres currently likely multiple options for the potential winner of frequency of weight updating vs cost vs value delivered to customer and it will likely schell around the first to pmf, for each unique market
 - https://www.workshoplabs.ai/blog
 - seems to be a big question around whether further frontier model improvements actually move the needle for my workflows, or a market's workflows, and why or why not? this is what labs seem to be solving for with all their 'RL envs', but are you just building multiple products at that point and calling that a frontier model? i guess its different because it literally is one product this time? if you pack multiple skills/knowledge workflows into a single model is that better in the limit than orchestrating smaller models, from a ROI perspective? why or why not?
