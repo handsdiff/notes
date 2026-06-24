@@ -1,14 +1,7 @@
 
 - 
-- 
-- 
-- how can it be true that smaller models will get better over time as large models are distilled into them either directly (unknown mechanism) or indirectly (via algorithm knowledge diffusion) while also that larger models will get better over time for the same reason? if large models will always be better than small models, but both improve, does the gap increase or decrease? in the long term, is this a problem for frontier model creators if they don't expand product offerings? how does this impact arguments around centralization that Jakub seems to be making? if its a time frame distinction, then whats the time frame for each? we should be able to visualize it like rolling waves, no? 
-	- inspired from this https://arxiv.org/pdf/2606.16140
-- marketplace between GPU racks and intelligence use cases, enabled by algorithms and data
-- Theory of mind seems different from actually predicting what someone else will do and taking advantage of that in a competitive environment
 - https://www.youtube.com/watch?v=GwSl1OH1i4w
 - Seem to have lost the tab with the list of thiel quotes, i think shared by richard ngo
-- Is memory a mapping of prior activations to environmental observations?
 - https://x.com/jsuarez/status/2067272190702256340?s=20
 - https://github.com/siyuan-note/siyuan And logseq
 - Most people probably don’t/can’t have their internal monologue publicized? Need to sample the environment
