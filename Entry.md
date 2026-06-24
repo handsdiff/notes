@@ -1,13 +1,10 @@
 
 - 
-- https://x.com/ENERGY/status/2069425458358169727?s=20
 - https://x.com/abhijaymrana/status/2069439586615386431
 - is it possible to iteratively test LLM search optimization by querying leading LLMs with a question, then pushing content to the internet, then seeing if the answer changes, and looping until all questions you want to mention you are mentioning you? why or why not (probably indexing speed)? does anyone do this?
 - https://x.com/EngramLab/status/2069465879696576844
 - https://x.com/henrytdowling/status/2054246434506199529
 - theres currently likely multiple options for the potential winner of frequency of weight updating vs cost vs value delivered to customer and it will likely schell around the first to pmf, for each unique market
-- subagents will run on LPUs within NVIDIA GPU racks (vera rubin -> feynman) and subagents will be used 10x more (from jakub)
-	- reminds me of [[Google Pi Team]] team take on collective intelligence occurring within frontier LLMs as well
 - https://www.workshoplabs.ai/blog
 - seems to be a big question around whether further frontier model improvements actually move the needle for my workflows, or a market's workflows, and why or why not? this is what labs seem to be solving for with all their 'RL envs', but are you just building multiple products at that point and calling that a frontier model? i guess its different because it literally is one product this time? if you pack multiple skills/knowledge workflows into a single model is that better in the limit than orchestrating smaller models, from a ROI perspective? why or why not?
 - how can it be true that smaller models will get better over time as large models are distilled into them either directly (unknown mechanism) or indirectly (via algorithm knowledge diffusion) while also that larger models will get better over time for the same reason? if large models will always be better than small models, but both improve, does the gap increase or decrease? in the long term, is this a problem for frontier model creators if they don't expand product offerings? how does this impact arguments around centralization that Jakub seems to be making? if its a time frame distinction, then whats the time frame for each? we should be able to visualize it like rolling waves, no? 
