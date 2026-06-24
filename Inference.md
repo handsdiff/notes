@@ -3,6 +3,7 @@
 - [https://pub.sakana.ai/diffusionblocks/](https://pub.sakana.ai/diffusionblocks/)   
 - [https://arxiv.org/pdf/2606.02437](https://arxiv.org/pdf/2606.02437) PEFT, multi lora, similar to models as models  
 - https://loniss.com/cambrian-thesis
+- the reiner pope vids still seem foundational for understanding
 
 - useful verifiers for inference serving understanding
 	- explain intuitively how thinking machines' interaction model inference differs from typical large scale inference performed by frontier labs
