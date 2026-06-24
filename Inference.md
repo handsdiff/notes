@@ -16,7 +16,7 @@
 		- the 'kink' of concurrency is increasing for frontier models and decreasing for small models because the fixed cost of the hardware required to serve a frontier model is increasing since frontier models are getting bigger. small models is a loose definition. but LPUs apparently work well for them
 	- subagents will run on LPUs within NVIDIA GPU racks (vera rubin -> feynman) and subagents will be used 10x more (from jakub)
 		- reminds me of [[Google Pi Team]] team take on collective intelligence occurring within frontier LLMs as well
-	- LPUs work up to 70B params (on vera rubin) and 1-4T (on feynman)
+	- LPUs work up to 70B params (on vera rubin) and 1-4T (on feynman) (2029)
 	- 1-5T serve well on a 72 GPU rack
 	- nvidia working on 1152 GPU racks for feynman
 	- the other trend impacting this is the use cases of next gen frontier models vs the use cases of distilled local models. maybe just accept it will all grow.
