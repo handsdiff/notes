@@ -2,7 +2,7 @@
 - 
 - https://www.youtube.com/watch?v=GwSl1OH1i4w anca dragan interview
 	- 'legible' motion planning -> acting in a way that observers can easily understand and predict. prerequisite for collaboration (and trust) as well.
-	- you cant just make predictions in isolation becau
+	- you cant just make predictions in isolation because it depends on what others will do and what others will do depends on what you will do
 - https://x.com/jsuarez/status/2067272190702256340?s=20
 - https://github.com/siyuan-note/siyuan And logseq
 - Most people probably don’t/can’t have their internal monologue publicized? Need to sample the environment
