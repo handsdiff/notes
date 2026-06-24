@@ -2,73 +2,45 @@
 Peter Thiel’s view on progress and stagnation in his own words, sourced from a number of his interviews and articles. This document consists only of direct quotes from Thiel, lightly edited for clarity (except for headings and where marked otherwise). Key quotes are in [[#Key Quotes Summary|the summary]]. Compiled by Richard Ngo (@richardmcngo) and Jeremy Nixon ([@jvnixon](https://twitter.com/JvNixon)).
 
 ## Contents
-[[#Contents]]
-[[#References]]
-[[#What’s going on?]]
-	[[#We’re in an era of technological stagnation]]
-	[[#We’ve fallen far short of past expectations]]
-	[[#There’s been stagnation in wages]]
-	[[#Internet progress masks other deterioration]]
-	[[#AI is not making as much progress as people think]]
-	[[#We’ve seen globalization rather than technological progress]]
-[[#What’s gone wrong?]]
-	[[#What’s wrong with our institutions?]]
-	[[#Overregulation]]
-
-[[#Dysfunctional governance]]
-
-[[#Short-sighted venture capital]]
-
-[[#Dysfunctional science]]
-
-[[#What’s wrong with our culture?]]
-
-[[#People underestimate the importance of culture]]
-
-[[#We lack positive visions of the future]]
-
-[[#We think about the future in indefinite ways]]
-
-[[#People are either in acceptance or denial]]
-
-[[#Our expectations are self-fulfilling]]
-
-[[#We’re too conformist]]
-
-[[##### We think about risk in the wrong way|We think about risk in the wrong way]]
-
-[[#Left-wing ideology has become deranged]]
-
-[[#Are we just hitting natural limits?]]
-
-[[#What should we do?]]
-
-[[#Seize the opportunity to change people’s attitudes]]
-
-[[#Quantify the problem]]
-
-[[#Be more ambitious and agentic]]
-
-[[#Focus on stagnation over other problems]]
-
-[[#Improve governments and politics]]
-
-[[#Work around governments]]
-
-[[#Fix universities]]
-
-[[#Step up to the challenge of China]]
-
-[[#What is happening in different areas of technology?[^2]|What is happening in different areas of technology?]]
-
-[[#Aerospace]]
-
-[[#Biotech]]
-
-[[#Energy]]
-
-[[#Artificial intelligence]]
-
+[[#Contents]]  
+[[#References]]  
+[[#What’s going on?]]  
+[[#We’re in an era of technological stagnation]]  
+[[#We’ve fallen far short of past expectations]]  
+[[#There’s been stagnation in wages]]  
+[[#Internet progress masks other deterioration]]  
+[[#AI is not making as much progress as people think]]  
+[[#We’ve seen globalization rather than technological progress]]  
+[[#What’s gone wrong?]]  
+[[#What’s wrong with our institutions?]]  
+[[#Overregulation]]  
+[[#Dysfunctional governance]]  
+[[#Short-sighted venture capital]]  
+[[#Dysfunctional science]]  
+[[#What’s wrong with our culture?]]  
+[[#People underestimate the importance of culture]]  
+[[#We lack positive visions of the future]]  
+[[#We think about the future in indefinite ways]]  
+[[#People are either in acceptance or denial]]  
+[[#Our expectations are self-fulfilling]]  
+[[#We’re too conformist]]  
+[[#We think about risk in the wrong way]]  
+[[#Left-wing ideology has become deranged]]  
+[[#Are we just hitting natural limits?]]  
+[[#What should we do?]]  
+[[#Seize the opportunity to change people’s attitudes]]  
+[[#Quantify the problem]]  
+[[#Be more ambitious and agentic]]  
+[[#Focus on stagnation over other problems]]  
+[[#Improve governments and politics]]  
+[[#Work around governments]]  
+[[#Fix universities]]  
+[[#Step up to the challenge of China]]  
+[[#What is happening in different areas of technology?]]  
+[[#Aerospace]]  
+[[#Biotech]]  
+[[#Energy]]  
+[[#Artificial intelligence]]  
 [[#Key Quotes Summary]]
 
 ## References
@@ -356,7 +328,7 @@ Peter Thiel’s view on progress and stagnation in his own words, sourced from a
   * So I always like to flip this around. What is it about our society that somehow talks all of the people who don't have Asperger's out of their original ideas before they're a little bit too weird? Why do we push people to do things that are much more conventional? It's an anti-Asperger's personality, and it’s often actually quite bad for innovation.  
 * Originality is hard. You don’t get to be original if you dress up like a hipster and you wear all the same fashionable clothes the other fashionable people wear. So there’s a lot of stuff where we always pretend that creativity, originality, all these things are somehow super easy. And the reality is they’re very, very, they’re very hard. Already in the time of Shakespeare, the word ‘ape’ meant both primate and to imitate. It was Aristotle I believe, however you say it, man differs from the other animals, and has greater aptitude for imitation. So there is this imitation aspect to human nature that runs very deep. It’s how we learn language as kids, it’s how culture gets transmitted. But it also leads to many forms of insane behavior. It leads to insane peer pressures, it leads to market bubbles, manias, and so I think trying to find a way to be original is quite difficult. I think in practice, again, I don’t think there’s a formula. This is how you do these five steps and you will have an original idea. There’s no easy formula, but if you described it, it often starts by not being that focused on the people around you, being really passionate about some idea, or something more transcendent. And that’s what drives a lot of innovation. \[23\]
 
-### #### We think about risk in the wrong way
+### We think about risk in the wrong way
 * Even this concept of risk is a very strange concept. One of the things you can do on Google is search for words and the frequency in which they occur in books over time. If you look at the word risk over the last 200 years, from 1800 to 2000, it’s a very infrequent word. Very rare until about 1970\. And then it goes up at an incredibly steep curve. And it becomes much more common in titles – How to Manage Risk, How to Take Risks – and so the thought I’ve been wondering about is whether a lot of talk about risk is actually even counterproductive to risk. If you have a risk that if your kids are left unsupervised in the playground that they’ll be kidnapped, or if you have risk that this can go wrong, or that can go wrong, or a risk that somebody is going to die from some new medical treatment, that risk is actually this word that’s used to discourage people from doing anything. It’s more and more a frequent occurrence is a symptom of society where less and less good risk-taking is actually taking place. \[6\]  
   * There’s all these ways where I wonder whether the focus on the processes of risk-minimization distracts you from the substance and ideas and figuring things out, of doing new things. And so I think definitely something like that seems to have been very much at work. I think that – let me see how to put this – one of things that’s true about risk is that it is this very probabilistic way of thinking about the future where the future is dominated by chance, by fortune, and that’s this all-powerful force that dominates everything. And I think it’s one of the questions that I think is very unclear is this in fact a deep truth about the universe or is it more about the abdication of our responsibilities?  
   * As a venture capitalist, the temptation is always: you look at a company and you say, “Don’t really know if it’s going to work or not, and I’m just going to invest a small amount and see what happens.” The temptation is to treat all these companies as lottery tickets, but once you treat them as lottery tickets, I’ve found you somehow psyched yourself into losing. You’ve already psyched yourself into writing too many checks a little bit too quickly, and you’re not actually making a statement about the inherent chanciness of the universe, you’re actually making much more a statement about your own laziness and your own unwillingness to think things through. I do wonder if there is something like that that gets obfuscated by this talk about risk where it always sounds like it’s a statement about the larger world but it may really be more a statement about the failure of our ability to think things through. Maybe it is hard to precisely model these things out or something like that.  
@@ -662,9 +634,9 @@ Peter Thiel’s view on progress and stagnation in his own words, sourced from a
   * I think from the right, the doctrine I would encourage us to rethink is the doctrine of American exceptionalism, which was, again, a super big scale, but put the US on a scale which simply could not be compared to any other country, any other place. And you can think of exceptionalism as—I often use the theological analog that it's like the radical monotheism of the God of the Old Testament or of the Quran, where you can't compare anything to God. You can't say anything about his attributes. And exceptionalism is like saying the US is this country that can't be measured, or compared, or evaluated in any way possible. And what happens \- say you're exceptional in all these ways \- is you probably end up being exceptionally off in different ways. You end up with subways that cost $3.8 billion a mile. You end up with people who are exceptionally overweight. You end up with people who are exceptionally unselfaware. And I think something like the corrective to exceptionalism is that perhaps in the 2020s the United States needs to settle for greatness.  
   * \[How can we achieve greater humility on a national and cultural level?\] I think that the starting point surely is to frame the issues at the right scale. And exceptionalism can be inspiring. There's something about it that's so abstract that we're not able to talk about the details of what's actually going on. And so I think anything where we're able to focus on these questions of detail will be helpful. And that's the place that I would start. And I think the rivalry with China is what's going to push us to ask these scale questions anew. We're not in a great place in a lot of ways, but the country still has a lot of advantages. And we should think really hard what are our advantages, where do we push them, things like that. And I think it is one of the few issues that are essentially bipartisan. I think it is actually a place where we could have a reasonable discussion.
 
-## What is happening in different areas of technology?[^2]
+## What is happening in different areas of technology?
 ### Aerospace
-* In 1961, Alan Shepard became the first American in space. In 1969, Neil Armstrong became the first person on the moon. We have not been back to the moon since 1972 and with the final Shuttle flight in 2011, the US will be without the ability to send an astronaut into orbit for the first time since it began its manned space program. For an industry that supposedly defines the future, space isn’t doing so well. \[[1](https://foundersfund.com/the-future/)\]  
+* In 1961, Alan Shepard became the first American in space. In 1969, Neil Armstrong became the first person on the moon. We have not been back to the moon since 1972 and with the final Shuttle flight in 2011, the US will be without the ability to send an astronaut into orbit for the first time since it began its manned space program. For an industry that supposedly defines the future, space isn’t doing so well. \[[1](https://foundersfund.com/the-future/)\][^2]  
 * One of the major barriers to making use of space is the sheer cost of getting material into orbit: about $19,000 per kilogram (depending on the orbit), a price that has hardly changed since the 1960s. The elasticity of demand for getting into space at very high price ranges looks basically flat – people who have to go, go (the government, telecommunications providers), and almost no one else chooses to. Were prices to decline, the economic potential of space could be more fully realized. Imagine if it cost you $500 every time you drove to the Apple store. You’d be inclined to replace your computer and phone much less frequently, even though these devices get radically better every year. If there were a vastly cheaper way of getting to Best Buy – or work, the gym, or wherever – you’d consume more of that good. It strikes us then that finding ways to get launch costs down is not only lucrative in its own right, but would vastly increase the size and potential of the space industry, a latter day version of the railroads opening up the West. NASA believes that the commercial market would increase substantially were launch costs reduced by a rough order of magnitude. SpaceX appears to be on track to reduce costs by that order of magnitude, which would make it an enormously valuable company in its own right. If it succeeds, there should at last be plenty to do in space, from telecommunications to power generation to high-precision microgravity fabrication – if investors with cashare ready to fund that innovation. \[[1](https://foundersfund.com/the-future/)\]  
 * Another major area of improvement is overcoming the tyranny of distance. Cheaper, faster transportation has been a major lubricator of trade and wealth creation. For almost two centuries, technology has improved transportation relentlessly. Unfortunately, over the past thirty years, there have been no radical advances in transportation technology (in-flight DVD units are nice, but not revolutionary); take, for example, the travel time across the Atlantic which, for the ﬁrst time since the Industrial Revolution, is getting longer rather than shorter. \[[1](https://foundersfund.com/the-future/)\]
 
