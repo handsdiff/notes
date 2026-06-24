@@ -25,4 +25,4 @@
 		- "  - OIL : Power :: GPUs : GPU-hours / inference
 	    - Structurally use based commodities are difficult to commoditize because there is a time and place component, the service provided is never a commodity, and the use-based commodity is worthless if it does not get used in time"
 	- "  - Lending is imo commoditized at the asset backed GPU layer, lenders are baking in offtake assumptions which means that lending is now occurring against “effective compute” (power, not oil). "
-	- one conclusion is thata 
+	- if LPUs are projected to serve 1-4T param models by 2029, and mythos is likely in that range, and LPUs currently serve gpt-oss-120b at 2000 tok/s, then we should expect ~2000 tok/s mythos in 2029.
