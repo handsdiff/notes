@@ -21,4 +21,8 @@
 	- nvidia working on 1152 GPU racks for feynman
 	- the other trend impacting this is the use cases of next gen frontier models vs the use cases of distilled local models. maybe just accept it will all grow.
 	- i dont really care about the risk of blowups since thats more of a financier problem. making an overleveraged bet that doesnt pan out in a short time frame is different from not being useful. i guess from an investing perspective you could attempt to buy the dip of a blowup like that
-	- 
+	- some tension between compute being a commodity or not: https://www.amcompute.com/blog/why-compute-is-not-a-commodity
+		- "  - OIL : Power :: GPUs : GPU-hours / inference
+	    - Structurally use based commodities are difficult to commoditize because there is a time and place component, the service provided is never a commodity, and the use-based commodity is worthless if it does not get used in time"
+	- "  - Lending is imo commoditized at the asset backed GPU layer, lenders are baking in offtake assumptions which means that lending is now occurring against “effective compute” (power, not oil). "
+	- one conclusion is thata 
