@@ -3,28 +3,17 @@ Peter Thiel’s view on progress and stagnation in his own words, sourced from a
 
 ## Contents
 [[#Contents]]
-
 [[#References]]
-
 [[#What’s going on?]]
-
-[[#We’re in an era of technological stagnation]]
-
-[[#We’ve fallen far short of past expectations]]
-
-[[#There’s been stagnation in wages]]
-
-[[#Internet progress masks other deterioration]]
-
-[[#AI is not making as much progress as people think]]
-
-[[#We’ve seen globalization rather than technological progress]]
-
+	[[#We’re in an era of technological stagnation]]
+	[[#We’ve fallen far short of past expectations]]
+	[[#There’s been stagnation in wages]]
+	[[#Internet progress masks other deterioration]]
+	[[#AI is not making as much progress as people think]]
+	[[#We’ve seen globalization rather than technological progress]]
 [[#What’s gone wrong?]]
-
-[[#What’s wrong with our institutions?]]
-
-[[#Overregulation]]
+	[[#What’s wrong with our institutions?]]
+	[[#Overregulation]]
 
 [[#Dysfunctional governance]]
 
