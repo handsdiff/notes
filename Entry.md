@@ -9,6 +9,7 @@
 		- (relates to randall take i need to find it)
 	- her safety focus is A) closing the loop. reason about the effect of your actions on the world and B) holding uncertainty about what the objective actually is
 	- reward hacking is the result of the reward model being confident when it should not be
+	- gave a dog trainer example where you actually want to introduce randomness to the reward signal to induce caution in reward hacking/overfitting
 - https://x.com/jsuarez/status/2067272190702256340?s=20
 - https://github.com/siyuan-note/siyuan And logseq
 - Most people probably don’t/can’t have their internal monologue publicized? Need to sample the environment
