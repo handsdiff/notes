@@ -27,3 +27,4 @@
 	- "  - Lending is imo commoditized at the asset backed GPU layer, lenders are baking in offtake assumptions which means that lending is now occurring against “effective compute” (power, not oil). "
 	- if LPUs are projected to serve 1-4T param models by 2029, and mythos is likely in that range, and LPUs currently serve gpt-oss-120b at 2000 tok/s, then we should expect ~2000 tok/s mythos in 2029. i think current mythos is 70 tok/s. so 1.5 OOMs faster.
 	- what would I even do with that? some dilemma with waiting around to be able to solve hard problems vs solving problems today
+	- a lot of the issue is that i dont know if something solves an issue for me until i try it, also feels bad wasting $ on tokens when you're trying to make it less retarded
