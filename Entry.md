@@ -1,7 +1,7 @@
 
 - 
-- https://www.youtube.com/watch?v=GwSl1OH1i4w
-- Seem to have lost the tab with the list of thiel quotes, i think shared by richard ngo
+- https://www.youtube.com/watch?v=GwSl1OH1i4w anca dragan interview
+- https://docs.google.com/document/d/1zao_AyBhNb8TPWrQqgXn5NzNAgfEqzTIaFYos7wdqGI/edit thiel quotes compiled by richard ngo
 - https://x.com/jsuarez/status/2067272190702256340?s=20
 - https://github.com/siyuan-note/siyuan And logseq
 - Most people probably don’t/can’t have their internal monologue publicized? Need to sample the environment
