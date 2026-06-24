@@ -12,7 +12,6 @@
 - seems to be a big question around whether further frontier model improvements actually move the needle for my workflows, or a market's workflows, and why or why not? this is what labs seem to be solving for with all their 'RL envs', but are you just building multiple products at that point and calling that a frontier model? i guess its different because it literally is one product this time? if you pack multiple skills/knowledge workflows into a single model is that better in the limit than orchestrating smaller models, from a ROI perspective? why or why not?
 - how can it be true that smaller models will get better over time as large models are distilled into them either directly (unknown mechanism) or indirectly (via algorithm knowledge diffusion) while also that larger models will get better over time for the same reason? if large models will always be better than small models, but both improve, does the gap increase or decrease? in the long term, is this a problem for frontier model creators if they don't expand product offerings? how does this impact arguments around centralization that Jakub seems to be making? if its a time frame distinction, then whats the time frame for each? we should be able to visualize it like rolling waves, no? 
 	- inspired from this https://arxiv.org/pdf/2606.16140
-- how does GDP > money printing = deflation in the sense that AI causes GDP increases that surpass money printing? the US wouldnt allow deflation and would print more, no? but then do what with that money? if they printed money to plow into data centers what would the granular flow of dollars (rights and obligations) even look like
 - marketplace between GPU racks and intelligence use cases, enabled by algorithms and data
 - Theory of mind seems different from actually predicting what someone else will do and taking advantage of that in a competitive environment
 - https://www.youtube.com/watch?v=GwSl1OH1i4w
@@ -21,8 +20,6 @@
 - https://x.com/jsuarez/status/2067272190702256340?s=20
 - https://github.com/siyuan-note/siyuan And logseq
 - Most people probably don’t/can’t have their internal monologue publicized? Need to sample the environment
-- It’s incredibly stupid, especially from the outside looking in, to try to build a startup and not talk to anyone 
-- What would a successful future you change about you today
 - https://x.com/elonmusk/status/2068369665647108524?s=20
 - The people that call glm 5.2 an inflection point and assume people will use that over closed source frontier are implicitly saying that frontier model diff to closed source increasingly drifts from actual use cases. There is also some compute argument here that is upstream of the pricing argument that might be necessary to articulate to make the above claim since the above claim feels a bit off in practice 
 - https://x.com/willccbb/status/2068210850700353537?s=20
@@ -38,8 +35,6 @@
 - Some strand between economics around setting up compute with how inference actually works with how to productize models for end user
 - A good continual learning system will tease out orders of magnitude more context from its users and be orders of magnitude more retentive
 - Guy can’t use HL wallet tracker 
-- We probably need to get more specific on the economies of scale I think our (my) current understanding is poor. Like if a Blackwell rack has 72 GPUs, and anthropic has 10 of those, and I have one. Is it that I can serve 1/10th of the customers at the same cost, or is it that we can serve the same amount of customers but i have to charge 10x the price for the same profit? If it’s both, then there will always be a wedge for lower scale providers with fewer GPUs that can serve fewer customers with the same or lower pricing. Additionally a frontier open source model increases the ROI on compute for everyone else besides the people with better models, chipping away at economies of scale.
-	- not sure this was answered by jakub at latest meeting
 - Meta is a data labeling org now? Twitter tweets about it
 - https://x.com/jonchu/status/2063295773169910001?s=20 good startup advice as I consider markets
 - https://thealliance.ai/projects/tapestry
