@@ -20,3 +20,10 @@
 - https://arxiv.org/pdf/2606.03237 another paper as a call for cooperation paradigms during training. considered solipsistic. referenced in "from agi to asi"
 - agi to asi paper called it 'interactive learning'
 - gwern GA [[Gwern GA]] 
+- https://willcb.com/blog/feedback-loops/
+	- "We started with a set of pretty ambiguous questions:
+		- How can we model online recommendations in a way which gives rise to the kinds of feedback loops observed in reality while remaining analytically tractable?
+		- Can we gain any insight into why algorithmic feedback loops occur, and design recommendations algorithms which avoid their potentially harmful consequences?
+		- How do we characterize the space of possible outcomes and algorithmic benchmarks when agent preferences are adaptive as a function of our recommendations?
+		And we found satisfying answers to all of these."
+- 
