@@ -1,5 +1,6 @@
 
 - 
+- https://lilianweng.github.io/posts/2026-06-24-scaling-laws/
 - if the government ends up as the primary continuous buyer of frontier intelligence, they allocate printed money better? gold/btc go down and stocks rip?
 - whatever you're doing needs to be done publicly. also some clear direction / call to action we can help people with, to at least open up inbound
 - generative not summarative as an explainer for the notetaking aspect
