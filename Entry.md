@@ -1,5 +1,6 @@
 
 - 
+- https://willcb.com/blog/feedback-loops/
 - https://x.com/willccbb/status/2070025055678132235?s=20
 - https://x.com/willccbb/status/2070034034617729327?s=20
 - https://www.youtube.com/watch?v=GwSl1OH1i4w anca dragan interview
