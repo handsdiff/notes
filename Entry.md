@@ -1,5 +1,6 @@
 
 - 
+- how are frontier labs training LLMs to respond with HTML? probably RLAIF?
 - https://lilianweng.github.io/posts/2026-06-24-scaling-laws/
 - if the government ends up as the primary continuous buyer of frontier intelligence, they allocate printed money better? gold/btc go down and stocks rip?
 - when the US fed prints money, does that increase the M2 money supply? whats the relationship between M2 money supply and inflation?
