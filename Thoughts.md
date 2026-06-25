@@ -98,3 +98,4 @@
 - 'sociality' benchmarks as a whole are lacking
 - Tshirts as incentive aligned outcomes from textile maxxing
 - theres currently likely multiple options for the potential winner of frequency of weight updating vs cost vs value delivered to customer and it will likely schell around the first to pmf, for each unique market
+- when you see something cracked you often want the generator, rather than to attempt to distill and implement it yourself. only if the perceived cost of generator access is really high or the perceived benefit of distillation is really high is that attempted
