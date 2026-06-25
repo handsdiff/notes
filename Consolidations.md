@@ -2,4 +2,4 @@
 - compute is the bottleneck
 - decreased superposition explains scaling laws
 - raise the ceiling for a value producer/originator in a way that enables a new network
-- distribution and good content compounds no matter what you do
+- distribution, good content, legible thinking processes compound no matter what you do
