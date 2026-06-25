@@ -1,5 +1,6 @@
 
 - 
+- **need to keep putting out good articles**
 - think i wrote this somewhere else too but does current training produce averages or maxes? in terms of the code quality to complete more advanced coding tasks. and how does this apply to non coding workflows as well? is RLHF fundamentally an average?
 - https://x.com/willccbb/status/2070025055678132235?s=20
 - https://x.com/willccbb/status/2070034034617729327?s=20
