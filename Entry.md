@@ -5,10 +5,10 @@
 - https://www.youtube.com/watch?v=GwSl1OH1i4w anca dragan interview
 	- 'legible' motion planning -> acting in a way that observers can easily understand and predict. prerequisite for collaboration (and trust) as well.
 	- you cant just make predictions in isolation because it depends on what others will do and what others will do depends on what you will do
-	- LLMs currently will give you an answer for the sake of giving you an answer. its likely better for multistep collaborative interaction that focuses on helping the human even understand what the goals are
+	- LLMs currently will give you an answer for the sake of giving you an answer. whats likely better is multistep collaborative interaction that focuses on helping the human even understand what their goals are
 	- evals guide everything
 		- nothing in the evals rewarding the model for admitting not knowing
-		- (relates to randall take i need to find it)
+		- (relates to randall take, i need to find it)
 	- her safety focus is A) closing the loop. reason about the effect of your actions on the world and B) holding uncertainty about what the objective actually is
 	- reward hacking is the result of the reward model being confident when it should not be
 	- gave a dog trainer example where you actually want to introduce randomness to the reward signal to induce caution in reward hacking/overfitting
