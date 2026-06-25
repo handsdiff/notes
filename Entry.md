@@ -1,5 +1,6 @@
 
 - 
+- whatever you're doing needs to be done publicly
 - generative not summarative as an explainer for the notetaking aspect
 - https://openai.com/index/how-agents-are-transforming-work/
 - **need to keep putting out good articles**
