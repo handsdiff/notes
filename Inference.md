@@ -31,3 +31,10 @@
 	- a lot of the issue is that i dont know if something solves an issue for me until i try it, also feels bad wasting $ on tokens when you're trying to make it less retarded
 - how can it be true that smaller models will get better over time as large models are distilled into them either directly (unknown mechanism) or indirectly (via algorithm knowledge diffusion) while also that larger models will get better over time for the same reason? if large models will always be better than small models, but both improve, does the gap increase or decrease? in the long term, is this a problem for frontier model creators if they don't expand product offerings? how does this impact arguments around centralization that Jakub seems to be making? if its a time frame distinction, then whats the time frame for each? we should be able to visualize it like rolling waves, no? 
 	- inspired from this https://arxiv.org/pdf/2606.16140
+- from jakub
+	- Did a deep dive into effective compute and compute markets
+	  - Effective compute comes down to ROI on a training run. aka the “edge” on price of GPUs is directly set by what frontier labs expect their return on improving models will be like
+	    - high prices → frontier intelligence is not a commodity, we’ll get GPT 8 and inference will completely explode
+	    - low prices → frontier intelligence is a commodity and most of the hyperscaler buildout today will be a recoupment of inference buildout rather than a cluster for humongous training runs
+	    - the bid ask spread is basically a function of how much margin there is between a frontier model and open source models. if the delta between Anthropic pricing, [z.ai](z.ai) pricing, and self hosted GPU running GLM 5.2 is high, then GPU prices are high
+	  - Compute markets. Expected by DRW to be the largest commodity market in the world. Ornn is already building token indices

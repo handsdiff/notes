@@ -1,5 +1,6 @@
 
 - 
+- generative not summarative as an explainer for the notetaking aspect
 - https://openai.com/index/how-agents-are-transforming-work/
 - **need to keep putting out good articles**
 	- have a lot of spread out notes surrounding this topic that i need to distill into a more specific set of questions + explanations. along with new research to invalidate how I think about things. for example will brown did his phd on something similar years ago
