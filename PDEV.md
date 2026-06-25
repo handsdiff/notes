@@ -39,4 +39,6 @@ for showing git commit history on the UI, i scoped it out and its a bit complica
 
 struggling with implementing the diff view on the UI vs doing something else. feels a bit uncomfortable in terms of having 'blinders' on. i have a scope listed to my ai
 
- Most people probably don’t/can’t have their internal monologue publicized? Need to sample the environment
+Most people probably don’t/can’t have their internal monologue publicized? Need to sample the environment
+
+https://github.com/siyuan-note/siyuan And logseq

@@ -1,3 +1,4 @@
+- even if frontier LLMs are programmable in theory, that doesnt mean you know how to program them. you would still need to specify a reward model somehow (perhaps some other system, even another AI, determines the best way to prompt/program the main AI)
 - pretty clear that any collective intelligence frameworks are marred by groupthink which is a result of treating context as ground truth which may be related to lack of causality understanding and/or environmental prediction in frontier LLMs. [[Google Pi Team#^b203be]]
 - Natural language autoencoders might be an early form of plurality. If we can see the internal states of the smartest model using weaker models, deception is much much harder.  
 - [https://gemini.google.com/app/33869e6590f71ffa](https://gemini.google.com/app/33869e6590f71ffa)  
