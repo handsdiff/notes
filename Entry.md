@@ -1,5 +1,6 @@
 
 - 
+- https://openai.com/index/how-agents-are-transforming-work/
 - **need to keep putting out good articles**
 	- have a lot of spread out notes surrounding this topic that i need to distill into a more specific set of questions + explanations. along with new research to invalidate how I think about things. for example will brown did his phd on something similar years ago
 	- essentially actual experimentation to bolster algorithmic belief for a product for data legibilization, recognize that if you dont have a ton of personal data (unclear where the reward model part comes in) then you will be in a lot of pain in the next few years (assumes RSI/AGI)
