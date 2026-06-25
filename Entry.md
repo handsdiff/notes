@@ -1,5 +1,6 @@
 
 - 
+- the ai dot engineer conference in sf has a gemini chat in the bottom corner: https://github.com/smol-ai/skills/blob/main/public-qa-chatbot/SKILL.md. use for my public notes?
 - https://news.ycombinator.com/item?id=48675435 new notetaking app. built by inkeep, which I was previously exploring as a solution because it indexed links well, but was for enterprises, didnt want to spend 400/mo on it. it may actually be worth it though
 - how are frontier labs training LLMs to respond with HTML? probably RLAIF?
 - https://lilianweng.github.io/posts/2026-06-24-scaling-laws/
