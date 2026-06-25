@@ -1,5 +1,7 @@
 
 - 
+- https://x.com/willccbb/status/2070025055678132235?s=20
+- https://x.com/willccbb/status/2070034034617729327?s=20
 - https://www.youtube.com/watch?v=GwSl1OH1i4w anca dragan interview
 	- 'legible' motion planning -> acting in a way that observers can easily understand and predict. prerequisite for collaboration (and trust) as well.
 	- you cant just make predictions in isolation because it depends on what others will do and what others will do depends on what you will do
