@@ -42,3 +42,5 @@ struggling with implementing the diff view on the UI vs doing something else. fe
 Most people probably don’t/can’t have their internal monologue publicized? Need to sample the environment
 
 https://github.com/siyuan-note/siyuan And logseq
+
+track page visits to my site
