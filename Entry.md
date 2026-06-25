@@ -12,7 +12,7 @@
 	- gave a dog trainer example where you actually want to introduce randomness to the reward signal to induce caution in reward hacking/overfitting
 	- 
 - https://github.com/siyuan-note/siyuan And logseq
-- https://x.com/willccbb/status/2068210850700353537?s=20
+
 - https://x.com/sethkarten/status/2068011592877502534?s=20
 - https://x.com/jsuarez/status/2068025057755197638?s=20
 - https://x.com/dwarkesh_sp/status/2068019716849815869?s=20
