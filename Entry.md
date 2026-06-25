@@ -1,5 +1,6 @@
 
 - 
+- https://news.ycombinator.com/item?id=48675435 new notetaking app. built by inkeep, which I was previously exploring as a solution because it indexed links well, but was for enterprises, didnt want to spend 400/mo on it. it may actually be worth it though
 - how are frontier labs training LLMs to respond with HTML? probably RLAIF?
 - https://lilianweng.github.io/posts/2026-06-24-scaling-laws/
 - if the government ends up as the primary continuous buyer of frontier intelligence, they allocate printed money better? gold/btc go down and stocks rip?
