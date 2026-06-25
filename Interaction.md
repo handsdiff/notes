@@ -26,4 +26,4 @@
 		- Can we gain any insight into why algorithmic feedback loops occur, and design recommendations algorithms which avoid their potentially harmful consequences?
 		- How do we characterize the space of possible outcomes and algorithmic benchmarks when agent preferences are adaptive as a function of our recommendations?
 		And we found satisfying answers to all of these."
-- https://trajectory.ai/field-notes/scaling-sdpo one of the algorithms that potentially en
+- https://trajectory.ai/field-notes/scaling-sdpo one of the algorithms that potentially enables continual learning, but SDPO feels categorically different from CIRL / assistance games, unsure why/how.
