@@ -1,5 +1,6 @@
 
 - 
+- if the government ends up as the primary buyer of frontier intelligence continuously, they allocate printed money better? gold/btc go down?
 - whatever you're doing needs to be done publicly
 - generative not summarative as an explainer for the notetaking aspect
 - https://openai.com/index/how-agents-are-transforming-work/
