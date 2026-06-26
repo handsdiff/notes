@@ -49,3 +49,5 @@ track page visits to my site
 cofounders confirmed that showing recent updates and/or having something to just plug into an agent is necessary for it to be useful (the agent plugin would need history)
 
 generative not summarative as an explainer for the notetaking aspect
+
+shared by sam https://lazy.so/
