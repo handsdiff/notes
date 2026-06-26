@@ -1,6 +1,9 @@
 
 - 
+- https://research.google/blog/thinking-to-recall-how-reasoning-unlocks-parametric-knowledge-in-llms/
 - have starred events here https://www.ai.engineer/worldsfair/schedule get legitimacy visible then outreach to talk. also want to talk to stash sam again
+- https://x.com/willccbb/status/2070025055678132235?s=20
+- https://x.com/willccbb/status/2070034034617729327?s=20
 - https://x.com/dwarkesh_sp/status/2070551894674555081?s=20
 - https://docs.google.com/presentation/d/1-efLN2soXQ3qG8DXtVpD9eSLaLIiNsAJ/preview?slide=id.g3ede2706b97_2_5
 - [https://deploymentsafety.openai.com/gpt-5-6-preview/gpt-5-6-preview.pdf](https://deploymentsafety.openai.com/gpt-5-6-preview/gpt-5-6-preview.pdf)
