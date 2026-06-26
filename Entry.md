@@ -1,5 +1,6 @@
 
 - 
+- what type of hardware do world models need? probably informed by their architecture, which is probably closed source
 - https://x.com/svlevine/status/2070359630300193277?s=20
 - the ai dot engineer conference in sf has a gemini chat in the bottom corner: https://github.com/smol-ai/skills/blob/main/public-qa-chatbot/SKILL.md. use for my public notes?
 - https://news.ycombinator.com/item?id=48675435 new notetaking app. built by inkeep, which I was previously exploring as a solution because it indexed links well, but was for enterprises, didnt want to spend 400/mo on it. it may actually be worth it though
