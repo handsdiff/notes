@@ -1,5 +1,6 @@
 
 - 
+- https://arxiv.org/abs/2606.02373
 - https://arxiv.org/pdf/2505.10831
 - what type of hardware do world models need? probably informed by their architecture, which is probably closed source
 - https://x.com/svlevine/status/2070359630300193277?s=20
