@@ -1,5 +1,6 @@
 
 - 
+- [https://deploymentsafety.openai.com/gpt-5-6-preview/gpt-5-6-preview.pdf](https://deploymentsafety.openai.com/gpt-5-6-preview/gpt-5-6-preview.pdf)
 - https://lazy.so/
 - https://arxiv.org/abs/2606.02373
 - https://arxiv.org/pdf/2505.10831
