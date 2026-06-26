@@ -16,7 +16,7 @@
 - whatever you're doing needs to be done publicly. also some clear direction / call to action we can help people with, to at least open up inbound
 - generative not summarative as an explainer for the notetaking aspect
 - https://openai.com/index/how-agents-are-transforming-work/
-- **need to keep putting out good articles**
+- **need to keep putting out good articles and publicizing thoughts**
 	- have a lot of spread out notes surrounding this topic that i need to distill into a more specific set of questions + explanations. along with new research to invalidate how I think about things. for example will brown did his phd on something similar years ago
 	- essentially actual experimentation to bolster algorithmic belief for a product for data legibilization, recognize that if you dont have a ton of personal data (unclear where the reward model part comes in) then you will be in a lot of pain in the next few years (assumes RSI/AGI)
 - think i wrote this somewhere else too but does current training produce averages or maxes? in terms of the code quality to complete more advanced coding tasks. and how does this apply to non coding workflows as well? is RLHF fundamentally an average?
