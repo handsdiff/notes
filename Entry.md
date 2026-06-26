@@ -1,5 +1,6 @@
 
 - 
+- have starred events here https://www.ai.engineer/worldsfair/schedule get legitimacy visible then outreach to talk. also want to talk to stash sam again
 - https://x.com/dwarkesh_sp/status/2070551894674555081?s=20
 - number of ai interruptions labeled as positive utility is non zero and early exponential
 - https://docs.google.com/presentation/d/1-efLN2soXQ3qG8DXtVpD9eSLaLIiNsAJ/preview?slide=id.g3ede2706b97_2_5
@@ -7,20 +8,15 @@
 - https://lazy.so/
 - https://arxiv.org/abs/2606.02373
 - https://arxiv.org/pdf/2505.10831
-- what type of hardware do world models need? probably informed by their architecture, which is probably closed source
 - https://x.com/svlevine/status/2070359630300193277?s=20
-- the ai dot engineer conference in sf has a gemini chat in the bottom corner: https://github.com/smol-ai/skills/blob/main/public-qa-chatbot/SKILL.md. use for my public notes?
+- the ai dot engineer conference in sf has a gemini chat in the bottom corner: https://github.com/smol-ai/skills/blob/main/public-qa-chatbot/SKILL.md. use for my public notes? [[PDEV]]
 - https://news.ycombinator.com/item?id=48675435 new notetaking app. built by inkeep, which I was previously exploring as a solution because it indexed links well, but was for enterprises, didnt want to spend 400/mo on it. it may actually be worth it though
-- how are frontier labs training LLMs to respond with HTML? probably RLAIF?
 - https://lilianweng.github.io/posts/2026-06-24-scaling-laws/
-- if the government ends up as the primary continuous buyer of frontier intelligence, they allocate printed money better? gold/btc go down and stocks rip?
-- when the US fed prints money, does that increase the M2 money supply? whats the relationship between M2 money supply and inflation?
-- whatever you're doing needs to be done publicly. also some clear direction / call to action we can help people with, to at least open up inbound
-- generative not summarative as an explainer for the notetaking aspect
 - https://openai.com/index/how-agents-are-transforming-work/
 - **need to keep putting out good articles and publicizing thoughts**
 	- have a lot of spread out notes surrounding this topic that i need to distill into a more specific set of questions + explanations. along with new research to invalidate how I think about things. for example will brown did his phd on something similar years ago
 	- essentially actual experimentation to bolster algorithmic belief for a product for data legibilization, recognize that if you dont have a ton of personal data (unclear where the reward model part comes in) then you will be in a lot of pain in the next few years (assumes RSI/AGI)
+	- **whatever you're doing needs to be done publicly. also some clear direction / call to action we can help people with, to at least open up inbound**
 - think i wrote this somewhere else too but does current training produce averages or maxes? in terms of the code quality to complete more advanced coding tasks. and how does this apply to non coding workflows as well? is RLHF fundamentally an average?
 - https://x.com/willccbb/status/2070025055678132235?s=20
 - https://x.com/willccbb/status/2070034034617729327?s=20
