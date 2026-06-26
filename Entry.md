@@ -1,5 +1,6 @@
 
 - 
+- https://x.com/dwarkesh_sp/status/2070551894674555081?s=20
 - number of ai interruptions labeled as positive utility is non zero and early exponential
 - https://docs.google.com/presentation/d/1-efLN2soXQ3qG8DXtVpD9eSLaLIiNsAJ/preview?slide=id.g3ede2706b97_2_5
 - [https://deploymentsafety.openai.com/gpt-5-6-preview/gpt-5-6-preview.pdf](https://deploymentsafety.openai.com/gpt-5-6-preview/gpt-5-6-preview.pdf)
