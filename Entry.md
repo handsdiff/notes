@@ -1,5 +1,6 @@
 
 - 
+- https://arxiv.org/pdf/2505.10831
 - what type of hardware do world models need? probably informed by their architecture, which is probably closed source
 - https://x.com/svlevine/status/2070359630300193277?s=20
 - the ai dot engineer conference in sf has a gemini chat in the bottom corner: https://github.com/smol-ai/skills/blob/main/public-qa-chatbot/SKILL.md. use for my public notes?
