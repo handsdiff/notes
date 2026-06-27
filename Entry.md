@@ -16,7 +16,7 @@
 - seems so obvious that theres a gap of just having an end to end product that pipes all computer context + serves personalized predictions to solve inferenced local and global goals?
 ---
 - v
-- my feeling that much of the exponential progress of ai was in diffusion and exposure to existing 
+- my feeling that much of the exponential progress of ai was in diffusion and exposure to existing frontier models, rather than continued frontier, to me aligns with noam brown's argument that we don't have even time to properly test the limits of existing models since new ones are coming out so quickly, per his test time compute argument. also why im not as concerne
 - https://lilianweng.github.io/posts/2026-06-24-scaling-laws/
 - https://openai.com/index/how-agents-are-transforming-work/
 - https://x.com/willccbb/status/2070025055678132235?s=20
