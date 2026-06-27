@@ -38,3 +38,5 @@
 	- reward hacking is the result of the reward model being confident when it should not be
 	- gave a dog trainer example where you actually want to introduce randomness to the reward signal to induce caution in reward hacking/overfitting
 - A good continual learning system will tease out orders of magnitude more context from its users and be orders of magnitude more retentive
+- https://arxiv.org/abs/1701.07570 how does this dynamic regret paper (one of will brown's favorites) relate to inverse RL or reward inference more generally?
+	- https://willcb.com/blog/feedback-loops/
