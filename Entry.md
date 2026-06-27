@@ -1,7 +1,11 @@
 
+- **need to keep putting out good articles and publicizing thoughts**
+	- have a lot of spread out notes surrounding this topic that i need to distill into a more specific set of questions + explanations. along with new research to invalidate how I think about things. for example will brown did his phd on something similar years ago
+	- essentially actual experimentation to bolster algorithmic belief for a product for data legibilization, recognize that if you dont have a ton of personal data (unclear where the reward model part comes in) then you will be in a lot of pain in the next few years (assumes RSI/AGI)
+	- **whatever you're doing needs to be done publicly. also some clear direction / call to action we can help people with, to at least open up inbound
+	- implement papers, tweet about it, write good blog posts, create nice repos
+
 - 
-- https://x.com/davidcrawshaw/status/2070836332331708577 frontier models getting increasingly worse at writing?
-- implement papers, tweet about it, write good blog posts, create nice repos
 - https://x.com/samzliu/status/2070665384647336052?s=20
 - https://x.com/chelseabfinn/status/2070641620278796689?s=20
 - https://x.com/saranormous/status/2070587484287959381?s=20
@@ -15,28 +19,10 @@
 - https://arxiv.org/abs/2606.02373
 - https://arxiv.org/pdf/2505.10831
 - https://x.com/svlevine/status/2070359630300193277?s=20
-- the ai dot engineer conference in sf has a gemini chat in the bottom corner: https://github.com/smol-ai/skills/blob/main/public-qa-chatbot/SKILL.md. use for my public notes? [[PDEV]]
-- https://news.ycombinator.com/item?id=48675435 new notetaking app. built by inkeep, which I was previously exploring as a solution because it indexed links well, but was for enterprises, didnt want to spend 400/mo on it. it may actually be worth it though
 - https://lilianweng.github.io/posts/2026-06-24-scaling-laws/
 - https://openai.com/index/how-agents-are-transforming-work/
-- **need to keep putting out good articles and publicizing thoughts**
-	- have a lot of spread out notes surrounding this topic that i need to distill into a more specific set of questions + explanations. along with new research to invalidate how I think about things. for example will brown did his phd on something similar years ago
-	- essentially actual experimentation to bolster algorithmic belief for a product for data legibilization, recognize that if you dont have a ton of personal data (unclear where the reward model part comes in) then you will be in a lot of pain in the next few years (assumes RSI/AGI)
-	- **whatever you're doing needs to be done publicly. also some clear direction / call to action we can help people with, to at least open up inbound**
-- think i wrote this somewhere else too but does current training produce averages or maxes? in terms of the code quality to complete more advanced coding tasks. and how does this apply to non coding workflows as well? is RLHF fundamentally an average?
 - https://x.com/willccbb/status/2070025055678132235?s=20
 - https://x.com/willccbb/status/2070034034617729327?s=20
-- https://www.youtube.com/watch?v=GwSl1OH1i4w anca dragan interview
-	- 'legible' motion planning -> acting in a way that observers can easily understand and predict. prerequisite for collaboration (and trust) as well.
-	- you cant just make predictions in isolation because it depends on what others will do and what others will do depends on what you will do
-	- LLMs currently will give you an answer for the sake of giving you an answer. whats likely better is multistep collaborative interaction that focuses on helping the human even understand what their goals are
-	- evals guide everything
-		- nothing in the evals rewarding the model for admitting not knowing
-		- (relates to randall take, i need to find it)
-	- her safety focus is A) closing the loop. reason about the effect of your actions on the world and B) holding uncertainty about what the objective actually is
-	- reward hacking is the result of the reward model being confident when it should not be
-	- gave a dog trainer example where you actually want to introduce randomness to the reward signal to induce caution in reward hacking/overfitting
-	- 
 - https://x.com/dwarkesh_sp/status/2068019716849815869?s=20
 - https://x.com/teortaxesTex/status/2067872311030550634?s=20
 - https://arxiv.org/abs/2606.06492 Code2lora
@@ -44,10 +30,6 @@
 - https://x.com/ShashwatGoel7/status/2067954502435480050?s=20
 - overnight weight updating? instead of overnight consolidation? anthropic would be checking whether its possible to just incorporate everyones preferences into a singleton LLM, 'programmed' by KV
 - Some strand between economics around setting up compute with how inference actually works with how to productize models for end user
-- A good continual learning system will tease out orders of magnitude more context from its users and be orders of magnitude more retentive
-- Guy can’t use HL wallet tracker 
-- Meta is a data labeling org now? Twitter tweets about it
-- https://x.com/jonchu/status/2063295773169910001?s=20 good startup advice as I consider markets
 - https://thealliance.ai/projects/tapestry
 - https://x.com/castformai
 	- https://arxiv.org/abs/2606.15532v1 emotional intelligence bench

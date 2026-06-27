@@ -51,3 +51,7 @@ cofounders confirmed that showing recent updates and/or having something to just
 generative not summarative as an explainer for the notetaking aspect
 
 shared by sam https://lazy.so/
+
+ the ai dot engineer conference in sf has a gemini chat in the bottom corner: https://github.com/smol-ai/skills/blob/main/public-qa-chatbot/SKILL.md. use for my public notes? [[PDEV]]
+
+https://news.ycombinator.com/item?id=48675435 new notetaking app. built by inkeep, which I was previously exploring as a solution because it indexed links well, but was for enterprises, didnt want to spend 400/mo on it. it may actually be worth it though
