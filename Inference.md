@@ -38,3 +38,4 @@
 	    - low prices → frontier intelligence is a commodity and most of the hyperscaler buildout today will be a recoupment of inference buildout rather than a cluster for humongous training runs
 	    - the bid ask spread is basically a function of how much margin there is between a frontier model and open source models. if the delta between Anthropic pricing, [z.ai](z.ai) pricing, and self hosted GPU running GLM 5.2 is high, then GPU prices are high
 	  - Compute markets. Expected by DRW to be the largest commodity market in the world. Ornn is already building token indices
+  - https://docs.google.com/presentation/d/1-efLN2soXQ3qG8DXtVpD9eSLaLIiNsAJ/preview?slide=id.g3ede2706b97_2_5 very good presentation, june 2026, on ai economy

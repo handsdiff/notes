@@ -8,10 +8,8 @@
 - good blog idea may be to discuss the pareto frontiers of intelligence, how that maps to my experience, how i suspect we will trend towards this on more individualized benchmarks over time rather than 'societal benchmarks' before we hit some market equilibrium, and how there is disagreement around whether frontier LLM training now and in the future will result in preference choosing / reward modeling (i.e. does logic lead to a 'correct' choice of goals to pursue), maybe also how theres disagreement in whether anthropic can continuously charge monopoly pricing, how that impacts the success of frontier progress due to order of magnitude increases in infra costs for training runs, and how that relates to soren's take around the compression of use cases, which relates to the belief of local benchmarks to hit pareto on. early example of this is composer by cursor
 
 - 
-- https://x.com/dwarkesh_sp/status/2070551894674555081?s=20
-- https://docs.google.com/presentation/d/1-efLN2soXQ3qG8DXtVpD9eSLaLIiNsAJ/preview?slide=id.g3ede2706b97_2_5
-- [https://deploymentsafety.openai.com/gpt-5-6-preview/gpt-5-6-preview.pdf](https://deploymentsafety.openai.com/gpt-5-6-preview/gpt-5-6-preview.pdf)
-- https://arxiv.org/abs/2606.02373
+
+
 - https://arxiv.org/pdf/2505.10831
 - https://x.com/svlevine/status/2070359630300193277?s=20
 - https://lilianweng.github.io/posts/2026-06-24-scaling-laws/
