@@ -7,6 +7,11 @@
 
 - 
 
+- spoke to a friend in energy investment banking yesterday
+	- data center buildout has slowed from last year since everyone realizes the power is lacking
+	- power buildouts are slow due to really poor existing infrastructure and more complexity to setup than data centers
+	- deals were done with up to 15 different banks pooling on the order of $20B to fund data center buildouts at double the average rate of return (~20%)
+	- he is concerned that the check writers will not be able to get a return on investment and several banks will collapse
 - https://x.com/chelseabfinn/status/2070641620278796689?s=20
 - https://x.com/saranormous/status/2070587484287959381?s=20
 - https://research.google/blog/thinking-to-recall-how-reasoning-unlocks-parametric-knowledge-in-llms/
