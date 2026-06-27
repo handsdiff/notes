@@ -19,6 +19,7 @@
 - b
 - my base case for BTC is 160k Q3 2029
 - https://lilianweng.github.io/posts/2026-06-24-scaling-laws/
+	- this seems to relate to 
 - https://openai.com/index/how-agents-are-transforming-work/
 - https://x.com/willccbb/status/2070025055678132235?s=20
 - https://x.com/willccbb/status/2070034034617729327?s=20
