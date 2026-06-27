@@ -1,5 +1,6 @@
 
 - 
+- https://x.com/davidcrawshaw/status/2070836332331708577 frontier models getting increasingly worse at writing?
 - implement papers, tweet about it, write good blog posts, create nice repos
 - https://x.com/samzliu/status/2070665384647336052?s=20
 - https://x.com/chelseabfinn/status/2070641620278796689?s=20
