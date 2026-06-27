@@ -5,17 +5,11 @@
 	- **whatever you're doing needs to be done publicly. also some clear direction / call to action we can help people with, to at least open up inbound
 	- implement papers, tweet about it, write good blog posts, create nice repos
 - have starred events here https://www.ai.engineer/worldsfair/schedule get legitimacy visible then outreach to talk. also want to talk to stash sam again
+- good blog idea may be to discuss the pareto frontiers of intelligence, how that maps to my experience, how i suspect we will trend towards this on more individualized benchmarks over time rather than 'societal benchmarks' before we hit some market equilibrium, and how there is disagreement around whether frontier LLM training now and in the future will result in preference choosing / reward modeling (i.e. does logic lead to a 'correct' choice of goals to pursue)
 
 - 
 - https://research.google/blog/thinking-to-recall-how-reasoning-unlocks-parametric-knowledge-in-llms/
 	- related to [[Open#^36f2ac]] around the part where factual recall improves reasoning
-- https://x.com/willccbb/status/2070025055678132235?s=20
-	- super cool result showing that plasticity degrades in LLMs over time when applied to continual learning tasks
-	- eventually the model loses the ability to learn new tasking
-	- why?
-	- https://arxiv.org/pdf/2606.24752
-	- https://www.zyphra.com/our-work/plasticity-loss-in-continual-learning
-	- 
 - https://x.com/willccbb/status/2070034034617729327?s=20
 - https://x.com/dwarkesh_sp/status/2070551894674555081?s=20
 - https://docs.google.com/presentation/d/1-efLN2soXQ3qG8DXtVpD9eSLaLIiNsAJ/preview?slide=id.g3ede2706b97_2_5
