@@ -14,7 +14,6 @@
 	- seems equivalent to predicting behavior or increased legibility. didnt feel the need to increase legibility for 'big data' social media algos. maybe because they didnt care about capturing me, or i didn't benefit, or it was knowingly misaligned, but likely probably because i just *couldnt*. i'm not able to put generative thoughts into twitter. (unless maybe they edit the feed based on what you post too, which would make a lot of sense, but havent heard anything about this)
 ---
 - 
-- https://arxiv.org/pdf/2505.10831
 - https://x.com/svlevine/status/2070359630300193277?s=20
 - https://lilianweng.github.io/posts/2026-06-24-scaling-laws/
 - https://openai.com/index/how-agents-are-transforming-work/
