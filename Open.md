@@ -10,7 +10,7 @@
 - what type of hardware do world models need? probably informed by their architecture, which is probably closed source
 - think i wrote this somewhere else too but does current training produce averages or maxes? in terms of the code quality to complete more advanced coding tasks. and how does this apply to non coding workflows as well? is RLHF fundamentally an average?
 - https://x.com/willccbb/status/2070025055678132235?s=20
-	- super cool result showing that plasticity degrades in LLMs over time when applied to continual learning tasks
+	- super cool result showing that plasticity degrades in LLMs over time when applied to continual learning tasks ^0f01f7
 	- eventually the model loses the ability to learn new tasking
 	- why?
 	- https://arxiv.org/pdf/2606.24752
