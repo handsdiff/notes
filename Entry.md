@@ -1,5 +1,6 @@
 
 - 
+- 
 - https://research.google/blog/thinking-to-recall-how-reasoning-unlocks-parametric-knowledge-in-llms/
 - have starred events here https://www.ai.engineer/worldsfair/schedule get legitimacy visible then outreach to talk. also want to talk to stash sam again
 - https://x.com/willccbb/status/2070025055678132235?s=20
