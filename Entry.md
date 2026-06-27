@@ -6,16 +6,6 @@
 	- implement papers, tweet about it, write good blog posts, create nice repos
 
 - 
-
-- spoke to a friend in energy investment banking yesterday
-	- data center buildout has slowed from last year since everyone realizes the power is lacking
-	- power buildouts are slow due to really poor existing infrastructure and more complexity to setup than data centers
-	- deals were done with up to 15 different banks pooling on the order of $20B to fund data center buildouts at double the average rate of return (~20%)
-	- he is concerned that the check writers will not be able to get a return on investment and several banks will collapse
-- example similar to autoresearch imo where the model learns to handle its own KV cache https://arxiv.org/abs/2604.18002
-- https://x.com/chelseabfinn/status/2070641620278796689?s=20 basically combining sequential reasoning with parallel reasoning, just test time compute maxxing
-- https://x.com/saranormous/status/2070587484287959381?s=20
-	- test time scaling is underappreciated in terms of the length it can continue to improve
 - https://research.google/blog/thinking-to-recall-how-reasoning-unlocks-parametric-knowledge-in-llms/
 - have starred events here https://www.ai.engineer/worldsfair/schedule get legitimacy visible then outreach to talk. also want to talk to stash sam again
 - https://x.com/willccbb/status/2070025055678132235?s=20
