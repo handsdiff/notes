@@ -6,6 +6,7 @@
 	- implement papers, tweet about it, write good blog posts, create nice repos
 - have starred events here https://www.ai.engineer/worldsfair/schedule get legitimacy visible then outreach to talk. also want to talk to stash sam again
 - good blog idea may be to discuss the pareto frontiers of intelligence, how that maps to my experience, how i suspect we will trend towards this on more individualized benchmarks over time rather than 'societal benchmarks' before we hit some market equilibrium, and how there is disagreement around whether frontier LLM training now and in the future will result in preference choosing / reward modeling (i.e. does logic lead to a 'correct' choice of goals to pursue), maybe also how theres disagreement in whether anthropic can continuously charge monopoly pricing, how that impacts the success of frontier progress due to order of magnitude increases in infra costs for training runs, and how that relates to soren's take around the compression of use cases, which relates to the belief of local benchmarks to hit pareto on. early example of this is composer by cursor
+	- my feeling that much of the exponential progress of ai was in diffusion and exposure to existing frontier models, rather than continued frontier, to me aligns with noam brown's argument that we don't have even time to properly test the limits of existing models since new ones are coming out so quickly, per his test time compute argument. also why im not as concerned about data walls or compute walls or power walls slowing 'progress'
 - who are the biggest screenpipe users? is anyone running prospective learning or reward inference algorithms on their data?
 	- https://github.com/screenpipe/screenpipe
 	- a good sobering take that recommendation is already done at scale massively, i think there was even an old linkedin paper than was showing RL in a multi armed bandit flavor where the user chooses between one of 3 recommendations or something, hopefully i could find that again. 
@@ -15,8 +16,7 @@
 - two 'computers' on each device? one from the human and one for the ai? easy sharing of html and some file systems, but avoids catastrophe or takeover? and allows for prospective learning / predictive recommendations from screenpipe context?
 - seems so obvious that theres a gap of just having an end to end product that pipes all computer context + serves personalized predictions to solve inferenced local and global goals?
 ---
-- v
-- my feeling that much of the exponential progress of ai was in diffusion and exposure to existing frontier models, rather than continued frontier, to me aligns with noam brown's argument that we don't have even time to properly test the limits of existing models since new ones are coming out so quickly, per his test time compute argument. also why im not as concerne
+- 
 - https://lilianweng.github.io/posts/2026-06-24-scaling-laws/
 - https://openai.com/index/how-agents-are-transforming-work/
 - https://x.com/willccbb/status/2070025055678132235?s=20
