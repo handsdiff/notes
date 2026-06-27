@@ -4,10 +4,11 @@
 	- essentially actual experimentation to bolster algorithmic belief for a product for data legibilization, recognize that if you dont have a ton of personal data (unclear where the reward model part comes in) then you will be in a lot of pain in the next few years (assumes RSI/AGI)
 	- **whatever you're doing needs to be done publicly. also some clear direction / call to action we can help people with, to at least open up inbound
 	- implement papers, tweet about it, write good blog posts, create nice repos
+- have starred events here https://www.ai.engineer/worldsfair/schedule get legitimacy visible then outreach to talk. also want to talk to stash sam again
 
 - 
 - https://research.google/blog/thinking-to-recall-how-reasoning-unlocks-parametric-knowledge-in-llms/
-- have starred events here https://www.ai.engineer/worldsfair/schedule get legitimacy visible then outreach to talk. also want to talk to stash sam again
+	- related to [[Open#^36f2ac]] around the part where factual recall improves reasoning
 - https://x.com/willccbb/status/2070025055678132235?s=20
 - https://x.com/willccbb/status/2070034034617729327?s=20
 - https://x.com/dwarkesh_sp/status/2070551894674555081?s=20
