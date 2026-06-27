@@ -6,7 +6,7 @@
 	- implement papers, tweet about it, write good blog posts, create nice repos
 
 - 
-- https://x.com/samzliu/status/2070665384647336052?s=20
+
 - https://x.com/chelseabfinn/status/2070641620278796689?s=20
 - https://x.com/saranormous/status/2070587484287959381?s=20
 - https://research.google/blog/thinking-to-recall-how-reasoning-unlocks-parametric-knowledge-in-llms/
