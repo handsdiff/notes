@@ -10,6 +10,8 @@
 - https://research.google/blog/thinking-to-recall-how-reasoning-unlocks-parametric-knowledge-in-llms/
 	- related to [[Open#^36f2ac]] around the part where factual recall improves reasoning
 - https://x.com/willccbb/status/2070025055678132235?s=20
+	- super cool result showing that plasticity degrades in LLMs over time when applied to continual learning tasks
+	- eventually the model loses the ability to learn new tasking
 - https://x.com/willccbb/status/2070034034617729327?s=20
 - https://x.com/dwarkesh_sp/status/2070551894674555081?s=20
 - https://docs.google.com/presentation/d/1-efLN2soXQ3qG8DXtVpD9eSLaLIiNsAJ/preview?slide=id.g3ede2706b97_2_5
