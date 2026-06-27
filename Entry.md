@@ -15,7 +15,8 @@
 - two 'computers' on each device? one from the human and one for the ai? easy sharing of html and some file systems, but avoids catastrophe or takeover? and allows for prospective learning / predictive recommendations from screenpipe context?
 - seems so obvious that theres a gap of just having an end to end product that pipes all computer context + serves personalized predictions to solve inferenced local and global goals?
 ---
-- 
+- v
+- my feeling that much of the exponential progress of ai was in diffusion and exposure to existing 
 - https://lilianweng.github.io/posts/2026-06-24-scaling-laws/
 - https://openai.com/index/how-agents-are-transforming-work/
 - https://x.com/willccbb/status/2070025055678132235?s=20
