@@ -16,7 +16,8 @@
 - two 'computers' on each device? one from the human and one for the ai? easy sharing of html and some file systems, but avoids catastrophe or takeover? and allows for prospective learning / predictive recommendations from screenpipe context?
 - seems so obvious that theres a gap of just having an end to end product that pipes all computer context + serves personalized predictions to solve inferenced local and global goals?
 ---
-- b
+- 
+- https://x.com/maximelabonne/status/2070867418377818542?s=20
 - my base case for BTC is 160k Q3 2029
 - https://lilianweng.github.io/posts/2026-06-24-scaling-laws/
 	- this seems to relate to the plasticity paper [[Open#^0f01f7]] where the data quality determines loss curves over time, specifically around repitition
