@@ -15,6 +15,7 @@
 - example similar to autoresearch imo where the model learns to handle its own KV cache https://arxiv.org/abs/2604.18002
 - https://x.com/chelseabfinn/status/2070641620278796689?s=20 basically combining sequential reasoning with parallel reasoning, just test time compute maxxing
 - https://x.com/saranormous/status/2070587484287959381?s=20
+	- test time scaling is underappreciated in terms of the length it can continue to improve
 - https://research.google/blog/thinking-to-recall-how-reasoning-unlocks-parametric-knowledge-in-llms/
 - have starred events here https://www.ai.engineer/worldsfair/schedule get legitimacy visible then outreach to talk. also want to talk to stash sam again
 - https://x.com/willccbb/status/2070025055678132235?s=20
