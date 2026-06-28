@@ -40,3 +40,4 @@
 - A good continual learning system will tease out orders of magnitude more context from its users and be orders of magnitude more retentive
 - https://arxiv.org/abs/1701.07570 how does this dynamic regret paper (one of will brown's favorites) relate to inverse RL or reward inference more generally?
 	- https://willcb.com/blog/feedback-loops/
+- https://jacobxli.com/blog/2026/machine-studying/ seems very relevant to continual learning, possibly good benchmark

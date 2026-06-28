@@ -17,18 +17,9 @@
 - seems so obvious that theres a gap of just having an end to end product that pipes all computer context + serves personalized predictions to solve inferenced local and global goals?
 ---
 - 
-- https://x.com/maximelabonne/status/2070867418377818542?s=20
+- https://x.com/maximelabonne/status/2070867418377818542?s=20 open source LLM training data set https://huggingface.co/datasets/mlabonne/open-perfectblend
+- 
 
-
-- https://x.com/willccbb/status/2070034034617729327?s=20
-- https://x.com/dwarkesh_sp/status/2068019716849815869?s=20
-- https://x.com/teortaxesTex/status/2067872311030550634?s=20
-- https://arxiv.org/abs/2606.06492 Code2lora
-- https://arxiv.org/abs/2606.13473 Example of singleton outcome
-- https://x.com/ShashwatGoel7/status/2067954502435480050?s=20
-- overnight weight updating? instead of overnight consolidation? anthropic would be checking whether its possible to just incorporate everyones preferences into a singleton LLM, 'programmed' by KV
-- Some strand between economics around setting up compute with how inference actually works with how to productize models for end user
-- https://thealliance.ai/projects/tapestry
 - https://x.com/castformai
 	- https://arxiv.org/abs/2606.15532v1 emotional intelligence bench
 - https://river.ai/ how does this relate to my blog?
@@ -51,7 +42,7 @@
 - https://arxiv.org/pdf/2408.16984 interesting paper that seems, from the abstract, to conclude anthropic's approach is superior, but then says that this leads to pluralism?
 - if its unclear what is latent in an LLM, then GEPA is the best way of figuring out whats latent?
 	- definitely feels wasteful to have to spend a ton of tokens figuring out what the state of the computer even is, rather than just using it, especially since its expensive
-- https://jacobxli.com/blog/2026/machine-studying/ seems very relevant to continual learning, possibly good benchmark
+- 
 - https://arxiv.org/pdf/2606.16475 persuasion bench. ai outperforms humans, even on charity raising
 - https://gemini.google.com/app/d3409327dab2a45f explanation for PNLC https://arxiv.org/abs/2505.18098 vs NLAC
 	- can you apply the step from PNLC -> NLAC to PPI? think i had a claude chat somewhere about this. the take seemed to be yes its possible since LLMs are fundamentally the same structure as the GRUs that were tested. again also seems related to SDPO
