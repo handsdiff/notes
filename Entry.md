@@ -20,8 +20,8 @@
 - https://x.com/maximelabonne/status/2070867418377818542?s=20 open source LLM training data set https://huggingface.co/datasets/mlabonne/open-perfectblend
 - 
 
-- https://x.com/castformai
-	- https://arxiv.org/abs/2606.15532v1 emotional intelligence bench
+
+- https://arxiv.org/abs/2606.15532v1 emotional intelligence bench
 - https://river.ai/ how does this relate to my blog?
 - https://x.com/oneill_c/status/2067673179536208062?s=20
 - https://x.com/perplexity_ai/status/2067642139014742348?s=20
