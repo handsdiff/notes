@@ -15,3 +15,5 @@
 	- why?
 	- https://arxiv.org/pdf/2606.24752
 	- https://www.zyphra.com/our-work/plasticity-loss-in-continual-learning
+	- https://lilianweng.github.io/posts/2026-06-24-scaling-laws/
+		- this seems to relate to the plasticity paper [[Open#^0f01f7]] where the data quality determines loss curves over time, specifically around repitition

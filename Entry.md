@@ -9,7 +9,7 @@
 	- my feeling that much of the exponential progress of ai was in diffusion and exposure to existing frontier models, rather than continued frontier, to me aligns with noam brown's argument that we don't have even time to properly test the limits of existing models since new ones are coming out so quickly, per his test time compute argument. also why im not as concerned about data walls or compute walls or power walls slowing 'progress'
 - who are the biggest screenpipe users? is anyone running prospective learning or reward inference algorithms on their data?
 	- https://github.com/screenpipe/screenpipe
-	- a good sobering take that recommendation is already done at scale massively, i think there was even an old linkedin paper than was showing RL in a multi armed bandit flavor where the user chooses between one of 3 recommendations or something, hopefully i could find that again. 
+	- a good sobering take that recommendation is already done at scale massively (and how is user prediction in the context of my ideas really different), i think there was even an old linkedin paper than was showing RL in a multi armed bandit flavor where the user chooses between one of 3 recommendations or something, hopefully i could find that again. 
 	- why dont i have recommendations cycled on my computer use?
 		- https://arxiv.org/pdf/2505.10831 paper shared by sam on predictive behavior from a 'general user model' from computer use behavior. reach out to authors?
 	- seems equivalent to predicting behavior or increased legibility. didnt feel the need to increase legibility for 'big data' social media algos. maybe because they didnt care about capturing me, or i didn't benefit, or it was knowingly misaligned, but likely probably because i just *couldnt*. i'm not able to put generative thoughts into twitter. (unless maybe they edit the feed based on what you post too, which would make a lot of sense, but havent heard anything about this)
@@ -18,11 +18,8 @@
 ---
 - 
 - https://x.com/maximelabonne/status/2070867418377818542?s=20
-- my base case for BTC is 160k Q3 2029
-- https://lilianweng.github.io/posts/2026-06-24-scaling-laws/
-	- this seems to relate to the plasticity paper [[Open#^0f01f7]] where the data quality determines loss curves over time, specifically around repitition
-- https://openai.com/index/how-agents-are-transforming-work/
-- https://x.com/willccbb/status/2070025055678132235?s=20
+
+
 - https://x.com/willccbb/status/2070034034617729327?s=20
 - https://x.com/dwarkesh_sp/status/2068019716849815869?s=20
 - https://x.com/teortaxesTex/status/2067872311030550634?s=20
