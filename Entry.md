@@ -18,8 +18,8 @@
 - seems so obvious that theres a gap of just having an end to end product that pipes all computer context + serves personalized predictions to solve inferenced local and global goals?
 ---
 - g
-- https://x.com/oneill_c/status/2067673179536208062?s=20
-- https://x.com/perplexity_ai/status/2067642139014742348?s=20
+- 
+
 - https://x.com/sheriyuo/status/2067514445488947366?s=20
 - [https://x.com/lossfunk/status/2067589548759261531?s=20](https://x.com/lossfunk/status/2067589548759261531?s=20)
 - [https://x.com/jsuarez/status/2067272190702256340?s=20](https://x.com/jsuarez/status/2067272190702256340?s=20)

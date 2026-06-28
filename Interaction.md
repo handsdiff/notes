@@ -41,3 +41,4 @@
 - https://arxiv.org/abs/1701.07570 how does this dynamic regret paper (one of will brown's favorites) relate to inverse RL or reward inference more generally?
 	- https://willcb.com/blog/feedback-loops/
 - https://jacobxli.com/blog/2026/machine-studying/ seems very relevant to continual learning, possibly good benchmark
+- https://www.datocms-assets.com/104802/1781805778-baseten-research-sft.pdf discussion on dataset construction, hyperparameters, etc for fine tuning
