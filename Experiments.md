@@ -11,5 +11,6 @@
 - Play around with Cogames  
 - Play around with Pufferlib  
 - Play around with Tinker  
+	- https://river.ai/ how does this relate to my blog? i think its a tinker competitor
 - Play around with Prime Intellect  
 - https://sfp.paradigm-36f.workers.dev/ submit to this with ideas from Goedel prover v2 from chi jin?
