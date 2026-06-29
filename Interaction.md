@@ -75,3 +75,4 @@
     - This also seems to indicate that the karpathy hire on pretraining is due to the fact that pretraining was paused rather than saturated, but incoming compute will continue to deliver major scaling gains  
 - https://www.goodfire.ai/research
 - long horizon Q learning from chelsea finn https://arxiv.org/pdf/2605.05812 
+- extremely extremely good from cole wyeth discussing how local reward models relates to alignment https://www.lesswrong.com/posts/JT3qCYDimskcBdiEr/the-hard-core-of-alignment-is-robustifying-rl
