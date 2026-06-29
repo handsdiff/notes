@@ -69,3 +69,8 @@ do you end up having to improve on algos to win? (whether thats prompt space or 
 "predict me" game that allows people to compete to take the public data and predict my next actions? to solve algorithms side? if you win you get hired?
 
 probably related to my data thesis https://www.dwarkesh.com/p/the-sample-efficiency-black-hole
+
+obsidian search sucks (double click button, doesnt handle spaces)
+inputting into obsidian i've worked around with extra bullet, i guess its fine
+obsidian sync sucks - not always up to date
+existing stack, since team might set it up as well, for explanatory purposes, is obsidian + git + quartz + auto commit and deploy
