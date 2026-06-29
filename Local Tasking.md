@@ -11,6 +11,7 @@
 - who are the biggest screenpipe users? is anyone running prospective learning or reward inference algorithms on their data?
 	- https://github.com/screenpipe/screenpipe
 	- a good sobering take that recommendation is already done at scale massively  (and how is user prediction in the context of my ideas really different? [[Interaction#^4c96d9]]), i think there was even an old linkedin paper than was showing RL in a multi armed bandit flavor where the user chooses between one of 3 recommendations or something, hopefully i could find that again. 
+	- from dragan re social media recommendation: https://arxiv.org/abs/2510.12742
 	- why dont i have recommendations cycled on my computer use?
 		- https://arxiv.org/pdf/2505.10831 paper shared by sam on predictive behavior from a 'general user model' from computer use behavior. reach out to authors?
 	- seems equivalent to predicting behavior or increased legibility. didnt feel the need to increase legibility for 'big data' social media algos. maybe because they didnt care about capturing me, or i didn't benefit, or it was knowingly misaligned, but likely probably because i just *couldnt*. i'm not able to put generative thoughts into twitter. (unless maybe they edit the feed based on what you post too, which would make a lot of sense, but havent heard anything about this)
