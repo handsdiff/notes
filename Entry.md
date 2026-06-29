@@ -5,7 +5,7 @@
 - [https://www.youtube.com/watch?v=3Yxmjf57sco](https://www.youtube.com/watch?v=3Yxmjf57sco)   
 - https://www.dwarkesh.com/p/sholto-trenton-2
 
-- [https://x.com/eliebakouch/status/2064086258687578348?s=20](https://x.com/eliebakouch/status/2064086258687578348?s=20)   
+- good coding benchmark https://cognition.com/blog/frontier-code cognition seems to be doing good work. this + outcome based pricing I saw recently from them
 - [https://x.com/eliebakouch/status/2064736476995146014?s=20](https://x.com/eliebakouch/status/2064736476995146014?s=20)   
 - Magnetic mirror descent [https://arxiv.org/abs/2206.05825](https://arxiv.org/abs/2206.05825) 
 - [https://gwern.net/rl-children](https://gwern.net/rl-children)  
