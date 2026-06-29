@@ -17,3 +17,7 @@
 	- https://www.zyphra.com/our-work/plasticity-loss-in-continual-learning
 	- https://lilianweng.github.io/posts/2026-06-24-scaling-laws/
 		- this seems to relate to the plasticity paper [[Open#^0f01f7]] where the data quality determines loss curves over time, specifically around repitition
+- if its unclear what is latent in an LLM, then GEPA is the best way of figuring out whats latent?
+	- definitely feels wasteful to have to spend a ton of tokens figuring out what the state of the computer even is, rather than just using it, especially since its expensive
+	- not sure i've articulated this anywhere else but if GEPA is basically determining a prompt that minimizes loss on some training/test set, and updating weights has the same task, then which is actually cheaper today? and which gets relatively more cheap over time?
+- are RL rollouts equivalent to 'predicting the environment and predicting your own actions'? i dont see what the difference is. at least for single model rollouts not self play. https://claude.ai/chat/2c9bd8d1-5bb3-452b-9090-faaf8efd1ae7

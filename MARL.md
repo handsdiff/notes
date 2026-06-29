@@ -87,4 +87,5 @@
 - https://arxiv.org/pdf/2602.01539
 - https://arxiv.org/html/2510.11062v1
 - https://github.com/FareedKhan-dev/all-rl-algorithms
+- Is this guy super cracked out? How does his embodiment take relate to current work and/or multi agent work and/or AIXI? [https://scott.garrabrant.com/](https://scott.garrabrant.com/)   
 
