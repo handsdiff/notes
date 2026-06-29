@@ -9,7 +9,8 @@
 	- really like this idea ^ when applied to predicting the next action of the user (as part of the agent's environment, as a step to predicting next action of a system of users or multiple users)
 	- https://gemini.google.com/app/f06bf6e9d84dec3c
 - Play around with Cogames  
-- Play around with Pufferlib  
+- Play around with Puffer
+	- seems similar to "RL at hyperscale" https://gemini.google.com/app/ecf40bd8459d2a5e
 - Play around with Tinker  
 	- https://river.ai/ how does this relate to my blog? i think its a tinker competitor
 - Play around with Prime Intellect  
