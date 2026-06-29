@@ -69,3 +69,6 @@
 - https://x.com/kalomaze/status/2065498921443438928?s=20 data mixing to improve learning
 - [https://x.com/dwarkesh\_sp/status/2062353335529935114?s=20](https://x.com/dwarkesh_sp/status/2062353335529935114?s=20)  10min OPSD explainer
 - seems useful as a beginner initiation https://github.com/gvkhosla/pi-tinker but perhaps slop
+- [https://substack.com/home/post/p-197387291](https://substack.com/home/post/p-197387291)   
+    - Feeling like this post makes arguments that could be usefully extended by well analyzing the nvidia tech report and microsoft tech report recently and coming to novel conclusions about scaling complexity  
+    - This also seems to indicate that the karpathy hire on pretraining is due to the fact that pretraining was paused rather than saturated, but incoming compute will continue to deliver major scaling gains  
