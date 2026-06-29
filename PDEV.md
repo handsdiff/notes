@@ -60,7 +60,7 @@ https://gemini.google.com/app/5ebb19454b814c5e can use opentimestamps for true p
 
 it doesnt seem like obsidian will build what i want [[PDEV]] since their core value prop involves privacy, whereas i want public by default + cloud AI analyzing everything/always on
 
-do you end up having to improve on algos to win? (whether thats prompt space or weight space). probably?
-	- actual sync + easy entry + screenpipe + version control + opentimestamps + data cleaning + predictive actions + link enhancement + public
+do you end up having to improve on algos to win? (whether thats prompt space or weight space). probably? the thing is, so many people are working on this, no? not many people actually piping data into it? need better answers here
+	- actual sync + easy entry (+ screenpipe) + version control + opentimestamps + data cleaning + predictive actions + link enhancement + public
 
 "predict me" game that allows people to compete to take the public data and predict my next actions? to solve algorithms side? if you win you get hired?
