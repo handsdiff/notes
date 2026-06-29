@@ -17,11 +17,10 @@
 - two 'computers' on each device? one from the human and one for the ai? easy sharing of html and some file systems, but avoids catastrophe or takeover? and allows for prospective learning / predictive recommendations from screenpipe context?
 - seems so obvious that theres a gap of just having an end to end product that pipes all computer context + serves personalized predictions to solve inferenced local and global goals?
 ---
-- g
 - 
+- https://www.forethought.org/research/design-sketches-angels-on-the-shoulder
 
-- https://x.com/sheriyuo/status/2067514445488947366?s=20
-- [https://x.com/lossfunk/status/2067589548759261531?s=20](https://x.com/lossfunk/status/2067589548759261531?s=20)
+
 - [https://x.com/jsuarez/status/2067272190702256340?s=20](https://x.com/jsuarez/status/2067272190702256340?s=20)
 - https://x.com/satyanadella/status/2066182223213293753
 - https://arxiv.org/pdf/2405.17713 AI Alignment with Changing and Influenceable Reward Functions Dragan 2024
