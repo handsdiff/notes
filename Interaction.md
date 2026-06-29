@@ -57,5 +57,5 @@
 - is NLAC similar to continual/interactive learning if you replace the critic with a human? starting to feel like this vague idea doesn't actually make sense because what are you even learning/predicting?
 - how to deal with states that truthfully reward the user but the user doesn't recognize as such? this is probably the basis for sycophancy. probably similar to P vs NP. i can verify that i like something after i have it but i cannot tell you or codify it before hand.
 - https://arxiv.org/abs/2601.20802 how does SDPO relate to interactive / continuous inverse learning? seems relevant
-- https://www.forethought.org/research/design-sketches-angels-on-the-shoulder
+- https://www.forethought.org/research/design-sketches-angels-on-the-shoulder ^4c96d9
 - possible counter weight paper but might be stupid https://arxiv.org/pdf/2408.16984 interesting paper that seems, from the abstract, to conclude anthropic's approach is superior, but then says that this leads to pluralism?
