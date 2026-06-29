@@ -1,6 +1,7 @@
 
 - **need to keep putting out good articles and publicizing thoughts**
 	- have a lot of spread out notes surrounding this topic that i need to distill into a more specific set of questions + explanations. along with new research to invalidate how I think about things. for example will brown did his phd on something similar years ago
+	- there is definitely tension between public provenance and prediction from local context, no?
 	- essentially actual experimentation to bolster algorithmic belief for a product for data legibilization, recognize that if you dont have a ton of personal data (unclear where the reward model part comes in) then you will be in a lot of pain in the next few years (assumes RSI/AGI)
 	- **whatever you're doing needs to be done publicly. also some clear direction / call to action we can help people with, to at least open up inbound
 	- implement papers, tweet about it, write good blog posts, create nice repos
@@ -17,36 +18,9 @@
 - two 'computers' on each device? one from the human and one for the ai? easy sharing of html and some file systems, but avoids catastrophe or takeover? and allows for prospective learning / predictive recommendations from screenpipe context?
 - seems so obvious that theres a gap of just having an end to end product that pipes all computer context + serves personalized predictions to solve inferenced local and global goals?
 ---
-- 
-- 
-- https://x.com/JoshPurtell/status/2066967185818345674?s=20
-- https://x.com/SemiAnalysis_/status/2066941079920791760?s=20
-- https://www.forethought.org/research/will-ai-r-and-d-automation-cause-a-software-intelligence-explosion#bringing-it-all-together
-- https://arxiv.org/abs/2506.14863 intelligence explosion estimates around ai population growth
-- it doesnt seem like obsidian will build what i want [[PDEV]] since their core value prop involves privacy, whereas i want public by default + cloud AI analyzing everything/always on
-- its easier to share progress, and therefore make progress, if investment is permissionless. relates to RPGF, but that seems a bit too idealistic.
-- how is epistemic integrity benchmarked in LLMs, if at all? the success of collective intelligence and non singleton outcomes is downstream of this.
-	- games like avalon are a subset of epistemic integrity
-	- "(e) Group alignment: How can AGI groups be effectively steered (either explicitly, or implicitly via, e.g., mechanism design for markets)? How can they be hardened and self-correct against epistemic hijacking and the spread of falsehoods, hallucinations & self-delusions? (f) How to ensure epistemic resilience and recoverability in asymmetric-intelligence collectives (e.g., mixed human-ASI collectives)?" from agi to asi paper
-	- seems like the transition from taking context at face value vs taking context as an update into a prior is the difference, but what does that look like in practice? for example if a data point comes in and the probability of that data point is low, we would need to update our priors but not completely. and there is a difference between environmental sampling and collaborative opinion (lossy). trust forms when collaborative opinion updates the world model/prior towards environmental truth over time. trust is individualized reputation.
-	- studybench feels like an example of an assistance game
-- agency arises when reward signal is peer approval in humans? how to set a dynamic reward signal of peer approval in LLMs? relates to CIRL. perhaps relates to (non)assistant training paradigm
-- probably need to go through these (recent papers by ECHO author) https://arxiv.org/search/cs?searchtype=author&query=Shrivastava,+V
-- https://www.mdpi.com/1099-4300/28/6/596 genewein and hutter explore the extent to which LLMs approximate AIXI and what the specific challenges are https://gemini.google.com/app/e5723b735ee76668
-	- seemingly a gap between append only agent turn logs as some vague 'memory' solution vs use as a formal interleaved dataset where the agent can learn causal loops, which opens up multi agent systems which opens up collective intelligence. again, ECHO seems to be the first version of this
-	- prospective learning vs retrospective learning?
-	- but when agents do next token prediction that's considered an 'action', no? whats the actual difference
-- if LLM generalization is on a spectrum, then viable products of the future are downstream of being correct about the extent to which generalization occurs
-- current understanding todos in browser: multi agent cooperating thru ICL, CIRL, AGI to ASI, MUPI/RUI, gwern GA, POMDP lectures
-	- https://gemini.google.com/app/eef345df5e5d14eb
-		- ^ how do epistemic utility measurements [[Google Pi Team#^b203be]] relate to the framing of the 'incentive to ask' as the unsolved core
-	- "Wrapping a mathematical POMDP solver around a 70B+ parameter Large Language Model is computationally impossible with current techniques." ??
-	- "not by maintaining a dynamic Bayesian belief distribution over a hidden vector $\theta$, but by frozen reward modeling or Direct Preference Optimization. The empirical simplicity and scalability of RLHF bypassed the need to compute complex, game-theoretic joint policies." ok but we're past that now
-	- is the context of an LLM functionally a bayesian belief state in a POMDP? and the problem perhaps with that framework is that it does not maintain multiple 'contexts' with their own probabilities of being right/useful? and this is externalized to memory solutions like Hindsight and benchmarked with stuff like BEAM? but [[Google Pi Team#^b203be]] describes differences between epistemic agents and what BEAM measures, which essentially comes down to dynamism imo. relates back to dynamic evals seemingly, but personalized perhaps [[Ideas#^7afff1]]
-	- CIRL also seems to be related to the 'proactive' framework Randall kept mentioning. [[Experiments#^605490]], at least the part where it interjects to learn. do existing LLMs and memory handle this already?
-- Polymarket vs Kalshi seems similar to protocol vs platform
-- https://x.com/teortaxesTex/status/2065962301195178212?s=20
-- https://x.com/JoshPurtell/status/2065989651752464486?s=20
+- financial inequality implies homogenous utility functions since many want few and few producers accumulate wealth. if everyone had a different utility function, and could get it maximally, then everyone would have equal financial outcomes? that doesn't seem right. its right if money doesnt matter
+
+
 - https://x.com/kalomaze/status/2065498921443438928?s=20
 - [https://x.com/badlogicgames/status/2061941296932004175?s=20](https://x.com/badlogicgames/status/2061941296932004175?s=20) as a stepping stone to models as tools for models? Dynamic workflows  
     - [https://x.com/a1zhang/status/2060071701879066626](https://x.com/a1zhang/status/2060071701879066626)   

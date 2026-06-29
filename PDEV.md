@@ -57,3 +57,10 @@ shared by sam https://lazy.so/
 https://news.ycombinator.com/item?id=48675435 new notetaking app. built by inkeep, which I was previously exploring as a solution because it indexed links well, but was for enterprises, didnt want to spend 400/mo on it. it may actually be worth it though
 
 https://gemini.google.com/app/5ebb19454b814c5e can use opentimestamps for true provenance on the notes via publishing git commits to Bitcoin
+
+it doesnt seem like obsidian will build what i want [[PDEV]] since their core value prop involves privacy, whereas i want public by default + cloud AI analyzing everything/always on
+
+do you end up having to improve on algos to win? (whether thats prompt space or weight space). probably?
+	- actual sync + easy entry + screenpipe + version control + opentimestamps + data cleaning + predictive actions + link enhancement + public
+
+"predict me" game that allows people to compete to take the public data and predict my next actions? to solve algorithms side? if you win you get hired?

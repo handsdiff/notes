@@ -59,3 +59,10 @@
 - https://arxiv.org/abs/2601.20802 how does SDPO relate to interactive / continuous inverse learning? seems relevant
 - https://www.forethought.org/research/design-sketches-angels-on-the-shoulder ^4c96d9
 - possible counter weight paper but might be stupid https://arxiv.org/pdf/2408.16984 interesting paper that seems, from the abstract, to conclude anthropic's approach is superior, but then says that this leads to pluralism?
+- technical possible how to explanation nitty gritty RL work https://x.com/SemiAnalysis_/status/2066941079920791760?s=20
+- agency arises when reward signal is peer approval in humans (forget where I read this)? how to set a dynamic reward signal of peer approval in LLMs? relates to CIRL. perhaps relates to (non)assistant training paradigm
+- probably need to go through these (recent papers by ECHO author) https://arxiv.org/search/cs?searchtype=author&query=Shrivastava,+V
+- https://www.mdpi.com/1099-4300/28/6/596 genewein and hutter explore the extent to which LLMs approximate AIXI and what the specific challenges are https://gemini.google.com/app/e5723b735ee76668
+	- seemingly a gap between append only agent turn logs as some vague 'memory' solution vs use as a formal interleaved dataset where the agent can learn causal loops, which opens up multi agent systems which opens up collective intelligence. again, ECHO seems to be the first version of this
+	- prospective learning vs retrospective learning?
+	- but when agents do next token prediction that's considered an 'action', no? whats the actual difference
