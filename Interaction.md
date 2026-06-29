@@ -76,3 +76,4 @@
 - https://www.goodfire.ai/research
 - long horizon Q learning from chelsea finn https://arxiv.org/pdf/2605.05812 
 - extremely extremely good from cole wyeth discussing how local reward models relates to alignment https://www.lesswrong.com/posts/JT3qCYDimskcBdiEr/the-hard-core-of-alignment-is-robustifying-rl
+- nemotron training stack [https://github.com/NVIDIA-NeMo/Nemotron/tree/main](https://github.com/NVIDIA-NeMo/Nemotron/tree/main)   
