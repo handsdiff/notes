@@ -5,8 +5,8 @@
 - [What remains scarce after AGI? – Alex Imas and Phil Trammell](https://www.youtube.com/watch?v=Jj-kBHzUohs)   
 - [https://www.youtube.com/watch?v=3Yxmjf57sco](https://www.youtube.com/watch?v=3Yxmjf57sco)   
 
-- [https://vkrakovna.wordpress.com](https://vkrakovna.wordpress.com) specification gaming  
-- [https://www.campbellramble.ai](https://www.campbellramble.ai)  
+
+
 - Goodfire AI research  
 - [https://x.com/dwarkesh\_sp/status/2063335334566621297?s=20](https://x.com/dwarkesh_sp/status/2063335334566621297?s=20)  
 - [https://arxiv.org/abs/2606.02800](https://arxiv.org/abs/2606.02800)  

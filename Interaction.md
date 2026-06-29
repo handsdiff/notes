@@ -72,3 +72,4 @@
 - [https://substack.com/home/post/p-197387291](https://substack.com/home/post/p-197387291)   
     - Feeling like this post makes arguments that could be usefully extended by well analyzing the nvidia tech report and microsoft tech report recently and coming to novel conclusions about scaling complexity  
     - This also seems to indicate that the karpathy hire on pretraining is due to the fact that pretraining was paused rather than saturated, but incoming compute will continue to deliver major scaling gains  
+- https://www.goodfire.ai/research
