@@ -6,10 +6,10 @@
 - https://www.dwarkesh.com/p/sholto-trenton-2
 
 - good coding benchmark https://cognition.com/blog/frontier-code cognition seems to be doing good work. this + outcome based pricing I saw recently from them
-- [https://x.com/eliebakouch/status/2064736476995146014?s=20](https://x.com/eliebakouch/status/2064736476995146014?s=20)   
-- Magnetic mirror descent [https://arxiv.org/abs/2206.05825](https://arxiv.org/abs/2206.05825) 
-- [https://gwern.net/rl-children](https://gwern.net/rl-children)  
-- https://x.com/RyanPGreenblatt/status/2065185280295100481?s=20
+
+
+
+
 - https://x.com/emollick/status/2065200484613296269?s=20
 - https://x.com/robinhanson/status/2065122280875946014?s=20
 - https://x.com/jjacky/status/2064767118118117491?s=20
