@@ -4,7 +4,7 @@
 - [What remains scarce after AGI? – Alex Imas and Phil Trammell](https://www.youtube.com/watch?v=Jj-kBHzUohs)   
 - [https://www.youtube.com/watch?v=3Yxmjf57sco](https://www.youtube.com/watch?v=3Yxmjf57sco)   
 
-- [https://x.com/teortaxesTex/status/2064605846546301124?s=20](https://x.com/teortaxesTex/status/2064605846546301124?s=20)   
+
 - [https://x.com/teortaxesTex/status/2064550527979917631?s=20](https://x.com/teortaxesTex/status/2064550527979917631?s=20)   
 - [https://x.com/svlevine/status/2064556217289318528?s=20](https://x.com/svlevine/status/2064556217289318528?s=20)   
 - [https://x.com/dwarkesh\_sp/status/2064422596620472560?s=20](https://x.com/dwarkesh_sp/status/2064422596620472560?s=20)   
@@ -26,3 +26,4 @@
 - https://x.com/chelseabfinn/status/2065559130929291630?s=20 CHELSEA
 - https://arxiv.org/abs/1709.04326 LOLA
 - https://openreview.net/pdf?id=fh8EYKFKns
+- my use of gemini over gpt 5.5 is evidence that top line intelligence does not directly equate to my day to day usage / willingness to pay?
