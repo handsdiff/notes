@@ -1,13 +1,11 @@
 
 - *
 
-
+- 
 - [What remains scarce after AGI? – Alex Imas and Phil Trammell](https://www.youtube.com/watch?v=Jj-kBHzUohs)   
 
-- [https://x.com/gakonst/status/2062116487708512355?s=20](https://x.com/gakonst/status/2062116487708512355?s=20)  
-- [https://substack.com/home/post/p-197387291](https://substack.com/home/post/p-197387291)   
-    - Feeling like this post makes arguments that could be usefully extended by well analyzing the nvidia tech report and microsoft tech report recently and coming to novel conclusions about scaling complexity  
-    - This also seems to indicate that the karpathy hire on pretraining is due to the fact that pretraining was paused rather than saturated, but incoming compute will continue to deliver major scaling gains  
+
+- 
 - [https://www.youtube.com/watch?v=3Yxmjf57sco](https://www.youtube.com/watch?v=3Yxmjf57sco)   
 - Steven Byrnes less wrong writing  
 - [https://vkrakovna.wordpress.com](https://vkrakovna.wordpress.com) specification gaming  
