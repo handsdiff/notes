@@ -18,10 +18,7 @@
 - two 'computers' on each device? one from the human and one for the ai? easy sharing of html and some file systems, but avoids catastrophe or takeover? and allows for prospective learning / predictive recommendations from screenpipe context?
 - seems so obvious that theres a gap of just having an end to end product that pipes all computer context + serves personalized predictions to solve inferenced local and global goals?
 ---
-- financial inequality implies homogenous utility functions since many want few and few producers accumulate wealth. if everyone had a different utility function, and could get it maximally, then everyone would have equal financial outcomes? that doesn't seem right. its right if money doesnt matter
-
-
-- https://x.com/kalomaze/status/2065498921443438928?s=20
+- 
 - [https://x.com/badlogicgames/status/2061941296932004175?s=20](https://x.com/badlogicgames/status/2061941296932004175?s=20) as a stepping stone to models as tools for models? Dynamic workflows  
     - [https://x.com/a1zhang/status/2060071701879066626](https://x.com/a1zhang/status/2060071701879066626)   
 - [https://x.com/mustafasuleyman/status/2061880164498428188?s=20](https://x.com/mustafasuleyman/status/2061880164498428188?s=20)   

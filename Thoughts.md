@@ -102,3 +102,4 @@
 - epistemic integrity feels necessary for actually improving priors + discovering truth which feels necessary for collective intelligence to be value creative over singleton intelligence. otherwise as sutton puts it youre missing the selective retention part of variation and evaluation. although not sure why its not just variation and selection
 - its easier to share progress, and therefore make progress, if investment is permissionless. relates to RPGF, but that seems a bit too idealistic.
 - if LLM generalization is on a spectrum, then viable products of the future are downstream of being correct about the extent to which generalization occurs
+- financial inequality implies homogenous utility functions since many want few and few producers accumulate wealth. if everyone had a different utility function, and could get it maximally, then everyone would have equal financial outcomes? that doesn't seem right. its right if money doesnt matter

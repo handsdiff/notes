@@ -66,3 +66,4 @@
 	- seemingly a gap between append only agent turn logs as some vague 'memory' solution vs use as a formal interleaved dataset where the agent can learn causal loops, which opens up multi agent systems which opens up collective intelligence. again, ECHO seems to be the first version of this
 	- prospective learning vs retrospective learning?
 	- but when agents do next token prediction that's considered an 'action', no? whats the actual difference
+- https://x.com/kalomaze/status/2065498921443438928?s=20 data mixing to improve learning
