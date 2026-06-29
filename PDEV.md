@@ -1,4 +1,7 @@
 
+reward function sovereignty
+
+
 - Shared open tabs  
 - Shared claude/gemini conversations    
 - Programmatic for Background Intelligence with own sudo VM and internet search    
