@@ -104,3 +104,4 @@
 - if LLM generalization is on a spectrum, then viable products of the future are downstream of being correct about the extent to which generalization occurs
 - financial inequality implies homogenous utility functions since many want few and few producers accumulate wealth. if everyone had a different utility function, and could get it maximally, then everyone would have equal financial outcomes? that doesn't seem right. its right if money doesnt matter
 - dynamic workflows getting closer to models as tools for models. for now using LLMs rather than optimizing training on the fly
+- definitely of the belief that frontier progress could stop and we'd still get exponential gains in utility from AI due to diffusion of software/hardware, test time scaling, and application layer
