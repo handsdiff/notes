@@ -8,4 +8,5 @@
 	- interesting counterpoint/nuance to subposition as scaling belief where larger models share better abstractions (hot/cold across languages have same activation space, for example)
 	- [[Interaction#^8119c3]]
 	- [[Interaction#^49e745]]
+	- sholto discusses prompt space vs weight space and references the subtleties/trickiness of what is now known as OPSD and SDPO i think ^
 	- 
