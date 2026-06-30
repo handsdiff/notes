@@ -82,3 +82,7 @@
 - parts are similar thesis [https://www.a16z.news/p/institutional-ai-vs-individual-ai](https://www.a16z.news/p/institutional-ai-vs-individual-ai) coordination as first pillar here very similar to my multi agent take. The signal part feels like what im trying to do with the future version of these notes and my listed problems. Unprompted is also a novel thought ive been exploring, similar to proactivity per the randall takes.   
 - increased sparsity helps code a lot but not necessarily other domains? https://x.com/eliebakouch/status/2064736476995146014?s=20 from MAI report. i wonder whether this is evidence of differing capabilities
 - another relevant thesis piece https://x.com/RyanPGreenblatt/status/2065185280295100481?s=20. for all the theses pieces, where do i agree and where do i differ?
+- another relevant thesis take
+	- **5:** What observation would make you say, “this model has taste”, rather than “this model has learned to imitate Gwern’s evaluations or predict Gwern’s past preferences”?
+	- **G:** The most convincing thing would be if a model was right, but I thought it was wrong and eventually realized that it _was_ right, and had just seen deeper and better than me.
+- 
