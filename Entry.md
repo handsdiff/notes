@@ -13,5 +13,6 @@
 	- data is impossible to buy
 	- therefore you need to be producing granular context
 	- the best form of granular context in a computer use setting is writing down your thoughts, since that has the most predictive power vs just scraping computer use
+	- argument that if you don't do this you'll be left behind as algos get superintelligent
 	- that leads to [[PDEV]]
 - possible experiment / toy example to have the git history of notes, randomly remove increasing portions of it, in-context prompt frontier and/or weight space update a smaller LLM, rank predictions based on personal expected usefulness/predictive ability (perhaps just pairwise), establish trend line if any. compare across differing frontier models and/or differing small/local LLMs. do this online to collect more data on how it evolves over time
