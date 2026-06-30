@@ -4,3 +4,4 @@
 	- 
 - https://www.dwarkesh.com/p/sholto-trenton-2
 	- pareto frontier of dollars spent on compute (monkey typewriter) or signal (human time for scaffolding or dense reward signaling)
+	- superposition work states that models are underparameterized? is this the equivalent of being overtrained, not undertrained?
