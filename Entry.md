@@ -15,3 +15,7 @@
 - https://arxiv.org/abs/1709.04326 LOLA
 - https://openreview.net/pdf?id=fh8EYKFKns
 - my use of gemini over gpt 5.5 is evidence that top line intelligence does not directly equate to my day to day usage / willingness to pay?
+- https://github.com/deepseek-ai/Engram/tree/main
+- reducing context window + training a custom model probably allows you to route around batching-like centralization
+- https://www.mindthefuture.info/p/agents-as-webs-of-beliefs
+- Inference net tweet as an example of personal evals, unsure
