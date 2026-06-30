@@ -1,13 +1,2 @@
 
-- *
-- [What remains scarce after AGI? – Alex Imas and Phil Trammell](https://www.youtube.com/watch?v=Jj-kBHzUohs)   
-	- if its always better to optimize for long term value creation at the expense of short term rewards, and AIs take this literally, whereas humans sometimes 'cash in' due to their fixed lifespan, friction to administer genetic and cultural traits to downstream generations, and deeper banalities, will AIs just relentlessly optimize for long term and never cash in? what does that look like?
-- https://www.dwarkesh.com/p/sholto-trenton-2
-	- pareto frontier of dollars spent on compute (monkey typewriter) or signal (human time for scaffolding or dense reward signaling)
-	- superposition work states that models are underparameterized? is this the equivalent of being overtrained, not undertrained?
-	- interesting counterpoint/nuance to subposition as scaling belief where larger models share better abstractions (hot/cold across languages have same activation space, for example)
-	- [[Interaction#^8119c3]]
-	- [[Interaction#^49e745]]
-	- sholto discusses prompt space vs weight space and references the subtleties/trickiness of what is now known as OPSD and SDPO i think ^
-	- "the current suite of algorithms are sufficient to automate white collar work provided you have enough of the right kinds of data. Compared to the TAM of salaries for all of those kinds of work, it is so trivially worthwhile."
-	- "dwarkesh: "will ai be able to do my taxes end to end?" sholto: "If someone at one of the labs cares about it.""
+- https://nextbigteng.substack.com/p/ai-infrastructure-roadmap-five-frontiers-for-2026
