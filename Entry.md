@@ -7,7 +7,7 @@
 - https://x.com/robinhanson/status/2065122280875946014?s=20
 
 
-- https://arxiv.org/pdf/2604.09855
+
 - https://arxiv.org/pdf/2606.13681 
 - https://x.com/chelseabfinn/status/2065559130929291630?s=20 CHELSEA
 - https://arxiv.org/abs/1709.04326 LOLA
