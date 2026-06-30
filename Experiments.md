@@ -13,5 +13,6 @@
 	- seems similar to "RL at hyperscale" https://gemini.google.com/app/ecf40bd8459d2a5e
 - Play around with Tinker  
 	- https://river.ai/ how does this relate to my blog? i think its a tinker competitor
+	- example training on Tinker https://github.com/zahlmann/minesweeper_training
 - Play around with Prime Intellect  
 - https://sfp.paradigm-36f.workers.dev/ submit to this with ideas from Goedel prover v2 from chi jin?
