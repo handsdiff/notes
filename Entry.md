@@ -1,7 +1,7 @@
 
 - *
 - [What remains scarce after AGI? – Alex Imas and Phil Trammell](https://www.youtube.com/watch?v=Jj-kBHzUohs)   
-	- 
+	- if its always better to optimize for long term value creation at the expense of short term rewards, and AIs take this literally, whereas humans sometimes 'cash in' due to their fixed lifespan, friction to administer genetic and cultural traits to downstream generations, and deeper banalities, will AIs just relentlessly optimize for long term and never cash in? what does that look like?
 - https://www.dwarkesh.com/p/sholto-trenton-2
 	- pareto frontier of dollars spent on compute (monkey typewriter) or signal (human time for scaffolding or dense reward signaling)
 	- superposition work states that models are underparameterized? is this the equivalent of being overtrained, not undertrained?
