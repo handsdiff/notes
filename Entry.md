@@ -11,4 +11,3 @@
 	- sholto discusses prompt space vs weight space and references the subtleties/trickiness of what is now known as OPSD and SDPO i think ^
 	- "the current suite of algorithms are sufficient to automate white collar work provided you have enough of the right kinds of data. Compared to the TAM of salaries for all of those kinds of work, it is so trivially worthwhile."
 	- "dwarkesh: "will ai be able to do my taxes end to end?" sholto: "If someone at one of the labs cares about it.""
-	- 
