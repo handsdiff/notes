@@ -6,5 +6,3 @@
 	- 
 - https://www.dwarkesh.com/p/sholto-trenton-2
 	- 
-- https://x.com/robinhanson/status/2065122280875946014?s=20
-	- 
