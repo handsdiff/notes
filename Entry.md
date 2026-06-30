@@ -7,10 +7,11 @@
 	- be more specific about potential value props and downstream attached visions
 	- who is the target market?
 - a lot of continual learning/memory rhetoric seems to be "what did i do?" "how can i do better?" rather than "what did the human do?" "what will the human do next?". the latter is much more like a recommendation system but for actions rather than content? is this an actual distinction?
-- data + compute + algorithms for life autocomplete (predicting thoughts)
+- data + compute + algorithms for life autocomplete (predicting thoughts) (team understood it as predicting prompts) (team biggest concern is amount of data necessary to feel value)
 	- algorithms have 10-11 figures of annual research spend by the smartest minds on earth
 	- compute you can buy
 	- data is impossible to buy
 	- therefore you need to be producing granular context
 	- the best form of granular context in a computer use setting is writing down your thoughts, since that has the most predictive power vs just scraping computer use
-	- that leads [[PDEV]]
+	- that leads to [[PDEV]]
+- possible experiment / toy example to have the git history of notes, randomly remove increasing portions of it, in-context prompt frontier and/or weight space update a smaller LLM, rank predictions based on personal expected usefulness/predictive ability (perhaps just pairwise), establish trend line if any. compare across differing frontier models and/or differing small/local LLMs. do this online to collect more data on how it evolves over time
