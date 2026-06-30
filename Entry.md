@@ -6,3 +6,6 @@
 	- pareto frontier of dollars spent on compute (monkey typewriter) or signal (human time for scaffolding or dense reward signaling)
 	- superposition work states that models are underparameterized? is this the equivalent of being overtrained, not undertrained?
 	- interesting counterpoint/nuance to subposition as scaling belief where larger models share better abstractions (hot/cold across languages have same activation space, for example)
+	- [[Interaction#^8119c3]]
+	- [[Interaction#^49e745]]
+	- 

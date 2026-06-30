@@ -56,7 +56,7 @@
 	- can you apply the step from PNLC -> NLAC to PPI? think i had a claude chat somewhere about this. the take seemed to be yes its possible since LLMs are fundamentally the same structure as the GRUs that were tested. again also seems related to SDPO
 - is NLAC similar to continual/interactive learning if you replace the critic with a human? starting to feel like this vague idea doesn't actually make sense because what are you even learning/predicting?
 - how to deal with states that truthfully reward the user but the user doesn't recognize as such? this is probably the basis for sycophancy. probably similar to P vs NP. i can verify that i like something after i have it but i cannot tell you or codify it before hand.
-- https://arxiv.org/abs/2601.20802 how does SDPO relate to interactive / continuous inverse learning? seems relevant
+- https://arxiv.org/abs/2601.20802 how does SDPO relate to interactive / continuous inverse learning? seems relevant ^8119c3
 - https://www.forethought.org/research/design-sketches-angels-on-the-shoulder ^4c96d9
 - possible counter weight paper but might be stupid https://arxiv.org/pdf/2408.16984 interesting paper that seems, from the abstract, to conclude anthropic's approach is superior, but then says that this leads to pluralism?
 - technical possible how to explanation nitty gritty RL work https://x.com/SemiAnalysis_/status/2066941079920791760?s=20
@@ -67,7 +67,7 @@
 	- prospective learning vs retrospective learning?
 	- but when agents do next token prediction that's considered an 'action', no? whats the actual difference
 - https://x.com/kalomaze/status/2065498921443438928?s=20 data mixing to improve learning
-- [https://x.com/dwarkesh\_sp/status/2062353335529935114?s=20](https://x.com/dwarkesh_sp/status/2062353335529935114?s=20)  10min OPSD explainer
+- [https://x.com/dwarkesh\_sp/status/2062353335529935114?s=20](https://x.com/dwarkesh_sp/status/2062353335529935114?s=20)  10min OPSD explainer ^49e745
 - seems useful as a beginner initiation https://github.com/gvkhosla/pi-tinker but perhaps slop
 - another example end to end training run https://docs.primeintellect.ai/hosted-training/end-to-end-run
 - [https://substack.com/home/post/p-197387291](https://substack.com/home/post/p-197387291)   
