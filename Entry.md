@@ -53,3 +53,5 @@
 	- open source is literally pareto frontier on cost? market dynamics or high margins for frontier intelligence/lock in?
 	- i cant fit my context into modern LLMs, and i likely will never be able to. does that matter? the models you'd fine tune have way less context. what are you actually learning? is it possible that the tradeoff between in weight learnings and drastically reduced context window is worth it, for this use case?
 - i dont actually need to label to train. can do self supervised loss just like next token prediction
+- are weight updates just a more black boxy way to figure out how to construct context in prompt, since its otherwise unclear how to do that? (i guess GEPA?)
+- add local coding into the git tracking, separate from the obsidian (and also commit / opentimestamp)?
