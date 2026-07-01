@@ -8,8 +8,7 @@
 		- Phase 3: Pushing the Frontier: Once the agent has accurately modeled the user's reward function $\theta$, it can use raw computing power (e.g., massive Monte Carlo Tree Search or Test-Time Compute) to discover paths to that reward that the human _never thought of_. It can optimize infrastructure, refactor code algorithms for extreme performance, or chain tool calls in ways that achieve the human’s desired state faster and cheaper than the human could manually execute." ^ec1e08
 	- really like this idea ^ when applied to predicting the next action of the user (as part of the agent's environment, as a step to predicting next action of a system of users or multiple users)
 	- https://gemini.google.com/app/f06bf6e9d84dec3c
-- Play around with Cogame
-	- seems similar to "RL at hyperscale" https://gemini.google.com/app/ecf40bd8459d2a5e
+- Play around with Cogames
 - Play around with Puffer
 	- seems similar to "RL at hyperscale" https://gemini.google.com/app/ecf40bd8459d2a5e
 - Play around with Tinker  
