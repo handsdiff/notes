@@ -55,3 +55,4 @@
 - i dont actually need to label to train. can do self supervised loss just like next token prediction
 - are weight updates just a more black boxy way to figure out how to construct context in prompt, since its otherwise unclear how to do that? (i guess GEPA?)
 - add local coding into the git tracking, separate from the obsidian (and also commit / opentimestamp)?
+- resistance to hardware due to notions of asset light vs asset heavy?
