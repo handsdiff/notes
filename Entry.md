@@ -3,7 +3,7 @@
 - options
 	- fix visibility of public notes per team feedback
 	- outreach to aidotengineer flagged speakers and others to discuss algos for my data
-		- https://github.com/experientiallabs/world-model-harness (yc)
+		- https://github.com/experientiallabs/world-model-harness (yc, seems to be productized data cleaning)
 	- review similarities and differences of algorithms for online learning
 	- write blog post
 	- be more specific about potential value props and downstream attached visions
