@@ -45,3 +45,4 @@
 	- minecraft dreamer v4 seems to directly relate to computer use in terms of algorithms that could be useful to apply to non minecraft scenarios
 - is it cheaper to update weights continuously or update prompts continuously? actually feels like weights? since querying prompts on a frontier model is super expensive? [[Interaction#^72b341]]
 - https://x.com/RampLabs/status/2072381992285647280?s=20 portable LoRA adapters
+- PNLC -> NLAC as PPI -> ??
