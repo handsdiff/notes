@@ -66,7 +66,6 @@
 		        - ex. If Anthropic/OAI/GDM are doing pretty much all the training, I think they will internalize capital markets infrastructure and just do everything OTC
 		- Generalized compute is a bet on uncertainty around training paradigms
 		- Data will become more valuable (not less) with improved sample efficiency (Jevon’s paradox)
-		
 		Few things that stand out to me:  
 		- Applied Compute’s wedge into inference was by providing training RLaaS
 		- Latency and uptime as a core value prop seems like it mostly pertains to DC’s.
