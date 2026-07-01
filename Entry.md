@@ -22,7 +22,7 @@
 	- another tension is im skeptical that the algorithms will work at all with my existing amount of data. perhaps thats cope?
 	- how many tokens are common examples of fine tuned models that actually work trained on? how many tokens are frontier models trained on? on what stage? how does LoRA actually impact the amount of needed/useful tokens? how does that change as the underlying model changes? [[Interaction#^f94b64]]
 	- seems like you need concrete, believable algorithms, since it increases the tangibility of pain of lack of data, and what kind of data is lacking, and for what
-	- is it bs to predict next thoughts/actions? why or why not? there is likely some description that is not bullshit for a given workflow, but would need to write it down. the workflow would be research/learning
+	- is it bs to predict next thoughts/actions? why or why not? there is likely some description that is not bullshit for a given workflow, but would need to write it down. the workflow would likely be research/learning. more concretely? is it next token prediction on what/where i type? is it a bit less granular, a semantic action of writing down a note or looking something up or talking to an AI, given a specific platform?
 - a lot of continual learning/memory rhetoric seems to be "what did i do?" "how can i do better?" rather than "what did the human do?" "what will the human do next?". the latter is much more like a recommendation system but for actions rather than content? is this an actual distinction?
 - discussion with jakub yielded the distinction between nondeterministic reward functions and deterministic reward functions. simpler demarcation is human vs not.
 - data + compute + algorithms for life autocomplete (predicting thoughts) (team understood it as predicting prompts) (team biggest concern is amount of data necessary to feel value)
@@ -48,3 +48,4 @@
 - is it cheaper to update weights continuously or update prompts continuously? actually feels like weights? since querying prompts on a frontier model is super expensive? [[Interaction#^72b341]]
 - https://x.com/RampLabs/status/2072381992285647280?s=20 portable LoRA adapters
 - PNLC -> NLAC as PPI -> ??
+- cursor for computer use
