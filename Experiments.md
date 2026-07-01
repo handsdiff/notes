@@ -16,3 +16,4 @@
 	- example training on Tinker https://github.com/zahlmann/minesweeper_training
 - Play around with Prime Intellect  
 - https://sfp.paradigm-36f.workers.dev/ submit to this with ideas from Goedel prover v2 from chi jin?
+- ECHO but with my thoughts?
