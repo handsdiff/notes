@@ -127,3 +127,4 @@
 	- **5:** What observation would make you say, “this model has taste”, rather than “this model has learned to imitate Gwern’s evaluations or predict Gwern’s past preferences”?
 	- **G:** The most convincing thing would be if a model was right, but I thought it was wrong and eventually realized that it _was_ right, and had just seen deeper and better than me.
 - - https://arxiv.org/abs/1709.04326 LOLA
+- super relevant analysis of algorithms, compared to prompt space, and data tricks/tips needed to juice performance at least in that specific domain https://thinkingmachines.ai/news/learning-to-replicate-expert-judgment-in-financial-tasks/
