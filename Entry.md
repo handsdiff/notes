@@ -28,4 +28,7 @@
 - https://x.com/willccbb/status/2072117134390624579?s=20
 - https://ai.meta.com/blog/brain2qwerty-brain-ai-human-communication/?_fb_noscript=1
 - https://x.com/willccbb/status/2072129068796141760?s=20
-- I like the idea of having open algo competition on my 
+- I like the idea of having open algo competition on my data production
+- https://www.markovstudios.com/data_samples/writing-and-research yc startup computer use data sample. is this actually what computer use data looks like?
+	- come to think of it, how would I actually codify the action space for next thought prediction? would the action space be infinite if the action consists of the full thought rather than tokens? if tokens how exactly would start/stop tags work?
+- minecraft dreamer v4 seems to directly relate to computer use
