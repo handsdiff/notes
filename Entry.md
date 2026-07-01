@@ -12,7 +12,8 @@
 	- --
 	- feels like whats blocking outreach is that its not publicly clear "what im about". which leads to being more strict about the algorithms and use cases im considering. which leads to niching down vs being vague.
 	- niche down -> write public explainer -> publish -> outreach -> experiment?
-	- not in that flow are fixing public visibility and provenance via bitcoin
+	- not in that flow are fixing public visibility or provenance via bitcoin which i think is cool...
+	- 
 - a lot of continual learning/memory rhetoric seems to be "what did i do?" "how can i do better?" rather than "what did the human do?" "what will the human do next?". the latter is much more like a recommendation system but for actions rather than content? is this an actual distinction?
 - discussion with jakub yielded the distinction between nondeterministic reward functions and deterministic reward functions. simpler demarcation is human vs not.
 - data + compute + algorithms for life autocomplete (predicting thoughts) (team understood it as predicting prompts) (team biggest concern is amount of data necessary to feel value)
