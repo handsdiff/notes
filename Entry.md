@@ -72,3 +72,4 @@
 		    - Latency could be a core value prop for things like “interaction models” but as it stands I don’t think it’s critical
 		- Token/s seems like a very strong value prop to build a business on if you’re indeterminate about training
 		- Data labeling infrastructure / relationships seems to be what matters not the data itself for companies in the data game (since the data is dependent on training paradigms)
+- you likely need what im viewing on the screen to well learn what thoughts ill write down or what ill lookup or what ill ask the claude/codex/gemini website/app
