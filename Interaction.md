@@ -1,7 +1,7 @@
  - How does Thinking Machines’ interaction models impact inference architecture? Consumer use cases?  
     - [https://thinkingmachines.ai/blog/interaction-models/](https://thinkingmachines.ai/blog/interaction-models/)  
     - [https://thinkingmachines.ai/news/interactivity-research-grants/](https://thinkingmachines.ai/news/interactivity-research-grants/)  
-    - https://thinkingmachines.ai/blog/ probably should review the old ones too
+    - https://thinkingmachines.ai/blog/ probably should review the old ones too ^f94b64
 - do interaction models solve theory of mind for the given interactor? what does the data for interaction models look like?
 	- theory of mind according to blaise is modeling other minds. modeling your own mind is consciousness according to blaise [[Thoughts#^963ac3]]
 - need interaction because too dynamic and complex to statically hardcode preferences
