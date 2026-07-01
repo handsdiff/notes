@@ -56,3 +56,20 @@
 - are weight updates just a more black boxy, hope and a prayer way to figure out how to construct context in prompt, since its otherwise unclear how to do that? (i guess GEPA?)
 - add local coding into the git tracking, separate from the obsidian (and also commit / opentimestamp)?
 - resistance to hardware due to notions of asset light vs asset heavy?
+- from jakub
+	- As it stands, I feel very indeterminate about application level problems related to AI  
+		I feel mostly determinate about a few things:  
+		- Inference will be an absolutely humongous market
+		    - Specialized compute is likely a given due to the size of the market
+		- Weight-based training may be a large market
+		    - Efficient capital markets on generic compute are more valuable the more important weight-based training becomes as a market
+		        - ex. If Anthropic/OAI/GDM are doing pretty much all the training, I think they will internalize capital markets infrastructure and just do everything OTC
+		- Generalized compute is a bet on uncertainty around training paradigms
+		- Data will become more valuable (not less) with improved sample efficiency (Jevon’s paradox)
+		
+		Few things that stand out to me:  
+		- Applied Compute’s wedge into inference was by providing training RLaaS
+		- Latency and uptime as a core value prop seems like it mostly pertains to DC’s.
+		    - Latency could be a core value prop for things like “interaction models” but as it stands I don’t think it’s critical
+		- Token/s seems like a very strong value prop to build a business on if you’re indeterminate about training
+		- Data labeling infrastructure / relationships seems to be what matters not the data itself for companies in the data game (since the data is dependent on training paradigms)
