@@ -52,3 +52,4 @@
 - lots of interesting findings from the visualizations
 	- open source is literally pareto frontier on cost? market dynamics or high margins for frontier intelligence/lock in?
 	- i cant fit my context into modern LLMs, and i likely will never be able to. does that matter? the models you'd fine tune have way less context. what are you actually learning? is it possible that the tradeoff between in weight learnings and drastically reduced context window is worth it, for this use case?
+- i dont actually need to label to train. can do self supervised loss just like next token prediction
