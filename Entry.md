@@ -13,7 +13,8 @@
 	- feels like whats blocking outreach is that its not publicly clear "what im about". which leads to being more strict about the algorithms and use cases im considering. which leads to niching down vs being vague.
 	- niche down -> write public explainer -> publish -> outreach -> experiment?
 	- not in that flow are fixing public visibility, user quality of life like easier inputting or search or link indexing, or provenance via bitcoin which i think are cool...
-	- comes down to the actual goal
+	- tension between improving data collection vs experimenting with algorithms to make it useful. need both long term pending ongoing discovery. my current load bearing has been phrased as algorithms, but maybe thats because i already write down thoughts, and the additional work there doesn't feel like i learn anything besides if i write down more thoughts, which would require actually measuring usage rate. the ai could easily do this, pending how the actual git commitments work (is it actually when i stop typing, or just every 10 mins). but iterating on the algorithms will act as a forcing function for what type of data is needed and how it should be structured, which probably makes it more useful as a load bearing
+	- then the question is have i made enough progress to generate a published post
 - a lot of continual learning/memory rhetoric seems to be "what did i do?" "how can i do better?" rather than "what did the human do?" "what will the human do next?". the latter is much more like a recommendation system but for actions rather than content? is this an actual distinction?
 - discussion with jakub yielded the distinction between nondeterministic reward functions and deterministic reward functions. simpler demarcation is human vs not.
 - data + compute + algorithms for life autocomplete (predicting thoughts) (team understood it as predicting prompts) (team biggest concern is amount of data necessary to feel value)
@@ -25,7 +26,7 @@
 	- argument that if you don't do this you'll be left behind as algos get superintelligent
 	- that leads to [[PDEV]]
 - possible experiment / toy example to have the git history of notes, randomly remove increasing portions of it, in-context prompt frontier and/or weight space update a smaller LLM, rank predictions based on personal expected usefulness/predictive ability (perhaps just pairwise), establish trend line if any. compare across differing frontier models and/or differing small/local LLMs. do this online to collect more data on how it evolves over time
-- Important to keep in mind that a classical RSI can’t produce my data. It may be able to persuade me to do whatever it wants, but I’m skeptical
+- Important to keep in mind that a classical RSI can’t produce my data. It may be able to persuade me to do whatever it wants, but I’m skeptical of that. relates to dragan's [[Interaction#^2e1db5]]
 - https://x.com/sethkarten/status/2072034978112889328?s=20
 - https://x.com/OpenSoftwareCo/status/2071956798861353099?s=20
 - https://x.com/willccbb/status/2072117134390624579?s=20
@@ -35,4 +36,4 @@
 - https://www.markovstudios.com/data_samples/writing-and-research yc startup computer use data sample. is this actually what computer use data looks like?
 	- come to think of it, how would I actually codify the action space for next thought prediction? would the action space be infinite if the action consists of the full thought rather than tokens? if tokens how exactly would start/stop tags work?
 	- minecraft dreamer v4 seems to directly relate to computer use in terms of algorithms that could be useful to apply to non minecraft scenarios
-- is it cheaper to update weights continuously or update prompts continuously? actually feels like weights? since querying prompts on a frontier model is super expensive?
+- is it cheaper to update weights continuously or update prompts continuously? actually feels like weights? since querying prompts on a frontier model is super expensive? [[Interaction#^72b341]]
