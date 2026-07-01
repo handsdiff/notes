@@ -28,6 +28,7 @@
 	- the best form of granular context in a computer use setting is writing down your thoughts, since that has the most predictive power on next thought/action vs just scraping computer use
 	- argument that if you don't do this you'll be left behind as algos get superintelligent
 	- that leads to [[PDEV]]
+	- definitionally, a model is superintelligent compared to me if it has the ability to predict my actions well (and i cannot predict its actions?)
 - possible experiment / toy example to have the git history of notes, randomly remove increasing portions of it, in-context prompt frontier and/or weight space update a smaller LLM, rank predictions based on personal expected usefulness/predictive ability (perhaps just pairwise), establish trend line if any. compare across differing frontier models and/or differing small/local LLMs. do this online to collect more data on how it evolves over time
 - Important to keep in mind that a classical RSI can’t produce my data. It may be able to persuade me to do whatever it wants, but I’m skeptical of that. relates to dragan's [[Interaction#^2e1db5]]
 - https://x.com/sethkarten/status/2072034978112889328?s=20
