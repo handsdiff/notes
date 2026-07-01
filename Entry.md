@@ -4,7 +4,6 @@
 	- fix visibility of public notes per team feedback
 	- outreach to aidotengineer flagged speakers and others to discuss algos for my data
 		- https://github.com/experientiallabs/world-model-harness (yc)
-		- 
 	- review similarities and differences of algorithms for online learning
 	- write blog post
 	- be more specific about potential value props and downstream attached visions
@@ -22,7 +21,6 @@
 	- that leads to [[PDEV]]
 - possible experiment / toy example to have the git history of notes, randomly remove increasing portions of it, in-context prompt frontier and/or weight space update a smaller LLM, rank predictions based on personal expected usefulness/predictive ability (perhaps just pairwise), establish trend line if any. compare across differing frontier models and/or differing small/local LLMs. do this online to collect more data on how it evolves over time
 - Important to keep in mind that a classical RSI can’t produce my data. It may be able to persuade me to do whatever it wants, but I’m skeptical
-- https://x.com/tinkerapi/status/2072034052522315927?s=20
 - https://x.com/sethkarten/status/2072034978112889328?s=20
 - https://x.com/OpenSoftwareCo/status/2071956798861353099?s=20
 - https://x.com/willccbb/status/2072117134390624579?s=20
