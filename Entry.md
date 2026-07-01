@@ -24,3 +24,5 @@
 - https://x.com/OpenSoftwareCo/status/2071956798861353099?s=20
 - https://x.com/willccbb/status/2072117134390624579?s=20
 - https://ai.meta.com/blog/brain2qwerty-brain-ai-human-communication/?_fb_noscript=1
+- https://x.com/willccbb/status/2072129068796141760?s=20
+- I like the idea of having open algo competition on my 
