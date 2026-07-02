@@ -86,3 +86,5 @@
 - https://x.com/lagunacarta/status/2072346443013107784?s=20
 - search makes browsers valuable?
 - not more data, but more signal is always better
+- https://openpipe.ai/
+- 
