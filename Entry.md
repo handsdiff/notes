@@ -87,4 +87,4 @@
 - search makes browsers valuable?
 - not more data, but more signal is always better
 - https://openpipe.ai/ early RL for agents company, apparently had a lot of customers, acquired by Coreweave
-- 
+- want to make the html artifacts publicly visible along with my notes. likely dont want the browser data to be visible though?
