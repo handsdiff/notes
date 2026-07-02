@@ -91,4 +91,4 @@
 - https://x.com/emollick/status/2072697436963832023?s=20 “you really need your own benchmarks”
 - to what extent am i implementing toy examples / codifying data / going through algorithms to convince my team of the vision rather than make more concrete progress? obviously team conviction could increase progress long term, so whats the tradeoff there? 
 - the data codification seems a bit uninspiring, but maybe thats because its actually whats needed to deliver the value prop, so its a good forcing function to avoid being lazy and just an 'intellectual'
-- its also unclear i
+- its also unclear if i want to be capturing coding sessions at this stage. i think that will bloat the rest of the context and make it harder to train on the research signal. it comes down to what the actual point here is, which is clearly unclear, or at the very least perhaps differs from me and cofounders. thats probably not true since to be fair, we both want autocomplete, its just that we differ on whether certain data sources are necessary for that to occur. obviously, more data is better, and stuff that cannot be recaptured easily should be p
