@@ -33,6 +33,7 @@
 	- the best form of granular context in a computer use setting is writing down your thoughts, since that has the most predictive power on next thought/action vs just scraping computer use
 	- argument that if you don't do this you'll be left behind as algos get superintelligent
 	- (also relates to frontier models differing in reward models from you)
+	- (also relates to frontier models differing in reward models from you)
 	- that leads to [[PDEV]]
 	- definitionally, a model is superintelligent compared to me if it has the ability to predict my actions well (and i cannot predict its actions?)
 - **possible experiment / toy example to have the git history of notes, randomly remove increasing portions of it, in-context prompt frontier and/or weight space update a smaller LLM, rank predictions based on personal expected usefulness/predictive ability (perhaps just pairwise), establish trend line if any. compare across differing frontier models and/or differing small/local LLMs. do this online to collect more data on how it evolves over time**
@@ -90,6 +91,18 @@
 - https://openpipe.ai/ early RL for agents company, apparently had a lot of customers, acquired by Coreweave
 - want to make the html artifacts publicly visible along with my notes. likely dont want the browser data to be visible though?
 - https://x.com/emollick/status/2072697436963832023?s=20 “you really need your own benchmarks”
+- https://news.ycombinator.com/item?id=48760201
+- https://x.com/satyanadella/status/2072708957077176563?s=20
+- https://x.com/emollick/status/2072727258352001341?s=20
+- https://x.com/RichardSSutton/status/2072717459686035723?s=20
+- to what extent am i implementing toy examples / codifying data / going through algorithms to convince my team of the vision rather than make more concrete progress? obviously team conviction could increase progress long term, so whats the tradeoff there? 
+- the data codification seems a bit uninspiring, but maybe thats because its actually whats needed to deliver the value prop, so its a good forcing function to avoid being lazy and just an 'intellectual'
+- its also unclear if i want to be capturing coding sessions at this stage. i think that will bloat the rest of the context and make it harder to train on the research signal. it comes down to what the actual point here is, which is clearly unclear, or at the very least perhaps differs from me and cofounders. thats probably not true since to be fair, we both want autocomplete, its just that we differ on whether certain data sources are necessary for that to occur. obviously, more data is better, and stuff that cannot be recaptured easily should be prioritized. thoughts and reasoning, imo, is one of those. coding sessions seem to persist/backfillable, same with browser history. 
+- this notion of how does behavior cloning / prediction / recommendation scale to superhuman, ceiling-raising performance feels important to actually have an opinion on
+
+- i think at a high level, in terms of algorithms, i want to distinguish between 'normal' next token prediction supervised fine tuning on LLMs, vs doing RL on LLMs. and which ones lead to superhuman performance? and are you actually just doing both? for example what is ECHO? regardless, what data will likely be needed to see performance? probably browser data + obsidian data, unclear how structured though since its dependent on the algorithms. obsidian data is version controlled so its perfectly tracked. i want to avoid code for now. so browser history would be the missing vertical. 
+	- (read, app, content) and (write, app, content). obsidian covers some write. the browser history script that fetches some read and write, but some issues flagged by Fable.
+	- **maybe just start ensuring its all collected. then from there, write down ALL the algos and papers. then, group/consolidate. then the data structure will become clearer.**
 - to what extent am i implementing toy examples / codifying data / going through algorithms to convince my team of the vision rather than make more concrete progress? obviously team conviction could increase progress long term, so whats the tradeoff there? 
 - the data codification seems a bit uninspiring, but maybe thats because its actually whats needed to deliver the value prop, so its a good forcing function to avoid being lazy and just an 'intellectual'
 - its also unclear if i want to be capturing coding sessions at this stage. i think that will bloat the rest of the context and make it harder to train on the research signal. it comes down to what the actual point here is, which is clearly unclear, or at the very least perhaps differs from me and cofounders. thats probably not true since to be fair, we both want autocomplete, its just that we differ on whether certain data sources are necessary for that to occur. obviously, more data is better, and stuff that cannot be recaptured easily should be prioritized. thoughts and reasoning, imo, is one of those. coding sessions seem to persist/backfillable, same with browser history. 
