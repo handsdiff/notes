@@ -82,3 +82,4 @@
 - https://x.com/PalantirTech/status/2072326189079757277?s=20
 - search doesnt index authorized content. agents have trouble accessing authorized content. users often give agents auth to access this content. does that improve search? probably stupid.
 - what should the data structure be for training on an open source model, if the goal is to predict 'writes' (obsidian note, browser search, message to ai chatbot) given previous reads and writes (browser history, ai chatbot answers, previous notes)
+- One way to describe this local vision feels like “neomemory” bc it’s similar to what “memory” systems do today but pointed at prediction?
