@@ -1,8 +1,5 @@
 
-reward function autonomy
-
-
-reward function autonomy
+reward function autonomy/sovereignty
 
 
 - Shared open tabs  

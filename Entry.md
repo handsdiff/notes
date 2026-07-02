@@ -78,3 +78,4 @@
 - i suspect the data should interleave write actions (content, app) with read actions (content, app). obsidian (+ ai chats, search) are most of write. the browser history is most of read. but i only want the model to predict what i write, not what i read. and i dont want to trade off intelligence, since the point is superhuman. what algos make the most sense for the data, and what algos have the conceptual ability to lead to superhuman?
 - somewhat helpful gemini thread regarding data structure and previous attempts. but need to parse the bs https://gemini.google.com/app/b242920671bf7d32
 - re-emphasizing that with LLMs, relevant 'marketing'/AEO is easier than ever and you need to ensure youre outputting. do agents/search tools index my note git history? why or why not?
+- banger https://x.com/PalantirTech/status/2072114267776491695?s=20
