@@ -85,4 +85,4 @@
 - One way to describe this local vision feels like “neomemory” bc it’s similar to what “memory” systems do today but pointed at prediction?
 - https://x.com/lagunacarta/status/2072346443013107784?s=20
 - search makes browsers valuable?
-- 
+- not more data, but more signal is always better
