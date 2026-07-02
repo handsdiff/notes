@@ -79,3 +79,5 @@ obsidian backlinking sucks, should be AI recommended by searching over everythin
 Cross device sync natively + version control natively is very simply missing (cross device sync enables multiplayer?)
 
 the obsidian cross device sync is consistently fucking up jesus
+
+notebookLM tech on this vault and its history would be fire, i constantly try to reproduce this with claude/codex cli
