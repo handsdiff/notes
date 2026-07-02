@@ -84,7 +84,8 @@
 - what should the data structure be for training on an open source model, if the goal is to predict 'writes' (obsidian note, browser search, message to ai chatbot) given previous reads and writes (browser history, ai chatbot answers, previous notes)
 - One way to describe this local vision feels like “neomemory” bc it’s similar to what “memory” systems do today but pointed at prediction?
 - https://x.com/lagunacarta/status/2072346443013107784?s=20
-- search makes browsers valuable?
+- https://x.com/tetsuoai/status/2072554420135678074?s=20search makes browsers valuable?
 - not more data, but more signal is always better
 - https://openpipe.ai/ early RL for agents company, apparently had a lot of customers, acquired by Coreweave
 - want to make the html artifacts publicly visible along with my notes. likely dont want the browser data to be visible though?
+- https://x.com/emollick/status/2072697436963832023?s=20 “you really need your own benchmarks”
