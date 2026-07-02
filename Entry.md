@@ -84,3 +84,4 @@
 - what should the data structure be for training on an open source model, if the goal is to predict 'writes' (obsidian note, browser search, message to ai chatbot) given previous reads and writes (browser history, ai chatbot answers, previous notes)
 - One way to describe this local vision feels like “neomemory” bc it’s similar to what “memory” systems do today but pointed at prediction?
 - https://x.com/lagunacarta/status/2072346443013107784?s=20
+- 
