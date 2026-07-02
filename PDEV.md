@@ -74,20 +74,8 @@ obsidian search sucks (double click button, doesnt handle spaces)
 inputting into obsidian i've worked around with extra bullet, i guess its fine
 obsidian sync sucks - not always up to date
 existing stack, since team might set it up as well, for explanatory purposes, is obsidian + git + quartz + auto commit and deploy
-
-it doesnt seem like obsidian will build what i want [[PDEV]] since their core value prop involves privacy, whereas i want public by default + cloud AI analyzing everything/always on
-
-do you end up having to improve on algos to win? (whether thats prompt space or weight space). probably? the thing is, so many people are working on this, no? not many people actually piping data into it? need better answers here
-	- actual sync + easy entry (+ screenpipe) + version control + opentimestamps + data cleaning + predictive actions + link enhancement + public
-
-"predict me" game that allows people to compete to take the public data and predict my next actions? to solve algorithms side? if you win you get hired?
-
-probably related to my data thesis https://www.dwarkesh.com/p/the-sample-efficiency-black-hole
-
-obsidian search sucks (double click button, doesnt handle spaces)
-inputting into obsidian i've worked around with extra bullet, i guess its fine
-obsidian sync sucks - not always up to date
-existing stack, since team might set it up as well, for explanatory purposes, is obsidian + git + quartz + auto commit and deploy
 obsidian backlinking sucks, should be AI recommended by searching over everything, i shouldnt need to specify the overall note and then scroll through the whole thing. i dont necessarily know where everything is
 
 Cross device sync natively + version control natively is very simply missing (cross device sync enables multiplayer?)
+
+the obsidian cross device sync is consistently fucking up jesus
