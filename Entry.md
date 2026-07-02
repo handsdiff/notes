@@ -89,3 +89,6 @@
 - https://openpipe.ai/ early RL for agents company, apparently had a lot of customers, acquired by Coreweave
 - want to make the html artifacts publicly visible along with my notes. likely dont want the browser data to be visible though?
 - https://x.com/emollick/status/2072697436963832023?s=20 “you really need your own benchmarks”
+- to what extent am i implementing toy examples / codifying data / going through algorithms to convince my team of the vision rather than make more concrete progress? obviously team conviction could increase progress long term, so whats the tradeoff there? 
+- the data codification seems a bit uninspiring, but maybe thats because its actually whats needed to deliver the value prop, so its a good forcing function to avoid being lazy and just an 'intellectual'
+- its also unclear i
