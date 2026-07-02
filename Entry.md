@@ -79,3 +79,4 @@
 - somewhat helpful gemini thread regarding data structure and previous attempts. but need to parse the bs https://gemini.google.com/app/b242920671bf7d32
 - re-emphasizing that with LLMs, relevant 'marketing'/AEO is easier than ever and you need to ensure youre outputting. do agents/search tools index my note git history? why or why not?
 - banger https://x.com/PalantirTech/status/2072114267776491695?s=20
+- https://x.com/PalantirTech/status/2072326189079757277?s=20

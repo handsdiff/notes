@@ -129,3 +129,4 @@
 - - https://arxiv.org/abs/1709.04326 LOLA
 - super relevant analysis of algorithms, compared to prompt space, and data tricks/tips needed to juice performance at least in that specific domain https://thinkingmachines.ai/news/learning-to-replicate-expert-judgment-in-financial-tasks/ ^72b341
 	- unfortunately the implicit conclusion is that prompt space algos get 78% accuracy and most RL algos get below that. only when you combine advanced knowledge and implementation of multiple different RL algorithms over the course of two months can you get 85% accuracy. does RSI lead to frontier models that can develop these algorithms for you? does that imply that you can always achieve better than frontier performance? how does mythos's ML research ban change that? is that easily jailbroken?
+- relevant nit on RL training for PPO https://x.com/MatternJustus/status/2072477044932551099?s=20
