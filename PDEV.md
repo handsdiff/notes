@@ -89,3 +89,5 @@ inputting into obsidian i've worked around with extra bullet, i guess its fine
 obsidian sync sucks - not always up to date
 existing stack, since team might set it up as well, for explanatory purposes, is obsidian + git + quartz + auto commit and deploy
 obsidian backlinking sucks, should be AI recommended by searching over everything, i shouldnt need to specify the overall note and then scroll through the whole thing. i dont necessarily know where everything is
+
+Cross device sync natively + version control natively is very simply missing (cross device sync enables multiplayer?)
