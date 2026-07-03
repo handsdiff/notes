@@ -113,3 +113,10 @@
 	- PNLC
 	- NLAC
 - what i want is the model to be able to suggest what/where to type next to maximize my terminal cumulative rewards
+	- needs to infer my goal (infer rewards)
+		- but does it? initial reward for it is behavior cloning, to learn state dynamics? am I part of the environment its learning to model?
+	- needs to understand state dynamics
+	- makes sense if it gets rewards when its suggestion is accepted (akin to contextual bandit recommender systems used in social media/ecommerce)
+- we have a history of actions via obsidian and browser history (unclear whether to add context). the ai seems to be recommending more granular data collection.
+- unclear how/whether to define states
+- SEEM TO CONSISTENTLY BE GETTING CONFUSED AROUND HOW TO ACTUALLY MODEL THIS
