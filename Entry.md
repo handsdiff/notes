@@ -121,3 +121,5 @@ https://x.com/teortaxesTex/status/2072800874728935630?s=20- to what extent am i 
 - we have a history of actions via obsidian and browser history (unclear whether to add context). the ai seems to be recommending more granular data collection.
 - unclear how/whether to define states
 - SEEM TO CONSISTENTLY BE GETTING CONFUSED AROUND HOW TO ACTUALLY MODEL THIS
+- maybe there isnt an actual distinction between proactive recommendation and next action prediction
+- eventually next action prediction will start getting 'selected' as one of the recommended options from the AI, which sets loss to 0?
