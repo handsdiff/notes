@@ -112,4 +112,4 @@
 	- CIRL
 	- PNLC
 	- NLAC
-- what i want is the model to 
+- what i want is the model to be able to suggest what/where to type next to maximize my terminal cumulative rewards
