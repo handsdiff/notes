@@ -142,3 +142,7 @@ https://x.com/teortaxesTex/status/2072800874728935630?s=20- to what extent am i 
 - eventually next action prediction will start getting 'selected' as one of the recommended options from the AI, which sets loss to 0?
 - how do contextual bandit problems relate to GRPO? in both cases, multiple options are considered. does the algorithm optimize for different things? GRPO involves an advantage to determine weight updates. do contextual bandits even incorporate deep NNs?
 - https://huggingface.co/learn/llm-course/en/chapter12/3
+- approaches 2
+	- if you set up the context as what i've recently read (which captures what actions i've taken and what I've recently typed) and the intended output is the action i took (still needs to be specified), and the 'signal' is whether the predicted output from the model matches the output i actually took, that seems like pretty straightforward machine learning. how is a contextual bandit different from that? how is reward inference different? is the loss function modeled as some sort of KL divergence, or a reward function based on the closeness of the actions? what are the pros and cons of each?
+	- again, the super simplest version of this would just be on the data I DO have, which is the obsidian vault history. even without any browser content. the advice is to get something simple working before trying more complex algorithms or data structures.
+	- 
