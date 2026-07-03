@@ -103,3 +103,7 @@
 	- (read, app, content) and (write, app, content). obsidian covers some write. the browser history script that fetches some read and write, but some issues flagged by Fable.
 	- **maybe just start ensuring its all collected. then from there, write down ALL the algos and papers. then, group/consolidate. then the data structure will become clearer.**
 - https://x.com/willdepue/status/2072793965565468789
+- https://x.com/tikgiau/status/2072701593829695926?s=20
+
+- algorithms
+	- 
