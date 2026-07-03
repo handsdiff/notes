@@ -93,7 +93,6 @@
 - https://news.ycombinator.com/item?id=48760201
 - https://x.com/satyanadella/status/2072708957077176563?s=20
 - https://x.com/emollick/status/2072727258352001341?s=20
-- https://x.com/RichardSSutton/status/2072717459686035723?s=20
 - https://x.com/teortaxesTex/status/2072800874728935630?s=20
 - to what extent am i implementing toy examples / codifying data / going through algorithms to convince my team of the vision rather than make more concrete progress? obviously team conviction could increase progress long term, so whats the tradeoff there? 
 - the data codification seems a bit uninspiring, but maybe thats because its actually whats needed to deliver the value prop, so its a good forcing function to avoid being lazy and just an 'intellectual'
