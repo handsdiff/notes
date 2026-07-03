@@ -129,6 +129,7 @@ https://x.com/teortaxesTex/status/2072800874728935630?s=20- to what extent am i 
 	- additionally, per the vision, i would not want the 'recommendations' to be next words, i'd want them to be next 'thoughts'. however thoughts are a subset of actions. since thought is just the action of writing down a sentence until a pause. copy paste is another action. delete and edit are other actions
 	- it does feel like being able to learn how i map what im seeing to what i do is a prerequisite to inferring my reward, which is a prerequisite to superhuman recommendation/suggestion or even action in some parallel OS where things could be simulated
 	- my comfortability with focusing simply on this mapping depends on the truthfulness around this understanding being a prerequisite to reward inference. that should be resolved first.
+	- it seems like the initial mapping is a contextual bandit problem? how do those problems differ from next token prediction?
 - what i want is the model to be able to suggest what/where to type next to maximize my terminal cumulative rewards
 	- needs to infer my goal (infer rewards)
 		- but does it? initial reward for it is behavior cloning, to learn state dynamics? am I part of the environment its learning to model?
@@ -136,6 +137,8 @@ https://x.com/teortaxesTex/status/2072800874728935630?s=20- to what extent am i 
 	- makes sense if it gets rewards when its suggestion is accepted (akin to contextual bandit recommender systems used in social media/ecommerce)
 - we have a history of actions via obsidian and browser history (unclear whether to add context). the ai seems to be recommending more granular data collection.
 - unclear how/whether to define states
-- SEEM TO CONSISTENTLY BE GETTING CONFUSED AROUND HOW TO ACTUALLY MODEL THIS
+- seem to be getting consistently confused as to how to actually model this
 - maybe there isnt an actual distinction between proactive recommendation and next action prediction
 - eventually next action prediction will start getting 'selected' as one of the recommended options from the AI, which sets loss to 0?
+- how do contextual bandit problems relate to GRPO? in both cases, multiple options are considered. does the algorithm optimize for different things? GRPO involves an advantage to determine weight updates. do contextual bandits even incorporate deep NNs?
+- https://huggingface.co/learn/llm-course/en/chapter12/3
