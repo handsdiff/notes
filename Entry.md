@@ -94,7 +94,7 @@
 - https://x.com/satyanadella/status/2072708957077176563?s=20
 - https://x.com/emollick/status/2072727258352001341?s=20
 - https://x.com/teortaxesTex/status/2072800874728935630?s=20
-- to what extent am i implementing toy examples / codifying data / going through algorithms to convince my team of the vision rather than make more concrete progress? obviously team conviction could increase progress long term, so whats the tradeoff there? 
+https://x.com/teortaxesTex/status/2072800874728935630?s=20- to what extent am i implementing toy examples / codifying data / going through algorithms to convince my team of the vision rather than make more concrete progress? obviously team conviction could increase progress long term, so whats the tradeoff there? 
 - the data codification seems a bit uninspiring, but maybe thats because its actually whats needed to deliver the value prop, so its a good forcing function to avoid being lazy and just an 'intellectual'
 - its also unclear if i want to be capturing coding sessions at this stage. i think that will bloat the rest of the context and make it harder to train on the research signal. it comes down to what the actual point here is, which is clearly unclear, or at the very least perhaps differs from me and cofounders. thats probably not true since to be fair, we both want autocomplete, its just that we differ on whether certain data sources are necessary for that to occur. obviously, more data is better, and stuff that cannot be recaptured easily should be prioritized. thoughts and reasoning, imo, is one of those. coding sessions seem to persist/backfillable, same with browser history. 
 - this notion of how does behavior cloning / prediction / recommendation scale to superhuman, ceiling-raising performance feels important to actually have an opinion on
@@ -104,6 +104,7 @@
 	- **maybe just start ensuring its all collected. then from there, write down ALL the algos and papers. then, group/consolidate. then the data structure will become clearer.**
 - https://x.com/willdepue/status/2072793965565468789
 - https://x.com/tikgiau/status/2072701593829695926?s=20
+- https://x.com/chelseabfinn/status/2072841227603689784?s=20
 
 - algorithms
 	- SDPO
