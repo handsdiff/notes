@@ -117,6 +117,18 @@ https://x.com/teortaxesTex/status/2072800874728935630?s=20- to what extent am i 
 	- CIRL
 	- PNLC
 	- NLAC
+- approaches
+	- next token prediction on what i write down into the obsidian vault, with the data being the latest typing actions from the obsidian vault.
+	- i suspect it will be so terrible as to not even try because it does not know what im reading
+	- this seems to be approximating what is in my head
+	- what is in my head can likely be approximated by what i've just written and what i've just read
+	- i'd like a model that can well predict what I am going to write down, and where I'll write it, based on what i've just written down/am writing and what i've just read/am reading
+	- this leads to perhaps giving context as whatever text is on the screen, and the output is the next word?
+	- this resembles pretraining? can you do online gradient descent that updates weights after each word, since that acts as signal (prediction vs outcome).
+	- the issue becomes that my actions don't only involve 'normal' writing output. they also involve deleting, moving the cursor to edit something, copy pasting content. and this would likely confuse a model
+	- additionally, per the vision, i would not want the 'recommendations' to be next words, i'd want them to be next 'thoughts'. however thoughts are a subset of actions. since thought is just the action of writing down a sentence until a pause. copy paste is another action. delete and edit are other actions
+	- it does feel like being able to learn how i map what im seeing to what i do is a prerequisite to inferring my reward, which is a prerequisite to superhuman recommendation/suggestion or even action in some parallel OS where things could be simulated
+	- my comfortability with focusing simply on this mapping depends on the truthfulness around this understanding being a prerequisite to reward inference. that should be resolved first.
 - what i want is the model to be able to suggest what/where to type next to maximize my terminal cumulative rewards
 	- needs to infer my goal (infer rewards)
 		- but does it? initial reward for it is behavior cloning, to learn state dynamics? am I part of the environment its learning to model?
