@@ -106,4 +106,10 @@
 - https://x.com/tikgiau/status/2072701593829695926?s=20
 
 - algorithms
-	- 
+	- SDPO
+	- OPSD
+	- OPD
+	- CIRL
+	- PNLC
+	- NLAC
+- what i want is the model to 
