@@ -106,7 +106,8 @@ https://x.com/teortaxesTex/status/2072800874728935630?s=20- to what extent am i 
 - https://x.com/tikgiau/status/2072701593829695926?s=20
 - https://x.com/chelseabfinn/status/2072841227603689784?s=20
 - https://x.com/teortaxesTex/status/2072855154794078701?s=20
-- There was an x post on lost plasticity quote 
+- There was an x post on lost plasticity quote tweeted by will brown
+- https://x.com/gakonst/status/2073019287380316660?s=20 intere
 
 - algorithms
 	- SDPO
