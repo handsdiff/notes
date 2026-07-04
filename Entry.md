@@ -111,7 +111,8 @@ https://x.com/teortaxesTex/status/2072800874728935630?s=20- to what extent am i 
 - banger https://x.com/ylecun/status/2073037974153896312?s=20
 - https://x.com/willccbb/status/2073162198986498513?s=20
 - https://www.thoughtfullab.com/
-- 
+- https://x.com/tetsuoai/status/2073246301610025212?s=20
+- https://x.com/iamwaynechi/status/2073081777091182633?s=20
 
 - algorithms
 	- SDPO
