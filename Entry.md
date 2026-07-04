@@ -165,3 +165,5 @@ https://x.com/teortaxesTex/status/2072800874728935630?s=20- to what extent am i 
 	- the tension now is whether to optimize the data for prediction, or whether to keep the end in mind and optimize some meta layer that different types of datasets can be constructed from... i suspect the latter is better, pending some concreteness on what future algorithms are. i do have a basic sense so maybe it makes sense to go out and verify now how they differ from frontier elsewhere
 - one question i keep coming back to is whether I should be modeled as an environment and the agents goal is to learn the state transition dynamics of that environment, rather than trying to predict my actions in the environment.
 - again, no claims on whether or not this is better done in weight space or prompt space, we should try both
+- is DPO reward inference?
+- https://huggingface.co/docs/trl/grpo_trainer
