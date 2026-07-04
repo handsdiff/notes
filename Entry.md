@@ -160,5 +160,6 @@ https://x.com/teortaxesTex/status/2072800874728935630?s=20- to what extent am i 
 
 - as i think more, the core distinction seems to be training a model to predict how my brain works during my workday. based on inbound, what is my outbound? 
 	- the stance, which needs to be deeply analyzed, is that this matters because (1) self prediction is enough of a value prop by itself (2) prediction is a prerequisite for inferring rewards (3) prediction, inferring rewards, and the data collection associated with both is a prerequisite for a superhuman system pursuing my goals for me.
+		- the 3rd will likely come to fruition as computer use expertise in base models advances. the blocker for this will be understanding how separate environmental agents react to your actions. this is the tie in to classic MARL, legible motion planning, etc
 	- if all these are true, then the brass tacks come down to what inbound to collect and what outbound to collect, how to structure it so that prediction can show results, how to structure it so that reward inference can show results, and how to structure it for eventual superhuman rollouts towards my goals. the first is most important. 
 	- the tension now is whether to optimize the data for prediction, or whether to keep the end in mind and optimize some meta layer that different types of datasets can be constructed from...
