@@ -15,5 +15,5 @@ For Step 2, we will likely need to increase the amount of visible 'read' data, b
 
 For Step 3, we will expand the prediction to involve actions taken on apps other than Obsidian. This might involve browser search and prompts to AI chatbots on the web. This will inform the extent to which the data has signal, and associated increased data collection might also help performance.
 
-These 3 steps constitute the 'prediction' phase of the work. Pending their results, we would move onto recommendation, which would use the model from the prior steps to start exposing its predictions. 
+These 3 steps constitute the 'prediction' phase of the work. Pending their results, we would move onto recommendation, which would use the model from the prior steps to start exposing its predictions. This bridges the initial behavior cloning
 
