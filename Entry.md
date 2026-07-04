@@ -167,3 +167,4 @@ https://x.com/teortaxesTex/status/2072800874728935630?s=20- to what extent am i 
 - again, no claims on whether or not this is better done in weight space or prompt space, we should try both
 - is DPO reward inference?
 - https://huggingface.co/docs/trl/grpo_trainer
+- https://gemini.google.com/app/be2ad689e0e1e1dc personal recsys overview. attempts seem unrigorous
