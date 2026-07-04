@@ -18,10 +18,10 @@ For Step 3, we will expand the prediction to involve actions taken on apps other
 These 3 steps constitute the 'prediction' phase of the work. All of them likely use standard cross entropy loss at a token level. Pending their results, we would move onto recommendation, which would use the model from the prior steps to start exposing its predictions. This bridges the initial behavior cloning to eventual superhuman performance. Top K model predictions are displayed. If one is chosen over others, or if all are ignored, then DPO is used to implicitly capture the reward of those state transitions. The implication is that a good nondeterministic predictor might expose actions that I would not immediately think of, but I could reason about being genuinely useful. As DPO, or some Bradley Terry loss, is deployed over time for this purpose, the model acts as a second brain that increases useful variation of ideas at any given moment. The biggest gap at this point is environmental evaluation, which needs to be thought through.
 
 The biggest gaps right now are 
-	actual codification of the initial phases to determine gaps. what the data looks like is still super foundational and a prerequisite for all algorithms
+	actual codification of the initial phases, specifically dataset construction and loss function, to determine gaps
 	review of algorithms from others to see how it relates to my hypotheses
 	how does DPO differ from recsys like contextual bandits
-	how does the influence of DPO on the state dynamics influence learning
+	how does the influence of DPO on the state dynamics influence learning, and is it still valid
 	what is the actual path to environmental evaluation and selective retention, the remaining steps to superintelligence after variation
-	from a thesis perspective, what are the other issues with collective intelligence
+	from a thesis perspective, what are the other issues with collective intelligence (first paragraph)
 
