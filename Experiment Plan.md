@@ -6,4 +6,4 @@ The best way to bring about useful collective intelligence is for each individua
 
 Phases
 
-The general steps required towards this outcome are prediction, recommendation, and agency. More specifically, we will first train a model that can predict how my brain works: what do I input into my computer given the history of what I read? If successful, 
+The general steps required towards this outcome are prediction, recommendation, and agency. More specifically, we will first train a model that can predict how my brain works: what do I input into my computer given the history of what I read? If successful, we will display the model's predictions as recommendations to the user and allow the user to accept them or not. This behavior will act as more concrete reward signal / preference optimization. Finally, once the 
