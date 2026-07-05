@@ -1,6 +1,8 @@
 
 - https://nextbigteng.substack.com/p/ai-infrastructure-roadmap-five-frontiers-for-2026
 - what happens when 90% of the internet is written by Claude?
+- https://x.com/teortaxesTex/status/2073332424717525358?s=20
+- The dynamic, fresh context also applies to judgment/feedback. Not just context (ibput)
 - options
 	- fix visibility of public notes per team feedback
 	- outreach to aidotengineer flagged speakers and others to discuss algos for my data
