@@ -2,7 +2,7 @@
 - https://nextbigteng.substack.com/p/ai-infrastructure-roadmap-five-frontiers-for-2026
 - what happens when 90% of the internet is written by Claude?
 - https://x.com/teortaxesTex/status/2073332424717525358?s=20
-- The dynamic, fresh context also applies to judgment/feedback. Not just context (ibput)
+- The dynamic, fresh context also applies to judgment/feedback. Not just context (inputs)
 - options
 	- fix visibility of public notes per team feedback
 	- outreach to aidotengineer flagged speakers and others to discuss algos for my data
@@ -159,6 +159,7 @@ https://x.com/teortaxesTex/status/2072800874728935630?s=20- to what extent am i 
 	- one fork to review is the research around models influencing their environment with their actions, since surfacing recommendations might change the user behavior to match the given options
 	- another fork is whether i am part of the agents environment, and they are primarily modeling me, and its goal after the prediction phase might be to predict how ill respond to its text outputs (either a phrase or a question that is proactively generated based on its understanding of the work) rather than recommendations of next actions. this would be more akin to ECHO but for me, but its a bit confusing as to how that would work
 	- https://gemini.google.com/app/e5061268008c580f has some stimulating ideas on data structure
+	- Alphago analogy
 - the visualization of robot trying to push the L into position properly where it just tries a bunch of actions, then takes the top 20% based on the rewards, then samples from that, etc, until it can do the task, feels useful, but needs DPO rather than codified rewards? 
 	- is this hopeless? is it way too slow to collect data to optimize properly? or does LoRA for this actually not need many samples?
 
