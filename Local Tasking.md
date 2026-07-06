@@ -22,3 +22,10 @@
 	- seems equivalent to predicting behavior or increased legibility. didnt feel the need to increase legibility for 'big data' social media algos. maybe because they didnt care about capturing me, or i didn't benefit, or it was knowingly misaligned, but likely probably because i just *couldnt*. i'm not able to put generative thoughts into twitter. (unless maybe they edit the feed based on what you post too, which would make a lot of sense, but havent heard anything about this)
 - two 'computers' on each device? one from the human and one for the ai? easy sharing of html and some file systems, but avoids catastrophe or takeover? and allows for prospective learning / predictive recommendations from screenpipe context?
 - seems so obvious that theres a gap of just having an end to end product that pipes all computer context + serves personalized predictions to solve inferenced local and global goals?
+
+- add subtitles to last post
+- current post gaps
+	- discussion of actual data structure, and related algorithms/algorithms considered at different stages, and more concrete goals
+	- prompt space programmability normalization from above
+	- personal reward functions differing from labs?
+		- Sholto take "it will do your taxes when someone at the labs cares to"
