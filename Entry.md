@@ -2,10 +2,12 @@
 - https://nextbigteng.substack.com/p/ai-infrastructure-roadmap-five-frontiers-for-2026
 - what happens when 90% of the internet is written by Claude?
 - https://x.com/teortaxesTex/status/2073332424717525358?s=20
+- https://x.com/loraclexyz/status/2073873001850786104?s=20
+- 
 - The dynamic, fresh context also applies to judgment/feedback. Not just context (inputs)
 - Is wisdom more truthful reward functions?
 - “Artificial wisdom” sounds way more implausible than artificial intelligence
-- 
+- Feels related to “what to do” not “how to do it”
 - options
 	- fix visibility of public notes per team feedback
 	- outreach to aidotengineer flagged speakers and others to discuss algos for my data
