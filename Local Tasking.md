@@ -23,9 +23,9 @@
 - two 'computers' on each device? one from the human and one for the ai? easy sharing of html and some file systems, but avoids catastrophe or takeover? and allows for prospective learning / predictive recommendations from screenpipe context?
 - seems so obvious that theres a gap of just having an end to end product that pipes all computer context + serves personalized predictions to solve inferenced local and global goals?
 
-- add subtitles to last post
+
 - current post gaps
 	- discussion of actual data structure, and related algorithms/algorithms considered at different stages, and more concrete goals
 	- prompt space programmability normalization from above
 	- personal reward functions differing from labs?
-		- Sholto take "it will do your taxes when someone at the labs cares to"
+		- Sholto take "it will do your taxes when someone at the labs cares to teach it"
