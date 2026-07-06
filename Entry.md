@@ -198,3 +198,5 @@ https://x.com/teortaxesTex/status/2072800874728935630?s=20- to what extent am i 
 - data half life experiment. does data actually expire?
 - codify how much progress frontier models are making on in context learning for my self prediction, compare that to increasing random dropout for training on gpt oss 120B?
 - what data is more valuable when shared?
+- https://x.com/jxmnop/status/2074202146699157797?s=20
+- bit of an old hot take. i think enterprise models will look like each employee having their own agent that is tuned to them, and the models are allowed to conversate to collaborate and improve rewards, instead of a monolithic model that everyone shares. personal computing, not shared computing. 
