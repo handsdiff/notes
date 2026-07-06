@@ -190,3 +190,4 @@ https://x.com/teortaxesTex/status/2072800874728935630?s=20- to what extent am i 
 	- with all team having notes like this, opportunities for collaboration arise more easily
 	- jakub has primitive process that shares notes seemingly, wonder what that looks like?
 - i suspect everyone on team will need code handling + interactive html sharing native in existing obsidian + git + quartz stack.
+	- https://gemini.google.com/app/581ea6b83f49a55a
