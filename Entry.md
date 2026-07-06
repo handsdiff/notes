@@ -4,6 +4,7 @@
 - https://x.com/teortaxesTex/status/2073332424717525358?s=20
 - https://x.com/loraclexyz/status/2073873001850786104?s=20
 - https://x.com/willccbb/status/1930030099975553303?s=20
+- https://x.com/0xBADB01E/status/2073990357398982797?s=20
 - The dynamic, fresh context also applies to judgment/feedback. Not just context (inputs)
 - Is wisdom more truthful reward functions?
 - “Artificial wisdom” sounds way more implausible than artificial intelligence
