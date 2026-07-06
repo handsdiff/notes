@@ -197,3 +197,4 @@ https://x.com/teortaxesTex/status/2072800874728935630?s=20- to what extent am i 
 - again, obsidian with link enrichment, git, device sync, connector note taking might be enough
 - data half life experiment. does data actually expire?
 - codify how much progress frontier models are making on in context learning for my self prediction, compare that to increasing random dropout for training on gpt oss 120B?
+- what data/alpha is more valuable when shared?
