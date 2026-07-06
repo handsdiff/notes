@@ -183,4 +183,4 @@ https://x.com/teortaxesTex/status/2072800874728935630?s=20- to what extent am i 
 - https://gemini.google.com/app/be2ad689e0e1e1dc personal recsys overview. attempts seem unrigorous
 - https://www.aixi.uk/
 - Is modeling my brain the first step in modeling others or the first step in representing me publicly?
-- 
+	- i.e. the better framework is that the model is learning its environment, which primarily involves interacting with me, and it needs to understand me. its recommendations are actions in a state transition system. states are given reward when its recommendations are accepted. to be able to learn a good policy here, it will need to be able to predict my actions first as practical bootstrapping? kind of like alphago training on expert data before doing MCTS self play? is MCTS impossible here? its tough for the environment as a whole, but it can do MCTS on interactions with ME once it has modeled me as a 'player' in its environment whose actions mostly determine the state transitions? that seems interesting, albeit a bit unclear
