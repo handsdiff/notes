@@ -25,7 +25,7 @@
 
 
 - current post gaps
-	- discussion of actual data structure, and related algorithms/algorithms considered at different stages, and more concrete goals
-	- prompt space programmability normalization from above
-	- personal reward functions differing from labs?
+	- discussion of actual data structure, and related algorithms/algorithms considered at different stages, and more concrete goals. plus the visualizations on existing data quantities
+	- prompt space programmability normalization argument from above
+	- personal reward functions differing from labs as a belief
 		- Sholto take "it will do your taxes when someone at the labs cares to teach it"
