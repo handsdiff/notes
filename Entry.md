@@ -133,6 +133,7 @@ https://x.com/teortaxesTex/status/2072800874728935630?s=20- to what extent am i 
 	- CIRL
 	- PNLC
 	- NLAC
+	- prime intellect released this https://x.com/PrimeIntellect/status/2074212134452633882?s=20
 - approaches
 	- next token prediction on what i write down into the obsidian vault, with the data being the latest typing actions from the obsidian vault.
 	- i suspect it will be so terrible as to not even try because it does not know what im reading
