@@ -187,3 +187,6 @@ https://x.com/teortaxesTex/status/2072800874728935630?s=20- to what extent am i 
 - i want to display the html files, and other code i write, publicly + into git as well, but handle the data structuring automatically. interactive html not just static. jakub wants this too.
 - proactive, prospective
 - recsys to my team based on everything i do / what i read, feedback from them based on utility to them? (click rate?). beginning of MAS? more env sim for MCTS/rollouts?
+	- with all team having notes like this, opportunities for collaboration arise more easily
+	- jakub has primitive process that shares notes seemingly, wonder what that looks like?
+- i suspect everyone on team will need code handling + interactive html sharing native in existing obsidian + git + quartz stack.
