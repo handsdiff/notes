@@ -182,3 +182,5 @@ https://x.com/teortaxesTex/status/2072800874728935630?s=20- to what extent am i 
 - https://huggingface.co/docs/trl/grpo_trainer
 - https://gemini.google.com/app/be2ad689e0e1e1dc personal recsys overview. attempts seem unrigorous
 - https://www.aixi.uk/
+- Is modeling my brain the first step in modeling others or the first step in representing me publicly?
+- 

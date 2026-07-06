@@ -1,4 +1,4 @@
-- AIXI (basics [https://claude.ai/chat/e79274a9-0ccb-463e-a473-87d3a665f0d0](https://claude.ai/chat/e79274a9-0ccb-463e-a473-87d3a665f0d0))   
+- AIXI (basics [https://claude.ai/chat/e79274a9-0ccb-463e-a473-87d3a665f0d0](https://claude.ai/chat/e79274a9-0ccb-463e-a473-87d3a665f0d0))    ^6680d0
     - Model free universal ai recommended by cole [https://arxiv.org/pdf/2602.23242](https://arxiv.org/pdf/2602.23242) \+ [https://claude.ai/chat/60135b24-afa2-44a0-80e9-8cf235258cb3](https://claude.ai/chat/60135b24-afa2-44a0-80e9-8cf235258cb3)   
     - [https://ai.meta.com/research/publications/are-scaling-up-agent-environments-and-evaluations/](https://ai.meta.com/research/publications/are-scaling-up-agent-environments-and-evaluations/)   
     - Cole paper [https://arxiv.org/pdf/2508.16245](https://arxiv.org/pdf/2508.16245)  

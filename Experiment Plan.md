@@ -21,7 +21,7 @@ It's clear that using human preference optimization to achieve superhuman perfor
 
 The biggest gaps right now are 
 	actual codification of the initial phases, specifically dataset construction and loss function, to determine gaps
-	review of algorithms from others to see how it relates to my hypotheses
+	review of algorithms from others to see how it relates to my hypotheses. for example prospective learning [[AIXI#^6680d0]] in a multi agent environment https://gemini.google.com/app/9cecb25fc4daff93 might be the better way to frame the interaction in the context of multi agent systems rather than brain modeling, or they might be one in the same?
 	how does DPO differ from recsys like contextual bandits
 	how does the influence of DPO on the state dynamics influence learning, and is it still valid
 	what is the actual path to environmental evaluation and selective retention, the remaining steps to superintelligence after variation
