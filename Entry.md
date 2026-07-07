@@ -277,6 +277,7 @@ https://x.com/teortaxesTex/status/2072800874728935630?s=20- to what extent am i 
 	- papers from https://gemini.google.com/app/e5061268008c580f
 	- algos from https://cs224r.stanford.edu/
 
+- https://gemini.google.com/app/34e424feaeb8374a provides alternatives to DPO/online DPO. the first is softmax DPO to take into account multiple recommendations rather than pairwise. the second is MaxEnt RL
 - https://trajectory.ai/field-notes/scaling-sdpo this article seems useful for understanding SDPO but the conclusion is just clip gradient updates? lmao. results are results though.
 	- "For hard tasks where the right behavior is rare in the base policy, secondary objectives like behavior cloning or DAgger may be needed. Our preliminary experiments in that direction showed enough hint-copying that hint design looks like the harder problem."
 	- yeah no shit? ^ this is just saying the reward function is the actual bottleneck to consider
