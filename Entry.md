@@ -195,7 +195,7 @@ https://x.com/teortaxesTex/status/2072800874728935630?s=20- to what extent am i 
 	- https://gemini.google.com/app/581ea6b83f49a55a
 - the way I phrased it to jakub is that prediction can act as a good prior for eventual MCTS test time scaling for personal superintelligence. what blocks this is state dynamics modeling, since you need to model others in the environment, which I posit will come with scale if you can properly solve single player modeling, since the same methods can be applied largely, and reward modeling, which is quite a bit more difficult. DPO on 'single turn' test time scaling via best of N recommendation and click through rates struggle to scale, and true reward modeling like MaxEnt *seems* to require a grain of truth which comes back to the reward codification problem (unsure if it actually requires this, or what reward inference actually is in practice). does DPO scale in some multiplayer environment like state dynamics do?
 - https://x.com/BrendanFoody/status/2074193875695214907?s=20
-- again, obsidian with link enrichment, git, device sync, connector note taking might be enough
+- again, obsidian with link enrichment, auto git with good commit msgs, multi device sync, messaging connectors for easy note taking might be enough
 - data half life experiment. does data actually expire?
 - codify how much progress frontier models are making on in context learning for my self prediction, compare that to increasing random dropout for training on gpt oss 120B?
 - what data is more valuable when shared?
