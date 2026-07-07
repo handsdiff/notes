@@ -215,4 +215,4 @@ https://x.com/teortaxesTex/status/2072800874728935630?s=20- to what extent am i 
 - https://x.com/teortaxesTex/status/2074471487579332707?s=20
 - https://svilentodorov.xyz/blog/gpt-15b-chat-finetune/
 
-- starting the think the reward inference part should not block the self prediction. the self prediction is a large enough task of itself, the uncertainty around algorithmic progress provides future possible growth, and i believe SFT + DPO is strong enough to deliver something valuable and directionally correct enough for superhuman performance. scaling can come from 
+- starting the think the reward inference part should not block the self prediction. the self prediction is a large enough task of itself, the uncertainty around algorithmic progress provides future possible growth, and i believe SFT + DPO is strong enough to deliver something valuable and directionally correct enough for superhuman performance, since RLHF/CPO 
