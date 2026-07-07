@@ -225,7 +225,7 @@ https://x.com/teortaxesTex/status/2072800874728935630?s=20- to what extent am i 
 - finally, since DPO results in an implicit value network function, we can use it to scale MCTS for superhuman performance towards inferenced goals (per the discussion and papers from this chat https://gemini.google.com/app/e5061268008c580f, secondarily here https://share.google/aimode/oKSzEAiA67cHtEUFB)
 - still need to codify the data, but worth discussing the algorithms considered and rejected neatly, for completeness, along with risks. we might run into issues with lack of specificity in initial data, or how the SFT phase relates to the RL phase (since DPO, the implicit reward, and MCTS involve an action and state space), we will see. thats the meat and potatoes though. algorithmic understanding towards superintelligence is the side dish, which i just struggled through.
 - (alphago -> alphazero analogy was helpful)
-- you do still have the scaling issue with human labeling during online use causing EXTREMELY and perhaps even PROHIBITIVELY slow learning. i suspect you'd continue phase 1 during phase 2, but would the loss function / reward function just change (assuming weight space updating?)
+- you do still have the scaling issue with human labeling during online use causing EXTREMELY and perhaps even PROHIBITIVELY slow learning. i suspect you'd continue phase 1 during phase 2, but would the loss function / reward function just change to include both (assuming weight space updating)?
 - algorithms considered and rejected for now and why:
 	- SDPO
 	- OPSD
@@ -234,4 +234,4 @@ https://x.com/teortaxesTex/status/2072800874728935630?s=20- to what extent am i 
 	- PNLC
 	- NLAC
 	- prime intellect released this https://x.com/PrimeIntellect/status/2074212134452633882?s=20
-- should i post about frontier LLM programmability needing standardization and how the recommended way to prompt a modern LLM is literally just training? https://x.com/emollick/status/2074307813392732279?s=20. are they converging? how can we normalize prompt programming?
+- should i post about frontier LLM programmability needing standardization and how the recommended way to prompt a modern LLM is literally just training? https://x.com/emollick/status/2074307813392732279?s=20. are they converging? how can we normalize prompt programming? assuming this is true, WHY is this the best way to prompt LLMs? it's akin to autoresearch. basically saying that giving the LLM a reward that it can grind towards is best, which is why evals matter (simulations to determine best actions to take). can it be 10x cheaper or 10x more performant at a given task?
