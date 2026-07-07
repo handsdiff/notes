@@ -277,7 +277,10 @@ https://x.com/teortaxesTex/status/2072800874728935630?s=20- to what extent am i 
 	- papers from https://gemini.google.com/app/e5061268008c580f
 	- algos from https://cs224r.stanford.edu/
 
-- https://gemini.google.com/app/34e424feaeb8374a provides alternatives to DPO/online DPO. the first is softmax DPO to take into account multiple recommendations rather than pairwise. the second is MaxEnt RL
+- https://gemini.google.com/app/34e424feaeb8374a provides alternatives to DPO/online DPO. softmax DPO takes into account multiple recommendations rather than pairwise. also lists full potential phase 1 and 2 loss functions
+	- $$\mathcal{L}_{\text{SFT}}(\pi_\theta) = - \sum_{t=1}^{|y_w|} \log \pi_\theta(y_w^t \mid x, y_w^{<t})$$
+	- $$\mathcal{L}_{\text{S-DPO}}(\pi_\theta; \pi_{\text{ref}}) = - \log \frac{\exp\left( \beta \log \frac{\pi_\theta(y_w \mid x)}{\pi_{\text{ref}}(y_w \mid x)} \right)}{\exp\left( \beta \log \frac{\pi_\theta(y_w \mid x)}{\pi_{\text{ref}}(y_w \mid x)} \right) + \sum_{j=1}^{|Y_l|} \exp\left( \beta \log \frac{\pi_\theta(y_{l_j} \mid x)}{\pi_{\text{ref}}(y_{l_j} \mid x)} \right)}$$
+	- $$\mathcal{L}_{\text{total}} = \mathcal{L}_{\text{S-DPO}}(\pi_\theta; \pi_{\text{ref}}) + \alpha \cdot \mathcal{L}_{\text{SFT}}(\pi_\theta)$$
 - https://trajectory.ai/field-notes/scaling-sdpo this article seems useful for understanding SDPO but the conclusion is just clip gradient updates? lmao. results are results though.
 	- "For hard tasks where the right behavior is rare in the base policy, secondary objectives like behavior cloning or DAgger may be needed. Our preliminary experiments in that direction showed enough hint-copying that hint design looks like the harder problem."
 	- yeah no shit? ^ this is just saying the reward function is the actual bottleneck to consider
