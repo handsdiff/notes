@@ -27,7 +27,7 @@ The biggest gaps right now are
 	what is the actual path to environmental evaluation and selective retention, the remaining steps to superintelligence after variation
 	from a thesis perspective, what are the other issues with collective intelligence (first paragraph)
 
-for the toy example/experiment we'll want to compare frontier LLMs next action prediction, older LLMs, and fine tuned OS models against varying amounts of data, and quantify losses in sort of a 2x2 matrix. we would like to see how closed source models perform when compared to open sourced, as well as how data availability impacts each. one fear is that just obsidian data will not be enough to show results in either, and we'll need to store browser and ai chatbot data as well, which is likely.
+for the toy example/experiment we'll want to compare frontier LLMs next action prediction, older LLMs, and fine tuned OS models against varying amounts of data, and quantify losses in sort of a 2x2 matrix. we would like to see how closed source models perform when compared to open sourced, as well as how data availability impacts each. one fear is that just obsidian data will not be enough to show results in either, and we'll need to store browser and ai chatbot data as well, which is likely. ^f4fead
 
 
 

@@ -175,6 +175,7 @@ https://x.com/teortaxesTex/status/2072800874728935630?s=20- to what extent am i 
 	- Alphago analogy was interesting ^
 - the visualization of robot trying to push the L into position properly where it just tries a bunch of actions, then takes the top 20% based on the rewards, then samples from that, etc, until it can do the task, feels useful, but needs DPO rather than codified rewards? 
 	- is this hopeless? is it way too slow to collect data to optimize properly? or does LoRA for this actually not need many samples?
+- essentially actual experimentation to bolster algorithmic belief for a product for data legibilization, recognize that if you dont have a ton of personal data (unclear where the reward model part comes in) then you will be in a lot of pain in the next few years (assumes RSI/AGI)
 
 - as i think more, the core distinction seems to be training a model to predict how my brain works during my workday. based on inbound, what is my outbound? 
 	- the stance, which needs to be deeply analyzed, is that this matters because (1) self prediction is enough of a value prop by itself (2) prediction is a prerequisite for inferring rewards (3) prediction, inferring rewards, and the data collection associated with both is a prerequisite for a superhuman system pursuing my goals for me.
@@ -233,7 +234,8 @@ https://x.com/teortaxesTex/status/2072800874728935630?s=20- to what extent am i 
 
 - still need to codify the data, but worth discussing the algorithms considered and rejected neatly, for completeness, along with risks. we might run into issues with lack of specificity in initial data, or how the SFT phase relates to the RL phase (since DPO, the implicit reward, and MCTS involve an action and state space), we will see. thats the meat and potatoes though. algorithmic understanding towards superintelligence is the side dish, which i just struggled through.
 - (alphago -> alphazero analogy was helpful)
-- you do still have the scaling issue with human labeling during online use causing EXTREMELY and perhaps even PROHIBITIVELY slow learning. i suspect you'd continue phase 1 during phase 2, but would the loss function / reward function just change to include both (assuming weight space updating)?
+- you do still have the scaling issue with human labeling during online use causing EXTREMELY and perhaps even PROHIBITIVELY slow learning. 
+- i suspect you'd continue phase 1 during phase 2, but would the loss function / reward function just change to include both (assuming weight space updating)?
 - algorithms considered and rejected for now and why: (there are likely practicalities that result in other algorithms perhaps being superior, this is a non practitioner's pre-experiment take)
 	- GRPO
 		- 
@@ -255,10 +257,14 @@ https://x.com/teortaxesTex/status/2072800874728935630?s=20- to what extent am i 
 	- prospective learning
 	- MARL
 	- model the user as part of the environment?
+	- will brown phd
 
 - prime intellect released this https://x.com/PrimeIntellect/status/2074212134452633882?s=20
 - should i post about frontier LLM programmability needing standardization and how the recommended way to prompt a modern LLM is literally just training? https://x.com/emollick/status/2074307813392732279?s=20. are they converging? how can we normalize prompt programming? assuming this is true, WHY is this the best way to prompt LLMs? 
 	- it's akin to autoresearch. basically saying that giving the LLM a reward that it can grind towards is best, which is why environments matter (simulations to determine best actions to take). can it be 10x cheaper or 10x more performant at a given task?
+	- probably worth discussing 'LLM capabilities' as a function of prompt quality and personal evals like I mentioned it to Alex
+		- [[Local Tasking#^bdf5da]] pointed at personal evals
+		- arcada labs is still very cool
 - is there positive or negative 'transfer' in a combined loss function scenario where we have phase 1 loss (dont have the formula yet but it would be, given 1:x, model predicts x+1, there is ground truth x+1, difference in those answers. cross entropy loss) summed with phase 2 loss ($$\mathcal{L}_{\text{OnlineDPO}}(\theta) = -\mathbb{E}_{(x, y_w, y_l) \sim \mathcal{D}_{\text{on-policy}}} \left[ \log \sigma \left( \beta \log \frac{\pi_\theta(y_w \mid x)}{\pi_{\text{ref}}(y_w \mid x)} - \beta \log \frac{\pi_\theta(y_l \mid x)}{\pi_{\text{ref}}(y_l \mid x)} \right) \right]$$) (potential online DPO loss)? i.e. does the preference choice cause the model to drift from predicting what I write? why or why not?
 	- https://gemini.google.com/app/79ea2d4952de2cd1 discussion as to how top K posterior sampling can be used in 'online DPO' and how it relates to implicitly learned reward modeling.
 	- summing might be overweighting what i type? would have to experiment
@@ -285,3 +291,20 @@ https://x.com/teortaxesTex/status/2072800874728935630?s=20- to what extent am i 
 	- "with a wider release later this year"
 	- personal models / interaction models / proactive models + local data exposure will collect tacit knowledge orders of magnitude more than systems that take a prompt and work for hours
 - a common misunderstanding / criticism of the work is that the model is just learning 'style'. can we quantify the learning associated with style vs the learning associated with content?
+- 
+- who are the biggest screenpipe users? is anyone running prospective learning or reward inference algorithms on their data?
+	- https://github.com/screenpipe/screenpipe
+	- a good sobering take that recommendation is already done at scale massively (and how is user prediction in the context of my ideas really different? [[Interaction#^4c96d9]]), i think there was even an old linkedin paper than was showing RL in a multi armed bandit flavor where the user chooses between one of 3 recommendations or something, hopefully i could find that again. 
+	- from dragan re social media recommendation: https://arxiv.org/abs/2510.12742
+	- why dont i have recommendations cycled on my computer use?
+		- https://arxiv.org/pdf/2505.10831 paper shared by sam on predictive behavior from a 'general user model' from computer use behavior. reach out to authors?
+	- seems equivalent to predicting behavior or increased legibility. didnt feel the need to increase legibility for 'big data' social media algos. maybe because they didnt care about capturing me, or i didn't benefit, or it was knowingly misaligned, but likely probably because i just *couldnt*. i'm not able to put generative thoughts into twitter. (unless maybe they edit the feed based on what you post too, which would make a lot of sense, but havent heard anything about this)
+- two 'computers' on each device? one from the human and one for the ai? easy sharing of html and some file systems, but avoids catastrophe or takeover? and allows for prospective learning / predictive recommendations from screenpipe context?
+- seems so obvious that theres a gap of just having an end to end product that pipes all computer context + serves personalized predictions to solve inferenced local and global goals?
+
+
+- current post gaps
+	- 
+	- prompt space programmability normalization argument from above
+	- personal reward functions differing from labs as a belief
+		- Sholto take "it will do your taxes when someone at the labs cares to teach it"
