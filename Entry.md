@@ -7,6 +7,7 @@
 - https://x.com/0xBADB01E/status/2073990357398982797?s=20
 - https://x.com/eliebakouch/status/2074011171661701466?s=20
 - https://x.com/lilianweng/status/2074372369213428144?s=20
+	- "the need to specify goals and context will not disappear"
 - had an idea a while ago I didn’t write down: a model per harness. Models trained on the harness to improve performance. Was invalidated slightly when metr research showed that some OS model performed better in Claude code than Claude, but would need to revisit 
 - https://x.com/eliebakouch/status/2074473875614712236?s=20
 - The dynamic, fresh context also applies to judgment/feedback. Not just context (inputs)
@@ -217,3 +218,8 @@ https://x.com/teortaxesTex/status/2072800874728935630?s=20- to what extent am i 
 
 - starting the think the reward inference part should not block the self prediction. the self prediction is a large enough task of itself, the uncertainty around algorithmic progress provides future possible growth, and i believe SFT + DPO is strong enough to deliver something valuable and directionally correct enough for superhuman performance, since RLHF/DPO is already reward inference (per dragan waymo interview). 
 - apparently DPO generates an implicit value network that can be used to approximate rewards. same link as above https://gemini.google.com/app/e5061268008c580f
+- phrased during conversation as a tool that would elicit different behavior of legibilizing process of thinking in between computer interactions. that behavior doesn't exist as much today since the tool being used 'computer' doesn't really benefit from it. the tools of the future will ('local models')
+
+- so we have phase 1 which is supervised fine tuning. given a history of read/writes, what is the next write? can replace read/write with action, the dataset still needs to be codified as likely the next step, but thats the high level plan, and it is worth experimenting with frontier LLMs, old LLMs, and cheap OS models to see how they perform/react to different amounts of data
+- we have phase 2 which uses best of N sampling from the model from phase 1 to turn into recommendations that can be chosen. each recommendation, choice, or lack thereof runs through DPO to optimize further
+- finally, since DPO results in an implicit value network function
