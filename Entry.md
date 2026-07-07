@@ -240,7 +240,7 @@ https://x.com/teortaxesTex/status/2072800874728935630?s=20- to what extent am i 
 	- SDPO
 		- "aligning language models from human interactions" https://arxiv.org/pdf/2603.12273 is apparently an instance of SDPO that learns from human interactions rather than a 'successful sibling rollout' https://arxiv.org/abs/2601.20802 or 'canonical answer' https://arxiv.org/pdf/2601.18734. either human interaction or successful sibling rollout i think could 'work', but a successful sibling rollout would just be phase 1. the difference seems to be that its for 'rollouts', which assumes the model has an environment where i can take actions that impact state transitions. in phase 1 the actions dont have any impact on state transitions? in phase 2 they might, but its unclear if thats the best way to model it vs top K posterior sampling + DPO. for phase 1, whats the actual loss function diff?
 		- LSDPO⁡(𝜃)=𝔼𝜏∼𝜋𝜃⁡[𝑇∑𝑡=1KL⁡(𝜋𝜃⁡(⋅|𝑠𝑡)⁢||⁢stopgrad⁡(𝜋𝜃⁡(⋅|𝑠𝑡,𝑐)))]
-		- the loss matches the student on the teacher with a 'hint' i.e. helpful information, and updates the student to match the teacher. this seems like it could be used for phase 1, still unclear why this over standard cross entropy. after my discussion with codex, SDPO could be used, its just less direct of a loss. something to explore. it trains given hints rather directly on preferences or self supervision
+		- the loss matches the student on the teacher with a 'hint' i.e. helpful information, and updates the student to match the teacher. this seems like it could be used for phase 1, still unclear why this over standard cross entropy. after my discussion with codex, SDPO could be used, its just less direct of a loss. something to explore. it trains given hints rather directly on preferences or self supervision. helpful loss comparison https://gemini.google.com/app/9eddf57f5e81e914
 	- OPSD
 		- from my learnings, OPSD is for when a ground truth exists (relates to deterministic vs non deterministic reward function being the distinction when we discuss 'dynamic' environments or not, with models definitely able to learn static environments i.e. deterministic reward functions)
 	- OPD
@@ -281,4 +281,4 @@ https://x.com/teortaxesTex/status/2072800874728935630?s=20- to what extent am i 
 - still such a banger https://thinkingmachines.ai/blog/interaction-models/. every source they city resonates ^15beb6
 	- "with a wider release later this year"
 	- personal models / interaction models / proactive models + local data exposure will collect tacit knowledge orders of magnitude more than systems that take a prompt and work for hours
-- a common misunderstanding / critici
+- a common misunderstanding / criticism of the work is that the model is just learning 'style'. can we quantify the learning associated with style vs the learning associated with content?
