@@ -233,11 +233,12 @@ https://x.com/teortaxesTex/status/2072800874728935630?s=20- to what extent am i 
 - you do still have the scaling issue with human labeling during online use causing EXTREMELY and perhaps even PROHIBITIVELY slow learning. i suspect you'd continue phase 1 during phase 2, but would the loss function / reward function just change to include both (assuming weight space updating)?
 - algorithms considered and rejected for now and why:
 	- SDPO
+		- 
 	- OPSD
 		- from my learnings, OPSD is for when a ground truth exists (relates to deterministic vs non deterministic reward function being the distinction when we discuss 'dynamic' environments or not, with models definitely able to learn static environments i.e. deterministic reward functions)
 	- OPD
-		- OPD is just OPSD but the distillation is from a different model, not the same. so doesnt r
-		- the above 3 algorithms, i question why/how they are related to DPO or 'online DPO'? 
+		- OPD is just OPSD but the distillation is from a different model, not the same. so doesnt rely on ground truth existence BUT cannot achieve superhuman performance.
+	- the above 3 algorithms, i question why/how they are related to DPO or 'online DPO'? 
 	- CIRL
 	- PNLC
 	- NLAC
