@@ -27,3 +27,52 @@ The biggest gaps right now are
 	what is the actual path to environmental evaluation and selective retention, the remaining steps to superintelligence after variation
 	from a thesis perspective, what are the other issues with collective intelligence (first paragraph)
 
+Phase 1 Loss Function (this section written by codex for nice formatting)
+
+The default loss for Phase 1 is supervised next-action / next-write prediction loss, i.e. behavioral cloning with token-level cross entropy.
+
+Each training example can be represented as:
+
+$$x_t = \text{context before action } t$$
+
+where the context might include recent notes, diffs, browser reads, AI chats, timestamps, app state, and other available inbound context.
+
+$$y_t = \text{the next write/action actually taken}$$
+
+where the target might be an appended bullet, search query, AI prompt, edit operation, or other outbound action.
+
+The Phase 1 objective is:
+
+$$\mathcal{L}_{\text{Phase 1}}(\theta) = -\mathbb{E}_{(x_t, y_t) \sim \mathcal{D}} \left[\log \pi_\theta(y_t \mid x_t)\right]$$
+
+In plain English: given the prior context, maximize the probability assigned to the action actually taken.
+
+If the target action is text, this becomes ordinary token-level cross entropy:
+
+$$\mathcal{L}_{\text{NTP}}(\theta) = -\sum_{i=1}^{n}\log \pi_\theta(y_{t,i} \mid x_t, y_{t,<i})$$
+
+So if the target action is writing a bullet like "maybe DPO reward inference should not block self-prediction", the model is trained to predict each next token of that action conditioned on the context before it was written.
+
+The more important design choice is not the loss function, but the target representation. Possible target choices:
+
+- next token
+- next sentence / bullet
+- next write event
+- next semantic action
+- structured action, e.g. `{app: "obsidian", file: "Entry.md", operation: "append_bullet", content: "..."}`
+
+For this use case, a reasonable structured version is:
+
+$$\mathcal{L}_{\text{Phase 1}} = \lambda_a CE(a_t, \hat{a}_t) + \lambda_l CE(l_t, \hat{l}_t) + \lambda_c CE(c_t, \hat{c}_t)$$
+
+where:
+
+- $$a_t$$ is the action type, e.g. write, search, prompt, edit, copy, delete
+- $$l_t$$ is the location, e.g. app, file, block, URL, chat
+- $$c_t$$ is the content payload
+
+The simplest toy version should be:
+
+Given the previous git history of `Entry.md`, predict the next added line or bullet. The loss is token-level cross entropy on the actual next added text.
+
+Clean summary: Phase 1 loss = behavioral cloning / supervised fine-tuning loss = negative log likelihood of the actual next action, usually token-level cross entropy over the next write.
