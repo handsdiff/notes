@@ -238,7 +238,7 @@ https://x.com/teortaxesTex/status/2072800874728935630?s=20- to what extent am i 
 	- GRPO
 		- 
 	- SDPO
-		- "aligning language models from human interactions" https://arxiv.org/pdf/2603.12273 is apparently an instance of SDPO that learns from human interactions rather than a 'successful sibling rollout' https://arxiv.org/abs/2601.20802 or 'canonical answer' https://arxiv.org/pdf/2601.18734. either human interaction or successful sibling rollout i think could 'work', but a successful sibling rollout would just be phase 1. the difference seems to be that 
+		- "aligning language models from human interactions" https://arxiv.org/pdf/2603.12273 is apparently an instance of SDPO that learns from human interactions rather than a 'successful sibling rollout' https://arxiv.org/abs/2601.20802 or 'canonical answer' https://arxiv.org/pdf/2601.18734. either human interaction or successful sibling rollout i think could 'work', but a successful sibling rollout would just be phase 1. the difference seems to be that its for 'rollouts', which assumes the model has an environment where i can take actions that impact state transitions. in phase 1 the actions dont have any impact on state transitions? in phase 2 they might, but its unclear if thats the best way to model it vs top K posterior sampling + DPO.
 	- OPSD
 		- from my learnings, OPSD is for when a ground truth exists (relates to deterministic vs non deterministic reward function being the distinction when we discuss 'dynamic' environments or not, with models definitely able to learn static environments i.e. deterministic reward functions)
 	- OPD
@@ -255,4 +255,4 @@ https://x.com/teortaxesTex/status/2072800874728935630?s=20- to what extent am i 
 - slate was continual learning. one of the things that bottlenecked it was needing to label the right answers for everything manually. and in cases where even the right label did not exist due to lack of backend infra, needing to build the backend infra, and keep the model up to date with its changing use of tools. do we still have all the slate code? we do, and the git history of it, and the google doc history of bugs? too bad it hasnt been cleaned up + enriched with thoughts and discussions the entire time. we would be in a more intelligent place.
 - might help with data ingestion https://github.com/Zackriya-Solutions/meetily
 - writing articles making it seem like there are a ton of steps/challenges to your work likely helps with sales/marketing
-- 
+- the system will be able to do N step, instead of 1 step '' rollouts if it can also learn how my actions change states, which it should learn from phase 1. hmmm.
