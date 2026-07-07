@@ -277,6 +277,7 @@ https://x.com/teortaxesTex/status/2072800874728935630?s=20- to what extent am i 
 	- "For hard tasks where the right behavior is rare in the base policy, secondary objectives like behavior cloning or DAgger may be needed. Our preliminary experiments in that direction showed enough hint-copying that hint design looks like the harder problem."
 	- yeah no shit? ^ this is just saying the reward function is the actual bottleneck to consider
 	- "Soon, we will be running off-policy SDPO on live production traces, with the user's actual interactions as the hint" i dont see why they dont just use online DPO, i likely am not understanding something.
+	- there is a discussion around staleness here that i do not fully understand
 - still such a banger https://thinkingmachines.ai/blog/interaction-models/. every source they city resonates ^15beb6
 	- "with a wider release later this year"
-	- personal models /
+	- personal models / interaction models / proactive models + local data exposure will collect tacit knowledge orders of magnitude more than systems that take a prompt and work for hours
