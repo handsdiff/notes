@@ -8,6 +8,7 @@
 - https://x.com/eliebakouch/status/2074011171661701466?s=20
 - https://x.com/lilianweng/status/2074372369213428144?s=20
 	- "the need to specify goals and context will not disappear"
+- https://x.com/eliebakouch/status/2074532904009421260?s=20
 - had an idea a while ago I didn’t write down: a model per harness. Models trained on the harness to improve performance. Was invalidated slightly when metr research showed that some OS model performed better in Claude code than Claude, but would need to revisit 
 - https://x.com/eliebakouch/status/2074473875614712236?s=20
 - The dynamic, fresh context also applies to judgment/feedback. Not just context (inputs)
