@@ -238,7 +238,7 @@ https://x.com/teortaxesTex/status/2072800874728935630?s=20- to what extent am i 
 	- GRPO
 		- 
 	- SDPO
-		- "aligning language models from human interactions" https://arxiv.org/pdf/2603.12273 is apparently an instance of SDPO that learns from human interactions rather than a 'successful sibling rollout' https://arxiv.org/abs/2601.20802 or 'canonical answer'. either human interaction or successful sibling rollout i think could 'work', but a successful sibling rollout would just be phase 1. 
+		- "aligning language models from human interactions" https://arxiv.org/pdf/2603.12273 is apparently an instance of SDPO that learns from human interactions rather than a 'successful sibling rollout' https://arxiv.org/abs/2601.20802 or 'canonical answer' https://arxiv.org/pdf/2601.18734. either human interaction or successful sibling rollout i think could 'work', but a successful sibling rollout would just be phase 1. the difference seems to be that 
 	- OPSD
 		- from my learnings, OPSD is for when a ground truth exists (relates to deterministic vs non deterministic reward function being the distinction when we discuss 'dynamic' environments or not, with models definitely able to learn static environments i.e. deterministic reward functions)
 	- OPD
