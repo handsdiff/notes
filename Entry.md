@@ -250,11 +250,16 @@ https://x.com/teortaxesTex/status/2072800874728935630?s=20- to what extent am i 
 	- NLAC
 	- policy gradient
 	- contextual/multi armed bandit
+	- DAgger
+	- recsys
+
 - prime intellect released this https://x.com/PrimeIntellect/status/2074212134452633882?s=20
 - should i post about frontier LLM programmability needing standardization and how the recommended way to prompt a modern LLM is literally just training? https://x.com/emollick/status/2074307813392732279?s=20. are they converging? how can we normalize prompt programming? assuming this is true, WHY is this the best way to prompt LLMs? 
 	- it's akin to autoresearch. basically saying that giving the LLM a reward that it can grind towards is best, which is why environments matter (simulations to determine best actions to take). can it be 10x cheaper or 10x more performant at a given task?
 - is there positive or negative 'transfer' in a combined loss function scenario where we have phase 1 loss (dont have the formula yet but it would be, given 1:x, model predicts x+1, there is ground truth x+1, difference in those answers. cross entropy loss) summed with phase 2 loss ($$\mathcal{L}_{\text{OnlineDPO}}(\theta) = -\mathbb{E}_{(x, y_w, y_l) \sim \mathcal{D}_{\text{on-policy}}} \left[ \log \sigma \left( \beta \log \frac{\pi_\theta(y_w \mid x)}{\pi_{\text{ref}}(y_w \mid x)} - \beta \log \frac{\pi_\theta(y_l \mid x)}{\pi_{\text{ref}}(y_l \mid x)} \right) \right]$$) (potential online DPO loss)? i.e. does the preference choice cause the model to drift from predicting what I write? why or why not?
 	- https://gemini.google.com/app/79ea2d4952de2cd1 discussion as to how top K posterior sampling can be used in 'online DPO' and how it relates to implicitly learned reward modeling.
+	- summing might be overweighting what i type? would have to experiment
+	- since this loss function implies a ref policy, when to actually move the ref policy if at all? will see in practice, pending how different the feedback part actually is from the pure self supervised prediction part
 - artificial wisdom as a reward model choice where artificial intelligence is slamming an existing reward model without question
 - slate was continual learning. one of the things that bottlenecked it was needing to label the right answers for everything manually. and in cases where even the right label did not exist due to lack of backend infra, needing to build the backend infra, and keep the model up to date with its changing use of tools. do we still have all the slate code? we do, and the git history of it, and the google doc history of bugs? too bad it hasnt been cleaned up + enriched with thoughts and discussions the entire time. we would be in a more intelligent place.
 - might help with data ingestion, seemingly open source/self hosted granola https://github.com/Zackriya-Solutions/meetily
@@ -262,3 +267,16 @@ https://x.com/teortaxesTex/status/2072800874728935630?s=20- to what extent am i 
 - the system will be able to do N step rollouts, instead of 1 step 'rollouts' (recommendations), if it can also learn how my actions change states, which it should learn from phase 1. actually probably wont learn from phase 1 since its quite complicated and requires modeling other entities well (search, other AI chats, other people, etc). but the data is there, so it isn't necessarily just learning me from that data unless i specifically point it to it. which i will. so the conclusion is just that the data is richer than im initially using it for in phase 1 potentially.
 - if my team each has one, then you can actually simulate N step rollouts that are accurate?
 - open source harnesses apparently painful to use since they do not come with search natively, making them functionally useless
+- some nitpicks for data construction
+	- need to handle copy / paste actions from different apps into obsidian to not mistake that for user typing
+	- need to handle moving a cursor in between sentences across notes or anywhere else typing is occurring, editing, deletion, typos, etc
+	- git across my entire computer wherever im writing? it nicely handles breaking down actions into chunks, whereas raw keystrokes have a ton of noise around moving cursors, backspacing, typos, etc. hmmm.
+	- does defining actions as time steps like this make sense (i.e. git commit after x seconds of no action as natural 'states')? how does it relate to thinking machines focus on 'time based' chunking of data? worth exploring. time based vs turn based. they have an SGLang PR that I should review. [[Entry#^15beb6]]
+	- maybe the lack of this work publicly is simply that the data production + data cleaning combination is too high of a hill to climb?
+- https://trajectory.ai/field-notes/scaling-sdpo this article seems useful for understanding SDPO but the conclusion is just clip gradient updates? lmao. results are results though.
+	- "For hard tasks where the right behavior is rare in the base policy, secondary objectives like behavior cloning or DAgger may be needed. Our preliminary experiments in that direction showed enough hint-copying that hint design looks like the harder problem."
+	- yeah no shit? ^ this is just saying the reward function is the actual bottleneck to consider
+	- "Soon, we will be running off-policy SDPO on live production traces, with the user's actual interactions as the hint" i dont see why they dont just use online DPO, i likely am not understanding something.
+- still such a banger https://thinkingmachines.ai/blog/interaction-models/. every source they city resonates ^15beb6
+	- "with a wider release later this year"
+	- personal models /
