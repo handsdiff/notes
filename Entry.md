@@ -234,7 +234,7 @@ https://x.com/teortaxesTex/status/2072800874728935630?s=20- to what extent am i 
 - still need to codify the data, but worth discussing the algorithms considered and rejected neatly, for completeness, along with risks. we might run into issues with lack of specificity in initial data, or how the SFT phase relates to the RL phase (since DPO, the implicit reward, and MCTS involve an action and state space), we will see. thats the meat and potatoes though. algorithmic understanding towards superintelligence is the side dish, which i just struggled through.
 - (alphago -> alphazero analogy was helpful)
 - you do still have the scaling issue with human labeling during online use causing EXTREMELY and perhaps even PROHIBITIVELY slow learning. i suspect you'd continue phase 1 during phase 2, but would the loss function / reward function just change to include both (assuming weight space updating)?
-- algorithms considered and rejected for now and why:
+- algorithms considered and rejected for now and why: (there are likely practicalities that result in other algorithms perhaps being superior, this is a non practitioner's pre-experiment take)
 	- GRPO
 		- 
 	- SDPO
@@ -281,3 +281,4 @@ https://x.com/teortaxesTex/status/2072800874728935630?s=20- to what extent am i 
 - still such a banger https://thinkingmachines.ai/blog/interaction-models/. every source they city resonates ^15beb6
 	- "with a wider release later this year"
 	- personal models / interaction models / proactive models + local data exposure will collect tacit knowledge orders of magnitude more than systems that take a prompt and work for hours
+- a common misunderstanding / critici
