@@ -211,3 +211,4 @@ https://x.com/teortaxesTex/status/2072800874728935630?s=20- to what extent am i 
 - https://github.com/anthropics/jacobian-lens https://huggingface.co/neuronpedia/jacobian-lens/tree/main
 - sergey levine, learning to reason without external rewards, uses intrinsic self certainty as reward: https://arxiv.org/html/2505.19590v3
 - reward inference discussion https://gemini.google.com/app/4f984ce16e37337a
+- from [[Gwern GA]], "favorite bandit algorithm, top-_k_ posterior sampling". relevant to top N
