@@ -202,4 +202,4 @@ https://x.com/teortaxesTex/status/2072800874728935630?s=20- to what extent am i 
 - https://x.com/jxmnop/status/2074202146699157797?s=20
 - bit of an old hot take. i think enterprise models will look like each employee having their own agent that is tuned to them, and the models are allowed to conversate to collaborate and improve rewards, instead of a monolithic model that everyone shares. personal computing with networking, not timeshared computing. 
 - https://github.com/anthropics/jacobian-lens https://huggingface.co/neuronpedia/jacobian-lens/tree/main
-- 
+- sergey levine, learning to reason without external rewards, uses intrinsic self certainty as reward: https://arxiv.org/html/2505.19590v3
