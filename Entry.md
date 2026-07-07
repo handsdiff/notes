@@ -226,7 +226,7 @@ https://x.com/teortaxesTex/status/2072800874728935630?s=20- to what extent am i 
 - still need to codify the data, but worth discussing the algorithms considered and rejected neatly, for completeness, along with risks. we might run into issues with lack of specificity in initial data, or how the SFT phase relates to the RL phase (since DPO, the implicit reward, and MCTS involve an action and state space), we will see. thats the meat and potatoes though. algorithmic understanding towards superintelligence is the side dish, which i just struggled through.
 - (alphago -> alphazero analogy was helpful)
 - you do still have the scaling issue with human labeling during online use causing EXTREMELY and perhaps even PROHIBITIVELY slow learning. i suspect you'd continue phase 1 during phase 2, but would the loss function / reward function just change (assuming weight space updating?)
-- algorithms considered and rejected for now and why
+- algorithms considered and rejected for now and why:
 	- SDPO
 	- OPSD
 	- OPD
@@ -234,3 +234,4 @@ https://x.com/teortaxesTex/status/2072800874728935630?s=20- to what extent am i 
 	- PNLC
 	- NLAC
 	- prime intellect released this https://x.com/PrimeIntellect/status/2074212134452633882?s=20
+- should i post about frontier LLM programmability needing standardization and how the recommended way to prompt a modern LLM is literally just training? https://x.com/emollick/status/2074307813392732279?s=20. are they converging? how can we normalize prompt programming?
