@@ -252,6 +252,9 @@ https://x.com/teortaxesTex/status/2072800874728935630?s=20- to what extent am i 
 	- contextual/multi armed bandit
 	- DAgger
 	- recsys
+	- prospective learning
+	- MARL
+	- model the user as part of the environment?
 
 - prime intellect released this https://x.com/PrimeIntellect/status/2074212134452633882?s=20
 - should i post about frontier LLM programmability needing standardization and how the recommended way to prompt a modern LLM is literally just training? https://x.com/emollick/status/2074307813392732279?s=20. are they converging? how can we normalize prompt programming? assuming this is true, WHY is this the best way to prompt LLMs? 
