@@ -297,7 +297,7 @@ https://x.com/teortaxesTex/status/2072800874728935630?s=20- to what extent am i 
 - the system will be able to do N step rollouts, instead of 1 step 'rollouts' (recommendations), if it can also learn how my actions change states, which it should learn from phase 1. actually probably wont learn from phase 1 since its quite complicated and requires modeling other entities well (search, other AI chats, other people, etc). but the data is there, so it isn't necessarily just learning me from that data unless i specifically point it to it. which i will. so the conclusion is just that the data is richer than im initially using it for in phase 1 potentially.
 - if my team each has one, then you can actually simulate N step rollouts that are accurate?
 - open source harnesses apparently painful to use since they do not come with search natively, making them functionally useless
-- some nitpicks for data construction
+- some nitpicks for data construction ^527840
 	- need to handle copy / paste actions from different apps into obsidian to not mistake that for user typing
 	- need to handle moving a cursor in between sentences across notes or anywhere else typing is occurring, editing, deletion, typos, etc
 	- git across my entire computer wherever im writing? it nicely handles breaking down actions into chunks, whereas raw keystrokes have a ton of noise around moving cursors, backspacing, typos, etc. hmmm.
