@@ -234,12 +234,15 @@ https://x.com/teortaxesTex/status/2072800874728935630?s=20- to what extent am i 
 - algorithms considered and rejected for now and why:
 	- SDPO
 	- OPSD
+		- from my learnings, OPSD is for when a ground truth exists (relates to deterministic vs non deterministic reward function being the distinction when we discuss 'dynamic' environments or not, with models definitely able to learn static environments i.e. deterministic reward functions)
 	- OPD
-		- the above 3 algorithms, i question why/how they are related to DPO or 'online DPO'
+		- OPD is just OPSD but the distillation is from a different model, not the same. so doesnt r
+		- the above 3 algorithms, i question why/how they are related to DPO or 'online DPO'? 
 	- CIRL
 	- PNLC
 	- NLAC
 	- prime intellect released this https://x.com/PrimeIntellect/status/2074212134452633882?s=20
 - should i post about frontier LLM programmability needing standardization and how the recommended way to prompt a modern LLM is literally just training? https://x.com/emollick/status/2074307813392732279?s=20. are they converging? how can we normalize prompt programming? assuming this is true, WHY is this the best way to prompt LLMs? 
 	- it's akin to autoresearch. basically saying that giving the LLM a reward that it can grind towards is best, which is why environments matter (simulations to determine best actions to take). can it be 10x cheaper or 10x more performant at a given task?
+- is there positive or negative 'transfer' in a combined loss function scenario where we have phase 1 loss (dont have the formula yet but it would be, given 1:x, model predicts x+1, there is ground truth x+1, difference in those answers. cross entropy loss) summed with phase 2 loss ($$\mathcal{L}_{\text{OnlineDPO}}(\theta) = -\mathbb{E}_{(x, y_w, y_l) \sim \mathcal{D}_{\text{on-policy}}} \left[ \log \sigma \left( \beta \log \frac{\pi_\theta(y_w \mid x)}{\pi_{\text{ref}}(y_w \mid x)} - \beta \log \frac{\pi_\theta(y_l \mid x)}{\pi_{\text{ref}}(y_l \mid x)} \right) \right]$$) (potential online DPO loss)? i.e. does the preference choice cause the model to drift from predicting what I write? why or why not?
 - 
