@@ -6,7 +6,9 @@
 - https://x.com/willccbb/status/1930030099975553303?s=20
 - https://x.com/0xBADB01E/status/2073990357398982797?s=20
 - https://x.com/eliebakouch/status/2074011171661701466?s=20
-- 
+- https://x.com/lilianweng/status/2074372369213428144?s=20
+- had an idea a while ago I didn’t write down: a model per harness. Models trained on the harness to improve performance. Was invalidated slightly when metr research showed that some OS model performed better in Claude code than Claude, but would need to revisit 
+- https://x.com/eliebakouch/status/2074473875614712236?s=20
 - The dynamic, fresh context also applies to judgment/feedback. Not just context (inputs)
 - Is wisdom more truthful reward functions?
 - “Artificial wisdom” sounds way more implausible than artificial intelligence
@@ -184,6 +186,11 @@ https://x.com/teortaxesTex/status/2072800874728935630?s=20- to what extent am i 
 - https://gemini.google.com/app/be2ad689e0e1e1dc personal recsys overview. attempts seem unrigorous
 - https://www.aixi.uk/
 - Is modeling my brain the first step in modeling others or the first step in representing me publicly?
+- https://x.com/albustime/status/2073986970653515817?s=20
+- https://x.com/emollick/status/2074307813392732279?s=20 prompting is literally just training?
+- https://x.com/didier_lopes/status/2074228000539693139?s=20
+- https://x.com/willccbb/status/1902168956095320553?s=20 will brown counter argument on high entropy environments?
+- https://x.com/willccbb/status/2074363852410822875?s=20blicly?
 	- i.e. the better framework is that the model is learning its environment, which primarily involves interacting with me, and it needs to understand me. its recommendations are actions in a state transition system. states are given reward when its recommendations are accepted. to be able to learn a good policy here, it will need to be able to predict my actions first as practical bootstrapping? kind of like alphago training on expert data before doing MCTS self play? is MCTS impossible here? its tough for the environment as a whole, but it can do MCTS on interactions with ME once it has modeled me as a 'player' in its environment whose actions mostly determine the state transitions? that seems interesting, albeit a bit unclear
 	- in that case, its recommendations would be actions that it is aware impact my state transitions, and its goal would be to take actions that I accept for it to get reward? but since the rewards are manual it would be extremely slow to learn. could it actually learn at all in an online way? it might be able to learn phase 1 easily enough since theres no reward labeling, but unsure about phase 2 learning goals.
 - i want to display the html files, and other code i write, publicly + into git as well, but handle the data structuring automatically. interactive html not just static. jakub wants this too.
