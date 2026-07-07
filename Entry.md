@@ -234,6 +234,8 @@ https://x.com/teortaxesTex/status/2072800874728935630?s=20- to what extent am i 
 - (alphago -> alphazero analogy was helpful)
 - you do still have the scaling issue with human labeling during online use causing EXTREMELY and perhaps even PROHIBITIVELY slow learning. i suspect you'd continue phase 1 during phase 2, but would the loss function / reward function just change to include both (assuming weight space updating)?
 - algorithms considered and rejected for now and why:
+	- GRPO
+		- 
 	- SDPO
 		- 
 	- OPSD
