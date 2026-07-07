@@ -200,13 +200,17 @@ https://x.com/teortaxesTex/status/2072800874728935630?s=20- to what extent am i 
 	- with all team having notes like this, opportunities for collaboration arise more easily
 	- jakub has primitive process that shares notes seemingly, wonder what that looks like?
 - i suspect everyone on team will need code handling + interactive html sharing native in existing obsidian + git + quartz stack.
-	- https://gemini.google.com/app/581ea6b83f49a55a
+	- https://gemini.google.com/app/581ea6b83f49a55a 
 - the way I phrased it to jakub is that prediction can act as a good prior for eventual MCTS test time scaling for personal superintelligence. what blocks this is state dynamics modeling, since you need to model others in the environment, which I posit will come with scale if you can properly solve single player modeling, since the same methods can be applied largely, and reward modeling, which is quite a bit more difficult. DPO on 'single turn' test time scaling via top K recommendation and click through rates struggle to scale, and true reward modeling like MaxEnt *seems* to require a grain of truth which comes back to the reward codification problem (unsure if it actually requires this, or what reward inference actually is in practice). does DPO scale in some multiplayer environment like state dynamics do?
 - https://x.com/BrendanFoody/status/2074193875695214907?s=20
-- again, obsidian with link enrichment, auto git with good commit msgs, multi device sync, messaging connectors for easy note taking might be enough
+- again, obsidian with link enrichment, auto git with good commit msgs, multi device sync, messaging connectors for easy note taking might be enough. i find myself not deleting stuff because the search is more difficult (ai latency vs app search latency). which is annoying
+	- not having link enrichment / search over the link content is super annoying, i cant find a gemini chat i had where i was learning about how obsidian handles markdown into its own block language or something. found it from gemini search, its also a couple bullet points above https://gemini.google.com/app/581ea6b83f49a55a
+	- related to the idea that the algorithms and toy examples are to prove that using different tools 'legibilizing thought process of knowledge work' is worth it. and the features necessary to make the legibilization a smooth experience are separate from the algorithms necessary to turn it into something useful
+	- the data construction from the 'raw' process work is the keystone/capstone
 - data half life experiment. does data actually expire?
 - codify how much progress frontier models are making on in context learning for my self prediction, compare that to increasing random dropout for training on gpt oss 120B?
 - what data is more valuable when shared?
+	- i realized that the feeling to work together with prior enterprise clients rather than fear open source distillation was positive, leads to more sharing behavior
 - https://x.com/jxmnop/status/2074202146699157797?s=20
 - bit of an old hot take. i think enterprise models will look like each employee having their own agent that is tuned to them, and the models are allowed to conversate to collaborate and improve rewards, instead of a monolithic model that everyone shares. personal computing with networking, not timeshared computing. 
 - https://github.com/anthropics/jacobian-lens https://huggingface.co/neuronpedia/jacobian-lens/tree/main
@@ -227,5 +231,15 @@ https://x.com/teortaxesTex/status/2072800874728935630?s=20- to what extent am i 
 - still need to codify the data, but worth discussing the algorithms considered and rejected neatly, for completeness, along with risks. we might run into issues with lack of specificity in initial data, or how the SFT phase relates to the RL phase (since DPO, the implicit reward, and MCTS involve an action and state space), we will see. thats the meat and potatoes though. algorithmic understanding towards superintelligence is the side dish, which i just struggled through.
 - (alphago -> alphazero analogy was helpful)
 - you do still have the scaling issue with human labeling during online use causing EXTREMELY and perhaps even PROHIBITIVELY slow learning. i suspect you'd continue phase 1 during phase 2, but would the loss function / reward function just change to include both (assuming weight space updating)?
+- algorithms considered and rejected for now and why:
+	- SDPO
+	- OPSD
+	- OPD
+		- the above 3 algorithms, i question why/how they are related to DPO or 'online DPO'
+	- CIRL
+	- PNLC
+	- NLAC
+	- prime intellect released this https://x.com/PrimeIntellect/status/2074212134452633882?s=20
 - should i post about frontier LLM programmability needing standardization and how the recommended way to prompt a modern LLM is literally just training? https://x.com/emollick/status/2074307813392732279?s=20. are they converging? how can we normalize prompt programming? assuming this is true, WHY is this the best way to prompt LLMs? 
 	- it's akin to autoresearch. basically saying that giving the LLM a reward that it can grind towards is best, which is why environments matter (simulations to determine best actions to take). can it be 10x cheaper or 10x more performant at a given task?
+- 
