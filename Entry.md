@@ -238,12 +238,13 @@ https://x.com/teortaxesTex/status/2072800874728935630?s=20- to what extent am i 
 	- GRPO
 		- 
 	- SDPO
-		- "aligning language models from human interactions" https://arxiv.org/pdf/2603.12273 is apparently an instance of SDPO that learns from human interactions rather than a 'successful sibling rollout' https://arxiv.org/abs/2601.20802 or 'canonical answer' https://arxiv.org/pdf/2601.18734. either human interaction or successful sibling rollout i think could 'work', but a successful sibling rollout would just be phase 1. the difference seems to be that its for 'rollouts', which assumes the model has an environment where i can take actions that impact state transitions. in phase 1 the actions dont have any impact on state transitions? in phase 2 they might, but its unclear if thats the best way to model it vs top K posterior sampling + DPO.
+		- "aligning language models from human interactions" https://arxiv.org/pdf/2603.12273 is apparently an instance of SDPO that learns from human interactions rather than a 'successful sibling rollout' https://arxiv.org/abs/2601.20802 or 'canonical answer' https://arxiv.org/pdf/2601.18734. either human interaction or successful sibling rollout i think could 'work', but a successful sibling rollout would just be phase 1. the difference seems to be that its for 'rollouts', which assumes the model has an environment where i can take actions that impact state transitions. in phase 1 the actions dont have any impact on state transitions? in phase 2 they might, but its unclear if thats the best way to model it vs top K posterior sampling + DPO. for phase 1, whats the actual loss function diff?
+		- LSDPO⁡(𝜃)=𝔼𝜏∼𝜋𝜃⁡[𝑇∑𝑡=1KL⁡(𝜋𝜃⁡(⋅|𝑠𝑡)⁢||⁢stopgrad⁡(𝜋𝜃⁡(⋅|𝑠𝑡,𝑐)))]
+		- the loss matches the student on the teacher with a 'hint' i.e. helpful information, and updates the student to match the teacher. this seems like it could be used for phase 1, still unclear why this over standard cross entropy
 	- OPSD
 		- from my learnings, OPSD is for when a ground truth exists (relates to deterministic vs non deterministic reward function being the distinction when we discuss 'dynamic' environments or not, with models definitely able to learn static environments i.e. deterministic reward functions)
 	- OPD
 		- OPD is just OPSD but the distillation is from a different model, not the same. so doesnt rely on ground truth existence BUT cannot achieve superhuman performance.
-	- the above 3 algorithms, i question why/how they are related to DPO or 'online DPO'? 
 	- CIRL
 	- PNLC
 	- NLAC
