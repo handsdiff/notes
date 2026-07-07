@@ -109,6 +109,17 @@
 - https://x.com/satyanadella/status/2072708957077176563?s=20
 - https://x.com/emollick/status/2072727258352001341?s=20
 - https://x.com/teortaxesTex/status/2072800874728935630?s=20
+- who are the biggest screenpipe users? is anyone running prospective learning or reward inference algorithms on their data?
+	- https://github.com/screenpipe/screenpipe
+	- a good sobering take that recommendation is already done at scale massively (and how is user prediction in the context of my ideas really different? [[Interaction#^4c96d9]]), i think there was even an old linkedin paper than was showing RL in a multi armed bandit flavor where the user chooses between one of 3 recommendations or something, hopefully i could find that again. 
+	- from dragan re social media recommendation: https://arxiv.org/abs/2510.12742
+	- why dont i have recommendations cycled on my computer use?
+		- https://arxiv.org/pdf/2505.10831 paper shared by sam on predictive behavior from a 'general user model' from computer use behavior. reach out to authors?
+	- seems equivalent to predicting behavior or increased legibility. didnt feel the need to increase legibility for 'big data' social media algos. maybe because they didnt care about capturing me, or i didn't benefit, or it was knowingly misaligned, but likely probably because i just *couldnt*. i'm not able to put generative thoughts into twitter. (unless maybe they edit the feed based on what you post too, which would make a lot of sense, but havent heard anything about this)
+- two 'computers' on each device? one from the human and one for the ai? easy sharing of html and some file systems, but avoids catastrophe or takeover? and allows for prospective learning / predictive recommendations from screenpipe context?
+- seems so obvious that theres a gap of just having an end to end product that pipes all computer context + serves personalized predictions to solve inferenced local and global goals?
+- personal reward functions differing from labs as a belief
+	- Sholto take "it will do your taxes when someone at the labs cares to teach it"
 https://x.com/teortaxesTex/status/2072800874728935630?s=20- to what extent am i implementing toy examples / codifying data / going through algorithms to convince my team of the vision rather than make more concrete progress? obviously team conviction could increase progress long term, so whats the tradeoff there? 
 - the data codification seems a bit uninspiring, but maybe thats because its actually whats needed to deliver the value prop, so its a good forcing function to avoid being lazy and just an 'intellectual'
 - its also unclear if i want to be capturing coding sessions at this stage. i think that will bloat the rest of the context and make it harder to train on the research signal. it comes down to what the actual point here is, which is clearly unclear, or at the very least perhaps differs from me and cofounders. thats probably not true since to be fair, we both want autocomplete, its just that we differ on whether certain data sources are necessary for that to occur. obviously, more data is better, and stuff that cannot be recaptured easily should be prioritized. thoughts and reasoning, imo, is one of those. coding sessions seem to persist/backfillable, same with browser history. 
@@ -176,6 +187,7 @@ https://x.com/teortaxesTex/status/2072800874728935630?s=20- to what extent am i 
 - the visualization of robot trying to push the L into position properly where it just tries a bunch of actions, then takes the top 20% based on the rewards, then samples from that, etc, until it can do the task, feels useful, but needs DPO rather than codified rewards? 
 	- is this hopeless? is it way too slow to collect data to optimize properly? or does LoRA for this actually not need many samples?
 - essentially actual experimentation to bolster algorithmic belief for a product for data legibilization, recognize that if you dont have a ton of personal data (unclear where the reward model part comes in) then you will be in a lot of pain in the next few years (assumes RSI/AGI)
+- 
 
 - as i think more, the core distinction seems to be training a model to predict how my brain works during my workday. based on inbound, what is my outbound? 
 	- the stance, which needs to be deeply analyzed, is that this matters because (1) self prediction is enough of a value prop by itself (2) prediction is a prerequisite for inferring rewards (3) prediction, inferring rewards, and the data collection associated with both is a prerequisite for a superhuman system pursuing my goals for me.
@@ -229,8 +241,8 @@ https://x.com/teortaxesTex/status/2072800874728935630?s=20- to what extent am i 
 - phrased during conversation as a tool that would elicit different behavior of legibilizing process of thinking in between computer interactions. that behavior doesn't exist as much today since the tool being used 'computer' doesn't really benefit from it. the tools of the future will ('local models')
 
 - so we have phase 1 which is supervised fine tuning / behavior cloning with cross entropy loss. given a history of read/writes, what is the next write? can replace read/write with action, the dataset still needs to be codified as likely the next step, but thats the high level plan, and it is worth experimenting with frontier LLMs, old LLMs, and cheap OS models to see how they perform/react to different amounts of data
-- we have phase 2 which uses top K sampling from the model from phase 1 to turn into recommendations that can be chosen. each recommendation, choice, or lack thereof runs through online DPO to optimize further.
-- finally, since DPO results in an implicit value network function, we can use it to scale MCTS for superhuman performance towards inferenced goals (per the discussion and papers from this chat https://gemini.google.com/app/e5061268008c580f, secondarily here https://share.google/aimode/oKSzEAiA67cHtEUFB)
+- we have phase 2 which uses top K sampling from the model from phase 1 to turn into recommendations that can be chosen. each recommendation, choice, or lack thereof runs through online DPO to optimize further. phase 1 acts as a prior that bootstraps phase 2
+- finally, since DPO results in an implicit value network function, we can use it to scale MCTS for superhuman performance towards inferenced goals (per the discussion and research papers from this chat https://gemini.google.com/app/e5061268008c580f, secondarily here https://share.google/aimode/oKSzEAiA67cHtEUFB)
 
 - still need to codify the data, but worth discussing the algorithms considered and rejected neatly, for completeness, along with risks. we might run into issues with lack of specificity in initial data, or how the SFT phase relates to the RL phase (since DPO, the implicit reward, and MCTS involve an action and state space), we will see. thats the meat and potatoes though. algorithmic understanding towards superintelligence is the side dish, which i just struggled through.
 - (alphago -> alphazero analogy was helpful)
@@ -258,7 +270,16 @@ https://x.com/teortaxesTex/status/2072800874728935630?s=20- to what extent am i 
 	- MARL
 	- model the user as part of the environment?
 	- will brown phd
+	- RLHF
+	- [[Interaction]]
+	- papers from https://gemini.google.com/app/e5061268008c580f
+	- algos from https://cs224r.stanford.edu/
 
+- https://trajectory.ai/field-notes/scaling-sdpo this article seems useful for understanding SDPO but the conclusion is just clip gradient updates? lmao. results are results though.
+	- "For hard tasks where the right behavior is rare in the base policy, secondary objectives like behavior cloning or DAgger may be needed. Our preliminary experiments in that direction showed enough hint-copying that hint design looks like the harder problem."
+	- yeah no shit? ^ this is just saying the reward function is the actual bottleneck to consider
+	- "Soon, we will be running off-policy SDPO on live production traces, with the user's actual interactions as the hint" i dont see why they dont just use online DPO, i likely am not understanding something.
+	- there is a discussion around staleness here that i do not fully understand
 - prime intellect released this https://x.com/PrimeIntellect/status/2074212134452633882?s=20
 - should i post about frontier LLM programmability needing standardization and how the recommended way to prompt a modern LLM is literally just training? https://x.com/emollick/status/2074307813392732279?s=20. are they converging? how can we normalize prompt programming? assuming this is true, WHY is this the best way to prompt LLMs? 
 	- it's akin to autoresearch. basically saying that giving the LLM a reward that it can grind towards is best, which is why environments matter (simulations to determine best actions to take). can it be 10x cheaper or 10x more performant at a given task?
@@ -282,29 +303,7 @@ https://x.com/teortaxesTex/status/2072800874728935630?s=20- to what extent am i 
 	- git across my entire computer wherever im writing? it nicely handles breaking down actions into chunks, whereas raw keystrokes have a ton of noise around moving cursors, backspacing, typos, etc. hmmm.
 	- does defining actions as time steps like this make sense (i.e. git commit after x seconds of no action as natural 'states')? how does it relate to thinking machines focus on 'time based' chunking of data? worth exploring. time based vs turn based. they have an SGLang PR that I should review. [[Entry#^15beb6]]
 	- maybe the lack of this work publicly is simply that the data production + data cleaning combination is too high of a hill to climb?
-- https://trajectory.ai/field-notes/scaling-sdpo this article seems useful for understanding SDPO but the conclusion is just clip gradient updates? lmao. results are results though.
-	- "For hard tasks where the right behavior is rare in the base policy, secondary objectives like behavior cloning or DAgger may be needed. Our preliminary experiments in that direction showed enough hint-copying that hint design looks like the harder problem."
-	- yeah no shit? ^ this is just saying the reward function is the actual bottleneck to consider
-	- "Soon, we will be running off-policy SDPO on live production traces, with the user's actual interactions as the hint" i dont see why they dont just use online DPO, i likely am not understanding something.
-	- there is a discussion around staleness here that i do not fully understand
 - still such a banger https://thinkingmachines.ai/blog/interaction-models/. every source they city resonates ^15beb6
 	- "with a wider release later this year"
 	- personal models / interaction models / proactive models + local data exposure will collect tacit knowledge orders of magnitude more than systems that take a prompt and work for hours
-- a common misunderstanding / criticism of the work is that the model is just learning 'style'. can we quantify the learning associated with style vs the learning associated with content?
-- 
-- who are the biggest screenpipe users? is anyone running prospective learning or reward inference algorithms on their data?
-	- https://github.com/screenpipe/screenpipe
-	- a good sobering take that recommendation is already done at scale massively (and how is user prediction in the context of my ideas really different? [[Interaction#^4c96d9]]), i think there was even an old linkedin paper than was showing RL in a multi armed bandit flavor where the user chooses between one of 3 recommendations or something, hopefully i could find that again. 
-	- from dragan re social media recommendation: https://arxiv.org/abs/2510.12742
-	- why dont i have recommendations cycled on my computer use?
-		- https://arxiv.org/pdf/2505.10831 paper shared by sam on predictive behavior from a 'general user model' from computer use behavior. reach out to authors?
-	- seems equivalent to predicting behavior or increased legibility. didnt feel the need to increase legibility for 'big data' social media algos. maybe because they didnt care about capturing me, or i didn't benefit, or it was knowingly misaligned, but likely probably because i just *couldnt*. i'm not able to put generative thoughts into twitter. (unless maybe they edit the feed based on what you post too, which would make a lot of sense, but havent heard anything about this)
-- two 'computers' on each device? one from the human and one for the ai? easy sharing of html and some file systems, but avoids catastrophe or takeover? and allows for prospective learning / predictive recommendations from screenpipe context?
-- seems so obvious that theres a gap of just having an end to end product that pipes all computer context + serves personalized predictions to solve inferenced local and global goals?
-
-
-- current post gaps
-	- 
-	- prompt space programmability normalization argument from above
-	- personal reward functions differing from labs as a belief
-		- Sholto take "it will do your taxes when someone at the labs cares to teach it"
+- a common misunderstanding / criticism of the work is that the model is just learning 'style'. can we quantify the learning associated with style vs the learning associated with content? 
