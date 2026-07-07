@@ -227,8 +227,8 @@ https://x.com/teortaxesTex/status/2072800874728935630?s=20- to what extent am i 
 - apparently DPO generates an implicit value network that can be used to approximate rewards. same link as above https://gemini.google.com/app/e5061268008c580f
 - phrased during conversation as a tool that would elicit different behavior of legibilizing process of thinking in between computer interactions. that behavior doesn't exist as much today since the tool being used 'computer' doesn't really benefit from it. the tools of the future will ('local models')
 
-- so we have phase 1 which is supervised fine tuning. given a history of read/writes, what is the next write? can replace read/write with action, the dataset still needs to be codified as likely the next step, but thats the high level plan, and it is worth experimenting with frontier LLMs, old LLMs, and cheap OS models to see how they perform/react to different amounts of data
-- we have phase 2 which uses top K sampling from the model from phase 1 to turn into recommendations that can be chosen. each recommendation, choice, or lack thereof runs through DPO to optimize further
+- so we have phase 1 which is supervised fine tuning / behavior cloning with cross entropy loss. given a history of read/writes, what is the next write? can replace read/write with action, the dataset still needs to be codified as likely the next step, but thats the high level plan, and it is worth experimenting with frontier LLMs, old LLMs, and cheap OS models to see how they perform/react to different amounts of data
+- we have phase 2 which uses top K sampling from the model from phase 1 to turn into recommendations that can be chosen. each recommendation, choice, or lack thereof runs through online DPO to optimize further.
 - finally, since DPO results in an implicit value network function, we can use it to scale MCTS for superhuman performance towards inferenced goals (per the discussion and papers from this chat https://gemini.google.com/app/e5061268008c580f, secondarily here https://share.google/aimode/oKSzEAiA67cHtEUFB)
 
 - still need to codify the data, but worth discussing the algorithms considered and rejected neatly, for completeness, along with risks. we might run into issues with lack of specificity in initial data, or how the SFT phase relates to the RL phase (since DPO, the implicit reward, and MCTS involve an action and state space), we will see. thats the meat and potatoes though. algorithmic understanding towards superintelligence is the side dish, which i just struggled through.
@@ -240,7 +240,7 @@ https://x.com/teortaxesTex/status/2072800874728935630?s=20- to what extent am i 
 	- SDPO
 		- "aligning language models from human interactions" https://arxiv.org/pdf/2603.12273 is apparently an instance of SDPO that learns from human interactions rather than a 'successful sibling rollout' https://arxiv.org/abs/2601.20802 or 'canonical answer' https://arxiv.org/pdf/2601.18734. either human interaction or successful sibling rollout i think could 'work', but a successful sibling rollout would just be phase 1. the difference seems to be that its for 'rollouts', which assumes the model has an environment where i can take actions that impact state transitions. in phase 1 the actions dont have any impact on state transitions? in phase 2 they might, but its unclear if thats the best way to model it vs top K posterior sampling + DPO. for phase 1, whats the actual loss function diff?
 		- LSDPO⁡(𝜃)=𝔼𝜏∼𝜋𝜃⁡[𝑇∑𝑡=1KL⁡(𝜋𝜃⁡(⋅|𝑠𝑡)⁢||⁢stopgrad⁡(𝜋𝜃⁡(⋅|𝑠𝑡,𝑐)))]
-		- the loss matches the student on the teacher with a 'hint' i.e. helpful information, and updates the student to match the teacher. this seems like it could be used for phase 1, still unclear why this over standard cross entropy
+		- the loss matches the student on the teacher with a 'hint' i.e. helpful information, and updates the student to match the teacher. this seems like it could be used for phase 1, still unclear why this over standard cross entropy. after my discussion with codex, SDPO could be used, its just less direct of a loss. something to explore. it trains given hints rather directly on preferences or self supervision
 	- OPSD
 		- from my learnings, OPSD is for when a ground truth exists (relates to deterministic vs non deterministic reward function being the distinction when we discuss 'dynamic' environments or not, with models definitely able to learn static environments i.e. deterministic reward functions)
 	- OPD
@@ -248,7 +248,10 @@ https://x.com/teortaxesTex/status/2072800874728935630?s=20- to what extent am i 
 	- CIRL
 	- PNLC
 	- NLAC
-	- prime intellect released this https://x.com/PrimeIntellect/status/2074212134452633882?s=20
+	- policy gradient
+	- contextual/multi armed bandit
+	- 
+- prime intellect released this https://x.com/PrimeIntellect/status/2074212134452633882?s=20
 - should i post about frontier LLM programmability needing standardization and how the recommended way to prompt a modern LLM is literally just training? https://x.com/emollick/status/2074307813392732279?s=20. are they converging? how can we normalize prompt programming? assuming this is true, WHY is this the best way to prompt LLMs? 
 	- it's akin to autoresearch. basically saying that giving the LLM a reward that it can grind towards is best, which is why environments matter (simulations to determine best actions to take). can it be 10x cheaper or 10x more performant at a given task?
 - is there positive or negative 'transfer' in a combined loss function scenario where we have phase 1 loss (dont have the formula yet but it would be, given 1:x, model predicts x+1, there is ground truth x+1, difference in those answers. cross entropy loss) summed with phase 2 loss ($$\mathcal{L}_{\text{OnlineDPO}}(\theta) = -\mathbb{E}_{(x, y_w, y_l) \sim \mathcal{D}_{\text{on-policy}}} \left[ \log \sigma \left( \beta \log \frac{\pi_\theta(y_w \mid x)}{\pi_{\text{ref}}(y_w \mid x)} - \beta \log \frac{\pi_\theta(y_l \mid x)}{\pi_{\text{ref}}(y_l \mid x)} \right) \right]$$) (potential online DPO loss)? i.e. does the preference choice cause the model to drift from predicting what I write? why or why not?
