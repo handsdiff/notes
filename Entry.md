@@ -268,7 +268,7 @@ https://x.com/teortaxesTex/status/2072800874728935630?s=20- to what extent am i 
 		- similar in theory to sDPO but requires a prefixed action space rather than autoregressive/natural language actions
 	- DAgger https://arxiv.org/pdf/1011.0686
 		- 
-	- recsys https://www.tensorflow.org/recommenders https://arxiv.org/pdf/2510.27157v2 https://research.google/blog/regen-empowering-personalized-recommendations-with-natural-language/ https://arxiv.org/pdf/2601.20316v1
+	- recsys https://www.tensorflow.org/recommenders https://arxiv.org/pdf/2510.27157v2 https://research.google/blog/regen-empowering-personalized-recommendations-with-natural-language/ https://arxiv.org/pdf/2601.20316v1 https://shopify.engineering/generative-recommendations
 		- 
 	- prospective learning
 	- MARL
