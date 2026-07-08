@@ -19,6 +19,7 @@ CURRENT
 	- as i go through the algos I will likely get a better and better implicit understanding of necessary data construction, which i can start to codify during the process. probably should codify the 'full' suite, and then start with a portion/subset of it for the experimentation, if it i have it available
 	- some AI data structure suggestions in [[Experiment Plan]] as well from codex
 	- and notes here [[Entry#^527840]] [[Entry#^15beb6]] [[Entry#^b73256]]
+	- lots of relevant training examples and advice in [[Interaction]], was going to keep copy pasting but theres too many instances
 - codify data structure needed for chosen algorithms, codify how to extract from base data structure to algorithm structure for each step, set up all ingestion points and monitor cleanliness
 
 LATER

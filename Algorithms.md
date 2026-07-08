@@ -45,14 +45,12 @@ algorithms considered and rejected for now and why: (there are likely practicali
 		- actually unclear whether classic RLHF (with PPO) or online GPO / softmax GPO would be better for the use case. gemini says RLHF is online and on policy whereas basic GPO is not, but not sure i buy that
 		- it does raise a question as to why the recipe from the original RLHF paper hasn't been attempted on user specific data. likely because its way less economically valuable. but no one experimenting has tried it either, maybe because giving feedback sucks because the prior was ass. but then why not develop a prior? maybe because that step fails?
 	- [[Interaction]]
-	- interactive learning
-		- 
 	- https://arxiv.org/abs/1701.07570 how does this dynamic regret paper (one of will brown's favorites) relate to inverse RL or reward inference more generally?
 		- 
 	- https://jacobxli.com/blog/2026/machine-studying/ seems very relevant to continual learning, possibly good benchmark
 		- 
 	- https://arxiv.org/pdf/2405.17713 AI Alignment with Changing and Influenceable Reward Functions Dragan 2024
-		- 
+	- 
 	- [[MARL]]
 		- 
 	- papers from https://gemini.google.com/app/e5061268008c580f
