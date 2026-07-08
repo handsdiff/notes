@@ -34,7 +34,7 @@ algorithms considered and rejected for now and why: (there are likely practicali
 		- 
 	- will brown phd
 		- 
-	- RLHF https://gemini.google.com/app/1c431b0b8914983a
+	- RLHF https://arxiv.org/pdf/2203.02155 https://gemini.google.com/app/1c431b0b8914983a
 		- apparently RLHF has 3 stages. the first is SFT. the second is training the reward model from pairwise preferences, the third is training the step 1 model using the reward model, with a KL divergence penalty to keep it close to its original behavior. this is basically exactly my 3 step process..
 		- 
 	- [[Interaction]]
