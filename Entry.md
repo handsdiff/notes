@@ -319,3 +319,6 @@ https://x.com/teortaxesTex/status/2072800874728935630?s=20- to what extent am i 
 - not sure how enterprises build evals but i suspect that preprocessing, filtering, and mixing the data is not a well established skill. are evals separate from data? i dont see how thats possible for enterprises that own both.
 - in some sense its obvious that you can train an algorithm to maximize learning some given distribution of data. but also it depends on the data. like i say that but i also think pure obsidian prediction would fail
 - a massive question for me is, how is pretraining data being scaled?
+- training for 'agentic' use implies training on top of pretraining that is different from instruction following to elicit question -> answer behavior. its also not quite RLVR since most agentic tasks dont have a verifiable answer outside of the individual's preference, and it's now relatively easily to optimize for compiled code
+	- where is 'agentic' data coming from? is they are coming from existing traces, where are the preferred answers/trajectories coming from?
+	- how does this relate to token level preferences vs action level preferences?
