@@ -16,10 +16,10 @@ algorithms considered and rejected for now and why: (there are likely practicali
 		- too complicated for now, unsure whether the abstraction of pedagogy is needed at this stage
 	- PNLC https://arxiv.org/pdf/2505.18098v2
 		- this requires a large corpus of offline data that you train a model on, to then grade and steer a live models actions with reasonings. seems indirect compared to CE loss or sDPO
-	- NLAC
-		- 
+	- NLAC https://arxiv.org/pdf/2512.04601
+		- seems incredibly cracked and dont fully understand the details. i think its probably the best RL algorithm, but again it requires there to be actual rewards/value network, which theoretically needs to be bootstrapped in our case by phase 1/phase 2
 	- policy gradient
-		- 
+		- again, RL maximizing total rewards of trajectories. needs rewards.
 	- contextual/multi armed bandit
 		- similar in theory to sDPO but requires a prefixed action space rather than autoregressive/natural language actions
 	- DAgger https://arxiv.org/pdf/1011.0686
