@@ -10,6 +10,7 @@
 	- "the need to specify goals and context will not disappear"
 - https://x.com/eliebakouch/status/2074532904009421260?s=20
 - https://x.com/willccbb/status/2074668085852962944?s=20
+- https://www.youtube.com/watch?v=SVWmuJx0hHM
 - 
 - had an idea a while ago I didn’t write down: a model per harness. Models trained on the harness to improve performance. Was invalidated slightly when metr research showed that some OS model performed better in Claude code than Claude, but would need to revisit 
 - https://x.com/eliebakouch/status/2074473875614712236?s=20
@@ -296,3 +297,4 @@ https://x.com/teortaxesTex/status/2072800874728935630?s=20- to what extent am i 
 - https://proceedings.neurips.cc/paper_files/paper/2022/file/62b4fea131cfd5b7504eae356b75bbd8-Paper-Conference.pdf might be relevant when looking at will brown's research
 - very, very similar to the algorithms i arrived on: https://shopify.engineering/generative-recommendations. posted feb 2026.  
 	- autoregressive with causal mask to start (fancy description of prediction next action given action history), then sample that model with user choices to further tune behavior (fancy description is hard negative sampling). quite interesting. the gap is that the recommendations are still a fixed set of product IDs rather than semantic text, but they mention that as next steps
+- there are 100% more useful paper
