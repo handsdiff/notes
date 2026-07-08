@@ -35,3 +35,7 @@ algorithms considered and rejected for now and why: (there are likely practicali
 	- [[MARL]]
 	- papers from https://gemini.google.com/app/e5061268008c580f
 	- algos from https://cs224r.stanford.edu/
+
+- is phase 1 a process reward model?
+- does phase 1 result in an 'implicit' reward model?
+- 
