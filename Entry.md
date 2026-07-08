@@ -250,6 +250,8 @@ https://x.com/teortaxesTex/status/2072800874728935630?s=20- to what extent am i 
 - you do still have the scaling issue with human labeling during online use causing EXTREMELY and perhaps even PROHIBITIVELY slow learning. 
 - i suspect you'd continue phase 1 during phase 2, but would the loss function / reward function just change to include both (assuming weight space updating)?
 - algorithms considered and rejected for now and why: (there are likely practicalities that result in other algorithms perhaps being superior, this is a non practitioner's pre-experiment take)
+	- PPO
+		- 
 	- GRPO
 		- requires raw numerical scores for each candidate, which is too much friction
 	- SDPO
