@@ -41,7 +41,7 @@
 - https://arxiv.org/abs/1701.07570 how does this dynamic regret paper (one of will brown's favorites) relate to inverse RL or reward inference more generally?
 	- https://willcb.com/blog/feedback-loops/
 - https://jacobxli.com/blog/2026/machine-studying/ seems very relevant to continual learning, possibly good benchmark
-- https://www.datocms-assets.com/104802/1781805778-baseten-research-sft.pdf discussion on dataset construction, hyperparameters, etc for fine tuning
+- https://www.datocms-assets.com/104802/1781805778-baseten-research-sft.pdf discussion on dataset construction, hyperparameters, etc for fine tuning ^f5c205
 - https://arxiv.org/pdf/2405.17713 AI Alignment with Changing and Influenceable Reward Functions Dragan 2024 ^2e1db5
 	- an example given here is if someone is trying to lose weight, should the model optimize for losing weight even if they get higher short term reward for eating candy? if the model says no candy the user might be mad. if the model says candy the user might be mad. not sure how they reconcile but the way i'd reconcile is always optimizing for long term rewards, and choosing short term rewards to the extent by which they increase intrinsic motivation to continue pursuing long term rewards.
 	- probably relates to research around intrinsic motivation / laziness in models. there is likely an actual term for this in human psychology

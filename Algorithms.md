@@ -33,12 +33,25 @@ algorithms considered and rejected for now and why: (there are likely practicali
 	- model the user as part of the environment?
 		- 
 	- will brown phd
+		- https://willcb.com/blog/feedback-loops/
+		- "We started with a set of pretty ambiguous questions:
+			- How can we model online recommendations in a way which gives rise to the kinds of feedback loops observed in reality while remaining analytically tractable?
+			- Can we gain any insight into why algorithmic feedback loops occur, and design recommendations algorithms which avoid their potentially harmful consequences?
+			- How do we characterize the space of possible outcomes and algorithmic benchmarks when agent preferences are adaptive as a function of our recommendations?
+			And we found satisfying answers to all of these."
 		- 
 	- RLHF https://arxiv.org/pdf/2203.02155 https://gemini.google.com/app/1c431b0b8914983a
 		- apparently RLHF has 3 stages. the first is SFT. the second is training the reward model from pairwise preferences, the third is training the step 1 model using the reward model, with a KL divergence penalty to keep it close to its original behavior. this is basically exactly my 3 step process..
 		- actually unclear whether classic RLHF (with PPO) or online GPO / softmax GPO would be better for the use case. gemini says RLHF is online and on policy whereas basic GPO is not, but not sure i buy that
 		- it does raise a question as to why the recipe from the original RLHF paper hasn't been attempted on user specific data. likely because its way less economically valuable. but no one experimenting has tried it either, maybe because giving feedback sucks because the prior was ass. but then why not develop a prior? maybe because that step fails?
 	- [[Interaction]]
+	- interactive learning
+		- 
+	- https://arxiv.org/abs/1701.07570 how does this dynamic regret paper (one of will brown's favorites) relate to inverse RL or reward inference more generally?
+		- 
+	- https://jacobxli.com/blog/2026/machine-studying/ seems very relevant to continual learning, possibly good benchmark
+		- 
+	- https://arxiv.org/pdf/2405.17713 AI Alignment with Changing and Influenceable Reward Functions Dragan 2024
 		- 
 	- [[MARL]]
 		- 
