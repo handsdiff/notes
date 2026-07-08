@@ -255,6 +255,7 @@ https://x.com/teortaxesTex/status/2072800874728935630?s=20- to what extent am i 
 - i suspect you'd continue phase 1 during phase 2, but would the loss function / reward function just change to include both (assuming weight space updating)?
 
 - https://gemini.google.com/app/34e424feaeb8374a provides alternatives to DPO/online DPO. softmax DPO https://arxiv.org/pdf/2406.09215 takes into account multiple recommendations rather than pairwise. also lists full potential phase 1 and 2 loss functions
+	- $$P(w_1, w_2, ..., w_T) = \prod_{t=1}^T P(w_t \mid w_1, w_2, ..., w_{t-1})$$
 	- $$\mathcal{L}_{\text{SFT}}(\pi_\theta) = - \sum_{t=1}^{|y_w|} \log \pi_\theta(y_w^t \mid x, y_w^{<t})$$
 	- $$\mathcal{L}_{\text{S-DPO}}(\pi_\theta; \pi_{\text{ref}}) = - \log \frac{\exp\left( \beta \log \frac{\pi_\theta(y_w \mid x)}{\pi_{\text{ref}}(y_w \mid x)} \right)}{\exp\left( \beta \log \frac{\pi_\theta(y_w \mid x)}{\pi_{\text{ref}}(y_w \mid x)} \right) + \sum_{j=1}^{|Y_l|} \exp\left( \beta \log \frac{\pi_\theta(y_{l_j} \mid x)}{\pi_{\text{ref}}(y_{l_j} \mid x)} \right)}$$
 	- $$\mathcal{L}_{\text{total}} = \mathcal{L}_{\text{S-DPO}}(\pi_\theta; \pi_{\text{ref}}) + \alpha \cdot \mathcal{L}_{\text{SFT}}(\pi_\theta)$$
@@ -305,4 +306,4 @@ https://x.com/teortaxesTex/status/2072800874728935630?s=20- to what extent am i 
 - big question for data codification is whether you give a tool call to fetch the content of a web page rather than the content itself during training. how does that change the state and action space? does it more clearly separate the action space of the agent from the state space of the environment? are there two environments?
 - proactive, background, interactive. why is there not an agent tailored to me answering these questions in a way i would answer them on the order of hours or days, but in minutes?
 - phase 2 is intended to open up 'move 37' like capabilities
-- 
+- feel more resolute about the problem of converting personal computer use data into something that can be used to predict actions is deep. equivalent to refining oil to put into a machine that does something useful
