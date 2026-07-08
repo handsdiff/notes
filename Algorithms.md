@@ -48,3 +48,4 @@ algorithms considered and rejected for now and why: (there are likely practicali
 - is phase 1 a process reward model?
 - does phase 1 result in an 'implicit' reward model?
 - one commonality is ease of getting rewards/values. anything assuming an 'expert' that can be queried at low cost is a non starter for phases 1 and 2. could be useful for phase 3 pending results.
+- pinterest generative recommendations https://arxiv.org/html/2606.00422v1
