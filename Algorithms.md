@@ -53,6 +53,8 @@ algorithms considered and rejected for now and why: (there are likely practicali
 		- 
 	- (SHOULD REWATCH RELEVANT LECTURES like imitation learning and reward learning) algos from https://cs224r.stanford.edu/
 		- i think these all apply after you get a reward model from phase 1/2, so after that worth revisiting. one thing that does stand out is model based i.e. learning environment dynamics, and how that relates to being able to predict consequences of actions, not just actions from prior actions. i.e. what happens when i type in something in my browser. likely intractable since i dont want the model to try to waste cycles learning what a search engine will respond, but important to keep in mind towards multi agent scaling.
+		- imitation learning
+			- the risk with pure imitation cloning where you do supervised learning to minimize the diff in outputs given inputs via mean squared error or cross entropy loss is that it will find averages when the output (action) given an input (state, or history) varies to minimize loss.
 
 - is phase 1 a process reward model?
 - does phase 1 result in an 'implicit' reward model?
