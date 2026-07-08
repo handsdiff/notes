@@ -318,3 +318,4 @@ https://x.com/teortaxesTex/status/2072800874728935630?s=20- to what extent am i 
 - likely impossible to predict my next note given history of notes. is it even worth trying? feels like it still is to have a milestone and to get something out. but imo avoids hard, chunky, valuable problems
 - not sure how enterprises build evals but i suspect that preprocessing, filtering, and mixing the data is not a well established skill. are evals separate from data? i dont see how thats possible for enterprises that own both.
 - in some sense its obvious that you can train an algorithm to maximize learning some given distribution of data. but also it depends on the data. like i say that but i also think pure obsidian prediction would fail
+- a massive question for me is, how is pretraining data being scaled?
