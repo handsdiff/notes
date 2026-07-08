@@ -30,10 +30,9 @@ algorithms considered and rejected for now and why: (there are likely practicali
 		- too complicated to implement right now. not sure how I could tokenize time in a way that would be positive ROI right now
 	- MARL
 		- non LLM MARL feels unapplicable, LLM MARL complexity is ginormous, predicting the primary user well is the hypothesized first step to true LLM MARL
-	- model the user as part of the environment?
+	- TODO model the user as part of the environment?
 		- 
-	- will brown phd
-		- https://willcb.com/blog/feedback-loops/
+	- TODO will brown phd https://willcb.com/blog/feedback-loops/
 		- "We started with a set of pretty ambiguous questions:
 			- How can we model online recommendations in a way which gives rise to the kinds of feedback loops observed in reality while remaining analytically tractable?
 			- Can we gain any insight into why algorithmic feedback loops occur, and design recommendations algorithms which avoid their potentially harmful consequences?
@@ -44,19 +43,16 @@ algorithms considered and rejected for now and why: (there are likely practicali
 		- apparently RLHF has 3 stages. the first is SFT. the second is training the reward model from pairwise preferences, the third is training the step 1 model using the reward model, with a KL divergence penalty to keep it close to its original behavior. this is basically exactly my 3 step process..
 		- actually unclear whether classic RLHF (with PPO) or online GPO / softmax GPO would be better for the use case. gemini says RLHF is online and on policy whereas basic GPO is not, but not sure i buy that
 		- it does raise a question as to why the recipe from the original RLHF paper hasn't been attempted on user specific data. likely because its way less economically valuable. but no one experimenting has tried it either, maybe because giving feedback sucks because the prior was ass. but then why not develop a prior? maybe because that step fails?
-	- [[Interaction]]
 	- https://arxiv.org/abs/1701.07570 how does this dynamic regret paper (one of will brown's favorites) relate to inverse RL or reward inference more generally?
 		- 
 	- https://jacobxli.com/blog/2026/machine-studying/ seems very relevant to continual learning, possibly good benchmark
 		- 
 	- https://arxiv.org/pdf/2405.17713 AI Alignment with Changing and Influenceable Reward Functions Dragan 2024
-	- 
-	- [[MARL]]
 		- 
 	- papers from https://gemini.google.com/app/e5061268008c580f
 		- 
-	- algos from https://cs224r.stanford.edu/
-		- 
+	- SHOULD REWATCH RELEVANT LECTURES algos from https://cs224r.stanford.edu/
+		- i think these all apply after you get a reward model from phase 1/2, so after that worth revisiting. one thing that does stand out is model based i.e. learning environment dynamics, and how that relates to being able to predict consequences of actions, not just actions from prior actions. i.e. what happens when i type in something in my browser. likely intractable since i dont want the model to try to waste cycles learning what a search engine will respond, but important to keep in mind towards multi agent scaling.
 
 - is phase 1 a process reward model?
 - does phase 1 result in an 'implicit' reward model?

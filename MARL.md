@@ -3,7 +3,7 @@
 	- Gwern agrees that all input going in as a single context makes multiplayer impossible since there’s no privileged or differing response type
 - difference between messaging each other to optimally explore or maximize rewards in states you couldn't otherwise get to vs optimizing actions in the fact of another agent that is also learning and changing their actions in a competitive environment
 - [https://arxiv.org/pdf/2605.09998](https://arxiv.org/pdf/2605.09998)   
-- **Probably need a working taxonomy of multiplayer environments to more quickly reason about. Assistance games?**   ^0ac960
+- Probably need a working taxonomy of multiplayer environments to more quickly reason about. Assistance games?   ^0ac960
 - What type of game is pokemon showdown and why was it chosen and well regarded as an RL environment?  
 - [https://arxiv.org/pdf/2606.02373](https://arxiv.org/pdf/2606.02373) search harness, relevant to maintaining memory as a requirement of MARL  
 - MARL relates to continual learning because you *must* continuously update *something* to even maintain performance  
@@ -15,7 +15,7 @@
 - How can LLMs perform self play in non verifiable domains?  
 - Intuitive posterior distribution explanation [https://gemini.google.com/app/6c8535eee8c99212](https://gemini.google.com/app/6c8535eee8c99212)   
 - You win games/benchmarks if you have the most compute, during training or inference. This implies that intelligence per output token is the real measure of algorithmic progress, while intelligence per dollar is the measure of hardware progress, when independently calculated from each other  
-- **Why does test time scaling work? For LLMs or for other algos. How is test time scaling related to continual learning? Why does updating weights during inference result in instability but updating weights during training does not, if the data distributions are the same? The answer of I.i.d isn’t really satisfying since self play isn’t I.i.d. If you just overfit to the last thing you saw during training, how is that different? If you clip gradient updates during training, why can that not occur during inference? Is it simply a hardware constraint since updating weights is more compute and memory intensive and harder to scale to millions of users?**  
+- Why does test time scaling work? For LLMs or for other algos. How is test time scaling related to continual learning? Why does updating weights during inference result in instability but updating weights during training does not, if the data distributions are the same? The answer of I.i.d isn’t really satisfying since self play isn’t I.i.d. If you just overfit to the last thing you saw during training, how is that different? If you clip gradient updates during training, why can that not occur during inference? Is it simply a hardware constraint since updating weights is more compute and memory intensive and harder to scale to millions of users?  
     - [https://cs224r.stanford.edu/slides/10\_cs224r\_rl\_for\_llms\_reasoning\_2026.pdf](https://cs224r.stanford.edu/slides/10_cs224r_rl_for_llms_reasoning_2026.pdf)   
 - [https://www.k-a.in/rl-algo.html](https://www.k-a.in/rl-algo.html)   
 - The term to look up and learn is “multi agent deep reinforcement learning”, not just multi agent or deep.  
