@@ -52,7 +52,9 @@ algorithms considered and rejected for now and why: (there are likely practicali
 	- papers from https://gemini.google.com/app/e5061268008c580f
 		- 
 	- algos from https://cs224r.stanford.edu/
-		- i think these all apply after you get a reward model from phase 1/2, so after that worth revisiting. one thing that does stand out is model based i.e. learning environment dynamics, and how that relates to being able to predict consequences of actions, not just actions from prior actions. i.e. what happens when i type in something in my browser. likely intractable since i dont want the model to try to waste cycles learning what a search engine will respond, but important to keep in mind towards multi agent scaling.
+		- i think these all apply after you get a reward model from phase 1/2, so after that worth revisiting. i also havent well mapped the concept of Q values to my work. one thing that does stand out is model based i.e. learning environment dynamics, and how that relates to being able to predict consequences of actions, not just actions from prior actions. i.e. what happens when i type in something in my browser. likely intractable since i dont want the model to try to waste cycles learning what a search engine will respond, but important to keep in mind towards multi agent scaling.
+	- DQN https://arxiv.org/pdf/2207.03029
+		- 
 
 - is phase 1 a process reward model?
 - does phase 1 result in an 'implicit' reward model?
