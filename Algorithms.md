@@ -27,9 +27,9 @@ algorithms considered and rejected for now and why: (there are likely practicali
 	- recsys https://www.tensorflow.org/recommenders https://arxiv.org/pdf/2510.27157v2 https://research.google/blog/regen-empowering-personalized-recommendations-with-natural-language/ https://arxiv.org/pdf/2601.20316v1 https://shopify.engineering/generative-recommendations
 		- very similar. doing a lot of the same steps of shopify. the other ones i havent full read through / have the same issues as contextual bandits
 	- prospective learning
-		- 
+		- too complicated to implement right now. not sure how I could tokenize time in a way that would be positive ROI right now
 	- MARL
-		- 
+		- non LLM MARL feels unapplicable, LLM MARL complexity is ginormous, predicting the primary user well is the hypothesized first step to true LLM MARL
 	- model the user as part of the environment?
 		- 
 	- will brown phd
