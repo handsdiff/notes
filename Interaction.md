@@ -19,7 +19,7 @@
 	- https://www.youtube.com/watch?v=vmwq4w53e9Q
 - slow response times make it much much harder for "interaction" to occur
 - https://arxiv.org/pdf/2606.03237 another paper as a call for cooperation paradigms during training. considered solipsistic. referenced in "from agi to asi"
-- agi to asi paper called it 'interactive learning'
+- agi to asi paper https://arxiv.org/abs/2606.12683 called it 'interactive learning'
 - https://willcb.com/blog/feedback-loops/
 	- "We started with a set of pretty ambiguous questions:
 		- How can we model online recommendations in a way which gives rise to the kinds of feedback loops observed in reality while remaining analytically tractable?

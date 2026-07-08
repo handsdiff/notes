@@ -12,7 +12,7 @@ algorithms considered and rejected for now and why: (there are likely practicali
 		- from my learnings, OPSD is for when a ground truth exists (relates to deterministic vs non deterministic reward function being the distinction when we discuss 'dynamic' environments or not, with models definitely able to learn static environments i.e. deterministic reward functions)
 	- OPD
 		- OPD is just OPSD but the distillation is from a different model, not the same. so doesn't rely on ground truth existence BUT cannot achieve superhuman performance.
-	- CIRL
+	- CIRL / assistance games
 		- too complicated for now, unsure whether the abstraction of pedagogy is needed at this stage
 	- PNLC https://arxiv.org/pdf/2505.18098v2
 		- this requires a large corpus of offline data that you train a model on, to then grade and steer a live models actions with reasonings. seems indirect compared to CE loss or sDPO
@@ -24,8 +24,8 @@ algorithms considered and rejected for now and why: (there are likely practicali
 		- similar in theory to sDPO but requires a prefixed action space rather than autoregressive/natural language actions
 	- DAgger https://arxiv.org/pdf/1011.0686
 		- this basically solves 'covariate shift' which is fancy words for the trained model drifting into states it does not know how to handle well due to small compounding errors, cascading into failure. solved by having the expert tell the model what to do when it compounds errors. don't have the bandwidth for that kind of feedback.
-	- recsys https://www.tensorflow.org/recommenders https://arxiv.org/pdf/2510.27157v2 https://research.google/blog/regen-empowering-personalized-recommendations-with-natural-language/ https://arxiv.org/pdf/2601.20316v1 https://shopify.engineering/generative-recommendations
-		- very similar. doing a lot of the same steps of shopify. the other ones i havent full read through / have the same issues as contextual bandits
+	- recsys https://www.tensorflow.org/recommenders https://arxiv.org/pdf/2510.27157v2 https://research.google/blog/regen-empowering-personalized-recommendations-with-natural-language/ https://arxiv.org/pdf/2601.20316v1 https://shopify.engineering/generative-recommendations https://gemini.google.com/app/9c691500d7b6008a HSTU
+		- very similar. doing a lot of the same steps of shopify. the other ones i havent full read through / have the same issues as contextual bandits. a lot of it comes down to w
 	- prospective learning
 		- too complicated to implement right now. not sure how I could tokenize time in a way that would be positive ROI right now
 	- MARL

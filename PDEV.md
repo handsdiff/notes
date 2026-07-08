@@ -81,3 +81,7 @@ Cross device sync natively + version control natively is very simply missing (cr
 the obsidian cross device sync is consistently fucking up jesus
 
 notebookLM tech on this vault and its history would be fire, i constantly try to reproduce this with claude/codex cli
+
+i often type in questions into here then actively explore them via the browser
+
+might build search over git history since it feels so necessary
