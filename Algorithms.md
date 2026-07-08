@@ -43,6 +43,7 @@ algorithms considered and rejected for now and why: (there are likely practicali
 		- apparently RLHF has 3 stages. the first is SFT. the second is training the reward model from pairwise preferences, the third is training the step 1 model using the reward model, with a KL divergence penalty to keep it close to its original behavior. this is basically exactly my 3 step process..
 		- actually unclear whether classic RLHF (with PPO) or online GPO / softmax GPO would be better for the use case. gemini says RLHF is online and on policy whereas basic GPO is not, but not sure i buy that
 		- it does raise a question as to why the recipe from the original RLHF paper hasn't been attempted on user specific data. likely because its way less economically valuable. but no one experimenting has tried it either, maybe because giving feedback sucks because the prior was ass. but then why not develop a prior? maybe because that step fails?
+		- possible differences that stand out are (1) does RLHF lead to 'superhuman' performance? i think yes actually (frontier LLMs shown to be more empathetic, etc) so maybe not an issue.
 	- https://arxiv.org/abs/1701.07570 how does this dynamic regret paper (one of will brown's favorites) relate to inverse RL or reward inference more generally?
 		- 
 	- https://jacobxli.com/blog/2026/machine-studying/ seems very relevant to continual learning, possibly good benchmark
