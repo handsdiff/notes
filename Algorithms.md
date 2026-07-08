@@ -23,19 +23,28 @@ algorithms considered and rejected for now and why: (there are likely practicali
 	- contextual/multi armed bandit
 		- similar in theory to sDPO but requires a prefixed action space rather than autoregressive/natural language actions
 	- DAgger https://arxiv.org/pdf/1011.0686
-		- 
+		- this basically solves 'covariate shift' which is fancy words for the trained model drifting into states it does not know how to handle well due to small compounding errors, cascading into failure. solved by having the expert tell the model what to do when it compounds errors. don't have the bandwidth for that kind of feedback.
 	- recsys https://www.tensorflow.org/recommenders https://arxiv.org/pdf/2510.27157v2 https://research.google/blog/regen-empowering-personalized-recommendations-with-natural-language/ https://arxiv.org/pdf/2601.20316v1 https://shopify.engineering/generative-recommendations
-		- 
+		- very similar. doing a lot of the same steps of shopify. the other ones i havent full read through / have the same issues as contextual bandits
 	- prospective learning
+		- 
 	- MARL
+		- 
 	- model the user as part of the environment?
+		- 
 	- will brown phd
+		- 
 	- RLHF
+		- 
 	- [[Interaction]]
+		- 
 	- [[MARL]]
+		- 
 	- papers from https://gemini.google.com/app/e5061268008c580f
+		- 
 	- algos from https://cs224r.stanford.edu/
+		- 
 
 - is phase 1 a process reward model?
 - does phase 1 result in an 'implicit' reward model?
-- 
+- one commonality is ease of getting rewards/values. anything assuming an 'expert' that can be queried at low cost is a non starter for phases 1 and 2. could be useful for phase 3 pending results.
