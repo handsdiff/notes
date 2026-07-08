@@ -1,7 +1,7 @@
 
 algorithms considered and rejected for now and why: (there are likely practicalities that result in other algorithms perhaps being superior, this is a non practitioner's pre-experiment take)
 	- PPO
-		- 
+		- maybe useful for phase 3, but we dont have a value function to use as a critic until after phase 2 collects data to generate the implicit rewards from preferences
 	- GRPO
 		- requires raw numerical scores for each candidate, which is too much friction for the user to develop
 	- SDPO
