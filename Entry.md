@@ -268,7 +268,7 @@ https://x.com/teortaxesTex/status/2072800874728935630?s=20- to what extent am i 
 		- similar in theory to sDPO but requires a prefixed action space rather than autoregressive/natural language actions
 	- DAgger https://arxiv.org/pdf/1011.0686
 		- 
-	- recsys
+	- recsys https://www.tensorflow.org/recommenders https://arxiv.org/pdf/2510.27157v2 
 	- prospective learning
 	- MARL
 	- model the user as part of the environment?
@@ -316,3 +316,5 @@ https://x.com/teortaxesTex/status/2072800874728935630?s=20- to what extent am i 
 	- "with a wider release later this year"
 	- personal models / interaction models / proactive models + local data exposure will collect tacit knowledge orders of magnitude more than systems that take a prompt and work for hours
 - a common misunderstanding / criticism of the work is that the model is just learning 'style'. can we quantify the learning associated with style vs the learning associated with content? 
+- what is the relationship between recommendation and search? both seem to be surfacing top content from a wide swath of possibilities that is too large to show in full and need to be ranked
+- https://github.com/anysphere/priompt is an inspiration for prompt space algorithms
