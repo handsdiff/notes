@@ -16,6 +16,7 @@
 - Is wisdom more truthful reward functions?
 - “Artificial wisdom” sounds way more implausible than artificial intelligence
 - Feels related to “what to do” not “how to do it”
+- 
 - options
 	- fix visibility of public notes per team feedback
 	- outreach to aidotengineer flagged speakers and others to discuss algos for my data
