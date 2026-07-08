@@ -307,3 +307,4 @@ https://x.com/teortaxesTex/status/2072800874728935630?s=20- to what extent am i 
 - proactive, background, interactive. why is there not an agent tailored to me answering these questions in a way i would answer them on the order of hours or days, but in minutes?
 - phase 2 is intended to open up 'move 37' like capabilities
 - feel more resolute about the problem of converting personal computer use data into something that can be used to predict actions is deep. equivalent to refining oil to put into a machine that does something useful
+- if phase 1 or phase 2 is actually successful and superior in weight space, J space analysis would be insane on it
