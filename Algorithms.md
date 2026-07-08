@@ -24,8 +24,8 @@ algorithms considered and rejected for now and why: (there are likely practicali
 		- similar in theory to sDPO but requires a prefixed action space rather than autoregressive/natural language actions
 	- DAgger https://arxiv.org/pdf/1011.0686
 		- this basically solves 'covariate shift' which is fancy words for the trained model drifting into states it does not know how to handle well due to small compounding errors, cascading into failure. solved by having the expert tell the model what to do when it compounds errors. don't have the bandwidth for that kind of feedback.
-	- recsys https://www.tensorflow.org/recommenders https://arxiv.org/pdf/2510.27157v2 https://research.google/blog/regen-empowering-personalized-recommendations-with-natural-language/ https://arxiv.org/pdf/2601.20316v1 https://shopify.engineering/generative-recommendations https://gemini.google.com/app/9c691500d7b6008a HSTU
-		- very similar. doing a lot of the same steps of shopify. the other ones i havent full read through / have the same issues as contextual bandits. a lot of it comes down to w
+	- recsys https://www.tensorflow.org/recommenders https://arxiv.org/pdf/2510.27157v2 https://research.google/blog/regen-empowering-personalized-recommendations-with-natural-language/ https://arxiv.org/pdf/2601.20316v1 https://shopify.engineering/generative-recommendations https://gemini.google.com/app/9c691500d7b6008a HSTU seminal paper: https://arxiv.org/pdf/2402.17152
+		- very similar. doing a lot of the same steps of shopify. pinterest also has interesting work. the other ones i havent full read through / have the same issues as contextual bandits. a lot of it comes down to whats being recommended (large or small vocab)
 	- prospective learning
 		- too complicated to implement right now. not sure how I could tokenize time in a way that would be positive ROI right now
 	- MARL
