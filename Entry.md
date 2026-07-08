@@ -260,10 +260,8 @@ https://x.com/teortaxesTex/status/2072800874728935630?s=20- to what extent am i 
 	- $$\mathcal{L}_{\text{S-DPO}}(\pi_\theta; \pi_{\text{ref}}) = - \log \frac{\exp\left( \beta \log \frac{\pi_\theta(y_w \mid x)}{\pi_{\text{ref}}(y_w \mid x)} \right)}{\exp\left( \beta \log \frac{\pi_\theta(y_w \mid x)}{\pi_{\text{ref}}(y_w \mid x)} \right) + \sum_{j=1}^{|Y_l|} \exp\left( \beta \log \frac{\pi_\theta(y_{l_j} \mid x)}{\pi_{\text{ref}}(y_{l_j} \mid x)} \right)}$$
 	- $$\mathcal{L}_{\text{total}} = \mathcal{L}_{\text{S-DPO}}(\pi_\theta; \pi_{\text{ref}}) + \alpha \cdot \mathcal{L}_{\text{SFT}}(\pi_\theta)$$
 	- need to watch out for length normalization
-
-- **does my intended SFT approach (autoregressive train on next action prediction i.e. causal mask) violate i.i.d. data assumptions? does shopify's generative recommender have the same issue? what do those assumptions actually mean in practice? do all online or continual learning setups violate this? how does this relate to the practice of storing rollouts in a buffer that you then sample from? does that essentially fix i.i.d. for continual learning scenarios?**
+- does my intended SFT approach (autoregressive train on next action prediction i.e. causal mask) violate i.i.d. data assumptions? does shopify's generative recommender have the same issue? what do those assumptions actually mean in practice? do all online or continual learning setups violate this? how does this relate to the practice of storing rollouts in a buffer that you then sample from? does that essentially fix i.i.d. for continual learning scenarios?
 	- https://gemini.google.com/app/9de51346992f5bae wild stuff
-
 - https://trajectory.ai/field-notes/scaling-sdpo this article seems useful for understanding SDPO but the conclusion is just clip gradient updates? lmao. results are results though.
 	- "For hard tasks where the right behavior is rare in the base policy, secondary objectives like behavior cloning or DAgger may be needed. Our preliminary experiments in that direction showed enough hint-copying that hint design looks like the harder problem."
 	- yeah no shit? ^ this is just saying the reward function is the actual bottleneck to consider
@@ -308,3 +306,5 @@ https://x.com/teortaxesTex/status/2072800874728935630?s=20- to what extent am i 
 - phase 2 is intended to open up 'move 37' like capabilities
 - feel more resolute about the problem of converting personal computer use data into something that can be used to predict actions is deep. equivalent to refining oil to put into a machine that does something useful
 - if phase 1 or phase 2 is actually successful and superior in weight space, J space analysis would be insane on it
+- "There is a strict hierarchy of ML research. Optimizers Objectives Architectures Data Even among data works, there is a hierarchy: Synthetic data Data mixtures Filtering Preprocessing Adding new data sources (Of course, real world impact does not align with the hierarchy)."
+	- good for contextualizing the phases of work needed. separating data steps between adding new sources, preprocessing, and filtering feels correct. data mixtures make much more sense after better understanding i.i.d. assumptions and their implications.
