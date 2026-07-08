@@ -15,7 +15,7 @@ algorithms considered and rejected for now and why: (there are likely practicali
 	- CIRL
 		- too complicated for now, unsure whether the abstraction of pedagogy is needed at this stage
 	- PNLC https://arxiv.org/pdf/2505.18098v2
-		- 
+		- this requires a large corpus of offline data that you train a model on, to then grade and steer a live models actions with reasonings. seems indirect compared to CE loss or sDPO
 	- NLAC
 		- 
 	- policy gradient
