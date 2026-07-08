@@ -66,3 +66,4 @@ algorithms considered and rejected for now and why: (there are likely practicali
 - pinterest generative recommendations https://arxiv.org/html/2606.00422v1
 - DPO paper https://arxiv.org/pdf/2305.18290 (coauthored by finn!)
 - classical LLM pretraining serves as a prior for predicting me. predicting me serves as a prior for recommending me. recommendation data serves as an implicit reward model towards increasingly multi step rollouts to simulate and achieve rewards I might not otherwise be able to recognize or achieve
+- higher parameter models fine tune more successfully given the same amount of data, and fine tune equally given less data
