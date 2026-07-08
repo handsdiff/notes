@@ -261,6 +261,7 @@ https://x.com/teortaxesTex/status/2072800874728935630?s=20- to what extent am i 
 	- need to watch out for length normalization
 
 - **does my intended SFT approach (autoregressive train on next action prediction i.e. causal mask) violate i.i.d. data assumptions? does shopify's generative recommender have the same issue? what do those assumptions actually mean in practice? do all online or continual learning setups violate this? how does this relate to the practice of storing rollouts in a buffer that you then sample from? does that essentially fix i.i.d. for continual learning scenarios?**
+	- https://gemini.google.com/app/9de51346992f5bae wild stuff
 
 - https://trajectory.ai/field-notes/scaling-sdpo this article seems useful for understanding SDPO but the conclusion is just clip gradient updates? lmao. results are results though.
 	- "For hard tasks where the right behavior is rare in the base policy, secondary objectives like behavior cloning or DAgger may be needed. Our preliminary experiments in that direction showed enough hint-copying that hint design looks like the harder problem."
@@ -303,3 +304,4 @@ https://x.com/teortaxesTex/status/2072800874728935630?s=20- to what extent am i 
 - i think my hope for phase 2 is that the model can learn the abstract 'thought'/'motivation' i have/or 'connection' I make in my brain, then that loss-ily gets put into my computer, and 'recommend' a better described version of it
 - big question for data codification is whether you give a tool call to fetch the content of a web page rather than the content itself during training. how does that change the state and action space? does it more clearly separate the action space of the agent from the state space of the environment? are there two environments?
 - proactive, background, interactive. why is there not an agent tailored to me answering these questions in a way i would answer them on the order of hours or days, but in minutes?
+- phase 2 is intended to open up
