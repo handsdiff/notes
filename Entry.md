@@ -304,4 +304,5 @@ https://x.com/teortaxesTex/status/2072800874728935630?s=20- to what extent am i 
 - i think my hope for phase 2 is that the model can learn the abstract 'thought'/'motivation' i have/or 'connection' I make in my brain, then that loss-ily gets put into my computer, and 'recommend' a better described version of it
 - big question for data codification is whether you give a tool call to fetch the content of a web page rather than the content itself during training. how does that change the state and action space? does it more clearly separate the action space of the agent from the state space of the environment? are there two environments?
 - proactive, background, interactive. why is there not an agent tailored to me answering these questions in a way i would answer them on the order of hours or days, but in minutes?
-- phase 2 is intended to open up
+- phase 2 is intended to open up 'move 37' like capabilities
+- 
