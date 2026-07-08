@@ -266,7 +266,8 @@ https://x.com/teortaxesTex/status/2072800874728935630?s=20- to what extent am i 
 	- policy gradient
 	- contextual/multi armed bandit
 		- similar in theory to sDPO but requires a prefixed action space rather than autoregressive/natural language actions
-	- DAgger
+	- DAgger https://arxiv.org/pdf/1011.0686
+		- 
 	- recsys
 	- prospective learning
 	- MARL
@@ -282,6 +283,7 @@ https://x.com/teortaxesTex/status/2072800874728935630?s=20- to what extent am i 
 	- $$\mathcal{L}_{\text{S-DPO}}(\pi_\theta; \pi_{\text{ref}}) = - \log \frac{\exp\left( \beta \log \frac{\pi_\theta(y_w \mid x)}{\pi_{\text{ref}}(y_w \mid x)} \right)}{\exp\left( \beta \log \frac{\pi_\theta(y_w \mid x)}{\pi_{\text{ref}}(y_w \mid x)} \right) + \sum_{j=1}^{|Y_l|} \exp\left( \beta \log \frac{\pi_\theta(y_{l_j} \mid x)}{\pi_{\text{ref}}(y_{l_j} \mid x)} \right)}$$
 	- $$\mathcal{L}_{\text{total}} = \mathcal{L}_{\text{S-DPO}}(\pi_\theta; \pi_{\text{ref}}) + \alpha \cdot \mathcal{L}_{\text{SFT}}(\pi_\theta)$$
 	- need to watch out for length normalization
+- does my intended SFT approach (autoregressive train on next action prediction) violate i.i.d. data assumptions? what do those assumptions actually mean in practice? do all online or continual learning setups violate this? how does this relate to the practice of storing rollouts in a buffer that you then sample from? does that essentially fix i.i.d. for continual learning scenarios?
 - https://trajectory.ai/field-notes/scaling-sdpo this article seems useful for understanding SDPO but the conclusion is just clip gradient updates? lmao. results are results though.
 	- "For hard tasks where the right behavior is rare in the base policy, secondary objectives like behavior cloning or DAgger may be needed. Our preliminary experiments in that direction showed enough hint-copying that hint design looks like the harder problem."
 	- yeah no shit? ^ this is just saying the reward function is the actual bottleneck to consider
