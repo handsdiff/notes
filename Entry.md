@@ -322,3 +322,4 @@ https://x.com/teortaxesTex/status/2072800874728935630?s=20- to what extent am i 
 - training for 'agentic' use implies training on top of pretraining that is different from instruction following to elicit question -> answer behavior. its also not quite RLVR since most agentic tasks dont have a verifiable answer outside of the individual's preference, and it's now relatively easily to optimize for compiled code
 	- where is 'agentic' data coming from? is they are coming from existing traces, where are the preferred answers/trajectories coming from?
 	- how does this relate to token level preferences vs action level preferences?
+- standard gradient descent is an optimizer. adam is an optimizer. adamW is an optimizer.
