@@ -297,4 +297,5 @@ https://x.com/teortaxesTex/status/2072800874728935630?s=20- to what extent am i 
 - https://proceedings.neurips.cc/paper_files/paper/2022/file/62b4fea131cfd5b7504eae356b75bbd8-Paper-Conference.pdf might be relevant when looking at will brown's research
 - very, very similar to the algorithms i arrived on: https://shopify.engineering/generative-recommendations. posted feb 2026.  
 	- autoregressive with causal mask to start (fancy description of prediction next action given action history), then sample that model with user choices to further tune behavior (fancy description is hard negative sampling). quite interesting. the gap is that the recommendations are still a fixed set of product IDs rather than semantic text, but they mention that as next steps
-- there are 100% more useful paper
+- there are 100% more useful papers, but reading this paper, it stood out to me the usefulness of reading about how others actually codify stuff. will be helpful as i codify data https://arxiv.org/pdf/2512.04601 this is the NLAC paper from Joey hong
+- i think my hope for phase 2 is that the model can learn the abstract 'thought'/'motivation' i have/or 'connection' I make in my brain, then that loss-ily gets p
