@@ -29,7 +29,7 @@ algorithms considered and rejected for now and why: (there are likely practicali
 	- prospective learning
 		- too complicated to implement right now. not sure how I could tokenize time in a way that would be positive ROI right now
 	- MARL
-		- non LLM MARL feels unapplicable, LLM MARL complexity is ginormous, predicting the primary user well is the hypothesized first step to true LLM MARL
+		- non LLM MARL feels too esoteric / not generalizable enough / too many assumptions, LLM MARL complexity is ginormous, predicting the primary user well is the hypothesized first step to true LLM MARL
 	- TODO model the user as part of the environment?
 		- 
 	- TODO will brown phd https://willcb.com/blog/feedback-loops/
@@ -68,8 +68,6 @@ algorithms considered and rejected for now and why: (there are likely practicali
 	- https://arxiv.org/pdf/2402.09269 personalized language models
 		- 
 	- PLUM https://arxiv.org/pdf/2411.13405
-		- 
-	- https://github.com/VanillaCreamer/Awesome-Personalized-LLMs ...
 		- 
 
 - is phase 1 a process reward model?
