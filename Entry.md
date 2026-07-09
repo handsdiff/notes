@@ -341,3 +341,4 @@ https://x.com/teortaxesTex/status/2072800874728935630?s=20- to what extent am i 
 - prime intellect went from basically 0 to 100m ARR in a year? how???
 	- other sources citing 15m to 200m (projected) in ~4 (so probably closer to 6) months.
 - feeling a desire to have a separate website for my blogs. self hosted shows commitment. substack gets swallowed into the platform.
+- i find it very interesting that the suggested way to prompt models was to tell it what to do, not not what to do, and the mechanism behind this is now super obvious with J space, since even mentioning certain words, even when prefixed with not, primes the model into a certain thinking that involves the thing you wanted to not do, making it more likely for it to do it. very similar to humans in that sense, classic priming from a neurological perspective
