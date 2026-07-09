@@ -250,6 +250,7 @@ https://x.com/teortaxesTex/status/2072800874728935630?s=20- to what extent am i 
 - finally, since DPO results in an implicit value network function (see below), we can use it to scale MCTS for superhuman performance towards inferenced goals (per the discussion and research papers from this chat https://gemini.google.com/app/e5061268008c580f, secondarily here https://share.google/aimode/oKSzEAiA67cHtEUFB)
 	- $$R(s,a) = \beta \log \left(\frac{\pi_\theta(a|s)}{\pi_{\text{ref}}(a|s)}\right)$$
 - useful discussion on the three phases from a different, more informed perspective https://gemini.google.com/app/b6218e284c18d65d during algorithms research
+	- https://www.youtube.com/watch?v=XKLGuwvSKvI&list=PLoROMvodv4rPwxE0ONYRa_itZFdaKCylL&index=10
 - still need to codify the data, but worth discussing the algorithms considered and rejected neatly, for completeness, along with risks. we might run into issues with lack of specificity in initial data, or how the SFT phase relates to the RL phase (since DPO, the implicit reward, and MCTS involve an action and state space), we will see. thats the meat and potatoes though. algorithmic understanding towards superintelligence is the side dish, which i just struggled through.
 - (alphago -> alphazero analogy was helpful)
 - you do still have the scaling issue with human labeling during online use causing EXTREMELY and perhaps even PROHIBITIVELY slow learning. 
