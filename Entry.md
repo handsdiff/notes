@@ -20,6 +20,8 @@
 - “Artificial wisdom” sounds way more implausible than artificial intelligence
 - Feels related to “what to do” not “how to do it”
 - https://x.com/GenAI_is_real/status/2074760177887404501?s=20
+- https://x.com/distributionat/status/2075253365983068181?s=20
+- 
 - options
 	- fix visibility of public notes per team feedback
 	- outreach to aidotengineer flagged speakers and others to discuss algos for my data
