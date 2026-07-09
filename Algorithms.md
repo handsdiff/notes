@@ -71,3 +71,7 @@ algorithms considered and rejected for now and why: (there are likely practicali
 - DPO paper https://arxiv.org/pdf/2305.18290 (coauthored by finn!)
 - classical LLM pretraining serves as a prior for predicting me. predicting me serves as a prior for recommending me. recommendation data serves as an implicit reward model towards increasingly multi step rollouts to simulate and achieve rewards I might not otherwise be able to recognize or achieve
 - higher parameter models fine tune more successfully given the same amount of data, and fine tune equally given less data. but to be specific this seems to come from pretraining, not the SFT or RL that labs do after the fact
+- really interesting thread on youtube's struggle with reward hacking over the years https://gemini.google.com/app/954229708da7af36
+	- first optimizing clicks, people didnt watch
+	- then optimized watch, people watched slop
+	- then optimized 'watcher satisfaction' starting around 2019, relying on micro surveys during watching
