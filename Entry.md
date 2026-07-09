@@ -249,7 +249,7 @@ https://x.com/teortaxesTex/status/2072800874728935630?s=20- to what extent am i 
 - we have phase 2 which uses top K sampling from the model from phase 1 to turn into recommendations that can be chosen. each recommendation, choice, or lack thereof runs through online DPO to optimize further. phase 1 acts as a prior that bootstraps phase 2. top K sampling acts as hard negative mining, producing a model that learns well.
 - finally, since DPO results in an implicit value network function (see below), we can use it to scale MCTS for superhuman performance towards inferenced goals (per the discussion and research papers from this chat https://gemini.google.com/app/e5061268008c580f, secondarily here https://share.google/aimode/oKSzEAiA67cHtEUFB)
 	- $$R(s,a) = \beta \log \left(\frac{\pi_\theta(a|s)}{\pi_{\text{ref}}(a|s)}\right)$$
-
+- useful discussion on the three phases from a different, more informed perspective https://gemini.google.com/app/b6218e284c18d65d during algorithms research
 - still need to codify the data, but worth discussing the algorithms considered and rejected neatly, for completeness, along with risks. we might run into issues with lack of specificity in initial data, or how the SFT phase relates to the RL phase (since DPO, the implicit reward, and MCTS involve an action and state space), we will see. thats the meat and potatoes though. algorithmic understanding towards superintelligence is the side dish, which i just struggled through.
 - (alphago -> alphazero analogy was helpful)
 - you do still have the scaling issue with human labeling during online use causing EXTREMELY and perhaps even PROHIBITIVELY slow learning. 
@@ -263,6 +263,7 @@ https://x.com/teortaxesTex/status/2072800874728935630?s=20- to what extent am i 
 	- $$\mathcal{L}_{\text{total}} = \mathcal{L}_{\text{S-DPO}}(\pi_\theta; \pi_{\text{ref}}) + \alpha \cdot \mathcal{L}_{\text{SFT}}(\pi_\theta)$$
 	- need to watch out for length normalization
 	- the sDPO loss seems to missing an expectation over all the data (perhaps implicit)
+	- whats the diff between summing the losses vs using a KL divergence penalty like standard RLHF does?
 - does my intended SFT approach (autoregressive train on next action prediction i.e. causal mask) violate i.i.d. data assumptions? does shopify's generative recommender have the same issue? what do those assumptions actually mean in practice? do all online or continual learning setups violate this? how does this relate to the practice of storing rollouts in a buffer that you then sample from? does that essentially fix i.i.d. for continual learning scenarios?
 	- https://gemini.google.com/app/9de51346992f5bae wild stuff
 - https://trajectory.ai/field-notes/scaling-sdpo this article seems useful for understanding SDPO but the conclusion is just clip gradient updates? lmao. results are results though.
