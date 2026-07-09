@@ -330,4 +330,6 @@ https://x.com/teortaxesTex/status/2072800874728935630?s=20- to what extent am i 
 	- how does this relate to token level preferences vs action level preferences?
 - standard gradient descent is an optimizer. adam is an optimizer. adamW is an optimizer.
 - instruction following training seems explicitly different from action completion training that im considering. instruction following needs to literally be baked into token completion: https://www.youtube.com/watch?v=XKLGuwvSKvI&list=PLoROMvodv4rPwxE0ONYRa_itZFdaKCylL&index=10
-- theres a lot of conflation. people seem t
+- theres a lot of conflation. people seem to mention RLHF and PPO in the same breath. is it the same paper that introduced them? PPO can obviously handle step 3 of the RLHF pipeline if thats the case
+- answering a thought or question i type into notes is VERY different from completing my next action / thought. it could connect IF the action is a good prompt to a chatbot, and the agent is able to query the chatbot and return the response in a separate computer, basically messaging it for me on my behalf the way i would. hmmm
+- 
