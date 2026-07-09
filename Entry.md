@@ -267,7 +267,7 @@ https://x.com/teortaxesTex/status/2072800874728935630?s=20- to what extent am i 
 	- whats the diff between summing the losses vs using a KL divergence penalty like standard RLHF does?
 	- apparently for DPO the beta term controls drift from original model so you dont need KL divergence, but no one seems to address whether to 'combine' loss functions or not. theres probably a world where what i do, instead of choosing from the set of recs, is just fed into the DPO loss as the preferred response and i dont need to try combining the losses during step 2 training
 	- data nit: strong preferences are encouraged during data collection, to avoid noise, rather than weak preferences or toss ups
-	- it doesnt actually seem like you need softmax DPO s
+	- it doesnt actually seem like you need softmax DPO since you can just extract pairwise preferences from multiple options, which is literally equivalent. im not going to spend time actually ranking them anyways
 - does my intended SFT approach (autoregressive train on next action prediction i.e. causal mask) violate i.i.d. data assumptions? does shopify's generative recommender have the same issue? what do those assumptions actually mean in practice? do all online or continual learning setups violate this? how does this relate to the practice of storing rollouts in a buffer that you then sample from? does that essentially fix i.i.d. for continual learning scenarios?
 	- https://gemini.google.com/app/9de51346992f5bae wild stuff
 - https://trajectory.ai/field-notes/scaling-sdpo this article seems useful for understanding SDPO but the conclusion is just clip gradient updates? lmao. results are results though.
