@@ -339,3 +339,4 @@ https://x.com/teortaxesTex/status/2072800874728935630?s=20- to what extent am i 
 	- then optimized watch, people watched slop
 	- then optimized 'watcher satisfaction' starting around 2019, relying on micro surveys during watching
 - prime intellect went from basically 0 to 100m ARR in a year? how???
+	- other sources citing 15m to 200m (projected) in ~4 (so probably closer to 6) months.
