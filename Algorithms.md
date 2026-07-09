@@ -69,6 +69,8 @@ algorithms considered and rejected for now and why: (there are likely practicali
 		- 
 	- PLUM https://arxiv.org/pdf/2411.13405
 		- 
+	- https://github.com/VanillaCreamer/Awesome-Personalized-LLMs ...
+		- 
 
 - is phase 1 a process reward model?
 - does phase 1 result in an 'implicit' reward model?
