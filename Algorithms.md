@@ -61,6 +61,8 @@ algorithms considered and rejected for now and why: (there are likely practicali
 		- 
 	- IPO https://arxiv.org/pdf/2502.16182
 		- 
+	- [[Google Pi Team]]
+		- 
 
 - is phase 1 a process reward model?
 - does phase 1 result in an 'implicit' reward model?
