@@ -329,3 +329,5 @@ https://x.com/teortaxesTex/status/2072800874728935630?s=20- to what extent am i 
 	- where is 'agentic' data coming from? is they are coming from existing traces, where are the preferred answers/trajectories coming from?
 	- how does this relate to token level preferences vs action level preferences?
 - standard gradient descent is an optimizer. adam is an optimizer. adamW is an optimizer.
+- instruction following training seems explicitly different from action completion training that im considering. instruction following needs to literally be baked into token completion: https://www.youtube.com/watch?v=XKLGuwvSKvI&list=PLoROMvodv4rPwxE0ONYRa_itZFdaKCylL&index=10
+- theres a lot of conflation. people seem t
