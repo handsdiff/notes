@@ -58,6 +58,9 @@ algorithms considered and rejected for now and why: (there are likely practicali
 	- algos from https://cs224r.stanford.edu/
 		- i think these all apply after you get a reward model from phase 1/2, so after that worth revisiting. i also havent well mapped the concept of Q values to my work. one thing that does stand out is model based i.e. learning environment dynamics, and how that relates to being able to predict consequences of actions, not just actions from prior actions. i.e. what happens when i type in something in my browser. likely intractable since i dont want the model to try to waste cycles learning what a search engine will respond, but important to keep in mind towards multi agent scaling.
 		- assigning 'credit' to specific steps as discussed in lecture 10 might be useful for phase 3
+		- lecture 10 near the end has really interested advantage weighted step by step training that seems relevant to predicting my next action and learning from recommendations when thought of as a MDP but i cant put my finger exactly on why/how
+		- maybe because some prior during the training process might be 'noisy', and this could help delete the noise to focus on the actions that actually helped in achieving the goal? but again this needs a value function which we would not have at this stage
+		- 
 	- DQN https://arxiv.org/pdf/2207.03029
 		- 
 	- IPO https://arxiv.org/pdf/2502.16182
