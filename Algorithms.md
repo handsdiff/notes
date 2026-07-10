@@ -76,7 +76,7 @@ algorithms considered and rejected for now and why: (there are likely practicali
 	- DQN https://arxiv.org/pdf/2207.03029
 		- q networks need a reward. the reward needs to come from preference data at this hypothesized stage. perhaps for phase 3.
 	- IPO https://arxiv.org/pdf/2502.16182
-		- 
+		- basically DPO but using the policy that generated the rollouts as the preference producer. had good diagrams that are useful for visualizing DPO
 	- [[Google Pi Team]]
 		- 
 	- P-RLHF https://arxiv.org/pdf/2402.05133
