@@ -364,3 +364,4 @@ https://x.com/teortaxesTex/status/2072800874728935630?s=20- to what extent am i 
 	- the inability to self model uncertainty is brought up as an issue with human AI interaction/collaboration
 	- its unclear how 'uncertainty' even natively exists in the model? maybe the probability of the 'winning' token directly? im sure someone has researched this. relates to the dragan waymo interview
 - i want to rebuild my pareto graph and my context collection graphs and have them easily accessible/hosted somewhere instead of having to tell the ai to do it and run localhost to view it
+- yup https://thinkingmachines.ai/blog/the-future-worth-building-is-human/

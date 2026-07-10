@@ -30,8 +30,8 @@ algorithms considered and rejected for now and why: (there are likely practicali
 		- too complicated to implement right now. not sure how I could tokenize time in a way that would be positive ROI right now
 	- MARL
 		- non LLM MARL feels too esoteric / not generalizable enough / too many assumptions, LLM MARL complexity is ginormous, predicting the primary user well is the hypothesized first step to true LLM MARL
-	- TODO model the user as part of the environment?
-		- hard to reason about this unless i get more concrete about the data structure. it also depends on to w
+	- model the user as part of the environment?
+		- hard to reason about this unless i get more concrete about the data structure. it also depends on to what extent phase 1/2 is RL or not. what this even means specifically is 
 	- TODO will brown phd https://willcb.com/blog/feedback-loops/
 		- "We started with a set of pretty ambiguous questions:
 			- How can we model online recommendations in a way which gives rise to the kinds of feedback loops observed in reality while remaining analytically tractable?
