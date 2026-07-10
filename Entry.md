@@ -23,6 +23,7 @@
 - Feels related to “what to do” not “how to do it”
 - https://x.com/GenAI_is_real/status/2074760177887404501?s=20
 - https://x.com/distributionat/status/2075253365983068181?s=20
+- https://x.com/humansand/status/2075618383631167692?s=20
 - 
 - options
 	- fix visibility of public notes per team feedback
