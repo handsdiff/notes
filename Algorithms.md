@@ -64,6 +64,7 @@ algorithms considered and rejected for now and why: (there are likely practicali
 		- empirical recommended temperature is 0.6 for rollouts ^ 
 		- process reward RL (PAV) outperforms ORM RL (binary outcome)
 		- verifiers are just reward models
+		- i havent deeply internalized RL for reasoning and how it relates to my problem formulation. likely most applicable for phase 3, probably impacts phase 1 and 2
 	- DQN https://arxiv.org/pdf/2207.03029
 		- 
 	- IPO https://arxiv.org/pdf/2502.16182
