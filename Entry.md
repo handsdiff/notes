@@ -264,7 +264,7 @@ https://x.com/teortaxesTex/status/2072800874728935630?s=20- to what extent am i 
 	- $$P(w_1, w_2, ..., w_T) = \prod_{t=1}^T P(w_t \mid w_1, w_2, ..., w_{t-1})$$
 	- $$\mathcal{L}_{\text{SFT}}(\pi_\theta) = - \sum_{t=1}^{|y_w|} \log \pi_\theta(y_w^t \mid x, y_w^{<t})$$
 	- $$\mathcal{L}_{\text{S-DPO}}(\pi_\theta; \pi_{\text{ref}}) = - \log \frac{\exp\left( \beta \log \frac{\pi_\theta(y_w \mid x)}{\pi_{\text{ref}}(y_w \mid x)} \right)}{\exp\left( \beta \log \frac{\pi_\theta(y_w \mid x)}{\pi_{\text{ref}}(y_w \mid x)} \right) + \sum_{j=1}^{|Y_l|} \exp\left( \beta \log \frac{\pi_\theta(y_{l_j} \mid x)}{\pi_{\text{ref}}(y_{l_j} \mid x)} \right)}$$
-	- $$\mathcal{L}_{\text{Softmax-DPO}}(\theta) = - \mathbb{E}_{\left(x, y_w, \{y_l\}_{l=1}^{k-1}\right)} \left[ \log \frac{\exp \left( \beta \log \frac{\pi_\theta(y_w \mid x)}{\pi_{\text{ref}}(y_w \mid x)} \right)}{\sum_{j \in \{y_w\} \cup \{y_l\}} \exp \left( \beta \log \frac{\pi_\theta(y_j \mid x)}{\pi_{\text{ref}}(y_j \mid x)} \right)} \right]$$
+	- $$\mathcal{L}_{\text{Softmax-DPO}}(\theta) = - \mathbb{E}_{\left(x, y_w, \{y_l\}_{l=1}^{k-1}\right)} \left[ \log \frac{\exp \left( \beta \log \frac{\pi_\theta(y_w \mid x)}{\pi_{\text{ref}}(y_w \mid x)} \right)}{\sum_{j \in \{y_w\} \cup \{y_l\}} \exp \left( \beta \log \frac{\pi_\theta(y_j \mid x)}{\pi_{\text{ref}}(y_j \mid x)} \right)} \right]$$ ^e7fcba
 	- $$\mathcal{L}_{\text{total}} = \mathcal{L}_{\text{S-DPO}}(\pi_\theta; \pi_{\text{ref}}) + \alpha \cdot \mathcal{L}_{\text{SFT}}(\pi_\theta)$$
 	- need to watch out for length normalization
 	- the sDPO loss seems to missing an expectation over all the data (perhaps implicit)

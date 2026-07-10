@@ -62,6 +62,7 @@ algorithms considered and rejected for now and why: (there are likely practicali
 		- maybe because some prior during the training process might be 'noisy', and this could help delete the noise to focus on the actions that actually helped in achieving the goal? but again this needs a value function which we would not have at this stage
 		- in the case where we need to actually reconsider the phase 1 construction as an RL rollout to handle tool use for additional content, a lot of these algorithms will come back. lecture 10 stands out as high yield. "RL on incorrect synthetic data increases efficiency 8x". offline DPO from rollouts. talks alot about how to actually get LLM reasoning using offline data, failed data, synthetic data, how to augment reasoning with the help of LLMs during the work, stitching together steps using advantages, etc
 		- empirical recommended temperature is 0.6 for rollouts ^ 
+		- process reward RL (PAV) outperforms ORM RL
 	- DQN https://arxiv.org/pdf/2207.03029
 		- 
 	- IPO https://arxiv.org/pdf/2502.16182
@@ -85,3 +86,4 @@ algorithms considered and rejected for now and why: (there are likely practicali
 - classical LLM pretraining serves as a prior for predicting me. predicting me serves as a prior for recommending me. recommendation data serves as an implicit reward model towards increasingly multi step rollouts to simulate and achieve rewards I might not otherwise be able to recognize or achieve
 - higher parameter models fine tune more successfully given the same amount of data, and fine tune equally given less data. but to be specific this seems to come from pretraining, not the SFT or RL that labs do after the fact
 - frontier LLMs could be used to 'expand' the label data i DO give to apply it to different scenarios, so i need to give less feedback, but still some? that model acts as a critic?
+- if recommendation gives a set of recs that all do not get accepted, do you consider ground truth as the 'preference'? isnt that off policy whereas the others are on policy? can you just mix data like that and feed them both into the DPO loss? also relates to whether you can just mix loss functions [[Entry#^e7fcba]]
