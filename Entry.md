@@ -355,3 +355,5 @@ https://x.com/teortaxesTex/status/2072800874728935630?s=20- to what extent am i 
 - if im watching a youtube video for example, i suspect the best data structure would be the transcript of the part i watched as <read, browser, youtube, transcript chunk> then <write, obsidian, entry, written note>.
 - if the thesis is that rewards are implicitly learned from preference data, which i think holds true generally, it does not account for the fact that rewards can be unconsciously changed, which i think leads to poor learning vaguely, but might also result in what looks like 'reward hacking'
 - should've written down earlier that i think its super cool to 'optimize for learning' by considering the 'surprise' of a given state transition in the learning rate. forget where i explored papers in this vein
+- do pretrained model weights exist and open sourced? like before RLHF or RLVR?
+- super annoying and slowing me down to have to constantly switch to obsidian, pick the right file, scroll all the way down, typ
