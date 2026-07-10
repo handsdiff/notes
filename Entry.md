@@ -362,3 +362,4 @@ https://x.com/teortaxesTex/status/2072800874728935630?s=20- to what extent am i 
 - apparently value functions are primarily used to reduce gradient variance, but not necessarily accurate enough for actor critic algorithms
 - there is an openai 2023 paper in lecture 18 of cs224r that shows model confidence is much less calibrated after PPO post training than after pre training. how is this data even collected? the pre train model should not be able to do question answer formats, no?
 	- the inability to self model uncertainty is brought up as an issue with human AI interaction/collaboration
+	- its unclear how 'uncertainty' even natively exists in the model? maybe the probability of the 'winning' token directly? im sure someone has researched this. relates to the dragan waymo interview
