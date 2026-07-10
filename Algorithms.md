@@ -74,7 +74,7 @@ algorithms considered and rejected for now and why: (there are likely practicali
 		- "goal conditioned policy" is a phrase i remember from the prior walkthrough but seems interesting since i believe ive been thinking about it independently. you can probably semantically put the perceived goal in the context of either weight space or prompt space model, which might help with learning the reward model
 		- does LLM pref optimization still rely on single turn? if its multi turn, are 'process reward' like formulations utilized? if so how? does it make sense to interleave policy updates with pref optimization in online DPO? policy update interleaving apparently happens with rlvr like math. do you batch? what size N? asynchronous model update after batched data collection is considered practical
 	- DQN https://arxiv.org/pdf/2207.03029
-		- 
+		- q networks need a reward. the reward needs to come from preference data at this hypothesized stage. perhaps for phase 3.
 	- IPO https://arxiv.org/pdf/2502.16182
 		- 
 	- [[Google Pi Team]]
