@@ -62,7 +62,8 @@ algorithms considered and rejected for now and why: (there are likely practicali
 		- maybe because some prior during the training process might be 'noisy', and this could help delete the noise to focus on the actions that actually helped in achieving the goal? but again this needs a value function which we would not have at this stage
 		- in the case where we need to actually reconsider the phase 1 construction as an RL rollout to handle tool use for additional content, a lot of these algorithms will come back. lecture 10 stands out as high yield. "RL on incorrect synthetic data increases efficiency 8x". offline DPO from rollouts. talks alot about how to actually get LLM reasoning using offline data, failed data, synthetic data, how to augment reasoning with the help of LLMs during the work, stitching together steps using advantages, etc
 		- empirical recommended temperature is 0.6 for rollouts ^ 
-		- process reward RL (PAV) outperforms ORM RL
+		- process reward RL (PAV) outperforms ORM RL (binary outcome)
+		- verifiers are just reward models
 	- DQN https://arxiv.org/pdf/2207.03029
 		- 
 	- IPO https://arxiv.org/pdf/2502.16182
