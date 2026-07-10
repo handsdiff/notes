@@ -345,6 +345,7 @@ https://x.com/teortaxesTex/status/2072800874728935630?s=20- to what extent am i 
 	- then optimized 'watcher satisfaction' starting around 2019, relying on micro surveys during watching
 - prime intellect went from basically 0 to 100m ARR in a year? how???
 	- other sources citing 15m to 200m (projected) in ~4 (so probably closer to 6) months.
+	- likely trained intellect-1 and 3 and collected synthetic-2, no business model, released Lab as a streamlined version of what they used to build those models, enterprises use it and their serviced expertise as a way to then train their own models. makes sense.
 - feeling a desire to have a separate website for my blogs. self hosted shows commitment. substack gets swallowed into the platform.
 - i find it very interesting that the suggested way to prompt models was to tell it what to do, not not what to do, and the mechanism behind this is now super obvious with J space, since even mentioning certain words, even when prefixed with not, primes the model into a certain thinking that involves the thing you wanted to not do, making it more likely for it to do it. very similar to humans in that sense, classic priming from a neurological perspective
 - can you have a small local proactive personalized model that interacts with a large asynchronous frontier model as needed?
