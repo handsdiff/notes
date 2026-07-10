@@ -82,7 +82,7 @@ algorithms considered and rejected for now and why: (there are likely practicali
 	- P-RLHF https://arxiv.org/pdf/2402.05133
 		- conditioning the policy on the 'user' model, which seems different from the reward model, and is instead some tokenized description of the user? weird
 	- https://arxiv.org/pdf/2402.09269 personalized language models
-		- 
+		- 'personalization' is so so vague. this paper tests what emotion a user feels when given a piece of text. they do this by training it on a history of felt emotions given text. they show PFT wildly outperforms ICL. good, but i feel like this is a way easier task than predicting outputs given inputs. 
 	- PLUM https://arxiv.org/pdf/2411.13405
 		- 
 
