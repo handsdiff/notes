@@ -24,6 +24,7 @@
 - https://x.com/GenAI_is_real/status/2074760177887404501?s=20
 - https://x.com/distributionat/status/2075253365983068181?s=20
 - https://x.com/humansand/status/2075618383631167692?s=20
+- https://x.com/samzliu/status/2075437170198991344?s=20
 - 
 - options
 	- fix visibility of public notes per team feedback
@@ -368,3 +369,4 @@ https://x.com/teortaxesTex/status/2072800874728935630?s=20- to what extent am i 
 - yup https://thinkingmachines.ai/blog/the-future-worth-building-is-human/
 - context elicitation -> data processing -> continual SFT -> implicit reward from recsys -> envsim rollouts for discovery (MAS)
 - one useful abstraction, perhaps later is language models towards your reward function vs the harness for it? like it will need to eventually take the actions itself instead of just recommending? way downstream though
+- 5.6 sol can probably help iterate quickly on algos once data is in place, and data processing might be accelerated as well but i perhaps not nearly as much. Needs to be collected
