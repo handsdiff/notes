@@ -66,6 +66,8 @@ algorithms considered and rejected for now and why: (there are likely practicali
 		- verifiers are just reward models
 		- i havent deeply internalized RL for reasoning and how it relates to my problem formulation. likely most applicable for phase 3, probably impacts phase 1 and 2
 		- lecture 18 has a lot of good practical advice. examples where the pretrained weights constricted learning. the beginning is literally frameworks for what im working through.
+		- "goal conditioned policy" is a phrase i remember from the prior walkthrough but seems interesting since i believe ive been thinking about it independently. you can probably semantically put the perceived goal in the context of either weight space or prompt space model, which might help with learning the reward model
+		- does LLM pref optimization still rely on single turn? if its multi turn, are 'process reward' like formulations utilized? if so how? does it make sense to interleave policy updates with pref optimization in online DPO? policy update interleaving apparently happens with rlvr like math. do you batch? what size N? asynchronous model update after batched data collection is considered practical
 	- DQN https://arxiv.org/pdf/2207.03029
 		- 
 	- IPO https://arxiv.org/pdf/2502.16182
