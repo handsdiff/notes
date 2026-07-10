@@ -372,3 +372,5 @@ https://x.com/teortaxesTex/status/2072800874728935630?s=20- to what extent am i 
 - one useful abstraction, perhaps later is language models towards your reward function vs the harness for it? like it will need to eventually take the actions itself instead of just recommending? way downstream though
 - 5.6 sol can probably help iterate quickly on algos once data is in place, and data processing might be accelerated as well but i perhaps not nearly as much. Needs to be collected
 - unsure whether i wrote down before but its unclear whether optimizing loss results in averages or max's across the data. seems like it depends on the prompt, and the behavior is elicit, which implies a max? don't have a good resolution here
+- would the model learn 'personalized' reasoning if the thought data is explicit enough?
+- going back to the youtube interleaved data example, even when im reading a paper we would want the content i actually read to be shown before i type a note, not the entire paper. this seems very difficult to collect properly and perhaps prohibitive for good learning.

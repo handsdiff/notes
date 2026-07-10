@@ -80,7 +80,7 @@ algorithms considered and rejected for now and why: (there are likely practicali
 	- [[Google Pi Team]]
 		- 
 	- P-RLHF https://arxiv.org/pdf/2402.05133
-		- 
+		- conditioning the policy on the 'user' model, which seems different from the reward model, and is instead some tokenized description of the user? weird
 	- https://arxiv.org/pdf/2402.09269 personalized language models
 		- 
 	- PLUM https://arxiv.org/pdf/2411.13405
