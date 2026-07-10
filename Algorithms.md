@@ -56,7 +56,7 @@ algorithms considered and rejected for now and why: (there are likely practicali
 		- RLHF shows results that the generated summaries in their benchmarking were superhuman!
 	- https://jacobxli.com/blog/2026/machine-studying/ seems very relevant to continual learning, possibly good benchmark
 		- 
-	- https://arxiv.org/pdf/2506.06266 cartridges
+	- https://arxiv.org/pdf/2506.06266 cartridges (by CTO of Engram) likely explains how they're 'scaling compute on context'. differs in that it maximizes retrieval efficiency as a primary goal. quite interesting
 		- generate synthetic conversations about a corpus of text (self-study), uses that to 'train a KV cache' (not sure what that means) (cartridge), then loads the KV cache for the LLM on long context benchmarks comparing it to ICL. can compose cartridges as needed. very similar to PLUM in terms of the upsampling. 38x lower memory and 24x higher throughput with similar performance. cool. might be worth trying alongside the existing matrix of ICL, SFT, memory, but seems slightly off mark in terms of utility since its an efficiency gain rather than performance.
 	- https://arxiv.org/pdf/2405.17713 AI Alignment with Changing and Influenceable Reward Functions Dragan 2024
 		- 
