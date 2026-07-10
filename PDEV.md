@@ -85,3 +85,5 @@ notebookLM tech on this vault and its history would be fire, i constantly try to
 i often type in questions into here then actively explore them via the browser
 
 might build search over git history since it feels so necessary
+
+super super annoying how obsidian always shows me the top of the file instead of where my cursor last was in that file
