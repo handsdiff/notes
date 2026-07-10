@@ -100,8 +100,12 @@ algorithms considered and rejected for now and why: (there are likely practicali
 - if recommendation gives a set of recs that all do not get accepted, do you consider ground truth as the 'preference'? isnt that off policy whereas the others are on policy? can you just mix data like that and feed them both into the DPO loss? also relates to whether you can just mix loss functions [[Entry#^e7fcba]]
 - big diff in 'personalization' is 'i like it' vs 'its me'. maybe should call it something else to distinguish. even 'its me' implies style, so need something to distinguish that. the best gemini could come up with is 'cognitive language models' or 'neural proxy language models' with the context i gave it
 - explains, from rich sutton, how 1 step doesnt necessarily lead to N step due to compounding errors, very similar to what DAgger solves http://incompleteideas.net/IncIdeas/OneStepTrap.html. for my stuff, probably need to instead start giving advice on 2 step recs, 3 step recs, etc, rather than assuming 1 step recs can be let free, which i think is valid and was my prior
-- has a lot of relevant practical work https://sabrieyuboglu.com/. the engram launch blog has a ton of relevant work as well. what i see here is a team that is cracked at algorithms and the goal even more so is data production and context elicitation for reward direction, although unsure if their setup changes the reward function
-	- specific algos they call out that are referenced in their launch post
-		- 'parametric memory' i.e. LoRA/adapter-based representations, prefix tuning, state-space methods
+- has a lot of relevant practical work https://sabrieyuboglu.com/. the engram launch blog has a ton of relevant work as well. what i see here is a team that is cracked at algorithms and the goal even more so is data production and context elicitation for reward direction, although unsure if their setup changes the reward function. the parametric memory stuff stands out to me
+	- "Specifically, this includes:
+		- Memory and knowledge internalization — designing and evaluating methods for encoding large, heterogeneous document corpora into compact parametric memory (e.g., LoRA/adapter-based representations, prefix tuning, state-space methods).
+		- Synthetic data and self-study — understanding what makes synthetic training data generalize, and developing self-study pipelines that allow models to reflect on and consolidate new context.
+		- Continual learning algorithms — tackling catastrophic forgetting, sequential updates, knowledge conflicts, and the tradeoffs between in-weights memory and agentic retrieval.
+		- RL and online training — exploring reinforcement learning methods that let models improve from interaction and feedback in real deployment settings.
+		- Scaling and capacity — empirically studying how model capacity, data scale, and compute interact; developing the scaling laws that inform our product roadmap."
 	- side question, can you 'measure' the extent to which ICL influences the implicit reward function of an LLM?
 	- 
