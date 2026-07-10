@@ -61,7 +61,7 @@ algorithms considered and rejected for now and why: (there are likely practicali
 		- theres so much more to understand here that is likely useful
 	- E2E TTT https://arxiv.org/pdf/2512.23675
 		- (maybe gwern was right [[Gwern GA#^1c6876]])
-		- 
+		- i dont understand this yet
 	- https://arxiv.org/pdf/2405.17713 AI Alignment with Changing and Influenceable Reward Functions Dragan 2024
 		- 
 	- papers from https://gemini.google.com/app/e5061268008c580f
