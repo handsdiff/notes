@@ -35,7 +35,7 @@ algorithms considered and rejected for now and why: (there are likely practicali
 		- how is this fundamentally different from classic autoregressive causal mask formulations in phase 1? well phase 1 is separate from phase 2 and this mostly works for phase 2. then how is it different from phase 2? 
 		- the proposed phase 2 samples 1 step rollouts/actions from the existing model/policy, then compares the preference of the human to take that action or not, and uses that to update the model weights via an optimizer like gradient descent from the DPO loss function. this system would basically do the same thing, since model = policy, and actions = sampling. with the RL formulation there is no reward, so DPO makes more sense because you need to reward the model for the actions its taking.
 		- this formulation likely starts to make more sense when we consider more esoteric dragan work around model -> human influence, but seems undifferentiated for now
-	- TODO will brown phd https://willcb.com/blog/feedback-loops/
+	- TODO will brown phd https://willcb.com/blog/feedback-loops/ https://scholar.google.com/citations?user=JUJdJMoAAAAJ
 		- "We started with a set of pretty ambiguous questions:
 			- How can we model online recommendations in a way which gives rise to the kinds of feedback loops observed in reality while remaining analytically tractable?
 			- Can we gain any insight into why algorithmic feedback loops occur, and design recommendations algorithms which avoid their potentially harmful consequences?
@@ -43,6 +43,8 @@ algorithms considered and rejected for now and why: (there are likely practicali
 			And we found satisfying answers to all of these."
 		- 
 	- https://genai-handbook.github.io/
+		- 
+	- https://arxiv.org/abs/1701.07570 how does this dynamic regret paper (one of will brown's favorites) relate to inverse RL or reward inference more generally?
 		- 
 	- RLHF https://arxiv.org/pdf/2203.02155 https://gemini.google.com/app/1c431b0b8914983a https://gemini.google.com/app/e11d7e2c3bda71cc https://www.youtube.com/watch?v=XKLGuwvSKvI&list=PLoROMvodv4rPwxE0ONYRa_itZFdaKCylL&index=10
 		- apparently RLHF has 3 stages. the first is SFT. the second is training the reward model from pairwise preferences, the third is training the step 1 model using the reward model, with a KL divergence penalty to keep it close to its original behavior. this is basically my 3 step process. the main difference is that the SFT trains a model to follow instructions, i.e. respond to a prompt, from its base pretrain. whereas my step 1 is more like SFT to alter its next token prediction itself. also step 3 is not needed with doing DPO according to the DPO authors because youre already updating the language model from the rewards directly, whereas classic RLHF step 3 is where you take the reward model you learned and update the language model from it
@@ -52,13 +54,13 @@ algorithms considered and rejected for now and why: (there are likely practicali
 		- possible differences that stand out are (1) does RLHF lead to 'superhuman' performance? i think yes actually (frontier LLMs shown to be more empathetic, etc) so maybe not an issue.
 		- interesting paper i think establishing RLAIF https://arxiv.org/pdf/2212.08073 from anthropic and also showing constitutional RL showing pareto efficiency in harmlessness + helpfulness
 		- RLHF shows results that the generated summaries in their benchmarking were superhuman!
-	- https://arxiv.org/abs/1701.07570 how does this dynamic regret paper (one of will brown's favorites) relate to inverse RL or reward inference more generally?
-		- 
 	- https://jacobxli.com/blog/2026/machine-studying/ seems very relevant to continual learning, possibly good benchmark
 		- 
 	- https://arxiv.org/pdf/2405.17713 AI Alignment with Changing and Influenceable Reward Functions Dragan 2024
 		- 
 	- papers from https://gemini.google.com/app/e5061268008c580f
+		- 
+	- [[Google Pi Team]]
 		- 
 	- algos from https://cs224r.stanford.edu/
 		- i think these all apply after you get a reward model from phase 1/2, so after that worth revisiting. i also havent well mapped the concept of Q values to my work. one thing that does stand out is model based i.e. learning environment dynamics, and how that relates to being able to predict consequences of actions, not just actions from prior actions. i.e. what happens when i type in something in my browser. likely intractable since i dont want the model to try to waste cycles learning what a search engine will respond, but important to keep in mind towards multi agent scaling.
@@ -78,8 +80,6 @@ algorithms considered and rejected for now and why: (there are likely practicali
 		- q networks need a reward. the reward needs to come from preference data at this hypothesized stage. perhaps for phase 3.
 	- IPO https://arxiv.org/pdf/2502.16182
 		- basically DPO but using the policy that generated the rollouts as the preference producer. had good diagrams that are useful for visualizing DPO and worth reading in full for how they decided to structure data and apply the algorithm. everyone seems to consider SFT as a necessary prerequisite to good DPO. has loss functions in there as well. im confused because it still requires a preconstructed dataset of human feedback?
-	- [[Google Pi Team]]
-		- 
 	- P-RLHF https://arxiv.org/pdf/2402.05133
 		- conditioning the policy on the 'user' model, which seems different from the reward model, and is instead some tokenized description of the user? weird
 	- https://arxiv.org/pdf/2402.09269 personalized language models
@@ -96,4 +96,5 @@ algorithms considered and rejected for now and why: (there are likely practicali
 - higher parameter models fine tune more successfully given the same amount of data, and fine tune equally given less data. but to be specific this seems to come from pretraining, not the SFT or RL that labs do after the fact
 - frontier LLMs could be used to 'expand' the label data i DO give to apply it to different scenarios, so i need to give less feedback, but still some? that model acts as a critic?
 - if recommendation gives a set of recs that all do not get accepted, do you consider ground truth as the 'preference'? isnt that off policy whereas the others are on policy? can you just mix data like that and feed them both into the DPO loss? also relates to whether you can just mix loss functions [[Entry#^e7fcba]]
-- big diff in 'personalization' is 'i like it' vs 'its me'. maybe should call it something else to distinguish. even 'its me' implies style, so need something to distinguish that. 
+- big diff in 'personalization' is 'i like it' vs 'its me'. maybe should call it something else to distinguish. even 'its me' implies style, so need something to distinguish that. the best gemini could come up with is 'cognitive language models' or 'neural proxy language models' with the context i gave it
+- explains, from rich sutton, how 1 step doesnt necessarily lead to N step due to compounding errors, very similar to what DAgger solves http://incompleteideas.net/IncIdeas/OneStepTrap.html. for my stuff, probably need to instead start giving advice on 2 step recs, 3 step recs, etc, rather than assuming 1 step recs can be let free, which i think is valid and was my prior
