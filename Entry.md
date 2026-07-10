@@ -10,7 +10,9 @@
 	- "the need to specify goals and context will not disappear"
 - https://x.com/eliebakouch/status/2074532904009421260?s=20
 - https://x.com/willccbb/status/2074668085852962944?s=20
+- https://x.com/abhikhanna30/status/2073646301674389819?s=20
 - https://www.youtube.com/watch?v=SVWmuJx0hHM
+- https://x.com/mckbrando/status/2075442660047814761?s=20
 - has anyone inferred 'goal' rewards from human preference RL?
 - conference on language modeling sf oct 2026
 - had an idea a while ago I didn’t write down: a model per harness. Models trained on the harness to improve performance. Was invalidated slightly when metr research showed that some OS model performed better in Claude code than Claude, but would need to revisit 
