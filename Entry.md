@@ -25,6 +25,8 @@
 - https://x.com/distributionat/status/2075253365983068181?s=20
 - https://x.com/humansand/status/2075618383631167692?s=20
 - https://x.com/samzliu/status/2075437170198991344?s=20
+- https://x.com/distributedkv/status/2075642079825547717?s=20
+- ways to think about data from Levine https://x.com/svlevine/status/2075721405929508942?s=20
 - 
 - options
 	- fix visibility of public notes per team feedback
