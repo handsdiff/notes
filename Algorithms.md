@@ -60,7 +60,7 @@ algorithms considered and rejected for now and why: (there are likely practicali
 		- assigning 'credit' to specific steps as discussed in lecture 10 might be useful for phase 3
 		- lecture 10 near the end has really interested advantage weighted step by step training that seems relevant to predicting my next action and learning from recommendations when thought of as a MDP but i cant put my finger exactly on why/how
 		- maybe because some prior during the training process might be 'noisy', and this could help delete the noise to focus on the actions that actually helped in achieving the goal? but again this needs a value function which we would not have at this stage
-		- in the case where we need to actually reconsider the phase 1 construction as an RL rollout to handle tool use for additional content, a lot of these algorithms will come back. lecture 10 stands out as high yield.
+		- in the case where we need to actually reconsider the phase 1 construction as an RL rollout to handle tool use for additional content, a lot of these algorithms will come back. lecture 10 stands out as high yield. "RL on incorrect synthetic data increases efficiency 8x". offline DPO from rollouts
 	- DQN https://arxiv.org/pdf/2207.03029
 		- 
 	- IPO https://arxiv.org/pdf/2502.16182
