@@ -367,3 +367,4 @@ https://x.com/teortaxesTex/status/2072800874728935630?s=20- to what extent am i 
 - i want to rebuild my pareto graph and my context collection graphs and have them easily accessible/hosted somewhere instead of having to tell the ai to do it and run localhost to view it
 - yup https://thinkingmachines.ai/blog/the-future-worth-building-is-human/
 - context elicitation -> data processing -> continual SFT -> implicit reward from recsys -> envsim rollouts for discovery (MAS)
+- one useful abstraction, perhaps later is language models towards your reward function vs the harness for it? like it will need to eventually take the actions itself instead of just recommending? way downstream though
