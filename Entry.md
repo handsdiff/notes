@@ -25,7 +25,7 @@
 - https://x.com/distributionat/status/2075253365983068181?s=20
 - https://x.com/humansand/status/2075618383631167692?s=20
 - https://x.com/samzliu/status/2075437170198991344?s=20
-- has a lot of relevant practical work https://sabrieyuboglu.com/. the engram launch blog has a ton of relevant work as well
+- 
 - options
 	- fix visibility of public notes per team feedback
 	- outreach to aidotengineer flagged speakers and others to discuss algos for my data
