@@ -11,7 +11,7 @@
 - expected LBHs after
   - build ingestion and implement structure on data by monday after.
   - writeup on data structure and goal, different algorithms considered for this purpose, which ones make the most sense, which ones are different although they seem similar at a high level. by thursday after
-  - generate toy example comparing SFT vs ICL vs memory solutions VS different randomly selected amounts of context. by thursday after.
+  - generate toy example comparing SFT vs ICL vs memory solutions VS different randomly selected amounts of context. by thursday after. (local scaling laws)
   - writeup and publish. by monday after.
   - update toy example with newly ingested data. by monday after.
   - writeup and publish again. by thursday after.
