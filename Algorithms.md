@@ -69,6 +69,7 @@ algorithms considered and rejected for now and why: (there are likely practicali
 		- empirical recommended temperature is 0.6 for rollouts ^ 
 		- process reward RL (PAV) outperforms ORM RL (binary outcome)
 		- verifiers are just reward models
+		- he discusses how a big advantage for improved reasoning lately is having more chunky, abstract 'actions' or 'steps' i.e. a sentence rather than a token
 		- i havent deeply internalized RL for reasoning and how it relates to my problem formulation. likely most applicable for phase 3, probably impacts phase 1 and 2
 		- lecture 18 has a lot of good practical advice. examples where the pretrained weights constricted learning. the beginning is literally frameworks for what im working through.
 		- "goal conditioned policy" is a phrase i remember from the prior walkthrough but seems interesting since i believe ive been thinking about it independently. you can probably semantically put the perceived goal in the context of either weight space or prompt space model, which might help with learning the reward model
@@ -84,7 +85,7 @@ algorithms considered and rejected for now and why: (there are likely practicali
 	- https://arxiv.org/pdf/2402.09269 personalized language models
 		- 'personalization' is so so vague. this paper tests what emotion a user feels when given a piece of text. they do this by training it on a history of felt emotions given text. they show PFT wildly outperforms ICL. good, but i feel like this is a way easier task than predicting outputs given inputs. 
 	- PLUM https://arxiv.org/pdf/2411.13405
-		- 
+		- this paper, to solve knowledge injection, basically takes a history of traces, uses an LLM to convert them to question-answer pairs, and performs SFT with LoRA on the QA pairs. its competitive with RAG (81 vs 83). seems worse than directly training on next action prediction. an interesting finding is that hard negative sampling was critical for it to work
 
 - is phase 1 a process reward model?
 - does phase 1 result in an 'implicit' reward model?
@@ -95,3 +96,4 @@ algorithms considered and rejected for now and why: (there are likely practicali
 - higher parameter models fine tune more successfully given the same amount of data, and fine tune equally given less data. but to be specific this seems to come from pretraining, not the SFT or RL that labs do after the fact
 - frontier LLMs could be used to 'expand' the label data i DO give to apply it to different scenarios, so i need to give less feedback, but still some? that model acts as a critic?
 - if recommendation gives a set of recs that all do not get accepted, do you consider ground truth as the 'preference'? isnt that off policy whereas the others are on policy? can you just mix data like that and feed them both into the DPO loss? also relates to whether you can just mix loss functions [[Entry#^e7fcba]]
+- big diff in 'personalization' is 'i like it' vs 'its me'. maybe should call it something else to distinguish. even 'its me' implies style, so need something to distinguish that. 
