@@ -78,6 +78,9 @@ algorithms considered and rejected for now and why: (there are likely practicali
 		- honestly fair, i do this all the time when understanding things well. and if the goal is future MAS, it likely necessitates question answering, since otherwise its just predicting my answer to a user question, which might work but likely performs poorly due to lack of data? depends how far you go with the phases. 
 		- yeah likely the case that synthetic Q/A data is useful. hmmm
 		- works great for static context seemingly, probably not so much dynamic
+		- this is a type of prefix tuning
+		- vLLM and SGLang already handle cached prefixes
+		- trained using context distillation
 		- theres so much more to understand here that is likely useful
 	- E2E TTT https://arxiv.org/pdf/2512.23675
 		- (maybe gwern was right [[Gwern GA#^1c6876]])
@@ -88,7 +91,7 @@ algorithms considered and rejected for now and why: (there are likely practicali
 		- the core concept that dynamic evaluation does not work since of poor weight initialization, and then during test time you batch updates as well as have a sliding context window, feels very applicable
 		- TTT-E2E resulted in faster and lower loss on test sets. not obvious since even though its backpropogating continuously, it still needs to be able to predict the next token well
 	- https://arxiv.org/pdf/2602.16284 extends cartridges with KV efficiency
-		- 
+		- optimization, not core concept
 	- https://arxiv.org/pdf/2004.10964 continuous pre training (bit old, 2020)
 		- 
 	- ^ the above 4 papers, which i found from machine studying, as well as the larger scope of engram work, seem very relevant to the extent to which 'ICL' can be scaled, which is very relevant to the relative abilities of weight space vs prompt space 'training' for our goals. they currently go above my head.
