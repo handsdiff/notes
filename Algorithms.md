@@ -106,6 +106,7 @@ algorithms considered and rejected for now and why: (there are likely practicali
 		- "Reverse KL has natural synergy with RL, which generally optimizes a form of sequence-level reverse KL induced by the reward model"
 		- need to get a better understanding of token level vs sequence level, probably by reading papers
 		- impossible without an easily queryable teacher
+		- apparently good for maintaining old behavior while augmenting new ones instead of forgetting old behavior, since you use the original model as the teacher in OPD for the model with specialized knowledge. unclear why this doesn't degrade the newly learned knowledge
 	- https://arxiv.org/pdf/2405.17713 AI Alignment with Changing and Influenceable Reward Functions Dragan 2024
 		- 
 	- papers from https://gemini.google.com/app/e5061268008c580f
