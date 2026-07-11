@@ -77,6 +77,7 @@ algorithms considered and rejected for now and why: (there are likely practicali
 		- also shows that self study (synthetic data) is needed to handle diverse question answering regarding the core corpus
 		- honestly fair, i do this all the time when understanding things well. and if the goal is future MAS, it likely necessitates question answering, since otherwise its just predicting my answer to a user question, which might work but likely performs poorly due to lack of data? depends how far you go with the phases. 
 		- yeah likely the case that synthetic Q/A data is useful. hmmm
+		- works great for static context seemingly, probably not so much dynamic
 		- theres so much more to understand here that is likely useful
 	- E2E TTT https://arxiv.org/pdf/2512.23675
 		- (maybe gwern was right [[Gwern GA#^1c6876]])
@@ -85,7 +86,7 @@ algorithms considered and rejected for now and why: (there are likely practicali
 		- this is done by simulating TTT on the initial training set, then iterating to see which set of initial weights learns best on average, which is where the double loop and 'gradient of gradients' comes in
 		- there exists standard pretraining datasets, like this paper used, if you want a clean pretrain for the intended task to work
 	- https://arxiv.org/pdf/2602.16284 extends cartridges with KV efficiency
-		- i do not understand this
+		- 
 	- https://arxiv.org/pdf/2004.10964 continuous pre training (bit old, 2020)
 		- 
 	- ^ the above 4 papers, which i found from machine studying, as well as the larger scope of engram work, seem very relevant to the extent to which 'ICL' can be scaled, which is very relevant to the relative abilities of weight space vs prompt space 'training' for our goals. they currently go above my head.
@@ -143,3 +144,4 @@ algorithms considered and rejected for now and why: (there are likely practicali
 		- Scaling and capacity — empirically studying how model capacity, data scale, and compute interact; developing the scaling laws that inform our product roadmap."
 	- side question, can you 'measure' the extent to which ICL influences the implicit reward function of an LLM?
 - one diff starting to stand out is that my proposed phase 1 and 2 do NOT expect question answer format, whereas most of RLHF and LLM research do. i specifically want to stick with next token prediction, at least until we formalize more complex approaches around embodied agency and self-prediction and influenceable reward functions re dragan. and according to finn, question answer pre training MAY hurt performance here. so it might actually be worth comparing a pretrain non RL'd model, if its possible to find one, vs typical frontier LLMs. although it will likely be hard to compare due to size diffs, so maybe we could find an older RL'd one to more directly compare
+- one mental framework is that you will be filling the context with as much history as possible, and you want to have a model that optimally outputs the next action given this history. if you do 'continual learning' on this, lets say in batches, then there is a relationship between weights and context
