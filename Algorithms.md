@@ -65,6 +65,14 @@ algorithms considered and rejected for now and why: (there are likely practicali
 	- https://arxiv.org/pdf/2602.16284 extends cartridges with KV efficiency
 		- i do not understand this
 	- ^ the above 3 papers, which i found from machine studying, as well as the larger scope of engram work, seem very relevant to the extent to which 'ICL' can be scaled, which is very relevant to the relative abilities of weight space vs prompt space 'training' for our goals. they currently go above my head.
+	- https://x.com/willccbb/status/2075830477928423734?s=20
+		- 
+	- https://x.com/willccbb/status/2075819380076957903?s=20
+		- 
+	- https://x.com/willccbb/status/2075840148701679960?s=20
+		- 
+	- https://x.com/niloofar_mire/status/2075709107697525116?s=20
+		- 
 	- https://arxiv.org/pdf/2405.17713 AI Alignment with Changing and Influenceable Reward Functions Dragan 2024
 		- 
 	- papers from https://gemini.google.com/app/e5061268008c580f
