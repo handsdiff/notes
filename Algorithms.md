@@ -73,6 +73,8 @@ algorithms considered and rejected for now and why: (there are likely practicali
 		- 
 	- https://x.com/niloofar_mire/status/2075709107697525116?s=20
 		- 
+	- https://arxiv.org/pdf/2606.30406
+		- 
 	- https://arxiv.org/pdf/2405.17713 AI Alignment with Changing and Influenceable Reward Functions Dragan 2024
 		- 
 	- papers from https://gemini.google.com/app/e5061268008c580f
