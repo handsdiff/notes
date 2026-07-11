@@ -86,7 +86,7 @@ algorithms considered and rejected for now and why: (there are likely practicali
 		- this is done by simulating TTT on the initial training set, then iterating to see which set of initial weights learns best on average, which is where the double loop and 'gradient of gradients' comes in
 		- there exists standard pretraining datasets, like this paper used, if you want a clean pretrain for the intended task to work
 		- the core concept that dynamic evaluation does not work since of poor weight initialization, and then during test time you batch updates as well as have a sliding context window, feels very applicable
-		- 
+		- TTT-E2E resulted in faster and lower loss on test sets. not obvious since even though its backpropogating continuously, it still needs to be able to predict the next token well
 	- https://arxiv.org/pdf/2602.16284 extends cartridges with KV efficiency
 		- 
 	- https://arxiv.org/pdf/2004.10964 continuous pre training (bit old, 2020)
