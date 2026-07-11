@@ -245,6 +245,8 @@ A GA project should avoid some goals, which are the false idols of the markets a
 
 ## UX
 
+^62b788
+
 > I wrote them down in my Diary so that I wouldn’t *have* to remember!
 > 
 > Professor Henry Jones, [*Indiana Jones and the Last Crusade* ](https://en.wikipedia.org/wiki/Indiana_Jones_and_the_Last_Crusade)
