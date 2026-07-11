@@ -107,6 +107,9 @@ algorithms considered and rejected for now and why: (there are likely practicali
 		- need to get a better understanding of token level vs sequence level, probably by reading papers
 		- impossible without an easily queryable teacher
 		- apparently good for maintaining old behavior while augmenting new ones instead of forgetting old behavior, since you use the original model as the teacher in OPD for the model with specialized knowledge. unclear why this doesn't degrade the newly learned knowledge. depends on the phasic behavior i am assuming, since it depends on the path you gradient descent through the state space
+			- again, this is likely because the benchmarks test something more akin to retrieval rather than the ability to predict next write given read/write history
+			- this continues to feel categorically different at a gut level. its unclear how prediction would degrade instruction following, or if that should even be a goal of phase 1/2, or at all
+			- its unclear how its needed for enterprise MAS, if at all
 		- i dont understand the last section. sampling a model with temperature of 1 from a standard set of prompts, then performing SFT the model on those pairs, reduces ability. yes, local batches have slightly different distributions that perturb the loss, but its unclear why this is for sure bad instead of randomly good or bad, probably because it optimizes for something 99% good (its sample), rather than ground truth, would be my intuitive understanding of it
 	- https://arxiv.org/pdf/2405.17713 AI Alignment with Changing and Influenceable Reward Functions Dragan 2024
 		- 
