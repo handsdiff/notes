@@ -80,7 +80,7 @@ algorithms considered and rejected for now and why: (there are likely practicali
 		- works great for static context seemingly, probably not so much dynamic
 		- this is a type of prefix tuning
 		- vLLM and SGLang already handle cached prefixes
-		- trained using context distillation
+		- trained using context distillation. lots of nits. initialized with the KV cache from the base model reading the corpus. 
 		- theres so much more to understand here that is likely useful
 	- E2E TTT https://arxiv.org/pdf/2512.23675
 		- (maybe gwern was right [[Gwern GA#^1c6876]])
