@@ -75,9 +75,9 @@ algorithms considered and rejected for now and why: (there are likely practicali
 	- https://arxiv.org/pdf/2506.06266 cartridges (by CTO of Engram) likely explains how they're 'scaling compute on context'. differs in that it maximizes retrieval efficiency as a primary goal. quite interesting. comes with code https://github.com/HazyResearch/cartridges
 		- generate synthetic conversations about a corpus of text (self-study), uses that to 'train a KV cache' (not sure what that means) (cartridge), then loads the KV cache for the LLM on long context benchmarks comparing it to ICL. can compose cartridges as needed. very similar to PLUM in terms of the upsampling. 38x lower memory and 24x higher throughput with similar performance. cool. might be worth trying alongside the existing matrix of ICL, SFT, memory, but seems slightly off mark in terms of utility since its an efficiency gain rather than performance, but it seems to have some performance gains as well. so perhaps worth trying if we go deeper.
 		- theres so much more to understand here that is likely useful
-	- TODO E2E TTT https://arxiv.org/pdf/2512.23675
+	- E2E TTT https://arxiv.org/pdf/2512.23675
 		- (maybe gwern was right [[Gwern GA#^1c6876]])
-		- i dont understand this yet
+		- first find a weight initialization that is optimal for the ability to learn, then update weights every batch of tokens in an online manner
 	- https://arxiv.org/pdf/2602.16284 extends cartridges with KV efficiency
 		- i do not understand this
 	- https://arxiv.org/pdf/2004.10964 continuous pre training (bit old, 2020)
