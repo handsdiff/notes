@@ -97,6 +97,11 @@ algorithms considered and rejected for now and why: (there are likely practicali
 	- https://arxiv.org/abs/1904.08378 dynamic evaluation in transformers. 
 		- pretty basic cross entropy autoregressive lossi suspect this works well in scenarios where the distribution does not change drastically, but unsure if the increased costs make it worth it
 	- https://thinkingmachines.ai/blog/on-policy-distillation OPD again, but relevant to reconsider post gwern ga reread post TTT deep dive
+		- one very good explanation here is that you weight the size of the token update of the student based on how far away it is from the teacher's per token probability
+		- when you take a trajectory, the teacher just needs to be sampled given the same context, and the difference in log probs for each token can be updated accordingly into the student
+		- this is stated, but very similar to dagger and process reward modeling
+		- reverse KL = student minus teacher. the goal is to minimize the diff over the trajectory, with each token conditioned on the SAME prior trajectory
+		- the second bullet is wrong in that if the student makes a mistake at token 2 after the context, and the teacher does not, and the teacher keeps going, then the student can no longer learn at the token level
 		- 
 	- https://arxiv.org/pdf/2405.17713 AI Alignment with Changing and Influenceable Reward Functions Dragan 2024
 		- 
