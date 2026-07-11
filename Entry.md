@@ -396,4 +396,4 @@ https://x.com/teortaxesTex/status/2072800874728935630?s=20- to what extent am i 
 - is OPD/OPSD the goated algorithm since you literally just tell the agent what to fix? and then during batched training it increases the probability of the desired tokens from the prompt before when the fix was stated? i wonder if anyone has done this / people are doing it
 - i wonder if red team / hard negative synthetic data would improve performance of phase 1 and/or phase 2
 - this has a nice framework for data structure, even though i disagree / am confused about some of his main desires [[Gwern GA#^62b788]]
-- 
+- gwern seems to make two large assumptions: the ease of dynamic evaluation and the ease of active learning, but fails to actually specify how either of these would actually work
