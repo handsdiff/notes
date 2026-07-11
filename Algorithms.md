@@ -94,8 +94,8 @@ algorithms considered and rejected for now and why: (there are likely practicali
 		- optimization, not core concept
 	- https://arxiv.org/pdf/2004.10964 continuous pre training (bit old, 2020)
 		- simply trains a pretrained LLM on domain specific data before it does a task in that domain to improve performance. fairly standard nowadays
-	- https://arxiv.org/abs/1904.08378
-		- 
+	- https://arxiv.org/abs/1904.08378 dynamic evaluation in transformers. 
+		- pretty basic cross entropy autoregressive lossi suspect this works well in scenarios where the distribution does not change drastically, but unsure if the increased costs make it worth it
 	- https://thinkingmachines.ai/blog/on-policy-distillation OPD again, but relevant to reconsider post gwern ga reread post TTT deep dive
 		- 
 	- https://arxiv.org/pdf/2405.17713 AI Alignment with Changing and Influenceable Reward Functions Dragan 2024
