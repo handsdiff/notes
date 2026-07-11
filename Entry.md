@@ -387,3 +387,4 @@ https://x.com/teortaxesTex/status/2072800874728935630?s=20- to what extent am i 
 	- what determines the input/output sizes of the dataset during pretraining?
 
 - this is generally way harder and also way more valuable than i anticipated
+- the reason im interested in self prediction is because, and i believe i wrote this before, but definitionally a superintelligence should be able to predict me given enough context. if it cant, its not smarter than me. so this provides a concrete test as to if algorithms are actually superintelligent relative to me, not on average
