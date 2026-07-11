@@ -391,3 +391,5 @@ https://x.com/teortaxesTex/status/2072800874728935630?s=20- to what extent am i 
 	- i guess this is why principles/visions are important since you can derive actions across unknown states with less check in
 	- if its a recommendation on my current context it makes way more sense because i can easily tell whether i prefer it or not to whatever action i would have taken
 	- regardless the initial goal is to see whether it can keep up with me at all
+- is it a disservice to AI to use it this way? is usefulness being constrained by single turn recs? probably not, since if it was actually good, rather than appearing good, it would be let rip
+- 
