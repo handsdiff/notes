@@ -381,11 +381,13 @@ https://x.com/teortaxesTex/status/2072800874728935630?s=20- to what extent am i 
 - going back to the youtube interleaved data example, even when im reading a paper we would want the content i actually read to be shown before i type a note, not the entire paper. this seems very difficult to collect properly and perhaps prohibitive for good learning.
 - one way to frame the data construction question is what level of 'noise' is acceptable? for instance i probably want to exclude clicking around obsidian to copy paste something, but probably want to include when i write down a long train of thought, but would that mess up the dataset construction since its no longer cleanly autoregressive?
 - the use of git as a natural boundary likely helps but thats not really 'next token' or 'next action' prediction if multiple 'actions' were taken in a commit, one or more of which involves adding a word to the middle of some old note.
-
-- **what even is a context window? like whats the intuitive understanding of it? this feels important to grok. i wont be able to intuitively understand ICL vs SFT without this.**
+- what even is a context window? like whats the intuitive understanding of it? this feels important to grok. i wont be able to intuitively understand ICL vs SFT without this.
 	- seems like the manual decision as to what amount of data is given as input during the pretraining? or is it mid/post training? likely both?
 	- what determines the input/output sizes of the dataset during pretraining?
-
 - this is generally way harder and also way more valuable than i anticipated
 - the reason im interested in self prediction is because, and i believe i wrote this before, but definitionally a superintelligence should be able to predict me given enough context. if it cant, its not smarter than me. so this provides a concrete test as to if algorithms are actually superintelligent relative to me, not on average
 	- if you output what i output based on the same input, you are me
+- i dont think DAgger would work for this future product since it requires me understanding the context my agent finds itself in to make the correct call, and if it poorly understand the context it will be net negative, so I'd likely rather it not do whatever its doing at all.
+	- i guess this is why principles/visions are important since you can derive actions across unknown states with less check in
+	- if its a recommendation on my current context it makes way more sense because i can easily tell whether i prefer it or not to whatever action i would have taken
+	- regardless the initial goal is to see whether it can keep up with me at all
