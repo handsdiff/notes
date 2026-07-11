@@ -102,7 +102,10 @@ algorithms considered and rejected for now and why: (there are likely practicali
 		- this is stated, but very similar to dagger and process reward modeling
 		- reverse KL = student minus teacher. the goal is to minimize the diff over the trajectory, with each token conditioned on the SAME prior trajectory
 		- the second bullet is wrong in that if the student makes a mistake at token 2 after the context, and the teacher does not, and the teacher keeps going, then the student can no longer learn at the token level
-		- 
+		- "There could be advantages to combining distillation-based per-token rewards with sequence-level environment rewards"
+		- "Reverse KL has natural synergy with RL, which generally optimizes a form of sequence-level reverse KL induced by the reward model"
+		- need to get a better understanding of token level vs sequence level, probably by reading papers
+		- impossible without an easily queryable teacher
 	- https://arxiv.org/pdf/2405.17713 AI Alignment with Changing and Influenceable Reward Functions Dragan 2024
 		- 
 	- papers from https://gemini.google.com/app/e5061268008c580f
