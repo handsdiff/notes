@@ -75,12 +75,15 @@ algorithms considered and rejected for now and why: (there are likely practicali
 	- https://arxiv.org/pdf/2506.06266 cartridges (by CTO of Engram) likely explains how they're 'scaling compute on context'. differs in that it maximizes retrieval efficiency as a primary goal. quite interesting. comes with code https://github.com/HazyResearch/cartridges
 		- generate synthetic conversations about a corpus of text (self-study), uses that to 'train a KV cache' (not sure what that means) (cartridge), then loads the KV cache for the LLM on long context benchmarks comparing it to ICL. can compose cartridges as needed. very similar to PLUM in terms of the upsampling. 38x lower memory and 24x higher throughput with similar performance. cool. might be worth trying alongside the existing matrix of ICL, SFT, memory, but seems slightly off mark in terms of utility since its an efficiency gain rather than performance, but it seems to have some performance gains as well. so perhaps worth trying if we go deeper.
 		- also shows that self study (synthetic data) is needed to handle diverse question answering regarding the core corpus
+		- honestly fair, i do this all the time when understanding things well. and if the goal is future MAS, it likely necessitates question answering, since otherwise its just predicting my answer to a user question, which might work but likely performs poorly due to lack of data? depends how far you go with the phases. 
+		- yeah likely the case that synthetic Q/A data is useful. hmmm
 		- theres so much more to understand here that is likely useful
 	- E2E TTT https://arxiv.org/pdf/2512.23675
 		- (maybe gwern was right [[Gwern GA#^1c6876]])
 		- first find a weight initialization that is optimal for the ability to learn, then update weights every batch of tokens in an online manner. only update the MLP layers, not embedding, normalization, or attention layers, for stability.
 		- core finding is that dynamic evaluation doesnt work because the initial pretraining weights optimize for training loss, not the ability to minimize future test loss. doing so is why they call it "E2E"
-		- 
+		- this is done by simulating TTT on the initial training set, then iterating to see which set of initial weights learns best on average, which is where the double loop and 'gradient of gradients' comes in
+		- there exists standard pretraining datasets, like this paper used, if you want a clean pretrain for the intended task to work
 	- https://arxiv.org/pdf/2602.16284 extends cartridges with KV efficiency
 		- i do not understand this
 	- https://arxiv.org/pdf/2004.10964 continuous pre training (bit old, 2020)
