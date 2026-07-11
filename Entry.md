@@ -399,3 +399,4 @@ https://x.com/teortaxesTex/status/2072800874728935630?s=20- to what extent am i 
 - gwern seems to make two large assumptions: the ease of dynamic evaluation and the ease of active learning, but fails to actually specify how either of these would actually work
 	- he mentions 'racing top k multi armed bandit' for online learning, whereas top k posterior sampling is too memory inefficient?
 - data discussion https://gemini.google.com/app/434faa2eae499b25 for our work
+- i suspect for phase 1 the goal will be to learn token level structure before it can learn action level content. you might get a loss discontinuity (via early flatlining before more data shows improved loss due to content learning beginning).
