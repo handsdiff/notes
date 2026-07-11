@@ -383,5 +383,7 @@ https://x.com/teortaxesTex/status/2072800874728935630?s=20- to what extent am i 
 - the use of git as a natural boundary likely helps but thats not really 'next token' or 'next action' prediction if multiple 'actions' were taken in a commit, one or more of which involves adding a word to the middle of some old note.
 
 - **what even is a context window? like whats the intuitive understanding of it? this feels important to grok. i wont be able to intuitively understand ICL vs SFT without this.**
+	- seems like the manual decision as to what amount of data is given as input during the pretraining? or is it mid/post training? likely both?
+	- what determines the input/output sizes of the dataset during pretraining?
 
 - this is generally way harder and also way more valuable than i anticipated
