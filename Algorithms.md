@@ -77,7 +77,8 @@ algorithms considered and rejected for now and why: (there are likely practicali
 		- theres so much more to understand here that is likely useful
 	- E2E TTT https://arxiv.org/pdf/2512.23675
 		- (maybe gwern was right [[Gwern GA#^1c6876]])
-		- first find a weight initialization that is optimal for the ability to learn, then update weights every batch of tokens in an online manner
+		- first find a weight initialization that is optimal for the ability to learn, then update weights every batch of tokens in an online manner. only update the MLP layers, not embedding, normalization, or attention layers
+		- 
 	- https://arxiv.org/pdf/2602.16284 extends cartridges with KV efficiency
 		- i do not understand this
 	- https://arxiv.org/pdf/2004.10964 continuous pre training (bit old, 2020)
@@ -113,6 +114,7 @@ algorithms considered and rejected for now and why: (there are likely practicali
 		- 'personalization' is so so vague. this paper tests what emotion a user feels when given a piece of text. they do this by training it on a history of felt emotions given text. they show PFT wildly outperforms ICL. good, but i feel like this is a way easier task than predicting outputs given inputs. 
 	- PLUM https://arxiv.org/pdf/2411.13405
 		- this paper, to solve knowledge injection, basically takes a history of traces, uses an LLM to convert them to question-answer pairs, and performs SFT with LoRA on the QA pairs. its competitive with RAG (81 vs 83). seems worse than directly training on next action prediction. an interesting finding is that hard negative sampling was critical for it to work
+		- this is broadly called 'self study' in a bunch of future, related work. the argument is that self study, which is a form of synthetic data, improves 'understanding' rather than 'memorization' over a corpus of text
 
 - is phase 1 a process reward model?
 - does phase 1 result in an 'implicit' reward model?
