@@ -397,3 +397,4 @@ https://x.com/teortaxesTex/status/2072800874728935630?s=20- to what extent am i 
 - i wonder if red team / hard negative synthetic data would improve performance of phase 1 and/or phase 2
 - this has a nice framework for data structure, even though i disagree / am confused about some of his main desires [[Gwern GA#^62b788]]
 - gwern seems to make two large assumptions: the ease of dynamic evaluation and the ease of active learning, but fails to actually specify how either of these would actually work
+	- he mentions 'racing top k multi armed bandit' for online learning, whereas top k posterior sampling is too memory inefficient?
