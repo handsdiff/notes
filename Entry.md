@@ -27,7 +27,9 @@
 - https://x.com/samzliu/status/2075437170198991344?s=20
 - https://x.com/distributedkv/status/2075642079825547717?s=20
 - ways to think about data from Levine https://x.com/svlevine/status/2075721405929508942?s=20
-- potentially useful for personal blog/website for more legitimacy personally and for company 
+- potentially useful for personal blog/website for more legitimacy personally and for company https://x.com/shadcn/status/2075600582518124657?s=20
+- https://x.com/gakonst/status/2075733284513005718?s=20 paradigm going this far too allow untrusted input into their agent
+- 
 - options
 	- fix visibility of public notes per team feedback
 	- outreach to aidotengineer flagged speakers and others to discuss algos for my data
