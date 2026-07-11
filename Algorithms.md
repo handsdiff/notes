@@ -81,6 +81,7 @@ algorithms considered and rejected for now and why: (there are likely practicali
 		- this is a type of prefix tuning
 		- vLLM and SGLang already handle cached prefixes
 		- trained using context distillation. lots of nits. initialized with the KV cache from the base model reading the corpus. the first key and value are frozen since otherwise the model collapses. then basically ensures the cartridge + LLM matches the outputs of a LLM that has the full context in memory via KL divergence minimization, while only backpropogating through the cartridge weights
+		- multiple cartridges can be concatenated seamlessly
 	- E2E TTT https://arxiv.org/pdf/2512.23675
 		- (maybe gwern was right [[Gwern GA#^1c6876]])
 		- first find a weight initialization that is optimal for the ability to learn, then update weights every batch of tokens in an online manner. only update the MLP layers, not embedding, normalization, or attention layers, for stability.
@@ -93,7 +94,6 @@ algorithms considered and rejected for now and why: (there are likely practicali
 		- optimization, not core concept
 	- https://arxiv.org/pdf/2004.10964 continuous pre training (bit old, 2020)
 		- 
-	- ^ the above 4 papers, which i found from machine studying, as well as the larger scope of engram work, seem very relevant to the extent to which 'ICL' can be scaled, which is very relevant to the relative abilities of weight space vs prompt space 'training' for our goals. they currently go above my head.
 	- https://arxiv.org/pdf/2405.17713 AI Alignment with Changing and Influenceable Reward Functions Dragan 2024
 		- 
 	- papers from https://gemini.google.com/app/e5061268008c580f
