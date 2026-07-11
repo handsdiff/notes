@@ -93,7 +93,7 @@ algorithms considered and rejected for now and why: (there are likely practicali
 	- https://arxiv.org/pdf/2602.16284 extends cartridges with KV efficiency
 		- optimization, not core concept
 	- https://arxiv.org/pdf/2004.10964 continuous pre training (bit old, 2020)
-		- 
+		- simply trains a pretrained LLM on domain specific data before it does a task in that domain to improve performance. fairly standard nowadays
 	- https://arxiv.org/pdf/2405.17713 AI Alignment with Changing and Influenceable Reward Functions Dragan 2024
 		- 
 	- papers from https://gemini.google.com/app/e5061268008c580f
