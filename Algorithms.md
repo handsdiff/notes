@@ -116,7 +116,7 @@ algorithms considered and rejected for now and why: (there are likely practicali
 			- 
 		- https://arxiv.org/pdf/1910.05789 utility of learning from humans for human-ai collaboration (super good and relevant, reading through)
 			- makes an interesting argument that the human model and the agent learning to interact with the human model should be decoupled
-			- 
+			- "Lerer and Peysakhovich [23] train their agent with Observational Self-Play (OSP): a combination of imitation learning and MARL"
 	- papers from https://gemini.google.com/app/e5061268008c580f
 		- 
 	- [[Google Pi Team]]
