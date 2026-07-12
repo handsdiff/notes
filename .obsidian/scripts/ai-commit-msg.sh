@@ -11,6 +11,8 @@ if [ -z "$diff" ]; then
   exit 0
 fi
 
+# Obsidian leaves the script's stdin open; close it so Codex does not wait for
+# additional prompt input forever.
 if ! raw=$("$HOME/.local/bin/codex" exec \
   --ephemeral \
   --sandbox read-only \
