@@ -29,6 +29,8 @@
 - ways to think about data from Levine https://x.com/svlevine/status/2075721405929508942?s=20
 - potentially useful for personal blog/website for more legitimacy personally and for company https://x.com/shadcn/status/2075600582518124657?s=20
 - https://x.com/gakonst/status/2075733284513005718?s=20 paradigm going this far too allow untrusted input into their agent
+- agent
+- https://x.com/0xCarnagee/status/2075983721841225885?s=20
 - 
 - options
 	- fix visibility of public notes per team feedback
