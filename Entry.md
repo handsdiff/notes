@@ -409,3 +409,5 @@ https://x.com/teortaxesTex/status/2072800874728935630?s=20- to what extent am i 
 - There seems to be a common thread between (1) why multi agent systems (2) how true user modeling is required since it only works when context and mind function differ (3) the research discussing how imitation learning is a prerequisite for multi agent research, that I’m just discovering from Micah’s work
 - owning diversity = owning collaboration
 - exploitation is best done hierarchically. exploration is best done horizontally.
+- data cleaning likely needs to ensure formatting is skipped, duplicates are handled, and for phase 2 if the agent doesn't have any reasonably confident completions, it shows nothing
+- it might be in a gemini chat, at the very least in browser history, but there was an old screenpipe PR that cleaned up screenpipe data for training. i think it was for retrieval so maybe it was whatever, but im surprised i did not note it down
