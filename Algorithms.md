@@ -120,7 +120,8 @@ algorithms considered and rejected for now and why: (there are likely practicali
 			- imitation learning is another way to describe phase 1. the canonical loss is just least squares / cross entropy. there are stated issues around averaging actions leading to worse results, and stuff like DAgger, but the former shouldnt matter for single human, and the latter is mostly for rollout space
 			- "We embed our learned human model BC in the environment, treating it’s choice of action as part of the dynamics"
 			- "Real humans learn throughout the episode to anticipate and work with the agent’s particular coordination protocols. For example, in Cramped Room, after picking up a soup, SP and PBT insist upon delivering the soup via right-down-interact instead of down-right-down-interact – even when a human is in the top right corner, blocking the way. Humans can figure this out and make sure that they are not in the way. Notably, PPOBC cannot learn and take advantage of human adaptivity, because the BC model is not adaptive."
-			- 
+			- confluence with the E2E-TTT paper that using meta learning to initialize test time learning with weights that are trained to be adaptive for future loss rather than minimizing current loss might help with dynamic or stochastic or distribution shifts of human behavior
+			- references on this paper go hard
 	- papers from https://gemini.google.com/app/e5061268008c580f
 		- 
 	- [[Google Pi Team]]
