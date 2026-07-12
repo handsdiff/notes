@@ -405,6 +405,9 @@ https://x.com/teortaxesTex/status/2072800874728935630?s=20- to what extent am i 
 - data discussion https://gemini.google.com/app/434faa2eae499b25 for our work
 - i suspect for phase 1 the goal will be to learn token level structure before it can learn action level content. you might get a loss discontinuity (via early flatlining before more data shows improved loss due to content learning beginning)
 - does a natural language specified preference / goal improve phase 2? seems trivial but apparently giving 'hints' i.e. natural language direction makes OPSD work. strict OPD i have a better understanding of after the thinking machines article and that is def different
+	- most IRL assumes that the agent trajectories are maximizing the true reward instead of some lossy approximation of the reward. if the demonstrator itself is attempting to learn the policy by which to achieve its reward, what are the actual algorithms for this, if at all?
+	- this relates to the desire for 'superhuman' performance, which may/may not conflict, i'd have to be explicit about it, with the multi agent goals
+	- 
 - intelligence scores must be normalized by used compute no (re Noam Brown from OpenAI)? the machine studying from MIT does this explicitly and well, most others do not
 - There seems to be a common thread between (1) why multi agent systems (2) how true user modeling is required since it only works when context and mind function differ (3) the research discussing how imitation learning is a prerequisite for multi agent research, that I’m just discovering from Micah’s work
 - owning diversity = owning collaboration
