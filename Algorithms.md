@@ -123,7 +123,8 @@ algorithms considered and rejected for now and why: (there are likely practicali
 			- confluence with the E2E-TTT paper that using meta learning to initialize test time learning with weights that are trained to be adaptive for future loss rather than minimizing current loss might help with dynamic or stochastic or distribution shifts of human behavior
 			- references on this paper go hard
 			- https://ai.stanford.edu/~ang/papers/icml04-apprentice.pdf
-				- 
+				- basic math behind inverse RL. modern approaches are Deep MaxEnt IRL and GAIL, and AIRL
+				- https://gemini.google.com/app/e4c31806ee6129a4
 	- papers from https://gemini.google.com/app/e5061268008c580f
 		- 
 	- [[Google Pi Team]]
