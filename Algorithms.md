@@ -126,6 +126,7 @@ algorithms considered and rejected for now and why: (there are likely practicali
 				- basic math behind inverse RL. modern approaches are Deep MaxEnt IRL and GAIL, and AIRL
 				- https://gemini.google.com/app/e4c31806ee6129a4
 				- pure imitation learning does not imply a reward function since there is no contrastive, not chosen action? but isnt the model's y output the contrastive action, compared to the demonstrator's y hat?
+			- 
 	- papers from https://gemini.google.com/app/e5061268008c580f
 		- 
 	- [[Google Pi Team]]
