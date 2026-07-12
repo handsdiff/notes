@@ -31,7 +31,8 @@
 - https://x.com/gakonst/status/2075733284513005718?s=20 paradigm going this far too allow untrusted input into their agent
 - agent
 - https://x.com/0xCarnagee/status/2075983721841225885?s=20
-- 
+- distributed computing for LLMs on iroh? https://news.ycombinator.com/item?id=48876505 (Deleted old ref it’s prob somewhere)
+- The problem with the deletion is that the app needs to be deeply version control integrated. Like I need to be able to link to text in old commits.
 - options
 	- fix visibility of public notes per team feedback
 	- outreach to aidotengineer flagged speakers and others to discuss algos for my data
