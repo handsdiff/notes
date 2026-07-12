@@ -1,5 +1,5 @@
 #!/bin/bash
-# Generates a commit message for the vault's pending changes via Claude.
+# Generates a commit message for the vault's pending changes via Codex.
 # Used as obsidian-git's commitMessageScript; stdout becomes the commit message.
 
 fallback="vault backup: $(date '+%Y-%m-%d %H:%M:%S')"
@@ -11,8 +11,13 @@ if [ -z "$diff" ]; then
   exit 0
 fi
 
-raw=$("$HOME/.local/bin/claude" -p --model claude-haiku-4-5 \
-  "Summarize the following diff of personal Obsidian notes as a git commit message.
+if ! raw=$("$HOME/.local/bin/codex" exec \
+  --ephemeral \
+  --sandbox read-only \
+  --color never \
+  --model gpt-5.6-luna \
+  -c 'model_reasoning_effort="low"' \
+  "Summarize the following diff of Obsidian notes as a git commit message.
 
 Rules:
 - Output ONLY the commit message text, nothing else.
@@ -22,7 +27,18 @@ Rules:
 - Do not explain your reasoning and do not include a character count.
 
 Diff:
-$diff" 2>/dev/null)
+$diff" 2>/dev/null); then
+  echo "$fallback"
+  exit 0
+fi
+
+# Do not allow an authentication error to become the commit message.
+case "$raw" in
+  *"Not logged in"*|*"Please run /login"*)
+    echo "$fallback"
+    exit 0
+    ;;
+esac
 
 # Sanitize in case the model still adds formatting: drop code-fence markers
 # (keeping their contents), strip stray backticks/quotes, remove a trailing
