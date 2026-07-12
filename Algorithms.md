@@ -115,6 +115,7 @@ algorithms considered and rejected for now and why: (there are likely practicali
 		- https://arxiv.org/pdf/2405.17713 AI Alignment with Changing and Influenceable Reward Functions Dragan 2024
 			- 
 		- https://arxiv.org/pdf/1910.05789 utility of learning from humans for human-ai collaboration (super good and relevant, reading through)
+			- makes an interesting argument that the human model and the agent learning to interact with the human model should be decoupled
 			- 
 	- papers from https://gemini.google.com/app/e5061268008c580f
 		- 
