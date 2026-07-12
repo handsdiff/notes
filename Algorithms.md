@@ -115,10 +115,11 @@ algorithms considered and rejected for now and why: (there are likely practicali
 		- https://arxiv.org/pdf/2405.17713 AI Alignment with Changing and Influenceable Reward Functions Dragan 2024
 			- 
 		- https://arxiv.org/pdf/1910.05789 utility of learning from humans for human-ai collaboration (super good and relevant, reading through)
-			- makes an interesting argument that the human model and the agent learning to interact with the human model should be decoupled
+			- makes an interesting argument that the human model and the agent learning to interact with the human model should be decoupled. first get a human model via imitation learning (optionally can update it online to deal with stochasticity but its more complex). then train an interaction agent via RL for some collaborative goal. unfortunately this is still in a game setting with a clear, verifiable reward.
 			- "Lerer and Peysakhovich [23] train their agent with Observational Self-Play (OSP): a combination of imitation learning and MARL"
 			- imitation learning is another way to describe phase 1. the canonical loss is just least squares / cross entropy. there are stated issues around averaging actions leading to worse results, and stuff like DAgger, but the former shouldnt matter for single human, and the latter is mostly for rollout space
 			- "We embed our learned human model BC in the environment, treating it’s choice of action as part of the dynamics"
+			- "Real humans learn throughout the episode to anticipate and work with the agent’s particular coordination protocols. For example, in Cramped Room, after picking up a soup, SP and PBT insist upon delivering the soup via right-down-interact instead of down-right-down-interact – even when a human is in the top right corner, blocking the way. Humans can figure this out and make sure that they are not in the way. Notably, PPOBC cannot learn and take advantage of human adaptivity, because the BC model is not adaptive."
 			- 
 	- papers from https://gemini.google.com/app/e5061268008c580f
 		- 
