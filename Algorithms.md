@@ -127,6 +127,8 @@ algorithms considered and rejected for now and why: (there are likely practicali
 				- https://gemini.google.com/app/e4c31806ee6129a4
 				- pure imitation learning does not imply a reward function since there is no contrastive, not chosen action? but isnt the model's y output the contrastive action, compared to the demonstrator's y hat?
 			- AIRL https://arxiv.org/pdf/1611.03852 from finn
+				- i should clarify the drawbacks of online DPO, if any
+				- 
 	- papers from https://gemini.google.com/app/e5061268008c580f
 		- 
 	- [[Google Pi Team]]
