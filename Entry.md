@@ -407,3 +407,5 @@ https://x.com/teortaxesTex/status/2072800874728935630?s=20- to what extent am i 
 - does a natural language specified preference / goal improve phase 2? seems trivial but apparently giving 'hints' i.e. natural language direction makes OPSD work. strict OPD i have a better understanding of after the thinking machines article and that is def different
 - intelligence scores must be normalized by used compute no (re Noam Brown from OpenAI)? the machine studying from MIT does this explicitly and well, most others do not
 - There seems to be a common thread between (1) why multi agent systems (2) how true user modeling is required since it only works when context and mind function differ (3) the research discussing how imitation learning is a prerequisite for multi agent research, that I’m just discovering from Micah’s work
+- owning diversity = owning collaboration
+- exploitation is best done hierarchically. exploration is best done horizontally.

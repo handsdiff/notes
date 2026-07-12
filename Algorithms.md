@@ -113,6 +113,7 @@ algorithms considered and rejected for now and why: (there are likely practicali
 		- i dont understand the last section. sampling a model with temperature of 1 from a standard set of prompts, then performing SFT the model on those pairs, reduces ability. yes, local batches have slightly different distributions that perturb the loss, but its unclear why this is for sure bad instead of randomly good or bad, probably because it optimizes for something 99% good (its sample), rather than ground truth, would be my intuitive understanding of it
 	- https://micahcarroll.github.io/
 		- https://arxiv.org/pdf/2405.17713 AI Alignment with Changing and Influenceable Reward Functions Dragan 2024
+		- https://arxiv.org/pdf/1910.05789 utility of learning from humans for human-ai collaboration
 			- 
 	- papers from https://gemini.google.com/app/e5061268008c580f
 		- 
