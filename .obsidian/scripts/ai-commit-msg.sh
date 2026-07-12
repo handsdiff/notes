@@ -27,7 +27,7 @@ Rules:
 - Do not explain your reasoning and do not include a character count.
 
 Diff:
-$diff" 2>/dev/null); then
+$diff" </dev/null 2>/dev/null); then
   echo "$fallback"
   exit 0
 fi
