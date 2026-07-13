@@ -141,7 +141,7 @@ algorithms considered and rejected for now and why: (there are likely practicali
 		- https://arxiv.org/pdf/2211.10869 varying forms of masking during training may help improve meta learning
 		- https://arxiv.org/abs/2411.02306 models will learn to identify and reward hack vulnerable users even when they only make up 2% of their deployed population
 	- papers from https://gemini.google.com/app/e5061268008c580f
-	- unresolved thread between online DPO, online IPO, mirror descent, nash mirror descent, MUPI toy example, recsys vs "suggsys"/two player game vs human model + agent model vs single model
+		- 
 	- [[Google Pi Team]]
 		- https://arxiv.org/pdf/2603.02960 great thesis piece but no relevant algos
 		- https://arxiv.org/pdf/2603.28925 no algos, but they find that LLMs can have theory of mind abilities without attributing minds to themselves
@@ -210,3 +210,4 @@ algorithms considered and rejected for now and why: (there are likely practicali
 - one mental framework is that you will be filling the context with as much history as possible, and you want to have a model that optimally outputs the next action given this history. if you do 'continual learning' on this, lets say in batches, then there is a relationship between weights and context
 - probably include importance sampling in the loss function for any choice
 - it doesnt seem like recsys is the right framework at all. its not really a recommendation. its more a prediction that influences the principal's behavior in some way. even if a 'rec' is good, i wouldnt just 'click accept', i would continue working with the suggestion in mind. loss still decreases if what i type is close to the suggestion. hmm. it changes how the loss function is modeled.
+- unresolved thread between online DPO, online IPO, mirror descent, nash mirror descent, MUPI toy example, recsys vs "suggsys"/two player game vs human model + agent model vs single model
