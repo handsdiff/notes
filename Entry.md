@@ -1,6 +1,8 @@
 
 - put precursor banner on personal
 - https://x.com/willccbb/status/2076701469882085382?s=20
+- https://x.com/gakonst/status/2076699452325392860?s=20
+- https://x.com/willccbb/status/1883416446992322993?s=20
 - 
 - perhaps what comes next after 90% cost reductions for rote tasking like info extraction is model ability to model employees like meta is doing?
 - One thing that stands out is that it’s very practical to lower costs for enterprises
