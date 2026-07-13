@@ -131,6 +131,7 @@ algorithms considered and rejected for now and why: (there are likely practicali
 				- works by having the agent do rollouts while the expert (me) does rollouts (normal work), train a discriminator using binary CE loss to identify between the two, calculates implicit rewards based on the discriminator, uses that reward to update the policy
 				- unfortunately we do not have the ability for the agent to do rollouts until after phase 2 at minimum
 			- https://arxiv.org/pdf/1906.05838 goalGAIL, relates to take of setting goal alongside rest of algorithm, kind of like the hint in OPSD
+			- stuff like GAIL is not applicable today since it requires env rollouts and per step analysis, whereas things like DPO or even online DPO are considered 'contextual bandits' in the sense that they are single step
 		- anything mentioning an 'expert demonstration' is in some sense inaccurate since the human does not necessarily know how to achieve its goals either. unclear what algorithms account for the expert also learning / changing its policy. but i assume that a smart enough imitation learner that is online can just map the changing policy
 	- papers from https://gemini.google.com/app/e5061268008c580f
 		- 
