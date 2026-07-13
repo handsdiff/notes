@@ -4,6 +4,7 @@
 - https://x.com/gakonst/status/2076699452325392860?s=20
 - https://x.com/willccbb/status/1883416446992322993?s=20
 - 
+- 
 - perhaps what comes next after 90% cost reductions for rote tasking like info extraction is model ability to model employees like meta is doing?
 - One thing that stands out is that it’s very practical to lower costs for enterprises
 - It’s a bit less practical but still valuable to make something they spend time on easier rather than make something they spend money on cheaper
