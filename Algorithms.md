@@ -149,6 +149,8 @@ algorithms considered and rejected for now and why: (there are likely practicali
 			- they find that decentralized MARL + model diversity can lead to cooperation rather than extortion in scenarios where all agents are learning
 			- https://gemini.google.com/app/41686aaf9f555d03
 			- crucially this can happen in context if you just MARL train against a variety of opponents
+			- apparently the training in-context approximates the ability to learn the scenario you're in based on the history and act best according to your prior of the situation. https://openreview.net/attachment?id=W1Ta00wVlK&name=pdf
+			- in other words, the interaction history allows the model to determine the best action at test time, since its trained on a a variety of opponents and can determine the 'type' of opponent given the interaction history
 	- https://arxiv.org/pdf/2403.08635 online IPO / IPO-MD
 		- apparently similar to online DPO except it focuses on best approximating preference probabilities rather than preference differences, which seems strictly better
 		- offline version from a few months before https://arxiv.org/pdf/2310.12036
