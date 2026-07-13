@@ -5,6 +5,7 @@
 - It’s a bit less practical but still valuable to make something they spend time on easier rather than make something they spend money on cheaper
 - When do humans want to be replaced and when do they not? For example I want to derive meaning from delivering value to others but I don’t want to spend all day extracting information from pdfs. 
 - I’m willing to let a model do my coding for me but it cannot decide what coding I would consider worth doing. Would I want it to? Probably yes, if it helped me achieve my goals faster. But how practical is that?
+- are all 'rewards' downstream of human preferences? on one hand it feels weird to use a human preference as a ground truth, but on the other hand, that is literally the only ground truth.
 - https://x.com/PrimeIntellect/status/2076447247693402301?s=20
 - https://x.com/willccbb/status/2076451043504967783?s=20
 - https://nextbigteng.substack.com/p/ai-infrastructure-roadmap-five-frontiers-for-2026
