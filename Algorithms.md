@@ -148,7 +148,9 @@ algorithms considered and rejected for now and why: (there are likely practicali
 		- apparently similar to online DPO except it focuses on best approximating preference probabilities rather than preference differences, which seems strictly better
 		- offline version from a few months before https://arxiv.org/pdf/2310.12036
 	- KTO https://arxiv.org/pdf/2402.01306 similar to DPO
-		- 
+		- dpo needs preference pairs, assumes there is an implicit score to each, focuses on maximizing diff
+		- KTO takes whether a response is good or bad and optimizes based on loss aversion i.e. heavily update against bad, lightly update towards good
+		- works in settings where good/bad is given from the user but doesn't seem to apply as much here
 	- algos from https://cs224r.stanford.edu/
 		- i think these all apply after you get a reward model from phase 1/2, so after that worth revisiting. i also havent well mapped the concept of Q values to my work. one thing that does stand out is model based i.e. learning environment dynamics, and how that relates to being able to predict consequences of actions, not just actions from prior actions. i.e. what happens when i type in something in my browser. likely intractable since i dont want the model to try to waste cycles learning what a search engine will respond, but important to keep in mind towards multi agent scaling.
 		- assigning 'credit' to specific steps as discussed in lecture 10 might be useful for phase 3
