@@ -3,7 +3,8 @@
 - perhaps what comes next after 90% cost reductions for rote tasking like info extraction is model ability to model employees like meta is doing?
 - One thing that stands out is that it’s very practical to lower costs for enterprises
 - It’s a bit less practical but still valuable to make something they spend time on easier rather than make something they spend money on cheaper
-- When do humans want to be replaced and when do they not? For example I want to derive meaning from delivering value to others but I don’t want to spend all day extracting information from pdfs. I’m willing to let a model do my coding for me but it cannot e
+- When do humans want to be replaced and when do they not? For example I want to derive meaning from delivering value to others but I don’t want to spend all day extracting information from pdfs. 
+- I’m willing to let a model do my coding for me but it cannot decide what coding I would consider worth doing. Would I want it to? Probably yes, if it helped me achieve my goals faster. But how practical is that?
 - https://x.com/willccbb/status/2076451043504967783?s=20
 - https://nextbigteng.substack.com/p/ai-infrastructure-roadmap-five-frontiers-for-2026
 - what happens when 90% of the internet is written by Claude?
