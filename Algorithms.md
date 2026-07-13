@@ -117,6 +117,7 @@ algorithms considered and rejected for now and why: (there are likely practicali
 			- it comes down to whether its 'easier' for the model to influence me negatively or positively
 			- another way to think of phase 2 is that there is no notion of accept or reject. its purely influence. showing samples from the model has the goal of influencing me to do something else other than what i would have directly done myself (although i may have considered it). when would this occur?
 			- what needs to be true for top K sampling to be viewed as a better next action given a current state than anything I thought of before?
+				- probably that your actions have enough, but not perfect, overlap with your goals. this is likely the case for me and my customers.
 			- overall way too esoteric to include anything practical initially
 		- https://arxiv.org/pdf/1910.05789 utility of learning from humans for human-ai collaboration (super good and relevant, reading through)
 			- makes an interesting argument that the human model and the agent learning to interact with the human model should be decoupled. first get a human model via imitation learning (optionally can update it online to deal with stochasticity but its more complex). then train an interaction agent via RL for some collaborative goal. unfortunately this is still in a game setting with a clear, verifiable reward.
