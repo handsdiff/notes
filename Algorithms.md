@@ -145,7 +145,8 @@ algorithms considered and rejected for now and why: (there are likely practicali
 	- [[Google Pi Team]]
 		- https://arxiv.org/pdf/2603.02960 great thesis piece but no relevant algos
 		- https://arxiv.org/pdf/2603.28925 no algos, but they find that LLMs can have theory of mind abilities without attributing minds to themselves
-		- https://arxiv.org/pdf/2602.16301 no relevant algos but they find that decentralized MARL + model diversity can lead to cooperation rather than extortion in scenarios where all agents are learning
+		- https://arxiv.org/pdf/2602.16301 MUPI toy example
+			- they find that decentralized MARL + model diversity can lead to cooperation rather than extortion in scenarios where all agents are learning
 			- https://gemini.google.com/app/41686aaf9f555d03
 			- crucially this can happen in context if you just MARL train against a variety of opponents
 	- https://arxiv.org/pdf/2403.08635 online IPO / IPO-MD
