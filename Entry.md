@@ -1,4 +1,6 @@
 
+- starting to stack up a lot of random work (signing up for events, increasing branding via twitter banner + personal site, going through old information to discover anything relevant, posting blog)
+- 
 - put precursor banner on personal
 - https://x.com/willccbb/status/2076701469882085382?s=20
 - https://x.com/gakonst/status/2076699452325392860?s=20
