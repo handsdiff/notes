@@ -143,7 +143,9 @@ algorithms considered and rejected for now and why: (there are likely practicali
 	- papers from https://gemini.google.com/app/e5061268008c580f
 		- 
 	- [[Google Pi Team]]
-		- 
+		- https://arxiv.org/pdf/2603.02960 great thesis piece but no relevant algos
+		- https://arxiv.org/pdf/2603.28925 no algos, but they find that LLMs can have theory of mind abilities without attributing minds to themselves
+		- https://arxiv.org/pdf/2602.16301 no relevant algos but they find that decentralized MARL + model diversity can lead to cooperation rather than extortion in scenarios where all agents are learning
 	- https://arxiv.org/pdf/2403.08635 online IPO / IPO-MD
 		- apparently similar to online DPO except it focuses on best approximating preference probabilities rather than preference differences, which seems strictly better
 		- offline version from a few months before https://arxiv.org/pdf/2310.12036
