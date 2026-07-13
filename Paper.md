@@ -77,9 +77,9 @@ Preferences may also change because of the system itself. Carroll et al. formali
 
 Let $u$ denote a principal: the individual whose policy is being modeled. Their computer activity is an ordered stream
 
-\[
+$$
 \mathcal{E}_u = (e_1, e_2, \ldots, e_T).
-\]
+$$
 
 Each event has a timestamp, application, object or location, provenance, and payload. Events are divided initially into two broad classes:
 
@@ -90,17 +90,17 @@ The distinction is functional rather than metaphysical. Read events enter model 
 
 Raw keystrokes are too granular and git commits may be too coarse. We define a bounded **macro-action**
 
-\[
+$$
 a_t = (d_t, \ell_t, o_t, c_t),
-\]
+$$
 
 where $d_t$ is the application or action domain, $\ell_t$ is the object location, $o_t$ is the operation, and $c_t$ is its content. Examples include appending one bullet to a note, submitting one browser query, or sending one chat message. Macro-actions are segmented by observable boundaries such as submit/save events, focus changes, semantic block completion, or an idle-time debounce.
 
 Let
 
-\[
+$$
 h_t = C_\phi(e_{1:t-1})
-\]
+$$
 
 be the context constructed from events available strictly before action $a_t$. $C_\phi$ is a versioned context-construction function. It enforces temporal ordering, selects or compresses content to a token budget, and records the exact inputs used. The Phase 1 target is the next human macro-action $y_t = a_t$.
 
@@ -108,23 +108,23 @@ be the context constructed from events available strictly before action $a_t$. $
 
 Let $\pi_0$ be a pretrained base model. Phase 1 produces a personalized behavioral policy
 
-\[
+$$
 \pi_{\mathrm{ref}}(a \mid h, u),
-\]
+$$
 
 which is frozen as the reference policy for Phase 2. In a practical enterprise implementation, $u$ may select a low-rank adapter on top of a tenant-approved shared base model rather than a full model copy.
 
 Phase 2 initializes an active policy $\pi_\theta$ from $\pi_{\mathrm{ref}}$. At interaction time $t$, a versioned generation policy $\mu_t$, normally the currently deployed $\pi_{\theta_t}$, samples $K$ candidates:
 
-\[
+$$
 z_{t,1:K} \sim \mu_t(\cdot \mid h_t, u).
-\]
+$$
 
 The interface renders a subset $R_t \subseteq \{1,\ldots,K\}$. After exposure to the rendered slate $Z_t^R$, the person produces a continuation
 
-\[
+$$
 y_t \sim H_u(\cdot \mid h_t, Z_t^R),
-\]
+$$
 
 where $H_u$ denotes the human's post-exposure behavior. This equation makes the central feedback loop explicit: $y_t$ is generally not sampled from $H_u(\cdot \mid h_t)$.
 
@@ -132,9 +132,9 @@ where $H_u$ denotes the human's post-exposure behavior. This equation makes the 
 
 For each rendered candidate $z_{t,i}$, the core estimator constructs
 
-\[
+$$
 y_t \succ_{h_t,u} z_{t,i}
-\]
+$$
 
 only if all of the following hold:
 
@@ -151,9 +151,9 @@ The assumption can fail. A person may act under time pressure, misunderstand a p
 
 The Phase 2 target is not the counterfactual action the person would have taken without exposure; that action is unobserved. Nor is it click-through rate. The target is a policy that improves its expected local continuation quality under the joint deployed process:
 
-\[
+$$
 h_t \rightarrow Z_t^R \rightarrow y_t \rightarrow \text{policy update}.
-\]
+$$
 
 Accordingly, the resulting utility score is identified only over actions that are comparable to the proposals shown in observed contexts. The score is local to a user, context-construction policy, action segmentation policy, and reference model.
 
@@ -163,9 +163,9 @@ Accordingly, the resulting utility score is identified only over actions that ar
 
 The Phase 1 dataset is
 
-\[
+$$
 \mathcal{D}_1 = \{(u, h_t, y_t)\}_{t=1}^{N_1}.
-\]
+$$
 
 Every structured action is serialized into a canonical token sequence. For example:
 
@@ -182,19 +182,19 @@ The model receives the serialized event context followed by the action prefix. L
 
 For a target action $y_t=(y_{t,1},\ldots,y_{t,L_t})$, define the sequence log-likelihood
 
-\[
+$$
 \ell_\theta(y_t \mid h_t,u)
 = \sum_{j=1}^{L_t}
 \log \pi_\theta(y_{t,j}\mid h_t,u,y_{t,<j}).
-\]
+$$
 
 The Phase 1 objective is ordinary token-level negative log-likelihood:
 
-\[
+$$
 \mathcal{L}_{\mathrm{BC}}^{(1)}(\theta)
 = -\mathbb{E}_{(u,h,y)\sim\mathcal{D}_1}
 \left[\ell_\theta(y\mid h,u)\right].
-\]
+$$
 
 The loss is conventional; the central research object is the construction of $h_t$ and $y_t$. In particular, a read event should contain the content actually consumed before the write, not the entire page retroactively attached at page-open time. A watched video should contribute the transcript interval watched before a note was written. Copied text should retain its source and should not be mislabeled as independently authored text.
 
@@ -217,9 +217,9 @@ Conditioning the core loss on $h_t$ rather than $(h_t,Z_t^R)$ is intentional. It
 
 For interaction $t$, define a validity weight
 
-\[
+$$
 w_{t,i} = e_{t,i}\,c_{t,i}\,b_{t,i}\,v_{t,i},
-\]
+$$
 
 where:
 
@@ -238,27 +238,27 @@ If the human performs no comparable write within the event window, the system cr
 
 Freeze the Phase 1 policy as $\pi_{\mathrm{ref}}$. Define the reference-relative sequence score
 
-\[
+$$
 q_\theta(h,u,a)
 = \ell_\theta(a\mid h,u)-\ell_{\mathrm{ref}}(a\mid h,u).
-\]
+$$
 
 For a preference pair $(y_t,z_{t,i})$, define
 
-\[
+$$
 \Delta_{t,i}(\theta)
 = q_\theta(h_t,u,y_t)-q_\theta(h_t,u,z_{t,i}).
-\]
+$$
 
 The reference policy is fixed across the initial Phase 2 experiment. Rolling the reference changes the coordinate system of the implicit score and makes historical comparisons harder to combine. If a rolling reference is later required, all policy and reference versions must remain available and scores should be recomputed against a stable anchor policy.
 
 Standard preference derivations use the sum of token log-probabilities. Variable-length actions can create length effects, so the primary control is **action segmentation**: compare bounded actions of the same family and similar semantic granularity. A length-normalized score,
 
-\[
+$$
 \ell_\theta^{(\alpha)}(a\mid h,u)
 = |a|^{-\alpha}\ell_\theta(a\mid h,u),
 \qquad \alpha\in(0,1],
-\]
+$$
 
 may be tested as an ablation, but it no longer has the exact policy log-ratio interpretation used in DPO/IPO. It should not silently replace the core score.
 
@@ -266,32 +266,33 @@ may be tested as an ablation, but it no longer has the exact policy log-ratio in
 
 For inverse-temperature or regularization parameter $\beta>0$, the weighted pairwise IPO objective is
 
-\[
+$$
+\begin{aligned}
 \mathcal{L}_{\mathrm{IPO}}(\theta)
-=
-\mathbb{E}_{t}
-\left[
+&=
+\mathbb{E}_{t}\!\Bigg[
 \frac{1}{\sum_i w_{t,i}}
-\sum_{i=1}^{K}
-w_{t,i}
+\sum_{i=1}^{K} w_{t,i} \\
+&\qquad\quad {}\times
 \left(
 \Delta_{t,i}(\theta)-\frac{1}{2\beta}
 \right)^2
-\right],
-\]
+\Bigg].
+\end{aligned}
+$$
 
 where interactions with $\sum_i w_{t,i}=0$ are omitted. The score $q_\theta$ does **not** contain a factor of $\beta$; the margin $1/(2\beta)$ introduces it once. This avoids the common double-scaling error.
 
 IPO is preferred over logistic DPO for the first experiment because its finite target avoids pushing noisy weak preferences toward infinite separation. DPO remains a direct baseline:
 
-\[
+$$
 \mathcal{L}_{\mathrm{DPO}}(\theta)
 =-
 \mathbb{E}_{t,i}
 \left[
 w_{t,i}\log\sigma\left(\beta\Delta_{t,i}(\theta)\right)
 \right].
-\]
+$$
 
 Pairwise expansion gives one comparison per valid rendered candidate. These comparisons are correlated because they share $h_t$ and $y_t$, so the implementation averages within interaction before averaging across interactions, as in the IPO expression above. This prevents a large slate from giving one human action disproportionate batch weight.
 
@@ -299,13 +300,15 @@ Pairwise expansion gives one comparison per valid rendered candidate. These comp
 
 The human continuation remains the highest-density positive signal in Phase 2. Preference-only updates could improve relative ordering while degrading next-action calibration or forgetting earlier behavior. The Phase 2 objective therefore mixes three terms:
 
-\[
+$$
+\begin{aligned}
 \mathcal{L}_{\mathrm{Phase\ 2}}(\theta)
-=
-\lambda_{\mathrm{new}}\mathcal{L}_{\mathrm{BC}}(\mathcal{B}_2)
-+\lambda_{\mathrm{pref}}\mathcal{L}_{\mathrm{IPO}}(\mathcal{B}_2)
-+\lambda_{\mathrm{replay}}\mathcal{L}_{\mathrm{BC}}(\mathcal{B}_1),
-\]
+={}&
+\lambda_{\mathrm{new}}\mathcal{L}_{\mathrm{BC}}(\mathcal{B}_2) \\
+&+\lambda_{\mathrm{pref}}\mathcal{L}_{\mathrm{IPO}}(\mathcal{B}_2) \\
+&+\lambda_{\mathrm{replay}}\mathcal{L}_{\mathrm{BC}}(\mathcal{B}_1).
+\end{aligned}
+$$
 
 where:
 
@@ -321,20 +324,20 @@ The data are on-policy when collected but become stale as $\pi_\theta$ changes. 
 
 The reference-relative policy defines an implicit utility score
 
-\[
+$$
 \widehat r_u(h,a)
 = \beta q_\theta(h,u,a) + c(h,u),
-\]
+$$
 
 where $c(h,u)$ is an arbitrary context-only constant. It cancels when actions are ranked in the same context, so the operational score is
 
-\[
+$$
 \widehat r_u(h,a)
 = \beta
 \left[
 \ell_\theta(a\mid h,u)-\ell_{\mathrm{ref}}(a\mid h,u)
 \right].
-\]
+$$
 
 This is the enterprise-relevant artifact of Phase 2. It can score or rerank candidate continuations for a person, compare an active policy with its behavioral prior, or provide a local terminal score to a bounded search procedure. It is not a separately trained universal reward network, and its scale is meaningful only relative to the same reference, segmentation, and context policy.
 
