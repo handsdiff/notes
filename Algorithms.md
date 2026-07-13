@@ -119,7 +119,7 @@ algorithms considered and rejected for now and why: (there are likely practicali
 			- "Lerer and Peysakhovich [23] train their agent with Observational Self-Play (OSP): a combination of imitation learning and MARL"
 			- imitation learning is another way to describe phase 1. the canonical loss is just least squares / cross entropy. there are stated issues around averaging actions leading to worse results, and stuff like DAgger, but the former shouldnt matter for single human, and the latter is mostly for rollout space
 			- "We embed our learned human model BC in the environment, treating it’s choice of action as part of the dynamics"
-			- "Real humans learn throughout the episode to anticipate and work with the agent’s particular coordination protocols. For example, in Cramped Room, after picking up a soup, SP and PBT insist upon delivering the soup via right-down-interact instead of down-right-down-interact – even when a human is in the top right corner, blocking the way. Humans can figure this out and make sure that they are not in the way. Notably, PPOBC cannot learn and take advantage of human adaptivity, because the BC model is not adaptive."
+			- "Real humans learn throughout the episode to anticipate and work with the agent’s particular coordination protocols... Notably, PPOBC cannot learn and take advantage of human adaptivity, because the BC model is not adaptive."
 			- confluence with the E2E-TTT paper that using meta learning to initialize test time learning with weights that are trained to be adaptive for future loss rather than minimizing current loss might help with dynamic or stochastic or distribution shifts of human behavior
 			- references on this paper go hard
 			- https://ai.stanford.edu/~ang/papers/icml04-apprentice.pdf
@@ -128,7 +128,9 @@ algorithms considered and rejected for now and why: (there are likely practicali
 				- pure imitation learning does not imply a reward function since there is no contrastive, not chosen action? but isnt the model's y output the contrastive action, compared to the demonstrator's y hat?
 			- AIRL https://arxiv.org/pdf/1611.03852 from finn
 				- i should clarify the drawbacks of online DPO, if any
-				- 
+				- works by having the agent do rollouts while the expert (me) does rollouts (normal work), train a discriminator using binary CE loss to identify between the two, calculates implicit rewards based on the discriminator, uses that reward to update the policy
+				- unfortunately we do not have the ability for the agent to do rollouts until after phase 2 at minimum
+		- 
 	- papers from https://gemini.google.com/app/e5061268008c580f
 		- 
 	- [[Google Pi Team]]
