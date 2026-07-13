@@ -1,4 +1,5 @@
 
+- put precursor banner on personal
 - https://nextbigteng.substack.com/p/ai-infrastructure-roadmap-five-frontiers-for-2026
 - what happens when 90% of the internet is written by Claude?
 - https://x.com/teortaxesTex/status/2073332424717525358?s=20
