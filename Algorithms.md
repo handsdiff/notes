@@ -261,4 +261,4 @@ algorithms considered and rejected for now and why: (there are likely practicali
 - env dynamics and the ability to actually take actions would theoretically be needed for any phase 3
 - should the BC loss be token level or action level? how does that impact training and data construction? current Paper specifies token level
 - how should the BC model be frozen and updated and how should the IPO model be frozen and updated? for example should the BC model update every 10k steps, then freeze for 10k steps as IPO model uses it as a baseline? etc
-- 
+- maybe its fine if the loss is combined if youre freezing/updating reference policies appropriately
