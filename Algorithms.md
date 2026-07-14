@@ -242,3 +242,4 @@ algorithms considered and rejected for now and why: (there are likely practicali
 - data is likely most noisy from (1) notifications (2) conversations (3) reminders (4) having a thought pop up to do something previously forgotten. this could drastically impact performance
 	- for example if im typing something and my dad texts me, and my next action (reply) makes no sense without the personal context
 - seems like notes, ai chats, and browser use are the dominant initial sources
+- i think it makes sense to consider that behavior cloning for a human model may lead to a superhuman centaur system, and that further contrastive suggestions that influence the human used in an IPO loss produces hard negatives to make the model more robust.
