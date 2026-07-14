@@ -196,6 +196,9 @@ algorithms considered and rejected for now and why: (there are likely practicali
 			- uses a discriminator to distinguish expert vs non expert trajectories, but we don't actually know which ones are expert vs non expert
 	- online BC/IL
 		- just batch retraining, nothing crazy. 'online' is a misnomer, since it doesnt determine freshness of data. 'online' is when the policy actually acts in the environment. in our initial formulation the policy is not acting at all. this is offline data just retrained at test time (ideally, or perhaps not ideally)
+	- https://oshaikh.com/
+		- https://arxiv.org/pdf/2603.05923 Learning Next Action Predictors from Human-Computer Interaction
+			- https://generalusermodels.github.io/nap/
 
 - is phase 1 a process reward model?
 - does phase 1 result in an 'implicit' reward model?

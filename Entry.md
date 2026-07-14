@@ -8,8 +8,6 @@
 - https://x.com/jietang/status/2076913247316492510?s=20
 - https://x.com/screenpipe/status/2077045452579778664?s=20
 - https://x.com/GoodfireAI/status/2077073005088501780
-- https://arxiv.org/pdf/2603.05923 Learning Next Action Predictors from Human-Computer Interaction
-	- https://generalusermodels.github.io/nap/
 - https://generalagents.com/ good relative benchmark for quality, interesting description of 'behavior' as a training paradigm that resonates
 - https://arxiv.org/pdf/2309.12170 older RNN predicting mouse/keyboard data
 - https://arxiv.org/pdf/2510.19488v1 labels unlabeled video data with their actions, for future training. seems like deepmind's genie also does this
