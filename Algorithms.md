@@ -186,6 +186,10 @@ algorithms considered and rejected for now and why: (there are likely practicali
 	- PLUM https://arxiv.org/pdf/2411.13405
 		- this paper, to solve knowledge injection, basically takes a history of traces, uses an LLM to convert them to question-answer pairs, and performs SFT with LoRA on the QA pairs. its competitive with RAG (81 vs 83). seems worse than directly training on next action prediction. an interesting finding is that hard negative sampling was critical for it to work
 		- this is broadly called 'self study' in a bunch of future, related work. the argument is that self study, which is a form of synthetic data, improves 'understanding' rather than 'memorization' over a corpus of text
+	- noisy BC/IL
+		- https://arxiv.org/pdf/1907.03976 D-REX
+		- https://arxiv.org/pdf/2207.10050 discriminator BC
+	- online BC/IL
 
 - is phase 1 a process reward model?
 - does phase 1 result in an 'implicit' reward model?
@@ -246,3 +250,7 @@ algorithms considered and rejected for now and why: (there are likely practicali
 - how does importance sampling and KL divergence come into play in the loss function?
 - with the BC -> IPO pipeline, there would be an inferred reward, although its context dependent. also we would want to keep in mind how the data will immediately shift after suggestions start, since they will now be part of the history. this likely has implications i am not fully grokking.
 - reverse KL is intuitively, from the model perspective: "if I'm guessing something it better be right", whereas forward KL is intuitively, from the model perspective: "I should make sure I say something for anything important, even if its far off"
+- online BC/IL and noisy BC/IL and explorative BC/IL need to be considered, as an optimization
+- noisy BC/IL seems to indicate that ranked demonstrations allow for better than demonstrator performance, which supports the IL -> IPO pipeline
+- env dynamics and the ability to actually take actions would theoretically be needed for any phase 3
+- 
