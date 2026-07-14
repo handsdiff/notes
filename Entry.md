@@ -14,6 +14,7 @@
 - https://arxiv.org/pdf/2510.19488v1 labels unlabeled video data with their actions, for future training. seems like deepmind's genie also does this
 - https://arxiv.org/abs/2507.08800 NeuralOS, might be useful as a simulator for phase 3
 - https://humansand.ai/blog/nvfp4-rl
+- https://genai-handbook.github.io/
 - 
 - seeing a lot of data that you can perform RL directly on the activations of an LLM, not sure what that means, and that doing so could massively speed up and raise the ceiling for LLM reasoning via recurrent iteration in neural activation space
 - control of LLMs will have a massive massive impact on the US presidential election. whats my opinion on how this likely plays out?

@@ -48,8 +48,6 @@ algorithms considered and rejected for now and why: (there are likely practicali
 			- How do we characterize the space of possible outcomes and algorithmic benchmarks when agent preferences are adaptive as a function of our recommendations?
 			And we found satisfying answers to all of these."
 		- 
-	- https://genai-handbook.github.io/
-		- 
 	- RLHF https://arxiv.org/pdf/2203.02155 https://gemini.google.com/app/1c431b0b8914983a https://gemini.google.com/app/e11d7e2c3bda71cc https://www.youtube.com/watch?v=XKLGuwvSKvI&list=PLoROMvodv4rPwxE0ONYRa_itZFdaKCylL&index=10
 		- apparently RLHF has 3 stages. the first is SFT. the second is training the reward model from pairwise preferences, the third is training the step 1 model using the reward model, with a KL divergence penalty to keep it close to its original behavior. this is basically my 3 step process. the main difference is that the SFT trains a model to follow instructions, i.e. respond to a prompt, from its base pretrain. whereas my step 1 is more like SFT to alter its next token prediction itself. also step 3 is not needed with doing DPO according to the DPO authors because youre already updating the language model from the rewards directly, whereas classic RLHF step 3 is where you take the reward model you learned and update the language model from it
 			- if so then how to 'scale' softmax DPO? the preference data is coming from 1 step rollouts i.e. recommendations. start showing 2 step recommendations? how to better learn given possible step issues rather than overall issues? does that matter? probably not since its a premature optimization
