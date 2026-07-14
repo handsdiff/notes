@@ -9,4 +9,4 @@ I am cofounder and CTO at [Precursor Labs](https://precursorlabs.org/), where we
 
 The title, "World Models", references the phenomenon of an agent (me) in an environment (the world) continuously updating its priors about how the world works (model) to be able to take actions that maximize terminal reward. This involves curiosity, research, critical thinking, [writing publicly](https://handsdiff.substack.com/), and shipping experiments and products, among other things.
 
-[[Home]] is a good place to start as a general ranking of my attention. Feel free to message me @handsdiff on Telegram or X.
+Feel free to message me @handsdiff on Telegram or X.
