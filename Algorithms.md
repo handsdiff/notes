@@ -244,4 +244,4 @@ algorithms considered and rejected for now and why: (there are likely practicali
 - seems like notes, ai chats, and browser use are the dominant initial sources
 - i think it makes sense to consider that behavior cloning for a human model may lead to a superhuman centaur system, and that further contrastive suggestions that influence the human used in an IPO loss produces hard negatives to make the model more robust.
 - how does importance sampling and KL divergence come into play in the loss function?
-- with the BC -> IPO pipeline, there would be an inferred reward, although its context dependent. also we would want to keep in mind how the data will immediately shift after suggestions start, since they will be part of the history. this likely has implications i am not fully grokking.
+- with the BC -> IPO pipeline, there would be an inferred reward, although its context dependent. also we would want to keep in mind how the data will immediately shift after suggestions start, since they will now be part of the history. this likely has implications i am not fully grokking.
