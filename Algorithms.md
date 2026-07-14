@@ -199,6 +199,11 @@ algorithms considered and rejected for now and why: (there are likely practicali
 	- https://oshaikh.com/
 		- https://arxiv.org/pdf/2603.05923 Learning Next Action Predictors from Human-Computer Interaction
 			- https://generalusermodels.github.io/nap/
+		- https://oshaikh.com/papers/gums general user models
+		- https://oshaikh.com/papers/grounding grounding towards common knowledge research
+		- more grounding work https://oshaikh.com/papers/rifts
+		- https://oshaikh.com/papers/ditto DITTO (align LLMs from demonstrations)
+		- 
 
 - is phase 1 a process reward model?
 - does phase 1 result in an 'implicit' reward model?
