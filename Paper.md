@@ -41,6 +41,8 @@ The intended claim is deliberately narrow. Phase 1 estimates a personalized acti
 
 Behavioral cloning learns a policy by maximizing the likelihood of demonstrated actions conditional on observed state. It is the most direct formulation of Phase 1. Carroll et al. study learned human models for human–AI collaboration and show the utility of separating a model of human behavior from an agent trained to collaborate with it [1]. Their setting has externally specified game rewards, whereas the present setting begins with natural work traces for which no task-level reward is generally available.
 
+Shaikh et al. formalize next action prediction from naturalistic computer use and introduce NAPsack, a passive VLM annotation pipeline, and LongNAP, a retrieval-augmented predictor trained with an LLM-judged temporal similarity reward [13]. This is the closest direct precedent for Phase 1: both works learn person-specific future actions from chronological interaction streams. Their target is an eight-action trajectory of unified natural-language computer events, however, whereas the present proposal predicts one bounded human write action from a functional separation of reads and writes. LongNAP also addresses long-history selection through generated reasoning traces and retrieval rather than the versioned context construction specified here. It does not collect proposal exposure and post-exposure human corrections, so it does not supply the coactive preference records required for Phase 2.
+
 Classical behavioral cloning is vulnerable to covariate shift when the learned policy takes actions that move an environment into unfamiliar states. DAgger addresses this by querying an expert in states induced by the learner [2]. The proposed Phase 2 shares DAgger's on-policy corrective intuition, but the interaction is different: the system does not execute a trajectory and request an expert action at every visited state. It displays candidate macro-actions, then passively observes the person's next macro-action during ordinary work.
 
 Phase 1 should not be described as reward inference. Maximum-likelihood imitation can assign high probability to observed actions without identifying why the person took them. The contrastive signal introduced in Phase 2 is what supports a relative utility interpretation.
@@ -767,3 +769,5 @@ Policy/reference log-ratios are trustworthy only near the contexts and actions o
 [11] Q. Ma et al. [*Personalized RewardBench: Evaluating Reward Models with Human Aligned Personalization*](https://arxiv.org/abs/2604.07343). 2026.
 
 [12] M. Carroll et al. [*AI Alignment with Changing and Influenceable Reward Functions*](https://arxiv.org/abs/2405.17713). 2024.
+
+[13] O. Shaikh et al. [*Learning Next Action Predictors from Human-Computer Interaction*](https://arxiv.org/abs/2603.05923). 2026.

@@ -9,8 +9,9 @@
 - https://x.com/screenpipe/status/2077045452579778664?s=20
 - https://x.com/GoodfireAI/status/2077073005088501780
 - https://arxiv.org/pdf/2603.05923 Learning Next Action Predictors from Human-Computer Interaction
-- https://generalagents.com/
+- https://generalagents.com/ good relative benchmark for quality
 - https://arxiv.org/pdf/2309.12170 older RNN predicting mouse/keyboard data
+- https://arxiv.org/pdf/2510.19488v1 labels unlabeled video data with their actions, for future training
 - control of LLMs will have a massive massive impact on the US presidential election. whats my opinion on how this likely plays out?
 - perhaps what comes next after 90% cost reductions for rote tasking like info extraction is model ability to model employees like meta is doing?
 - One thing that stands out is that it’s very practical to lower costs for enterprises
