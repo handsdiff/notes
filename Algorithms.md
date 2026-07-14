@@ -152,6 +152,7 @@ algorithms considered and rejected for now and why: (there are likely practicali
 			- apparently the training approximates the ability to learn the scenario you're in based on the test time in context history and act best according to your prior of the situation. https://openreview.net/attachment?id=W1Ta00wVlK&name=pdf
 			- in other words, the interaction history allows the model to determine the best action at test time, since its trained on a a variety of opponents and can determine the 'type' of opponent given the interaction history
 			- reminds me of meta learning since the initial weights are optimized to handle a mixture of potential test time tasks rather than optimizing for one
+			- https://gemini.google.com/app/22e45c199a56744d
 		- https://arxiv.org/pdf/2512.20605 RL within the residual streams of autoregressive models, rather than applied after
 			- "We analyze transformers and state-space models (SSMs) trained to autoregressively predict the actions of goal-directed agents, whose goals are unknown. We find that the networks learn to represent (and infer in-context) a belief about an agent’s goals in their residual stream activations"
 			- shows that you can add a dynamics loss with a weighted parameter to the loss function if you want the model to be able to learn env dynamics
