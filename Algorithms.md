@@ -10,9 +10,12 @@ algorithms considered and rejected for now and why: (there are likely practicali
 	- OPSD
 		- from my learnings, OPSD is for when a ground truth exists (relates to deterministic vs non deterministic reward function being the distinction when we discuss 'dynamic' environments or not, with models definitely able to learn static environments i.e. deterministic reward functions)
 		- "if you're doing OPSD and you keep seeing model collapse, one of the best debugging tricks is to remove the hinted logprob ratio and replace it with an advantage estimator"
-		- https://arxiv.org/abs/2209.15189
+		- https://arxiv.org/abs/2209.15189 Learning by distilling context
+			- "cool new approach to address the spike problem in on-policy self-distillation by letting the privileged information steer the student distribution during rollouts directly"
 	- OPD
-		- OPD is just OPSD but the distillation is from a different model, not the same. so doesn't rely on ground truth existence BUT cannot achieve superhuman performance.
+		- OPD is just OPSD but the distillation is from a different model, not the same. so doesn't rely on ground truth existence BUT cannot achieve superhuman performance. perhaps helpful for phase 3
+	- https://arxiv.org/pdf/2606.30406 MOPD
+		- just trains a model with multiple teachers at once instead of one
 	- PNLC https://arxiv.org/pdf/2505.18098v2
 		- this requires a large corpus of offline data that you train a model on, to then grade and steer a live models actions with reasonings. seems indirect compared to CE loss or sDPO
 	- NLAC https://arxiv.org/pdf/2512.04601
@@ -49,13 +52,7 @@ algorithms considered and rejected for now and why: (there are likely practicali
 		- 
 	- https://arxiv.org/abs/1701.07570 how does this dynamic regret paper (one of will brown's favorites) relate to inverse RL or reward inference more generally?
 		- 
-	- https://x.com/willccbb/status/2075830477928423734?s=20
-		- 
-	- https://x.com/willccbb/status/2075840148701679960?s=20
-		- 
-	- https://x.com/niloofar_mire/status/2075709107697525116?s=20
-		- 
-	- https://arxiv.org/pdf/2606.30406
+	- https://humansand.ai/blog/nvfp4-rl
 		- 
 	- RLHF https://arxiv.org/pdf/2203.02155 https://gemini.google.com/app/1c431b0b8914983a https://gemini.google.com/app/e11d7e2c3bda71cc https://www.youtube.com/watch?v=XKLGuwvSKvI&list=PLoROMvodv4rPwxE0ONYRa_itZFdaKCylL&index=10
 		- apparently RLHF has 3 stages. the first is SFT. the second is training the reward model from pairwise preferences, the third is training the step 1 model using the reward model, with a KL divergence penalty to keep it close to its original behavior. this is basically my 3 step process. the main difference is that the SFT trains a model to follow instructions, i.e. respond to a prompt, from its base pretrain. whereas my step 1 is more like SFT to alter its next token prediction itself. also step 3 is not needed with doing DPO according to the DPO authors because youre already updating the language model from the rewards directly, whereas classic RLHF step 3 is where you take the reward model you learned and update the language model from it
