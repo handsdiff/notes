@@ -243,3 +243,4 @@ algorithms considered and rejected for now and why: (there are likely practicali
 	- for example if im typing something and my dad texts me, and my next action (reply) makes no sense without the personal context
 - seems like notes, ai chats, and browser use are the dominant initial sources
 - i think it makes sense to consider that behavior cloning for a human model may lead to a superhuman centaur system, and that further contrastive suggestions that influence the human used in an IPO loss produces hard negatives to make the model more robust.
+- how does importance sampling and KL divergence come into play in the loss function?
