@@ -188,10 +188,11 @@ algorithms considered and rejected for now and why: (there are likely practicali
 		- this is broadly called 'self study' in a bunch of future, related work. the argument is that self study, which is a form of synthetic data, improves 'understanding' rather than 'memorization' over a corpus of text
 	- noisy BC/IL
 		- https://arxiv.org/pdf/1907.03976 D-REX
-			- 
+			- introduces noise into a trained BC model, then ranks the trajectories based on amount of injected noise to preference learn a reward function, then RL on the reward function. significantly outperforms the original demonstrator. cool.
 		- https://arxiv.org/pdf/2207.10050 discriminator BC
 			- uses a discriminator to distinguish expert vs non expert trajectories, but we don't actually know which ones are expert vs non expert
 	- online BC/IL
+		- 
 
 - is phase 1 a process reward model?
 - does phase 1 result in an 'implicit' reward model?
