@@ -154,6 +154,7 @@ algorithms considered and rejected for now and why: (there are likely practicali
 			- reminds me of meta learning since the initial weights are optimized to handle a mixture of potential test time tasks rather than optimizing for one
 		- https://arxiv.org/pdf/2512.20605 RL within the residual streams of autoregressive models, rather than applied after
 			- "We analyze transformers and state-space models (SSMs) trained to autoregressively predict the actions of goal-directed agents, whose goals are unknown. We find that the networks learn to represent (and infer in-context) a belief about an agent’s goals in their residual stream activations"
+			- shows that you can add a dynamics loss with a weighted parameter to the loss function if you want the model to be able to learn env dynamics
 			- 
 	- https://arxiv.org/pdf/2403.08635 online IPO / IPO-MD
 		- apparently similar to online DPO except it focuses on best approximating preference probabilities rather than preference differences, which seems strictly better
