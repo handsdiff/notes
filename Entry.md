@@ -7,6 +7,7 @@
 - https://x.com/willccbb/status/1883416446992322993?s=20
 - https://x.com/jietang/status/2076913247316492510?s=20
 - https://x.com/screenpipe/status/2077045452579778664?s=20
+- https://x.com/GoodfireAI/status/2077073005088501780
 - 
 - control of LLMs will have a massive massive impact on the US presidential election. whats my opinion on how this likely plays out?
 - perhaps what comes next after 90% cost reductions for rote tasking like info extraction is model ability to model employees like meta is doing?
