@@ -256,4 +256,5 @@ algorithms considered and rejected for now and why: (there are likely practicali
 - online BC/IL and noisy BC/IL and explorative BC/IL need to be considered, as an optimization
 - noisy BC/IL seems to indicate that ranked demonstrations allow for better than demonstrator performance, which supports the IL -> IPO pipeline
 - env dynamics and the ability to actually take actions would theoretically be needed for any phase 3
+- should the BC loss be token level or action level? how does that impact training and data construction? current Paper specifies token level
 - 
