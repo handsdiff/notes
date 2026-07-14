@@ -49,6 +49,8 @@ Classical behavioral cloning is vulnerable to covariate shift when the learned p
 
 Phase 1 should not be described as reward inference. Maximum-likelihood imitation can assign high probability to observed actions without identifying why the person took them. The contrastive signal introduced in Phase 2 is what supports a relative utility interpretation.
 
+Inverse reinforcement learning instead attempts to recover a reward that explains demonstrated trajectories. AIRL learns rewards through adversarial training with agent rollouts and environment dynamics [15]. D-REX weakens the expert-demonstrator assumption by injecting noise into a behavioral-cloning policy to construct automatically ranked trajectories, then learning and optimizing a reward that can outperform the original demonstrator [16]. These methods show how trajectory rankings can move beyond pure imitation, but they do not instantiate the present setting: the proposed records contain local post-exposure comparisons rather than executed agent trajectories, and their ordering comes from a human continuation rather than injected noise.
+
 ### 2.2 Generative sequential recommendation
 
 Recent recommender systems cast recommendation as autoregressive sequence modeling. HSTU models user histories as sequential transduction and demonstrates that generative architectures can replace several conventional recommendation components [3]. Shopify's generative recommendation system similarly trains on raw customer event sequences, predicts subsequent products autoregressively, and uses negative sampling to improve ranking [4]. These systems demonstrate that useful prediction and ranking can be learned without a complete causal model of how exposure changes users.
@@ -60,6 +62,8 @@ The analogy is operationally valuable but incomplete. Conventional recommender s
 Coactive learning assumes that a system proposes a structured output and a user returns a slightly improved output rather than an optimal label. Shivaswamy and Joachims show that such improvements can support online learning even when optimal demonstrations are costly [5]. Tucker et al. develop a coactive algorithm for LLMs from implicit feedback in user edits [6]. This is the closest conceptual match to the intended interface: the observed human continuation need only improve on the displayed proposal in context.
 
 The present setting differs in three respects. The system presents a slate rather than a single structured object; the correction can be a synthesis that does not explicitly reference any candidate; and the feedback is collected as a natural work event rather than through a dedicated correction box. These differences make exposure logging and comparability filters necessary. They also weaken the preference label: $y_t \succ z_{t,i}$ is an estimator assumption, not a directly observed click.
+
+Kleine Buening et al. likewise learn directly from ordinary user interactions without explicit preference labels [17]. Their method conditions on a later user message to construct a hindsight token distribution, then distills that distribution into the policy. This is a close alternative estimator for the same broad source of supervision. The present proposal instead constructs explicit coactive pairs between the post-exposure human continuation and the candidates actually rendered, scoring both from the pre-display context rather than using the follow-up as a teacher hint for the original model response.
 
 ### 2.4 Direct and identity preference optimization
 
@@ -73,7 +77,11 @@ Multiple displayed candidates could alternatively be handled with a listwise or 
 
 Personalized reward modeling conditions judgments on individual or group differences rather than fitting a single population reward. Recent work studies personalized reward benchmarks and decompositions of heterogeneous preference data [10, 11]. The present proposal is more local: each person's event history initializes an action prior, and subsequent coactive comparisons update a person-specific adapter or policy head.
 
+Li et al. propose Personalized-RLHF, which jointly learns a lightweight user model and a personalized language model from explicit or implicit individual feedback [18]. Their framework establishes a direct personalized-feedback baseline. The present proposal differs by initializing personalization from passive chronological action traces and then deriving weak preference comparisons from proposal exposure during ordinary work rather than beginning with a conventional human-feedback dataset.
+
 Preferences may also change because of the system itself. Carroll et al. formalize alignment problems with changing and influenceable reward functions [12]. This concern is not removable by renaming the interface. The proposals are interventions and may shift what the person writes or wants. The method therefore targets the deployed collaborative process, not an unchanging reward function presumed to exist before exposure. Stable long-horizon claims require additional outcome measurements and intervention-aware evaluation beyond Phases 1 and 2.
+
+Williams et al. provide an empirical warning about optimizing directly for user feedback: in simulated deployment settings, language models learn manipulative or deceptive feedback-gaming strategies and can identify and target a small vulnerable subset of users [19]. Their results strengthen the case for treating immediate interaction feedback as gameable and for evaluating the proposed collaborative process with outcome measurements and intervention-aware controls rather than assuming that lower local loss is sufficient.
 
 ## 3. Problem Formulation
 
@@ -775,3 +783,13 @@ Policy/reference log-ratios are trustworthy only near the contexts and actions o
 [13] O. Shaikh et al. [*Learning Next Action Predictors from Human-Computer Interaction*](https://arxiv.org/abs/2603.05923). 2026.
 
 [14] S. Kobayashi et al. [*Emergent Temporal Abstractions in Autoregressive Models Enable Hierarchical Reinforcement Learning*](https://arxiv.org/abs/2512.20605). 2025.
+
+[15] J. Fu, K. Luo, and S. Levine. [*Learning Robust Rewards with Adversarial Inverse Reinforcement Learning*](https://arxiv.org/abs/1710.11248). 2017.
+
+[16] D. S. Brown, W. Goo, and S. Niekum. [*Better-than-Demonstrator Imitation Learning via Automatically-Ranked Demonstrations*](https://arxiv.org/abs/1907.03976). 2019.
+
+[17] T. Kleine Buening et al. [*Aligning Language Models from User Interactions*](https://arxiv.org/abs/2603.12273). 2026.
+
+[18] X. Li, R. Zhou, Z. C. Lipton, and L. Leqi. [*Personalized Language Modeling from Personalized Human Feedback*](https://arxiv.org/abs/2402.05133). 2024.
+
+[19] M. Williams et al. [*On Targeted Manipulation and Deception when Optimizing LLMs for User Feedback*](https://arxiv.org/abs/2411.02306). 2024.
