@@ -193,7 +193,7 @@ algorithms considered and rejected for now and why: (there are likely practicali
 		- https://arxiv.org/pdf/2207.10050 discriminator BC
 			- uses a discriminator to distinguish expert vs non expert trajectories, but we don't actually know which ones are expert vs non expert
 	- online BC/IL
-		- just batch retraining, nothing crazy. 'online' is a misnomer, since it doesnt determine freshness of data. 'online' is when the policy actually acts in the environment. in our initial formulation the policy is not acting at all
+		- just batch retraining, nothing crazy. 'online' is a misnomer, since it doesnt determine freshness of data. 'online' is when the policy actually acts in the environment. in our initial formulation the policy is not acting at all. this is offline data just retrained at test time (ideally, or perhaps not ideally)
 
 - is phase 1 a process reward model?
 - does phase 1 result in an 'implicit' reward model?
@@ -258,4 +258,5 @@ algorithms considered and rejected for now and why: (there are likely practicali
 - noisy BC/IL seems to indicate that ranked demonstrations allow for better than demonstrator performance, which supports the IL -> IPO pipeline
 - env dynamics and the ability to actually take actions would theoretically be needed for any phase 3
 - should the BC loss be token level or action level? how does that impact training and data construction? current Paper specifies token level
+- how should the BC model be frozen and updated and how should the IPO model be frozen and updated? for example should the BC model update every 10k steps, then freeze for 10k steps as IPO model uses it as a baseline? etc
 - 
