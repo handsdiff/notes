@@ -12,9 +12,6 @@ algorithms considered and rejected for now and why: (there are likely practicali
 		- from my learnings, OPSD is for when a ground truth exists (relates to deterministic vs non deterministic reward function being the distinction when we discuss 'dynamic' environments or not, with models definitely able to learn static environments i.e. deterministic reward functions)
 	- OPD
 		- OPD is just OPSD but the distillation is from a different model, not the same. so doesn't rely on ground truth existence BUT cannot achieve superhuman performance.
-	- CIRL / assistance games
-		- https://arxiv.org/abs/2504.07091 https://cassidylaidlaw.github.io/minecraft-building-assistance-game/ 
-			- TODO
 	- PNLC https://arxiv.org/pdf/2505.18098v2
 		- this requires a large corpus of offline data that you train a model on, to then grade and steer a live models actions with reasonings. seems indirect compared to CE loss or sDPO
 	- NLAC https://arxiv.org/pdf/2512.04601
@@ -36,6 +33,9 @@ algorithms considered and rejected for now and why: (there are likely practicali
 		- how is this fundamentally different from classic autoregressive causal mask formulations in phase 1? well phase 1 is separate from phase 2 and this mostly works for phase 2. then how is it different from phase 2? 
 		- the proposed phase 2 samples 1 step rollouts/actions from the existing model/policy, then compares the preference of the human to take that action or not, and uses that to update the model weights via an optimizer like gradient descent from the DPO loss function. this system would basically do the same thing, since model = policy, and actions = sampling. with the RL formulation there is no reward, so DPO makes more sense because you need to reward the model for the actions its taking.
 		- this formulation likely starts to make more sense when we consider more esoteric dragan work around model -> human influence, but seems undifferentiated for now
+	- CIRL / assistance games
+		- https://arxiv.org/abs/2504.07091 https://cassidylaidlaw.github.io/minecraft-building-assistance-game/ 
+			- TODO
 	- TODO will brown phd https://willcb.com/blog/feedback-loops/ https://scholar.google.com/citations?user=JUJdJMoAAAAJ
 		- "We started with a set of pretty ambiguous questions:
 			- How can we model online recommendations in a way which gives rise to the kinds of feedback loops observed in reality while remaining analytically tractable?
@@ -141,8 +141,6 @@ algorithms considered and rejected for now and why: (there are likely practicali
 		- anything mentioning an 'expert demonstration' is in some sense inaccurate since the human does not necessarily know how to achieve its goals either. unclear what algorithms account for the expert also learning / changing its policy. but i assume that a smart enough imitation learner that is online can just map the changing policy
 		- https://arxiv.org/pdf/2211.10869 varying forms of masking during training may help improve meta learning
 		- https://arxiv.org/abs/2411.02306 models will learn to identify and reward hack vulnerable users even when they only make up 2% of their deployed population
-	- papers from https://gemini.google.com/app/e5061268008c580f
-		- 
 	- [[Google Pi Team]]
 		- https://arxiv.org/pdf/2603.02960 great thesis piece but no relevant algos
 		- https://arxiv.org/pdf/2603.28925 no algos, but they find that LLMs can have theory of mind abilities without attributing minds to themselves
@@ -213,3 +211,4 @@ algorithms considered and rejected for now and why: (there are likely practicali
 - it doesnt seem like recsys is the right framework at all. its not really a recommendation. its more a prediction that influences the principal's behavior in some way. even if a 'rec' is good, i wouldnt just 'click accept', i would continue working with the suggestion in mind. loss still decreases if what i type is close to the suggestion. hmm. it changes how the loss function is modeled.
 - unresolved thread between online DPO, online IPO, mirror descent, nash mirror descent, MUPI toy example, recsys vs "suggsys"/two player game vs human model + agent model vs single model
 - tight feedback loops as the unifying value prop of the local vision
+- it feels like the transition from recsys to [[Paper]] is an implicit statement on replacement vs augmentation, but haven't fully articulated it
