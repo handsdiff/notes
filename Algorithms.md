@@ -13,7 +13,8 @@ algorithms considered and rejected for now and why: (there are likely practicali
 	- OPD
 		- OPD is just OPSD but the distillation is from a different model, not the same. so doesn't rely on ground truth existence BUT cannot achieve superhuman performance.
 	- CIRL / assistance games
-		- too complicated for now, unsure whether the abstraction of pedagogy is needed at this stage
+		- https://arxiv.org/abs/2504.07091 https://cassidylaidlaw.github.io/minecraft-building-assistance-game/ 
+			- TODO
 	- PNLC https://arxiv.org/pdf/2505.18098v2
 		- this requires a large corpus of offline data that you train a model on, to then grade and steer a live models actions with reasonings. seems indirect compared to CE loss or sDPO
 	- NLAC https://arxiv.org/pdf/2512.04601
@@ -211,3 +212,4 @@ algorithms considered and rejected for now and why: (there are likely practicali
 - probably include importance sampling in the loss function for any choice
 - it doesnt seem like recsys is the right framework at all. its not really a recommendation. its more a prediction that influences the principal's behavior in some way. even if a 'rec' is good, i wouldnt just 'click accept', i would continue working with the suggestion in mind. loss still decreases if what i type is close to the suggestion. hmm. it changes how the loss function is modeled.
 - unresolved thread between online DPO, online IPO, mirror descent, nash mirror descent, MUPI toy example, recsys vs "suggsys"/two player game vs human model + agent model vs single model
+- tight feedback loops as the unifying value prop of the local vision
