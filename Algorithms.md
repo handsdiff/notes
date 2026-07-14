@@ -9,6 +9,8 @@ algorithms considered and rejected for now and why: (there are likely practicali
 		- the loss matches the student on the teacher with a 'hint' i.e. helpful information, and updates the student to match the teacher. this seems like it could be used for phase 1, still unclear why this over standard cross entropy. after my discussion with codex, SDPO could be used, its just less direct of a loss. something to explore. it trains given hints rather directly on preferences or self supervision. helpful loss comparison https://gemini.google.com/app/9eddf57f5e81e914
 	- OPSD
 		- from my learnings, OPSD is for when a ground truth exists (relates to deterministic vs non deterministic reward function being the distinction when we discuss 'dynamic' environments or not, with models definitely able to learn static environments i.e. deterministic reward functions)
+		- "if you're doing OPSD and you keep seeing model collapse, one of the best debugging tricks is to remove the hinted logprob ratio and replace it with an advantage estimator"
+		- https://arxiv.org/abs/2209.15189
 	- OPD
 		- OPD is just OPSD but the distillation is from a different model, not the same. so doesn't rely on ground truth existence BUT cannot achieve superhuman performance.
 	- PNLC https://arxiv.org/pdf/2505.18098v2
@@ -48,8 +50,6 @@ algorithms considered and rejected for now and why: (there are likely practicali
 	- https://arxiv.org/abs/1701.07570 how does this dynamic regret paper (one of will brown's favorites) relate to inverse RL or reward inference more generally?
 		- 
 	- https://x.com/willccbb/status/2075830477928423734?s=20
-		- 
-	- https://x.com/willccbb/status/2075819380076957903?s=20
 		- 
 	- https://x.com/willccbb/status/2075840148701679960?s=20
 		- 
@@ -158,6 +158,7 @@ algorithms considered and rejected for now and why: (there are likely practicali
 			- shows that you can add a dynamics loss with a weighted parameter to the loss function if you want the model to be able to learn env dynamics
 			- ^ ECHO also did this months later. would be interesting to apply ECHO to two of our human models
 			- i dont understand this paper, tried for a while to do so
+			- https://claude.ai/chat/dcf030af-4c28-47d7-8ab6-3bb3587626dd
 	- https://arxiv.org/pdf/2403.08635 online IPO / IPO-MD
 		- apparently similar to online DPO except it focuses on best approximating preference probabilities rather than preference differences, which seems strictly better
 		- offline version from a few months before https://arxiv.org/pdf/2310.12036
