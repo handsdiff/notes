@@ -1,4 +1,3 @@
-
 algorithms considered and rejected for now and why: (there are likely practicalities that result in other algorithms perhaps being superior, this is a non practitioner's pre-experiment take)
 	- PPO
 		- maybe useful for phase 3, but we dont have a value function to use as a critic until after phase 2 collects data to generate the implicit rewards from preferences
@@ -152,6 +151,9 @@ algorithms considered and rejected for now and why: (there are likely practicali
 			- apparently the training approximates the ability to learn the scenario you're in based on the test time in context history and act best according to your prior of the situation. https://openreview.net/attachment?id=W1Ta00wVlK&name=pdf
 			- in other words, the interaction history allows the model to determine the best action at test time, since its trained on a a variety of opponents and can determine the 'type' of opponent given the interaction history
 			- reminds me of meta learning since the initial weights are optimized to handle a mixture of potential test time tasks rather than optimizing for one
+		- https://arxiv.org/pdf/2512.20605 RL within the residual streams of autoregressive models, rather than applied after
+			- "We analyze transformers and state-space models (SSMs) trained to autoregressively predict the actions of goal-directed agents, whose goals are unknown. We find that the networks learn to represent (and infer in-context) a belief about an agent’s goals in their residual stream activations"
+			- 
 	- https://arxiv.org/pdf/2403.08635 online IPO / IPO-MD
 		- apparently similar to online DPO except it focuses on best approximating preference probabilities rather than preference differences, which seems strictly better
 		- offline version from a few months before https://arxiv.org/pdf/2310.12036
@@ -226,3 +228,14 @@ algorithms considered and rejected for now and why: (there are likely practicali
     - third concern is impact of initial weights on test time learning. many results showing dynamic evaluation suffers when weights are initialized with a lack of meta learning. again something to be actually tested, but important to keep in mind
     - fourth concern is a potential decoupling of the learned human model vs an agent that learns to interact with the human model. which approach is desired? and why? its unclear. it does not impact phase 1 (imitation learning / behavior cloning) but it impacts data structure for long term algorithms
     - fifth concern is the modeling of the hypothesized phase 2 (recsys). to what extent do the recs influence the human, and as such invalidate the learned human model from before recsys? does this matter?
+- at a high level, phase 1 is imitation learning / behavior cloning to produce a human model. it needs to be continuously updated. phase 2 is intended to infer a reward model, but the current method intends to use contrastive loss from counterfactuals generated from the human model, which doesn't seem robust. reward inference basically requires preference data, from my understanding, unless you have verifiable rewards that you can bake into training that do not drift during test time.
+- schmidhuber suggests alternating SSL with RL, where you update the SSL using history during 'sleep', then collect data during 'wake'. good framework but doesn't immediately apply here since there is no environment for the agent to go collect data in
+- the goal of reward inference is to allow the agent to then propose actions that the human recognizes as better towards its goal than could come up with itself. the implicit bet is that a good human model essentially unbounds rationality to allow for more creative ideation. is reward inference necessary for this though? you could just sample the human model and be done with it. there aren't really recommendations. if anything the model's actions being introduced into the state of the human change the environment state space (there are now 'read' events from 'assistant'). do we actually want model behavior to change at this point? i dont really see why we do. can this human model be used for multi agent training eventually? you can likely use it for decentralized MARL policy gradient like the MUPI example did if you have multiple agents assuming the training data involves messages from others.
+- the gap here would theoretically be 'superhuman performance', but practically that might come from the base properties of models being way higher throughput. otherwise superhuman performance needs actual environmental rewards, which i dont believe it. 
+- or you use tight feedback loops with humans, but how is this different from just imitation learning?
+- the pro of this simplification is that its simple. i dont see any cons besides ego
+- the two gaps seem to be (1) can you get superhuman performance from imitation learning? can you get superhuman performance from preference data?
+	- what is the definition of superhuman performance? the strict definition is that it can achieve my rewards better than I can, but that is a competitive framework. the cooperative definition is that it can take actions that result in my achieving my rewards faster than i could otherwise, although thats more of a superhuman system, not a superhuman model.
+	- in this framework, the hypothesis is that a human model presented to the user after being sampled MAY be a superhuman system.
+- what would make this more of a superhuman system?
+- doesnt the thinking machines work state that putting the model's samples into its training data reduce benchmark performance?
