@@ -193,7 +193,7 @@ algorithms considered and rejected for now and why: (there are likely practicali
 		- https://arxiv.org/pdf/2207.10050 discriminator BC
 			- uses a discriminator to distinguish expert vs non expert trajectories, but we don't actually know which ones are expert vs non expert
 	- online BC/IL
-		- just batch retraining, nothing crazy
+		- just batch retraining, nothing crazy. 'online' is a misnomer, since it doesnt determine freshness of data. 'online' is when the policy actually acts in the environment. in our initial formulation the policy is not acting at all
 
 - is phase 1 a process reward model?
 - does phase 1 result in an 'implicit' reward model?
