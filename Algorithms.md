@@ -41,7 +41,7 @@ algorithms considered and rejected for now and why: (there are likely practicali
 	- CIRL / assistance games
 		- https://arxiv.org/abs/2504.07091 https://cassidylaidlaw.github.io/minecraft-building-assistance-game/ 
 		- i previously wrote down this was a bit too far out for right now, then i reconsidered given new information, but it is too far out. it assumes the agent is able to take actions in the environment as well. we wont have that ability until there are good parallel sandboxes or some way of allowing the agent to take actions on the computer if their recommendation is actually chosen
-	- TODO will brown phd https://willcb.com/blog/feedback-loops/ https://scholar.google.com/citations?user=JUJdJMoAAAAJ
+	- will brown phd https://willcb.com/blog/feedback-loops/ https://scholar.google.com/citations?user=JUJdJMoAAAAJ
 		- "We started with a set of pretty ambiguous questions:
 			- How can we model online recommendations in a way which gives rise to the kinds of feedback loops observed in reality while remaining analytically tractable?
 			- Can we gain any insight into why algorithmic feedback loops occur, and design recommendations algorithms which avoid their potentially harmful consequences?
