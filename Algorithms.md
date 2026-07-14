@@ -197,13 +197,18 @@ algorithms considered and rejected for now and why: (there are likely practicali
 	- online BC/IL
 		- just batch retraining, nothing crazy. 'online' is a misnomer, since it doesnt determine freshness of data. 'online' is when the policy actually acts in the environment. in our initial formulation the policy is not acting at all. this is offline data just retrained at test time (ideally, or perhaps not ideally)
 	- https://oshaikh.com/
-		- https://arxiv.org/pdf/2603.05923 Learning Next Action Predictors from Human-Computer Interaction
-			- https://generalusermodels.github.io/nap/
+		- https://oshaikh.com/papers/longnap Learning Next Action Predictors from Human-Computer Interaction
+			- 
 		- https://oshaikh.com/papers/gums general user models
+			- 
 		- https://oshaikh.com/papers/grounding grounding towards common knowledge research
+			- 
 		- more grounding work https://oshaikh.com/papers/rifts
+			- 
 		- https://oshaikh.com/papers/ditto DITTO (align LLMs from demonstrations)
-		- 
+			- 
+		- https://oshaikh.com/papers/just-in-time-objectives JIT objectives, inferring objective from user actions and helping, seems very similar to assistance games
+			- 
 
 - is phase 1 a process reward model?
 - does phase 1 result in an 'implicit' reward model?
