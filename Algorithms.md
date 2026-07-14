@@ -132,6 +132,7 @@ algorithms considered and rejected for now and why: (there are likely practicali
 				- basic math behind inverse RL. modern approaches are Deep MaxEnt IRL and GAIL, and AIRL
 				- https://gemini.google.com/app/e4c31806ee6129a4
 				- pure imitation learning does not imply a reward function since there is no contrastive, not chosen action? but isnt the model's y output the contrastive action, compared to the demonstrator's y hat?
+				- maxent irl assumes the trajectories are expert so doesn't apply here
 			- AIRL https://arxiv.org/pdf/1611.03852 from finn
 				- i should clarify the drawbacks of online DPO, if any
 				- works by having the agent do rollouts while the expert (me) does rollouts (normal work), train a discriminator using binary CE loss to identify between the two, calculates implicit rewards based on the discriminator, uses that reward to update the policy
