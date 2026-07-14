@@ -213,3 +213,4 @@ algorithms considered and rejected for now and why: (there are likely practicali
 - unresolved thread between online DPO, online IPO, mirror descent, nash mirror descent, MUPI toy example, recsys vs "suggsys"/two player game vs human model + agent model vs single model
 - tight feedback loops as the unifying value prop of the local vision
 - it feels like the transition from recsys to [[Paper]] is an implicit statement on replacement vs augmentation, but haven't fully articulated it
+- if the agent is being sampled and those are being shown to the user, and that impacts the user's behavior, since even though the policy may be constant, the input information is now different. the agents responses need to be stored in the data itself, so the human model can update to properly map how the human reacts to the agent's data. if the model is changing constantly to account for the changing agent policy, does the steady state behavior ever actually do something useful?
