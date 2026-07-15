@@ -281,3 +281,4 @@ algorithms considered and rejected for now and why: (there are likely practicali
 - how should the BC model be frozen and updated and how should the IPO model be frozen and updated? for example should the BC model update every 10k steps, then freeze for 10k steps as IPO model uses it as a baseline? etc
 - maybe its fine if the loss is combined if youre freezing/updating reference policies appropriately
 - how to even display a suggestion/sample might be complicated. what if the model wants to say that im going to add a phrase in the middle of a long series of notes? how would that be shown? if youre going to use IPO loss in phase 2, then the UX of the suggestions is a massive confounding factor. confusing UX -> ignored -> assume the sampled content is pairwise worse, rather than the presentation of the content
+- adaptive UI as a vision component
