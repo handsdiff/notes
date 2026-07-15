@@ -30,6 +30,7 @@
 - https://arxiv.org/pdf/2607.05394
 - https://www.goodfire.ai/blog/intentional-design#developing-responsibly
 - https://thinkingmachines.ai/news/introducing-inkling/
+- https://x.com/eliebakouch/status/2077489988661395651
 - 
 - seeing a lot of data that you can perform RL directly on the activations of an LLM, not sure what that means, and that doing so could massively speed up and raise the ceiling for LLM reasoning via recurrent iteration in neural activation space
 - control of LLMs will have a massive massive impact on the US presidential election. whats my opinion on how this likely plays out?
