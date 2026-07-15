@@ -22,6 +22,8 @@
 - https://oaklab.ai/posts/learning-from-experience-instead-of-curated-datasets
 	- https://claude.ai/chat/5038f012-65a1-4ff8-ac40-21f46f99290b
 	- im confused doesnt attention already determine whats useful from the context and what is not?
+- https://arxiv.org/pdf/2607.05394
+- 
 - seeing a lot of data that you can perform RL directly on the activations of an LLM, not sure what that means, and that doing so could massively speed up and raise the ceiling for LLM reasoning via recurrent iteration in neural activation space
 - control of LLMs will have a massive massive impact on the US presidential election. whats my opinion on how this likely plays out?
 - perhaps what comes next after 90% cost reductions for rote tasking like info extraction is model ability to model employees like meta is doing?
