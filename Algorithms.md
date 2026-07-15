@@ -203,6 +203,7 @@ algorithms considered and rejected for now and why: (there are likely practicali
 			- they explicitly include the reasoning to retrieve data from memory that is not directly in recent context, which makes sense, then bases predictions off of reasoning about the retrieval. so very much so not directly next action prediction
 			- i wonder how reasoning to retrieve then predict compares to direct autoregressive prediction. the latter feels way more sample inefficient.
 			- the retrieval is very simple BM25 from raw event logs
+			- but they need GRPO and LoRA for this??
 		- https://oshaikh.com/papers/gums general user models
 			- i thought this was insane but it just seems to create natural language propositions based on computer use, and recommend based on that. simple, but somewhat effective. this might be similar to something my work ends up falling back to. likely a very good baseline to compare to, as well as good resource for comparable data preprocessing and UX
 		- https://oshaikh.com/papers/grounding grounding towards common knowledge research
