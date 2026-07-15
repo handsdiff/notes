@@ -311,4 +311,5 @@ algorithms considered and rejected for now and why: (there are likely practicali
 	- the predictions take the form of the VLM's labels on the computer use, grounding the behavior
 	- seems intended to extend to multiple users 
 	- uses unfiltered memory logs as part of the reasoning via retrieval
+	- intended to extend to computer use to "finish predictable tasks for users by acting on predictions about what the user would do next"
 	- 
