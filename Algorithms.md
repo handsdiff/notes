@@ -302,3 +302,13 @@ algorithms considered and rejected for now and why: (there are likely practicali
 - E2E-TTT stands out as the most practical method of addressing common failure modes around lack of long context learning / drifting data distributions
 - you just *cannot* outsource your thinking. you get left behind, realize you're left behind, then need to catch up. true replacement involves you not doing anything
 - did cursor sell out when they pivoted to cloud agents instead of doubling down on personal tab completion?
+
+- LongNAP stands out from my original formulation in a few ways
+	- uses a VLM to semantically label raw screenshot/video data 
+	- focuses on prediction/replacement rather than suggestion/augmentation
+	- the training involves GRPO on the reasoning that produces a next action sample, while still using self supervised learning, rather than simply cross entropy loss
+	- generates a sequence (8) of next actions not just one step
+	- the predictions take the form of the VLM's labels on the computer use, grounding the behavior
+	- seems intended to extend to multiple users 
+	- uses unfiltered memory logs as part of the reasoning via retrieval
+	- 
