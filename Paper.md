@@ -2,7 +2,7 @@
 
 *A method draft for learning personalized action policies and implicit utility scores from ordinary computer use*
 
-**Status:** Working paper draft. This document specifies the motivation, related work, problem formulation, objectives, records, and algorithms for Phases 1 and 2. It intentionally contains no abstract, results, conclusion, or future-work section.
+**Status:** Working paper draft. This document specifies the motivation, related work, problem formulation, objectives, records, and algorithms for Phases 1 and 2, then states a directional design for Phase 3 where the evidence does not yet justify the same level of algorithmic commitment. It intentionally contains no abstract, results, or conclusion.
 
 ## 1. Introduction and Motivation
 
@@ -25,6 +25,8 @@ The proposed system has two training regimes applied to one canonical policy seq
 1. **Behavioral bootstrap.** Phase 1 trains an autoregressive policy on temporally interleaved read and write events. Read events enter the context; human write events are the prediction targets. Before suggestions begin, any continual update uses the same behavioral-cloning objective.
 2. **Continual coactive improvement.** Once suggestions begin, Phase 2 adds pairwise preference learning to the continuing behavioral objective. Each accepted policy serves users and collects the next update's data; during the next training job it is frozen as the local reference, and the accepted successor becomes the new canonical policy.
 
+**Phase 3 is a planning extension rather than a third loss regime for the same canonical adapter.** It uses the personalized action prior and local preference information produced by Phases 1 and 2, learns action-conditioned world dynamics from the richer transition stream already being recorded, and searches over short trajectories in a computer-use sandbox. The interface expands from one-step continuations to selectable plans with simulated outcomes. The planning horizon grows only as simulation calibration, execution safety, and measured assistance quality permit. The user remains the principal: selecting or editing a plan delegates bounded execution rather than authorizing an unconstrained autonomous policy.
+
 The preference objective yields a policy/reference log-ratio that can be interpreted as an implicit, context-dependent utility score. This gives the direction enterprise value before any long-horizon autonomous agent exists: candidate drafts can be reranked for a particular employee, proactive continuations can become more useful, and later planning systems can use the score as one input to local action evaluation. The score is not yet a complete reward for arbitrary trajectories. It represents revealed preference over comparable, one-step continuations under the deployed human–model interaction loop.
 
 This draft makes six concrete design commitments:
@@ -36,7 +38,7 @@ This draft makes six concrete design commitments:
 - It combines continued behavioral cloning with Identity Preference Optimization (IPO) against the immediately preceding canonical checkpoint. The initial behavioral checkpoint is retained only as an archival anchor for cumulative measurement, capability evaluation, and rollback.
 - It logs enough provenance—event boundaries, exposure, policy versions, reference scores, and candidate-generation parameters—to reproduce every preference record and change the estimator later.
 
-The intended claim is deliberately narrow. Phase 1 bootstraps a personalized action policy. Phase 2 continually updates that same canonical policy from behavior and local coactive comparisons in a collaborative equilibrium shaped by both the model and the person. The version sequence tests whether the system tracks behavioral drift and absorbs human refinements without unacceptable forgetting or cumulative degradation. Neither regime identifies a person's stable latent goals, and neither justifies unconstrained multi-step optimization.
+The intended claim is deliberately narrow. Phase 1 bootstraps a personalized action policy. Phase 2 continually updates that same canonical policy from behavior and local coactive comparisons in a collaborative equilibrium shaped by both the model and the person. The version sequence tests whether the system tracks behavioral drift and absorbs human refinements without unacceptable forgetting or cumulative degradation. Neither regime identifies a person's stable latent goals, and neither justifies unconstrained multi-step optimization. Phase 3 therefore treats the Phase 2 score as a local planning input rather than a complete trajectory reward and introduces new dynamics, trajectory-feedback, sandbox, and authority requirements before increasing horizon.
 
 ## 2. Related Work
 
@@ -486,15 +488,19 @@ Event {
   tenant_id: UUID
   principal_id: UUID
   session_id: UUID?
+  environment_instance_id: UUID?
   started_at: timestamp
   ended_at: timestamp
   kind: READ | WRITE | NAVIGATION | SYSTEM
+  actor: HUMAN | ASSISTANT | EXTERNAL | SYSTEM
   app: string
   object_uri: string?
   operation: string
   content_ref: encrypted_blob_ref?
   visible_or_edited_span: Span?
   source_event_ids: [UUID]
+  state_before_snapshot_ref: encrypted_blob_ref?
+  state_after_snapshot_ref: encrypted_blob_ref?
   state_before_hash: bytes?
   state_after_hash: bytes?
   capture_version: string
@@ -508,6 +514,8 @@ Important invariants:
 - The timestamp reflects when content became available or an operation occurred, not when a collector later ingested it.
 - Read payloads contain the portion plausibly consumed before the cutoff when telemetry permits.
 - Copied and model-generated spans retain provenance so they are not credited as independent human generation.
+- When telemetry permits, before/after snapshot references preserve structured application or computer state for later transition learning. Hashes verify those snapshots but cannot replace their contents as world-model supervision.
+- Actor and environment-instance identifiers distinguish human actions, assistant actions, exogenous changes, production traces, and sandbox traces.
 - Tenant and principal boundaries are present in every primary record; they are not inferred from a session join.
 
 ### 5.2 Macro-action record
