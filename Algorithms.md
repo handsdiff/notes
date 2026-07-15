@@ -204,6 +204,10 @@ algorithms considered and rejected for now and why: (there are likely practicali
 			- i wonder how reasoning to retrieve then predict compares to direct autoregressive prediction. the latter feels way more sample inefficient.
 			- the retrieval is very simple BM25 from raw event logs
 			- but they need GRPO and LoRA for this??
+			- this is way simpler than attempting TTT or the like
+			- also discusses going the next step of taking a computer use agent to allow the predictor model to actually take actions
+			- one thing that stands out is that this is much more replacement than augmentation
+			- 
 		- https://oshaikh.com/papers/gums general user models
 			- i thought this was insane but it just seems to create natural language propositions based on computer use, and recommend based on that. simple, but somewhat effective. this might be similar to something my work ends up falling back to. likely a very good baseline to compare to, as well as good resource for comparable data preprocessing and UX
 		- https://oshaikh.com/papers/grounding grounding towards common knowledge research
@@ -218,7 +222,8 @@ algorithms considered and rejected for now and why: (there are likely practicali
 		- https://oshaikh.com/papers/just-in-time-objectives JIT objectives, inferring objective from user actions and helping, seems very similar to assistance games
 			- simple use of LLM on the same data as GUMs to infer local objectives and inject 
 			- good work on collecting and cleaning data, again useful for practical implementations upcoming and as baselines, less useful as novel algorithms
-			- interesting that the output was a generative UI, not a language suggestion/recommendation
+			- interesting that the output was a generative UI, not a language suggestion/recommendation. using something called Poppins, which is open source
+			- UI was chosen since there was a take that chatbot UX is poor, and they didnt want to the model to suggest to take actions to the user, they just wanted to present something useful
 	- https://collaborative-agents.github.io/
 		- this seems to be basically the same as general user models from shaikh
 
