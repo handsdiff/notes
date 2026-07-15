@@ -1014,7 +1014,7 @@ The following operational roles should remain conceptually distinct even if an i
 4. **Trajectory planner.** A policy or search procedure $q_\psi$ proposes joint futures from the action prior, response model, dynamics model, tool constraints, and sandbox.
 5. **Trajectory scorer.** A model $V_\xi$ or direct planner objective learns from explicit plan selections, edits, execution interventions, and delayed outcomes. The Phase 2 implicit score initializes local comparisons but is not assumed to be this trajectory value.
 
-This separation follows the useful distinction between learning a model of human behavior and training an agent to collaborate with it [1]. It also makes failures attributable: a bad forecast can arise from dynamics error, human-response error, value error, search error, or an unsafe execution layer rather than from one undifferentiated model.
+This separation is motivated by the useful distinction between learning a model of human behavior and training an agent to collaborate with it [1]. It also makes failures attributable: a bad forecast can arise from dynamics error, human-response error, value error, search error, or an unsafe execution layer rather than from one undifferentiated model.
 
 ### 8.3 World-dynamics learning and sandbox grounding
 
@@ -1068,7 +1068,7 @@ $$
 
 is not specified as the Phase 3 trajectory reward.
 
-Two initial trajectory estimators are reasonable. If the planner defines a tractable probability over serialized trajectory bundles, selected and unselected plans can extend the rolling-reference IPO construction. Define
+Two initial trajectory estimators are reasonable. If the planner defines a tractable probability over serialized trajectory bundles, selected and unselected plans can extend the rolling-reference IPO construction [8]. Define
 
 $$
 \Delta_\psi^\tau
@@ -1091,7 +1091,7 @@ $$
 \right],
 $$
 
-where the reference and $\beta_H$ are versioned by horizon. If planning relies on search rather than a normalized trajectory policy, a separate scorer can instead use the pairwise objective
+where the reference and $\beta_H$ are versioned by horizon. If planning relies on search rather than a normalized trajectory policy, a separate scorer can instead use the pairwise objective below, following the trajectory-segment preference-learning precedent of Christiano et al. [27]:
 
 $$
 \mathcal{L}_{V}(\xi)
@@ -1207,3 +1207,5 @@ This pseudocode fixes the information and authority flow, not the final planning
 [25] C. Laidlaw et al. [*AssistanceZero: Scalably Solving Assistance Games*](https://arxiv.org/abs/2504.07091). 2025.
 
 [26] D. Hafner, W. Yan, and T. Lillicrap. [*Training Agents Inside of Scalable World Models*](https://arxiv.org/abs/2509.24527). 2025.
+
+[27] P. F. Christiano et al. [*Deep Reinforcement Learning from Human Preferences*](https://arxiv.org/abs/1706.03741). 2017.
