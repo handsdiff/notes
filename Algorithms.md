@@ -208,7 +208,7 @@ algorithms considered and rejected for now and why: (there are likely practicali
 		- https://oshaikh.com/papers/just-in-time-objectives JIT objectives, inferring objective from user actions and helping, seems very similar to assistance games
 			- 
 	- https://collaborative-agents.github.io/
-		- 
+		- this seems to be basically the same as general user models from shaikh
 
 - is phase 1 a process reward model?
 - does phase 1 result in an 'implicit' reward model?
