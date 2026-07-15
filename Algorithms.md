@@ -198,7 +198,7 @@ algorithms considered and rejected for now and why: (there are likely practicali
 		- just batch retraining, nothing crazy. 'online' is a misnomer, since it doesnt determine freshness of data. 'online' is when the policy actually acts in the environment. in our initial formulation the policy is not acting at all. this is offline data just retrained at test time (ideally, or perhaps not ideally)
 	- https://oshaikh.com/ (these also have git implementations that could be useful during implementation to compare to)
 		- https://oshaikh.com/papers/longnap Learning Next Action Predictors from Human-Computer Interaction
-			- 
+			- closest to my wor
 		- https://oshaikh.com/papers/gums general user models
 			- i thought this was insane but it just seems to create natural language propositions based on computer use, and recommend based on that. simple, but somewhat effective. this might be similar to something my work ends up falling back to. likely a very good baseline to compare to, as well as good resource for comparable data preprocessing and UX
 		- https://oshaikh.com/papers/grounding grounding towards common knowledge research
@@ -285,3 +285,4 @@ algorithms considered and rejected for now and why: (there are likely practicali
 - how to even display a suggestion/sample might be complicated. what if the model wants to say that im going to add a phrase in the middle of a long series of notes? how would that be shown? if youre going to use IPO loss in phase 2, then the UX of the suggestions is a massive confounding factor. confusing UX -> ignored -> assume the sampled content is pairwise worse, rather than the presentation of the content
 - adaptive UI as a vision component
 - if 80% of next write action today involves talking to a chatbot, how does that impact the direction of this work?
+- regarding the work around next token prediction resulting in memorization rather than understanding, which could be solved by Q/A synthetic data (but that requires the model to retain question answering abilities), i wonder whether another form of synthetic data as a step between phase 1 and phase 2 would be the model just outputting its understanding of the users actions and local goals, with the user outputting whether thats accurate somehow via a revision or a binary signal. the issue is that the UX becomes way worse since i now have to go out of my way to provide feedback to the model rather than my work providing implicit feedback with no changes to how i operate
