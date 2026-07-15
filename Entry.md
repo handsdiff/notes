@@ -31,6 +31,7 @@
 - https://www.goodfire.ai/blog/intentional-design#developing-responsibly
 - https://thinkingmachines.ai/news/introducing-inkling/
 - https://x.com/eliebakouch/status/2077489988661395651
+- there is a tension between human preference as the only possible reward signal and the sutton argument that environmental rewards are the only ground truth data for real superintelligence
 - 
 - seeing a lot of data that you can perform RL directly on the activations of an LLM, not sure what that means, and that doing so could massively speed up and raise the ceiling for LLM reasoning via recurrent iteration in neural activation space
 - control of LLMs will have a massive massive impact on the US presidential election. whats my opinion on how this likely plays out?
