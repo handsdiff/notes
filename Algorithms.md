@@ -200,7 +200,7 @@ algorithms considered and rejected for now and why: (there are likely practicali
 		- https://oshaikh.com/papers/longnap Learning Next Action Predictors from Human-Computer Interaction
 			- 
 		- https://oshaikh.com/papers/gums general user models
-			- i thought this was insane but it just seems to create natural language propositions based on computer use, and recommend based on that. likely just a very good baseline to compare to
+			- i thought this was insane but it just seems to create natural language propositions based on computer use, and recommend based on that. likely just a very good baseline to compare to, as well as good resource for comparable data preprocessing
 		- https://oshaikh.com/papers/grounding grounding towards common knowledge research
 			- 
 		- more grounding work https://oshaikh.com/papers/rifts
