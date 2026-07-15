@@ -204,7 +204,12 @@ algorithms considered and rejected for now and why: (there are likely practicali
 		- https://oshaikh.com/papers/grounding grounding towards common knowledge research
 			- highlights that LLMs assume shared knowledge rather than confirming it, which is a result of current RLHF, making interaction less useful than it could be. interesting framing for what one of the issues is 
 		- https://oshaikh.com/papers/ditto DITTO (align LLMs from demonstrations)
-			- 
+			- "Brown et al. (2019) first showed that with ranked demonstrations, one could improve a policy beyond the demonstrator’s performance"
+			- almost exactly relies on the take that the LM's sampled actions can provide hard negatives to be used in DPO
+			- good algorithm and loss function that I can reference, along with practical nits about data mixing as well as ablations
+			- shows that it works better than SFT, which makes sense. supports the phase 2 hypothesis.
+			- actually the nit there is that my phase 2 implies that the samples are shown to the user. how does that change the formulation, if at all?
+			- the future work section is also relevant
 		- https://oshaikh.com/papers/just-in-time-objectives JIT objectives, inferring objective from user actions and helping, seems very similar to assistance games
 			- 
 	- https://collaborative-agents.github.io/

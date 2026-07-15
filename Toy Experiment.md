@@ -292,7 +292,82 @@ A small blinded human review may still diagnose whether high-probability alterna
 
 Actions within a day or editing session are correlated. Confidence intervals should therefore resample at the day or session level rather than treating every target as independent. Report paired effects and intervals, not only aggregate averages.
 
-## 8. Experimental Staircase
+## 8. Related Work and Baseline Selection
+
+Related work belongs in this proposal when it supplies an executable comparison or a diagnostic design choice. The goal is not to establish that every adjacent research area has been surveyed. Each adopted baseline should answer a specific question about the stack while changing as little else as possible.
+
+### 8.1 Direct next-action prediction
+
+[Learning Next Action Predictors from Human-Computer Interaction](https://arxiv.org/abs/2603.05923) is the closest direct precedent. It formalizes next-action prediction from longitudinal multimodal computer-use streams, introduces NAPsack for grouping and labeling interaction bursts, and compares prompted, retrieval-augmented, supervised fine-tuned, and learned reason-retrieve-predict systems. Its LongNAP method learns user-specific reasoning traces, retrieves related traces and observations with BM25, and predicts a future natural-language action trajectory.
+
+This work supplies three core baselines that should be reproduced even if the full LongNAP system is not initially run:
+
+1. recent-context prompting without retrieval;
+2. BM25 retrieval over prior observations followed by prompted prediction;
+3. supervised fine-tuning on chronological next-action examples.
+
+The full LongNAP method is an advanced baseline after these components are understood. As of this proposal, its [project page](https://generalusermodels.github.io/nap/) marks the GitHub release as forthcoming, so the toy experiment should not depend on its release. Its reported numbers are also not directly comparable: LongNAP predicts multi-action natural-language trajectories from screen activity and uses semantic similarity judged by an LLM, whereas the initial toy predicts one bounded write action and can compute its likelihood directly.
+
+[A Click Ahead](https://arxiv.org/abs/2309.12170) provides a deliberately simpler precedent. It trains a small recurrent model on approximately one week of one person's keyboard and mouse activity to predict the next action from the previous five actions over a fixed vocabulary. That closed action space cannot model the semantic content of a new bullet, but it provides a useful low-capacity baseline for structured fields such as application, operation type, file, or coarse action class. A GRU that consumes the previous few structured actions should therefore be included in the smoke-test stage. It can reveal whether an apparent LLM gain is merely short-range repetition.
+
+### 8.2 Raw history, semantic memory, and inferred objectives
+
+[Creating General User Models from Computer Use](https://arxiv.org/abs/2505.10831) supplies a semantic-memory baseline. A General User Model converts observations into confidence-weighted propositions about the person's current state, habits, knowledge, and preferences; retrieves relevant propositions; and revises them as new evidence arrives. Its [implementation is available](https://generalusermodels.github.io/gum/). For the toy experiment, the relevant comparison is not its proactive assistant. It is whether a prompted next-action predictor performs better with retrieved GUM-style propositions than with retrieved raw events under a matched context budget.
+
+This baseline tests whether lossy semantic abstraction helps. It should retain links from every proposition to its source observations so that errors can be attributed to inference, retrieval, or prediction. Propositions must not be treated as observed facts.
+
+[Just-In-Time Objectives](https://arxiv.org/abs/2510.14591) supplies a complementary goal-abstraction baseline. It infers a short, explicit current objective from a snapshot of user context, then conditions both generation and evaluation on that objective. Unlike a longitudinal user model, the method primarily asks what the person is trying to accomplish now. The paper intentionally evaluates a minimal context setting using one screenshot, making it a useful test of whether current context contains enough information to infer a task-level objective without a long personal history.
+
+For this toy, define a JIT-objective condition as follows:
+
+1. give an objective-induction model exactly the temporally valid context available to the predictor;
+2. produce one or more weighted natural-language objectives;
+3. add the objectives to the next-action generation or candidate-ranking prompt;
+4. score against the actual held-out action using the toy's objective metrics.
+
+Compare this with the same predictor receiving raw context, retrieved raw events, and GUM-style propositions. This isolates three representations of the same evidence: event history, semantic beliefs, and an explicit current goal. A gain from JIT objectives would support the bridge from legible behavior to local goal inference, but would not prove that a stable reward function had been recovered.
+
+### 8.3 Demonstration-derived preference optimization
+
+[Show, Don't Tell: Aligning Language Models with Demonstrated Feedback](https://arxiv.org/abs/2406.00888) introduces DITTO, a few-shot adaptation method with an [available implementation](https://github.com/SALT-NLP/demonstrated-feedback). DITTO treats user demonstrations as preferred to samples from the base model and intermediate checkpoints, then uses those induced comparisons for preference optimization. It is designed for very small demonstration sets and directly compares against few-shot prompting and SFT.
+
+DITTO is relevant because the personal action stream already contains demonstrations. It can be adapted by treating each chronological pair $(h_t,y_t)$ as a demonstrated response: sample alternative next actions from the current model, rank the observed action above those samples, retain replay and inter-policy comparisons, and train with the same base model used for SFT.
+
+This is not a neutral replacement for behavioral cloning. It adds the assumption that the person's observed action is preferable to the model's sampled alternatives. Ordinary work traces may contain mistakes, expedient actions, or actions the person would reject on reflection. DITTO should therefore be an advanced Phase 1 baseline run after plain SFT, with the assumption and any filtering stated explicitly. If it improves prediction, the result shows that negative contrast helps model the demonstrated policy; it does not yet establish that the learned policy improves the person.
+
+### 8.4 Continual-learning evaluation
+
+[Continual Learning Bench](https://arxiv.org/abs/2606.05661) is not a direct personal next-action baseline. Its useful contribution here is experimental structure: compare a stateless system, naive ICL, and dedicated memory while measuring improvement from sequential experience separately from the underlying model's initial capability. Its [benchmark harness](https://continual-learning-bench.com/) also demonstrates how to report both absolute performance and gain across an ordered sequence.
+
+The toy should adopt that separation. For each model, report:
+
+- absolute performance without personal history;
+- absolute performance with the permitted history;
+- personal-history gain, computed as the paired difference on identical future targets;
+- how that gain changes across chronological evaluation windows.
+
+This prevents a stronger base model from appearing to be a better continual learner merely because it starts at a higher level.
+
+### 8.5 Adopted baseline schedule
+
+The baselines should enter in stages rather than as one large initial leaderboard.
+
+| Stage | Baselines | Question isolated |
+|---|---|---|
+| Pipeline smoke test | frequency baseline, current-note continuation, five-action GRU | Does the evaluation behave sensibly, and how much comes from short-range repetition? |
+| Data-source value | no personal context, correct raw context, shuffled or wrong-time context, oracle-selected context | Does the captured personal stream contain temporally specific predictive signal? |
+| Core mechanism comparison | recent-context ICL, BM25 retrieval over raw events, chronological LoRA SFT | Should the same evidence live in prompt space, selected memory, or weights? |
+| Representation comparison | GUM-style retrieved propositions, JIT inferred objectives | Does semantic compression or explicit goal inference improve use of the evidence? |
+| Advanced adaptation | DITTO, full LongNAP-style learned retrieval when practical | Do negative contrast or learned retrieval improve beyond the simple methods? |
+| Longitudinal evaluation | stateless, ICL, memory, and weight-updated systems repeated over future windows | Does the system actually improve from accumulating experience? |
+
+Every condition must use the same target set and respect the same temporal cutoff. Where the underlying model must differ, report that as a separate capability comparison rather than attributing the result entirely to the algorithm.
+
+### 8.6 Deliberate exclusions
+
+Memory systems evaluated only on question answering or factual recall are not primary baselines for next-action prediction. Neither are recommendation, coactive preference learning, online DPO from proposal exposure, reward-model planning, or autonomous computer-use agents. Those methods address later links in the stack. They should be introduced only after the toy establishes that the captured personal stream contains usable signal and that at least one simple mechanism can exploit it.
+
+## 9. Experimental Staircase
 
 ### Experiment 0: Collector and reconstruction audit
 
@@ -322,7 +397,8 @@ Conditions:
 1. unconditional or frequency baseline;
 2. target-note prefix only;
 3. recent Obsidian state;
-4. longer Obsidian history.
+4. longer Obsidian history;
+5. a five-action GRU predicting structured action fields.
 
 This experiment validates serialization, model calls, scoring, chronological splits, caching, and reporting. A weak result is expected and does not yet refute the value of personal context, because much of the causal input is absent.
 
@@ -346,6 +422,8 @@ Use one fixed, strong model and one fixed context-construction method. Evaluate 
 6. full captured read/write stream.
 
 Add leave-one-source-out comparisons after the cumulative run if interactions between sources make attribution unclear.
+
+Do not mix representation methods into the primary modality attribution. If the full stream improves prediction, run a secondary diagnostic on the same targets and source events comparing: full raw context, automatically retrieved raw events, GUM-style retrieved propositions, and an induced JIT objective. Keep the downstream predictor fixed. This asks how the useful evidence should be represented without changing the conclusion about which data source supplied it.
 
 The model should be held fixed here because the purpose is to evaluate the data, not algorithms. A strongest-accessible model is useful as a signal detector: if a capable model cannot use the context, immediately training smaller models is unlikely to clarify whether the data contains value.
 
@@ -382,13 +460,25 @@ Hold constant:
 - maximum information available by time;
 - evaluation metrics.
 
-Compare:
+Run the comparison in tiers.
+
+Core mechanisms:
 
 1. no personal history;
 2. fixed recent raw context;
-3. retrieval or explicit memory over prior events;
-4. supervised fine-tuning on prior next-action examples;
-5. fine-tuning plus retrieval, after Conditions 3 and 4 are understood separately.
+3. BM25 retrieval over prior raw events;
+4. supervised fine-tuning on prior next-action examples.
+
+Representation baselines, using the same evidence:
+
+5. GUM-style retrieved propositions;
+6. an inferred JIT objective added to generation or candidate ranking.
+
+Advanced adaptation, only after the simpler methods are understood:
+
+7. DITTO using the observed next action as the demonstration and sampled actions as negatives;
+8. a full LongNAP-style learned reason-retrieve-predict method when practical;
+9. fine-tuning plus retrieval, after weight-space and retrieval-only methods are understood separately.
 
 The primary comparison should use the same open model wherever possible. A frontier-model ICL result may be reported separately as a capability ceiling, but it should not be used to conclude that prompt-space adaptation is superior to weight-space adaptation when the underlying models differ substantially.
 
@@ -396,8 +486,12 @@ Interpretation:
 
 - **Raw ICL works; retrieval does not:** the memory implementation is discarding useful information.
 - **Retrieval works; raw ICL does not:** selection and context budget matter more than total raw context.
+- **GUM propositions beat retrieved raw events:** semantic compression is removing more noise than useful evidence.
+- **JIT objectives beat raw and proposition context:** an explicit current-goal abstraction is especially predictive.
 - **SFT works; context methods do not:** relevant regularities may be easier to encode in weights than retrieve at test time.
 - **Context works; SFT does not:** sample size, training construction, or catastrophic averaging may be the bottleneck.
+- **DITTO beats SFT:** sampled negative actions provide useful contrast, conditional on the stronger demonstrated-preference assumption.
+- **LongNAP beats fixed BM25:** learned reasoning and retrieval add value beyond a conventional retriever.
 - **No method beats the no-history model despite Experiment 2 succeeding:** the comparison has introduced a representation, capacity, or implementation failure.
 
 ### Experiment 4: Personal data scaling and half-life
@@ -443,13 +537,20 @@ Repeat the frozen evaluation protocol on future windows. Each run trains or cons
 
 This is the first meaningful test of continual personalization. It should remain offline. Exposing recommendations would change the data-generating process and begins the separate coactive-learning experiment in [[Paper]].
 
-## 9. Baselines and Sanity Checks
+## 10. Baselines and Sanity Checks
 
 At minimum, include:
 
 - unconditional action-type and file frequencies;
 - continuation using only the current note prefix;
+- a five-action GRU for structured action fields;
 - recency-only history;
+- BM25 retrieval over raw events;
+- GUM-style proposition retrieval;
+- JIT objective induction from the current context;
+- chronological LoRA SFT;
+- DITTO after SFT is understood;
+- LongNAP-style learned retrieval when practical;
 - shuffled personal history;
 - history from the wrong time period;
 - history with timestamps destroyed;
@@ -460,7 +561,7 @@ Shuffling and wrong-person controls are valuable because a model might improve m
 
 Deliberately insert a future event in a private test fixture and verify that leakage detection catches it. Deliberately corrupt timestamps and content provenance to verify that the audit reports change.
 
-## 10. Weakest-Link Decision Table
+## 11. Weakest-Link Decision Table
 
 | Observation | Most likely weak link | Next action |
 |---|---|---|
@@ -471,46 +572,53 @@ Deliberately insert a future event in a private test fixture and verify that lea
 | Added context helps but only on style-like metrics | content learning is unproven | add content-sensitive ranking and hard negatives |
 | ICL works but SFT does not | weight-update data or optimization | debug SFT; do not infer weights are intrinsically worse |
 | SFT works but ICL does not | context budget or retrieval | test memory and context selection |
+| JIT objectives work but longitudinal memory does not | current task inference dominates stable personal history | prioritize local objective capture and test when history adds marginal value |
+| GUM propositions work but raw retrieval does not | raw history is too noisy for the context budget | improve semantic compression while retaining source provenance |
+| DITTO works but SFT does not | negative contrast is informative | retain DITTO as a prediction method while keeping its preference assumption explicit |
 | Methods improve offline but decay quickly | data half-life or project shift | emphasize recent updates and online repetition |
 | No current method exploits demonstrably useful data | algorithmic benchmark | preserve the dataset and expose the failure clearly |
 
 The final row is an acceptable research outcome. It turns the personal stream into a concrete continual-learning benchmark rather than forcing a downstream recommendation system to be built on an invalidated foundation.
 
-## 11. Main Confounds to Prevent
+## 12. Main Confounds to Prevent
 
-### 11.1 Data amount, context amount, and training amount
+### 12.1 Data amount, context amount, and training amount
 
 These are different variables. More historical events, more tokens in one prompt, more retrieved memories, and more optimization examples must not be treated as the same scaling axis.
 
-### 11.2 Model capability versus personalization method
+### 12.2 Model capability versus personalization method
 
 Comparing a frontier model using ICL with a smaller open model using SFT confounds algorithm and base capability. First compare mechanisms on the same model; then compare model classes.
 
-### 11.3 Style versus content
+### 12.3 Style versus content
 
 Lower token loss may come from learning punctuation, casing, vocabulary, and note structure. Report content-sensitive candidate ranking with hard negatives sharing similar style. Also decompose predictable operation and location from semantic content.
 
-### 11.4 Chronological leakage
+### 12.4 Chronological leakage
 
 Current note snapshots, retroactively attached page text, completed chat responses, and neighboring edits can expose future information. Every example must be reconstructible from immutable events available before the target began.
 
-### 11.5 Action granularity
+### 12.5 Action granularity
 
 Word-level actions are numerous but noisy; entire commits are clean but may combine several intentions. Sentence, bullet, or coherent edit bursts are the initial compromise. Results should be reported by segmentation version.
 
-### 11.6 Copying versus authorship
+### 12.6 Copying versus authorship
 
 Pasted source text is not equivalent to a self-generated continuation. It may still be a meaningful action, but it requires distinct provenance and should not be scored as though the model were expected to invent the copied text.
 
-### 11.7 Behavioral adaptation to collection
+### 12.7 Behavioral adaptation to collection
 
 Knowing that activity is recorded may change writing, browsing, or chat behavior. Collector visibility and major workflow changes should be logged. Online comparisons should not assume stationarity.
 
-### 11.8 Prediction versus preference
+### 12.8 Prediction versus preference
 
 Observed behavior is not automatically optimal behavior. Success at predicting a next action establishes modeling ability, not alignment with an ideal self or proof of a true reward function. That bridge remains a later hypothesis.
 
-## 12. Success Criteria
+### 12.9 Inferred-objective circularity
+
+An objective or proposition generated by the same model that later scores candidates can create self-consistent but behaviorally false improvements. Primary evaluation must remain tied to the actual held-out action. Report the objective-induction model separately from the predictor and evaluator, and use an independent model or human audit for a diagnostic subset.
+
+## 13. Success Criteria
 
 The overall toy program succeeds if it produces an interpretable answer to each reached gate.
 
@@ -524,7 +632,7 @@ Adding correct personal browser or chat context produces a repeatable improvemen
 
 ### Personalization success
 
-At least one of ICL, memory, or SFT improves over a no-history baseline on future actions, and the effect is not explained solely by style or leakage.
+At least one of ICL, raw-event retrieval, semantic memory, JIT objective conditioning, SFT, or demonstration-derived adaptation improves over a no-history baseline on future actions, and the effect is not explained solely by style or leakage.
 
 ### Scaling success
 
@@ -532,25 +640,27 @@ Performance changes systematically with at least one well-defined axis of person
 
 The exact minimum effect size should be fixed after the pipeline smoke test but before examining the substantive held-out comparison. It should be large enough to affect a product or research decision, not merely statistically distinguishable because many correlated edits were counted as independent.
 
-## 13. Implementation Order
+## 14. Implementation Order
 
 1. Start browser and chat collectors immediately.
 2. Define the common event envelope and local privacy boundaries.
 3. Reconstruct append-only Obsidian targets from existing Git history.
 4. Build chronological manifests and leakage tests.
-5. Implement trivial and no-context baselines.
+5. Implement trivial, no-context, and five-action GRU baselines.
 6. Run the Obsidian-only smoke test while richer data accumulates.
 7. Audit prospective browser/chat timelines manually and repair collectors.
 8. Freeze the first multimodal read/write dataset.
 9. Run the data-source value experiment with one fixed strong model.
-10. If signal exists, compare ICL, retrieval or memory, and SFT on one fixed open model.
-11. If a method works, measure local scaling, recency, and data half-life.
-12. Repeat on future sealed windows.
-13. Only then design the recommendation and coactive-preference experiment.
+10. If signal exists, compare recent-context ICL, BM25 retrieval, and SFT on one fixed open model.
+11. Compare GUM-style proposition memory and JIT objective conditioning against the same raw evidence.
+12. If the simple methods work, add DITTO and a LongNAP-style learned retrieval condition.
+13. Measure local scaling, recency, and data half-life using the methods that survived.
+14. Repeat on future sealed windows.
+15. Only then design the recommendation and coactive-preference experiment.
 
 This order moves quickly because collection and pipeline development overlap, but each reported comparison changes one main uncertainty at a time.
 
-## 14. Required Artifacts
+## 15. Required Artifacts
 
 The toy program should produce:
 
@@ -560,7 +670,7 @@ The toy program should produce:
 - dataset and context manifests;
 - chronological split definitions;
 - leakage and provenance tests;
-- baseline, ICL, memory, and SFT evaluation adapters;
+- frequency, GRU, raw-ICL, BM25, GUM, JIT-objective, SFT, DITTO, and learned-retrieval evaluation adapters;
 - generative and candidate-ranking metrics;
 - paired performance curves with uncertainty;
 - a qualitative failure analysis keyed to source events;
@@ -568,7 +678,7 @@ The toy program should produce:
 
 The decision reports matter as much as the final benchmark. Each should state which assumption survived, which failed, and what new complexity is justified next.
 
-## 15. Non-Goals
+## 16. Non-Goals
 
 This experiment does not attempt to establish:
 
@@ -576,7 +686,7 @@ This experiment does not attempt to establish:
 - that recorded behavior is optimal;
 - that prediction necessarily implies understanding;
 - that recommendations improve the person;
-- online DPO or other preference optimization;
+- online preference optimization from live proposal exposure; DITTO is included only as an offline demonstration-derived algorithm baseline;
 - an implicit value function for long-horizon planning;
 - autonomous computer use;
 - multi-agent coordination;
@@ -585,8 +695,8 @@ This experiment does not attempt to establish:
 
 Those questions become worth testing only after the event stream has demonstrated predictive signal and at least one tractable method can use it.
 
-## 16. Conclusion
+## 17. Conclusion
 
-The fastest path is not to run the largest model-method-data matrix immediately. It is to collect the irrecoverable browser and chat context now while using existing Obsidian history to make the pipeline real. The first substantive experiment then holds the model fixed and asks whether richer personal context improves prediction. The second holds the model and data fixed and asks whether ICL, memory, or SFT uses that signal best. Scaling, half-life, online repetition, and model-class comparisons follow only after these simpler claims survive.
+The fastest path is not to run the largest model-method-data matrix immediately. It is to collect the irrecoverable browser and chat context now while using existing Obsidian history to make the pipeline real. The first substantive experiment then holds the model fixed and asks whether richer personal context improves prediction. The second holds the model and data fixed and asks whether raw ICL, retrieval, semantic memory, inferred objectives, or SFT uses that signal best. Demonstration-derived preference optimization and learned retrieval enter only after the simpler comparisons. Scaling, half-life, online repetition, and model-class comparisons follow only after these earlier claims survive.
 
 This sequence preserves the original ambition while making failure useful. It can show that collection is inadequate, that personal context lacks signal for the chosen target, that context construction is poor, that current algorithms cannot exploit the signal, or that one personalization mechanism works. Any of those results is more valuable than a complex end-to-end system whose failure cannot be located.
