@@ -324,7 +324,10 @@ algorithms considered and rejected for now and why: (there are likely practicali
 - step 8 is go through inbound backlog to invalidate any takes up until this point
 - step 9 is rank the assumptions required for phase 1 to show frontier performance in order of importance to final goal
 - step 10 is implement an experiment to attempt to invalidate the load bearing assumption from step 9
+- step 11 is publish the experiment
 
 step 1 is mostly described in the beginning of [[Paper]]. the only thing that feels weird is how to think through phase 2. the model will be displaying the next write actions it predicts based on the given history. that will actually result in an additional read event the model did not previously consider when it was sampled. how will it ever be able to learn to predict the write event well unless it learns to predict itself? does this actually prevent training or will a good model just figure out how its samples impact the user? the loss function forces its output to (1) be close to the users output and (2) distance itself from counterfactual samples. 
 
 it feels like if you just mask the model's samples from the model training then it's fine. the samples will impact the user but if that impact is positive and recognized as such by the user, then you are teaching the model to now predict a 'better' user, which is the goal anyways. if the impact is positive and unrecognized, the user will not use the product, which is a different question. if the impact is negative and recognized as such by the user, it will not be used, so it doesn't matter. and if the impact is negative and not recognized as such by the user, then nothing can help that user anyways
+
+i need to figure out the details around the continual retraining of the pure BC policy and how that relates to whats currently scoped, but phase 1 and phase 2 seem inseparable because the BC policy will only be practically useful if displayed to the user, which leads into thinking about how to properly model that relationship
