@@ -204,6 +204,7 @@ algorithms considered and rejected for now and why: (there are likely practicali
 			- i wonder how reasoning to retrieve then predict compares to direct autoregressive prediction. the latter feels way more sample inefficient.
 			- the retrieval is very simple BM25 from raw event logs
 			- but they need GRPO and LoRA for this??
+			- basically because they allow the model to reason through the correct answer, then do self-supervised fine tuning via LoRA to improve the reasoning towards the right answer, rather than trying to one shot the right answer. interesting.
 			- this is way simpler than attempting TTT or the like
 			- also discusses going the next step of taking a computer use agent to allow the predictor model to actually take actions
 			- one thing that stands out is that this is much more replacement than augmentation
