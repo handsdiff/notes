@@ -196,7 +196,7 @@ algorithms considered and rejected for now and why: (there are likely practicali
 			- uses a discriminator to distinguish expert vs non expert trajectories, but we don't actually know which ones are expert vs non expert
 	- online BC/IL
 		- just batch retraining, nothing crazy. 'online' is a misnomer, since it doesnt determine freshness of data. 'online' is when the policy actually acts in the environment. in our initial formulation the policy is not acting at all. this is offline data just retrained at test time (ideally, or perhaps not ideally)
-	- https://oshaikh.com/
+	- https://oshaikh.com/ (these also have git implementations that could be useful during implementation to compare to)
 		- https://oshaikh.com/papers/longnap Learning Next Action Predictors from Human-Computer Interaction
 			- 
 		- https://oshaikh.com/papers/gums general user models
