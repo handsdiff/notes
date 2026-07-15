@@ -325,3 +325,4 @@ algorithms considered and rejected for now and why: (there are likely practicali
 - step 9 is implement an experiment to attempt to invalidate the load bearing assumption from step 8
 
 step 1 is mostly described in the beginning of [[Paper]]. the only thing that feels weird is how to think through phase 2. the model will be displaying the next write actions it predicts based on the given history. that will actually result in an additional read event the model did not previously consider when it was sampled. how will it ever be able to learn to predict the write event well unless it learns to predict itself? does this actually prevent training or will a good model just figure out how its samples impact the user? the loss function forces its output to (1) be close to the users output and (2) distance itself from counterfactual samples. 
+it feels like if you just mask the model's samples from the model training then it's fine. 
