@@ -198,7 +198,9 @@ algorithms considered and rejected for now and why: (there are likely practicali
 		- just batch retraining, nothing crazy. 'online' is a misnomer, since it doesnt determine freshness of data. 'online' is when the policy actually acts in the environment. in our initial formulation the policy is not acting at all. this is offline data just retrained at test time (ideally, or perhaps not ideally)
 	- https://oshaikh.com/ (these also have git implementations that could be useful during implementation to compare to)
 		- https://oshaikh.com/papers/longnap Learning Next Action Predictors from Human-Computer Interaction
-			- closest to my wor
+			- closest to my work. trains next action prediction from computer use data. 
+			- super useful in terms of practical data pipelines
+			- 
 		- https://oshaikh.com/papers/gums general user models
 			- i thought this was insane but it just seems to create natural language propositions based on computer use, and recommend based on that. simple, but somewhat effective. this might be similar to something my work ends up falling back to. likely a very good baseline to compare to, as well as good resource for comparable data preprocessing and UX
 		- https://oshaikh.com/papers/grounding grounding towards common knowledge research

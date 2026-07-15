@@ -1,5 +1,5 @@
 
-- starting to stack up a lot of random work (signing up for events, increasing branding via twitter banner + personal site, making target market concrete, going through old information to discover anything relevant, posting blog)
+- starting to stack up a lot of random work (signing up for events, increasing branding via twitter banner + personal site, making target market and their growing problem as evidenced by time or money more concrete, going through old information to discover anything relevant, posting blog)
 - 
 - put precursor banner on personal
 - https://x.com/willccbb/status/2076701469882085382?s=20
