@@ -331,3 +331,5 @@ step 1 is mostly described in the beginning of [[Paper]]. the only thing that fe
 it feels like if you just mask the model's samples from the model training then it's fine. the samples will impact the user but if that impact is positive and recognized as such by the user, then you are teaching the model to now predict a 'better' user, which is the goal anyways. if the impact is positive and unrecognized, the user will not use the product, which is a different question. if the impact is negative and recognized as such by the user, it will not be used, so it doesn't matter. and if the impact is negative and not recognized as such by the user, then nothing can help that user anyways
 
 i need to figure out the details around the continual retraining of the pure BC policy and how that relates to whats currently scoped, but phase 1 and phase 2 seem inseparable because the BC policy will only be practically useful if displayed to the user, which leads into thinking about how to properly model that relationship
+
+continual BC retraining in and of itself is a huge challenge due to catastrophic forgetting risks
