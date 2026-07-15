@@ -207,7 +207,6 @@ algorithms considered and rejected for now and why: (there are likely practicali
 			- 
 		- https://oshaikh.com/papers/just-in-time-objectives JIT objectives, inferring objective from user actions and helping, seems very similar to assistance games
 			- 
-		- https://augmented-mind.github.io/episodes/ep01
 	- https://x.com/EchoShao8899/status/2077035671903162456?s=20
 
 - is phase 1 a process reward model?
