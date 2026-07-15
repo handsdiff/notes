@@ -16,6 +16,9 @@
 - https://genai-handbook.github.io/
 - https://x.com/m_pulkit/status/2076839055640150474?s=20
 - https://x.com/_a9lim/status/2077097652907606392?s=20
+- https://x.com/jacobeffron/status/2075286592668012967?s=20
+- https://x.com/willccbb/status/2077312983915794824?s=20
+- potentially useful for phase 3 rollouts https://x.com/0xSero/status/2077352942953169278?s=20
 - 
 - seeing a lot of data that you can perform RL directly on the activations of an LLM, not sure what that means, and that doing so could massively speed up and raise the ceiling for LLM reasoning via recurrent iteration in neural activation space
 - control of LLMs will have a massive massive impact on the US presidential election. whats my opinion on how this likely plays out?
