@@ -291,4 +291,5 @@ algorithms considered and rejected for now and why: (there are likely practicali
 - i think a visualization about how the suggestions priming the user to do something, without actually 'accepting' them, results in the model outperforming demonstration (well established from literature around preference data) while also moving the user towards goals faster, so it becomes a symbiotic, positive sum relationship. the visualization would be two sloping exponentials, with the human consistently above the AI, the AI getting pulled up from pairwise contrastive learning outperforming SFT, and the human being pushed up as a result since they are still in the loop
 - do E2E-TTT and Sutton's NetworkIDBD address the same thing?
 - E2E-TTT stands out as the most practical method of addressing common failure modes around lack of long context learning / drifting data distributions
-- you just *cannot* outsource your thinking. you get left behind, realize you're left behind, then need to catch up. true replacement involves you not doing anything 
+- you just *cannot* outsource your thinking. you get left behind, realize you're left behind, then need to catch up. true replacement involves you not doing anything
+- did cursor sell out when they pivoted to cloud agents instead of doubling down on personal tab completion?
