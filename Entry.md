@@ -1,5 +1,5 @@
 
-- starting to stack up a lot of random work (signing up for events, increasing branding via twitter banner + personal site, making target market and their growing problem as evidenced by time or money more concrete, going through old information to discover anything relevant, posting blog)
+- starting to stack up a lot of random work (signing up for events, increasing branding via twitter banner + personal site, making target market and their growing problem as evidenced by time or money more and their growing problem as evidenced by time or money more concrete, going through old information to discover anything relevant, posting blog)
 - sent an email to Omar
 - 
 - put precursor banner on personal
@@ -20,6 +20,10 @@
 - https://x.com/jacobeffron/status/2075286592668012967?s=20
 - https://x.com/willccbb/status/2077312983915794824?s=20
 - potentially useful for phase 3 rollouts https://x.com/0xSero/status/2077352942953169278?s=20
+- https://oaklab.ai/posts/learning-from-experience-instead-of-curated-datasets
+	- https://claude.ai/chat/5038f012-65a1-4ff8-ac40-21f46f99290b
+	- im confused doesnt attention already determine whats useful from the context and what is not?
+- https://arxiv.org/pdf/2607.05394
 - https://oaklab.ai/posts/learning-from-experience-instead-of-curated-datasets
 	- https://claude.ai/chat/5038f012-65a1-4ff8-ac40-21f46f99290b
 	- im confused doesnt attention already determine whats useful from the context and what is not?

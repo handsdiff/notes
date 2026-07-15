@@ -337,3 +337,5 @@ continual BC retraining in and of itself is a huge challenge due to catastrophic
 how to handle write actions done by AI, not by the human? likely just dont consider it a write action, or label the author and only train on human author writes. how to detect? a bit harder. for example if chatgpt app writes to obsidian, any demarcation without requiring screen recording or world dynamics models?
 
 longNAP actually produced a result in terms of user action prediction months ago. thats something to keep in mind in terms of what the bar for success is. feels like THE baseline to use.
+
+The “goals” I’m expecting the human model to implicitly map (for it to predict well) likely to cost in the data itself, since I work in a team where I communicate my goals to them
