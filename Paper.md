@@ -194,7 +194,7 @@ $$
 h_t \rightarrow Z_t^R \rightarrow y_t \rightarrow \text{policy update}.
 $$
 
-Accordingly, the resulting utility score is identified only over actions that are comparable to the proposals shown in observed contexts. The score is local to a user, context-construction policy, action segmentation policy, and reference model.
+Accordingly, the resulting utility score is identified only over actions that are comparable to the proposals shown in observed contexts. The score is local to a user, context-construction policy, action segmentation policy, and explicitly versioned policy/reference lineage.
 
 ## 4. Method
 
@@ -399,7 +399,7 @@ $$
 
 Pairwise expansion gives one comparison per valid rendered candidate. These comparisons are correlated because they share $h_t$ and $y_t$, so the implementation averages within interaction before averaging across interactions, as in the IPO expression above. This prevents a large slate from giving one human action disproportionate batch weight.
 
-The minimal rolling-reference system does not repeatedly replay the same preference pair under each new daily reference. Doing so would ask for another $1/(2\beta)$ separation from every successive checkpoint and could turn one observation into unbounded cumulative pressure. A pair is consumed by an accepted update whose frozen reference matches its collection policy. If historical preference replay is later required, the loss must either retain the pair's collection-time reference, transform the comparison into an archival-anchor coordinate, or apply an explicitly justified decay or off-policy estimator.
+The minimal rolling-reference system does not repeatedly replay the same preference pair under each new daily reference. Doing so would ask for another $1/(2\beta)$ separation from every successive checkpoint and could turn one observation into unbounded cumulative pressure. A training pair is consumed by an accepted update whose frozen reference matches its collection policy. A pair reserved for version-specific validation expires when that successor is published, because it no longer matches the next rolling reference. If historical preference replay is later required, the loss must either retain the pair's collection-time reference, transform the comparison into an archival-anchor coordinate, or apply an explicitly justified decay or off-policy estimator.
 
 ### 4.7 Combined continual objective
 
@@ -415,7 +415,7 @@ $$
 \end{aligned}
 $$
 
-In Phase 1, $\lambda_{\mathrm{pref}}=0$ and $\mathcal{P}_d$ is empty. Once suggestions begin, the preference term is enabled without creating a second canonical model. The $\lambda$ coefficients are selected using recent and fixed next-action likelihood, fresh preference accuracy, capability slices, and drift checks.
+During BC-only continual updates, setting $\lambda_{\mathrm{new}}=\rho_d$, $\lambda_{\mathrm{replay}}=1-\rho_d$, and $\lambda_{\mathrm{pref}}=0$ recovers the continual Phase 1 objective in Section 4.2. Once suggestions begin, the preference term is enabled without creating a second canonical model. A contribution from an empty batch is defined as zero. The $\lambda$ coefficients are selected using recent and fixed next-action likelihood, a held-out subset of fresh version-matched preference interactions, capability slices, and drift checks.
 
 The recent BC term scores a post-exposure human continuation $y_t$ under the pre-display context $h_t$, not the augmented context. This distills the result of the human–model interaction into the next canonical version. The augmented context remains available for influence analysis. Historical BC examples can be replayed broadly because their role is retention; preference pairs use the shorter, version-matched policy described above.
 
@@ -631,6 +631,7 @@ BCReplayBufferState {
   principal_id: UUID
   recent_example_ids: [UUID]
   historical_strata: map<string, [UUID]>
+  last_accepted_data_cutoff_at: timestamp?
   retention_cutoff_at: timestamp
   capacity_examples: int?
   capacity_tokens: int?
@@ -650,7 +651,8 @@ TrainingBatchManifest {
   update_trigger_reason: NEW_TOKEN_THRESHOLD | NEW_ACTION_THRESHOLD | MAX_DELAY | MANUAL | NONE
   recent_bc_example_ids: [UUID]
   replay_bc_example_ids: [UUID]
-  fresh_preference_pair_ids: [UUID]
+  preference_train_pair_ids: [UUID]
+  preference_validation_pair_ids: [UUID]
   recent_target_tokens: int
   replay_target_tokens: int
   microbatch_total_token_limit: int
@@ -668,7 +670,7 @@ TrainingBatchManifest {
 }
 ```
 
-The BC replay state records the sampling index, not a second mutable copy of raw content. Preference records are version-matched and consumed separately rather than placed in the long-lived BC replay mixture. The manifest makes every bootstrap, BC-only continual, and coactive continual update reproducible, including rejected candidates. In an enterprise deployment, raw content remains inside its tenant boundary; cross-user learning should operate on approved shared parameters or privacy-preserving aggregates rather than pooled plaintext traces.
+The BC replay state records the sampling index and the last data cutoff incorporated by an accepted update, not a second mutable copy of raw content. BC examples remain replayable after that watermark advances. Preference records are version-matched and consumed or expired separately rather than placed in the long-lived BC replay mixture. The manifest makes every bootstrap, BC-only continual, and coactive continual update reproducible, including rejected candidates and the interaction-level preference split. In an enterprise deployment, raw content remains inside its tenant boundary; cross-user learning should operate on approved shared parameters or privacy-preserving aggregates rather than pooled plaintext traces.
 
 ## 6. Algorithms
 
@@ -820,7 +822,10 @@ procedure UPDATE_CANONICAL_POLICY(
         and eligible under the current data policy
 
     R <- UPDATE_BC_REPLAY_INDEX(R, finalized)
-    pending_bc <- UNCONSUMED_FINALIZED_EXAMPLES(R)
+    pending_bc <- NEWLY_FINALIZED_SINCE(
+        R,
+        R.last_accepted_data_cutoff_at
+    )
     fresh_pairs <- pairs in P that are:
         UNCONSUMED,
         aggregate_weight > 0,
@@ -831,6 +836,12 @@ procedure UPDATE_CANONICAL_POLICY(
        and COUNT(fresh_pairs) < config.preference_trigger_pairs
        and TIME_SINCE_LAST_JOB() < config.maximum_update_delay:
         return pi_previous, R, P without launching a training job
+
+    preference_train, preference_validation <-
+        CHRONOLOGICAL_INTERACTION_SPLIT(
+            fresh_pairs,
+            validation_fraction=config.preference_validation_fraction
+        )
 
     recent <- SAMPLE_RECENT_TRAINING_WINDOW(
         R,
@@ -845,7 +856,7 @@ procedure UPDATE_CANONICAL_POLICY(
     groups <- PACK_AND_ACCUMULATE(
         recent,
         replay,
-        fresh_pairs,
+        preference_train,
         microbatch_total_token_limit=config.microbatch_total_tokens,
         effective_target_token_budget=config.effective_target_tokens
     )
@@ -853,12 +864,14 @@ procedure UPDATE_CANONICAL_POLICY(
     for optimizer group G in groups:
         L_new <- MEAN_MASKED_ACTION_NLL(candidate, G.recent)
         L_replay <- MEAN_MASKED_ACTION_NLL(candidate, G.replay)
-        L_pref <- MEAN_WEIGHTED_IPO(
-            candidate,
-            reference=pi_ref,
-            pairs=G.fresh_pairs,
-            beta=config.beta
-        )
+        L_pref <- 0
+        if config.lambda_pref > 0 and G.preference_train is not empty:
+            L_pref <- MEAN_WEIGHTED_IPO(
+                candidate,
+                reference=pi_ref,
+                pairs=G.preference_train,
+                beta=config.beta
+            )
         L_total <- config.lambda_new * L_new
                  + config.lambda_replay * L_replay
                  + config.lambda_pref * L_pref
@@ -870,7 +883,7 @@ procedure UPDATE_CANONICAL_POLICY(
         archival_anchor=config.archival_pi_0,
         rolling_recent_holdout=config.rolling_recent_holdout,
         fixed_historical_holdout=config.fixed_historical_holdout,
-        fresh_preference_pairs=fresh_pairs,
+        heldout_fresh_preference_pairs=preference_validation,
         slices=(domain, action_family, capability, target_length)
     )
 
@@ -878,9 +891,9 @@ procedure UPDATE_CANONICAL_POLICY(
 
     if PASSES_CONTINUAL_PUBLICATION_GATES(report):
         pi_next <- PUBLISH_IMMUTABLE(candidate, role=CANONICAL)
-        MARK_BC_TRIGGER_CONSUMED(R, pending_bc)
-        MARK_PREFERENCE_PAIRS_CONSUMED(P, fresh_pairs, batch_id)
-        EXPIRE_UNCONSUMED_PAIRS_FOR_OLDER_REFERENCES(P, VERSION(pi_next))
+        ADVANCE_ACCEPTED_BC_CUTOFF(R, MAX_FINALIZED_AT(pending_bc))
+        MARK_PREFERENCE_PAIRS_CONSUMED(P, preference_train, batch_id)
+        EXPIRE_UNCONSUMED_PAIRS_FOR_REFERENCE(P, VERSION(pi_ref))
         return pi_next, R, P
     else:
         reject candidate and retain pi_previous
@@ -920,7 +933,7 @@ Observed human actions must contain signal about the person's objectives while l
 
 ### 7.2 Temporal drift and the target distribution
 
-Recent behavior is not automatically better evidence than older behavior. It may represent a durable change, a temporary project, missing context, or noise. The recent-window definition, replay mixture, and update cadence jointly define the time-local distribution that $\pi_{\mathrm{BC},m}$ estimates. A continual model can be more current while becoming less representative of stable behavior. Both properties require separate evaluation.
+Recent behavior is not automatically better evidence than older behavior. It may represent a durable change, a temporary project, missing context, or noise. The recent-window definition, replay mixture, preference-pair eligibility, and update cadence jointly define the time-local distribution that the current canonical policy $\pi_d$ estimates. A continual model can be more current while becoming less representative of stable behavior. Both properties require separate evaluation.
 
 ### 7.3 Replay and capability retention
 
@@ -948,7 +961,7 @@ The person may learn from the policy, the policy learns from the person, and pre
 
 ### 7.9 Versioned references, support, and uncertainty
 
-Policy/reference log-ratios are trustworthy only near the contexts and actions on which preferences were collected. A score against the fixed anchor is historically comparable within its stated context and representation; a score against the current BC policy is a moving contemporaneous residual. Neither should be presented without its active, behavioral, and anchor version identifiers. Enterprise deployment should attach uncertainty or support checks and abstain from using the implicit score as an unrestricted verifier. Per-user data scarcity makes shared representation learning useful, but tenant and user identity must not be erased by indiscriminate pooling.
+Policy/reference log-ratios are trustworthy only near the contexts and actions on which behavior and preferences were collected. The rolling score $\beta[\log \pi_d(a\mid h)-\log \pi_{d-1}(a\mid h)]$ is a local residual for one accepted update. The cumulative score against archival $\pi_0$ is historically comparable within a fixed lineage, context representation, action segmentation, and $\beta$, but it may conceal many locally acceptable steps that add up to substantial drift. Every score must therefore carry its current-policy, rolling-reference, archival-anchor, and data-window version identifiers. The sensitivity of direct-preference objectives to the reference policy makes this bookkeeping part of the estimator rather than mere provenance [23]. Enterprise deployment should attach uncertainty or support checks and abstain from using either score as an unrestricted verifier. Per-user data scarcity makes shared representation learning useful, but tenant and user identity must not be erased by indiscriminate pooling.
 
 ## References
 
@@ -995,3 +1008,5 @@ Policy/reference log-ratios are trustworthy only near the contexts and actions o
 [21] B. Krause, E. Kahembwe, I. Murray, and S. Renals. [*Dynamic Evaluation of Transformer Language Models*](https://arxiv.org/abs/1904.08378). 2019.
 
 [22] A. Tandon et al. [*End-to-End Test-Time Training for Long Context*](https://arxiv.org/abs/2512.23675). 2025.
+
+[23] Y. Liu, P. Liu, and A. Cohan. [*Understanding Reference Policies in Direct Preference Optimization*](https://arxiv.org/abs/2407.13709). 2024.
