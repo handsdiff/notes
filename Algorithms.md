@@ -333,3 +333,7 @@ it feels like if you just mask the model's samples from the model training then 
 i need to figure out the details around the continual retraining of the pure BC policy and how that relates to whats currently scoped, but phase 1 and phase 2 seem inseparable because the BC policy will only be practically useful if displayed to the user, which leads into thinking about how to properly model that relationship
 
 continual BC retraining in and of itself is a huge challenge due to catastrophic forgetting risks
+
+how to handle write actions done by AI, not by the human? likely just dont consider it a write action, or label the author and only train on human author writes. how to detect? a bit harder. for example if chatgpt app writes to obsidian, any demarcation without requiring screen recording or world dynamics models?
+
+longNAP actually produced a result in terms of user action prediction months ago. thats something to keep in mind in terms of what the bar for success is. feels like THE baseline to use.
