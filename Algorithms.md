@@ -200,7 +200,7 @@ algorithms considered and rejected for now and why: (there are likely practicali
 		- https://oshaikh.com/papers/longnap Learning Next Action Predictors from Human-Computer Interaction
 			- 
 		- https://oshaikh.com/papers/gums general user models
-			- i thought this was insane but it just seems to create natural language propositions based on computer use, and recommend based on that. likely just a very good baseline to compare to, as well as good resource for comparable data preprocessing and UX
+			- i thought this was insane but it just seems to create natural language propositions based on computer use, and recommend based on that. simple, but somewhat effective. this might be similar to something my work ends up falling back to. likely a very good baseline to compare to, as well as good resource for comparable data preprocessing and UX
 		- https://oshaikh.com/papers/grounding grounding towards common knowledge research
 			- highlights that LLMs assume shared knowledge rather than confirming it, which is a result of current RLHF, making interaction less useful than it could be. interesting framing for what one of the issues is 
 		- https://oshaikh.com/papers/ditto DITTO (align LLMs from demonstrations)
