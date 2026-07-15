@@ -286,7 +286,7 @@ The initial prototype should use one serialization and one autoregressive head r
 
 #### 4.1.1 Phase 1 failure modes and escalation paths
 
-| Plausible failure | Vault’s proposed response |
+| Plausible failure | Hypothesized next steps |
 |---|---|
 | The event timeline, authorship, or action boundaries cannot be reconstructed reliably | Collector audits, versioned segmentation, provenance checks, confidence filtering |
 | The captured stream omits the information that caused the action, making the target underdetermined | Collect browser/chat context; oracle-context ablation; change the target if no signal exists |

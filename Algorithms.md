@@ -315,7 +315,7 @@ algorithms considered and rejected for now and why: (there are likely practicali
 
 - DONE step 1 is being concrete about the loss functions and algorithms used for phase 1, and concrete about which loss functions and algorithms could reasonably result in demonstrator outperformance for phase 2 from an assistance perspective rather than replacement perspective.
 - DONE step 2 is directionally discussing phase 3 goals, without necessarily being concrete about the intended algorithms and loss functions
-- step 3 is enriching step 1 with all the plausible ways it could go wrong, and expected next steps required in those failure modes
+- DONE step 3 is enriching step 1 with all the plausible ways it could go wrong, and expected next steps required in those failure modes
 - step 4 is determining what data to collect for phase 1 and 2, and how to clean it for phase 1
 - step 5 is enriching step 4 with all the plausible ways the data could be misconfigured, and expected next steps in those failure models
 - step 6 is publishing this plan publicly as a blog post, for sales/marketing purposes
