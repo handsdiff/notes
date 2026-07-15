@@ -403,7 +403,7 @@ The minimal rolling-reference system does not repeatedly replay the same prefere
 
 ### 4.7 Combined continual objective
 
-The human continuation remains the highest-density positive signal in Phase 2. Preference-only updates could improve relative ordering while degrading next-action calibration or forgetting earlier behavior. For canonical update $d$, let $\mathcal{N}_d$ contain recent BC examples, $\mathcal{R}_d$ contain stratified historical BC replay, and $\mathcal{P}_d$ contain fresh version-matched coactive pairs. The combined objective is
+The human continuation remains the highest-density positive signal in Phase 2. Preference-only updates could improve relative ordering while degrading next-action calibration or forgetting earlier behavior. For canonical update $d$, let $\mathcal{N}_d$ contain recent BC examples, $\mathcal{R}_d$ contain stratified historical BC replay, and $\mathcal{P}_d^{\mathrm{train}}$ contain the training subset of fresh version-matched coactive pairs. A chronological interaction-level split reserves the remainder as $\mathcal{P}_d^{\mathrm{val}}$. The combined objective is
 
 $$
 \begin{aligned}
@@ -411,7 +411,7 @@ $$
 ={}&
 \lambda_{\mathrm{new}}\mathcal{L}_{\mathrm{BC}}(\mathcal{N}_d) \\
 &+\lambda_{\mathrm{replay}}\mathcal{L}_{\mathrm{BC}}(\mathcal{R}_d) \\
-&+\lambda_{\mathrm{pref}}\mathcal{L}_{\mathrm{IPO}}^{(d)}(\mathcal{P}_d;\pi_{d-1}).
+&+\lambda_{\mathrm{pref}}\mathcal{L}_{\mathrm{IPO}}^{(d)}(\mathcal{P}_d^{\mathrm{train}};\pi_{d-1}).
 \end{aligned}
 $$
 
@@ -862,9 +862,14 @@ procedure UPDATE_CANONICAL_POLICY(
     )
 
     for optimizer group G in groups:
-        L_new <- MEAN_MASKED_ACTION_NLL(candidate, G.recent)
-        L_replay <- MEAN_MASKED_ACTION_NLL(candidate, G.replay)
+        L_new <- 0
+        L_replay <- 0
         L_pref <- 0
+
+        if G.recent is not empty:
+            L_new <- MEAN_MASKED_ACTION_NLL(candidate, G.recent)
+        if G.replay is not empty:
+            L_replay <- MEAN_MASKED_ACTION_NLL(candidate, G.replay)
         if config.lambda_pref > 0 and G.preference_train is not empty:
             L_pref <- MEAN_WEIGHTED_IPO(
                 candidate,
@@ -891,7 +896,8 @@ procedure UPDATE_CANONICAL_POLICY(
 
     if PASSES_CONTINUAL_PUBLICATION_GATES(report):
         pi_next <- PUBLISH_IMMUTABLE(candidate, role=CANONICAL)
-        ADVANCE_ACCEPTED_BC_CUTOFF(R, MAX_FINALIZED_AT(pending_bc))
+        if pending_bc is not empty:
+            ADVANCE_ACCEPTED_BC_CUTOFF(R, MAX_FINALIZED_AT(pending_bc))
         MARK_PREFERENCE_PAIRS_CONSUMED(P, preference_train, batch_id)
         EXPIRE_UNCONSUMED_PAIRS_FOR_REFERENCE(P, VERSION(pi_ref))
         return pi_next, R, P
