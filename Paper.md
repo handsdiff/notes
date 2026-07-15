@@ -1,6 +1,6 @@
 # From Behavioral Cloning to Coactive Preference Learning in Personal Read–Write Streams
 
-*A method draft for learning personalized action policies and implicit utility scores from ordinary computer use*
+*A method draft for learning personalized action policies and dense local preference scores from ordinary computer use*
 
 **Status:** Working paper draft. This document specifies the motivation, related work, problem formulation, objectives, records, and algorithms for Phases 1 and 2, then states a directional design for Phase 3 where the evidence does not yet justify the same level of algorithmic commitment. It intentionally contains no abstract, results, or conclusion.
 
@@ -12,7 +12,9 @@ Ordinary computer use supplies a denser signal. A person reads documents, browse
 
 Prediction alone, however, is bounded by imitation. A sufficiently accurate behavioral clone reproduces the person's historical action distribution; it does not by itself distinguish actions that express a goal well from actions that merely occurred. This is especially limiting in the intended setting. The useful regime is one in which a person's actions overlap substantially, but not perfectly, with their goals. If action and goal were unrelated, the history would not identify a useful policy. If they were identical, there would be no ceiling to raise through assistance.
 
-The Phase 1 records should therefore not be treated as expert demonstrations. They are correct labels for the person's realized behavior, but only imperfect proxies for the actions necessary to achieve the person's goals. This is **demonstrator suboptimality**, not necessarily ordinary label or capture noise. Phase 2 does not assume that the human suddenly becomes an expert. Instead, the Phase 1 policy supplies plausible alternatives near the person's behavioral distribution, and the post-exposure human continuation supplies local comparative information about those alternatives. The proposals are consequently hard **contrastive alternatives**, not actions known to be globally bad, and the continuation is assumed only to be a weak improvement on average [5, 6]. When that assumption holds, preference learning can move the canonical policy beyond pure imitation without presuming optimal demonstrations, in the spirit of better-than-demonstrator learning [16]. When it fails, the contrastive loss does not recover the person's latent goals.
+The Phase 1 records should therefore not be treated as expert demonstrations. They are correct labels for the person's realized behavior, but only imperfect proxies for the actions necessary to achieve the person's goals. This is **demonstrator suboptimality**, not necessarily ordinary label or capture noise. The person is assumed to have a goal or objective in mind and to know what outcome they are trying to achieve; the policy expressed by their read-write trajectory may nevertheless be an imperfect way to achieve it. The goal may be stated in the observed event stream or remain latent to the model. Phase 1 does not require a goal label: it learns to predict the next write action from the observable history.
+
+Phase 2 does not assume that the human suddenly becomes an expert. Instead, the Phase 1 policy supplies plausible alternatives near the person's behavioral distribution, and the post-exposure human continuation supplies local comparative information about those alternatives. The proposals are consequently hard **contrastive alternatives**, not actions known to be globally bad, and the continuation is assumed only to be a weak improvement on average with respect to the person's underlying objective [5, 6]. When that assumption holds, preference learning can move the canonical policy beyond pure imitation without presuming optimal demonstrations, in the spirit of better-than-demonstrator learning [16]. When it fails, the contrastive loss does not provide a reliable dense signal about which local actions better advance the person's goal.
 
 The second premise is that a predictive model can create useful contrastive data by sampling several plausible next actions and exposing them to the person during normal work. These outputs are not conventional recommendations. The interface does not ask the person to select or accept one. Instead, the proposals become part of the person's information state. The person may ignore them, copy one, refine one, combine several, or produce a continuation that would not have occurred without seeing them. The final human continuation is therefore a response to an intervention, not an uncontaminated sample from the pre-intervention human policy.
 
@@ -27,34 +29,35 @@ The proposed system has two training regimes applied to one canonical policy seq
 
 **Phase 3 is a planning extension rather than a third loss regime for the same canonical adapter.** It uses the personalized action prior and local preference information produced by Phases 1 and 2, learns action-conditioned world dynamics from the richer transition stream already being recorded, and searches over short trajectories in a computer-use sandbox. The interface expands from one-step continuations to selectable plans with simulated outcomes. The planning horizon grows only as simulation calibration, execution safety, and measured assistance quality permit. The user remains the principal: selecting or editing a plan delegates bounded execution rather than authorizing an unconstrained autonomous policy.
 
-The preference objective yields a policy/reference log-ratio that can be interpreted as an implicit, context-dependent utility score. This gives the direction enterprise value before any long-horizon autonomous agent exists: candidate drafts can be reranked for a particular employee, proactive continuations can become more useful, and later planning systems can use the score as one input to local action evaluation. The score is not yet a complete reward for arbitrary trajectories. It represents revealed preference over comparable, one-step continuations under the deployed human–model interaction loop.
+The preference objective yields a policy/reference log-ratio that can be used as a dense, context-dependent local action score. This local score and the person's global goal reward are different objects. The global reward exists independently as the outcome the person is trying to achieve, but it may be sparse, delayed, or not machine-verifiable at every step. Phase 2 uses comparisons as denser evidence about which immediate actions are more likely to advance it. This gives the direction enterprise value before any long-horizon autonomous agent exists: candidate drafts can be reranked for a particular employee, proactive continuations can become more useful, and later planning systems can use the score as one input to local action evaluation. The score is not yet a complete reward for arbitrary trajectories. It represents revealed preference over comparable, one-step continuations under the deployed human–model interaction loop.
 
-This draft makes six concrete design commitments:
+This draft makes seven concrete design commitments:
 
 - It models observed computer activity as an ordered event stream rather than a question–answer corpus.
 - It uses bounded, semantically meaningful write events as actions and applies loss only to the action target, not to prior context tokens.
 - It treats the canonical policy as a continual system: a low-rank personal adapter is updated asynchronously with token-budgeted microbatches, gradient accumulation, and stratified behavioral replay, then published only after recent-performance and forgetting checks.
 - It treats displayed model continuations as on-policy contrastive examples and the subsequent human continuation as a weak coactive correction.
+- It treats those comparisons as dense local evidence about actions that better advance a human-known global objective, not as the source or definition of that objective.
 - It combines continued behavioral cloning with Identity Preference Optimization (IPO) against the immediately preceding canonical checkpoint. The initial behavioral checkpoint is retained only as an archival anchor for cumulative measurement, capability evaluation, and rollback.
 - It logs enough provenance—event boundaries, exposure, policy versions, reference scores, and candidate-generation parameters—to reproduce every preference record and change the estimator later.
 
-The intended claim is deliberately narrow. Phase 1 bootstraps a personalized action policy. Phase 2 continually updates that same canonical policy from behavior and local coactive comparisons in a collaborative equilibrium shaped by both the model and the person. The version sequence tests whether the system tracks behavioral drift and absorbs human refinements without unacceptable forgetting or cumulative degradation. Neither regime identifies a person's stable latent goals, and neither justifies unconstrained multi-step optimization. Phase 3 therefore treats the Phase 2 score as a local planning input rather than a complete trajectory reward and introduces new dynamics, trajectory-feedback, sandbox, and authority requirements before increasing horizon.
+The intended claim is deliberately narrow. Phase 1 bootstraps a personalized action policy. Phase 2 continually updates that same canonical policy from behavior and local coactive comparisons in a collaborative equilibrium shaped by both the model and the person. The version sequence tests whether the system tracks behavioral drift and absorbs human refinements without unacceptable forgetting or cumulative degradation. Neither regime explicitly reconstructs the person's global reward function, and neither justifies unconstrained multi-step optimization. The hypothesis is instead that human comparisons provide dense local evidence about actions that better advance a real, human-known objective even when the demonstrated policy is suboptimal. Phase 3 therefore treats the Phase 2 score as a local planning input rather than a complete trajectory reward and introduces new dynamics, trajectory-feedback, sandbox, and authority requirements before increasing horizon.
 
 ## 2. Related Work
 
 ### 2.1 Behavioral cloning and learned human models
 
-Behavioral cloning learns a policy by maximizing the likelihood of demonstrated actions conditional on observed state. It is the most direct formulation of Phase 1. Carroll et al. study learned human models for human–AI collaboration and show the utility of separating a model of human behavior from an agent trained to collaborate with it [1]. Their setting has externally specified game rewards, whereas the present setting begins with natural work traces for which no task-level reward is generally available.
+Behavioral cloning learns a policy by maximizing the likelihood of demonstrated actions conditional on observed state. It is the most direct formulation of Phase 1. Carroll et al. study learned human models for human–AI collaboration and show the utility of separating a model of human behavior from an agent trained to collaborate with it [1]. Their setting supplies a machine-evaluable game reward at every relevant transition. The present setting also assumes that the person has a goal and knows the outcome they are trying to achieve, but that global reward is not generally observed by the system as a dense numerical training signal.
 
 Matti et al. provide an earlier task- and application-agnostic precedent for personalized next-action prediction [20]. They train recurrent models on approximately one week of a single user's keyboard and mouse activity to predict the next action from the preceding five actions over a fixed vocabulary of 442 recurring input classes. Their low-level discrete representation and short context differ from the semantically bounded, open-ended write actions and richer event history proposed here, but their results establish the feasibility of learning real-time computer-action predictions from an individual's ordinary use.
 
 Shaikh et al. formalize next action prediction from naturalistic computer use and introduce NAPsack, a passive VLM annotation pipeline, and LongNAP, a retrieval-augmented predictor trained with an LLM-judged temporal similarity reward [13]. This is the closest direct precedent for Phase 1: both works learn person-specific future actions from chronological interaction streams. Their target is an eight-action trajectory of unified natural-language computer events, however, whereas the present proposal predicts one bounded human write action from a functional separation of reads and writes. LongNAP also addresses long-history selection through generated reasoning traces and retrieval rather than the versioned context construction specified here. It does not collect proposal exposure and post-exposure human corrections, so it does not supply the coactive preference records required for Phase 2.
 
-Kobayashi et al. study autoregressive action predictors trained on unlabeled observation–action trajectories from goal-directed agents and show, in controlled hierarchical environments, that their residual streams encode linearly decodable beliefs about latent subgoals and support temporally abstract internal controllers [14]. This provides controlled evidence that next-action prediction can learn task structure beyond surface action frequencies and suggests a possible bridge from a behavioral prior to later hierarchical control. Their demonstrations come from expert or near-expert agents in fixed grid-world and continuous-control tasks, however, and their downstream internal reinforcement learning uses an externally specified sparse success reward. The result therefore does not establish that ordinary human work traces identify a user's utility, nor does it provide the coactive preference signal used in Phase 2.
+Kobayashi et al. study autoregressive action predictors trained on unlabeled observation–action trajectories from goal-directed agents and show, in controlled hierarchical environments, that their residual streams encode linearly decodable beliefs about latent subgoals and support temporally abstract internal controllers [14]. This provides controlled evidence that next-action prediction can learn task structure beyond surface action frequencies and suggests a possible bridge from a behavioral prior to later hierarchical control. Their demonstrations come from expert or near-expert agents in fixed grid-world and continuous-control tasks, however, and their downstream internal reinforcement learning uses an externally specified sparse success reward. The result therefore does not establish that ordinary human work traces identify the user's global reward or overcome demonstrator suboptimality, nor does it provide the coactive preference signal used in Phase 2.
 
 Classical behavioral cloning is vulnerable to covariate shift when the learned policy takes actions that move an environment into unfamiliar states. DAgger addresses this by querying an expert in states induced by the learner [2]. The proposed Phase 2 shares DAgger's on-policy corrective intuition, but the interaction is different: the system does not execute a trajectory and request an expert action at every visited state. It displays candidate macro-actions, then passively observes the person's next macro-action during ordinary work.
 
-Phase 1 should not be described as reward inference. Maximum-likelihood imitation can assign high probability to observed actions without identifying why the person took them. The contrastive signal introduced in Phase 2 is what supports a relative utility interpretation.
+Phase 1 should not be described as reward inference. Maximum-likelihood imitation can assign high probability to observed actions without identifying why the person took them. Phase 2 adds a contrastive signal that supports a relative, local action-value interpretation: it supplies denser evidence about which actions the person judges more likely to advance the objective they already have.
 
 Inverse reinforcement learning instead attempts to recover a reward that explains demonstrated trajectories. AIRL learns rewards through adversarial training with agent rollouts and environment dynamics [15]. D-REX weakens the expert-demonstrator assumption by injecting noise into a behavioral-cloning policy to construct automatically ranked trajectories, then learning and optimizing a reward that can outperform the original demonstrator [16]. These methods show how trajectory rankings can move beyond pure imitation, but they do not instantiate the present setting: the proposed records contain local post-exposure comparisons rather than executed agent trajectories, and their ordering comes from a human continuation rather than injected noise.
 
@@ -96,11 +99,41 @@ Personalized reward modeling conditions judgments on individual or group differe
 
 Li et al. propose Personalized-RLHF, which jointly learns a lightweight user model and a personalized language model from explicit or implicit individual feedback [18]. Their framework establishes a direct personalized-feedback baseline. The present proposal differs by initializing personalization from passive chronological action traces and then deriving weak preference comparisons from proposal exposure during ordinary work rather than beginning with a conventional human-feedback dataset.
 
-Preferences may also change because of the system itself. Carroll et al. formalize alignment problems with changing and influenceable reward functions [12]. This concern is not removable by renaming the interface. The proposals are interventions and may shift what the person writes or wants. The method therefore targets the deployed collaborative process, not an unchanging reward function presumed to exist before exposure. Stable long-horizon claims require additional outcome measurements and intervention-aware evaluation beyond Phases 1 and 2.
+Local judgments and behavior may also change because of the system itself. Carroll et al. formalize alignment problems with changing and influenceable reward functions [12]. This concern is not removable by renaming the interface. The present formulation assumes that the person has a goal at the time of an interaction, but proposals may change the person's beliefs, plan, action policy, or even subsequent goal specification. The core Phase 2 estimator treats each valid comparison as evidence about the goal active when the comparison was produced; it does not require one immutable lifetime reward function. Stable long-horizon claims require additional outcome measurements and intervention-aware evaluation beyond Phases 1 and 2.
 
 Williams et al. provide an empirical warning about optimizing directly for user feedback: in simulated deployment settings, language models learn manipulative or deceptive feedback-gaming strategies and can identify and target a small vulnerable subset of users [19]. Their results strengthen the case for treating immediate interaction feedback as gameable and for evaluating the proposed collaborative process with outcome measurements and intervention-aware controls rather than assuming that lower local loss is sufficient.
 
 ## 3. Problem Formulation
+
+The formalism distinguishes a person's **global goal reward** from the **dense local preference signal** used for learning. Let $g_t$ denote the goal or objective with respect to which the person evaluates actions at time $t$, and let
+
+$$
+R_u^{G}(\tau;g_t)
+$$
+
+denote the reward of a resulting trajectory or outcome $\tau$. The person is assumed to know the goal they are pursuing, and may be able to express it, but the model need not observe a separate goal label. A goal statement, when present, is simply part of the prior read-write event history. Nor is $R_u^{G}$ assumed to be available to the system as a numerical verifier at each step. It may be sparse, delayed, or evaluable only through the person's judgment and eventual outcomes.
+
+The human action policy can be suboptimal even though the human knows the goal. Conceptually, a human action is generated by $H_u(a\mid h,g)$, while Phase 1 observes only $h$ and learns the marginal predictive policy
+
+$$
+\pi_0(a\mid h,u)
+\approx
+\int H_u(a\mid h,g)\,p(g\mid h,u)\,dg.
+$$
+
+No goal annotation or reward loss is required for this behavioral objective. Phase 2 adds local comparisons intended to reveal which actions have higher goal-relative continuation value. For interpretation, define
+
+$$
+Q_u^{G}(h,a;g)
+=
+\mathbb{E}
+\left[
+R_u^{G}(\tau;g)
+\mid h,a,\text{ future human-assistant interaction}
+\right].
+$$
+
+The system does not observe this quantity directly. Its load-bearing assumption is that the post-exposure human correction provides noisy local evidence about its ordering.
 
 ### 3.1 Event stream and macro-actions
 
@@ -163,20 +196,20 @@ $$
 z_{t,1:K} \sim \pi_{d-1}(\cdot \mid h_t, u).
 $$
 
-The interface renders a subset $R_t \subseteq \{1,\ldots,K\}$. After exposure to the rendered slate $Z_t^R$, the person produces a continuation
+The interface renders a subset $R_t \subseteq \{1,\ldots,K\}$. After exposure to the rendered slate $Z_t^R$, the person produces a continuation with respect to their active goal $g_t$:
 
 $$
-y_t \sim H_u(\cdot \mid h_t, Z_t^R),
+y_t \sim H_u(\cdot \mid h_t, Z_t^R,g_t),
 $$
 
-where $H_u$ denotes the human's post-exposure behavior. This equation makes the central feedback loop explicit: $y_t$ is generally not sampled from $H_u(\cdot \mid h_t)$.
+where $H_u$ denotes the human's post-exposure behavior. The goal argument belongs to the data-generating account; $g_t$ need not be separately observed or supplied to the learned policy. This equation makes the central feedback loop explicit: $y_t$ is generally not sampled from $H_u(\cdot \mid h_t,g_t)$.
 
 ### 3.3 Weak coactive preference assumption
 
 For each rendered candidate $z_{t,i}$, the core estimator constructs
 
 $$
-y_t \succ_{h_t,u} z_{t,i}
+y_t \succ_{h_t,u,g_t} z_{t,i}
 $$
 
 only if all of the following hold:
@@ -186,19 +219,27 @@ only if all of the following hold:
 3. The human continuation is not an exact or semantic equivalent of the candidate.
 4. The event boundary is reliable enough that the continuation can reasonably be associated with the exposure.
 
-This is a **weak improvement assumption**. It does not assert that $y_t$ is optimal, that the person evaluated every candidate explicitly, or that the candidate failed to help. A candidate may have been causally useful by inspiring the human continuation. The estimator asks a narrower training question: after human refinement, which action should the policy be more able to produce directly from the original context?
+This is a **weak improvement assumption with respect to the active global goal**. It does not assert that $y_t$ is optimal, that the person evaluated every candidate explicitly, or that the candidate failed to help. It assumes that the person's corrective or evaluative ability after seeing plausible alternatives is, on average, stronger than the candidate-generating policy even though the person's unaided action policy remains suboptimal. A candidate may have been causally useful by inspiring the human continuation. In terms of the global objective, the pair is noisy evidence that
+
+$$
+Q_u^{G}(h_t,y_t;g_t)
+>
+Q_u^{G}(h_t,z_{t,i};g_t).
+$$
+
+The estimator asks a narrower training question: after human refinement, which action should the policy be more able to produce directly from the original context?
 
 The assumption can fail. A person may act under time pressure, misunderstand a proposal, produce an incomparable action, or be negatively influenced. The record format therefore retains the full interaction so that stronger causal or slate-level estimators can replace the pairwise labels without recollecting the data.
 
 ### 3.4 Optimization target
 
-The Phase 2 target is not the counterfactual action the person would have taken without exposure; that action is unobserved. Nor is it click-through rate. The target is a policy that improves its expected local continuation quality under the joint deployed process:
+The Phase 2 target is not the counterfactual action the person would have taken without exposure; that action is unobserved. Nor is it click-through rate. The target is a policy that assigns more probability to local actions whose human corrections indicate higher continuation value under the person's global objective. The comparisons provide a dense training signal even when the global reward is sparse, delayed, or unavailable as a numerical verifier. Data are generated under the joint deployed process:
 
 $$
 h_t \rightarrow Z_t^R \rightarrow y_t \rightarrow \text{policy update}.
 $$
 
-Accordingly, the resulting utility score is identified only over actions that are comparable to the proposals shown in observed contexts. The score is local to a user, context-construction policy, action segmentation policy, and explicitly versioned policy/reference lineage.
+Accordingly, the resulting score is identified only over actions that are comparable to the proposals shown in observed contexts. It is a local surrogate for relative action value under the user's objective, not an estimate of the complete global reward function. The score is local to a user, context-construction policy, action segmentation policy, and explicitly versioned policy/reference lineage. Whether repeated local improvements actually raise realized global reward is a separate empirical hypothesis that requires downstream outcome evaluation.
 
 ## 4. Method
 
@@ -442,9 +483,9 @@ Fresh preference data are on-policy because $z_{t,i}$ was sampled by the same $\
 
 Each local update is regularized relative to yesterday, but many individually small updates can move far from $\pi_0$. Fixed capability evaluations and historical BC replay therefore remain mandatory. An explicit global KL penalty to $\pi_0$ or another archived teacher is an escalation path if those controls fail, not part of the minimal objective.
 
-### 4.8 Implicit personalized utility
+### 4.8 Preference-shaped local action scores
 
-The ratio between successive canonical versions defines an incremental implicit score
+The ratio between successive canonical versions defines an incremental preference-shaped score
 
 $$
 \widehat r_{d,u}^{(\mathrm{step})}(h,a)
@@ -455,7 +496,7 @@ $$
 +c_d(h,u),
 $$
 
-where $c_d(h,u)$ is an arbitrary context-only constant. It cancels when actions are ranked in the same context. This score measures how update $d$ changed the policy relative to its immediate predecessor; it is not a time-invariant reward function.
+where $c_d(h,u)$ is an arbitrary context-only constant. It cancels when actions are ranked in the same context. This score measures how update $d$ changed the policy relative to its immediate predecessor. It is neither the person's sparse global goal reward nor a time-invariant environment reward function.
 
 The archival checkpoint $\pi_0$ supplies a cumulative coordinate. For a fixed context and action,
 
@@ -474,7 +515,7 @@ If $\beta$ is held constant, the cumulative operational score is $\widehat r_{d,
 
 These scores can rerank candidate continuations, summarize how the canonical policy changed, or provide a local terminal score to a bounded search procedure. They do not require a separately trained Phase 1 policy: $\pi_0$ is an archived checkpoint in the same canonical lineage. Their scale is meaningful only relative to the same version lineage, segmentation, and context policy.
 
-The phrase **implicit reward model** should therefore be qualified. Because every canonical update also receives BC and replay gradients, the policy ratio reflects the full collaborative update, not an uncontaminated standalone preference model. It estimates a local version-relative score over actions similar to those sampled and corrected during deployment. It does not yet estimate delayed organizational outcomes, causal effects on other people, or arbitrary multi-step trajectory returns. Those require additional state-transition and outcome data.
+The phrase **implicit reward model** should therefore be qualified. The person's global goal reward exists independently of this score. Phase 2 attempts to turn sparse evidence about that objective into a denser local signal through comparisons. However, because every canonical update also receives BC and replay gradients, the policy ratio reflects the full collaborative update, not an uncontaminated standalone preference model. It is best described as a **preference-shaped local action score** over actions similar to those sampled and corrected during deployment. It may proxy relative goal-directed continuation value within the support of those comparisons, but it does not identify the global reward, delayed organizational outcomes, causal effects on other people, or arbitrary multi-step trajectory returns. A clean reusable reward model would require a separately isolated preference estimator or preference-only parameterization; multi-step use additionally requires state-transition and outcome data.
 
 ## 5. Data Structures
 
@@ -934,7 +975,7 @@ procedure UPDATE_CANONICAL_POLICY(
 
 Set `lambda_pref = 0` before suggestions begin; after suggestions begin, the same algorithm enables the preference term without creating another canonical model. The update trigger controls freshness, not the number of examples in one gradient step. Microbatch size is determined by total serialized tokens that fit in memory; gradient accumulation determines the effective target-token budget. Collection continues from $\pi_{d-1}$ while its candidate successor trains. An accepted candidate becomes both $\pi_d$ and the next job's frozen reference.
 
-### Algorithm 5: Use incremental and cumulative implicit scores
+### Algorithm 5: Use incremental and cumulative local action scores
 
 ```text
 procedure RERANK_FOR_PRINCIPAL(
@@ -960,7 +1001,7 @@ The formalism depends on the following assumptions. They should be tested as dat
 
 ### 7.1 Informative but imperfect behavior
 
-Observed human actions must contain signal about the person's objectives while leaving room for improvement. If the person routinely acts against their own goals for reasons absent from the context, behavioral cloning can learn the wrong prior and coactive corrections may not repair it.
+The person is assumed to have a goal or objective in mind and to know the outcome they are trying to achieve. Their observed actions must contain signal about that objective while leaving room for improvement. The mismatch is between the goal and the policy used to pursue it, not evidence that the goal is nonexistent or unknown to the person. If the person routinely acts against their own goal for reasons absent from the context, behavioral cloning can learn the wrong prior and coactive corrections may not repair it.
 
 ### 7.2 Temporal drift and the target distribution
 
@@ -976,19 +1017,19 @@ The human continuation and displayed proposals must be alternatives at roughly t
 
 ### 7.5 Weak improvement after exposure
 
-The method assumes that, on average across valid records, the human continuation is a weak improvement over each non-equivalent proposal. It does not assume optimality. If proposals commonly manipulate, confuse, or distract the person, the labels may optimize a harmful equilibrium. Outcome audits and no-exposure holdouts are required to detect this, even though they are outside the core loss.
+The method assumes that, on average across valid records, the human continuation is a weak improvement over each non-equivalent proposal with respect to the global goal active for that interaction. It does not assume that the human's unaided policy is optimal. It assumes instead that exposure to plausible alternatives lets the human apply stronger corrective or evaluative judgment than either the demonstrator policy or the sampled candidate alone. If proposals commonly manipulate, confuse, or distract the person, the labels may optimize a harmful equilibrium rather than supply dense evidence about goal advancement. Outcome audits and no-exposure holdouts are required to detect this, even though they are outside the core loss.
 
 ### 7.6 No causal credit assignment among slate items
 
 Pairwise IPO does not identify which candidate inspired which part of the human continuation. A highly useful catalytic candidate can still appear as a loser because the refined human action is the training winner. The intended effect is distillation: move probability toward the refinement so that the policy can produce it directly later. If the product objective is instead to maximize how proposals improve the person's subsequent thinking, the slate itself must be treated as an intervention and evaluated against outcomes or randomized no-slate controls. That is a different estimator from the one specified here.
 
-### 7.7 Local rather than trajectory-level reward
+### 7.7 Dense local score versus sparse global reward
 
-The implicit utility ranks one macro-action in one context. It does not solve temporal credit assignment and should not be summed across long rollouts without validation. A later planner would need a learned or external transition model, delayed outcome signals, uncertainty controls, and checks against reward exploitation.
+The person's global goal reward and the Phase 2 score are not interchangeable. The former evaluates the outcome the person is trying to achieve; the latter ranks one macro-action against alternatives in one context using dense local preference evidence. The central hypothesis is that better local comparisons tend to identify actions with higher goal-relative continuation value. The score does not by itself solve temporal credit assignment and should not be summed across long rollouts without validation. A later planner would need a learned or external transition model, delayed outcome signals, uncertainty controls, and checks that optimizing the dense proxy actually improves the sparse global reward rather than exploits it.
 
-### 7.8 Dynamic collaborative equilibrium
+### 7.8 Task-local goals and a dynamic collaborative equilibrium
 
-The person may learn from the policy, the policy learns from the person, and preferences may change. The learned score therefore describes a versioned joint process rather than an immutable individual. This is acceptable for the Phase 2 product goal—improving the collaboration actually deployed—but it must remain visible in any claim about reward inference.
+At any valid interaction, the person is assumed to know the goal with respect to which they evaluate the alternatives. Goals can nevertheless differ across tasks and change over time. The person may also learn from the policy, the policy learns from the person, and proposals may change the person's beliefs or action policy even when the active goal remains fixed. The learned score therefore describes local judgments produced within a versioned joint process rather than an immutable action-value function. This is acceptable for the Phase 2 product goal—improving the collaboration actually deployed—but the distinction between changes in goal, belief, policy, and preference evidence must remain visible in any claim about reward inference.
 
 ### 7.9 Versioned references, support, and uncertainty
 
@@ -1000,9 +1041,9 @@ Phase 3 extends the one-step proposal-and-correction loop into bounded model-bas
 
 ### 8.1 Relationship to assistance games
 
-The intended interaction is structurally an assistance game. Human and assistant actions alter a shared environment; the assistant is uncertain about the person's objective; human actions and corrections provide information; and useful assistant actions may either advance the task or reduce uncertainty. Cooperative inverse reinforcement learning formalizes this structure as a partial-information game with a shared reward known to the human but initially hidden from the assistant [24]. AssistanceZero demonstrates a scalable instance in which a planner predicts human actions and rewards while assisting in a complex Minecraft environment [25].
+The intended interaction is structurally an assistance game. Human and assistant actions alter a shared environment; the assistant is uncertain about the person's objective; human actions and corrections provide information; and useful assistant actions may either advance the task or reduce uncertainty. Cooperative inverse reinforcement learning formalizes this structure as a partial-information game with a shared reward known to the human but initially hidden from the assistant [24]. AssistanceZero demonstrates a scalable instance in which a planner predicts human actions and beliefs over reward parameters while assisting in a complex Minecraft environment [25].
 
-The proposed system should be described as **assistance-game-inspired**, not as a literal instantiation of either framework. Here the person may not know a fixed reward parameter, preferences can change through interaction, the action space is open-ended, and the Phase 2 policy ratio is not an observed shared payoff. Phase 3 must therefore maintain uncertainty, measure actual outcomes, and preserve human authority rather than claiming to inherit the optimality or incentive guarantees of a classical assistance game.
+The proposed system should be described as **assistance-game-inspired**, not as a literal instantiation of either framework. Here the person is assumed to know or be able to express the active goal, but that goal may not be available to the system as a formal reward parameter or machine-verifiable payoff. The person's policy can be suboptimal, goals can vary across tasks, the action space is open-ended, and the Phase 2 policy ratio is only a dense local proxy rather than an observed shared payoff. Phase 3 must therefore maintain uncertainty, measure actual outcomes, and preserve human authority rather than claiming to inherit the optimality or incentive guarantees of a classical assistance game.
 
 ### 8.2 Separation of model roles
 
@@ -1012,7 +1053,7 @@ The following operational roles should remain conceptually distinct even if an i
 2. **Human-response model.** A versioned model $H_\omega$ predicts how the person may act after an assistant proposal, clarification, or partial execution. It can be initialized from the personalized policy and trained from augmented contexts $(h,Z^R)$, but planner gradients should not silently redefine it.
 3. **World-dynamics model.** An action-conditioned model $\widehat T_\phi$ predicts computer and artifact transitions. It models application state separately from the person's response whenever the data permits that factorization.
 4. **Trajectory planner.** A policy or search procedure $q_\psi$ proposes joint futures from the action prior, response model, dynamics model, tool constraints, and sandbox.
-5. **Trajectory scorer.** A model $V_\xi$ or direct planner objective learns from explicit plan selections, edits, execution interventions, and delayed outcomes. The Phase 2 implicit score initializes local comparisons but is not assumed to be this trajectory value.
+5. **Trajectory scorer.** A model $V_\xi$ or direct planner objective learns from explicit plan selections, edits, execution interventions, and delayed outcomes. The Phase 2 preference-shaped action score initializes local comparisons but is not assumed to be this trajectory value or the global goal reward.
 
 This separation is motivated by the useful distinction between learning a model of human behavior and training an agent to collaborate with it [1]. It also makes failures attributable: a bad forecast can arise from dynamics error, human-response error, value error, search error, or an unsafe execution layer rather than from one undifferentiated model.
 
@@ -1033,7 +1074,7 @@ x_{t+1}\mid x_{\leq t},a_t^H,a_t^A,e_t
 \right].
 $$
 
-The exact observation loss may combine structured-state prediction, latent consistency, reconstruction, or perceptual terms depending on the application. Those choices are not fixed here. Dreamer 4 provides a relevant precedent for learning a fast action-conditioned world model from offline video and action data, then training behavior through simulated experience inside that model [26]. The analogy is architectural rather than complete: Dreamer 4 has a single controlling agent and an environment reward, whereas Phase 3 has an uncertain personalized objective and an interacting human.
+The exact observation loss may combine structured-state prediction, latent consistency, reconstruction, or perceptual terms depending on the application. Those choices are not fixed here. Dreamer 4 provides a relevant precedent for learning a fast action-conditioned world model from offline video and action data, then training behavior through simulated experience inside that model [26]. The analogy is architectural rather than complete: Dreamer 4 has a single controlling agent and a machine-observed environment reward, whereas Phase 3 has an assistant that is uncertain about a human-known personalized objective and must interact with the human.
 
 The Phase 1 and Phase 2 event stream already contains many observed transitions, but only under the historical human and deployed-assistant policies. Before/after state snapshots, joint action attribution, exogenous events, and environment-instance identifiers must therefore remain reconstructable. Passive traces do not identify the result of arbitrary untried actions. A computer-use sandbox supplies safer counterfactual action coverage and provides a grounding environment for validating imagined rollouts.
 
@@ -1059,7 +1100,7 @@ A selection creates a trajectory-level comparison $\tau^+\succ\tau_i^-$ among th
 
 ### 8.5 Directional trajectory objectives
 
-The high-confidence requirement is to learn from complete displayed trajectories rather than sum the Phase 2 action score as though it were already a return. Different rollouts visit different contexts, so the arbitrary context terms in the Phase 2 log-ratio do not cancel across paths. The ratio also reflects both BC and preference gradients and is calibrated only near collected one-step comparisons. It may guide same-state pruning, proposal initialization, or short search, but
+The high-confidence requirement is to learn from complete displayed trajectories rather than sum the Phase 2 action score as though it were already a return. The person's global goal reward exists, but the Phase 2 score is not yet an estimator of that full return. Different rollouts visit different contexts, so the arbitrary context terms in the Phase 2 log-ratio do not cancel across paths. The ratio also reflects both BC and preference gradients and is calibrated only near collected one-step comparisons. It may guide same-state pruning, proposal initialization, or short search, but
 
 $$
 \sum_{k=1}^{H}
