@@ -309,7 +309,7 @@ algorithms considered and rejected for now and why: (there are likely practicali
 	- the training involves GRPO on the reasoning that produces a next action sample, while still using self supervised learning, rather than simply cross entropy loss
 	- generates a sequence (8) of next actions not just one step
 	- the predictions take the form of the VLM's labels on the computer use, grounding the behavior
-	- seems intended to extend to multiple users 
 	- uses unfiltered memory logs as part of the reasoning via retrieval
 	- intended to extend to computer use to "finish predictable tasks for users by acting on predictions about what the user would do next"
+	- i feel like an intuitive understanding of it is using GRPO and self supervised training via prediction to optimize how memory works, since its fundamentally based on an append only log of history that is RAG searchable with BM25
 	- 
