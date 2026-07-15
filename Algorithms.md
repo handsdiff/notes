@@ -202,9 +202,7 @@ algorithms considered and rejected for now and why: (there are likely practicali
 		- https://oshaikh.com/papers/gums general user models
 			- i thought this was insane but it just seems to create natural language propositions based on computer use, and recommend based on that. likely just a very good baseline to compare to, as well as good resource for comparable data preprocessing and UX
 		- https://oshaikh.com/papers/grounding grounding towards common knowledge research
-			- 
-		- more grounding work https://oshaikh.com/papers/rifts
-			- 
+			- highlights that LLMs assume shared knowledge rather than confirming it, which is a result of current RLHF, making interaction less useful than it could be. interesting framing for what one of the issues is 
 		- https://oshaikh.com/papers/ditto DITTO (align LLMs from demonstrations)
 			- 
 		- https://oshaikh.com/papers/just-in-time-objectives JIT objectives, inferring objective from user actions and helping, seems very similar to assistance games
