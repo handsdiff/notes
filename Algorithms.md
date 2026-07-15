@@ -213,6 +213,7 @@ algorithms considered and rejected for now and why: (there are likely practicali
 		- https://oshaikh.com/papers/just-in-time-objectives JIT objectives, inferring objective from user actions and helping, seems very similar to assistance games
 			- simple use of LLM on the same data as GUMs to infer local objectives and inject 
 			- good work on collecting and cleaning data, again useful for practical implementations upcoming and as baselines, less useful as novel algorithms
+			- interesting that the output was a generative UI, not a language suggestion/recommendation
 	- https://collaborative-agents.github.io/
 		- this seems to be basically the same as general user models from shaikh
 
