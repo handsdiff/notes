@@ -401,6 +401,21 @@ Pairwise expansion gives one comparison per valid rendered candidate. These comp
 
 The minimal rolling-reference system does not repeatedly replay the same preference pair under each new daily reference. Doing so would ask for another $1/(2\beta)$ separation from every successive checkpoint and could turn one observation into unbounded cumulative pressure. A training pair is consumed by an accepted update whose frozen reference matches its collection policy. A pair reserved for version-specific validation expires when that successor is published, because it no longer matches the next rolling reference. If historical preference replay is later required, the loss must either retain the pair's collection-time reference, transform the comparison into an archival-anchor coordinate, or apply an explicitly justified decay or off-policy estimator.
 
+The absence of separate new and replay IPO terms in the minimal objective is therefore a design choice, not a claim that old preference corrections never require retention. BC records are absolute likelihood targets and can be replayed unchanged, whereas every IPO pair is defined in the coordinate system of its collection-time reference [8, 23]. A later replay ablation can retain that reference for each pair $p$ and add
+
+$$
+\mathcal{L}_{\mathrm{IPO,replay}}(\theta)
+=
+\mathbb{E}_{p\sim\mathcal{M}_{\mathrm{pref}}}
+\left[
+\left(
+\Delta_{\mathrm{ref}(p)}(\theta;p)-\frac{1}{2\beta}
+\right)^2
+\right].
+$$
+
+Here $\Delta_{\mathrm{ref}(p)}$ is the winner-minus-loser policy log-ratio computed with the reference version stored on pair $p$. If the current policy preserves the original margin, this term is already near zero; if later updates erase it, the term restores the margin without asking for an additional one. Replacing $\mathrm{ref}(p)$ with the latest rolling reference would instead count the same human observation again. The initial system omits this extra replay buffer and weighting decision, then adds them if held-out historical preference evaluations reveal forgetting that BC replay does not prevent.
+
 ### 4.7 Combined continual objective
 
 The human continuation remains the highest-density positive signal in Phase 2. Preference-only updates could improve relative ordering while degrading next-action calibration or forgetting earlier behavior. For canonical update $d$, let $\mathcal{N}_d$ contain recent BC examples, $\mathcal{R}_d$ contain stratified historical BC replay, and $\mathcal{P}_d^{\mathrm{train}}$ contain the training subset of fresh version-matched coactive pairs. A chronological interaction-level split reserves the remainder as $\mathcal{P}_d^{\mathrm{val}}$. The combined objective is
