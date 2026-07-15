@@ -211,7 +211,8 @@ algorithms considered and rejected for now and why: (there are likely practicali
 			- actually the nit there is that my phase 2 implies that the samples are shown to the user. how does that change the formulation, if at all?
 			- the future work section is also relevant
 		- https://oshaikh.com/papers/just-in-time-objectives JIT objectives, inferring objective from user actions and helping, seems very similar to assistance games
-			- 
+			- simple use of LLM on the same data as GUMs to infer local objectives and inject 
+			- good work on collecting and cleaning data, again useful for practical implementations upcoming and as baselines, less useful as novel algorithms
 	- https://collaborative-agents.github.io/
 		- this seems to be basically the same as general user models from shaikh
 
@@ -282,3 +283,4 @@ algorithms considered and rejected for now and why: (there are likely practicali
 - maybe its fine if the loss is combined if youre freezing/updating reference policies appropriately
 - how to even display a suggestion/sample might be complicated. what if the model wants to say that im going to add a phrase in the middle of a long series of notes? how would that be shown? if youre going to use IPO loss in phase 2, then the UX of the suggestions is a massive confounding factor. confusing UX -> ignored -> assume the sampled content is pairwise worse, rather than the presentation of the content
 - adaptive UI as a vision component
+- if 80% of next write action today involves talking to a chatbot, how does that impact the direction of this work?
