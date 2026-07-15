@@ -455,3 +455,4 @@ https://x.com/teortaxesTex/status/2072800874728935630?s=20- to what extent am i 
 - "two minds are better than one"
 - "increasing the bounds of rationality"
 - the story i told jakub regarding the verifiable loops -> nonverifiable loops for primary AI tasking makes more sense to me since I think most enterprise AI dollars go to nonverifiable tasks than verifiable tasks ('tokenmaxxing'). im surprised inference net has revenue given they focus on rote tasking, since i would not expect enterprises to actually spend much money on that. maybe i overestimate how smart enterprises are and as a result the problems they actually face. like i would never think spending 100k per month on data extraction would be a reality. this suggests i need to be simpler and more practical with problem formulation. its worth verifying what 'nonverifiable' tasking is.
+- take these principles and apply them to audio on top of Thinking Machines' Inkling?
