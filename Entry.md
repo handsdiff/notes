@@ -57,6 +57,7 @@
 	- how many tokens are common examples of fine tuned models that actually work trained on? how many tokens are frontier models trained on? on what stage? how does LoRA actually impact the amount of needed/useful tokens? how does that change as the underlying model changes?
 		- https://thinkingmachines.ai/blog/ probably should review the old ones too
 	- is it bs to predict next thoughts/actions? why or why not? there is likely some description that is not bullshit for a given workflow, but would need to write it down. the workflow would likely be research/learning. more concretely? is it next token prediction on what/where i type? is it a bit less granular, a semantic action of writing down a note or looking something up or talking to an AI, given a specific platform?
+	- https://www.nature.com/articles/s41586-024-07711-7 loss of plasticity in deep continual learning
 - directly relevant - vision
 	- https://generalagents.com/ good relative benchmark for quality, interesting description of 'behavior' as a training paradigm that resonates
 	- there is a tension between human preference as the only possible reward signal and the sutton argument that environmental rewards are the only ground truth data for real superintelligence
@@ -96,15 +97,7 @@
 
 
 - 
-- I like the idea of having open algo competition on my data production
-- is it cheaper to update weights continuously or update prompts continuously? actually feels like weights? since querying prompts on a frontier model is super expensive? [[Interaction#^72b341]]
-- https://x.com/RampLabs/status/2072381992285647280?s=20 portable LoRA adapters
 - PNLC -> NLAC as PPI -> ??
-- cursor for computer use
-- lots of interesting findings from the visualizations
-	- open source is literally pareto frontier on cost? market dynamics or high margins for frontier intelligence/lock in?
-	- i cant fit my context into modern LLMs, and i likely will never be able to. does that matter? the models you'd fine tune have way less context. what are you actually learning? is it possible that the tradeoff between in weight learnings and drastically reduced context window is worth it, for this use case?
-- i dont actually need to label to train. can do self supervised loss just like next token prediction
 - are weight updates just a more black boxy, hope and a prayer way to figure out how to construct context in prompt, since its otherwise unclear how to do that? (i guess GEPA?)
 - add local coding into the git tracking, separate from the obsidian (and also commit / opentimestamp)?
 - resistance to hardware due to notions of asset light vs asset heavy?
