@@ -7,8 +7,10 @@
   - failed to invalidate
   - spec [https://handsdiff.github.io/paper](https://handsdiff.github.io/paper)
   - non chosen [https://handsdiff.github.io/algorithms](https://handsdiff.github.io/algorithms) (just discovered that the formatting is terrible, sorry)
-- new LBH: Come up with a data plan or invalidate premises of direction. If failed to invalidate, describe data structures and ingestion surfaces compared to alternatives. By Tuesday.
+- new LBH: Articulate vision + addressed growing problem + evidence of time/money costs in a writeup (not necessarily public) by Monday, given better understanding of practical algorithms.
 - expected LBHs after
+  - Come up with a data plan or invalidate premises of direction. If failed to invalidate, describe data structures and ingestion surfaces compared to alternatives. 
+  - implement working data pipelines
   - writeup on data structure and goal, different algorithms considered for this purpose, which ones make the most sense, which ones are different although they seem similar at a high level. by thursday after
   - generate toy example comparing SFT vs ICL vs memory solutions VS different randomly selected amounts of context. by thursday after.
   - writeup and publish. by monday after.
