@@ -30,20 +30,19 @@
 	- potentially useful for phase 3 rollouts https://github.com/trycua/cua
 	- https://thinkingmachines.ai/news/introducing-inkling/
 		- https://x.com/GenAI_is_real/status/2077481107843649628?s=20
+		- https://x.com/yifanzhang_/status/2077467076936245409?s=20
+		- https://x.com/MichaelElabd/status/2077461111247712656?s=20 is inkling optimized as a “meta learner”? TM has an incentive to make its models easily custom trainable
 	- https://arxiv.org/pdf/2607.05394 weak to strong generalization via direct OPD
 	- https://research.perplexity.ai/articles/making-space-secure-and-efficient-runtimes-for-long-running-agents
+	- https://openai.com/index/chatgpt-memory-dreaming/
 - directly relevant - practical
 	- https://arxiv.org/pdf/2510.19488v1 labels unlabeled video data with their actions, for future training. seems like deepmind's genie also does this
 	- phase 2 requires only showing samples when confidence exceeds some threshold, likely requires fine tuning
+	- https://arxiv.org/abs/2606.03979 memory consolidation during sleep cycles
 - directly relevant - vision
 	- https://generalagents.com/ good relative benchmark for quality, interesting description of 'behavior' as a training paradigm that resonates
 	- there is a tension between human preference as the only possible reward signal and the sutton argument that environmental rewards are the only ground truth data for real superintelligence
-
-- https://x.com/aengus_lynch1/status/2077453053540880419?s=20
-- https://x.com/MichaelElabd/status/2077461111247712656?s=20 is inkling optimized as a “meta learner”? TM has an incentive to make its models easily custom trainable
-- https://x.com/jia_seed/status/2077422944645443660?s=20
-- https://x.com/inductionheads/status/2077487228352446648?s=20
-- 
+ 
 - seeing a lot of data that you can perform RL directly on the activations of an LLM, not sure what that means, and that doing so could massively speed up and raise the ceiling for LLM reasoning via recurrent iteration in neural activation space
 - control of LLMs will have a massive massive impact on the US presidential election. whats my opinion on how this likely plays out?
 - perhaps what comes next after 90% cost reductions for rote tasking like info extraction is model ability to model employees like meta is doing?
