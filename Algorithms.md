@@ -332,3 +332,5 @@ the formulation that the human does not know their reward function, or that the 
 "ECHO but with my thoughts" formulation i stated previously reminds me of having the model predict specifically how i respond to its suggestions, rather than masking the models suggestions as it learns to model my behavior from else prior context. not sure this is useful
 
 there is a risk of amplification of the user's behavior whether thats positive or negative. but its more leverage, if built well. whether thats value creative or not seems up to the user?
+
+i kind of want to understand whether [[Paper]] makes sense from a theoretical perspective. like is this a solvable problem at a fundamental level? what is the complexity?

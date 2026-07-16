@@ -51,12 +51,7 @@
 	- https://generalagents.com/ good relative benchmark for quality, interesting description of 'behavior' as a training paradigm that resonates
 	- there is a tension between human preference as the only possible reward signal and the sutton argument that environmental rewards are the only ground truth data for real superintelligence
  
-- 
-- https://nextbigteng.substack.com/p/ai-infrastructure-roadmap-five-frontiers-for-2026
 
-- https://x.com/teortaxesTex/status/2073332424717525358?s=20
-- https://x.com/loraclexyz/status/2073873001850786104?s=20
-- https://x.com/willccbb/status/1930030099975553303?s=20
 - https://x.com/0xBADB01E/status/2073990357398982797?s=20
 - https://x.com/eliebakouch/status/2074011171661701466?s=20
 - https://x.com/lilianweng/status/2074372369213428144?s=20
