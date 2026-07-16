@@ -39,6 +39,7 @@
 	- https://alignment.anthropic.com/2026/agentic-misalignment-summer-2026/
 	- https://www.primeintellect.ai/blog/verifiers-v1
 	- https://nextbigteng.substack.com/p/ai-infrastructure-roadmap-five-frontiers-for-2026
+	- https://eliebak.com/viz/jspace-open
 - directly relevant - practical
 	- https://arxiv.org/pdf/2510.19488v1 labels unlabeled video data with their actions, for future training. seems like deepmind's genie also does this
 	- phase 2 requires only showing samples when confidence exceeds some threshold, likely requires fine tuning
