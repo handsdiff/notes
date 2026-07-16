@@ -50,6 +50,7 @@
 	- https://www.iroh.computer/blog/mesh-llm distributed inference on tailscale for apps
 	- https://continual-harness.github.io/
 	- PNLC (levine) -> NLAC (levine) as PPI (from google MUPI paper) -> ??
+	- https://www.kimi.com/blog/kimi-k3
 - directly relevant - practical
 	- https://arxiv.org/pdf/2510.19488v1 labels unlabeled video data with their actions, for future training. seems like deepmind's genie also does this
 	- phase 2 requires only showing samples when confidence exceeds some threshold, likely requires fine tuning
