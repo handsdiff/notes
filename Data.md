@@ -26,3 +26,8 @@ disparate notes:
 - https://www.markovstudios.com/data_samples/writing-and-research yc startup computer use data sample. is this actually what computer use data looks like?
 	- come to think of it, how would I actually codify the action space for next thought prediction? would the action space be infinite if the action consists of the full thought rather than tokens? if tokens how exactly would start/stop tags work?
 	- minecraft dreamer v4 seems to directly relate to computer use in terms of algorithms that could be useful to apply to non minecraft scenarios
+- (2) the structure of the data required to actually implement a predictive algorithm likely requires context into what im seeing, not just what im outputting. its unclear how to best structure the data to predict outputs, but at the very least i'd likely need surrounding context which probably very simply takes the form of browser history with proper auths. what are the best existing tools and/or custom solutions for this?
+- i suspect the data should interleave write actions (content, app) with read actions (content, app). obsidian (+ ai chats, search) are most of write. the browser history is most of read. but i only want the model to predict what i write, not what i read. and i dont want to trade off intelligence, since the point is superhuman
+- somewhat helpful gemini thread regarding data structure and previous attempts. but need to parse the bs https://gemini.google.com/app/b242920671bf7d32 
+- what should the data structure be for training on an open source model, if the goal is to predict 'writes' (obsidian note, browser search, message to ai chatbot) given previous reads and writes (browser history, ai chatbot answers, previous notes)
+- 

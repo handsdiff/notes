@@ -286,18 +286,18 @@ The initial prototype should use one serialization and one autoregressive head r
 
 #### 4.1.1 Phase 1 failure modes and escalation paths
 
-| Plausible failure | Hypothesized next steps |
-|---|---|
-| The event timeline, authorship, or action boundaries cannot be reconstructed reliably | Collector audits, versioned segmentation, provenance checks, confidence filtering |
-| The captured stream omits the information that caused the action, making the target underdetermined | Collect browser/chat context; oracle-context ablation; change the target if no signal exists |
-| Useful context exists but raw context selection fails | Recent-context ICL, BM25 retrieval, GUM semantic propositions, JIT-objective induction, then LongNAP learned reason–retrieve–predict |
-| The model learns style, formatting, location, or repetition rather than semantic intent | Five-action GRU/trivial baselines, content-matched hard negatives, field-decomposed metrics |
-| Plain LoRA SFT cannot exploit demonstrably useful data | Compare ICL, retrieval, and SFT on the same model; then DITTO, LongNAP, or E2E-TTT depending on the diagnosis |
-| Phase 1 becomes stale or forgets sparse workflows as new data arrives | Time-balanced sampling, recent-plus-stratified replay, rolling and fixed holdouts, rollback |
-| Fine-tuning damages reasoning, instruction following, or tool use | KL anchoring or teacher distillation, synthetic QA/self-study, parameter isolation or retrieval–weight hybrids |
-| Demonstrations are noisy, expedient, copied, AI-authored, or inconsistent | Provenance filtering and confidence weighting; robust/noisy BC or demonstration-derived contrast when quality signals exist; otherwise later coactive correction |
-| One low-rank adapter cannot represent conflicting workflows or reaches capacity | Partitioned adapters, parameter isolation, additional adapter capacity, retrieval–weight hybrids |
-| No tested method can exploit data that oracle tests show is useful | Treat the result as an algorithmic benchmark rather than proceeding to Phase 2 |
+| Plausible failure                                                                                   | Hypothesized next steps                                                                                                                                          |
+| --------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| The event timeline, authorship, or action boundaries cannot be reconstructed reliably               | Collector audits, versioned segmentation, provenance checks, confidence filtering                                                                                |
+| The captured stream omits the information that caused the action, making the target underdetermined | Collect browser/chat context; oracle-context ablation; change the target if no signal exists                                                                     |
+| Useful context exists but raw context selection fails                                               | Recent-context ICL, BM25 retrieval, GUM semantic propositions, JIT-objective induction, then LongNAP learned reason–retrieve–predict                             |
+| The model learns style, formatting, location, or repetition rather than semantic intent             | Five-action GRU/trivial baselines, content-matched hard negatives, field-decomposed metrics                                                                      |
+| Plain LoRA SFT cannot exploit demonstrably useful data                                              | Compare ICL, retrieval, and SFT on the same model; then DITTO, LongNAP, or E2E-TTT depending on the diagnosis                                                    |
+| Phase 1 becomes stale or forgets sparse workflows as new data arrives                               | Time-balanced sampling, recent-plus-stratified replay, rolling and fixed holdouts, rollback                                                                      |
+| Fine-tuning damages reasoning, instruction following, or tool use                                   | KL anchoring or teacher distillation, synthetic QA/self-study, parameter isolation or retrieval–weight hybrids                                                   |
+| Demonstrations are noisy, expedient, copied, AI-authored, or inconsistent                           | Provenance filtering and confidence weighting; robust/noisy BC or demonstration-derived contrast when quality signals exist; otherwise later coactive correction |
+| One low-rank adapter cannot represent conflicting workflows or reaches capacity                     | Partitioned adapters, parameter isolation, additional adapter capacity, retrieval–weight hybrids                                                                 |
+| No tested method can exploit data that oracle tests show is useful                                  | Open source a benchmark on the data stream, allow submissions; use it to challenge frontier model performance and algorithmic sample efficiency                  |
 
 ### 4.2 Continual canonical-policy infrastructure
 
