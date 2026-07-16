@@ -102,3 +102,7 @@ want to make the html artifacts publicly visible along with my notes. likely don
 
 two 'computers' on each device? one from the human and one for the ai? easy sharing of html and some file systems, but avoids catastrophe or takeover? and allows for prospective learning / predictive recommendations from screenpipe context?
 
+i want to display the html files, and other code i write, publicly + into git as well, but handle the data structuring automatically. interactive html not just static. jakub wants this too.
+
+i suspect everyone on team will need code handling + interactive html sharing native in existing obsidian + git + quartz stack.
+	- https://gemini.google.com/app/581ea6b83f49a55a 

@@ -98,6 +98,11 @@
 		- is this hopeless? is it way too slow to collect data to optimize properly? or does LoRA for this actually not need many samples?
 	- https://huggingface.co/docs/trl/grpo_trainer
 	- https://x.com/albustime/status/2073986970653515817?s=20 description of what common LLM terms mean
+	- alternative framework to consider
+		- i.e. the better framework is that the model is learning its environment, which primarily involves interacting with me, and it needs to understand me. its recommendations are actions in a state transition system. states are given reward when its recommendations are accepted. to be able to learn a good policy here, it will need to be able to predict my actions first as practical bootstrapping? kind of like alphago training on expert data before doing MCTS self play? is MCTS impossible here? its tough for the environment as a whole, but it can do MCTS on interactions with ME once it has modeled me as a 'player' in its environment whose actions mostly determine the state transitions? that seems interesting, albeit a bit unclear
+		- in that case, its recommendations would be actions that it is aware impact my state transitions, and its goal would be to take actions that I accept for it to get reward? but since the rewards are manual it would be extremely slow to learn. could it actually learn at all in an online way? it might be able to learn phase 1 easily enough since theres no reward labeling, but unsure about phase 2 learning goals.
+	- data half life experiment. does data actually expire?
+	- codify how much progress frontier models are making on in context learning for my self prediction, compare that to increasing random dropout for training on gpt oss 120B?
 - directly relevant - vision
 	- https://generalagents.com/ good relative benchmark for quality, interesting description of 'behavior' as a training paradigm that resonates
 	- there is a tension between human preference as the only possible reward signal and the sutton argument that environmental rewards are the only ground truth data for real superintelligence
@@ -144,36 +149,23 @@
 			- the 3rd will likely come to fruition as computer use expertise in base models advances. the blocker for this will be understanding how separate environmental agents react to your actions. this is the tie in to classic MARL, legible motion planning, etc
 		- if all these are true, then the brass tacks come down to what inbound to collect and what outbound to collect, how to structure it so that prediction can show results, how to structure it so that reward inference can show results, and how to structure it for eventual superhuman rollouts towards my goals. the first is most important. 
 		- the tension now is whether to optimize the data for prediction, or whether to keep the end in mind and optimize some meta layer that different types of datasets can be constructed from... i suspect the latter is better, pending some concreteness on what future algorithms are. i do have a basic sense so maybe it makes sense to go out and verify now how they differ from frontier elsewhere
+	- proactive, prospective
+	- again, obsidian with link enrichment, auto git with good commit msgs, multi device sync, messaging connectors for easy note taking might be enough. i find myself not deleting stuff because the search is more difficult (ai latency vs app search latency). which is annoying
+		- and bitcoin timestamping because i want it.
+		- not having link enrichment / search over the link content is super annoying, i cant find a gemini chat i had where i was learning about how obsidian handles markdown into its own block language or something. found it from gemini search, its also a couple bullet points above https://gemini.google.com/app/581ea6b83f49a55a
+		- related to the idea that the algorithms and toy examples are to prove that using different tools 'legibilizing thought process of knowledge work' is worth it. and the features necessary to make the legibilization a smooth experience are separate from the algorithms necessary to turn it into something useful
+		- the data construction from the 'raw' process work is the keystone/capstone
+		- the problem with frequent git is that the local size of the git folder becomes massive, i assume there are solutions to this somewhere, but perhaps not?
+	- what data is more valuable when shared?
+	- bit of an old hot take. i think enterprise models will look like each employee having their own agent that is tuned to them, and the models are allowed to conversate to collaborate and improve rewards, instead of a monolithic model that everyone shares. personal computing with networking, not timeshared computing. 
 
 
-- https://x.com/willccbb/status/2074363852410822875?s=20blicly?
-	- i.e. the better framework is that the model is learning its environment, which primarily involves interacting with me, and it needs to understand me. its recommendations are actions in a state transition system. states are given reward when its recommendations are accepted. to be able to learn a good policy here, it will need to be able to predict my actions first as practical bootstrapping? kind of like alphago training on expert data before doing MCTS self play? is MCTS impossible here? its tough for the environment as a whole, but it can do MCTS on interactions with ME once it has modeled me as a 'player' in its environment whose actions mostly determine the state transitions? that seems interesting, albeit a bit unclear
-	- in that case, its recommendations would be actions that it is aware impact my state transitions, and its goal would be to take actions that I accept for it to get reward? but since the rewards are manual it would be extremely slow to learn. could it actually learn at all in an online way? it might be able to learn phase 1 easily enough since theres no reward labeling, but unsure about phase 2 learning goals.
-- i want to display the html files, and other code i write, publicly + into git as well, but handle the data structuring automatically. interactive html not just static. jakub wants this too.
-- proactive, prospective
-- recsys to my team based on everything i do / what i read, feedback from them based on utility to them? (click rate?). beginning of MAS? more env sim for MCTS/rollouts?
-	- with all team having notes like this, opportunities for collaboration arise more easily
-	- jakub has primitive process that shares notes seemingly, wonder what that looks like?
-- i suspect everyone on team will need code handling + interactive html sharing native in existing obsidian + git + quartz stack.
-	- https://gemini.google.com/app/581ea6b83f49a55a 
-- the way I phrased it to jakub is that prediction can act as a good prior for eventual MCTS test time scaling for personal superintelligence. what blocks this is state dynamics modeling, since you need to model others in the environment, which I posit will come with scale if you can properly solve single player modeling, since the same methods can be applied largely, and reward modeling, which is quite a bit more difficult. DPO on 'single turn' test time scaling via top K recommendation and click through rates struggle to scale, and true reward modeling like MaxEnt *seems* to require a grain of truth which comes back to the reward codification problem (unsure if it actually requires this, or what reward inference actually is in practice). does DPO scale in some multiplayer environment like state dynamics do?
-- https://x.com/BrendanFoody/status/2074193875695214907?s=20
-- again, obsidian with link enrichment, auto git with good commit msgs, multi device sync, messaging connectors for easy note taking might be enough. i find myself not deleting stuff because the search is more difficult (ai latency vs app search latency). which is annoying
-	- and bitcoin timestamping because i want it.
-	- not having link enrichment / search over the link content is super annoying, i cant find a gemini chat i had where i was learning about how obsidian handles markdown into its own block language or something. found it from gemini search, its also a couple bullet points above https://gemini.google.com/app/581ea6b83f49a55a
-	- related to the idea that the algorithms and toy examples are to prove that using different tools 'legibilizing thought process of knowledge work' is worth it. and the features necessary to make the legibilization a smooth experience are separate from the algorithms necessary to turn it into something useful
-	- the data construction from the 'raw' process work is the keystone/capstone
-	- the problem with frequent git is that the local size of the git folder becomes massive, i assume there are solutions to this somewhere, but perhaps not?
-- data half life experiment. does data actually expire?
-- codify how much progress frontier models are making on in context learning for my self prediction, compare that to increasing random dropout for training on gpt oss 120B?
-- what data is more valuable when shared?
-	- i realized that the feeling to work together with prior enterprise clients rather than fear open source distillation was positive, leads to more sharing behavior
 - https://x.com/jxmnop/status/2074202146699157797?s=20
-- bit of an old hot take. i think enterprise models will look like each employee having their own agent that is tuned to them, and the models are allowed to conversate to collaborate and improve rewards, instead of a monolithic model that everyone shares. personal computing with networking, not timeshared computing. 
+- 
 - https://github.com/anthropics/jacobian-lens https://huggingface.co/neuronpedia/jacobian-lens/tree/main
 - sergey levine, learning to reason without external rewards, uses intrinsic self certainty as reward: https://arxiv.org/html/2505.19590v3
 - reward inference discussion https://gemini.google.com/app/4f984ce16e37337a
-- from [[Gwern GA]], "favorite bandit algorithm, top-_k_ posterior sampling". relevant to top N
+
 - https://x.com/teortaxesTex/status/2074471487579332707?s=20
 - https://svilentodorov.xyz/blog/gpt-15b-chat-finetune/
 
