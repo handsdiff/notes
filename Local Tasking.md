@@ -3,15 +3,11 @@
 	- implement papers, tweet about it, write good blog posts, create nice repos
 - have starred events here [[Relevant Events]] get legitimacy visible then outreach to talk, also sam from stash
 
-- prev LBH: Build ingestion and implement structure on the necessary data by Thursday, with understanding of related algorithms and chosen algorithms. Output would be the data itself and a clear explanation of how to use it for intended algorithms.
-  - INVALIDATED
-  - underestimation of timeline, but this is still the right path. gain track record of frontier work for legitimacy to future customers, attempt to invalidate efficacy of solution.
-- new LBH: Understand algorithm space. Describe chosen algorithms and their loss functions compared to the non chosen algorithms. By Monday.
-    - progress here, mostly done but what it to be exhaustive so we can rely on it later [https://handsdiff.github.io/algorithms](https://handsdiff.github.io/algorithms)
+- - new LBH: Come up with a new algorithms plan based on updated information, or invalidate plan further. If failed to invalidate, describe chosen algorithms and their loss functions compared to the non chosen algorithms. By Thursday.
 - expected LBHs after
   - build ingestion and implement structure on data by monday after.
   - writeup on data structure and goal, different algorithms considered for this purpose, which ones make the most sense, which ones are different although they seem similar at a high level. by thursday after
-  - generate toy example comparing SFT vs ICL vs memory solutions VS different randomly selected amounts of context. by thursday after. (local scaling laws)
+  - generate toy example comparing SFT vs ICL vs memory solutions VS different randomly selected amounts of context. by thursday after.
   - writeup and publish. by monday after.
   - update toy example with newly ingested data. by monday after.
   - writeup and publish again. by thursday after.
