@@ -27,6 +27,7 @@
 - there is a tension between human preference as the only possible reward signal and the sutton argument that environmental rewards are the only ground truth data for real superintelligence
 - https://x.com/GenAI_is_real/status/2077481107843649628?s=20
 - https://research.perplexity.ai/articles/making-space-secure-and-efficient-runtimes-for-long-running-agents
+- https://x.com/ProphetArena/status/2077513380290601290?s=20
 - 
 - seeing a lot of data that you can perform RL directly on the activations of an LLM, not sure what that means, and that doing so could massively speed up and raise the ceiling for LLM reasoning via recurrent iteration in neural activation space
 - control of LLMs will have a massive massive impact on the US presidential election. whats my opinion on how this likely plays out?
