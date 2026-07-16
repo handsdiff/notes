@@ -40,6 +40,9 @@
 	- https://www.primeintellect.ai/blog/verifiers-v1
 	- https://nextbigteng.substack.com/p/ai-infrastructure-roadmap-five-frontiers-for-2026
 	- https://eliebak.com/viz/jspace-open
+	- https://x.com/0xBADB01E/status/2073990357398982797?s=20
+	- https://www.youtube.com/watch?v=SVWmuJx0hHM NVIDIA Prime Intellect talk on long horizon agents
+	- ai dot engineer review i missed https://x.com/abhikhanna30/status/2073646301674389819?s=20
 - directly relevant - practical
 	- https://arxiv.org/pdf/2510.19488v1 labels unlabeled video data with their actions, for future training. seems like deepmind's genie also does this
 	- phase 2 requires only showing samples when confidence exceeds some threshold, likely requires fine tuning
@@ -57,22 +60,11 @@
 		- It’s a bit less practical but still valuable to make something they spend time on easier rather than make something they spend money on cheaper
 		- When do humans want to be replaced and when do they not? For example I want to derive meaning from delivering value to others but I don’t want to spend all day extracting information from pdfs. 
 		- I’m willing to let a model do my coding for me but it cannot decide what coding I would consider worth doing. Would I want it to? Probably yes, if it helped me achieve my goals faster. But how practical is that?
+	- The dynamic, fresh context also applies to judgment/feedback. Not just context (inputs)
+	- Is wisdom more truthful reward functions?
+	- “Artificial wisdom” sounds way more implausible than artificial intelligence
+		- Feels related to “what to do” not “how to do it”
  
-
-- https://x.com/abhikhanna30/status/2073646301674389819?s=20
-- https://www.youtube.com/watch?v=SVWmuJx0hHM
-- https://x.com/mckbrando/status/2075442660047814761?s=20
-- has anyone inferred 'goal' rewards from human preference RL?
-- conference on language modeling sf oct 2026
-- had an idea a while ago I didn’t write down: a model per harness. Models trained on the harness to improve performance. Was invalidated slightly when metr research showed that some OS model performed better in Claude code than Claude, but would need to revisit 
-- https://x.com/eliebakouch/status/2074473875614712236?s=20
-- The dynamic, fresh context also applies to judgment/feedback. Not just context (inputs)
-- Is wisdom more truthful reward functions?
-- “Artificial wisdom” sounds way more implausible than artificial intelligence
-- Feels related to “what to do” not “how to do it”
-- https://x.com/GenAI_is_real/status/2074760177887404501?s=20
-- https://x.com/distributionat/status/2075253365983068181?s=20
-- https://x.com/humansand/status/2075618383631167692?s=20
 - https://x.com/samzliu/status/2075437170198991344?s=20
 - https://x.com/distributedkv/status/2075642079825547717?s=20
 - potentially useful for personal blog/website for more legitimacy personally and for company https://x.com/shadcn/status/2075600582518124657?s=20
