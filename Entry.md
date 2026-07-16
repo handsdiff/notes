@@ -17,18 +17,17 @@
 	- https://www.youtube.com/watch?v=V-EDrhIhHzQ modern post training (jul 14 2026) by will brown
 	- grpo script from will brown 2025 https://gist.github.com/willccbb/4676755236bb08cab5f4e54a0475d6fb
 	- https://arxiv.org/pdf/2607.07508 single rollout async optimization for RL, from ZAI
+	- https://arxiv.org/pdf/2602.10067 features as RL rewards from goodfire. implementation of an idea i had!
+	- https://genai-handbook.github.io/
+	- https://humansand.ai/blog/nvfp4-rl
 - directly relevant - practical
-	- 
+	- https://arxiv.org/pdf/2510.19488v1 labels unlabeled video data with their actions, for future training. seems like deepmind's genie also does this
 - directly relevant - vision
 	- https://generalagents.com/ good relative benchmark for quality, interesting description of 'behavior' as a training paradigm that resonates
 
 
-
-- https://x.com/GoodfireAI/status/2077073005088501780
 - 
-- https://arxiv.org/pdf/2510.19488v1 labels unlabeled video data with their actions, for future training. seems like deepmind's genie also does this
-- https://humansand.ai/blog/nvfp4-rl
-- https://genai-handbook.github.io/
+- 
 - https://x.com/m_pulkit/status/2076839055640150474?s=20
 - https://x.com/_a9lim/status/2077097652907606392?s=20
 - https://x.com/jacobeffron/status/2075286592668012967?s=20
