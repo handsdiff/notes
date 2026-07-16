@@ -6,11 +6,6 @@
 		- https://colmweb.org/ conference on language modeling
 	- increase branding via twitter banner + personal site
 	- make target market and their growing problem as evidenced by time or money more concrete
-		- perhaps what comes next after 90% cost reductions for rote tasking like info extraction is model ability to model employees like meta is doing?
-		- One thing that stands out is that it’s very practical to lower costs for enterprises
-		- It’s a bit less practical but still valuable to make something they spend time on easier rather than make something they spend money on cheaper
-		- When do humans want to be replaced and when do they not? For example I want to derive meaning from delivering value to others but I don’t want to spend all day extracting information from pdfs. 
-		- I’m willing to let a model do my coding for me but it cannot decide what coding I would consider worth doing. Would I want it to? Probably yes, if it helped me achieve my goals faster. But how practical is that?
 	- go through old information to discover anything relevant
 	- post blog
 	- double email Omar
@@ -52,6 +47,15 @@
 - directly relevant - vision
 	- https://generalagents.com/ good relative benchmark for quality, interesting description of 'behavior' as a training paradigm that resonates
 	- there is a tension between human preference as the only possible reward signal and the sutton argument that environmental rewards are the only ground truth data for real superintelligence
+	- https://x.com/willdepue/status/2074178395462848800 "stargate for data"
+		- "data generating surfaces (interactions) matter more than human-generated data / hand-curated RL environments"
+		- [[PDEV]] could be described as a renewable data source in the energy/fossil fuel analogy. it 100% requires a better interaction application, perhaps along the lines of what i've described
+	- set of takes
+		- perhaps what comes next after 90% cost reductions for rote tasking like info extraction is model ability to model employees like meta is doing?
+		- One thing that stands out is that it’s very practical to lower costs for enterprises
+		- It’s a bit less practical but still valuable to make something they spend time on easier rather than make something they spend money on cheaper
+		- When do humans want to be replaced and when do they not? For example I want to derive meaning from delivering value to others but I don’t want to spend all day extracting information from pdfs. 
+		- I’m willing to let a model do my coding for me but it cannot decide what coding I would consider worth doing. Would I want it to? Probably yes, if it helped me achieve my goals faster. But how practical is that?
  
 
 - https://x.com/abhikhanna30/status/2073646301674389819?s=20
