@@ -145,8 +145,6 @@
 		- the tension now is whether to optimize the data for prediction, or whether to keep the end in mind and optimize some meta layer that different types of datasets can be constructed from... i suspect the latter is better, pending some concreteness on what future algorithms are. i do have a basic sense so maybe it makes sense to go out and verify now how they differ from frontier elsewhere
 
 
-- https://www.aixi.uk/
--
 - https://x.com/albustime/status/2073986970653515817?s=20
 - https://x.com/emollick/status/2074307813392732279?s=20 prompting is literally just training?
 - https://x.com/didier_lopes/status/2074228000539693139?s=20
