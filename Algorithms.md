@@ -313,19 +313,7 @@ algorithms considered and rejected for now and why: (there are likely practicali
 	- intended to extend to computer use to "finish predictable tasks for users by acting on predictions about what the user would do next"
 	- i feel like an intuitive understanding of it is using GRPO and self supervised training via prediction to optimize how memory works, since its fundamentally based on an append only log of history that is RAG searchable with BM25
 
-- DONE [[Paper]], distilled from [[Algorithms]], step 1 is being concrete about the loss functions and algorithms used for phase 1, and concrete about which loss functions and algorithms could reasonably result in demonstrator outperformance for phase 2 from an assistance perspective rather than replacement perspective.
-- DONE [[Paper]], distilled from [[Algorithms]], step 2 is directionally discussing phase 3 goals, without necessarily being concrete about the intended algorithms and loss functions
-- DONE [[Paper]], distilled from [[Algorithms]], step 3 is enriching step 1 with all the plausible ways it could go wrong, and expected next steps required in those failure modes
-- DONE [[Phase 1 Assumptions]] step 4 is rank the assumptions required for phase 1 to show frontier performance in order of importance to final goal
-- IN PROGRESS [[Data]] step 5 is determining what data to collect for phase 1 and 2, and how to clean it for phase 1
-- step 6 is enriching step 5 with all the plausible ways the data could be misconfigured, and expected next steps in those failure models
-- step 7 is publishing this plan publicly as a blog post, for legitimacy/legibility purposes
-- step 8 is implementing the hypothesized data collection
-- step 9 is go through inbound backlog to invalidate any takes up until this point
-- step 10 is implement the experiment
-- step 11 is publish the experiment
-
-step 1 is mostly described in the beginning of [[Paper]]. the only thing that feels weird is how to think through phase 2. the model will be displaying the next write actions it predicts based on the given history. that will actually result in an additional read event the model did not previously consider when it was sampled. how will it ever be able to learn to predict the write event well unless it learns to predict itself? does this actually prevent training or will a good model just figure out how its samples impact the user? the loss function forces its output to (1) be close to the users output and (2) distance itself from counterfactual samples. 
+step 1 in local tasking is mostly described in the beginning of [[Paper]]. the only thing that feels weird is how to think through phase 2. the model will be displaying the next write actions it predicts based on the given history. that will actually result in an additional read event the model did not previously consider when it was sampled. how will it ever be able to learn to predict the write event well unless it learns to predict itself? does this actually prevent training or will a good model just figure out how its samples impact the user? the loss function forces its output to (1) be close to the users output and (2) distance itself from counterfactual samples. 
 
 it feels like if you just mask the model's samples from the model training then it's fine. the samples will impact the user but if that impact is positive and recognized as such by the user, then you are teaching the model to now predict a 'better' user, which is the goal anyways. if the impact is positive and unrecognized, the user will not use the product, which is a different question. if the impact is negative and recognized as such by the user, it will not be used, so it doesn't matter. and if the impact is negative and not recognized as such by the user, then nothing can help that user anyways
 
