@@ -340,3 +340,5 @@ longNAP actually produced a result in terms of user action prediction months ago
 The “goals” I’m expecting the human model to implicitly map (for it to predict well) likely to cost in the data itself, since I work in a team where I communicate my goals to them
 
 the formulation that the human does not know their reward function, or that the latent goal is nonexistent, is incorrect. there is a latent goal that can be expressed. its just the policy demonstrated to achieve it may not be optimal.
+
+ECHO by
