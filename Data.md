@@ -1,5 +1,5 @@
 likely need to 
-1) go through and clean up Entry, separate things that should be handled during backlog push, to enable step 2 below
+1) go through and clean up Entry, separate things that should be handled during backlog/minor work push, to enable step 2 below
 2) generate a data hypothesis by collecting all the disparate notes around data processing i've collected
 3) review the data structures from relevant similar papers like I did for algorithms to determine which is worth implementing
 4) implement the data ingestion and cleaning pipeline and monitor it
