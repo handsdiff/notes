@@ -55,13 +55,13 @@ generative not summarative as an explainer for the notetaking aspect
 
 shared by sam https://lazy.so/
 
- the ai dot engineer conference in sf has a gemini chat in the bottom corner: https://github.com/smol-ai/skills/blob/main/public-qa-chatbot/SKILL.md. use for my public notes? [[PDEV]]
+ the ai dot engineer conference in sf has a gemini chat in the bottom corner: https://github.com/smol-ai/skills/blob/main/public-qa-chatbot/SKILL.md. use for my public notes? [[Product]]
 
 https://news.ycombinator.com/item?id=48675435 new notetaking app. built by inkeep, which I was previously exploring as a solution because it indexed links well, but was for enterprises, didnt want to spend 400/mo on it. it may actually be worth it though
 
 https://gemini.google.com/app/5ebb19454b814c5e can use opentimestamps for true provenance on the notes via publishing git commits to Bitcoin
 
-it doesnt seem like obsidian will build what i want [[PDEV]] since their core value prop involves privacy, whereas i want public by default + cloud AI analyzing everything/always on
+it doesnt seem like obsidian will build what i want [[Product]] since their core value prop involves privacy, whereas i want public by default + cloud AI analyzing everything/always on
 
 do you end up having to improve on algos to win? (whether thats prompt space or weight space). probably? the thing is, so many people are working on this, no? not many people actually piping data into it? need better answers here
 	- actual sync + easy entry (+ screenpipe) + version control + opentimestamps + data cleaning + predictive actions + link enhancement + public
@@ -95,3 +95,5 @@ The problem with the deletion is that the app needs to be deeply version control
 fix visibility of public notes per team feedback (recently updated, otherwise can just give to AI)
 
 user quality of life like easier inputting or search or link indexing
+
+add local coding into the git tracking, separate from the obsidian (and also commit / opentimestamp)?

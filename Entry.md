@@ -49,6 +49,7 @@
 	- https://x.com/GenAI_is_real/status/2074760177887404501?s=20 serving TTS
 	- https://www.iroh.computer/blog/mesh-llm distributed inference on tailscale for apps
 	- https://continual-harness.github.io/
+	- PNLC (levine) -> NLAC (levine) as PPI (from google MUPI paper) -> ??
 - directly relevant - practical
 	- https://arxiv.org/pdf/2510.19488v1 labels unlabeled video data with their actions, for future training. seems like deepmind's genie also does this
 	- phase 2 requires only showing samples when confidence exceeds some threshold, likely requires fine tuning
@@ -64,7 +65,7 @@
 	- there is a tension between human preference as the only possible reward signal and the sutton argument that environmental rewards are the only ground truth data for real superintelligence
 	- https://x.com/willdepue/status/2074178395462848800 "stargate for data"
 		- "data generating surfaces (interactions) matter more than human-generated data / hand-curated RL environments"
-		- [[PDEV]] could be described as a renewable data source in the energy/fossil fuel analogy. it 100% requires a better interaction application, perhaps along the lines of what i've described
+		- [[Product]] could be described as a renewable data source in the energy/fossil fuel analogy. it 100% requires a better interaction application, perhaps along the lines of what i've described
 	- set of takes
 		- perhaps what comes next after 90% cost reductions for rote tasking like info extraction is model ability to model employees like meta is doing?
 		- One thing that stands out is that it’s very practical to lower costs for enterprises
@@ -93,14 +94,16 @@
 		- the best form of granular context in a computer use setting is writing down your thoughts, since that has the most predictive power on next thought/action vs just scraping computer use
 		- argument that if you don't do this you'll be left behind as algos get superintelligent
 		- (also relates to frontier models differing in reward models from you)
-		- that leads to [[PDEV]]
+		- that leads to [[Product]]
 		- definitionally, a model is superintelligent compared to me if it has the ability to predict my actions well (and i cannot predict its actions?)
 
 
-- 
-- PNLC -> NLAC as PPI -> ??
+
+
+
+
+
 - are weight updates just a more black boxy, hope and a prayer way to figure out how to construct context in prompt, since its otherwise unclear how to do that? (i guess GEPA?)
-- add local coding into the git tracking, separate from the obsidian (and also commit / opentimestamp)?
 - resistance to hardware due to notions of asset light vs asset heavy?
 - from jakub
 	- As it stands, I feel very indeterminate about application level problems related to AI  

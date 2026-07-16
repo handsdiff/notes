@@ -50,7 +50,7 @@
 	- https://claude.ai/chat/8d0ee16d-491f-4f94-b416-626b7c42b745
 	- https://gemini.google.com/app/f44fe68a684ec176
 		- seems to relate to [[AIXI]] since the agent manages a set of possible 'true' reward functions and adopts a policy based on its observations + coupled with its environment a la MUPI if the fear of persuading the human to change to make its own job easier is well founded
-		- git history as the history over which the agent learns in the [[PDEV]] sense feels directionally correct but overall lacking in context (what i read, what i see, what i conversate, etc)
+		- git history as the history over which the agent learns in the [[Product]] sense feels directionally correct but overall lacking in context (what i read, what i see, what i conversate, etc)
 	- https://gemini.google.com/app/f44fe68a684ec176 early part of this topic. it eventually degrades
 - https://gemini.google.com/app/d3409327dab2a45f explanation for PNLC https://arxiv.org/abs/2505.18098 vs NLAC
 	- can you apply the step from PNLC -> NLAC to PPI? think i had a claude chat somewhere about this. the take seemed to be yes its possible since LLMs are fundamentally the same structure as the GRUs that were tested. again also seems related to SDPO
