@@ -94,6 +94,8 @@
 			- makes sense if it gets rewards when its suggestion is accepted (akin to contextual bandit recommender systems used in social media/ecommerce)
 	- https://huggingface.co/learn/llm-course/en/chapter12/3
 	- predictive computer use from tsinghua https://github.com/tsinghua-fib-lab/FingerTip-20K
+	- the visualization of robot trying to push the L into position properly where it just tries a bunch of actions, then takes the top 20% based on the rewards, then samples from that, etc, until it can do the task, feels useful, but needs DPO rather than codified rewards? 
+		- is this hopeless? is it way too slow to collect data to optimize properly? or does LoRA for this actually not need many samples?
 - directly relevant - vision
 	- https://generalagents.com/ good relative benchmark for quality, interesting description of 'behavior' as a training paradigm that resonates
 	- there is a tension between human preference as the only possible reward signal and the sutton argument that environmental rewards are the only ground truth data for real superintelligence
@@ -134,14 +136,8 @@
 	- seems equivalent to predicting behavior or increased legibility. didnt feel the need to increase legibility for 'big data' social media algos. maybe because they didnt care about capturing me, or i didn't benefit, or it was knowingly misaligned, but likely probably because i just *couldnt*. i'm not able to put generative thoughts into twitter. (unless maybe they edit the feed based on what you post too, which would make a lot of sense, but havent heard anything about this)
 	- seems so obvious that theres a gap of just having an end to end product that pipes all computer context + serves personalized predictions to solve inferenced local and global goals?
 	- having full context visibility -> predicting what i will do -> doing something to help me get there feels pretty intrinsically valuable. the relation to knowledge sharing perhaps is confusing because its a different axis along the lines of the data elicitation and enterprise customer adoption pigeon holing. but the reason for the assistants would be to use the human models for multiplayer rollouts. does that hold up? does that cause it to be too long of a winding road to a specific problem? theres definitely conflation in the intended problems to be addressed
+	- essentially actual experimentation to bolster algorithmic belief for a product for data legibilization, recognize that if you dont have a ton of personal data (unclear where the reward model part comes in) then you will be in a lot of pain in the next few years (assumes RSI/AGI)
 
-
-	- https://gemini.google.com/app/e5061268008c580f has some stimulating ideas on data structure
-	- Alphago analogy was interesting ^
-- the visualization of robot trying to push the L into position properly where it just tries a bunch of actions, then takes the top 20% based on the rewards, then samples from that, etc, until it can do the task, feels useful, but needs DPO rather than codified rewards? 
-	- is this hopeless? is it way too slow to collect data to optimize properly? or does LoRA for this actually not need many samples?
-- essentially actual experimentation to bolster algorithmic belief for a product for data legibilization, recognize that if you dont have a ton of personal data (unclear where the reward model part comes in) then you will be in a lot of pain in the next few years (assumes RSI/AGI)
-- 
 
 - as i think more, the core distinction seems to be training a model to predict how my brain works during my workday. based on inbound, what is my outbound? 
 	- the stance, which needs to be deeply analyzed, is that this matters because (1) self prediction is enough of a value prop by itself (2) prediction is a prerequisite for inferring rewards (3) prediction, inferring rewards, and the data collection associated with both is a prerequisite for a superhuman system pursuing my goals for me.
