@@ -1,7 +1,8 @@
 likely need to 
-1) generate a data hypothesis by collecting all the disparate notes around data processing i've collected
-2) review the data structures from relevant similar papers like I did for algorithms to determine which is worth implementing
-3) implement the data ingestion and cleaning pipeline and monitor it
+1) go through and clean up Entry, separate things that should be handled during backlog push, to enable step 2 below
+2) generate a data hypothesis by collecting all the disparate notes around data processing i've collected
+3) review the data structures from relevant similar papers like I did for algorithms to determine which is worth implementing
+4) implement the data ingestion and cleaning pipeline and monitor it
 	1) codify data structure needed for chosen algorithms, codify how to extract from base data structure to algorithm structure for each step, set up all ingestion points and monitor cleanliness
 
 disparate notes:
