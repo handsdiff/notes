@@ -35,6 +35,8 @@
 	- https://arxiv.org/pdf/2607.05394 weak to strong generalization via direct OPD
 	- https://research.perplexity.ai/articles/making-space-secure-and-efficient-runtimes-for-long-running-agents
 	- https://openai.com/index/chatgpt-memory-dreaming/
+	- https://x.com/jia_seed/status/2077422944645443660?s=20 product that ensures you show up in chatbot chats, relevant to earlier thinking
+	- https://alignment.anthropic.com/2026/agentic-misalignment-summer-2026/
 - directly relevant - practical
 	- https://arxiv.org/pdf/2510.19488v1 labels unlabeled video data with their actions, for future training. seems like deepmind's genie also does this
 	- phase 2 requires only showing samples when confidence exceeds some threshold, likely requires fine tuning
