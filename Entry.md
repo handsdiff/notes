@@ -54,6 +54,9 @@
 	- https://arxiv.org/abs/2606.03979 memory consolidation during sleep cycles
 	- https://edge-bench.org/ continual learning benchmark
 	- meme on whats necessary for selling data https://x.com/distributionat/status/2075253365983068181?s=20
+	- how many tokens are common examples of fine tuned models that actually work trained on? how many tokens are frontier models trained on? on what stage? how does LoRA actually impact the amount of needed/useful tokens? how does that change as the underlying model changes?
+		- https://thinkingmachines.ai/blog/ probably should review the old ones too
+	- is it bs to predict next thoughts/actions? why or why not? there is likely some description that is not bullshit for a given workflow, but would need to write it down. the workflow would likely be research/learning. more concretely? is it next token prediction on what/where i type? is it a bit less granular, a semantic action of writing down a note or looking something up or talking to an AI, given a specific platform?
 - directly relevant - vision
 	- https://generalagents.com/ good relative benchmark for quality, interesting description of 'behavior' as a training paradigm that resonates
 	- there is a tension between human preference as the only possible reward signal and the sutton argument that environmental rewards are the only ground truth data for real superintelligence
@@ -77,15 +80,12 @@
 	- https://nusomi.com/
 	- perhaps the similarity to omar's research is bearish due to lack of grounded practicality on growing enterprise time/money tasking
 	- people think. people share what they think with others. sharing improves others thinking. this happens slowly. is basically one version of a practical thesis. whats a very specific workflow? 
-
-- options
+	- discussion with jakub yielded the distinction between nondeterministic reward functions and deterministic reward functions. simpler demarcation is human vs not.
+	- 
 	- one tension seems to be that the end goal is for the model to prove it fully understands me (via prediction from increased legible context) so that it can eventually expand the work i do directly, outside of me prompting it to do so. i doubt this behavior arises naturally, and would need to be directly trained. does super good prediction eventually result in 'agency'? probably if the outputs involve actions not just thoughts. but i'd want it to eventually do things I could not do reasonably, thats the whole point, like index a ton of data or do a ton of messaging with others agents. would it do that if it learns to just follow my actions without taking into account its unique capabilities?
-	- another tension is im skeptical that the algorithms will work at all with my existing amount of data. perhaps thats cope?
-	- how many tokens are common examples of fine tuned models that actually work trained on? how many tokens are frontier models trained on? on what stage? how does LoRA actually impact the amount of needed/useful tokens? how does that change as the underlying model changes? [[Interaction#^f94b64]]
-	- seems like you need concrete, believable algorithms, since it increases the tangibility of pain of lack of data, and what kind of data is lacking, and for what
-	- is it bs to predict next thoughts/actions? why or why not? there is likely some description that is not bullshit for a given workflow, but would need to write it down. the workflow would likely be research/learning. more concretely? is it next token prediction on what/where i type? is it a bit less granular, a semantic action of writing down a note or looking something up or talking to an AI, given a specific platform?
-- a lot of continual learning/memory rhetoric seems to be "what did i do?" "how can i do better?" rather than "what did the human do?" "what will the human do next?". the latter is much more like a recommendation system but for actions rather than content? is this an actual distinction?
-- discussion with jakub yielded the distinction between nondeterministic reward functions and deterministic reward functions. simpler demarcation is human vs not.
+	- a lot of continual learning/memory rhetoric seems to be "what did i do?" "how can i do better?" rather than "what did the human do?" "what will the human do next?". the latter is much more like a recommendation system but for actions rather than content? is this an actual distinction?
+
+
 - data + compute + algorithms for life autocomplete (predicting thoughts) (team understood it as predicting prompts) (team biggest concern is amount of data necessary to feel value)
 	- algorithms have 10-11 figures of annual research spend by the smartest minds on earth
 	- compute you can buy
