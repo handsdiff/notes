@@ -96,6 +96,7 @@
 	- predictive computer use from tsinghua https://github.com/tsinghua-fib-lab/FingerTip-20K
 	- the visualization of robot trying to push the L into position properly where it just tries a bunch of actions, then takes the top 20% based on the rewards, then samples from that, etc, until it can do the task, feels useful, but needs DPO rather than codified rewards? 
 		- is this hopeless? is it way too slow to collect data to optimize properly? or does LoRA for this actually not need many samples?
+	- https://huggingface.co/docs/trl/grpo_trainer
 - directly relevant - vision
 	- https://generalagents.com/ good relative benchmark for quality, interesting description of 'behavior' as a training paradigm that resonates
 	- there is a tension between human preference as the only possible reward signal and the sutton argument that environmental rewards are the only ground truth data for real superintelligence
@@ -137,20 +138,15 @@
 	- seems so obvious that theres a gap of just having an end to end product that pipes all computer context + serves personalized predictions to solve inferenced local and global goals?
 	- having full context visibility -> predicting what i will do -> doing something to help me get there feels pretty intrinsically valuable. the relation to knowledge sharing perhaps is confusing because its a different axis along the lines of the data elicitation and enterprise customer adoption pigeon holing. but the reason for the assistants would be to use the human models for multiplayer rollouts. does that hold up? does that cause it to be too long of a winding road to a specific problem? theres definitely conflation in the intended problems to be addressed
 	- essentially actual experimentation to bolster algorithmic belief for a product for data legibilization, recognize that if you dont have a ton of personal data (unclear where the reward model part comes in) then you will be in a lot of pain in the next few years (assumes RSI/AGI)
+	- as i think more, the core distinction seems to be training a model to predict how my brain works during my workday. based on inbound, what is my outbound? 
+		- the stance, which needs to be deeply analyzed, is that this matters because (1) self prediction is enough of a value prop by itself (2) prediction is a prerequisite for inferring rewards (3) prediction, inferring rewards, and the data collection associated with both is a prerequisite for a superhuman system pursuing my goals for me.
+			- the 3rd will likely come to fruition as computer use expertise in base models advances. the blocker for this will be understanding how separate environmental agents react to your actions. this is the tie in to classic MARL, legible motion planning, etc
+		- if all these are true, then the brass tacks come down to what inbound to collect and what outbound to collect, how to structure it so that prediction can show results, how to structure it so that reward inference can show results, and how to structure it for eventual superhuman rollouts towards my goals. the first is most important. 
+		- the tension now is whether to optimize the data for prediction, or whether to keep the end in mind and optimize some meta layer that different types of datasets can be constructed from... i suspect the latter is better, pending some concreteness on what future algorithms are. i do have a basic sense so maybe it makes sense to go out and verify now how they differ from frontier elsewhere
 
 
-- as i think more, the core distinction seems to be training a model to predict how my brain works during my workday. based on inbound, what is my outbound? 
-	- the stance, which needs to be deeply analyzed, is that this matters because (1) self prediction is enough of a value prop by itself (2) prediction is a prerequisite for inferring rewards (3) prediction, inferring rewards, and the data collection associated with both is a prerequisite for a superhuman system pursuing my goals for me.
-		- the 3rd will likely come to fruition as computer use expertise in base models advances. the blocker for this will be understanding how separate environmental agents react to your actions. this is the tie in to classic MARL, legible motion planning, etc
-	- if all these are true, then the brass tacks come down to what inbound to collect and what outbound to collect, how to structure it so that prediction can show results, how to structure it so that reward inference can show results, and how to structure it for eventual superhuman rollouts towards my goals. the first is most important. 
-	- the tension now is whether to optimize the data for prediction, or whether to keep the end in mind and optimize some meta layer that different types of datasets can be constructed from... i suspect the latter is better, pending some concreteness on what future algorithms are. i do have a basic sense so maybe it makes sense to go out and verify now how they differ from frontier elsewhere
-- one question i keep coming back to is whether I should be modeled as an environment and the agents goal is to learn the state transition dynamics of that environment, rather than trying to predict my actions in the environment.
-- again, no claims on whether or not this is better done in weight space or prompt space, we should try both
-- is DPO reward inference?
-- https://huggingface.co/docs/trl/grpo_trainer
-- https://gemini.google.com/app/be2ad689e0e1e1dc personal recsys overview. attempts seem unrigorous
 - https://www.aixi.uk/
-- Is modeling my brain the first step in modeling others or the first step in representing me publicly?
+-
 - https://x.com/albustime/status/2073986970653515817?s=20
 - https://x.com/emollick/status/2074307813392732279?s=20 prompting is literally just training?
 - https://x.com/didier_lopes/status/2074228000539693139?s=20
