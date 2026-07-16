@@ -97,6 +97,7 @@
 	- the visualization of robot trying to push the L into position properly where it just tries a bunch of actions, then takes the top 20% based on the rewards, then samples from that, etc, until it can do the task, feels useful, but needs DPO rather than codified rewards? 
 		- is this hopeless? is it way too slow to collect data to optimize properly? or does LoRA for this actually not need many samples?
 	- https://huggingface.co/docs/trl/grpo_trainer
+	- https://x.com/albustime/status/2073986970653515817?s=20 description of what common LLM terms mean
 - directly relevant - vision
 	- https://generalagents.com/ good relative benchmark for quality, interesting description of 'behavior' as a training paradigm that resonates
 	- there is a tension between human preference as the only possible reward signal and the sutton argument that environmental rewards are the only ground truth data for real superintelligence
@@ -145,10 +146,6 @@
 		- the tension now is whether to optimize the data for prediction, or whether to keep the end in mind and optimize some meta layer that different types of datasets can be constructed from... i suspect the latter is better, pending some concreteness on what future algorithms are. i do have a basic sense so maybe it makes sense to go out and verify now how they differ from frontier elsewhere
 
 
-- https://x.com/albustime/status/2073986970653515817?s=20
-- https://x.com/emollick/status/2074307813392732279?s=20 prompting is literally just training?
-- https://x.com/didier_lopes/status/2074228000539693139?s=20
-- https://x.com/willccbb/status/1902168956095320553?s=20 will brown counter argument on high entropy environments?
 - https://x.com/willccbb/status/2074363852410822875?s=20blicly?
 	- i.e. the better framework is that the model is learning its environment, which primarily involves interacting with me, and it needs to understand me. its recommendations are actions in a state transition system. states are given reward when its recommendations are accepted. to be able to learn a good policy here, it will need to be able to predict my actions first as practical bootstrapping? kind of like alphago training on expert data before doing MCTS self play? is MCTS impossible here? its tough for the environment as a whole, but it can do MCTS on interactions with ME once it has modeled me as a 'player' in its environment whose actions mostly determine the state transitions? that seems interesting, albeit a bit unclear
 	- in that case, its recommendations would be actions that it is aware impact my state transitions, and its goal would be to take actions that I accept for it to get reward? but since the rewards are manual it would be extremely slow to learn. could it actually learn at all in an online way? it might be able to learn phase 1 easily enough since theres no reward labeling, but unsure about phase 2 learning goals.
