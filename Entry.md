@@ -48,6 +48,7 @@
 	- https://x.com/RampLabs/status/2072381992285647280 portable LoRA
 	- https://x.com/GenAI_is_real/status/2074760177887404501?s=20 serving TTS
 	- https://www.iroh.computer/blog/mesh-llm distributed inference on tailscale for apps
+	- https://continual-harness.github.io/
 - directly relevant - practical
 	- https://arxiv.org/pdf/2510.19488v1 labels unlabeled video data with their actions, for future training. seems like deepmind's genie also does this
 	- phase 2 requires only showing samples when confidence exceeds some threshold, likely requires fine tuning
