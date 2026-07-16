@@ -67,6 +67,7 @@
 	- Is wisdom more truthful reward functions?
 	- “Artificial wisdom” sounds way more implausible than artificial intelligence
 		- Feels related to “what to do” not “how to do it”
+	- is this just 'horizontal' org memory scaling
  
 - https://x.com/distributedkv/status/2075642079825547717?s=20
 - potentially useful for personal blog/website for more legitimacy personally and for company https://x.com/shadcn/status/2075600582518124657?s=20
