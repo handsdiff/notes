@@ -103,6 +103,7 @@
 
 
 - https://www.asimov.press/p/gentle-romance
+- https://x.com/_xjdr/status/2077787741203677430?s=20
 - are weight updates just a more black boxy, hope and a prayer way to figure out how to construct context in prompt, since its otherwise unclear how to do that? (i guess GEPA?)
 - resistance to hardware due to notions of asset light vs asset heavy?
 - from jakub
