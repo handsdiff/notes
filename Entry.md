@@ -4,7 +4,7 @@
 		- apply for paradigm's frontiers hackathon https://www.paradigm.xyz/frontiers-2026
 		- handle mtndao acceptance
 		- https://colmweb.org/ conference on language modeling
-	- increase branding via twitter banner + personal site
+	- increase branding via twitter banner + personal site + company site
 	- make target market and their growing problem as evidenced by time or money more concrete
 	- go through old information to discover anything relevant
 	- post blog
