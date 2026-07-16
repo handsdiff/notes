@@ -162,6 +162,7 @@
 		- the problem with frequent git is that the local size of the git folder becomes massive, i assume there are solutions to this somewhere, but perhaps not?
 	- what data is more valuable when shared?
 	- bit of an old hot take. i think enterprise models will look like each employee having their own agent that is tuned to them, and the models are allowed to conversate to collaborate and improve rewards, instead of a monolithic model that everyone shares. personal computing with networking, not timeshared computing. 
+	- are frontier LLMs already implicitly inferring my rewards when I give it iterative feedback in a claude code or codex session? whats the diff?
 
 
 
