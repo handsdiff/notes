@@ -341,4 +341,4 @@ The “goals” I’m expecting the human model to implicitly map (for it to pre
 
 the formulation that the human does not know their reward function, or that the latent goal is nonexistent, is incorrect. there is a latent goal that can be expressed. its just the policy demonstrated to achieve it may not be optimal.
 
-ECHO by
+"ECHO but with my thoughts" formulation i stated previously reminds me of having the model predict specifically how i respond to its suggestions, rather than masking the models suggestions as it learns to model my behavior from else prior context. not sure this is useful
