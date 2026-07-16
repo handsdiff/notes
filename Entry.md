@@ -47,6 +47,7 @@
 	- ai dot engineer review i missed https://x.com/abhikhanna30/status/2073646301674389819?s=20
 	- https://x.com/RampLabs/status/2072381992285647280 portable LoRA
 	- https://x.com/GenAI_is_real/status/2074760177887404501?s=20 serving TTS
+	- https://www.iroh.computer/blog/mesh-llm distributed inference on tailscale for apps
 - directly relevant - practical
 	- https://arxiv.org/pdf/2510.19488v1 labels unlabeled video data with their actions, for future training. seems like deepmind's genie also does this
 	- phase 2 requires only showing samples when confidence exceeds some threshold, likely requires fine tuning
@@ -71,13 +72,12 @@
 		- Feels related to “what to do” not “how to do it”
 	- is this just 'horizontal' org memory scaling but more (perhaps unnecessarily) complex?
 	- is collecting agent traces sufficient if 80% of write actions are chatbot interactions? could this be an ablation in [[Paper]]?
+	- https://centaur.run/ how does vision compare and contrast? what evidence, or if no evidence, beliefs support current direction over this? how to collect evidence asap for critical assumptions?
+		- "for tempo team to start adding Centaur on external channels with our partners to accelerate how we do customer support - I think this will be huge, as it lets you tap in its whole brain w/ fine grained perms vs having to have many bots etc"
+	- https://nusomi.com/
+	- perhaps the similarity to omar's research is bearish due to lack of grounded practicality on growing enterprise time/money tasking
  
-- https://x.com/distributedkv/status/2075642079825547717?s=20
-- 
-- https://x.com/gakonst/status/2075733284513005718?s=20 paradigm going this far too allow untrusted input into their agent
 
-- https://x.com/0xCarnagee/status/2075983721841225885?s=20
-- distributed computing for LLMs on iroh? https://news.ycombinator.com/item?id=48876505 (Deleted old ref it’s prob somewhere)
 - The problem with the deletion is that the app needs to be deeply version control integrated. Like I need to be able to link to text in old commits.
 - options
 	- fix visibility of public notes per team feedback
