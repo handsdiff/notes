@@ -30,6 +30,9 @@
 - https://x.com/ProphetArena/status/2077513380290601290?s=20
 - https://x.com/DhravyaShah/status/2077494558129267165?s=20
 - https://x.com/yifanzhang_/status/2077467076936245409?s=20
+- https://x.com/teortaxesTex/status/2077443642982117643?s=20
+- https://x.com/aengus_lynch1/status/2077453053540880419?s=20
+- 
 - seeing a lot of data that you can perform RL directly on the activations of an LLM, not sure what that means, and that doing so could massively speed up and raise the ceiling for LLM reasoning via recurrent iteration in neural activation space
 - control of LLMs will have a massive massive impact on the US presidential election. whats my opinion on how this likely plays out?
 - perhaps what comes next after 90% cost reductions for rote tasking like info extraction is model ability to model employees like meta is doing?
