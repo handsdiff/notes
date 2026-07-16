@@ -43,6 +43,7 @@
 	- https://x.com/0xBADB01E/status/2073990357398982797?s=20
 	- https://www.youtube.com/watch?v=SVWmuJx0hHM NVIDIA Prime Intellect talk on long horizon agents
 	- ai dot engineer review i missed https://x.com/abhikhanna30/status/2073646301674389819?s=20
+	- https://x.com/RampLabs/status/2072381992285647280 portable LoRA
 - directly relevant - practical
 	- https://arxiv.org/pdf/2510.19488v1 labels unlabeled video data with their actions, for future training. seems like deepmind's genie also does this
 	- phase 2 requires only showing samples when confidence exceeds some threshold, likely requires fine tuning
@@ -65,7 +66,6 @@
 	- “Artificial wisdom” sounds way more implausible than artificial intelligence
 		- Feels related to “what to do” not “how to do it”
  
-- https://x.com/samzliu/status/2075437170198991344?s=20
 - https://x.com/distributedkv/status/2075642079825547717?s=20
 - potentially useful for personal blog/website for more legitimacy personally and for company https://x.com/shadcn/status/2075600582518124657?s=20
 - https://x.com/gakonst/status/2075733284513005718?s=20 paradigm going this far too allow untrusted input into their agent
