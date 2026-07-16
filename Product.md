@@ -97,3 +97,5 @@ fix visibility of public notes per team feedback (recently updated, otherwise ca
 user quality of life like easier inputting or search or link indexing
 
 add local coding into the git tracking, separate from the obsidian (and also commit / opentimestamp)?
+
+want to make the html artifacts publicly visible along with my notes. likely dont want the browser data to be visible though?

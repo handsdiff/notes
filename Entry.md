@@ -109,8 +109,6 @@
 - https://x.com/lagunacarta/status/2072346443013107784?s=20
 - https://x.com/tetsuoai/status/2072554420135678074?s=20search makes browsers valuable?
 - not more data, but more signal is always better
-- https://openpipe.ai/ early RL for agents company, apparently had a lot of customers, acquired by Coreweave
-- want to make the html artifacts publicly visible along with my notes. likely dont want the browser data to be visible though?
 - https://x.com/emollick/status/2072697436963832023?s=20 “you really need your own benchmarks”
 - https://news.ycombinator.com/item?id=48760201
 - https://x.com/satyanadella/status/2072708957077176563?s=20
