@@ -81,27 +81,21 @@
 	- perhaps the similarity to omar's research is bearish due to lack of grounded practicality on growing enterprise time/money tasking
 	- people think. people share what they think with others. sharing improves others thinking. this happens slowly. is basically one version of a practical thesis. whats a very specific workflow? 
 	- discussion with jakub yielded the distinction between nondeterministic reward functions and deterministic reward functions. simpler demarcation is human vs not.
-	- 
 	- one tension seems to be that the end goal is for the model to prove it fully understands me (via prediction from increased legible context) so that it can eventually expand the work i do directly, outside of me prompting it to do so. i doubt this behavior arises naturally, and would need to be directly trained. does super good prediction eventually result in 'agency'? probably if the outputs involve actions not just thoughts. but i'd want it to eventually do things I could not do reasonably, thats the whole point, like index a ton of data or do a ton of messaging with others agents. would it do that if it learns to just follow my actions without taking into account its unique capabilities?
 	- a lot of continual learning/memory rhetoric seems to be "what did i do?" "how can i do better?" rather than "what did the human do?" "what will the human do next?". the latter is much more like a recommendation system but for actions rather than content? is this an actual distinction?
+	- data + compute + algorithms for life autocomplete (predicting thoughts) (team understood it as predicting prompts) (team biggest concern is amount of data necessary to feel value)
+		- algorithms have 10-11 figures of annual research spend by the smartest minds on earth
+		- compute you can buy
+		- (nondeterministic, temporal) data is impossible to buy
+		- therefore you need to be producing granular context
+		- the best form of granular context in a computer use setting is writing down your thoughts, since that has the most predictive power on next thought/action vs just scraping computer use
+		- argument that if you don't do this you'll be left behind as algos get superintelligent
+		- (also relates to frontier models differing in reward models from you)
+		- that leads to [[PDEV]]
+		- definitionally, a model is superintelligent compared to me if it has the ability to predict my actions well (and i cannot predict its actions?)
 
 
-- data + compute + algorithms for life autocomplete (predicting thoughts) (team understood it as predicting prompts) (team biggest concern is amount of data necessary to feel value)
-	- algorithms have 10-11 figures of annual research spend by the smartest minds on earth
-	- compute you can buy
-	- (nondeterministic, temporal) data is impossible to buy
-	- therefore you need to be producing granular context
-	- the best form of granular context in a computer use setting is writing down your thoughts, since that has the most predictive power on next thought/action vs just scraping computer use
-	- argument that if you don't do this you'll be left behind as algos get superintelligent
-	- (also relates to frontier models differing in reward models from you)
-	- that leads to [[PDEV]]
-	- definitionally, a model is superintelligent compared to me if it has the ability to predict my actions well (and i cannot predict its actions?)
-- Important to keep in mind that a classical RSI can’t produce my data. It may be able to persuade me to do whatever it wants, but I’m skeptical of that. relates to dragan's [[Interaction#^2e1db5]]
-- https://x.com/sethkarten/status/2072034978112889328?s=20
-- https://x.com/OpenSoftwareCo/status/2071956798861353099?s=20
-- https://x.com/willccbb/status/2072117134390624579?s=20
-- https://ai.meta.com/blog/brain2qwerty-brain-ai-human-communication/?_fb_noscript=1
-- https://x.com/willccbb/status/2072129068796141760?s=20
+- 
 - I like the idea of having open algo competition on my data production
 - is it cheaper to update weights continuously or update prompts continuously? actually feels like weights? since querying prompts on a frontier model is super expensive? [[Interaction#^72b341]]
 - https://x.com/RampLabs/status/2072381992285647280?s=20 portable LoRA adapters
