@@ -1,19 +1,31 @@
 
 - random work
 	- find and sign up for events
+		- apply for paradigm's frontiers hackathon https://www.paradigm.xyz/frontiers-2026
+		- handle mtndao acceptance
+		- https://colmweb.org/ conference on language modeling
 	- increase branding via twitter banner + personal site
 	- make target market and their growing problem as evidenced by time or money more concrete
 	- go through old information to discover anything relevant
 	- post blog
 	- double email Omar
 	- put precursor banner on personal
+- information
+	- https://www.youtube.com/watch?v=JIsgyk0Paic RL for agents by will brown
+	- https://www.youtube.com/watch?v=_IzZWeuTx7I RL Envs at scale by will brown
+	- https://www.youtube.com/watch?v=PbHm2qKnu10 training agentic reasoners by will brown
+	- https://www.youtube.com/watch?v=V-EDrhIhHzQ modern post training (jul 14 2026) by will brown
+	- grpo script from will brown 2025 https://gist.github.com/willccbb/4676755236bb08cab5f4e54a0475d6fb
+	- https://arxiv.org/pdf/2607.07508 single rollout async optimization for RL, from ZAI
+- directly relevant - practical
+	- 
+- directly relevant - vision
+	- https://generalagents.com/ good relative benchmark for quality, interesting description of 'behavior' as a training paradigm that resonates
 
-- https://x.com/willccbb/status/2076701469882085382?s=20
-- https://x.com/gakonst/status/2076699452325392860?s=20
-- https://x.com/willccbb/status/1883416446992322993?s=20
-- https://x.com/jietang/status/2076913247316492510?s=20
+
+
 - https://x.com/GoodfireAI/status/2077073005088501780
-- https://generalagents.com/ good relative benchmark for quality, interesting description of 'behavior' as a training paradigm that resonates
+- 
 - https://arxiv.org/pdf/2510.19488v1 labels unlabeled video data with their actions, for future training. seems like deepmind's genie also does this
 - https://humansand.ai/blog/nvfp4-rl
 - https://genai-handbook.github.io/
