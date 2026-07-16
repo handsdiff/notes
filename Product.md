@@ -99,3 +99,6 @@ user quality of life like easier inputting or search or link indexing
 add local coding into the git tracking, separate from the obsidian (and also commit / opentimestamp)?
 
 want to make the html artifacts publicly visible along with my notes. likely dont want the browser data to be visible though?
+
+two 'computers' on each device? one from the human and one for the ai? easy sharing of html and some file systems, but avoids catastrophe or takeover? and allows for prospective learning / predictive recommendations from screenpipe context?
+

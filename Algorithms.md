@@ -227,6 +227,8 @@ algorithms considered and rejected for now and why: (there are likely practicali
 			- UI was chosen since there was a take that chatbot UX is poor, and they didnt want to the model to suggest to take actions to the user, they just wanted to present something useful
 	- https://collaborative-agents.github.io/
 		- this seems to be basically the same as general user models from shaikh
+	- CTRL-Rec https://arxiv.org/pdf/2510.12742
+		- 
 
 - is phase 1 a process reward model?
 - does phase 1 result in an 'implicit' reward model?

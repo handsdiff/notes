@@ -69,6 +69,8 @@
 	- https://epoch.ai/publications/earthborne-rangers-benchmark continual learning benchmark
 	- who are the biggest screenpipe users? is anyone running prospective learning or reward inference algorithms on their data?
 		- https://github.com/screenpipe/screenpipe
+	- (read, app, content) and (write, app, content). obsidian covers some write. the browser history script that fetches some read and write, but some issues flagged by Fable.
+	- https://www.zyphra.com/our-work/plasticity-loss-in-continual-learning
 - directly relevant - vision
 	- https://generalagents.com/ good relative benchmark for quality, interesting description of 'behavior' as a training paradigm that resonates
 	- there is a tension between human preference as the only possible reward signal and the sutton argument that environmental rewards are the only ground truth data for real superintelligence
@@ -108,28 +110,9 @@
 	- One way to describe this local vision feels like “neomemory” bc it’s similar to what “memory” systems do today but pointed at prediction?
 	- seems equivalent to predicting behavior or increased legibility. didnt feel the need to increase legibility for 'big data' social media algos. maybe because they didnt care about capturing me, or i didn't benefit, or it was knowingly misaligned, but likely probably because i just *couldnt*. i'm not able to put generative thoughts into twitter. (unless maybe they edit the feed based on what you post too, which would make a lot of sense, but havent heard anything about this)
 
-- 
-	- from dragan re social media recommendation: https://arxiv.org/abs/2510.12742
-- two 'computers' on each device? one from the human and one for the ai? easy sharing of html and some file systems, but avoids catastrophe or takeover? and allows for prospective learning / predictive recommendations from screenpipe context?
 - seems so obvious that theres a gap of just having an end to end product that pipes all computer context + serves personalized predictions to solve inferenced local and global goals?
-- personal reward functions differing from labs as a belief
-	- Sholto take "it will do your taxes when someone at the labs cares to teach it"
-https://x.com/teortaxesTex/status/2072800874728935630?s=20- to what extent am i implementing toy examples / codifying data / going through algorithms to convince my team of the vision rather than make more concrete progress? obviously team conviction could increase progress long term, so whats the tradeoff there? 
-- the data codification seems a bit uninspiring, but maybe thats because its actually whats needed to deliver the value prop, so its a good forcing function to avoid being lazy and just an 'intellectual'
-- its also unclear if i want to be capturing coding sessions at this stage. i think that will bloat the rest of the context and make it harder to train on the research signal. it comes down to what the actual point here is, which is clearly unclear, or at the very least perhaps differs from me and cofounders. thats probably not true since to be fair, we both want autocomplete, its just that we differ on whether certain data sources are necessary for that to occur. obviously, more data is better, and stuff that cannot be recaptured easily should be prioritized. thoughts and reasoning, imo, is one of those. coding sessions seem to persist/backfillable, same with browser history. 
-- this notion of how does behavior cloning / prediction / recommendation scale to superhuman, ceiling-raising performance feels important to actually have an opinion on
 
-- i think at a high level, in terms of algorithms, i want to distinguish between 'normal' next token prediction supervised fine tuning on LLMs, vs doing RL on LLMs. and which ones lead to superhuman performance? and are you actually just doing both? for example what is ECHO? regardless, what data will likely be needed to see performance? probably browser data + obsidian data, unclear how structured though since its dependent on the algorithms. obsidian data is version controlled so its perfectly tracked. i want to avoid code for now. so browser history would be the missing vertical. 
-	- (read, app, content) and (write, app, content). obsidian covers some write. the browser history script that fetches some read and write, but some issues flagged by Fable.
-	- maybe just start ensuring its all collected. then from there, write down ALL the algos and papers. then, group/consolidate. then the data structure will become clearer.
-- https://x.com/willdepue/status/2072793965565468789
-- https://x.com/tikgiau/status/2072701593829695926?s=20
-- https://x.com/chelseabfinn/status/2072841227603689784?s=20
-- https://x.com/teortaxesTex/status/2072855154794078701?s=20
-- There was an x post on lost plasticity quote tweeted by will brown
-- https://x.com/gakonst/status/2073019287380316660?s=20 interesting skill symmetry
-- banger https://x.com/ylecun/status/2073037974153896312?s=20
-- https://x.com/willccbb/status/2073162198986498513?s=20
+
 - https://www.thoughtfullab.com/
 - https://x.com/tetsuoai/status/2073246301610025212?s=20
 - https://x.com/iamwaynechi/status/2073081777091182633?s=20https://x.com/tetsuoai/status/2073246301610025212?s=20
