@@ -1,5 +1,5 @@
 
-- starting to stack up a lot of random work (signing up for events, increasing branding via twitter banner + personal site, making target market and their growing problem as evidenced by time or money more and their growing problem as evidenced by time or money more concrete, going through old information to discover anything relevant, posting blog) ^15f091
+- starting to stack up a lot of random work (signing up for events, increasing branding via twitter banner + personal site, making target market and their growing problem as evidenced by time or money more concrete, going through old information to discover anything relevant, posting blog) ^15f091
 - sent an email to Omar
 - 
 - put precursor banner on personal
