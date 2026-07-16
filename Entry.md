@@ -76,10 +76,7 @@
 		- "for tempo team to start adding Centaur on external channels with our partners to accelerate how we do customer support - I think this will be huge, as it lets you tap in its whole brain w/ fine grained perms vs having to have many bots etc"
 	- https://nusomi.com/
 	- perhaps the similarity to omar's research is bearish due to lack of grounded practicality on growing enterprise time/money tasking
-	- people think. people share what they think with others. sharing improves others thinking. this happens slowly. is basically one version of a practical thesis. whats a very specific workflow?
-
-- apparently 95% of fireworks inference is custom models and they do $1B ARR?
- 
+	- people think. people share what they think with others. sharing improves others thinking. this happens slowly. is basically one version of a practical thesis. whats a very specific workflow? 
 
 - options
 	- one tension seems to be that the end goal is for the model to prove it fully understands me (via prediction from increased legible context) so that it can eventually expand the work i do directly, outside of me prompting it to do so. i doubt this behavior arises naturally, and would need to be directly trained. does super good prediction eventually result in 'agency'? probably if the outputs involve actions not just thoughts. but i'd want it to eventually do things I could not do reasonably, thats the whole point, like index a ton of data or do a ton of messaging with others agents. would it do that if it learns to just follow my actions without taking into account its unique capabilities?
