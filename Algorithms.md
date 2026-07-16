@@ -229,6 +229,8 @@ algorithms considered and rejected for now and why: (there are likely practicali
 		- this seems to be basically the same as general user models from shaikh
 	- CTRL-Rec https://arxiv.org/pdf/2510.12742
 		- 
+	- FPL https://freeform-pl.github.io/fpl.website/
+		- 
 
 - is phase 1 a process reward model?
 - does phase 1 result in an 'implicit' reward model?
