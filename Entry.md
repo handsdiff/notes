@@ -10,7 +10,7 @@
 	- post blog
 	- double email Omar
 	- put precursor banner on personal
-- information
+- information, maybe relevant
 	- https://www.youtube.com/watch?v=JIsgyk0Paic RL for agents by will brown
 	- https://www.youtube.com/watch?v=_IzZWeuTx7I RL Envs at scale by will brown
 	- https://www.youtube.com/watch?v=PbHm2qKnu10 training agentic reasoners by will brown
