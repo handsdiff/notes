@@ -71,6 +71,8 @@
 		- https://github.com/screenpipe/screenpipe
 	- (read, app, content) and (write, app, content). obsidian covers some write. the browser history script that fetches some read and write, but some issues flagged by Fable.
 	- https://www.zyphra.com/our-work/plasticity-loss-in-continual-learning
+	- https://www.youtube.com/watch?v=r1qZpYAmqmg LLM training by post training lead at openai
+	- https://www.primeintellect.ai/blog/algorithms-layer
 - directly relevant - vision
 	- https://generalagents.com/ good relative benchmark for quality, interesting description of 'behavior' as a training paradigm that resonates
 	- there is a tension between human preference as the only possible reward signal and the sutton argument that environmental rewards are the only ground truth data for real superintelligence
@@ -113,18 +115,6 @@
 	- having full context visibility -> predicting what i will do -> doing something to help me get there feels pretty intrinsically valuable. the relation to knowledge sharing perhaps is confusing because its a different axis along the lines of the data elicitation and enterprise customer adoption pigeon holing. but the reason for the assistants would be to use the human models for multiplayer rollouts. does that hold up? does that cause it to be too long of a winding road to a specific problem? theres definitely conflation in the intended problems to be addressed
 
 
-- https://www.thoughtfullab.com/
-- https://x.com/tetsuoai/status/2073246301610025212?s=20
-- https://x.com/iamwaynechi/status/2073081777091182633?s=20
-
-- algorithms
-	- SDPO
-	- OPSD
-	- OPD
-	- CIRL
-	- PNLC
-	- NLAC
-	- prime intellect released this https://x.com/PrimeIntellect/status/2074212134452633882?s=20
 - approaches
 	- next token prediction on what i write down into the obsidian vault, with the data being the latest typing actions from the obsidian vault.
 	- i suspect it will be so terrible as to not even try because it does not know what im reading
