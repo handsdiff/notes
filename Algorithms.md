@@ -318,7 +318,7 @@ algorithms considered and rejected for now and why: (there are likely practicali
 - DONE [[Paper]], distilled from [[Algorithms]], step 3 is enriching step 1 with all the plausible ways it could go wrong, and expected next steps required in those failure modes
 - DONE [[Phase 1 Assumptions]] step 4 is rank the assumptions required for phase 1 to show frontier performance in order of importance to final goal
 - IN PROGRESS [[Data]] step 5 is determining what data to collect for phase 1 and 2, and how to clean it for phase 1
-- step 5 is enriching step 6 with all the plausible ways the data could be misconfigured, and expected next steps in those failure models
+- step 6 is enriching step 5 with all the plausible ways the data could be misconfigured, and expected next steps in those failure models
 - step 7 is publishing this plan publicly as a blog post, for legitimacy/legibility purposes
 - step 8 is implementing the hypothesized data collection
 - step 9 is go through inbound backlog to invalidate any takes up until this point
