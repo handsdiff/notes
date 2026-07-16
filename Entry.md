@@ -112,9 +112,6 @@
 - https://ai.meta.com/blog/brain2qwerty-brain-ai-human-communication/?_fb_noscript=1
 - https://x.com/willccbb/status/2072129068796141760?s=20
 - I like the idea of having open algo competition on my data production
-- https://www.markovstudios.com/data_samples/writing-and-research yc startup computer use data sample. is this actually what computer use data looks like?
-	- come to think of it, how would I actually codify the action space for next thought prediction? would the action space be infinite if the action consists of the full thought rather than tokens? if tokens how exactly would start/stop tags work?
-	- minecraft dreamer v4 seems to directly relate to computer use in terms of algorithms that could be useful to apply to non minecraft scenarios
 - is it cheaper to update weights continuously or update prompts continuously? actually feels like weights? since querying prompts on a frontier model is super expensive? [[Interaction#^72b341]]
 - https://x.com/RampLabs/status/2072381992285647280?s=20 portable LoRA adapters
 - PNLC -> NLAC as PPI -> ??
