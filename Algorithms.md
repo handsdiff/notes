@@ -334,3 +334,12 @@ the formulation that the human does not know their reward function, or that the 
 there is a risk of amplification of the user's behavior whether thats positive or negative. but its more leverage, if built well. whether thats value creative or not seems up to the user?
 
 i kind of want to understand whether [[Paper]] makes sense from a theoretical perspective. like is this a solvable problem at a fundamental level? what is the complexity?
+
+there seems to be a very core distinction between training a model that is purely a human predictor, then training a generally capable model that optimizes with it (a la assistance games) vs training a single model by instilling human predictive capabilities into a generally capable model. its unclear which is better or which im doing, at least from a theoretical/framework perspective. its obvious i am training a model that uses preference data such that the centaur outperforms the demonstrator alone. which implies a single model. in some sense this model would be 'human+' not just human.
+
+the colloquial explanation would be that it learns implicit, yet uncertain (to prevent reward hacking) goals from predicting me well. then can use the implicit reward to perform rollouts that increase it over some baseline, which reminds me of GRPO where one rollout is performed by the human. the problem that stands out is
+- cant you just tell it the local goal?? why do you need a predictor?
+- if you tell it the local goal, cant it already assist proactively?
+- i guess you'd want to train it to understand the local goal well given the history of actions. but i dont want the UX to be showing an understood goal to the user. but maybe it should be? since a proactive suggestion implies a good understanding of the goal + a good understanding of how to accelerate that goal, which im assuming can be initially built as a human predictor, which i think is a fair characterization, but is harder / multi step, but is better UX. hmm
+- i think this notion that goals will be implicit from good prediction likely only happens at scale. it comes back to why a predictor is desired at all
+
