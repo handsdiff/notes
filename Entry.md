@@ -103,6 +103,9 @@
 		- in that case, its recommendations would be actions that it is aware impact my state transitions, and its goal would be to take actions that I accept for it to get reward? but since the rewards are manual it would be extremely slow to learn. could it actually learn at all in an online way? it might be able to learn phase 1 easily enough since theres no reward labeling, but unsure about phase 2 learning goals.
 	- data half life experiment. does data actually expire?
 	- codify how much progress frontier models are making on in context learning for my self prediction, compare that to increasing random dropout for training on gpt oss 120B?
+	- quantifying memorization in LLMs, seems very relevant as it relates to the need for synthetic Q/A data
+		- https://arxiv.org/pdf/2505.24832
+		- https://x.com/jxmnop/status/1929903028372459909
 - directly relevant - vision
 	- https://generalagents.com/ good relative benchmark for quality, interesting description of 'behavior' as a training paradigm that resonates
 	- there is a tension between human preference as the only possible reward signal and the sutton argument that environmental rewards are the only ground truth data for real superintelligence
