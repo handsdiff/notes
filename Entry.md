@@ -43,21 +43,17 @@
 	- https://x.com/jia_seed/status/2077422944645443660?s=20 product that ensures you show up in chatbot chats, relevant to earlier thinking
 	- https://alignment.anthropic.com/2026/agentic-misalignment-summer-2026/
 	- https://www.primeintellect.ai/blog/verifiers-v1
+	- https://nextbigteng.substack.com/p/ai-infrastructure-roadmap-five-frontiers-for-2026
 - directly relevant - practical
 	- https://arxiv.org/pdf/2510.19488v1 labels unlabeled video data with their actions, for future training. seems like deepmind's genie also does this
 	- phase 2 requires only showing samples when confidence exceeds some threshold, likely requires fine tuning
 	- https://arxiv.org/abs/2606.03979 memory consolidation during sleep cycles
+	- https://edge-bench.org/ continual learning benchmark
 - directly relevant - vision
 	- https://generalagents.com/ good relative benchmark for quality, interesting description of 'behavior' as a training paradigm that resonates
 	- there is a tension between human preference as the only possible reward signal and the sutton argument that environmental rewards are the only ground truth data for real superintelligence
  
 
-- https://x.com/0xBADB01E/status/2073990357398982797?s=20
-- https://x.com/eliebakouch/status/2074011171661701466?s=20
-- https://x.com/lilianweng/status/2074372369213428144?s=20
-	- "the need to specify goals and context will not disappear"
-- https://x.com/eliebakouch/status/2074532904009421260?s=20
-- https://x.com/willccbb/status/2074668085852962944?s=20
 - https://x.com/abhikhanna30/status/2073646301674389819?s=20
 - https://www.youtube.com/watch?v=SVWmuJx0hHM
 - https://x.com/mckbrando/status/2075442660047814761?s=20
