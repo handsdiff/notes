@@ -6,6 +6,11 @@
 		- https://colmweb.org/ conference on language modeling
 	- increase branding via twitter banner + personal site
 	- make target market and their growing problem as evidenced by time or money more concrete
+		- perhaps what comes next after 90% cost reductions for rote tasking like info extraction is model ability to model employees like meta is doing?
+		- One thing that stands out is that it’s very practical to lower costs for enterprises
+		- It’s a bit less practical but still valuable to make something they spend time on easier rather than make something they spend money on cheaper
+		- When do humans want to be replaced and when do they not? For example I want to derive meaning from delivering value to others but I don’t want to spend all day extracting information from pdfs. 
+		- I’m willing to let a model do my coding for me but it cannot decide what coding I would consider worth doing. Would I want it to? Probably yes, if it helped me achieve my goals faster. But how practical is that?
 	- go through old information to discover anything relevant
 	- post blog
 	- double email Omar
@@ -37,6 +42,7 @@
 	- https://openai.com/index/chatgpt-memory-dreaming/
 	- https://x.com/jia_seed/status/2077422944645443660?s=20 product that ensures you show up in chatbot chats, relevant to earlier thinking
 	- https://alignment.anthropic.com/2026/agentic-misalignment-summer-2026/
+	- https://www.primeintellect.ai/blog/verifiers-v1
 - directly relevant - practical
 	- https://arxiv.org/pdf/2510.19488v1 labels unlabeled video data with their actions, for future training. seems like deepmind's genie also does this
 	- phase 2 requires only showing samples when confidence exceeds some threshold, likely requires fine tuning
@@ -45,19 +51,9 @@
 	- https://generalagents.com/ good relative benchmark for quality, interesting description of 'behavior' as a training paradigm that resonates
 	- there is a tension between human preference as the only possible reward signal and the sutton argument that environmental rewards are the only ground truth data for real superintelligence
  
-- seeing a lot of data that you can perform RL directly on the activations of an LLM, not sure what that means, and that doing so could massively speed up and raise the ceiling for LLM reasoning via recurrent iteration in neural activation space
-- control of LLMs will have a massive massive impact on the US presidential election. whats my opinion on how this likely plays out?
-- perhaps what comes next after 90% cost reductions for rote tasking like info extraction is model ability to model employees like meta is doing?
-- One thing that stands out is that it’s very practical to lower costs for enterprises
-- It’s a bit less practical but still valuable to make something they spend time on easier rather than make something they spend money on cheaper
-- When do humans want to be replaced and when do they not? For example I want to derive meaning from delivering value to others but I don’t want to spend all day extracting information from pdfs. 
-- I’m willing to let a model do my coding for me but it cannot decide what coding I would consider worth doing. Would I want it to? Probably yes, if it helped me achieve my goals faster. But how practical is that?
-- https://x.com/hypersoren/status/2076406543738654782?s=20
-- are all 'rewards' downstream of human preferences? on one hand it feels weird to use a human preference as a ground truth, but on the other hand, that is literally the only ground truth.
-- https://x.com/PrimeIntellect/status/2076447247693402301?s=20
-- https://x.com/willccbb/status/2076451043504967783?s=20
+- 
 - https://nextbigteng.substack.com/p/ai-infrastructure-roadmap-five-frontiers-for-2026
-- what happens when 90% of the internet is written by Claude?
+
 - https://x.com/teortaxesTex/status/2073332424717525358?s=20
 - https://x.com/loraclexyz/status/2073873001850786104?s=20
 - https://x.com/willccbb/status/1930030099975553303?s=20
