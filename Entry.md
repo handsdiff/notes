@@ -6,6 +6,7 @@
 		- https://colmweb.org/ conference on language modeling
 	- increase branding via twitter banner + personal site + company site
 		- i am feeling really really bad about our historic, and current, lack of 'existence' and misunderstanding of social proof dynamics
+		- potentially useful for personal blog/website for more legitimacy personally and for company https://x.com/shadcn/status/2075600582518124657?s=20
 	- make target market and their growing problem as evidenced by time or money more concrete
 	- go through old information to discover anything relevant
 	- post blog
@@ -72,9 +73,9 @@
 	- is collecting agent traces sufficient if 80% of write actions are chatbot interactions? could this be an ablation in [[Paper]]?
  
 - https://x.com/distributedkv/status/2075642079825547717?s=20
-- potentially useful for personal blog/website for more legitimacy personally and for company https://x.com/shadcn/status/2075600582518124657?s=20
+- 
 - https://x.com/gakonst/status/2075733284513005718?s=20 paradigm going this far too allow untrusted input into their agent
-- agent
+
 - https://x.com/0xCarnagee/status/2075983721841225885?s=20
 - distributed computing for LLMs on iroh? https://news.ycombinator.com/item?id=48876505 (Deleted old ref it’s prob somewhere)
 - The problem with the deletion is that the app needs to be deeply version control integrated. Like I need to be able to link to text in old commits.
