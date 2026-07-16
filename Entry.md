@@ -5,6 +5,7 @@
 		- handle mtndao acceptance
 		- https://colmweb.org/ conference on language modeling
 	- increase branding via twitter banner + personal site + company site
+		- i am feeling really really bad about our historic, and current, lack of 'existence' and misunderstanding of social proof dynamics
 	- make target market and their growing problem as evidenced by time or money more concrete
 	- go through old information to discover anything relevant
 	- post blog
@@ -68,7 +69,7 @@
 	- “Artificial wisdom” sounds way more implausible than artificial intelligence
 		- Feels related to “what to do” not “how to do it”
 	- is this just 'horizontal' org memory scaling but more (perhaps unnecessarily) complex?
-	- is collecting agent traces sufficient if 80% of write actions are chatbot interactions?
+	- is collecting agent traces sufficient if 80% of write actions are chatbot interactions? could this be an ablation in [[Paper]]?
  
 - https://x.com/distributedkv/status/2075642079825547717?s=20
 - potentially useful for personal blog/website for more legitimacy personally and for company https://x.com/shadcn/status/2075600582518124657?s=20
