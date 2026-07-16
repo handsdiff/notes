@@ -51,6 +51,8 @@
 	- https://continual-harness.github.io/
 	- PNLC (levine) -> NLAC (levine) as PPI (from google MUPI paper) -> ??
 	- https://www.kimi.com/blog/kimi-k3
+	- https://www.asimov.press/p/gentle-romance
+	- https://x.com/_xjdr/status/2077787741203677430?s=20 explanation of TM models i dont understand
 - directly relevant - practical
 	- https://arxiv.org/pdf/2510.19488v1 labels unlabeled video data with their actions, for future training. seems like deepmind's genie also does this
 	- phase 2 requires only showing samples when confidence exceeds some threshold, likely requires fine tuning
@@ -61,6 +63,7 @@
 		- https://thinkingmachines.ai/blog/ probably should review the old ones too
 	- is it bs to predict next thoughts/actions? why or why not? there is likely some description that is not bullshit for a given workflow, but would need to write it down. the workflow would likely be research/learning. more concretely? is it next token prediction on what/where i type? is it a bit less granular, a semantic action of writing down a note or looking something up or talking to an AI, given a specific platform?
 	- https://www.nature.com/articles/s41586-024-07711-7 loss of plasticity in deep continual learning
+	- you likely need what im viewing on the screen to well learn what thoughts ill write down or what ill lookup or what ill ask the claude/codex/gemini website/app (i.e. what ill do next)
 - directly relevant - vision
 	- https://generalagents.com/ good relative benchmark for quality, interesting description of 'behavior' as a training paradigm that resonates
 	- there is a tension between human preference as the only possible reward signal and the sutton argument that environmental rewards are the only ground truth data for real superintelligence
@@ -100,31 +103,6 @@
 
 
 
-
-
-
-- https://www.asimov.press/p/gentle-romance
-- https://x.com/_xjdr/status/2077787741203677430?s=20
-- are weight updates just a more black boxy, hope and a prayer way to figure out how to construct context in prompt, since its otherwise unclear how to do that? (i guess GEPA?)
-- resistance to hardware due to notions of asset light vs asset heavy?
-- from jakub
-	- As it stands, I feel very indeterminate about application level problems related to AI  
-		I feel mostly determinate about a few things:  
-		- Inference will be an absolutely humongous market
-		    - Specialized compute is likely a given due to the size of the market
-		- Weight-based training may be a large market
-		    - Efficient capital markets on generic compute are more valuable the more important weight-based training becomes as a market
-		        - ex. If Anthropic/OAI/GDM are doing pretty much all the training, I think they will internalize capital markets infrastructure and just do everything OTC
-		- Generalized compute is a bet on uncertainty around training paradigms
-		- Data will become more valuable (not less) with improved sample efficiency (Jevon’s paradox)
-		Few things that stand out to me:  
-		- Applied Compute’s wedge into inference was by providing training RLaaS
-		- Latency and uptime as a core value prop seems like it mostly pertains to DC’s.
-		    - Latency could be a core value prop for things like “interaction models” but as it stands I don’t think it’s critical
-		- Token/s seems like a very strong value prop to build a business on if you’re indeterminate about training
-		- Data labeling infrastructure / relationships seems to be what matters not the data itself for companies in the data game (since the data is dependent on training paradigms)
-- you likely need what im viewing on the screen to well learn what thoughts ill write down or what ill lookup or what ill ask the claude/codex/gemini website/app (i.e. what ill do next)
-- (1) how can i best make my notes and my git history extremely publicly legible? the diff UI scope is one version, but i wonder whether i should just ensure the git history and current contents are exposed via some api that people can just give their agent to be able to talk to their agent to understand whats going on. i wonder how this differs from making the UI itself visually appealing in terms of what updates have happened to follow along to. (2) the structure of the data required to actually implement a predictive algorithm likely requires context into what im seeing, not just what im outputting. its unclear how to best structure the data to predict outputs, but at the very least i'd likely need surrounding context which probably very simply takes the form of browser history with proper auths. what are the best existing tools and/or custom solutions for this?
 - i can keep iterating on data structure + necessary capture points + algorithmic comparisons but is the workflow valuable? and if theres some minimum data requirement or at the very least the product isnt useful without version controlled thought data, what are you actually offering up front as a value prop? thats the part where legibilization comes in. got to keep in mind that the algorithms are downstream of a lower friction data collection, but it informs the type of data to collect, but everyone likely has different flows.
 - i suspect the data should interleave write actions (content, app) with read actions (content, app). obsidian (+ ai chats, search) are most of write. the browser history is most of read. but i only want the model to predict what i write, not what i read. and i dont want to trade off intelligence, since the point is superhuman. what algos make the most sense for the data, and what algos have the conceptual ability to lead to superhuman?
 - re-emphasizing that with LLMs, relevant 'marketing'/AEO is easier than ever and you need to ensure youre outputting. do agents/search tools index my notes git history? why or why not? how can i fix that?
