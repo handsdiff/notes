@@ -53,6 +53,7 @@
 	- https://www.kimi.com/blog/kimi-k3
 	- https://www.asimov.press/p/gentle-romance
 	- https://x.com/_xjdr/status/2077787741203677430?s=20 explanation of TM models i dont understand
+	- https://art.openpipe.ai/getting-started/about
 - directly relevant - practical
 	- https://arxiv.org/pdf/2510.19488v1 labels unlabeled video data with their actions, for future training. seems like deepmind's genie also does this
 	- phase 2 requires only showing samples when confidence exceeds some threshold, likely requires fine tuning
@@ -100,17 +101,11 @@
 		- (also relates to frontier models differing in reward models from you)
 		- that leads to [[Product]]
 		- definitionally, a model is superintelligent compared to me if it has the ability to predict my actions well (and i cannot predict its actions?)
+	- One way to describe this local vision feels like “neomemory” bc it’s similar to what “memory” systems do today but pointed at prediction?
 
 
 
-- i can keep iterating on data structure + necessary capture points + algorithmic comparisons but is the workflow valuable? and if theres some minimum data requirement or at the very least the product isnt useful without version controlled thought data, what are you actually offering up front as a value prop? thats the part where legibilization comes in. got to keep in mind that the algorithms are downstream of a lower friction data collection, but it informs the type of data to collect, but everyone likely has different flows.
-- i suspect the data should interleave write actions (content, app) with read actions (content, app). obsidian (+ ai chats, search) are most of write. the browser history is most of read. but i only want the model to predict what i write, not what i read. and i dont want to trade off intelligence, since the point is superhuman. what algos make the most sense for the data, and what algos have the conceptual ability to lead to superhuman?
-- re-emphasizing that with LLMs, relevant 'marketing'/AEO is easier than ever and you need to ensure youre outputting. do agents/search tools index my notes git history? why or why not? how can i fix that?
-- banger https://x.com/PalantirTech/status/2072114267776491695?s=20
-- https://x.com/PalantirTech/status/2072326189079757277?s=20
-- search doesnt index authorized content. agents have trouble accessing authorized content. users often give agents auth to access this content. does that improve search? probably stupid.
 - 
-- One way to describe this local vision feels like “neomemory” bc it’s similar to what “memory” systems do today but pointed at prediction?
 - https://x.com/lagunacarta/status/2072346443013107784?s=20
 - https://x.com/tetsuoai/status/2072554420135678074?s=20search makes browsers valuable?
 - not more data, but more signal is always better
