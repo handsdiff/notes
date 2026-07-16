@@ -18,35 +18,27 @@
 	- grpo script from will brown 2025 https://gist.github.com/willccbb/4676755236bb08cab5f4e54a0475d6fb
 	- https://arxiv.org/pdf/2607.07508 single rollout async optimization for RL, from ZAI
 	- https://arxiv.org/pdf/2602.10067 features as RL rewards from goodfire. implementation of an idea i had!
+		- https://gemini.google.com/app/ef267292d5b41ac8
+		- https://www.goodfire.ai/blog/intentional-design#developing-responsibly
 	- https://genai-handbook.github.io/
 	- https://humansand.ai/blog/nvfp4-rl
-- directly relevant - practical
-	- https://arxiv.org/pdf/2510.19488v1 labels unlabeled video data with their actions, for future training. seems like deepmind's genie also does this
-- directly relevant - vision
-	- https://generalagents.com/ good relative benchmark for quality, interesting description of 'behavior' as a training paradigm that resonates
-
-
-- 
-- 
-- https://x.com/m_pulkit/status/2076839055640150474?s=20
-- https://x.com/_a9lim/status/2077097652907606392?s=20
-- https://x.com/jacobeffron/status/2075286592668012967?s=20
-- https://x.com/willccbb/status/2077312983915794824?s=20
-- potentially useful for phase 3 rollouts https://x.com/0xSero/status/2077352942953169278?s=20
-- https://oaklab.ai/posts/learning-from-experience-instead-of-curated-datasets
+	- https://arxiv.org/abs/2607.09061
+	- youtube.com/watch?v=RKjR8DQ40po&feature=youtu.be schmidhuber interview
+	- https://oaklab.ai/posts/learning-from-experience-instead-of-curated-datasets
 	- https://claude.ai/chat/5038f012-65a1-4ff8-ac40-21f46f99290b
 	- im confused doesnt attention already determine whats useful from the context and what is not?
-- https://arxiv.org/pdf/2607.05394
-- https://www.goodfire.ai/blog/intentional-design#developing-responsibly
-- https://thinkingmachines.ai/news/introducing-inkling/
-- https://x.com/eliebakouch/status/2077489988661395651
-- there is a tension between human preference as the only possible reward signal and the sutton argument that environmental rewards are the only ground truth data for real superintelligence
-- https://x.com/GenAI_is_real/status/2077481107843649628?s=20
-- https://research.perplexity.ai/articles/making-space-secure-and-efficient-runtimes-for-long-running-agents
-- https://x.com/ProphetArena/status/2077513380290601290?s=20
-- https://x.com/DhravyaShah/status/2077494558129267165?s=20
-- https://x.com/yifanzhang_/status/2077467076936245409?s=20
-- https://x.com/teortaxesTex/status/2077443642982117643?s=20
+	- potentially useful for phase 3 rollouts https://github.com/trycua/cua
+	- https://thinkingmachines.ai/news/introducing-inkling/
+		- https://x.com/GenAI_is_real/status/2077481107843649628?s=20
+	- https://arxiv.org/pdf/2607.05394 weak to strong generalization via direct OPD
+	- https://research.perplexity.ai/articles/making-space-secure-and-efficient-runtimes-for-long-running-agents
+- directly relevant - practical
+	- https://arxiv.org/pdf/2510.19488v1 labels unlabeled video data with their actions, for future training. seems like deepmind's genie also does this
+	- phase 2 requires only showing samples when confidence exceeds some threshold, likely requires fine tuning
+- directly relevant - vision
+	- https://generalagents.com/ good relative benchmark for quality, interesting description of 'behavior' as a training paradigm that resonates
+	- there is a tension between human preference as the only possible reward signal and the sutton argument that environmental rewards are the only ground truth data for real superintelligence
+
 - https://x.com/aengus_lynch1/status/2077453053540880419?s=20
 - https://x.com/MichaelElabd/status/2077461111247712656?s=20 is inkling optimized as a “meta learner”? TM has an incentive to make its models easily custom trainable
 - https://x.com/jia_seed/status/2077422944645443660?s=20
