@@ -106,6 +106,7 @@
 	- quantifying memorization in LLMs, seems very relevant as it relates to the need for synthetic Q/A data
 		- https://arxiv.org/pdf/2505.24832
 		- https://x.com/jxmnop/status/1929903028372459909
+	- new algorithms in [[Algorithms]]
 - directly relevant - vision
 	- https://generalagents.com/ good relative benchmark for quality, interesting description of 'behavior' as a training paradigm that resonates
 	- there is a tension between human preference as the only possible reward signal and the sutton argument that environmental rewards are the only ground truth data for real superintelligence
@@ -163,15 +164,15 @@
 	- bit of an old hot take. i think enterprise models will look like each employee having their own agent that is tuned to them, and the models are allowed to conversate to collaborate and improve rewards, instead of a monolithic model that everyone shares. personal computing with networking, not timeshared computing. 
 
 
-- https://x.com/jxmnop/status/2074202146699157797?s=20
+
 - 
-- https://github.com/anthropics/jacobian-lens https://huggingface.co/neuronpedia/jacobian-lens/tree/main
-- sergey levine, learning to reason without external rewards, uses intrinsic self certainty as reward: https://arxiv.org/html/2505.19590v3
 - reward inference discussion https://gemini.google.com/app/4f984ce16e37337a
 
 - https://x.com/teortaxesTex/status/2074471487579332707?s=20
 - https://svilentodorov.xyz/blog/gpt-15b-chat-finetune/
 
+- honcho's blog is quartz?? https://plasticlabs.ai/blog/posts/Memory-as-Reasoning they also discuss memory as prediction
+	- similar tweet https://x.com/ashwingop/status/2069807820846063932
 - starting the think the reward inference part should not block the self prediction. the self prediction is a large enough task of itself, the uncertainty around algorithmic progress provides future possible growth, and i believe SFT + DPO is strong enough to deliver something valuable and directionally correct enough for superhuman performance, since RLHF/DPO is already reward inference (per dragan waymo interview). 
 - apparently DPO generates an implicit value network that can be used to approximate rewards. same link as above https://gemini.google.com/app/e5061268008c580f
 - phrased during conversation as a tool that would elicit different behavior of legibilizing process of thinking in between computer interactions. that behavior doesn't exist as much today since the tool being used 'computer' doesn't really benefit from it. the tools of the future will ('local models')

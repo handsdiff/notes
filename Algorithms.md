@@ -231,6 +231,8 @@ algorithms considered and rejected for now and why: (there are likely practicali
 		- 
 	- FPL https://freeform-pl.github.io/fpl.website/
 		- 
+	- RLIF https://arxiv.org/pdf/2505.19590v3
+		- 
 
 - is phase 1 a process reward model?
 - does phase 1 result in an 'implicit' reward model?
