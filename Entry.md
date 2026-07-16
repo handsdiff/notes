@@ -1,5 +1,5 @@
 
-- starting to stack up a lot of random work (signing up for events, increasing branding via twitter banner + personal site, making target market and their growing problem as evidenced by time or money more and their growing problem as evidenced by time or money more concrete, going through old information to discover anything relevant, posting blog)
+- starting to stack up a lot of random work (signing up for events, increasing branding via twitter banner + personal site, making target market and their growing problem as evidenced by time or money more and their growing problem as evidenced by time or money more concrete, going through old information to discover anything relevant, posting blog) ^15f091
 - sent an email to Omar
 - 
 - put precursor banner on personal
@@ -7,12 +7,9 @@
 - https://x.com/gakonst/status/2076699452325392860?s=20
 - https://x.com/willccbb/status/1883416446992322993?s=20
 - https://x.com/jietang/status/2076913247316492510?s=20
-- https://x.com/screenpipe/status/2077045452579778664?s=20
 - https://x.com/GoodfireAI/status/2077073005088501780
 - https://generalagents.com/ good relative benchmark for quality, interesting description of 'behavior' as a training paradigm that resonates
-- https://arxiv.org/pdf/2309.12170 older RNN predicting mouse/keyboard data
 - https://arxiv.org/pdf/2510.19488v1 labels unlabeled video data with their actions, for future training. seems like deepmind's genie also does this
-- https://arxiv.org/abs/2507.08800 NeuralOS, might be useful as a simulator for phase 3
 - https://humansand.ai/blog/nvfp4-rl
 - https://genai-handbook.github.io/
 - https://x.com/m_pulkit/status/2076839055640150474?s=20
@@ -20,10 +17,6 @@
 - https://x.com/jacobeffron/status/2075286592668012967?s=20
 - https://x.com/willccbb/status/2077312983915794824?s=20
 - potentially useful for phase 3 rollouts https://x.com/0xSero/status/2077352942953169278?s=20
-- https://oaklab.ai/posts/learning-from-experience-instead-of-curated-datasets
-	- https://claude.ai/chat/5038f012-65a1-4ff8-ac40-21f46f99290b
-	- im confused doesnt attention already determine whats useful from the context and what is not?
-- https://arxiv.org/pdf/2607.05394
 - https://oaklab.ai/posts/learning-from-experience-instead-of-curated-datasets
 	- https://claude.ai/chat/5038f012-65a1-4ff8-ac40-21f46f99290b
 	- im confused doesnt attention already determine whats useful from the context and what is not?
@@ -73,7 +66,6 @@
 - https://x.com/humansand/status/2075618383631167692?s=20
 - https://x.com/samzliu/status/2075437170198991344?s=20
 - https://x.com/distributedkv/status/2075642079825547717?s=20
-- ways to think about data from Levine https://x.com/svlevine/status/2075721405929508942?s=20
 - potentially useful for personal blog/website for more legitimacy personally and for company https://x.com/shadcn/status/2075600582518124657?s=20
 - https://x.com/gakonst/status/2075733284513005718?s=20 paradigm going this far too allow untrusted input into their agent
 - agent
@@ -83,7 +75,6 @@
 - options
 	- fix visibility of public notes per team feedback
 	- outreach to aidotengineer flagged speakers and others to discuss algos for my data
-		- https://github.com/experientiallabs/world-model-harness (yc, seems to be productized data cleaning)
 	- review similarities and differences of algorithms for online learning
 	- write blog post
 	- be more specific about potential value props and downstream attached visions
@@ -94,7 +85,6 @@
 	- niche down -> write public explainer -> publish -> outreach -> experiment?
 		- maybe whats circular here causing a progress issue is the extent to which i need to talk to people to fully/more quickly understand niche'd down algorithms?
 	- not in that flow are fixing public visibility, user quality of life like easier inputting or search or link indexing, or provenance via bitcoin which i think are cool...
-	- tension between improving data collection vs experimenting with algorithms to make it useful. need both long term pending ongoing discovery. my current load bearing has been phrased as algorithms, but maybe thats because i already write down thoughts, and the additional work there doesn't feel like i learn anything besides if i write down more thoughts, which would require actually measuring usage rate. the ai could easily do this, pending how the actual git commitments work (is it actually when i stop typing, or just every 10 mins). but iterating on the algorithms will act as a forcing function for what type of data is needed and how it should be structured, which probably makes it more useful as a load bearing
 	- then the question is have i made enough progress to generate a published post or not, and if not whats remaining? tomorrow it will be 12 days since my last post which is unlikely twice a month cadence
 	- and to what extent should the post be an experiment vs a discussion post, which historically has been the case
 	- is there a common thread between publicity and legibility for current/future AI algorithms? people won't be able to iterate quickly on my data if it isn't public. is anyone publicizing their raw notes? likely not, because its too unstructured? likely not, because its sensitive material?
@@ -115,7 +105,6 @@
 	- (also relates to frontier models differing in reward models from you)
 	- that leads to [[PDEV]]
 	- definitionally, a model is superintelligent compared to me if it has the ability to predict my actions well (and i cannot predict its actions?)
-- **possible experiment / toy example to have the git history of notes, randomly remove increasing portions of it, in-context prompt frontier and/or weight space update a smaller LLM, rank predictions based on personal expected usefulness/predictive ability (perhaps just pairwise), establish trend line if any. compare across differing frontier models and/or differing small/local LLMs. do this online to collect more data on how it evolves over time**
 - Important to keep in mind that a classical RSI can’t produce my data. It may be able to persuade me to do whatever it wants, but I’m skeptical of that. relates to dragan's [[Interaction#^2e1db5]]
 - https://x.com/sethkarten/status/2072034978112889328?s=20
 - https://x.com/OpenSoftwareCo/status/2071956798861353099?s=20
