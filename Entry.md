@@ -55,6 +55,7 @@
 	- https://x.com/_xjdr/status/2077787741203677430?s=20 explanation of TM models i dont understand
 	- https://art.openpipe.ai/getting-started/about
 	- https://www.youtube.com/watch?v=e9-0BxyKG10 best explanation of attention, key queries, etc
+	- https://www.thoughtfullab.com/
 - directly relevant - practical
 	- https://arxiv.org/pdf/2510.19488v1 labels unlabeled video data with their actions, for future training. seems like deepmind's genie also does this
 	- phase 2 requires only showing samples when confidence exceeds some threshold, likely requires fine tuning
@@ -73,6 +74,26 @@
 	- https://www.zyphra.com/our-work/plasticity-loss-in-continual-learning
 	- https://www.youtube.com/watch?v=r1qZpYAmqmg LLM training by post training lead at openai
 	- https://www.primeintellect.ai/blog/algorithms-layer
+	- old thought dump
+		- next token prediction on what i write down into the obsidian vault, with the data being the latest typing actions from the obsidian vault.
+		- i suspect it will be so terrible as to not even try because it does not know what im reading
+		- this seems to be approximating what is in my head
+		- what is in my head can likely be approximated by what i've just written and what i've just read
+		- i'd like a model that can well predict what I am going to write down, and where I'll write it, based on what i've just written down/am writing and what i've just read/am reading
+		- this leads to perhaps giving context as whatever text is on the screen, and the output is the next word?
+		- this resembles pretraining? can you do online gradient descent that updates weights after each word, since that acts as signal (prediction vs outcome).
+		- the issue becomes that my actions don't only involve 'normal' writing output. they also involve deleting, moving the cursor to edit something, copy pasting content. and this would likely confuse a model
+		- additionally, per the vision, i would not want the 'recommendations' to be next words, i'd want them to be next 'thoughts'. however thoughts are a subset of actions. since thought is just the action of writing down a sentence until a pause. copy paste is another action. delete and edit are other actions
+		- it does feel like being able to learn how i map what im seeing to what i do is a prerequisite to inferring my reward, which is a prerequisite to superhuman recommendation/suggestion or even action in some parallel OS where things could be simulated
+		- my comfortability with focusing simply on this mapping depends on the truthfulness around this understanding being a prerequisite to reward inference. that should be resolved first.
+		- it seems like the initial mapping is a contextual bandit problem? how do those problems differ from next token prediction?
+		- what i want is the model to be able to suggest what/where to type next to maximize my terminal cumulative rewards
+			- needs to infer my goal (infer rewards)
+				- but does it? initial reward for it is behavior cloning, to learn state dynamics? am I part of the environment its learning to model?
+			- needs to understand state dynamics
+			- makes sense if it gets rewards when its suggestion is accepted (akin to contextual bandit recommender systems used in social media/ecommerce)
+	- https://huggingface.co/learn/llm-course/en/chapter12/3
+	- predictive computer use from tsinghua https://github.com/tsinghua-fib-lab/FingerTip-20K
 - directly relevant - vision
 	- https://generalagents.com/ good relative benchmark for quality, interesting description of 'behavior' as a training paradigm that resonates
 	- there is a tension between human preference as the only possible reward signal and the sutton argument that environmental rewards are the only ground truth data for real superintelligence
@@ -115,39 +136,6 @@
 	- having full context visibility -> predicting what i will do -> doing something to help me get there feels pretty intrinsically valuable. the relation to knowledge sharing perhaps is confusing because its a different axis along the lines of the data elicitation and enterprise customer adoption pigeon holing. but the reason for the assistants would be to use the human models for multiplayer rollouts. does that hold up? does that cause it to be too long of a winding road to a specific problem? theres definitely conflation in the intended problems to be addressed
 
 
-- approaches
-	- next token prediction on what i write down into the obsidian vault, with the data being the latest typing actions from the obsidian vault.
-	- i suspect it will be so terrible as to not even try because it does not know what im reading
-	- this seems to be approximating what is in my head
-	- what is in my head can likely be approximated by what i've just written and what i've just read
-	- i'd like a model that can well predict what I am going to write down, and where I'll write it, based on what i've just written down/am writing and what i've just read/am reading
-	- this leads to perhaps giving context as whatever text is on the screen, and the output is the next word?
-	- this resembles pretraining? can you do online gradient descent that updates weights after each word, since that acts as signal (prediction vs outcome).
-	- the issue becomes that my actions don't only involve 'normal' writing output. they also involve deleting, moving the cursor to edit something, copy pasting content. and this would likely confuse a model
-	- additionally, per the vision, i would not want the 'recommendations' to be next words, i'd want them to be next 'thoughts'. however thoughts are a subset of actions. since thought is just the action of writing down a sentence until a pause. copy paste is another action. delete and edit are other actions
-	- it does feel like being able to learn how i map what im seeing to what i do is a prerequisite to inferring my reward, which is a prerequisite to superhuman recommendation/suggestion or even action in some parallel OS where things could be simulated
-	- my comfortability with focusing simply on this mapping depends on the truthfulness around this understanding being a prerequisite to reward inference. that should be resolved first.
-	- it seems like the initial mapping is a contextual bandit problem? how do those problems differ from next token prediction?
-- what i want is the model to be able to suggest what/where to type next to maximize my terminal cumulative rewards
-	- needs to infer my goal (infer rewards)
-		- but does it? initial reward for it is behavior cloning, to learn state dynamics? am I part of the environment its learning to model?
-	- needs to understand state dynamics
-	- makes sense if it gets rewards when its suggestion is accepted (akin to contextual bandit recommender systems used in social media/ecommerce)
-- we have a history of actions via obsidian and browser history (unclear whether to add context). the ai seems to be recommending more granular data collection.
-- unclear how/whether to define states
-- seem to be getting consistently confused as to how to actually model this
-- maybe there isnt an actual distinction between proactive recommendation and next action prediction
-- eventually next action prediction will start getting 'selected' as one of the recommended options from the AI, which sets loss to 0?
-- how do contextual bandit problems relate to GRPO? in both cases, multiple options are considered. does the algorithm optimize for different things? GRPO involves an advantage to determine weight updates. do contextual bandits even incorporate deep NNs?
-- https://huggingface.co/learn/llm-course/en/chapter12/3
-- approaches 2
-	- if you set up the context as what i've recently read (which captures what actions i've taken and what I've recently typed) and the intended output is the action i took (still needs to be specified), and the 'signal' is whether the predicted output from the model matches the output i actually took, that seems like pretty straightforward machine learning. how is a contextual bandit different from that? how is reward inference different? is the loss function modeled as some sort of KL divergence, or a reward function based on the closeness of the actions? what are the pros and cons of each?
-	- again, the super simplest version of this would just be on the data I DO have, which is the obsidian vault history. even without any browser content. the advice is to get something simple working before trying more complex algorithms or data structures.
-	- 
-- https://github.com/tsinghua-fib-lab/FingerTip-20K
-- i think the distinction between prediction and recommendation as 'phases' is a false dichotomy. prediction = recommendation. its likely enough of a challenge to produce good prediction (the way you would check this is surfacing the predictions for the human to verify, to actually give a qualitative score to the numerical loss). the true dichotomy is prediction vs agency. the point of the model learning how my brain works is to understand my goals/preferences, and then recommend how to achieve those faster. if we break that down, the question is: "how does prediction learning influence reward inference, if at all?"
-	- one fork to review is the research around models influencing their environment with their actions, since surfacing recommendations might change the user behavior to match the given options
-	- another fork is whether i am part of the agents environment, and they are primarily modeling me, and its goal after the prediction phase might be to predict how ill respond to its text outputs (either a phrase or a question that is proactively generated based on its understanding of the work) rather than recommendations of next actions. this would be more akin to ECHO but for me, but its a bit confusing as to how that would work
 	- https://gemini.google.com/app/e5061268008c580f has some stimulating ideas on data structure
 	- Alphago analogy was interesting ^
 - the visualization of robot trying to push the L into position properly where it just tries a bunch of actions, then takes the top 20% based on the rewards, then samples from that, etc, until it can do the task, feels useful, but needs DPO rather than codified rewards? 
