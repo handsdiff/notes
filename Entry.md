@@ -54,6 +54,7 @@
 	- https://www.asimov.press/p/gentle-romance
 	- https://x.com/_xjdr/status/2077787741203677430?s=20 explanation of TM models i dont understand
 	- https://art.openpipe.ai/getting-started/about
+	- https://www.youtube.com/watch?v=e9-0BxyKG10 best explanation of attention, key queries, etc
 - directly relevant - practical
 	- https://arxiv.org/pdf/2510.19488v1 labels unlabeled video data with their actions, for future training. seems like deepmind's genie also does this
 	- phase 2 requires only showing samples when confidence exceeds some threshold, likely requires fine tuning
@@ -103,13 +104,6 @@
 		- definitionally, a model is superintelligent compared to me if it has the ability to predict my actions well (and i cannot predict its actions?)
 	- One way to describe this local vision feels like “neomemory” bc it’s similar to what “memory” systems do today but pointed at prediction?
 
-
-
-- 
-- https://x.com/lagunacarta/status/2072346443013107784?s=20
-- https://x.com/tetsuoai/status/2072554420135678074?s=20search makes browsers valuable?
-- not more data, but more signal is always better
-- https://x.com/emollick/status/2072697436963832023?s=20 “you really need your own benchmarks”
 - https://news.ycombinator.com/item?id=48760201
 - https://x.com/satyanadella/status/2072708957077176563?s=20
 - https://x.com/emollick/status/2072727258352001341?s=20
