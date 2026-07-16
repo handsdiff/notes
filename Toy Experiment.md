@@ -61,9 +61,9 @@ Holding the base model, training data, test data, and action representation fixe
 - supervised fine-tuning or another direct weight-space update;
 - fine-tuning plus retrieval, only after the individual methods are understood.
 
-### Q4. How does performance change with more personal data?
+### Q4. How does the marginal value of personal data change with model capability?
 
-After establishing that at least one method works, how does performance vary with the amount, age, modality, and selection of personal data? This is the intended personal or local scaling-law experiment.
+After establishing that at least one method works, how does performance vary with the amount, age, modality, and selection of personal data? More importantly, how does the gain from that personal information change as the underlying model becomes more capable? This capability-by-personal-data interaction is the central local scaling-law question.
 
 ## 3. Why Data Collection Begins Before Algorithm Comparison
 
@@ -494,11 +494,25 @@ Interpretation:
 - **LongNAP beats fixed BM25:** learned reasoning and retrieval add value beyond a conventional retriever.
 - **No method beats the no-history model despite Experiment 2 succeeding:** the comparison has introduced a representation, capacity, or implementation failure.
 
-### Experiment 4: Personal data scaling and half-life
+### Experiment 4: Local scaling laws for personal data and model capability
 
-**Question:** How does performance vary with the personal information available?
+**Question:** How does the marginal predictive value of personal information vary with the information available and the capability of the underlying model?
 
 Only run this after selecting one or two functioning methods. Vary separate axes rather than calling all of them "amount of data."
+
+For model capability level $M$, personal-history quantity $D$, selected personalization method $R$, and future evaluation window $w$, define the marginal personal-history gain as
+
+$$
+\Delta_{\mathrm{local}}(M,D;R,w)
+=
+\mathcal{L}(M,0;R,w)
+-
+\mathcal{L}(M,D;R,w).
+$$
+
+Here $D=0$ is the matched no-personal-history condition for that model, and a positive value means that personal history reduced held-out loss. Candidate-ranking gains should be defined analogously for models without comparable token probabilities. Absolute performance remains important, but the primary scaling object is the improvement attributable to personal history at each capability level.
+
+The first crossed design should hold $R$, the target set, action representation, and evaluation protocol fixed while evaluating multiple chronological history quantities $D_0,\ldots,D_k$ at every selected capability level $M_1,\ldots,M_j$. Plot $\Delta_{\mathrm{local}}(M,D)$ against $D$ with one curve per model. Differences in slope, sample efficiency, saturation, or asymptotic gain indicate whether general capability and personal experience are complements, substitutes, or approximately independent.
 
 #### Training-history volume
 
@@ -516,11 +530,11 @@ Compare recent windows with older windows of similar size. Remove history by age
 
 Vary Obsidian, browser, and chat coverage while holding target actions fixed. This tests which forms of legibility contribute predictive signal.
 
-#### Model capability
+#### Model capability and its interaction with personal history
 
-After data and method effects are understood on one model, repeat selected conditions across frontier, older, open, and local models. Treat this as a separate capability axis rather than mixing it into the initial algorithm comparison.
+After data and method effects are understood on one model, repeat the same history quantities and no-history baseline across frontier, older, open, and local models. First use a shared prompt-space or retrieval method wherever possible so that differences more cleanly reflect capability. Separately report an access-constrained system comparison between the best available closed-model prompt-space method and open-model weight-space methods. That comparison answers a practical deployment question, but it must not be presented as an isolated causal estimate of prompt space versus weight space because base capability and model access also differ.
 
-The desired output is a set of local scaling curves, not a single leaderboard number.
+The desired output is a family of capability-conditioned local scaling curves, not a single leaderboard number. A positive capability-by-data interaction means that stronger models extract more marginal value from personal history; a negative interaction means that general capability substitutes for some personal evidence; a near-zero interaction means that personalization supplies a relatively stable gain across capability levels. All three are informative outcomes.
 
 ### Experiment 5: Prospective repetition
 
@@ -636,7 +650,7 @@ At least one of ICL, raw-event retrieval, semantic memory, JIT objective conditi
 
 ### Scaling success
 
-Performance changes systematically with at least one well-defined axis of personal information, such as chronological training history, selected context budget, modality coverage, or recency.
+Marginal personal-history gain is estimated for multiple history quantities and multiple model-capability levels on matched future targets. The resulting curves characterize whether the value of personal experience changes systematically with capability, while separate curves identify effects of context budget, modality coverage, and recency. Complementarity is not required for a scientifically useful result: substitution, independence, saturation, or a stable null result are also interpretable if estimated with adequate uncertainty and replicated on prospective windows. A product-facing positive result additionally requires a repeatable, content-sensitive gain from correct personal history over the matched no-history and mismatched-history controls.
 
 The exact minimum effect size should be fixed after the pipeline smoke test but before examining the substantive held-out comparison. It should be large enough to affect a product or research decision, not merely statistically distinguishable because many correlated edits were counted as independent.
 
@@ -654,7 +668,7 @@ The exact minimum effect size should be fixed after the pipeline smoke test but 
 10. If signal exists, compare recent-context ICL, BM25 retrieval, and SFT on one fixed open model.
 11. Compare GUM-style proposition memory and JIT objective conditioning against the same raw evidence.
 12. If the simple methods work, add DITTO and a LongNAP-style learned retrieval condition.
-13. Measure local scaling, recency, and data half-life using the methods that survived.
+13. Cross selected model-capability levels with chronological history quantities, then measure context-budget scaling, recency, modality, and data half-life using the methods that survived.
 14. Repeat on future sealed windows.
 15. Only then design the recommendation and coactive-preference experiment.
 
@@ -672,7 +686,7 @@ The toy program should produce:
 - leakage and provenance tests;
 - frequency, GRU, raw-ICL, BM25, GUM, JIT-objective, SFT, DITTO, and learned-retrieval evaluation adapters;
 - generative and candidate-ranking metrics;
-- paired performance curves with uncertainty;
+- capability-conditioned local scaling curves, marginal personal-history gains, and interaction estimates with uncertainty;
 - a qualitative failure analysis keyed to source events;
 - a short decision report after each experimental gate.
 
