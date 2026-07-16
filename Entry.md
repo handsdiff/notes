@@ -34,6 +34,7 @@
 - https://x.com/aengus_lynch1/status/2077453053540880419?s=20
 - https://x.com/MichaelElabd/status/2077461111247712656?s=20 is inkling optimized as a “meta learner”? TM has an incentive to make its models easily custom trainable
 - https://x.com/jia_seed/status/2077422944645443660?s=20
+- https://x.com/inductionheads/status/2077487228352446648?s=20
 - 
 - seeing a lot of data that you can perform RL directly on the activations of an LLM, not sure what that means, and that doing so could massively speed up and raise the ceiling for LLM reasoning via recurrent iteration in neural activation space
 - control of LLMs will have a massive massive impact on the US presidential election. whats my opinion on how this likely plays out?
