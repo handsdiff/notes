@@ -30,7 +30,7 @@
 	- https://arxiv.org/abs/2607.09061
 	- youtube.com/watch?v=RKjR8DQ40po&feature=youtu.be schmidhuber interview
 	- https://oaklab.ai/posts/learning-from-experience-instead-of-curated-datasets
-	- https://claude.ai/chat/5038f012-65a1-4ff8-ac40-21f46f99290b
+		- https://claude.ai/chat/5038f012-65a1-4ff8-ac40-21f46f99290b on networkidbd implementation
 	- im confused doesnt attention already determine whats useful from the context and what is not?
 	- potentially useful for phase 3 rollouts https://github.com/trycua/cua
 	- https://thinkingmachines.ai/news/introducing-inkling/
