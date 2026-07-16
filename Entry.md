@@ -76,25 +76,12 @@
 		- "for tempo team to start adding Centaur on external channels with our partners to accelerate how we do customer support - I think this will be huge, as it lets you tap in its whole brain w/ fine grained perms vs having to have many bots etc"
 	- https://nusomi.com/
 	- perhaps the similarity to omar's research is bearish due to lack of grounded practicality on growing enterprise time/money tasking
+	- people think. people share what they think with others. sharing improves others thinking. this happens slowly. is basically one version of a practical thesis. whats a very specific workflow?
+
+- apparently 95% of fireworks inference is custom models and they do $1B ARR?
  
 
-- The problem with the deletion is that the app needs to be deeply version control integrated. Like I need to be able to link to text in old commits.
 - options
-	- fix visibility of public notes per team feedback
-	- outreach to aidotengineer flagged speakers and others to discuss algos for my data
-	- review similarities and differences of algorithms for online learning
-	- write blog post
-	- be more specific about potential value props and downstream attached visions
-	- who is the target market? for what problem?
-	- consolidate notes to directly address LBH (everything else likely downstream?)
-	- --
-	- feels like whats blocking outreach is that its not publicly clear "what im about". which leads to being more strict about the algorithms and use cases im considering. which leads to niching down vs being vague.
-	- niche down -> write public explainer -> publish -> outreach -> experiment?
-		- maybe whats circular here causing a progress issue is the extent to which i need to talk to people to fully/more quickly understand niche'd down algorithms?
-	- not in that flow are fixing public visibility, user quality of life like easier inputting or search or link indexing, or provenance via bitcoin which i think are cool...
-	- then the question is have i made enough progress to generate a published post or not, and if not whats remaining? tomorrow it will be 12 days since my last post which is unlikely twice a month cadence
-	- and to what extent should the post be an experiment vs a discussion post, which historically has been the case
-	- is there a common thread between publicity and legibility for current/future AI algorithms? people won't be able to iterate quickly on my data if it isn't public. is anyone publicizing their raw notes? likely not, because its too unstructured? likely not, because its sensitive material?
 	- one tension seems to be that the end goal is for the model to prove it fully understands me (via prediction from increased legible context) so that it can eventually expand the work i do directly, outside of me prompting it to do so. i doubt this behavior arises naturally, and would need to be directly trained. does super good prediction eventually result in 'agency'? probably if the outputs involve actions not just thoughts. but i'd want it to eventually do things I could not do reasonably, thats the whole point, like index a ton of data or do a ton of messaging with others agents. would it do that if it learns to just follow my actions without taking into account its unique capabilities?
 	- another tension is im skeptical that the algorithms will work at all with my existing amount of data. perhaps thats cope?
 	- how many tokens are common examples of fine tuned models that actually work trained on? how many tokens are frontier models trained on? on what stage? how does LoRA actually impact the amount of needed/useful tokens? how does that change as the underlying model changes? [[Interaction#^f94b64]]

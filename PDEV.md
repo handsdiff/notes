@@ -89,3 +89,9 @@ might build search over git history since it feels so necessary
 super super annoying how obsidian always shows me the top of the file instead of where my cursor last was in that file
 
 why no temporal links i.e. to notes in prior commits?
+
+The problem with the deletion is that the app needs to be deeply version control integrated. Like I need to be able to link to text in old commits.
+
+fix visibility of public notes per team feedback (recently updated, otherwise can just give to AI)
+
+user quality of life like easier inputting or search or link indexing
