@@ -66,6 +66,9 @@
 	- is it bs to predict next thoughts/actions? why or why not? there is likely some description that is not bullshit for a given workflow, but would need to write it down. the workflow would likely be research/learning. more concretely? is it next token prediction on what/where i type? is it a bit less granular, a semantic action of writing down a note or looking something up or talking to an AI, given a specific platform?
 	- https://www.nature.com/articles/s41586-024-07711-7 loss of plasticity in deep continual learning
 	- you likely need what im viewing on the screen to well learn what thoughts ill write down or what ill lookup or what ill ask the claude/codex/gemini website/app (i.e. what ill do next)
+	- https://epoch.ai/publications/earthborne-rangers-benchmark continual learning benchmark
+	- who are the biggest screenpipe users? is anyone running prospective learning or reward inference algorithms on their data?
+		- https://github.com/screenpipe/screenpipe
 - directly relevant - vision
 	- https://generalagents.com/ good relative benchmark for quality, interesting description of 'behavior' as a training paradigm that resonates
 	- there is a tension between human preference as the only possible reward signal and the sutton argument that environmental rewards are the only ground truth data for real superintelligence
@@ -103,18 +106,10 @@
 		- that leads to [[Product]]
 		- definitionally, a model is superintelligent compared to me if it has the ability to predict my actions well (and i cannot predict its actions?)
 	- One way to describe this local vision feels like “neomemory” bc it’s similar to what “memory” systems do today but pointed at prediction?
-
-- https://news.ycombinator.com/item?id=48760201
-- https://x.com/satyanadella/status/2072708957077176563?s=20
-- https://x.com/emollick/status/2072727258352001341?s=20
-- https://x.com/teortaxesTex/status/2072800874728935630?s=20
-- who are the biggest screenpipe users? is anyone running prospective learning or reward inference algorithms on their data?
-	- https://github.com/screenpipe/screenpipe
-	- a good sobering take that recommendation is already done at scale massively (and how is user prediction in the context of my ideas really different? [[Interaction#^4c96d9]]), i think there was even an old linkedin paper than was showing RL in a multi armed bandit flavor where the user chooses between one of 3 recommendations or something, hopefully i could find that again. 
-	- from dragan re social media recommendation: https://arxiv.org/abs/2510.12742
-	- why dont i have recommendations cycled on my computer use?
-		- https://arxiv.org/pdf/2505.10831 paper shared by sam on predictive behavior from a 'general user model' from computer use behavior. reach out to authors?
 	- seems equivalent to predicting behavior or increased legibility. didnt feel the need to increase legibility for 'big data' social media algos. maybe because they didnt care about capturing me, or i didn't benefit, or it was knowingly misaligned, but likely probably because i just *couldnt*. i'm not able to put generative thoughts into twitter. (unless maybe they edit the feed based on what you post too, which would make a lot of sense, but havent heard anything about this)
+
+- 
+	- from dragan re social media recommendation: https://arxiv.org/abs/2510.12742
 - two 'computers' on each device? one from the human and one for the ai? easy sharing of html and some file systems, but avoids catastrophe or takeover? and allows for prospective learning / predictive recommendations from screenpipe context?
 - seems so obvious that theres a gap of just having an end to end product that pipes all computer context + serves personalized predictions to solve inferenced local and global goals?
 - personal reward functions differing from labs as a belief
