@@ -203,9 +203,3 @@ the colloquial explanation would be that it learns implicit, yet uncertain (to p
 - if you tell it the local goal, cant it already assist proactively?
 - i guess you'd want to train it to understand the local goal well given the history of actions. but i dont want the UX to be showing an understood goal to the user. but maybe it should be? since a proactive suggestion implies a good understanding of the goal + a good understanding of how to accelerate that goal, which im assuming can be initially built as a human predictor, which i think is a fair characterization, but is harder / multi step, but is better UX. hmm
 - i think this notion that goals will be implicit from good prediction likely only happens at scale. it comes back to why a predictor is desired at all
-
-
-
-
-
-https://x.com/willccbb/status/2078183721249931613?s=20
