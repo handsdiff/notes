@@ -7,6 +7,7 @@
 	- increase branding via twitter banner + personal site + company site
 		- i am feeling really really bad about our historic, and current, lack of 'existence' and misunderstanding of social proof dynamics
 		- potentially useful for personal blog/website for more legitimacy personally and for company https://x.com/shadcn/status/2075600582518124657?s=20
+		- feeling a desire to have a separate website for my blogs. self hosted shows commitment. substack gets swallowed into the platform.
 	- make target market and their growing problem as evidenced by time or money more concrete
 	- go through old information to discover anything relevant
 	- post blog
@@ -119,6 +120,14 @@
 	- good for contextualizing the phases of work needed. separating data steps between adding new sources, preprocessing, and filtering feels correct. data mixtures make much more sense after better understanding i.i.d. assumptions and their implications.
 	- an understanding of i.i.d. feels crucial. the traditional assumption is static distributions with independent samples. autoregressive architectures like transformers shift the i.i.d. assumptions from the token level to the data source level, which feels weird, but seems to empirically work, although they need to do really intelligent data mixing to ensure gradient descent is performed over average baselines rather than overoptimizing for a single thing. im only starting to internalize this but i suspect it explains a lot of downstream behavior (catastrophic forgetting, for example)
 	- continual learning fundamentally seems like an i.i.d. data issue i.e. breaking the i.i.d assumption
+	- relevant for data construction [[Interaction#^f5c205]] ^b73256
+	- how does 'no recommendation' fit into the framework?
+	- training for 'agentic' use implies training on top of pretraining that is different from instruction following to elicit question -> answer behavior. its also not quite RLVR since most agentic tasks dont have a verifiable answer outside of the individual's preference, and it's now relatively easily to optimize for compiled code
+		- where is 'agentic' data coming from? is they are coming from existing traces, where are the preferred answers/trajectories coming from?
+		- how does this relate to token level preferences vs action level preferences?
+	- i wonder whether you need the data to be literally temporally interleaved to predict well. like i pause a youtube video, write down thoughts, play the youtube video. etc. its incorrect to put the entire transcript in when the page is first visited, since the goal is to most closely simulate how my brain works. the actual construction of the dataset is literally 90% of the work here. will take trial and error. may be worth thinking how to improve it
+		- if im watching a youtube video for example, i suspect the best data structure would be the transcript of the part i watched as <read, browser, youtube, transcript chunk> then <write, obsidian, entry, written note>.
+	- how do harnesses actually handle context and content fetching? if it fetches a website that has 10M tokens, what does it do? or if it runs a terminal command that has 2M tokens worth of lines, what does it do? there must be context management logic? is it basic sliding window? compression? (longNAP implementation likely sheds some light on this)
 - directly relevant - vision
 	- https://generalagents.com/ good relative benchmark for quality, interesting description of 'behavior' as a training paradigm that resonates
 	- there is a tension between human preference as the only possible reward signal and the sutton argument that environmental rewards are the only ground truth data for real superintelligence
@@ -159,7 +168,7 @@
 	- One way to describe this local vision feels like “neomemory” bc it’s similar to what “memory” systems do today but pointed at prediction?
 	- seems equivalent to predicting behavior or increased legibility. didnt feel the need to increase legibility for 'big data' social media algos. maybe because they didnt care about capturing me, or i didn't benefit, or it was knowingly misaligned, but likely probably because i just *couldnt*. i'm not able to put generative thoughts into twitter. (unless maybe they edit the feed based on what you post too, which would make a lot of sense, but havent heard anything about this)
 	- seems so obvious that theres a gap of just having an end to end product that pipes all computer context + serves personalized predictions to solve inferenced local and global goals?
-	- having full context visibility -> predicting what i will do -> doing something to help me get there feels pretty intrinsically valuable. the relation to knowledge sharing perhaps is confusing because its a different axis along the lines of the data elicitation and enterprise customer adoption pigeon holing. but the reason for the assistants would be to use the human models for multiplayer rollouts. does that hold up? does that cause it to be too long of a winding road to a specific problem? theres definitely conflation in the intended problems to be addressed
+	- **having full context visibility -> predicting what i will do -> doing something to help me get there feels pretty intrinsically valuable. the relation to knowledge sharing perhaps is confusing because its a different axis along the lines of the data elicitation and enterprise customer adoption pigeon holing. but the reason for the assistants would be to use the human models for multiplayer rollouts. does that hold up? does that cause it to be too long of a winding road to a specific problem? theres definitely conflation in the intended problems to be addressed**
 	- essentially actual experimentation to bolster algorithmic belief for a product for data legibilization, recognize that if you dont have a ton of personal data (unclear where the reward model part comes in) then you will be in a lot of pain in the next few years (assumes RSI/AGI)
 	- as i think more, the core distinction seems to be training a model to predict how my brain works during my workday. based on inbound, what is my outbound? 
 		- the stance, which needs to be deeply analyzed, is that this matters because (1) self prediction is enough of a value prop by itself (2) prediction is a prerequisite for inferring rewards (3) prediction, inferring rewards, and the data collection associated with both is a prerequisite for a superhuman system pursuing my goals for me.
@@ -186,39 +195,14 @@
 	- phase 2 is intended to open up 'move 37' like capabilities
 	- feel more resolute about the problem of converting personal computer use data into something that can be used to predict actions is deep. equivalent to refining oil to put into a machine that does something useful
 	- https://arxiv.org/pdf/2203.02155 first sentence of the abstract "Making language models bigger does not inherently make them better at following a user’s intent" banger
+	- good thesis piece [[Interaction#^4c96d9]] but thinking about it more, i think there are a few problems/solutions being conflated that need to be separated
+	- instruction following training seems explicitly different from action completion training that im considering. instruction following needs to literally be baked into token completion: https://www.youtube.com/watch?v=XKLGuwvSKvI&list=PLoROMvodv4rPwxE0ONYRa_itZFdaKCylL&index=10
+		- makes a good point that as models drift from supervised policy, their expectation of value increasingly diverges from actual value. (slide at end of lecture)
+	- answering a thought or question i type into notes is VERY different from completing my next action / thought. it could connect IF the action is a good prompt to a chatbot, and the agent is able to query the chatbot and return the response in a separate computer, basically messaging it for me on my behalf the way i would. hmmm
+	- why do i want a model to predict me? dont i want a model to improve me? some self-doubt thoughts. the line of thinking from there though was that it needs my reward model, i cant specify it outside of my actions, my actions therefore need to be maximally legible. the toy example is to establish whether increased legibility improves ability to predict, which i need to tie into ability to understand and raise the ceiling on the reward function. also should clarify somewhere how it ties into multi agent systems and the thesis of ai per employee as the enterprise use case rather than a 'company agent' if that's the stated direction
 
 
-- relevant for data construction [[Interaction#^f5c205]] ^b73256
-- good thesis piece [[Interaction#^4c96d9]]
-- how does 'no recommendation' fit into the framework?
-- really unclear during training or even in context whether to stuff all browser content or not
-- likely impossible to predict my next note given history of notes. is it even worth trying? feels like it still is to have a milestone and to get something out. but imo avoids hard, chunky, valuable problems
-- not sure how enterprises build evals but i suspect that preprocessing, filtering, and mixing the data is not a well established skill. are evals separate from data? i dont see how thats possible for enterprises that own both.
-- in some sense its obvious that you can train an algorithm to maximize learning some given distribution of data. but also it depends on the data. like i say that but i also think pure obsidian prediction would fail
-- a massive question for me is, how is pretraining data being scaled?
-- training for 'agentic' use implies training on top of pretraining that is different from instruction following to elicit question -> answer behavior. its also not quite RLVR since most agentic tasks dont have a verifiable answer outside of the individual's preference, and it's now relatively easily to optimize for compiled code
-	- where is 'agentic' data coming from? is they are coming from existing traces, where are the preferred answers/trajectories coming from?
-	- how does this relate to token level preferences vs action level preferences?
-- standard gradient descent is an optimizer. adam is an optimizer. adamW is an optimizer.
-- instruction following training seems explicitly different from action completion training that im considering. instruction following needs to literally be baked into token completion: https://www.youtube.com/watch?v=XKLGuwvSKvI&list=PLoROMvodv4rPwxE0ONYRa_itZFdaKCylL&index=10
-	- makes a good point that as models drift from supervised policy, their expectation of value increasingly diverges from actual value. (slide at end of lecture)
-- theres a lot of conflation. people seem to mention RLHF and PPO in the same breath. is it the same paper that introduced them? PPO can obviously handle step 3 of the RLHF pipeline if thats the case
-- answering a thought or question i type into notes is VERY different from completing my next action / thought. it could connect IF the action is a good prompt to a chatbot, and the agent is able to query the chatbot and return the response in a separate computer, basically messaging it for me on my behalf the way i would. hmmm
-- really interesting thread on youtube's struggle with reward hacking over the years https://gemini.google.com/app/954229708da7af36
-	- first optimizing clicks, people didnt watch
-	- then optimized watch, people watched slop
-	- then optimized 'watcher satisfaction' starting around 2019, relying on micro surveys during watching
-- prime intellect went from basically 0 to 100m ARR in a year? how???
-	- other sources citing 15m to 200m (projected) in ~4 (so probably closer to 6) months.
-	- likely trained intellect-1 and 3 and collected synthetic-2, no business model, released Lab as a streamlined version of what they used to build those models, enterprises use it and their serviced expertise as a way to then train their own models. makes sense.
-- feeling a desire to have a separate website for my blogs. self hosted shows commitment. substack gets swallowed into the platform.
-- i find it very interesting that the suggested way to prompt models was to tell it what to do, not not what to do, and the mechanism behind this is now super obvious with J space, since even mentioning certain words, even when prefixed with not, primes the model into a certain thinking that involves the thing you wanted to not do, making it more likely for it to do it. very similar to humans in that sense, classic priming from a neurological perspective
-- can you have a small local proactive personalized model that interacts with a large asynchronous frontier model as needed?
-- why do i want a model to predict me? dont i want a model to improve me? some self-doubt thoughts. the line of thinking from there though was that it needs my reward model, i cant specify it outside of my actions, my actions therefore need to be maximally legible. the toy example is to establish whether increased legibility improves ability to predict, which i need to tie into ability to understand and raise the ceiling on the reward function. also should clarify somewhere how it ties into multi agent systems and the thesis of ai per employee as the enterprise use case rather than a 'company agent' if that's the stated direction
-- if the existing algorithms are too stupid, turn it into a benchmark. shows the algorithms are not smart enough yet. also relates to my idea of allowing public algorithm competition on my personal data to predict me
-- i wonder whether you need the data to be literally temporally interleaved to predict well. like i pause a youtube video, write down thoughts, play the youtube video. etc. its incorrect to put the entire transcript in when the page is first visited, since the goal is to most closely simulate how my brain works. the actual construction of the dataset is literally 90% of the work here. will take trial and error. may be worth thinking how to improve it
-- how do harnesses actually handle context and content fetching? if it fetches a website that has 10M tokens, what does it do? or if it runs a terminal command that has 2M tokens worth of lines, what does it do? there must be context management logic? is it basic sliding window? compression?
-- if im watching a youtube video for example, i suspect the best data structure would be the transcript of the part i watched as <read, browser, youtube, transcript chunk> then <write, obsidian, entry, written note>.
+- 
 - if the thesis is that rewards are implicitly learned from preference data, which i think holds true generally, it does not account for the fact that rewards can be unconsciously changed, which i think leads to poor learning vaguely, but might also result in what looks like 'reward hacking'
 - should've written down earlier that i think its super cool to 'optimize for learning' by considering the 'surprise' of a given state transition in the learning rate. forget where i explored papers in this vein
 	- stumbled upon this during algorithms research https://noahziems.com/pedagogical-rl
