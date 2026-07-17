@@ -170,14 +170,6 @@
 		- similar tweet https://x.com/ashwingop/status/2069807820846063932
 	- phrased during conversation as a tool that would elicit different behavior of legibilizing process of thinking in between computer interactions. that behavior doesn't exist as much today since the tool being used 'computer' doesn't really benefit from it. the tools of the future will ('local models')
 
-
-- useful discussion on the three phases from a different, more informed perspective https://gemini.google.com/app/b6218e284c18d65d during algorithms research
-	- https://www.youtube.com/watch?v=XKLGuwvSKvI&list=PLoROMvodv4rPwxE0ONYRa_itZFdaKCylL&index=10
-- still need to codify the data, but worth discussing the algorithms considered and rejected neatly, for completeness, along with risks. we might run into issues with lack of specificity in initial data, or how the SFT phase relates to the RL phase (since DPO, the implicit reward, and MCTS involve an action and state space), we will see. thats the meat and potatoes though. algorithmic understanding towards superintelligence is the side dish, which i just struggled through.
-- (alphago -> alphazero analogy was helpful)
-- you do still have the scaling issue with human labeling during online use causing EXTREMELY and perhaps even PROHIBITIVELY slow learning. 
-- i suspect you'd continue phase 1 during phase 2, but would the loss function / reward function just change to include both (assuming weight space updating)?
-
 - https://gemini.google.com/app/34e424feaeb8374a provides alternatives to DPO/online DPO. softmax DPO https://arxiv.org/pdf/2406.09215 takes into account multiple recommendations rather than pairwise. also lists full potential phase 1 and 2 loss functions
 	- $$P(w_1, w_2, ..., w_T) = \prod_{t=1}^T P(w_t \mid w_1, w_2, ..., w_{t-1})$$
 	- $$\mathcal{L}_{\text{SFT}}(\pi_\theta) = - \sum_{t=1}^{|y_w|} \log \pi_\theta(y_w^t \mid x, y_w^{<t})$$
