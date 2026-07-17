@@ -1,8 +1,10 @@
-# Weakest-Link Tests for Personal Next-Action Prediction
+# Phase 1 Details
+
+*Weakest-link tests for personal next-action prediction*
 
 ## Status
 
-This document specifies a toy experiment. It is a companion to [[Paper]], not a replacement for it. [[Paper]] describes a broader path from behavioral cloning to coactive preference learning. This document stops much earlier. Its purpose is to determine which of the earliest assumptions in that path are true before investing in more complex algorithms.
+This document specifies the Phase 1 experimental program. It is a companion to [[Paper]], not a replacement for it. [[Paper]] describes the broader path from behavioral cloning to coactive preference learning; this note tests the predictive foundation before live proposal exposure begins.
 
 The proposal contains no experimental results. Operational choices below are proposed defaults and should be fixed before inspecting held-out results.
 
@@ -10,7 +12,7 @@ The proposal contains no experimental results. Operational choices below are pro
 
 Personal AI requires data that makes an individual's context, behavior, and developing intentions legible. The first load-bearing claim is not that a system can infer a complete reward function or act superintelligently. It is that a temporally correct record of a person's read and write activity contains usable signal about what the person will do next.
 
-We propose a sequence of deliberately small experiments that attempts to invalidate this claim as cheaply as possible. Browser and AI-chat collection begins immediately because prospective context cannot be reconstructed reliably after the fact. In parallel, existing Obsidian Git history is used to validate event reconstruction, action segmentation, chronological splitting, and evaluation code. Once enough browser and chat context has accumulated, a fixed model is used to measure the incremental predictive value of each data source. Only if richer personal context improves prediction do we compare in-context learning, explicit memory or retrieval, and supervised fine-tuning. Only if at least one method exploits the signal do we study scaling with data volume, context budget, recency, and online accumulation.
+We propose a gated sequence of experiments that attempts to invalidate this claim as cheaply as possible. Browser and AI-chat collection begins immediately because prospective context cannot be reconstructed reliably after the fact. In parallel, existing Obsidian Git history is used to validate event reconstruction, action segmentation, chronological splitting, and evaluation code. Once enough browser and chat context has accumulated, a fixed model is used to measure the incremental predictive value of each data source. Only if richer personal context improves prediction do we compare in-context learning, explicit memory or retrieval, and supervised fine-tuning. Only if at least one method exploits the signal do we study scaling with data volume, context budget, recency, and online accumulation.
 
 The primary target is the next human-authored Obsidian macro-action: initially an added sentence or bullet, and later a coherent edit burst. The primary metric for open models is the negative log-likelihood of the observed action. A candidate-ranking task provides a model-independent secondary evaluation. The experiment is successful even when a hypothesis fails, provided the failure isolates a specific weak link: data capture, temporal reconstruction, context signal, context selection, model capability, or adaptation method.
 
@@ -27,7 +29,7 @@ The long-run stack currently implied by the project is:
 7. the person's generative action after proposal exposure supplies preference information without requiring a click;
 8. learned preferences can support increasingly capable local action selection and planning.
 
-Later claims depend on earlier ones. Testing the entire stack at once would make a negative result uninterpretable. This toy experiment therefore addresses only Claims 1-5. Recommendation, preference learning, implicit reward modeling, multi-step planning, and multi-agent coordination are downstream work.
+Later claims depend on earlier ones. Testing the entire stack at once would make a negative result uninterpretable. Phase 1 therefore addresses only Claims 1-5. Live proposal exposure, coactive preference learning, multi-step planning, and multi-agent coordination are downstream work.
 
 The governing principle is:
 
@@ -85,7 +87,7 @@ The first substantive algorithmic experiment begins only after Track A passes it
 
 ### 4.1 Prediction target
 
-The initial target is the next human-authored Obsidian macro-action. The preferred first unit is one newly added sentence or bullet. This is close to the original toy formulation: given the previous Git history of `Entry.md`, predict the next added line or bullet.
+The initial target is the next human-authored Obsidian macro-action. The preferred first unit is one newly added sentence or bullet. This is close to the original minimal formulation: given the previous Git history of `Entry.md`, predict the next added line or bullet.
 
 The first dataset should exclude or separately label:
 
@@ -284,7 +286,7 @@ Negatives should be difficult enough to test personalization. Useful negatives i
 
 ### 7.3 Human usefulness is not the primary metric yet
 
-The original notes consider ranking predictions by expected personal usefulness as well as predictive ability. These should be separated. The toy's primary question is whether the system predicts the observed next action. Usefulness requires counterfactual judgment and belongs to the later recommendation phase.
+The original notes consider ranking predictions by expected personal usefulness as well as predictive ability. These should be separated. Phase 1 asks whether the system predicts the observed next action. Usefulness requires counterfactual judgment and belongs to the later proposal-and-correction phase.
 
 A small blinded human review may still diagnose whether high-probability alternatives are semantically appropriate despite differing from the recorded action, but it must not silently replace the preregistered prediction metric.
 
@@ -306,24 +308,24 @@ This work supplies three core baselines that should be reproduced even if the fu
 2. BM25 retrieval over prior observations followed by prompted prediction;
 3. supervised fine-tuning on chronological next-action examples.
 
-The full LongNAP method is an advanced baseline after these components are understood. As of this proposal, its [project page](https://generalusermodels.github.io/nap/) marks the GitHub release as forthcoming, so the toy experiment should not depend on its release. Its reported numbers are also not directly comparable: LongNAP predicts multi-action natural-language trajectories from screen activity and uses semantic similarity judged by an LLM, whereas the initial toy predicts one bounded write action and can compute its likelihood directly.
+The full LongNAP method is an advanced baseline after these components are understood. As of this proposal, its [project page](https://generalusermodels.github.io/nap/) marks the GitHub release as forthcoming, so Phase 1 should not depend on its release. Its reported numbers are also not directly comparable: LongNAP predicts multi-action natural-language trajectories from screen activity and uses semantic similarity judged by an LLM, whereas the initial experiment predicts one bounded write action and can compute its likelihood directly.
 
 [A Click Ahead](https://arxiv.org/abs/2309.12170) provides a deliberately simpler precedent. It trains a small recurrent model on approximately one week of one person's keyboard and mouse activity to predict the next action from the previous five actions over a fixed vocabulary. That closed action space cannot model the semantic content of a new bullet, but it provides a useful low-capacity baseline for structured fields such as application, operation type, file, or coarse action class. A GRU that consumes the previous few structured actions should therefore be included in the smoke-test stage. It can reveal whether an apparent LLM gain is merely short-range repetition.
 
 ### 8.2 Raw history, semantic memory, and inferred objectives
 
-[Creating General User Models from Computer Use](https://arxiv.org/abs/2505.10831) supplies a semantic-memory baseline. A General User Model converts observations into confidence-weighted propositions about the person's current state, habits, knowledge, and preferences; retrieves relevant propositions; and revises them as new evidence arrives. Its [implementation is available](https://generalusermodels.github.io/gum/). For the toy experiment, the relevant comparison is not its proactive assistant. It is whether a prompted next-action predictor performs better with retrieved GUM-style propositions than with retrieved raw events under a matched context budget.
+[Creating General User Models from Computer Use](https://arxiv.org/abs/2505.10831) supplies a semantic-memory baseline. A General User Model converts observations into confidence-weighted propositions about the person's current state, habits, knowledge, and preferences; retrieves relevant propositions; and revises them as new evidence arrives. Its [implementation is available](https://generalusermodels.github.io/gum/). For Phase 1, the relevant comparison is not its proactive assistant. It is whether a prompted next-action predictor performs better with retrieved GUM-style propositions than with retrieved raw events under a matched context budget.
 
 This baseline tests whether lossy semantic abstraction helps. It should retain links from every proposition to its source observations so that errors can be attributed to inference, retrieval, or prediction. Propositions must not be treated as observed facts.
 
 [Just-In-Time Objectives](https://arxiv.org/abs/2510.14591) supplies a complementary goal-abstraction baseline. It infers a short, explicit current objective from a snapshot of user context, then conditions both generation and evaluation on that objective. Unlike a longitudinal user model, the method primarily asks what the person is trying to accomplish now. The paper intentionally evaluates a minimal context setting using one screenshot, making it a useful test of whether current context contains enough information to infer a task-level objective without a long personal history.
 
-For this toy, define a JIT-objective condition as follows:
+For Phase 1, define a JIT-objective condition as follows:
 
 1. give an objective-induction model exactly the temporally valid context available to the predictor;
 2. produce one or more weighted natural-language objectives;
 3. add the objectives to the next-action generation or candidate-ranking prompt;
-4. score against the actual held-out action using the toy's objective metrics.
+4. score against the actual held-out action using the Phase 1 objective metrics.
 
 Compare this with the same predictor receiving raw context, retrieved raw events, and GUM-style propositions. This isolates three representations of the same evidence: event history, semantic beliefs, and an explicit current goal. A gain from JIT objectives would support the bridge from legible behavior to local goal inference, but would not prove that a stable reward function had been recovered.
 
@@ -339,7 +341,7 @@ This is not a neutral replacement for behavioral cloning. It adds the assumption
 
 [Continual Learning Bench](https://arxiv.org/abs/2606.05661) is not a direct personal next-action baseline. Its useful contribution here is experimental structure: compare a stateless system, naive ICL, and dedicated memory while measuring improvement from sequential experience separately from the underlying model's initial capability. Its [benchmark harness](https://continual-learning-bench.com/) also demonstrates how to report both absolute performance and gain across an ordered sequence.
 
-The toy should adopt that separation. For each model, report:
+Phase 1 should adopt that separation. For each model, report:
 
 - absolute performance without personal history;
 - absolute performance with the permitted history;
@@ -365,7 +367,7 @@ Every condition must use the same target set and respect the same temporal cutof
 
 ### 8.6 Deliberate exclusions
 
-Memory systems evaluated only on question answering or factual recall are not primary baselines for next-action prediction. Neither are recommendation, coactive preference learning, online DPO from proposal exposure, reward-model planning, or autonomous computer-use agents. Those methods address later links in the stack. They should be introduced only after the toy establishes that the captured personal stream contains usable signal and that at least one simple mechanism can exploit it.
+Memory systems evaluated only on question answering or factual recall are not primary baselines for next-action prediction. Neither are live proposal exposure, coactive preference learning, online DPO, reward-model planning, or autonomous computer-use agents. Those methods address later links in the stack. They should be introduced only after Phase 1 establishes that the captured personal stream contains usable signal and that at least one simple mechanism can exploit it.
 
 ## 9. Experimental Staircase
 
@@ -592,7 +594,7 @@ Deliberately insert a future event in a private test fixture and verify that lea
 | Methods improve offline but decay quickly | data half-life or project shift | emphasize recent updates and online repetition |
 | No current method exploits demonstrably useful data | algorithmic benchmark | preserve the dataset and expose the failure clearly |
 
-The final row is an acceptable research outcome. It turns the personal stream into a concrete continual-learning benchmark rather than forcing a downstream recommendation system to be built on an invalidated foundation.
+The final row is an acceptable research outcome. It turns the personal stream into a concrete continual-learning benchmark rather than forcing a downstream proposal system to be built on an invalidated foundation.
 
 ## 12. Main Confounds to Prevent
 
@@ -628,15 +630,13 @@ Knowing that activity is recorded may change writing, browsing, or chat behavior
 
 Observed behavior is not automatically optimal behavior. Success at predicting a next action establishes modeling ability, not alignment with an ideal self or proof of a true reward function. That bridge remains a later hypothesis.
 
-When Phase 2 later exposes proposals $Z$ and observes a human continuation $y$, it must retain two context views. Behavioral cloning predicts $y$ from the actual history $(h,Z)$; the proposal tokens are masked context, not targets. Preference optimization compares $y$ with the displayed candidates from the pre-display state $h$. The former learns how the person responds to suggestions, while the latter improves what the policy suggests. This toy does not implement either online loss, but its actor, provenance, availability, and timing fields are designed to reconstruct both views.
-
 ### 12.9 Inferred-objective circularity
 
 An objective or proposition generated by the same model that later scores candidates can create self-consistent but behaviorally false improvements. Primary evaluation must remain tied to the actual held-out action. Report the objective-induction model separately from the predictor and evaluator, and use an independent model or human audit for a diagnostic subset.
 
 ## 13. Success Criteria
 
-The overall toy program succeeds if it produces an interpretable answer to each reached gate.
+Phase 1 succeeds if it produces an interpretable answer to each reached gate.
 
 ### Data success
 
@@ -672,13 +672,13 @@ The exact minimum effect size should be fixed after the pipeline smoke test but 
 12. If the simple methods work, add DITTO and a LongNAP-style learned retrieval condition.
 13. Cross selected model-capability levels with chronological history quantities, then measure context-budget scaling, recency, modality, and data half-life using the methods that survived.
 14. Repeat on future sealed windows.
-15. Only then design the recommendation and coactive-preference experiment.
+15. Only then design the Phase 2 proposal-and-correction experiment.
 
 This order moves quickly because collection and pipeline development overlap, but each reported comparison changes one main uncertainty at a time.
 
 ## 15. Required Artifacts
 
-The toy program should produce:
+Phase 1 should produce:
 
 - versioned Obsidian, browser, and chat collectors;
 - an immutable or content-addressed raw event store;
@@ -701,7 +701,7 @@ This experiment does not attempt to establish:
 - a complete or stable human reward function;
 - that recorded behavior is optimal;
 - that prediction necessarily implies understanding;
-- that recommendations improve the person;
+- that live proposals improve the person;
 - online preference optimization from live proposal exposure; DITTO is included only as an offline demonstration-derived algorithm baseline;
 - an implicit value function for long-horizon planning;
 - autonomous computer use;
@@ -711,7 +711,18 @@ This experiment does not attempt to establish:
 
 Those questions become worth testing only after the event stream has demonstrated predictive signal and at least one tractable method can use it.
 
-## 17. Conclusion
+## 17. Handoff to Phase 2
+
+Phase 1 ends with a personalized policy that can predict bounded human actions from a temporally valid event stream. Phase 2 begins only after that policy produces useful, comparable candidate actions and can be updated continually without unacceptable forgetting.
+
+For a Phase 2 interaction, let $h$ be the pre-display history, $Z$ the rendered proposal slate, and $y$ the human action that follows. The same interaction produces two training views:
+
+- **Behavioral view:** predict $y$ from the actual history $(h,Z)$. The proposal tokens are masked context, not targets. This learns how the person responds after seeing model output.
+- **Preference view:** compare $y$ with each valid displayed candidate from the pre-display state $h$. This updates what the policy proposes before the response occurs.
+
+No click or explicit acceptance is required. The human continuation is the correction signal. The collector fields defined in Phase 1—actor, provenance, availability, and timing—must preserve both context views exactly. The full estimator is specified in [[Paper]].
+
+## 18. Conclusion
 
 The fastest path is not to run the largest model-method-data matrix immediately. It is to collect the irrecoverable browser and chat context now while using existing Obsidian history to make the pipeline real. The first substantive experiment then holds the model fixed and asks whether richer personal context improves prediction. The second holds the model and data fixed and asks whether raw ICL, retrieval, semantic memory, inferred objectives, or SFT uses that signal best. Demonstration-derived preference optimization and learned retrieval enter only after the simpler comparisons. Scaling, half-life, online repetition, and model-class comparisons follow only after these earlier claims survive.
 

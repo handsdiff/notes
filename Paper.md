@@ -2,7 +2,7 @@
 
 *A method draft for learning personalized action policies and dense local preference scores from ordinary computer use*
 
-**Status:** Working paper draft. This document specifies the motivation, related work, problem formulation, objectives, records, and algorithms for Phases 1 and 2, then states a directional design for Phase 3 where the evidence does not yet justify the same level of algorithmic commitment. It intentionally contains no abstract, results, or conclusion.
+**Status:** Working paper draft. This document specifies the motivation, related work, problem formulation, objectives, records, and algorithms for Phases 1 and 2. The executable Phase 1 program is specified in [[Phase 1 Details]]. This draft intentionally contains no abstract, results, or conclusion.
 
 ## 1. Introduction and Motivation
 
@@ -20,16 +20,16 @@ The second premise is that a predictive model can create useful contrastive data
 
 We formulate this interaction as **coactive preference learning**. At decision time $t$, the current policy samples a slate of candidate continuations from the pre-display context. After observing the slate, the person supplies a final continuation in the same action space. Subject to explicit comparability and exposure checks, that continuation is treated as a weak improvement over each displayed candidate—not as a globally optimal answer and not as evidence about an unobserved counterfactual human action. This interpretation turns the interface into a low-friction correction channel: the model proposes; the human continues working; the difference supplies a preference update.
 
-This formulation has two practical consequences. First, Phase 2 does not require clicks. The person's generative continuation is a richer correction signal than candidate acceptance: the training record contains the pre-display context, the candidates actually rendered, and the human continuation that followed. Second, the same interaction is represented through two context views. Behavioral cloning conditions the human continuation on the actual history, including the rendered slate, and therefore learns how the person responds to model proposals. Preference learning excludes the slate from the context and scores both the continuation and each proposal from the **pre-display** state. BC thus models the collaborative behavior that occurred; IPO improves which action the policy proposes before that behavior occurs. The proposal tokens are masked context for BC, not prediction targets, so this does not train the model to reproduce its own suggestions.
+Phase 2 does not require clicks. The person's generative continuation is the correction signal: each record contains the pre-display context, the candidates actually rendered, and the human action that followed.
+
+That record supports two training views. Behavioral cloning conditions the human action on the actual history, including the rendered slate, and learns how the person responds to model proposals. Preference learning removes the slate from the context and compares the human action with each proposal from the **pre-display** state. BC models the collaborative behavior that occurred; IPO improves what the policy proposes before that behavior occurs. The proposal tokens are masked context for BC, not prediction targets, so the model is not trained to reproduce its own suggestions.
 
 The proposed system has two training regimes applied to one canonical policy sequence:
 
 1. **Behavioral bootstrap.** Phase 1 trains an autoregressive policy on temporally interleaved read and write events. Read events enter the context; human write events are the prediction targets. Before suggestions begin, any continual update uses the same behavioral-cloning objective.
 2. **Continual coactive improvement.** Once suggestions begin, Phase 2 continues behavioral cloning on the actual proposal-conditioned stream and adds pairwise preference learning from the pre-display state. Each accepted policy serves users and collects the next update's data; during the next training job it is frozen as the local reference, and the accepted successor becomes the new canonical policy.
 
-**Phase 3 is a planning extension rather than a third loss regime for the same canonical adapter.** It uses the personalized action prior and local preference information produced by Phases 1 and 2, learns action-conditioned world dynamics from the richer transition stream already being recorded, and searches over short trajectories in a computer-use sandbox. The interface expands from one-step continuations to selectable plans with simulated outcomes. The planning horizon grows only as simulation calibration, execution safety, and measured assistance quality permit. The user remains the principal: selecting or editing a plan delegates bounded execution rather than authorizing an unconstrained autonomous policy.
-
-The preference objective yields a policy/reference log-ratio that can be used as a dense, context-dependent local action score. This local score and the person's global goal reward are different objects. The global reward exists independently as the outcome the person is trying to achieve, but it may be sparse, delayed, or not machine-verifiable at every step. Phase 2 uses comparisons as denser evidence about which immediate actions are more likely to advance it. This gives the direction enterprise value before any long-horizon autonomous agent exists: candidate drafts can be reranked for a particular employee, proactive continuations can become more useful, and later planning systems can use the score as one input to local action evaluation. The score is not yet a complete reward for arbitrary trajectories. It represents revealed preference over comparable, one-step continuations under the deployed human–model interaction loop.
+The preference objective yields a policy/reference log-ratio that can be used as a dense, context-dependent local action score. This local score and the person's global goal reward are different objects. The global reward exists independently as the outcome the person is trying to achieve, but it may be sparse, delayed, or not machine-verifiable at every step. Phase 2 uses comparisons as denser evidence about which immediate actions are more likely to advance it. Candidate drafts can therefore be reranked for a particular employee and proactive continuations can become more useful before any multi-step system exists. The score represents revealed preference over comparable, one-step continuations under the deployed human–model interaction loop; it is not a complete reward for arbitrary trajectories.
 
 This draft makes seven concrete design commitments:
 
@@ -41,7 +41,7 @@ This draft makes seven concrete design commitments:
 - It combines continued behavioral cloning with Identity Preference Optimization (IPO) against the immediately preceding canonical checkpoint. The initial behavioral checkpoint is retained only as an archival anchor for cumulative measurement, capability evaluation, and rollback.
 - It logs enough provenance—event boundaries, exposure, policy versions, reference scores, and candidate-generation parameters—to reproduce every preference record and change the estimator later.
 
-The intended claim is deliberately narrow. Phase 1 bootstraps a personalized action policy. Phase 2 continually updates that same canonical policy from behavior and local coactive comparisons in a collaborative equilibrium shaped by both the model and the person. The version sequence tests whether the system tracks behavioral drift and absorbs human refinements without unacceptable forgetting or cumulative degradation. Neither regime explicitly reconstructs the person's global reward function, and neither justifies unconstrained multi-step optimization. The hypothesis is instead that human comparisons provide dense local evidence about actions that better advance a real, human-known objective even when the demonstrated policy is suboptimal. Phase 3 therefore treats the Phase 2 score as a local planning input rather than a complete trajectory reward and introduces new dynamics, trajectory-feedback, sandbox, and authority requirements before increasing horizon.
+The intended claim is deliberately narrow. Phase 1 bootstraps a personalized action policy. Phase 2 continually updates that same canonical policy from behavior and local coactive comparisons in a collaborative equilibrium shaped by both the model and the person. The version sequence tests whether the system tracks behavioral drift and absorbs human refinements without unacceptable forgetting or cumulative degradation. Neither regime explicitly reconstructs the person's global reward function, and neither justifies unconstrained multi-step optimization. The hypothesis is instead that human comparisons provide dense local evidence about actions that better advance a real, human-known objective even when the demonstrated policy is suboptimal.
 
 ## 2. Related Work
 
@@ -1082,165 +1082,8 @@ At any valid interaction, the person is assumed to know the goal with respect to
 
 Policy/reference log-ratios are trustworthy only near the contexts and actions on which behavior and preferences were collected. The rolling score $\beta[\log \pi_d(a\mid h)-\log \pi_{d-1}(a\mid h)]$ is a local residual for one accepted update. The cumulative score against archival $\pi_0$ is historically comparable within a fixed lineage, context representation, action segmentation, and $\beta$, but it may conceal many locally acceptable steps that add up to substantial drift. Every score must therefore carry its current-policy, rolling-reference, archival-anchor, and data-window version identifiers. The sensitivity of direct-preference objectives to the reference policy makes this bookkeeping part of the estimator rather than mere provenance [23]. Enterprise deployment should attach uncertainty or support checks and abstain from using either score as an unrestricted verifier. Per-user data scarcity makes shared representation learning useful, but tenant and user identity must not be erased by indiscriminate pooling.
 
-## 8. Phase 3 Direction: Model-Based Assistance over Increasing Horizons
+Multi-step planning, simulation, and execution are outside this paper's scope; the directional extension is specified separately in [[Phase 3 Direction]].
 
-Phase 3 extends the one-step proposal-and-correction loop into bounded model-based assistance. Its primary objective is to improve the outcome of the human–assistant system relative to unaided work, not to replace the person with a policy that acts unilaterally. At a decision point, the system simulates several short action trajectories, shows their predicted results and uncertainty, and lets the person select, edit, reject, or ask for clarification. A selected plan authorizes guarded execution in the real computer environment. The resulting transitions, interventions, and outcomes then supervise the next dynamics and planning updates.
-
-### 8.1 Relationship to assistance games
-
-The intended interaction is structurally an assistance game. Human and assistant actions alter a shared environment; the assistant is uncertain about the person's objective; human actions and corrections provide information; and useful assistant actions may either advance the task or reduce uncertainty. Cooperative inverse reinforcement learning formalizes this structure as a partial-information game with a shared reward known to the human but initially hidden from the assistant [24]. AssistanceZero demonstrates a scalable instance in which a planner predicts human actions and beliefs over reward parameters while assisting in a complex Minecraft environment [25].
-
-The proposed system should be described as **assistance-game-inspired**, not as a literal instantiation of either framework. Here the person is assumed to know or be able to express the active goal, but that goal may not be available to the system as a formal reward parameter or machine-verifiable payoff. The person's policy can be suboptimal, goals can vary across tasks, the action space is open-ended, and the Phase 2 policy ratio is only a dense local proxy rather than an observed shared payoff. Phase 3 must therefore maintain uncertainty, measure actual outcomes, and preserve human authority rather than claiming to inherit the optimality or incentive guarantees of a classical assistance game.
-
-### 8.2 Separation of model roles
-
-The following operational roles should remain conceptually distinct even if an implementation shares encoders or base weights:
-
-1. **Personalized action prior.** The current canonical policy $\pi_d$ proposes actions near the person's learned behavioral and coactive distribution. It supplies search priors and candidate representations; it is not by itself a world model.
-2. **Human-response model.** Phase 2 BC already trains the canonical model to predict the person's next action from augmented contexts $(h,Z^R)$. Phase 3 may use that conditional directly or fork a versioned response-specific copy $H_\omega$ so planner gradients do not silently redefine the behavioral estimator.
-3. **World-dynamics model.** An action-conditioned model $\widehat T_\phi$ predicts computer and artifact transitions. It models application state separately from the person's response whenever the data permits that factorization.
-4. **Trajectory planner.** A policy or search procedure $q_\psi$ proposes joint futures from the action prior, response model, dynamics model, tool constraints, and sandbox.
-5. **Trajectory scorer.** A model $V_\xi$ or direct planner objective learns from explicit plan selections, edits, execution interventions, and delayed outcomes. The Phase 2 preference-shaped action score initializes local comparisons but is not assumed to be this trajectory value or the global goal reward.
-
-This separation is motivated by the useful distinction between learning a model of human behavior and training an agent to collaborate with it [1]. It also makes failures attributable: a bad forecast can arise from dynamics error, human-response error, value error, search error, or an unsafe execution layer rather than from one undifferentiated model.
-
-### 8.3 World-dynamics learning and sandbox grounding
-
-Let $x_t$ denote a structured observation of the computer environment and let $a_t^H$, $a_t^A$, and $e_t$ denote human actions, assistant actions, and observed exogenous events. The initial high-confidence dynamics objective is action-conditioned next-state likelihood:
-
-$$
-\mathcal{L}_{\mathrm{dyn}}(\phi)
-=
--\mathbb{E}_{\mathcal{D}_{\mathrm{dyn}}}
-\left[
-\sum_t
-\log \widehat T_\phi
-\left(
-x_{t+1}\mid x_{\leq t},a_t^H,a_t^A,e_t
-\right)
-\right].
-$$
-
-The exact observation loss may combine structured-state prediction, latent consistency, reconstruction, or perceptual terms depending on the application. Those choices are not fixed here. Dreamer 4 provides a relevant precedent for learning a fast action-conditioned world model from offline video and action data, then training behavior through simulated experience inside that model [26]. The analogy is architectural rather than complete: Dreamer 4 has a single controlling agent and a machine-observed environment reward, whereas Phase 3 has an assistant that is uncertain about a human-known personalized objective and must interact with the human.
-
-The Phase 1 and Phase 2 event stream already contains many observed transitions, but only under the historical human and deployed-assistant policies. Before/after state snapshots, joint action attribution, exogenous events, and environment-instance identifiers must therefore remain reconstructable. Passive traces do not identify the result of arbitrary untried actions. A computer-use sandbox supplies safer counterfactual action coverage and provides a grounding environment for validating imagined rollouts.
-
-The initial simulator should be hybrid. Structured APIs, document diffs, accessibility trees, DOM state, files, and application snapshots are preferred to pixel-only prediction when available. The learned model performs cheap broad search; promising branches are re-executed in isolated sandbox clones; only selected and authorized plans cross into the production environment. A sandbox can faithfully test many local computer transitions but cannot simulate a person's future response, another person's reaction, or an irreversible external side effect. Such boundaries require uncertainty, abstention, or a real-world approval checkpoint.
-
-### 8.4 Trajectory proposals and user feedback
-
-At horizon $H$, let a displayed trajectory bundle contain assistant actions, any modeled human checkpoints, simulated states, and a predicted result:
-
-$$
-\tau_i^{(H)}
-=
-\left(
-a_{i,1:H}^A,
-\widehat a_{i,1:H}^H,
-\widehat x_{i,1:H}
-\right).
-$$
-
-Null human actions are allowed when a plan is intended to execute without intermediate interaction. The system generates several diverse bundles, validates promising ones in the sandbox where possible, and displays the exact actions, predicted result, uncertainty, simulator version, and approval boundaries. The person can select one, edit it, reject all, or request clarification. The exact displayed bundle is part of the feedback record: selecting an attractive forecast is not evidence that the person would prefer an incorrectly simulated real outcome.
-
-A selection creates a trajectory-level comparison $\tau^+\succ\tau_i^-$ among the bundles actually displayed. It should not automatically create a winner label for every individual step. A proposal may be valuable because of its combined outcome even if an isolated step appears unnecessary, and an execution intervention may localize a failure to only one prefix. Edits, aborts, rollback requests, simulator disagreements, and observed final outcomes are retained as distinct feedback types rather than collapsed into one binary label.
-
-### 8.5 Directional trajectory objectives
-
-The high-confidence requirement is to learn from complete displayed trajectories rather than sum the Phase 2 action score as though it were already a return. The person's global goal reward exists, but the Phase 2 score is not yet an estimator of that full return. Different rollouts visit different contexts, so the arbitrary context terms in the Phase 2 log-ratio do not cancel across paths. The ratio also reflects both BC and preference gradients and is calibrated only near collected one-step comparisons. It may guide same-state pruning, proposal initialization, or short search, but
-
-$$
-\sum_{k=1}^{H}
-\widehat r_{d,u}^{(\mathrm{step})}(h_k,a_k)
-$$
-
-is not specified as the Phase 3 trajectory reward.
-
-Two initial trajectory estimators are reasonable. If the planner defines a tractable probability over serialized trajectory bundles, selected and unselected plans can extend the rolling-reference IPO construction [8]. Define
-
-$$
-\Delta_\psi^\tau
-=
-\log\frac{q_\psi(\tau^+\mid x,u)}{q_{\mathrm{ref}}(\tau^+\mid x,u)}
--
-\log\frac{q_\psi(\tau^-\mid x,u)}{q_{\mathrm{ref}}(\tau^-\mid x,u)},
-$$
-
-and optimize
-
-$$
-\mathcal{L}_{\mathrm{traj\text{-}IPO}}(\psi)
-=
-\mathbb{E}
-\left[
-\left(
-\Delta_\psi^\tau-\frac{1}{2\beta_H}
-\right)^2
-\right],
-$$
-
-where the reference and $\beta_H$ are versioned by horizon. If planning relies on search rather than a normalized trajectory policy, a separate scorer can instead use the pairwise objective below, following the trajectory-segment preference-learning precedent of Christiano et al. [27]:
-
-$$
-\mathcal{L}_{V}(\xi)
-=
--\mathbb{E}
-\left[
-\log\sigma
-\left(
-V_\xi(x,u,\tau^+)-V_\xi(x,u,\tau^-)
-\right)
-\right].
-$$
-
-These are alternative starting estimators, not requirements to optimize both losses. Direct trajectory IPO is natural when planner log-probabilities are meaningful; a separate scorer is natural for reranking heterogeneous search outputs and incorporating explicit outcomes. Neither estimator by itself solves causal assistance evaluation. Randomized no-plan or alternative-slate holdouts and downstream outcome measurements remain necessary to establish that the system improves the human–assistant process rather than merely predicting which generated plan will be selected.
-
-### 8.6 Horizon curriculum and bounded execution
-
-Phase 3 begins at the already observed one-step boundary and expands to $H=2,3,\ldots$ only after passing horizon-specific gates. At minimum, those gates measure:
-
-- dynamics calibration and uncertainty over the full rollout;
-- agreement between learned-model predictions and sandbox transitions;
-- agreement between sandbox predictions and authorized production outcomes;
-- plan selection, editing, rejection, intervention, abort, and rollback rates;
-- downstream assistance quality relative to no-plan or shorter-horizon controls; and
-- safety, reversibility, tool permission, and support-coverage checks.
-
-The intended loop is:
-
-```text
-procedure RUN_PHASE3_ASSISTANCE_CYCLE(
-    current_state x, horizon H, action_prior pi_d,
-    response_model H_omega, dynamics T_phi,
-    planner q_psi, trajectory_scorer V_xi, sandbox
-):
-    imagined <- PLAN_DIVERSE_TRAJECTORIES(
-        x,
-        horizon=H,
-        prior=pi_d,
-        response_model=H_omega,
-        dynamics=T_phi,
-        scorer=V_xi
-    )
-
-    verified <- SANDBOX_VALIDATE_PROMISING_BRANCHES(imagined, sandbox)
-    displayed <- SHOW_ACTIONS_RESULTS_UNCERTAINTY_AND_BOUNDARIES(verified)
-    response <- WAIT_FOR_SELECT_EDIT_REJECT_OR_CLARIFY(displayed)
-    STORE_EXACT_DISPLAY_AND_RESPONSE(displayed, response)
-
-    if response selects or edits a plan:
-        plan <- APPLY_USER_EDITS_AND_REVALIDATE(response.plan, sandbox)
-        trace <- GUARDED_EXECUTE_WITH_CHECKPOINTS(plan)
-        STORE_PREDICTED_AND_ACTUAL_TRANSITIONS(trace)
-
-    BUILD_WHOLE_TRAJECTORY_PREFERENCES(displayed, response)
-    ASYNCHRONOUSLY_UPDATE_DYNAMICS_RESPONSE_VALUE_AND_PLANNER_MODELS()
-
-    if PASSES_HORIZON_EXPANSION_GATES(H):
-        authorize experiments at horizon H + 1
-```
-
-This pseudocode fixes the information and authority flow, not the final planning optimizer. Search may later use sampling, beam search, Monte Carlo tree search, model-predictive control, actor–critic learning in imagination, or hybrids. The choice depends on simulator fidelity, action branching, reward identifiability, and compute. Regardless of optimizer, learned-model rollouts do not authorize real side effects: sandbox validation, user selection, typed permissions, checkpoints, and rollback remain separate execution-layer requirements.
 
 ## References
 
@@ -1289,17 +1132,3 @@ This pseudocode fixes the information and authority flow, not the final planning
 [22] A. Tandon et al. [*End-to-End Test-Time Training for Long Context*](https://arxiv.org/abs/2512.23675). 2025.
 
 [23] Y. Liu, P. Liu, and A. Cohan. [*Understanding Reference Policies in Direct Preference Optimization*](https://arxiv.org/abs/2407.13709). 2024.
-
-[24] D. Hadfield-Menell, A. Dragan, P. Abbeel, and S. Russell. [*Cooperative Inverse Reinforcement Learning*](https://arxiv.org/abs/1606.03137). 2016.
-
-[25] C. Laidlaw et al. [*AssistanceZero: Scalably Solving Assistance Games*](https://arxiv.org/abs/2504.07091). 2025.
-
-[26] D. Hafner, W. Yan, and T. Lillicrap. [*Training Agents Inside of Scalable World Models*](https://arxiv.org/abs/2509.24527). 2025.
-
-[27] P. F. Christiano et al. [*Deep Reinforcement Learning from Human Preferences*](https://arxiv.org/abs/1706.03741). 2017.
-
-[28] O. Shaikh et al. [*Creating General User Models from Computer Use*](https://arxiv.org/abs/2505.10831). 2025.
-
-[29] M. S. Lam et al. [*Just-In-Time Objectives: A General Approach for Specialized AI Interactions*](https://arxiv.org/abs/2510.14591). 2025.
-
-[30] O. Shaikh et al. [*Aligning Language Models with Demonstrated Feedback*](https://arxiv.org/abs/2406.00888). 2025.
