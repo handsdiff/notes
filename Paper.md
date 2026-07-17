@@ -20,12 +20,12 @@ The second premise is that a predictive model can create useful contrastive data
 
 We formulate this interaction as **coactive preference learning**. At decision time $t$, the current policy samples a slate of candidate continuations from the pre-display context. After observing the slate, the person supplies a final continuation in the same action space. Subject to explicit comparability and exposure checks, that continuation is treated as a weak improvement over each displayed candidate—not as a globally optimal answer and not as evidence about an unobserved counterfactual human action. This interpretation turns the interface into a low-friction correction channel: the model proposes; the human continues working; the difference supplies a preference update.
 
-This formulation has two practical consequences. First, Phase 2 does not require clicks. The training record contains the pre-display context, the candidates actually rendered, and the human continuation that followed. Second, the final continuation is scored under the **pre-display** context. The displayed slate is retained for attribution and auditing, but it is not included in the policy input for the core preference comparison. The update therefore teaches the policy to produce the improved continuation directly from the original state rather than merely to predict how a human responds after seeing model text.
+This formulation has two practical consequences. First, Phase 2 does not require clicks. The person's generative continuation is a richer correction signal than candidate acceptance: the training record contains the pre-display context, the candidates actually rendered, and the human continuation that followed. Second, the same interaction is represented through two context views. Behavioral cloning conditions the human continuation on the actual history, including the rendered slate, and therefore learns how the person responds to model proposals. Preference learning excludes the slate from the context and scores both the continuation and each proposal from the **pre-display** state. BC thus models the collaborative behavior that occurred; IPO improves which action the policy proposes before that behavior occurs. The proposal tokens are masked context for BC, not prediction targets, so this does not train the model to reproduce its own suggestions.
 
 The proposed system has two training regimes applied to one canonical policy sequence:
 
 1. **Behavioral bootstrap.** Phase 1 trains an autoregressive policy on temporally interleaved read and write events. Read events enter the context; human write events are the prediction targets. Before suggestions begin, any continual update uses the same behavioral-cloning objective.
-2. **Continual coactive improvement.** Once suggestions begin, Phase 2 adds pairwise preference learning to the continuing behavioral objective. Each accepted policy serves users and collects the next update's data; during the next training job it is frozen as the local reference, and the accepted successor becomes the new canonical policy.
+2. **Continual coactive improvement.** Once suggestions begin, Phase 2 continues behavioral cloning on the actual proposal-conditioned stream and adds pairwise preference learning from the pre-display state. Each accepted policy serves users and collects the next update's data; during the next training job it is frozen as the local reference, and the accepted successor becomes the new canonical policy.
 
 **Phase 3 is a planning extension rather than a third loss regime for the same canonical adapter.** It uses the personalized action prior and local preference information produced by Phases 1 and 2, learns action-conditioned world dynamics from the richer transition stream already being recorded, and searches over short trajectories in a computer-use sandbox. The interface expands from one-step continuations to selectable plans with simulated outcomes. The planning horizon grows only as simulation calibration, execution safety, and measured assistance quality permit. The user remains the principal: selecting or editing a plan delegates bounded execution rather than authorizing an unconstrained autonomous policy.
 
@@ -36,7 +36,7 @@ This draft makes seven concrete design commitments:
 - It models observed computer activity as an ordered event stream rather than a question–answer corpus.
 - It uses bounded, semantically meaningful write events as actions and applies loss only to the action target, not to prior context tokens.
 - It treats the canonical policy as a continual system: a low-rank personal adapter is updated asynchronously with token-budgeted microbatches, gradient accumulation, and stratified behavioral replay, then published only after recent-performance and forgetting checks.
-- It treats displayed model continuations as on-policy contrastive examples and the subsequent human continuation as a weak coactive correction.
+- It treats displayed model continuations as read events in the Phase 2 behavioral context, as on-policy contrastive examples in the pre-display preference context, and the subsequent human continuation as a weak coactive correction.
 - It treats those comparisons as dense local evidence about actions that better advance a human-known global objective, not as the source or definition of that objective.
 - It combines continued behavioral cloning with Identity Preference Optimization (IPO) against the immediately preceding canonical checkpoint. The initial behavioral checkpoint is retained only as an archival anchor for cumulative measurement, capability evaluation, and rollback.
 - It logs enough provenance—event boundaries, exposure, policy versions, reference scores, and candidate-generation parameters—to reproduce every preference record and change the estimator later.
@@ -347,11 +347,11 @@ The minimal continual-learning system makes the following commitments:
 
 Replay does not make chronological observations independent and identically distributed. It deliberately constructs a less correlated, inspectable training mixture. The chosen mixture is part of the estimator and must be reported. The initial system uses ordinary masked next-action likelihood throughout; it does not require a new continual-learning objective merely because updates recur.
 
-Once Phase 2 begins, the source distribution changes because rendered proposals become read events and the IPO term enters the canonical update. Each BC example must therefore record whether it was collected with no proposal, after proposal exposure, or under ambiguous exposure. For the core distillation objective, a post-exposure human continuation is still scored from the pre-display context as specified in Section 4.7. The augmented context is retained so that a separate response model $H_u(y\mid h,Z^R)$ or a different continual target can be trained later without recollecting the interaction.
+Once Phase 2 begins, the source distribution changes because rendered proposals become read events and the IPO term enters the canonical update. Each BC example must therefore record whether it was collected with no proposal, after proposal exposure, or under ambiguous exposure. For verified proposal exposure, the BC context is the actual history $(h_t,Z_t^R)$ and loss remains masked to the subsequent human action $y_t$. For an unaided action, the BC context remains $h_t$. Ambiguous exposure is retained for audit but excluded from the primary Phase 2 losses. The pre-display snapshot is stored separately and is used for the preference comparison in Section 4.7. This preserves the functional split: BC estimates post-exposure human behavior, while IPO changes the pre-display proposal policy.
 
 #### 4.2.3 Publication criteria and failure escalation
 
-A candidate continual update is not accepted merely because its training loss falls. At minimum, publication requires no unacceptable regression on the fixed historical holdout, improvement or non-inferiority on the recent chronological holdout, finite and stable gradients, and no failed high-priority action-family slice. The previous policy and optimizer state remain available for rollback. Update frequency is chosen by measuring the frontier among freshness, gradient variance, compute cost, and publication risk rather than by assuming that the freshest possible update is best.
+A candidate continual update is not accepted merely because its training loss falls. At minimum, publication requires no unacceptable regression on the fixed historical holdout, improvement or non-inferiority on the recent chronological holdout, finite and stable gradients, and no failed high-priority action-family slice. Once Phase 2 begins, recent next-action likelihood is reported separately for unaided contexts $h_t$ and proposal-conditioned contexts $(h_t,Z_t^R)$ so one conditional cannot hide degradation in the other. The previous policy and optimizer state remain available for rollback. Update frequency is chosen by measuring the frontier among freshness, gradient variance, compute cost, and publication risk rather than by assuming that the freshest possible update is best.
 
 Several more complex methods may become necessary, but they are ablations or escalation paths rather than prerequisites for the initial system:
 
@@ -367,14 +367,14 @@ The purpose of enumerating these methods is to make failure responses explicit. 
 
 At a well-defined action opportunity, the deployed policy samples $K$ bounded macro-actions from the pre-display context. Sampling should preserve meaningful diversity without making candidates implausible. Temperature, nucleus threshold, random seed, stop condition, and policy version are logged for every candidate.
 
-Only rendered candidates can become preference losers. A generated candidate hidden by truncation, ranking, latency, or interface state is not evidence. Exposure time must precede the start of the human macro-action. If the interface cannot establish visibility, the interaction contributes only a behavioral-cloning target.
+Only rendered candidates can become preference losers. A generated candidate hidden by truncation, ranking, latency, or interface state is not evidence. Exposure time must precede the start of the human macro-action. If the interface cannot establish visibility, the interaction is retained as ambiguous but excluded from the primary Phase 2 losses.
 
 The person then acts normally. There is no accept button in the core design. The system captures the next macro-action $y_t$ and stores both:
 
-- the **pre-display context** $h_t$, used to score $y_t$ and $z_{t,i}$; and
-- the **augmented audit context** $(h_t,Z_t^R)$, used to analyze influence and reconstruct what the person observed.
+- the **pre-display context** $h_t$, used to generate the slate and to score $y_t$ and $z_{t,i}$ in the IPO comparison; and
+- the **behavioral context** $(h_t,Z_t^R)$, used to predict the subsequent human action and to reconstruct what the person observed.
 
-Conditioning the core loss on $h_t$ rather than $(h_t,Z_t^R)$ is intentional. It distills the result of human refinement into the next policy version. Training only on the augmented context would produce a model that predicts human reactions to its proposals but might not produce the improved action before the reaction occurs.
+The two views serve different objectives. The masked BC loss conditions on $(h_t,Z_t^R)$ and applies loss only to $y_t$; it therefore learns the person's response without training on the model's proposal tokens. IPO conditions on $h_t$ because $y_t$ and each $z_{t,i}$ must be compared as alternative actions at the state where the proposal policy acted. Including the slate in that comparison would change the decision point and permit trivial copying. Conversely, omitting the slate from BC would hide information that actually caused the human action and would no longer be faithful behavioral cloning.
 
 ### 4.4 Pair construction
 
@@ -478,7 +478,27 @@ Here $\Delta_{\mathrm{ref}(p)}$ is the winner-minus-loser policy log-ratio compu
 
 ### 4.7 Combined continual objective
 
-The human continuation remains the highest-density positive signal in Phase 2. Preference-only updates could improve relative ordering while degrading next-action calibration or forgetting earlier behavior. For canonical update $d$, let $\mathcal{N}_d$ contain recent BC examples, $\mathcal{R}_d$ contain stratified historical BC replay, and $\mathcal{P}_d^{\mathrm{train}}$ contain the training subset of fresh version-matched coactive pairs. A chronological interaction-level split reserves the remainder as $\mathcal{P}_d^{\mathrm{val}}$. The combined objective is
+The human continuation remains the highest-density positive signal in Phase 2. Preference-only updates could improve relative ordering while degrading next-action calibration or forgetting earlier behavior. For a BC example, define its behavioral context as
+
+$$
+c_t^{\mathrm{BC}}
+=
+\begin{cases}
+h_t, & \text{without proposal exposure},\\
+(h_t,Z_t^R), & \text{after verified proposal exposure}.
+\end{cases}
+$$
+
+The action-only mask is unchanged: context tokens, including rendered proposal tokens, receive no target loss. Let $\mathcal{N}_d$ contain recent BC examples with their stored behavioral contexts, $\mathcal{R}_d$ contain stratified historical BC replay, and $\mathcal{P}_d^{\mathrm{train}}$ contain the training subset of fresh version-matched coactive pairs. A chronological interaction-level split reserves the remainder as $\mathcal{P}_d^{\mathrm{val}}$. The combined objective is
+
+$$
+\mathcal{L}_{\mathrm{BC}}(\mathcal{B})
+=
+-\mathbb{E}_{(c^{\mathrm{BC}},y)\sim\mathcal{B}}
+\left[\ell_\theta(y\mid c^{\mathrm{BC}},u)\right].
+$$
+
+The full canonical update is
 
 $$
 \begin{aligned}
@@ -492,7 +512,7 @@ $$
 
 During BC-only continual updates, setting $\lambda_{\mathrm{new}}=\rho_d$, $\lambda_{\mathrm{replay}}=1-\rho_d$, and $\lambda_{\mathrm{pref}}=0$ recovers the continual Phase 1 objective in Section 4.2. Once suggestions begin, the preference term is enabled without creating a second canonical model. A contribution from an empty batch is defined as zero. The $\lambda$ coefficients are selected using recent and fixed next-action likelihood, a held-out subset of fresh version-matched preference interactions, capability slices, and drift checks.
 
-The recent BC term scores a post-exposure human continuation $y_t$ under the pre-display context $h_t$, not the augmented context. This distills the result of the human–model interaction into the next canonical version. The augmented context remains available for influence analysis. Historical BC examples can be replayed broadly because their role is retention; preference pairs use the shorter, version-matched policy described above.
+The recent BC term scores each human continuation under $c_t^{\mathrm{BC}}$. It learns unaided behavior from $h_t$ and proposal-conditioned behavior from $(h_t,Z_t^R)$. The IPO term alone removes the slate and compares the human continuation with the rendered candidates under $h_t$. Historical BC examples are replayed with the behavioral contexts under which their targets occurred; preference pairs use the shorter, version-matched policy described above.
 
 Fresh preference data are on-policy because $z_{t,i}$ was sampled by the same $\pi_{d-1}$ used as the local reference. Training delay, failed updates, or mixed serving versions can break that exact match, so every interaction names its generation policy and every batch manifest names its frozen reference. Importance weights are not required in the minimal version-matched loss. If the scientific target later includes older off-policy comparisons, logged generation probabilities permit clipped off-policy or recency weighting; whole-sequence importance ratios are high variance and should not be added by default.
 
@@ -603,6 +623,7 @@ An action is immutable after creation. A revised segmentation produces a new rec
 ContextSnapshot {
   context_id: UUID
   principal_id: UUID
+  context_role: PRE_DISPLAY | BEHAVIORAL
   cutoff_at: timestamp
   ordered_event_ids: [UUID]
   serialized_context_ref: encrypted_blob_ref
@@ -616,7 +637,7 @@ ContextSnapshot {
 }
 ```
 
-The snapshot is the reproducibility boundary for $h_t$. It records the actual serialized context, not merely a query that might return different data later. Explicit task or goal fields may be included when naturally available, but they are not required for Phase 1.
+The snapshot is the reproducibility boundary for a model input. It records the actual serialized context, not merely a query that might return different data later. An unaided interaction can reuse one snapshot for both roles; proposal exposure produces a pre-display snapshot $h_t$ and a behavioral snapshot $(h_t,Z_t^R)$. Explicit task or goal fields may be included when naturally available, but they are not required for Phase 1.
 
 ### 5.4 Candidate and exposure records
 
@@ -645,7 +666,7 @@ Candidate {
 ExposureInteraction {
   interaction_id: UUID
   principal_id: UUID
-  context_id: UUID
+  pre_display_context_id: UUID
   requested_at: timestamp
   candidate_ids: [UUID]
   rendered_candidate_ids: [UUID]
@@ -666,7 +687,7 @@ PreferencePair {
   pair_id: UUID
   interaction_id: UUID
   principal_id: UUID
-  context_id: UUID
+  pre_display_context_id: UUID
   winner_action_id: UUID          // observed human continuation
   loser_candidate_id: UUID        // rendered model proposal
   exposure_weight: float
@@ -692,8 +713,9 @@ Excluded pairs should be retained with `aggregate_weight = 0` and an exclusion r
 BCExample {
   example_id: UUID
   principal_id: UUID
-  context_id: UUID
-  augmented_context_id: UUID?
+  pre_display_context_id: UUID
+  behavioral_context_id: UUID       // equals pre-display when unaided; includes rendered proposals when exposed
+  rendered_candidate_ids: [UUID]
   target_action_id: UUID
   source_regime: BC_BOOTSTRAP | BC_ONLY_CONTINUAL | COACTIVE_CONTINUAL
   collection_regime: UNAIDED | PROPOSAL_EXPOSED | AMBIGUOUS
@@ -768,17 +790,22 @@ procedure BUILD_BC_EXAMPLES(events, segmentation_config, context_config, source_
             continue
 
         prior_events <- events strictly before y.began_at
-        h <- BUILD_CONTEXT(prior_events, context_config)
+        h_behavioral <- BUILD_CONTEXT(prior_events, context_config)
+        h_pre_display <- PRE_DISPLAY_CONTEXT_OR_SELF(
+            h_behavioral, y, ordered_events
+        )
 
-        if LEAKS_TARGET(h, y):
+        if LEAKS_TARGET(h_behavioral, y):
             continue
 
         serialized_y <- SERIALIZE_ACTION(y)
-        loss_mask <- MASK_CONTEXT_AND_SCORE_TARGET(h, serialized_y)
+        loss_mask <- MASK_CONTEXT_AND_SCORE_TARGET(h_behavioral, serialized_y)
 
         dataset.append(
             BCExample(
-                context_snapshot=FREEZE(h),
+                pre_display_context=FREEZE(h_pre_display),
+                behavioral_context=FREEZE(h_behavioral),
+                rendered_candidate_ids=RENDERED_CANDIDATES_IN_INTERACTION(y),
                 target_action=y,
                 loss_mask=loss_mask,
                 source_regime=source_regime,
@@ -789,7 +816,7 @@ procedure BUILD_BC_EXAMPLES(events, segmentation_config, context_config, source_
     return dataset
 ```
 
-`BUILD_CONTEXT` must preserve temporal interleaving. It may truncate or summarize older events, but it records every decision. The same builder runs over the initial corpus and incrementally over events finalized past the continual-learning watermark; the source regime and exposure join distinguish bootstrap, BC-only continual, and coactive continual examples. Splits should be chronological: train on earlier actions, validate and test on later actions. Randomly splitting adjacent events would leak repeated local context and overstate generalization.
+`BUILD_CONTEXT` must preserve temporal interleaving. It may truncate or summarize older events, but it records every decision. A rendered assistant proposal before the human action is therefore part of `h_behavioral`; an unrendered candidate is not. The pre-display snapshot is retained separately for preference construction. The same builder runs over the initial corpus and incrementally over events finalized past the continual-learning watermark; the source regime and exposure join distinguish bootstrap, BC-only continual, and coactive continual examples. Splits should be chronological: train on earlier actions, validate and test on later actions. Randomly splitting adjacent events would leak repeated local context and overstate generalization.
 
 ### Algorithm 2: Train the Phase 1 bootstrap policy
 
@@ -851,8 +878,9 @@ procedure COLLECT_COACTIVE_INTERACTION(
         return
 
     store BCExample(
-        context=h,
-        augmented_context=h_augmented,
+        pre_display_context=h,
+        behavioral_context=h_augmented,
+        rendered_candidate_ids=IDS(rendered_candidates),
         target=y,
         source_regime=COACTIVE_CONTINUAL,
         collection_regime=PROPOSAL_EXPOSED
@@ -872,7 +900,7 @@ procedure COLLECT_COACTIVE_INTERACTION(
             continue
 
         store PreferencePair(
-            context=h,
+            pre_display_context=h,
             winner=y,
             loser=z_i,
             weight=VALIDITY_WEIGHT(y, z_i),
@@ -948,9 +976,13 @@ procedure UPDATE_CANONICAL_POLICY(
         L_pref <- 0
 
         if G.recent is not empty:
-            L_new <- MEAN_MASKED_ACTION_NLL(candidate, G.recent)
+            L_new <- MEAN_MASKED_ACTION_NLL(
+                candidate, G.recent, context_field=behavioral_context
+            )
         if G.replay is not empty:
-            L_replay <- MEAN_MASKED_ACTION_NLL(candidate, G.replay)
+            L_replay <- MEAN_MASKED_ACTION_NLL(
+                candidate, G.replay, context_field=behavioral_context
+            )
         if config.lambda_pref > 0 and G.preference_train is not empty:
             L_pref <- MEAN_WEIGHTED_IPO(
                 candidate,
@@ -1036,7 +1068,7 @@ The method assumes that, on average across valid records, the human continuation
 
 ### 7.6 No causal credit assignment among slate items
 
-Pairwise IPO does not identify which candidate inspired which part of the human continuation. A highly useful catalytic candidate can still appear as a loser because the refined human action is the training winner. The intended effect is distillation: move probability toward the refinement so that the policy can produce it directly later. If the product objective is instead to maximize how proposals improve the person's subsequent thinking, the slate itself must be treated as an intervention and evaluated against outcomes or randomized no-slate controls. That is a different estimator from the one specified here.
+Pairwise IPO does not identify which candidate inspired which part of the human continuation. A highly useful catalytic candidate can still appear as a loser because the refined human action is the training winner. The intended preference effect is to move relative probability toward the refinement from the pre-display state so that the policy can propose it directly later; the BC term separately learns how the person responded given the slate. If the product objective is instead to maximize how proposals improve the person's subsequent thinking, the slate itself must be treated as an intervention and evaluated against outcomes or randomized no-slate controls. That is a different estimator from the one specified here.
 
 ### 7.7 Dense local score versus sparse global reward
 
@@ -1065,7 +1097,7 @@ The proposed system should be described as **assistance-game-inspired**, not as 
 The following operational roles should remain conceptually distinct even if an implementation shares encoders or base weights:
 
 1. **Personalized action prior.** The current canonical policy $\pi_d$ proposes actions near the person's learned behavioral and coactive distribution. It supplies search priors and candidate representations; it is not by itself a world model.
-2. **Human-response model.** A versioned model $H_\omega$ predicts how the person may act after an assistant proposal, clarification, or partial execution. It can be initialized from the personalized policy and trained from augmented contexts $(h,Z^R)$, but planner gradients should not silently redefine it.
+2. **Human-response model.** Phase 2 BC already trains the canonical model to predict the person's next action from augmented contexts $(h,Z^R)$. Phase 3 may use that conditional directly or fork a versioned response-specific copy $H_\omega$ so planner gradients do not silently redefine the behavioral estimator.
 3. **World-dynamics model.** An action-conditioned model $\widehat T_\phi$ predicts computer and artifact transitions. It models application state separately from the person's response whenever the data permits that factorization.
 4. **Trajectory planner.** A policy or search procedure $q_\psi$ proposes joint futures from the action prior, response model, dynamics model, tool constraints, and sandbox.
 5. **Trajectory scorer.** A model $V_\xi$ or direct planner objective learns from explicit plan selections, edits, execution interventions, and delayed outcomes. The Phase 2 preference-shaped action score initializes local comparisons but is not assumed to be this trajectory value or the global goal reward.

@@ -23,8 +23,8 @@ The long-run stack currently implied by the project is:
 3. prior events contain signal about the person's next action;
 4. a model can extract that signal;
 5. personalization through context, memory, or weight updates improves extraction;
-6. model predictions can be exposed as useful recommendations;
-7. interaction with recommendations supplies preference information;
+6. model predictions can be exposed as useful action proposals;
+7. the person's generative action after proposal exposure supplies preference information without requiring a click;
 8. learned preferences can support increasingly capable local action selection and planning.
 
 Later claims depend on earlier ones. Testing the entire stack at once would make a negative result uninterpretable. This toy experiment therefore addresses only Claims 1-5. Recommendation, preference learning, implicit reward modeling, multi-step planning, and multi-agent coordination are downstream work.
@@ -549,7 +549,7 @@ Repeat the frozen evaluation protocol on future windows. Each run trains or cons
 - decay or transfer across projects;
 - collector and representation changes.
 
-This is the first meaningful test of continual personalization. It should remain offline. Exposing recommendations would change the data-generating process and begins the separate coactive-learning experiment in [[Paper]].
+This is the first meaningful test of continual personalization. It should remain offline. Exposing proposals would change the data-generating process and begin the separate coactive-learning experiment in [[Paper]]. In that later experiment, rendered proposals become read events in the behavioral-cloning context, while the preference comparison retains the pre-display context.
 
 ## 10. Baselines and Sanity Checks
 
@@ -627,6 +627,8 @@ Knowing that activity is recorded may change writing, browsing, or chat behavior
 ### 12.8 Prediction versus preference
 
 Observed behavior is not automatically optimal behavior. Success at predicting a next action establishes modeling ability, not alignment with an ideal self or proof of a true reward function. That bridge remains a later hypothesis.
+
+When Phase 2 later exposes proposals $Z$ and observes a human continuation $y$, it must retain two context views. Behavioral cloning predicts $y$ from the actual history $(h,Z)$; the proposal tokens are masked context, not targets. Preference optimization compares $y$ with the displayed candidates from the pre-display state $h$. The former learns how the person responds to suggestions, while the latter improves what the policy suggests. This toy does not implement either online loss, but its actor, provenance, availability, and timing fields are designed to reconstruct both views.
 
 ### 12.9 Inferred-objective circularity
 
