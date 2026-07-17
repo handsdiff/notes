@@ -111,6 +111,8 @@
 	- "so we have phase 1 which is supervised fine tuning / behavior cloning with cross entropy loss. autoregressive model with a causal mask. given a history of read/writes, what is the next write? can replace read/write with action, the dataset still needs to be codified as likely the next step, but thats the high level plan, and it is worth experimenting with frontier LLMs, old LLMs, and cheap OS models to see how they perform/react to different amounts of data
 	- we have phase 2 which uses top K sampling from the model from phase 1 to turn into recommendations that can be chosen. each recommendation, choice, or lack thereof runs through online DPO to optimize further. phase 1 acts as a prior that bootstraps phase 2. top K sampling acts as hard negative mining, producing a model that learns well."
 	- exactly how much human data was initially used to train the RLHF part of chatgpt?
+	- does my intended SFT approach (autoregressive train on next action prediction i.e. causal mask) violate i.i.d. data assumptions? does shopify's generative recommender have the same issue? what do those assumptions actually mean in practice? do all online or continual learning setups violate this? how does this relate to the practice of storing rollouts in a buffer that you then sample from? does that essentially fix i.i.d. for continual learning scenarios?
+		- https://gemini.google.com/app/9de51346992f5bae wild stuff
 - directly relevant - vision
 	- https://generalagents.com/ good relative benchmark for quality, interesting description of 'behavior' as a training paradigm that resonates
 	- there is a tension between human preference as the only possible reward signal and the sutton argument that environmental rewards are the only ground truth data for real superintelligence
@@ -171,26 +173,7 @@
 		- similar tweet https://x.com/ashwingop/status/2069807820846063932
 	- phrased during conversation as a tool that would elicit different behavior of legibilizing process of thinking in between computer interactions. that behavior doesn't exist as much today since the tool being used 'computer' doesn't really benefit from it. the tools of the future will ('local models')
 
-- https://gemini.google.com/app/34e424feaeb8374a provides alternatives to DPO/online DPO. softmax DPO https://arxiv.org/pdf/2406.09215 takes into account multiple recommendations rather than pairwise. also lists full potential phase 1 and 2 loss functions
-	- $$P(w_1, w_2, ..., w_T) = \prod_{t=1}^T P(w_t \mid w_1, w_2, ..., w_{t-1})$$
-	- $$\mathcal{L}_{\text{SFT}}(\pi_\theta) = - \sum_{t=1}^{|y_w|} \log \pi_\theta(y_w^t \mid x, y_w^{<t})$$
-	- $$\mathcal{L}_{\text{S-DPO}}(\pi_\theta; \pi_{\text{ref}}) = - \log \frac{\exp\left( \beta \log \frac{\pi_\theta(y_w \mid x)}{\pi_{\text{ref}}(y_w \mid x)} \right)}{\exp\left( \beta \log \frac{\pi_\theta(y_w \mid x)}{\pi_{\text{ref}}(y_w \mid x)} \right) + \sum_{j=1}^{|Y_l|} \exp\left( \beta \log \frac{\pi_\theta(y_{l_j} \mid x)}{\pi_{\text{ref}}(y_{l_j} \mid x)} \right)}$$
-	- $$\mathcal{L}_{\text{Softmax-DPO}}(\theta) = - \mathbb{E}_{\left(x, y_w, \{y_l\}_{l=1}^{k-1}\right)} \left[ \log \frac{\exp \left( \beta \log \frac{\pi_\theta(y_w \mid x)}{\pi_{\text{ref}}(y_w \mid x)} \right)}{\sum_{j \in \{y_w\} \cup \{y_l\}} \exp \left( \beta \log \frac{\pi_\theta(y_j \mid x)}{\pi_{\text{ref}}(y_j \mid x)} \right)} \right]$$ ^e7fcba
-	- $$\mathcal{L}_{\text{total}} = \mathcal{L}_{\text{S-DPO}}(\pi_\theta; \pi_{\text{ref}}) + \alpha \cdot \mathcal{L}_{\text{SFT}}(\pi_\theta)$$
-	- need to watch out for length normalization
-	- the sDPO loss seems to missing an expectation over all the data (perhaps implicit)
-	- whats the diff between summing the losses vs using a KL divergence penalty like standard RLHF does?
-	- apparently for DPO the beta term controls drift from original model so you dont need KL divergence, but no one seems to address whether to 'combine' loss functions or not. theres probably a world where what i do, instead of choosing from the set of recs, is just fed into the DPO loss as the preferred response and i dont need to try combining the losses during step 2 training
-	- data nit: strong preferences are encouraged during data collection, to avoid noise, rather than weak preferences or toss ups
-	- it doesnt actually seem like you need softmax DPO since you can just extract pairwise preferences from multiple options, which is literally equivalent. im not going to spend time actually ranking them anyways
-	- DPO vs online DPO in terms of iterations and loss functions?
-- does my intended SFT approach (autoregressive train on next action prediction i.e. causal mask) violate i.i.d. data assumptions? does shopify's generative recommender have the same issue? what do those assumptions actually mean in practice? do all online or continual learning setups violate this? how does this relate to the practice of storing rollouts in a buffer that you then sample from? does that essentially fix i.i.d. for continual learning scenarios?
-	- https://gemini.google.com/app/9de51346992f5bae wild stuff
-- https://trajectory.ai/field-notes/scaling-sdpo this article seems useful for understanding SDPO but the conclusion is just clip gradient updates? lmao. results are results though.
-	- "For hard tasks where the right behavior is rare in the base policy, secondary objectives like behavior cloning or DAgger may be needed. Our preliminary experiments in that direction showed enough hint-copying that hint design looks like the harder problem."
-	- yeah no shit? ^ this is just saying the reward function is the actual bottleneck to consider
-	- "Soon, we will be running off-policy SDPO on live production traces, with the user's actual interactions as the hint" i dont see why they dont just use online DPO, i likely am not understanding something.
-	- there is a discussion around staleness here that i do not fully understand
+
 - prime intellect released this https://x.com/PrimeIntellect/status/2074212134452633882?s=20
 - should i post about frontier LLM programmability needing standardization and how the recommended way to prompt a modern LLM is literally just training? https://x.com/emollick/status/2074307813392732279?s=20. are they converging? how can we normalize prompt programming? assuming this is true, WHY is this the best way to prompt LLMs? 
 	- it's akin to autoresearch. basically saying that giving the LLM a reward that it can grind towards is best, which is why environments matter (simulations to determine best actions to take). can it be 10x cheaper or 10x more performant at a given task?
