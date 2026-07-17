@@ -215,7 +215,7 @@
 
 
 - there seems to be a tension between two seemingly mutually exclusive goals
-	- creating an extremely good human model, that can then be used to simulate the user for multi agent settings, assistance games, better personalized search and rec, etc
+	- creating an extremely good human model, that can then be used to simulate the user to enable prospective learning, multi agent settings, assistance games, better personalized search and rec, etc
 	- creating an extremely good centaur model, which optimizes for the envisioned product directly by recognizing the model is making suggestions
 - its likely the case that introducing a good 'recommender' or personalized language model changes behavior so much that the entire initial problem formulation goes out the window. this is where a lot of the google pi and dragan work comes in. worth thinking through, although it likely doesnt change todays work much. but for example how would we train the model given that my view of the recommendations spurs my thinking into new directions, even if i dont choose one? what if a recommendation existing, without being chosen, causes me to write down something new that otherwise would not make sense? and if you put the recommendations into the data itself, the model has to learn to predict its own recommendations? i guess not directly since its predicting my actions, not state transitions otherwise. this points to embodied agency from the MUPI paper i think
 	- https://arxiv.org/pdf/2204.11966 this paper from a Dragan grad student now at OpenAI, from 2022, seems to almost directly address this
