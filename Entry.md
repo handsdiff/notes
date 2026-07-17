@@ -110,6 +110,7 @@
 	- very informative and critical reward inference discussion with papers foundational from dragan that i havent come across otherwise https://gemini.google.com/app/4f984ce16e37337a
 	- "so we have phase 1 which is supervised fine tuning / behavior cloning with cross entropy loss. autoregressive model with a causal mask. given a history of read/writes, what is the next write? can replace read/write with action, the dataset still needs to be codified as likely the next step, but thats the high level plan, and it is worth experimenting with frontier LLMs, old LLMs, and cheap OS models to see how they perform/react to different amounts of data
 	- we have phase 2 which uses top K sampling from the model from phase 1 to turn into recommendations that can be chosen. each recommendation, choice, or lack thereof runs through online DPO to optimize further. phase 1 acts as a prior that bootstraps phase 2. top K sampling acts as hard negative mining, producing a model that learns well."
+	- exactly how much human data was initially used to train the RLHF part of chatgpt?
 - directly relevant - vision
 	- https://generalagents.com/ good relative benchmark for quality, interesting description of 'behavior' as a training paradigm that resonates
 	- there is a tension between human preference as the only possible reward signal and the sutton argument that environmental rewards are the only ground truth data for real superintelligence
