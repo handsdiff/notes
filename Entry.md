@@ -108,6 +108,8 @@
 		- https://x.com/jxmnop/status/1929903028372459909
 	- new algorithms in [[Algorithms]]
 	- very informative and critical reward inference discussion with papers foundational from dragan that i havent come across otherwise https://gemini.google.com/app/4f984ce16e37337a
+	- "so we have phase 1 which is supervised fine tuning / behavior cloning with cross entropy loss. autoregressive model with a causal mask. given a history of read/writes, what is the next write? can replace read/write with action, the dataset still needs to be codified as likely the next step, but thats the high level plan, and it is worth experimenting with frontier LLMs, old LLMs, and cheap OS models to see how they perform/react to different amounts of data
+	- we have phase 2 which uses top K sampling from the model from phase 1 to turn into recommendations that can be chosen. each recommendation, choice, or lack thereof runs through online DPO to optimize further. phase 1 acts as a prior that bootstraps phase 2. top K sampling acts as hard negative mining, producing a model that learns well."
 - directly relevant - vision
 	- https://generalagents.com/ good relative benchmark for quality, interesting description of 'behavior' as a training paradigm that resonates
 	- there is a tension between human preference as the only possible reward signal and the sutton argument that environmental rewards are the only ground truth data for real superintelligence
@@ -169,10 +171,6 @@
 	- phrased during conversation as a tool that would elicit different behavior of legibilizing process of thinking in between computer interactions. that behavior doesn't exist as much today since the tool being used 'computer' doesn't really benefit from it. the tools of the future will ('local models')
 
 
-- so we have phase 1 which is supervised fine tuning / behavior cloning with cross entropy loss. autoregressive model with a causal mask. given a history of read/writes, what is the next write? can replace read/write with action, the dataset still needs to be codified as likely the next step, but thats the high level plan, and it is worth experimenting with frontier LLMs, old LLMs, and cheap OS models to see how they perform/react to different amounts of data
-- we have phase 2 which uses top K sampling from the model from phase 1 to turn into recommendations that can be chosen. each recommendation, choice, or lack thereof runs through online DPO to optimize further. phase 1 acts as a prior that bootstraps phase 2. top K sampling acts as hard negative mining, producing a model that learns well.
-- finally, since DPO results in an implicit value network function (see below), we can use it to scale MCTS for superhuman performance towards inferenced goals (per the discussion and research papers from this chat https://gemini.google.com/app/e5061268008c580f, secondarily here https://share.google/aimode/oKSzEAiA67cHtEUFB)
-	- $$R(s,a) = \beta \log \left(\frac{\pi_\theta(a|s)}{\pi_{\text{ref}}(a|s)}\right)$$
 - useful discussion on the three phases from a different, more informed perspective https://gemini.google.com/app/b6218e284c18d65d during algorithms research
 	- https://www.youtube.com/watch?v=XKLGuwvSKvI&list=PLoROMvodv4rPwxE0ONYRa_itZFdaKCylL&index=10
 - still need to codify the data, but worth discussing the algorithms considered and rejected neatly, for completeness, along with risks. we might run into issues with lack of specificity in initial data, or how the SFT phase relates to the RL phase (since DPO, the implicit reward, and MCTS involve an action and state space), we will see. thats the meat and potatoes though. algorithmic understanding towards superintelligence is the side dish, which i just struggled through.
