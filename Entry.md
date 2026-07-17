@@ -57,6 +57,8 @@
 	- https://art.openpipe.ai/getting-started/about
 	- https://www.youtube.com/watch?v=e9-0BxyKG10 best explanation of attention, key queries, etc
 	- https://www.thoughtfullab.com/
+	- should've written down earlier that i think its super cool to 'optimize for learning' by considering the 'surprise' of a given state transition in the learning rate. forget where i explored papers in this vein
+		- stumbled upon this during algorithms research https://noahziems.com/pedagogical-rl
 - directly relevant - practical
 	- https://arxiv.org/pdf/2510.19488v1 labels unlabeled video data with their actions, for future training. seems like deepmind's genie also does this
 	- phase 2 requires only showing samples when confidence exceeds some threshold, likely requires fine tuning
@@ -128,6 +130,10 @@
 	- i wonder whether you need the data to be literally temporally interleaved to predict well. like i pause a youtube video, write down thoughts, play the youtube video. etc. its incorrect to put the entire transcript in when the page is first visited, since the goal is to most closely simulate how my brain works. the actual construction of the dataset is literally 90% of the work here. will take trial and error. may be worth thinking how to improve it
 		- if im watching a youtube video for example, i suspect the best data structure would be the transcript of the part i watched as <read, browser, youtube, transcript chunk> then <write, obsidian, entry, written note>.
 	- how do harnesses actually handle context and content fetching? if it fetches a website that has 10M tokens, what does it do? or if it runs a terminal command that has 2M tokens worth of lines, what does it do? there must be context management logic? is it basic sliding window? compression? (longNAP implementation likely sheds some light on this)
+	- do pretrained model weights exist and open sourced? like before RLHF or RLVR?
+	- there is an openai 2023 paper in lecture 18 of cs224r that shows model confidence is much less calibrated after PPO post training than after pre training. how is this data even collected? the pre train model should not be able to do question answer formats, no?
+		- the inability to self model uncertainty is brought up as an issue with human AI interaction/collaboration
+		- its unclear how 'uncertainty' even natively exists in the model? maybe the probability of the 'winning' token directly? im sure someone has researched this. relates to the dragan waymo interview
 - directly relevant - vision
 	- https://generalagents.com/ good relative benchmark for quality, interesting description of 'behavior' as a training paradigm that resonates
 	- there is a tension between human preference as the only possible reward signal and the sutton argument that environmental rewards are the only ground truth data for real superintelligence
@@ -200,24 +206,13 @@
 		- makes a good point that as models drift from supervised policy, their expectation of value increasingly diverges from actual value. (slide at end of lecture)
 	- answering a thought or question i type into notes is VERY different from completing my next action / thought. it could connect IF the action is a good prompt to a chatbot, and the agent is able to query the chatbot and return the response in a separate computer, basically messaging it for me on my behalf the way i would. hmmm
 	- why do i want a model to predict me? dont i want a model to improve me? some self-doubt thoughts. the line of thinking from there though was that it needs my reward model, i cant specify it outside of my actions, my actions therefore need to be maximally legible. the toy example is to establish whether increased legibility improves ability to predict, which i need to tie into ability to understand and raise the ceiling on the reward function. also should clarify somewhere how it ties into multi agent systems and the thesis of ai per employee as the enterprise use case rather than a 'company agent' if that's the stated direction
+	- yup https://thinkingmachines.ai/blog/the-future-worth-building-is-human/
+	- context elicitation -> data processing -> continual SFT -> implicit reward from recsys -> envsim rollouts for discovery (MAS)
+	- ^ stems from coordination as the thing i care about from crypto
 
 
-- 
-- if the thesis is that rewards are implicitly learned from preference data, which i think holds true generally, it does not account for the fact that rewards can be unconsciously changed, which i think leads to poor learning vaguely, but might also result in what looks like 'reward hacking'
-- should've written down earlier that i think its super cool to 'optimize for learning' by considering the 'surprise' of a given state transition in the learning rate. forget where i explored papers in this vein
-	- stumbled upon this during algorithms research https://noahziems.com/pedagogical-rl
-- do pretrained model weights exist and open sourced? like before RLHF or RLVR?
-- super annoying and slowing me down to have to constantly switch to obsidian, pick the right file, scroll all the way down, type the note, then go back to youtube and click play again. i lose train of thought to take rote action
 - its likely the case that introducing a good 'recommender' or personalized language model changes behavior so much that the entire initial problem formulation goes out the window. this is where a lot of the google pi and dragan work comes in. worth thinking through, although it likely doesnt change todays work much. but for example how would we train the model given that my view of the recommendations spurs my thinking into new directions, even if i dont choose one? what if a recommendation existing, without being chosen, causes me to write down something new that otherwise would not make sense? and if you put the recommendations into the data itself, the model has to learn to predict its own recommendations? i guess not directly since its predicting my actions, not state transitions otherwise. this points to embodied agency from the MUPI paper i think
 	- https://arxiv.org/pdf/2204.11966 this paper from a Dragan grad student now at OpenAI, from 2022, seems to almost directly address this
-- apparently value functions are primarily used to reduce gradient variance, but not necessarily accurate enough for actor critic algorithms
-- there is an openai 2023 paper in lecture 18 of cs224r that shows model confidence is much less calibrated after PPO post training than after pre training. how is this data even collected? the pre train model should not be able to do question answer formats, no?
-	- the inability to self model uncertainty is brought up as an issue with human AI interaction/collaboration
-	- its unclear how 'uncertainty' even natively exists in the model? maybe the probability of the 'winning' token directly? im sure someone has researched this. relates to the dragan waymo interview
-- i want to rebuild my pareto graph and my context collection graphs and have them easily accessible/hosted somewhere instead of having to tell the ai to do it and run localhost to view it
-- yup https://thinkingmachines.ai/blog/the-future-worth-building-is-human/
-- context elicitation -> data processing -> continual SFT -> implicit reward from recsys -> envsim rollouts for discovery (MAS)
-- ^ stems from coordination as the thing i care about from crypto
 - one useful abstraction, perhaps later is language models towards your reward function vs the harness for it? like it will need to eventually take the actions itself instead of just recommending? way downstream though
 - 5.6 sol can probably help iterate quickly on algos once data is in place, and data processing might be accelerated as well but i perhaps not nearly as much. Needs to be collected
 - unsure whether i wrote down before but its unclear whether optimizing loss results in averages or max's across the data. seems like it depends on the prompt, and the behavior is elicit, which implies a max? don't have a good resolution here

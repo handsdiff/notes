@@ -106,3 +106,6 @@ i want to display the html files, and other code i write, publicly + into git as
 
 i suspect everyone on team will need code handling + interactive html sharing native in existing obsidian + git + quartz stack.
 	- https://gemini.google.com/app/581ea6b83f49a55a 
+
+super annoying and slowing me down to have to constantly switch to obsidian, pick the right file, scroll all the way down, type the note, then go back to youtube and click play again. i lose train of thought to take rote action
+
