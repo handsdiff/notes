@@ -33,6 +33,8 @@ algorithms considered and rejected for now and why: (there are likely practicali
 		- this basically solves 'covariate shift' which is fancy words for the trained model drifting into states it does not know how to handle well due to small compounding errors, cascading into failure. solved by having the expert tell the model what to do when it compounds errors. don't have the bandwidth for that kind of feedback.
 	- recsys https://www.tensorflow.org/recommenders https://arxiv.org/pdf/2510.27157v2 https://research.google/blog/regen-empowering-personalized-recommendations-with-natural-language/ https://arxiv.org/pdf/2601.20316v1 https://shopify.engineering/generative-recommendations https://gemini.google.com/app/9c691500d7b6008a HSTU seminal paper: https://arxiv.org/pdf/2402.17152
 		- very similar. doing a lot of the same steps of shopify. pinterest also has interesting work. the other ones i havent full read through / have the same issues as contextual bandits. a lot of it comes down to whats being recommended (large or small vocab)
+		- very, very similar to the algorithms i arrived on: https://shopify.engineering/generative-recommendations. posted feb 2026.  
+			- autoregressive with causal mask to start (fancy description of prediction next action given action history), then sample that model with user choices to further tune behavior (fancy description is hard negative sampling). quite interesting. the gap is that the recommendations are still a fixed set of product IDs rather than semantic text, but they mention that as next steps
 	- prospective learning
 		- too complicated to implement right now. not sure how I could tokenize time in a way that would be positive ROI right now
 	- MARL
@@ -358,5 +360,6 @@ the colloquial explanation would be that it learns implicit, yet uncertain (to p
 
 if local scaling laws are positive, then it may imply that building a better application for knowledge work is worthwhile, since improved data granularity improves custom models which leads to a large inference business
 
+longNAP continues to stand out
 
 

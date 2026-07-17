@@ -106,13 +106,19 @@
 	- quantifying memorization in LLMs, seems very relevant as it relates to the need for synthetic Q/A data
 		- https://arxiv.org/pdf/2505.24832
 		- https://x.com/jxmnop/status/1929903028372459909
-	- new algorithms in [[Algorithms]]
+	- new algorithms in [[Algorithms]], plus just how the relevant algorithms like longNAP structure data
 	- very informative and critical reward inference discussion with papers foundational from dragan that i havent come across otherwise https://gemini.google.com/app/4f984ce16e37337a
 	- "so we have phase 1 which is supervised fine tuning / behavior cloning with cross entropy loss. autoregressive model with a causal mask. given a history of read/writes, what is the next write? can replace read/write with action, the dataset still needs to be codified as likely the next step, but thats the high level plan, and it is worth experimenting with frontier LLMs, old LLMs, and cheap OS models to see how they perform/react to different amounts of data
 	- we have phase 2 which uses top K sampling from the model from phase 1 to turn into recommendations that can be chosen. each recommendation, choice, or lack thereof runs through online DPO to optimize further. phase 1 acts as a prior that bootstraps phase 2. top K sampling acts as hard negative mining, producing a model that learns well."
 	- exactly how much human data was initially used to train the RLHF part of chatgpt?
 	- does my intended SFT approach (autoregressive train on next action prediction i.e. causal mask) violate i.i.d. data assumptions? does shopify's generative recommender have the same issue? what do those assumptions actually mean in practice? do all online or continual learning setups violate this? how does this relate to the practice of storing rollouts in a buffer that you then sample from? does that essentially fix i.i.d. for continual learning scenarios?
 		- https://gemini.google.com/app/9de51346992f5bae wild stuff
+	- might help with data ingestion, seemingly open source/self hosted granola https://github.com/Zackriya-Solutions/meetily
+	- big question for data codification is whether you give a tool call to fetch the content of a web page rather than the content itself during training. how does that change the state and action space? does it more clearly separate the action space of the agent from the state space of the environment? are there two environments?
+	- "There is a strict hierarchy of ML research. Optimizers Objectives Architectures Data Even among data works, there is a hierarchy: Synthetic data Data mixtures Filtering Preprocessing Adding new data sources (Of course, real world impact does not align with the hierarchy)."
+	- good for contextualizing the phases of work needed. separating data steps between adding new sources, preprocessing, and filtering feels correct. data mixtures make much more sense after better understanding i.i.d. assumptions and their implications.
+	- an understanding of i.i.d. feels crucial. the traditional assumption is static distributions with independent samples. autoregressive architectures like transformers shift the i.i.d. assumptions from the token level to the data source level, which feels weird, but seems to empirically work, although they need to do really intelligent data mixing to ensure gradient descent is performed over average baselines rather than overoptimizing for a single thing. im only starting to internalize this but i suspect it explains a lot of downstream behavior (catastrophic forgetting, for example)
+	- continual learning fundamentally seems like an i.i.d. data issue i.e. breaking the i.i.d assumption
 - directly relevant - vision
 	- https://generalagents.com/ good relative benchmark for quality, interesting description of 'behavior' as a training paradigm that resonates
 	- there is a tension between human preference as the only possible reward signal and the sutton argument that environmental rewards are the only ground truth data for real superintelligence
@@ -174,31 +180,14 @@
 		- similar tweet https://x.com/ashwingop/status/2069807820846063932
 	- phrased during conversation as a tool that would elicit different behavior of legibilizing process of thinking in between computer interactions. that behavior doesn't exist as much today since the tool being used 'computer' doesn't really benefit from it. the tools of the future will ('local models')
 	- vision post from roon "the world vision of open weights models running themselves, self replicating, training new versions of themselves (at least the kind of behavioral modifications that won't require massive compute scale), is really not very far away". my read is that 'training on what' i.e. useless without granular data
+	- if my team each has one, then you can actually simulate N step rollouts that are accurate?
+	- i think my hope for phase 2 is that the model can learn the abstract 'thought'/'motivation' i have/or 'connection' I make in my brain, then that loss-ily gets put into my computer, and 'recommend' a better described version of it
+	- proactive, background, interactive. why is there not an agent tailored to me answering these questions in a way i would answer them on the order of hours or days, but in minutes?
+	- phase 2 is intended to open up 'move 37' like capabilities
+	- feel more resolute about the problem of converting personal computer use data into something that can be used to predict actions is deep. equivalent to refining oil to put into a machine that does something useful
+	- https://arxiv.org/pdf/2203.02155 first sentence of the abstract "Making language models bigger does not inherently make them better at following a user’s intent" banger
 
 
-- slate was continual learning. one of the things that bottlenecked it was needing to label the right answers for everything manually. and in cases where even the right label did not exist due to lack of backend infra, needing to build the backend infra, and keep the model up to date with its changing use of tools. do we still have all the slate code? we do, and the git history of it, and the google doc history of bugs? too bad it hasnt been cleaned up + enriched with thoughts and discussions the entire time. we would be in a more intelligent place.
-- might help with data ingestion, seemingly open source/self hosted granola https://github.com/Zackriya-Solutions/meetily
-- writing articles making it seem like there are a ton of steps/challenges to your work likely helps with sales/marketing
-- the system will be able to do N step rollouts, instead of 1 step 'rollouts' (recommendations), if it can also learn how my actions change states, which it should learn from phase 1. actually probably wont learn from phase 1 since its quite complicated and requires modeling other entities well (search, other AI chats, other people, etc). but the data is there, so it isn't necessarily just learning me from that data unless i specifically point it to it. which i will. so the conclusion is just that the data is richer than im initially using it for in phase 1 potentially.
-- if my team each has one, then you can actually simulate N step rollouts that are accurate?
-- open source harnesses apparently painful to use since they do not come with search natively, making them functionally useless
-- a common misunderstanding / criticism of the work is that the model is just learning 'style'. can we quantify the learning associated with style vs the learning associated with content? 
-- what is the relationship between recommendation and search? both seem to be surfacing top content from a wide swath of possibilities that is too large to show in full and need to be ranked
-- https://github.com/anysphere/priompt is an inspiration for prompt space algorithms
-- https://proceedings.neurips.cc/paper_files/paper/2022/file/62b4fea131cfd5b7504eae356b75bbd8-Paper-Conference.pdf might be relevant when looking at will brown's research
-- very, very similar to the algorithms i arrived on: https://shopify.engineering/generative-recommendations. posted feb 2026.  
-	- autoregressive with causal mask to start (fancy description of prediction next action given action history), then sample that model with user choices to further tune behavior (fancy description is hard negative sampling). quite interesting. the gap is that the recommendations are still a fixed set of product IDs rather than semantic text, but they mention that as next steps
-- there are 100% more useful papers, but reading this paper, it stood out to me the usefulness of reading about how others actually codify stuff. will be helpful as i codify data https://arxiv.org/pdf/2512.04601 this is the NLAC paper from Joey hong
-- i think my hope for phase 2 is that the model can learn the abstract 'thought'/'motivation' i have/or 'connection' I make in my brain, then that loss-ily gets put into my computer, and 'recommend' a better described version of it
-- big question for data codification is whether you give a tool call to fetch the content of a web page rather than the content itself during training. how does that change the state and action space? does it more clearly separate the action space of the agent from the state space of the environment? are there two environments?
-- proactive, background, interactive. why is there not an agent tailored to me answering these questions in a way i would answer them on the order of hours or days, but in minutes?
-- phase 2 is intended to open up 'move 37' like capabilities
-- feel more resolute about the problem of converting personal computer use data into something that can be used to predict actions is deep. equivalent to refining oil to put into a machine that does something useful
-- if phase 1 or phase 2 is actually successful and superior in weight space, J space analysis would be insane on it
-- "There is a strict hierarchy of ML research. Optimizers Objectives Architectures Data Even among data works, there is a hierarchy: Synthetic data Data mixtures Filtering Preprocessing Adding new data sources (Of course, real world impact does not align with the hierarchy)."
-	- good for contextualizing the phases of work needed. separating data steps between adding new sources, preprocessing, and filtering feels correct. data mixtures make much more sense after better understanding i.i.d. assumptions and their implications.
-- an understanding of i.i.d. feels crucial. the traditional assumption is static distributions with independent samples. autoregressive architectures like transformers shift the i.i.d. assumptions from the token level to the data source level, which feels weird, but seems to empirically work, although they need to do really intelligent data mixing to ensure gradient descent is performed over average baselines rather than overoptimizing for a single thing. im only starting to internalize this but i suspect it explains a lot of downstream behavior (catastrophic forgetting, for example)
-- https://arxiv.org/pdf/2203.02155 first sentence of the abstract "Making language models bigger does not inherently make them better at following a user’s intent" banger
 - relevant for data construction [[Interaction#^f5c205]] ^b73256
 - good thesis piece [[Interaction#^4c96d9]]
 - how does 'no recommendation' fit into the framework?
