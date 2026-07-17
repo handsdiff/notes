@@ -129,6 +129,7 @@
 	- Is wisdom more truthful reward functions?
 	- “Artificial wisdom” sounds way more implausible than artificial intelligence
 		- Feels related to “what to do” not “how to do it”
+	- artificial wisdom as a reward model choice where artificial intelligence is slamming an existing reward model without question
 	- is this just 'horizontal' org memory scaling but more (perhaps unnecessarily) complex?
 	- is collecting agent traces sufficient if 80% of write actions are chatbot interactions? could this be an ablation in [[Paper]]?
 	- https://centaur.run/ how does vision compare and contrast? what evidence, or if no evidence, beliefs support current direction over this? how to collect evidence asap for critical assumptions?
@@ -172,19 +173,9 @@
 	- honcho's blog is quartz?? https://plasticlabs.ai/blog/posts/Memory-as-Reasoning they also discuss memory as prediction
 		- similar tweet https://x.com/ashwingop/status/2069807820846063932
 	- phrased during conversation as a tool that would elicit different behavior of legibilizing process of thinking in between computer interactions. that behavior doesn't exist as much today since the tool being used 'computer' doesn't really benefit from it. the tools of the future will ('local models')
+	- vision post from roon "the world vision of open weights models running themselves, self replicating, training new versions of themselves (at least the kind of behavioral modifications that won't require massive compute scale), is really not very far away". my read is that 'training on what' i.e. useless without granular data
 
 
-- prime intellect released this https://x.com/PrimeIntellect/status/2074212134452633882?s=20
-- should i post about frontier LLM programmability needing standardization and how the recommended way to prompt a modern LLM is literally just training? https://x.com/emollick/status/2074307813392732279?s=20. are they converging? how can we normalize prompt programming? assuming this is true, WHY is this the best way to prompt LLMs? 
-	- it's akin to autoresearch. basically saying that giving the LLM a reward that it can grind towards is best, which is why environments matter (simulations to determine best actions to take). can it be 10x cheaper or 10x more performant at a given task?
-	- probably worth discussing 'LLM capabilities' as a function of prompt quality and personal evals like I mentioned it to Alex
-		- [[Local Tasking#^bdf5da]] pointed at personal evals
-		- arcada labs is still very cool
-- is there positive or negative 'transfer' in a combined loss function scenario where we have phase 1 loss (dont have the formula yet but it would be, given 1:x, model predicts x+1, there is ground truth x+1, difference in those answers. cross entropy loss) summed with phase 2 loss ($$\mathcal{L}_{\text{OnlineDPO}}(\theta) = -\mathbb{E}_{(x, y_w, y_l) \sim \mathcal{D}_{\text{on-policy}}} \left[ \log \sigma \left( \beta \log \frac{\pi_\theta(y_w \mid x)}{\pi_{\text{ref}}(y_w \mid x)} - \beta \log \frac{\pi_\theta(y_l \mid x)}{\pi_{\text{ref}}(y_l \mid x)} \right) \right]$$) (potential online DPO loss)? i.e. does the preference choice cause the model to drift from predicting what I write? why or why not?
-	- https://gemini.google.com/app/79ea2d4952de2cd1 discussion as to how top K posterior sampling can be used in 'online DPO' and how it relates to implicitly learned reward modeling.
-	- summing might be overweighting what i type? would have to experiment
-	- since this loss function implies a ref policy, when to actually move the ref policy if at all? will see in practice, pending how different the feedback part actually is from the pure self supervised prediction part
-- artificial wisdom as a reward model choice where artificial intelligence is slamming an existing reward model without question
 - slate was continual learning. one of the things that bottlenecked it was needing to label the right answers for everything manually. and in cases where even the right label did not exist due to lack of backend infra, needing to build the backend infra, and keep the model up to date with its changing use of tools. do we still have all the slate code? we do, and the git history of it, and the google doc history of bugs? too bad it hasnt been cleaned up + enriched with thoughts and discussions the entire time. we would be in a more intelligent place.
 - might help with data ingestion, seemingly open source/self hosted granola https://github.com/Zackriya-Solutions/meetily
 - writing articles making it seem like there are a ton of steps/challenges to your work likely helps with sales/marketing
