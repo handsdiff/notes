@@ -13,52 +13,6 @@
 	- post blog
 	- double email Omar
 	- put precursor banner on personal
-- information, maybe relevant
-	- https://www.youtube.com/watch?v=JIsgyk0Paic RL for agents by will brown
-	- https://www.youtube.com/watch?v=_IzZWeuTx7I RL Envs at scale by will brown
-	- https://www.youtube.com/watch?v=PbHm2qKnu10 training agentic reasoners by will brown
-	- https://www.youtube.com/watch?v=V-EDrhIhHzQ modern post training (jul 14 2026) by will brown
-	- grpo script from will brown 2025 https://gist.github.com/willccbb/4676755236bb08cab5f4e54a0475d6fb
-	- https://arxiv.org/pdf/2607.07508 single rollout async optimization for RL, from ZAI
-	- https://arxiv.org/pdf/2602.10067 features as RL rewards from goodfire. implementation of an idea i had!
-		- https://gemini.google.com/app/ef267292d5b41ac8
-		- https://www.goodfire.ai/blog/intentional-design#developing-responsibly
-	- https://genai-handbook.github.io/
-	- https://humansand.ai/blog/nvfp4-rl
-	- https://arxiv.org/abs/2607.09061
-	- youtube.com/watch?v=RKjR8DQ40po&feature=youtu.be schmidhuber interview
-	- https://oaklab.ai/posts/learning-from-experience-instead-of-curated-datasets
-		- https://claude.ai/chat/5038f012-65a1-4ff8-ac40-21f46f99290b on networkidbd implementation
-	- im confused doesnt attention already determine whats useful from the context and what is not?
-	- potentially useful for phase 3 rollouts https://github.com/trycua/cua
-	- https://thinkingmachines.ai/news/introducing-inkling/
-		- https://x.com/GenAI_is_real/status/2077481107843649628?s=20
-		- https://x.com/yifanzhang_/status/2077467076936245409?s=20
-		- https://x.com/MichaelElabd/status/2077461111247712656?s=20 is inkling optimized as a “meta learner”? TM has an incentive to make its models easily custom trainable
-	- https://arxiv.org/pdf/2607.05394 weak to strong generalization via direct OPD
-	- https://research.perplexity.ai/articles/making-space-secure-and-efficient-runtimes-for-long-running-agents
-	- https://openai.com/index/chatgpt-memory-dreaming/
-	- https://x.com/jia_seed/status/2077422944645443660?s=20 product that ensures you show up in chatbot chats, relevant to earlier thinking
-	- https://alignment.anthropic.com/2026/agentic-misalignment-summer-2026/
-	- https://www.primeintellect.ai/blog/verifiers-v1
-	- https://nextbigteng.substack.com/p/ai-infrastructure-roadmap-five-frontiers-for-2026
-	- https://eliebak.com/viz/jspace-open
-	- https://x.com/0xBADB01E/status/2073990357398982797?s=20
-	- https://www.youtube.com/watch?v=SVWmuJx0hHM NVIDIA Prime Intellect talk on long horizon agents
-	- ai dot engineer review i missed https://x.com/abhikhanna30/status/2073646301674389819?s=20
-	- https://x.com/RampLabs/status/2072381992285647280 portable LoRA
-	- https://x.com/GenAI_is_real/status/2074760177887404501?s=20 serving TTS
-	- https://www.iroh.computer/blog/mesh-llm distributed inference on tailscale for apps
-	- https://continual-harness.github.io/
-	- PNLC (levine) -> NLAC (levine) as PPI (from google MUPI paper) -> ??
-	- https://www.kimi.com/blog/kimi-k3
-	- https://www.asimov.press/p/gentle-romance
-	- https://x.com/_xjdr/status/2077787741203677430?s=20 explanation of TM models i dont understand
-	- https://art.openpipe.ai/getting-started/about
-	- https://www.youtube.com/watch?v=e9-0BxyKG10 best explanation of attention, key queries, etc
-	- https://www.thoughtfullab.com/
-	- should've written down earlier that i think its super cool to 'optimize for learning' by considering the 'surprise' of a given state transition in the learning rate. forget where i explored papers in this vein
-		- stumbled upon this during algorithms research https://noahziems.com/pedagogical-rl
 - directly relevant - practical
 	- https://arxiv.org/pdf/2510.19488v1 labels unlabeled video data with their actions, for future training. seems like deepmind's genie also does this
 	- phase 2 requires only showing samples when confidence exceeds some threshold, likely requires fine tuning
@@ -149,7 +103,13 @@
 		- this relates to the desire for 'superhuman' performance, which may/may not conflict, i'd have to be explicit about it, with the multi agent goals
 		- how does this relate to the take that maybe the goal will appear in context because as an organizing method, local goals are written down
 	- data cleaning likely needs to ensure formatting is skipped, duplicates are handled, and for phase 2 if the agent doesn't have any reasonably confident completions, it shows nothing
-- directly relevant - vision
+
+
+
+
+
+
+- ## directly relevant - vision
 	- https://generalagents.com/ good relative benchmark for quality, interesting description of 'behavior' as a training paradigm that resonates
 	- there is a tension between human preference as the only possible reward signal and the sutton argument that environmental rewards are the only ground truth data for real superintelligence
 	- https://x.com/willdepue/status/2074178395462848800 "stargate for data"
@@ -233,3 +193,13 @@
 	- the limit to the extent of rollouts is probably whatever I can quickly understand. another tension here that needs to be identified and a path chosen is replacement vs augmentation. if my human model is doing rollouts and taking actions, thats full replacement. even if it reports back what its doing, its not ME doing it. i guess this is just management though, which doesnt count as replacement. hmmm. to be more nuanced its replacing one task for another higher leverage task. but its pretty well established that some people like being individual contributors rather than managers
 	- There seems to be a common thread between (1) why multi agent systems (2) how true user modeling is required since it only works when context and mind function differ (3) the research discussing how imitation learning is a prerequisite for multi agent research, that I’m just discovering from Micah’s work
 	- the story i told jakub regarding the verifiable loops -> nonverifiable loops for primary AI tasking makes more sense to me since I think most enterprise AI dollars go to nonverifiable tasks than verifiable tasks ('tokenmaxxing'). im surprised inference net has revenue given they focus on rote tasking, since i would not expect enterprises to actually spend much money on that. maybe i overestimate how smart enterprises are and as a result the problems they actually face. like i would never think spending 100k per month on data extraction would be a reality. this suggests i need to be simpler and more practical with problem formulation. its worth verifying what 'nonverifiable' tasking is.
+
+
+there seems to be a very core distinction between training a model that is purely a human predictor, then training a generally capable model that optimizes with it (a la assistance games) vs training a single model by instilling human predictive capabilities into a generally capable model. its unclear which is better or which im doing, at least from a theoretical/framework perspective. its obvious i am training a model that uses preference data such that the centaur outperforms the demonstrator alone. which implies a single model. in some sense this model would be 'human+' not just human.
+
+the colloquial explanation would be that it learns implicit, yet uncertain (to prevent reward hacking) goals from predicting me well. then can use the implicit reward to perform rollouts that increase it over some baseline, which reminds me of GRPO where one rollout is performed by the human. the problem that stands out is
+- cant you just tell it the local goal?? why do you need a predictor?
+- if you tell it the local goal, cant it already assist proactively?
+- i guess you'd want to train it to understand the local goal well given the history of actions. but i dont want the UX to be showing an understood goal to the user. but maybe it should be? since a proactive suggestion implies a good understanding of the goal + a good understanding of how to accelerate that goal, which im assuming can be initially built as a human predictor, which i think is a fair characterization, but is harder / multi step, but is better UX. hmm
+- i think this notion that goals will be implicit from good prediction likely only happens at scale. it comes back to why a predictor is desired at all
+
