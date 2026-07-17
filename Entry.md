@@ -109,7 +109,7 @@
 
 
 
-- ## directly relevant - vision
+- # directly relevant - vision
 	- https://generalagents.com/ good relative benchmark for quality, interesting description of 'behavior' as a training paradigm that resonates
 	- there is a tension between human preference as the only possible reward signal and the sutton argument that environmental rewards are the only ground truth data for real superintelligence
 	- https://x.com/willdepue/status/2074178395462848800 "stargate for data"
@@ -190,6 +190,7 @@
 	- there seems to be a tension between two seemingly mutually exclusive goals
 		- creating an extremely good human model, that can then be used to simulate the user to enable prospective learning, multi agent settings, assistance games, better personalized search and rec, etc
 		- creating an extremely good centaur model, which optimizes for the envisioned product directly by recognizing the model is making suggestions and optimizing for the combined output
+		- it seems like the more truthful analysis is that the centaur model is an example of prospective learning downstream of the good human model? clearly the human model is the first step, and the vision just needs to be plausible, exciting, valuable, and I need strong belief in it. but the vision does not matter if the early experiments indicate lack of productizability
 	- the limit to the extent of rollouts is probably whatever I can quickly understand. another tension here that needs to be identified and a path chosen is replacement vs augmentation. if my human model is doing rollouts and taking actions, thats full replacement. even if it reports back what its doing, its not ME doing it. i guess this is just management though, which doesnt count as replacement. hmmm. to be more nuanced its replacing one task for another higher leverage task. but its pretty well established that some people like being individual contributors rather than managers
 	- There seems to be a common thread between (1) why multi agent systems (2) how true user modeling is required since it only works when context and mind function differ (3) the research discussing how imitation learning is a prerequisite for multi agent research, that I’m just discovering from Micah’s work
 	- the story i told jakub regarding the verifiable loops -> nonverifiable loops for primary AI tasking makes more sense to me since I think most enterprise AI dollars go to nonverifiable tasks than verifiable tasks ('tokenmaxxing'). im surprised inference net has revenue given they focus on rote tasking, since i would not expect enterprises to actually spend much money on that. maybe i overestimate how smart enterprises are and as a result the problems they actually face. like i would never think spending 100k per month on data extraction would be a reality. this suggests i need to be simpler and more practical with problem formulation. its worth verifying what 'nonverifiable' tasking is.
