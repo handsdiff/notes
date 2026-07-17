@@ -212,11 +212,12 @@
 	- i have tension between open sourcing all data and keeping browser history private. i would likely be fine with public browser history if it was properly scrubbed
 	- do i develop a model of each LLM such that it becomes more useful to me? for example even though kimi k3 came out, i dont really have a desire to try it since it isnt so clearly better at a use case for me. there are various reasons behind that. for fable on web, its not clearly more intelligent. for gemini, i have more certainty about what im getting with gemini since i have a sense of how it answers. for the chatgpt app, its easier to access my notes (very similar to why i switched from claude web to claude code, since it more easily accessed my codebase)
 		- this leads me to think there may be a similarity where i want something well built, that is smart, that immediately has access to my thinking history, as a possible value prop. again there are many value props being conflated and i need to recognize that and separate them as an initial go forward step
+	- there seems to be a tension between two seemingly mutually exclusive goals
+		- creating an extremely good human model, that can then be used to simulate the user to enable prospective learning, multi agent settings, assistance games, better personalized search and rec, etc
+		- creating an extremely good centaur model, which optimizes for the envisioned product directly by recognizing the model is making suggestions and optimizing for the combined output
 
 
-- there seems to be a tension between two seemingly mutually exclusive goals
-	- creating an extremely good human model, that can then be used to simulate the user to enable prospective learning, multi agent settings, assistance games, better personalized search and rec, etc
-	- creating an extremely good centaur model, which optimizes for the envisioned product directly by recognizing the model is making suggestions
+- 
 - its likely the case that introducing a good 'recommender' or personalized language model changes behavior so much that the entire initial problem formulation goes out the window. this is where a lot of the google pi and dragan work comes in. worth thinking through, although it likely doesnt change todays work much. but for example how would we train the model given that my view of the recommendations spurs my thinking into new directions, even if i dont choose one? what if a recommendation existing, without being chosen, causes me to write down something new that otherwise would not make sense? and if you put the recommendations into the data itself, the model has to learn to predict its own recommendations? i guess not directly since its predicting my actions, not state transitions otherwise. this points to embodied agency from the MUPI paper i think
 	- https://arxiv.org/pdf/2204.11966 this paper from a Dragan grad student now at OpenAI, from 2022, seems to almost directly address this
 	- it doesnt need to predict its own recommendation, it just learns to predict how the human will respond to its recommendations. what are the downstream consequences of this?
