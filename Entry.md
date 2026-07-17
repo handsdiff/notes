@@ -107,6 +107,7 @@
 		- https://arxiv.org/pdf/2505.24832
 		- https://x.com/jxmnop/status/1929903028372459909
 	- new algorithms in [[Algorithms]]
+	- very informative and critical reward inference discussion with papers foundational from dragan that i havent come across otherwise https://gemini.google.com/app/4f984ce16e37337a
 - directly relevant - vision
 	- https://generalagents.com/ good relative benchmark for quality, interesting description of 'behavior' as a training paradigm that resonates
 	- there is a tension between human preference as the only possible reward signal and the sutton argument that environmental rewards are the only ground truth data for real superintelligence
@@ -163,20 +164,10 @@
 	- what data is more valuable when shared?
 	- bit of an old hot take. i think enterprise models will look like each employee having their own agent that is tuned to them, and the models are allowed to conversate to collaborate and improve rewards, instead of a monolithic model that everyone shares. personal computing with networking, not timeshared computing. 
 	- are frontier LLMs already implicitly inferring my rewards when I give it iterative feedback in a claude code or codex session? whats the diff?
+	- honcho's blog is quartz?? https://plasticlabs.ai/blog/posts/Memory-as-Reasoning they also discuss memory as prediction
+		- similar tweet https://x.com/ashwingop/status/2069807820846063932
+	- phrased during conversation as a tool that would elicit different behavior of legibilizing process of thinking in between computer interactions. that behavior doesn't exist as much today since the tool being used 'computer' doesn't really benefit from it. the tools of the future will ('local models')
 
-
-
-- 
-- reward inference discussion https://gemini.google.com/app/4f984ce16e37337a
-
-- https://x.com/teortaxesTex/status/2074471487579332707?s=20
-- https://svilentodorov.xyz/blog/gpt-15b-chat-finetune/
-
-- honcho's blog is quartz?? https://plasticlabs.ai/blog/posts/Memory-as-Reasoning they also discuss memory as prediction
-	- similar tweet https://x.com/ashwingop/status/2069807820846063932
-- starting the think the reward inference part should not block the self prediction. the self prediction is a large enough task of itself, the uncertainty around algorithmic progress provides future possible growth, and i believe SFT + DPO is strong enough to deliver something valuable and directionally correct enough for superhuman performance, since RLHF/DPO is already reward inference (per dragan waymo interview). 
-- apparently DPO generates an implicit value network that can be used to approximate rewards. same link as above https://gemini.google.com/app/e5061268008c580f
-- phrased during conversation as a tool that would elicit different behavior of legibilizing process of thinking in between computer interactions. that behavior doesn't exist as much today since the tool being used 'computer' doesn't really benefit from it. the tools of the future will ('local models')
 
 - so we have phase 1 which is supervised fine tuning / behavior cloning with cross entropy loss. autoregressive model with a causal mask. given a history of read/writes, what is the next write? can replace read/write with action, the dataset still needs to be codified as likely the next step, but thats the high level plan, and it is worth experimenting with frontier LLMs, old LLMs, and cheap OS models to see how they perform/react to different amounts of data
 - we have phase 2 which uses top K sampling from the model from phase 1 to turn into recommendations that can be chosen. each recommendation, choice, or lack thereof runs through online DPO to optimize further. phase 1 acts as a prior that bootstraps phase 2. top K sampling acts as hard negative mining, producing a model that learns well.
