@@ -233,6 +233,8 @@ algorithms considered and rejected for now and why: (there are likely practicali
 		- 
 	- RLIF https://arxiv.org/pdf/2505.19590v3
 		- 
+	- NetworkIDBD (from sutton's blog post)
+		- 
 
 - is phase 1 a process reward model?
 - does phase 1 result in an 'implicit' reward model?
