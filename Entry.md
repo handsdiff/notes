@@ -134,6 +134,14 @@
 	- there is an openai 2023 paper in lecture 18 of cs224r that shows model confidence is much less calibrated after PPO post training than after pre training. how is this data even collected? the pre train model should not be able to do question answer formats, no?
 		- the inability to self model uncertainty is brought up as an issue with human AI interaction/collaboration
 		- its unclear how 'uncertainty' even natively exists in the model? maybe the probability of the 'winning' token directly? im sure someone has researched this. relates to the dragan waymo interview
+	- going back to the youtube interleaved data example, even when im reading a paper we would want the content i actually read to be shown before i type a note, not the entire paper. this seems very difficult to collect properly and perhaps prohibitive for good learning.
+	- one way to frame the data construction question is what level of 'noise' is acceptable? for instance i probably want to exclude clicking around obsidian to copy paste something, but probably want to include when i write down a long train of thought, but would that mess up the dataset construction since its no longer cleanly autoregressive?
+	- the use of git as a natural boundary likely helps but thats not really 'next token' or 'next action' prediction if multiple 'actions' were taken in a commit, one or more of which involves adding a word to the middle of some old note.
+	- what even is a context window? like whats the intuitive understanding of it? this feels important to grok. i wont be able to intuitively understand ICL vs SFT without this.
+		- seems like the manual decision as to what amount of data is given as input during the pretraining? or is it mid/post training? likely both?
+		- what determines the input/output sizes of the dataset during pretraining?
+	- is OPD/OPSD the goated algorithm since you literally just tell the agent what to fix? and then during batched training it increases the probability of the desired tokens from the prompt before when the fix was stated? i wonder if anyone has done this / people are doing it
+	- data discussion https://gemini.google.com/app/434faa2eae499b25 for our work
 - directly relevant - vision
 	- https://generalagents.com/ good relative benchmark for quality, interesting description of 'behavior' as a training paradigm that resonates
 	- there is a tension between human preference as the only possible reward signal and the sutton argument that environmental rewards are the only ground truth data for real superintelligence
@@ -217,35 +225,8 @@
 		- creating an extremely good centaur model, which optimizes for the envisioned product directly by recognizing the model is making suggestions and optimizing for the combined output
 
 
-- 
-- its likely the case that introducing a good 'recommender' or personalized language model changes behavior so much that the entire initial problem formulation goes out the window. this is where a lot of the google pi and dragan work comes in. worth thinking through, although it likely doesnt change todays work much. but for example how would we train the model given that my view of the recommendations spurs my thinking into new directions, even if i dont choose one? what if a recommendation existing, without being chosen, causes me to write down something new that otherwise would not make sense? and if you put the recommendations into the data itself, the model has to learn to predict its own recommendations? i guess not directly since its predicting my actions, not state transitions otherwise. this points to embodied agency from the MUPI paper i think
-	- https://arxiv.org/pdf/2204.11966 this paper from a Dragan grad student now at OpenAI, from 2022, seems to almost directly address this
-	- it doesnt need to predict its own recommendation, it just learns to predict how the human will respond to its recommendations. what are the downstream consequences of this?
-- one useful abstraction, perhaps later is language models towards your reward function vs the harness for it? like it will need to eventually take the actions itself instead of just recommending? way downstream though
-- 5.6 sol can probably help iterate quickly on algos once data is in place, and data processing might be accelerated as well but i perhaps not nearly as much. Needs to be collected
-- unsure whether i wrote down before but its unclear whether optimizing loss results in averages or max's across the data. seems like it depends on the prompt, and the behavior is elicit, which implies a max? don't have a good resolution here
-- would the model learn 'personalized' reasoning if the thought data is explicit enough?
-- going back to the youtube interleaved data example, even when im reading a paper we would want the content i actually read to be shown before i type a note, not the entire paper. this seems very difficult to collect properly and perhaps prohibitive for good learning.
-- one way to frame the data construction question is what level of 'noise' is acceptable? for instance i probably want to exclude clicking around obsidian to copy paste something, but probably want to include when i write down a long train of thought, but would that mess up the dataset construction since its no longer cleanly autoregressive?
-- the use of git as a natural boundary likely helps but thats not really 'next token' or 'next action' prediction if multiple 'actions' were taken in a commit, one or more of which involves adding a word to the middle of some old note.
-- what even is a context window? like whats the intuitive understanding of it? this feels important to grok. i wont be able to intuitively understand ICL vs SFT without this.
-	- seems like the manual decision as to what amount of data is given as input during the pretraining? or is it mid/post training? likely both?
-	- what determines the input/output sizes of the dataset during pretraining?
-- this is generally way harder and also way more valuable than i anticipated
-- the reason im interested in self prediction is because, and i believe i wrote this before, but definitionally a superintelligence should be able to predict me given enough context. if it cant, its not smarter than me. so this provides a concrete test as to if algorithms are actually superintelligent relative to me, not on average
-	- if you output what i output based on the same input, you are me
-- i dont think DAgger would work for this future product since it requires me understanding the context my agent finds itself in to make the correct call, and if it poorly understand the context it will be net negative, so I'd likely rather it not do whatever its doing at all.
-	- i guess this is why principles/visions are important since you can derive actions across unknown states with less check in
-	- if its a recommendation on my current context it makes way more sense because i can easily tell whether i prefer it or not to whatever action i would have taken
-	- regardless the initial goal is to see whether it can keep up with me at all
-- is it a disservice to AI to use it this way? is usefulness being constrained by single turn recs? probably not, since if it was actually good, rather than appearing good, it would be let rip
-- LLM 'intelligence' or even 'capability' is so vague. are we talking about ceilings or floors? how much test time scaling? up to whose reward function?
-- is OPD/OPSD the goated algorithm since you literally just tell the agent what to fix? and then during batched training it increases the probability of the desired tokens from the prompt before when the fix was stated? i wonder if anyone has done this / people are doing it
-- i wonder if red team / hard negative synthetic data would improve performance of phase 1 and/or phase 2
+
 - this has a nice framework for data structure, even though i disagree / am confused about some of his main desires [[Gwern GA#^62b788]]
-- gwern seems to make two large assumptions: the ease of dynamic evaluation and the ease of active learning, but fails to actually specify how either of these would actually work
-	- he mentions 'racing top k multi armed bandit' for online learning, whereas top k posterior sampling is too memory inefficient?
-- data discussion https://gemini.google.com/app/434faa2eae499b25 for our work
 - i suspect for phase 1 the goal will be to learn token level structure before it can learn action level content. you might get a loss discontinuity (via early flatlining before more data shows improved loss due to content learning beginning)
 - does a natural language specified preference / goal improve phase 2? seems trivial but apparently giving 'hints' i.e. natural language direction makes OPSD work. strict OPD i have a better understanding of after the thinking machines article and that is def different
 	- most IRL assumes that the agent trajectories are maximizing the true reward instead of some lossy approximation of the reward. if the demonstrator itself is attempting to learn the policy by which to achieve its reward, what are the actual algorithms for this, if at all?
