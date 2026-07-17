@@ -20,6 +20,7 @@ disparate notes:
 - [[Interaction]] overall
 - https://arxiv.org/pdf/2309.12170 older RNN predicting mouse/keyboard data
 - https://x.com/screenpipe/status/2077045452579778664?s=20
+	- it might be in a gemini chat, at the very least in browser history, but there was an old screenpipe PR that cleaned up screenpipe data for training. i think it was for retrieval so maybe it was whatever, but im surprised i did not note it down
 - ways to think about data from Levine https://x.com/svlevine/status/2075721405929508942?s=20
 - https://github.com/experientiallabs/world-model-harness (yc, seems to be productized data cleaning)
 - tension between improving data collection vs experimenting with algorithms to make it useful. need both long term pending ongoing discovery. my current load bearing has been phrased as algorithms, but maybe thats because i already write down thoughts, and the additional work there doesn't feel like i learn anything besides if i write down more thoughts, which would require actually measuring usage rate. the ai could easily do this, pending how the actual git commitments work (is it actually when i stop typing, or just every 10 mins). but iterating on the algorithms will act as a forcing function for what type of data is needed and how it should be structured, which probably makes it more useful as a load bearing

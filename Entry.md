@@ -142,6 +142,13 @@
 		- what determines the input/output sizes of the dataset during pretraining?
 	- is OPD/OPSD the goated algorithm since you literally just tell the agent what to fix? and then during batched training it increases the probability of the desired tokens from the prompt before when the fix was stated? i wonder if anyone has done this / people are doing it
 	- data discussion https://gemini.google.com/app/434faa2eae499b25 for our work
+	- this has a nice framework for data structure, even though i disagree / am confused about some of his main desires https://gwern.net/guardian-angel#ux
+	- i suspect for phase 1 the goal will be to learn token level structure before it can learn action level content. you might get a loss discontinuity (via early flatlining before more data shows improved loss due to content learning beginning)
+	- does a natural language specified preference / goal improve phase 2? seems trivial but apparently giving 'hints' i.e. natural language direction makes OPSD work. strict OPD i have a better understanding of after the thinking machines article and that is def different
+		- most IRL assumes that the agent trajectories are maximizing the true reward instead of some lossy approximation of the reward. if the demonstrator itself is attempting to learn the policy by which to achieve its reward, what are the actual algorithms for this, if at all?
+		- this relates to the desire for 'superhuman' performance, which may/may not conflict, i'd have to be explicit about it, with the multi agent goals
+		- how does this relate to the take that maybe the goal will appear in context because as an organizing method, local goals are written down
+	- data cleaning likely needs to ensure formatting is skipped, duplicates are handled, and for phase 2 if the agent doesn't have any reasonably confident completions, it shows nothing
 - directly relevant - vision
 	- https://generalagents.com/ good relative benchmark for quality, interesting description of 'behavior' as a training paradigm that resonates
 	- there is a tension between human preference as the only possible reward signal and the sutton argument that environmental rewards are the only ground truth data for real superintelligence
@@ -223,21 +230,6 @@
 	- there seems to be a tension between two seemingly mutually exclusive goals
 		- creating an extremely good human model, that can then be used to simulate the user to enable prospective learning, multi agent settings, assistance games, better personalized search and rec, etc
 		- creating an extremely good centaur model, which optimizes for the envisioned product directly by recognizing the model is making suggestions and optimizing for the combined output
-
-
-
-- this has a nice framework for data structure, even though i disagree / am confused about some of his main desires [[Gwern GA#^62b788]]
-- i suspect for phase 1 the goal will be to learn token level structure before it can learn action level content. you might get a loss discontinuity (via early flatlining before more data shows improved loss due to content learning beginning)
-- does a natural language specified preference / goal improve phase 2? seems trivial but apparently giving 'hints' i.e. natural language direction makes OPSD work. strict OPD i have a better understanding of after the thinking machines article and that is def different
-	- most IRL assumes that the agent trajectories are maximizing the true reward instead of some lossy approximation of the reward. if the demonstrator itself is attempting to learn the policy by which to achieve its reward, what are the actual algorithms for this, if at all?
-	- this relates to the desire for 'superhuman' performance, which may/may not conflict, i'd have to be explicit about it, with the multi agent goals
-- intelligence scores must be normalized by used compute no (re Noam Brown from OpenAI)? the machine studying from MIT does this explicitly and well, most others do not
-- There seems to be a common thread between (1) why multi agent systems (2) how true user modeling is required since it only works when context and mind function differ (3) the research discussing how imitation learning is a prerequisite for multi agent research, that I’m just discovering from Micah’s work
-- owning diversity = owning collaboration
-- exploitation is best done hierarchically. exploration is best done horizontally.
-- data cleaning likely needs to ensure formatting is skipped, duplicates are handled, and for phase 2 if the agent doesn't have any reasonably confident completions, it shows nothing
-- it might be in a gemini chat, at the very least in browser history, but there was an old screenpipe PR that cleaned up screenpipe data for training. i think it was for retrieval so maybe it was whatever, but im surprised i did not note it down
-- "two minds are better than one"
-- "increasing the bounds of rationality"
-- the story i told jakub regarding the verifiable loops -> nonverifiable loops for primary AI tasking makes more sense to me since I think most enterprise AI dollars go to nonverifiable tasks than verifiable tasks ('tokenmaxxing'). im surprised inference net has revenue given they focus on rote tasking, since i would not expect enterprises to actually spend much money on that. maybe i overestimate how smart enterprises are and as a result the problems they actually face. like i would never think spending 100k per month on data extraction would be a reality. this suggests i need to be simpler and more practical with problem formulation. its worth verifying what 'nonverifiable' tasking is.
-- take these principles and apply them to audio on top of Thinking Machines' Inkling?
+	- the limit to the extent of rollouts is probably whatever I can quickly understand. another tension here that needs to be identified and a path chosen is replacement vs augmentation. if my human model is doing rollouts and taking actions, thats full replacement. even if it reports back what its doing, its not ME doing it. i guess this is just management though, which doesnt count as replacement. hmmm. to be more nuanced its replacing one task for another higher leverage task. but its pretty well established that some people like being individual contributors rather than managers
+	- There seems to be a common thread between (1) why multi agent systems (2) how true user modeling is required since it only works when context and mind function differ (3) the research discussing how imitation learning is a prerequisite for multi agent research, that I’m just discovering from Micah’s work
+	- the story i told jakub regarding the verifiable loops -> nonverifiable loops for primary AI tasking makes more sense to me since I think most enterprise AI dollars go to nonverifiable tasks than verifiable tasks ('tokenmaxxing'). im surprised inference net has revenue given they focus on rote tasking, since i would not expect enterprises to actually spend much money on that. maybe i overestimate how smart enterprises are and as a result the problems they actually face. like i would never think spending 100k per month on data extraction would be a reality. this suggests i need to be simpler and more practical with problem formulation. its worth verifying what 'nonverifiable' tasking is.
