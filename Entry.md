@@ -1,4 +1,5 @@
 
+- 
 - random work
 	- find and sign up for events
 		- apply for paradigm's frontiers hackathon https://www.paradigm.xyz/frontiers-2026
