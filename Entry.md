@@ -242,3 +242,4 @@ human understanding vs AI understanding
 how to RLHF html visuals? how to personalize them?
 how impactful is local data? (relates to local data laws experiment)
 
+'superhuman performance' is incompatible with an augmentation value proposition, as opposed to a replacement value proposition
