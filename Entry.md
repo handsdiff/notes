@@ -242,4 +242,4 @@ human understanding vs AI understanding
 how to RLHF html visuals? how to personalize them?
 how impactful is local data? (relates to local data laws experiment)
 
-'superhuman performance' is incompatible with an augmentation value proposition, as opposed to a replacement value proposition
+'superhuman model performance' is incompatible with an augmentation value proposition, as opposed to a replacement value proposition. augmentation's goal is superhuman system/centaur performance, which is the goal of any tool.
