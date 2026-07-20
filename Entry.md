@@ -243,3 +243,5 @@ how to RLHF html visuals? how to personalize them?
 how impactful is local data? (relates to local data laws experiment)
 
 'superhuman model performance' is incompatible with an augmentation value proposition, as opposed to a replacement value proposition. augmentation's goal is superhuman system/centaur performance, which is the goal of any tool.
+
+i was trying to force in DPO/IPO as an attempt to create an implicit reward model that could be used for actual rollouts. this is overly complex and reduces the likelihood of a successful phase 1. this is informed by the characterization of a centaur model as just one implementation of a human model. clearly a human model is useful for this. is it useful for other things?
