@@ -17,7 +17,7 @@
 
 CURRENT
 - DONE [[Phase 1]] and [[Phase 2]], distilled from [[Algorithms]], step 1 is being concrete about the loss functions and algorithms used for phase 1, and concrete about which loss functions and algorithms could reasonably result in demonstrator outperformance for phase 2 from an assistance perspective rather than replacement perspective.
-- DONE [[Phase 3 Direction]], distilled from [[Algorithms]], step 2 is directionally discussing phase 3 goals, without necessarily being concrete about the intended algorithms and loss functions
+- DONE [[Phase 3]], distilled from [[Algorithms]], step 2 is directionally discussing phase 3 goals, without necessarily being concrete about the intended algorithms and loss functions
 - DONE [[Phase 1]] and [[Phase 2]], distilled from [[Algorithms]], step 3 is enriching step 1 with all the plausible ways it could go wrong, and expected next steps required in those failure modes
 - DONE [[Phase 1#1.2 Assumptions and claim boundaries]] step 4 is rank the assumptions required for phase 1 to show frontier performance in order of importance to final goal
 - IN PROGRESS [[Data]] step 5 is determining what data to collect for phase 1 and 2, and how to clean it for phase 1

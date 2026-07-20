@@ -372,7 +372,7 @@ Adversarial Inverse Reinforcement Learning introduces a structured discriminator
 
 The coactive comparisons are actually *more informative for the local question* than an unlabeled noisy demonstration: they explicitly say that one action should outrank an on-policy alternative. D-REX supports this direction by showing how ranked behavior can learn a reward that exceeds the quality of suboptimal demonstrations [10]. Here the rankings arise naturally from human refinements rather than from synthetic corruption levels.
 
-AIRL becomes appropriate later if the project has: a validated sequential state and action representation; a world model or sandbox supporting policy rollouts; trajectory-level evidence; a need for a dynamics-robust reward; and diagnostics showing that local action comparisons do not compose over the horizon. That boundary is developed in [[Phase 3 Direction]].
+AIRL becomes appropriate later if the project has: a validated sequential state and action representation; a world model or sandbox supporting policy rollouts; trajectory-level evidence; a need for a dynamics-robust reward; and diagnostics showing that local action comparisons do not compose over the horizon. That boundary is developed in [[Phase 3]].
 
 ### 10.3 When the reward-model branch is preferable
 
