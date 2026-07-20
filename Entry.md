@@ -255,4 +255,4 @@ i was trying to force in DPO/IPO as an attempt to create an implicit reward mode
 	long chat that highlighted this https://chatgpt.com/c/6a5e760b-e110-83ea-9610-b0031962916e (discriminator diff measures model surprise which measures learning)
 
 is RL fundamentally replacing? am i searching for augmentative RL?
-	
+
