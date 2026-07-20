@@ -215,3 +215,8 @@ currently thinking through how a currently unidentified target market, that im p
 	taking notes
 	messaging others
 	social media output
+
+data vs rewards
+human understanding vs AI understanding
+how to RLHF html visuals? how to personalize them?
+how impactful is local data? (relates to local data laws experiment)
