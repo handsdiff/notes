@@ -106,6 +106,7 @@
 		- how does this relate to the take that maybe the goal will appear in context because as an organizing method, local goals are written down
 	- data cleaning likely needs to ensure formatting is skipped, duplicates are handled, and for phase 2 if the agent doesn't have any reasonably confident completions, it shows nothing
 	- is it possible for reasoning to fit into the next write prediction? is this desired? worth testing in [[Phase 1 Details]]? something to be explicitly trained?
+	- should read data be text or html? pros/cons?
 
 
 
@@ -222,3 +223,4 @@ data vs rewards
 human understanding vs AI understanding
 how to RLHF html visuals? how to personalize them?
 how impactful is local data? (relates to local data laws experiment)
+
