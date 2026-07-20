@@ -116,7 +116,7 @@
 	- should read data be text or html? pros/cons?
 - discusses research similar to longNAP https://claude.ai/chat/d3de1f6d-cd67-404b-a93a-936b3a662d7e
 	- the most interesting related paper which I put into algorithms uses something called LifeTrace for collecting data, takes snapshots at 1 Hz (can we track keyboard usage and snapshot during a pause, like it occurs in git in this obsidian?)
-	- another one 
+	- another one frames 'when to assist' as when its high likelihood that the "user would turn to an AI assistant right now" which is interesting
 - text > screenshots, tons of practical issues from related players around 
 - practically need text PII scrub
 
