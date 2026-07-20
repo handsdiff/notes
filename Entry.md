@@ -28,6 +28,7 @@
 	- https://epoch.ai/publications/earthborne-rangers-benchmark continual learning benchmark
 	- who are the biggest screenpipe users? is anyone running prospective learning or reward inference algorithms on their data?
 		- https://github.com/screenpipe/screenpipe
+	- what happened to rewind? where are the users? what are they doing now?
 	- (read, app, content) and (write, app, content). obsidian covers some write. the browser history script that fetches some read and write, but some issues flagged by Fable.
 	- https://www.zyphra.com/our-work/plasticity-loss-in-continual-learning
 	- https://www.youtube.com/watch?v=r1qZpYAmqmg LLM training by post training lead at openai
