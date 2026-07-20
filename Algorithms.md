@@ -242,6 +242,8 @@ algorithms considered and rejected for now and why: (there are likely practicali
 		- 
 	- NetworkIDBD (from sutton's blog post)
 		- 
+	- ProAgentBench arxiv.org/abs/2602.04482 (2026)
+		- a benchmark for proactive agents that continuously monitor user screen activities and contextual signals, deciding when to intervene based on historical observations and behavior patterns — essentially the evaluation counterpart to NAP.
 
 - is phase 1 a process reward model?
 - does phase 1 result in an 'implicit' reward model?
