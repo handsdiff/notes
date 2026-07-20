@@ -1,6 +1,7 @@
 
 - could littlebird benefit from longNAP?
 	- they have an agent whose value prop is context. longNAP teaches retrieval reasoning over computer use context.
+	- how is littlebird different from normal memory
 - random work
 	- find and sign up for events
 		- apply for paradigm's frontiers hackathon https://www.paradigm.xyz/frontiers-2026
