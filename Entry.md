@@ -206,3 +206,4 @@ the colloquial explanation would be that it learns implicit, yet uncertain (to p
 
 
 Beginning to wonder whether the tightest bottleneck is not human to AI data/reward transfer but AI to human understanding transfer. Or maybe the case that improving the former makes the latter that much more painful
+	html over markdown improve the latter? reminds me of doublezero founder tweet discussing how to better coordinate agents, devs, and non devs
