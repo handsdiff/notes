@@ -248,6 +248,7 @@ how many bits of information is required and how many are produced daily?
 
 i was trying to force in DPO/IPO as an attempt to create an implicit reward model that could be used for actual rollouts. this is overly complex and reduces the likelihood of a successful phase 1. this is informed by the characterization of a centaur model as just one implementation of a human model. clearly a human model is useful for this. is it useful for other things?
 	a discriminator model that learns the diff between the human action given history and the model action given history, which results in an implicit reward function from logprob diffs the same way RLHF/DPO does (pending the optimality of the human)
+		i have since learned this is basically GAIL
 	a world model to determine observations from actions that could result in 2 step rollout 'samples' instead of 1 step rollout samples, compressing user next action BC learning with theoretically improved per step decision making, which would become way more plausible with other phase 1 models interacting with each other, and is less plausible for super high entropy browser search, code runs a la ECHO (but ECHO could be used), social media output
 	long chat that highlighted this https://chatgpt.com/c/6a5e760b-e110-83ea-9610-b0031962916e (discriminator diff measures model surprise which measures learning)
 
