@@ -4,6 +4,7 @@
 	- how is littlebird different from normal memory
 - custom models is the best wedge for inference. custom data collection interfaces is the best wedge for custom models
 - i think agents popping off starting in Q4 2025 increased the data bottleneck (see memory space, mercor ARR). when the data bottleneck is addressed, the bottleneck will shift to reverse data i.e. human understanding. whats better to go after?
+- why will littlebird not get eaten by the codex app? why would our intended product not get eaten by the codex app?
 - random work
 	- find and sign up for events
 		- apply for paradigm's frontiers hackathon https://www.paradigm.xyz/frontiers-2026
