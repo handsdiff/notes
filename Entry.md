@@ -104,6 +104,7 @@
 		- this relates to the desire for 'superhuman' performance, which may/may not conflict, i'd have to be explicit about it, with the multi agent goals
 		- how does this relate to the take that maybe the goal will appear in context because as an organizing method, local goals are written down
 	- data cleaning likely needs to ensure formatting is skipped, duplicates are handled, and for phase 2 if the agent doesn't have any reasonably confident completions, it shows nothing
+	- is it possible for reasoning to fit into the next write prediction? is this desired? worth testing in [[Phase 1 Details]]? something to be explicitly trained?
 
 
 
