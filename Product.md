@@ -109,3 +109,4 @@ i suspect everyone on team will need code handling + interactive html sharing na
 
 super annoying and slowing me down to have to constantly switch to obsidian, pick the right file, scroll all the way down, type the note, then go back to youtube and click play again. i lose train of thought to take rote action
 
+maintaining links is honestly annoying

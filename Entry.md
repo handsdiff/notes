@@ -34,6 +34,7 @@
 	- https://epoch.ai/publications/earthborne-rangers-benchmark continual learning benchmark
 	- who are the biggest screenpipe users? is anyone running prospective learning or reward inference algorithms on their data?
 		- https://github.com/screenpipe/screenpipe
+		- littlebird, dayflow, superhuman go, timescroll
 	- what happened to rewind? where are the users? what are they doing now?
 	- (read, app, content) and (write, app, content). obsidian covers some write. the browser history script that fetches some read and write, but some issues flagged by Fable.
 	- https://www.zyphra.com/our-work/plasticity-loss-in-continual-learning
@@ -113,6 +114,11 @@
 	- data cleaning likely needs to ensure formatting is skipped, duplicates are handled, and for phase 2 if the agent doesn't have any reasonably confident completions, it shows nothing
 	- is it possible for reasoning to fit into the next write prediction? is this desired? worth testing in [[Phase 1 Details]]? something to be explicitly trained?
 	- should read data be text or html? pros/cons?
+- discusses research similar to longNAP https://claude.ai/chat/d3de1f6d-cd67-404b-a93a-936b3a662d7e
+	- the most interesting related paper which I put into algorithms uses something called LifeTrace for collecting data, takes snapshots at 1 Hz (can we track keyboard usage and snapshot during a pause, like it occurs in git in this obsidian?)
+	- another one 
+- text > screenshots, tons of practical issues from related players around 
+- practically need text PII scrub
 
 
 
