@@ -250,4 +250,6 @@ i was trying to force in DPO/IPO as an attempt to create an implicit reward mode
 	a discriminator model that learns the diff between the human action given history and the model action given history, which results in an implicit reward function from logprob diffs the same way RLHF/DPO does (pending the optimality of the human)
 	a world model to determine observations from actions that could result in 2 step rollout 'samples' instead of 1 step rollout samples, compressing user next action BC learning with theoretically improved per step decision making, which would become way more plausible with other phase 1 models interacting with each other, and is less plausible for super high entropy browser search, code runs a la ECHO (but ECHO could be used), social media output
 	long chat that highlighted this https://chatgpt.com/c/6a5e760b-e110-83ea-9610-b0031962916e (discriminator diff measures model surprise which measures learning)
+
+is RL fundamentally replacing? am i searching for augmentative RL?
 	
