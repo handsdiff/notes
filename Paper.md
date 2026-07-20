@@ -6,17 +6,17 @@
 
 ## Abstract
 
-A person's computer activity forms a temporally ordered stream of information and action. Documents, webpages, messages, tool results, and model outputs become available; the person then writes, edits, searches, prompts, and sends. This paper proposes one learning problem over that stream: predict each bounded human write action from all events available before it. Eligible human writes are targets; everything previously observed, including rendered model outputs, is context.
+A person's computer activity forms a temporally ordered stream of information and action. Documents, webpages, messages, tool results, and model outputs become available; the person then writes, edits, searches, prompts, and sends. This paper studies personalized prediction of each bounded human write action from the events available before it. Eligible human writes supply targets, while previously observed events—including rendered model outputs—supply context.
 
-The method does not change after deployment. An initial personalized model is trained from historical activity. When its predictions are later rendered to the person, they enter the same stream as assistant-authored read events. Subsequent human actions are trained with the same masked next-action likelihood. The canonical model is updated continually from recent examples mixed with stratified historical replay and is published only after chronological prediction, retention, and capability checks.
+The model is bootstrapped from historical activity and then deployed inside the stream it learns from. Rendered predictions are recorded as assistant-authored read events, so later human actions are conditioned on the information the person actually encountered. The canonical model is updated continually from recent examples mixed with stratified historical replay and is published only after chronological prediction, retention, and capability checks.
 
-The ambition is a capable human–model system rather than a model that independently surpasses its human demonstrator. Good next-action prediction may benefit from representing the person's local objectives, but likelihood training does not identify a unique goal or reward. Likewise, lower prediction loss does not prove that model exposure helps. The central system hypothesis—that continually personalized assistance helps the person achieve acceptable outcomes faster or better—must be evaluated directly against unaided and static-assistant baselines.
+The human–model system is the object of evaluation. The central hypothesis is that continually personalized predictions help a person achieve acceptable outcomes faster or better than unaided work or static assistance. Good next-action prediction may benefit from representing the person's local objectives, although likelihood training alone cannot identify a unique goal or reward. Predictive accuracy and system benefit are therefore measured separately: held-out actions test the model, while controlled outcome comparisons test the assistance.
 
 ## 1. Vision and Claims
 
 Modern models possess broad knowledge but little grounding in the local state of one person's work. Explicit prompts expose only part of that state. Ordinary computer use supplies a denser record: what the person encountered, what they produced, how their work changed, and which model outputs became part of their thinking.
 
-The proposed system is
+The project studies the joint system
 
 $$
 \mathcal S_u
@@ -24,7 +24,7 @@ $$
 (\text{person},\text{model},\text{shared event stream},\text{continual update loop}).
 $$
 
-The objective is not to make the model superhuman in isolation. It is to test whether the joint system outperforms the same person working unaided or with a static assistant. The model supplies timely possible actions; the person contributes private context, judgment, correction, synthesis, and authority; the shared stream preserves their interaction; continual adaptation attempts to make future predictions more locally useful.
+The model supplies timely possible actions; the person contributes private context, judgment, correction, synthesis, and authority; the shared stream preserves their interaction; and continual adaptation updates the model as the person's work evolves. The project tests whether this joint system improves task outcomes relative to the same person working unaided or with a static assistant.
 
 The research claims form a ladder:
 
@@ -51,7 +51,7 @@ Accurate prediction in novel or ambiguous situations may reward an internal repr
 
 Objective understanding is therefore a diagnostic hypothesis rather than an assumption of the loss. It can be tested by comparing raw history with explicit objective induction, by evaluating contexts with similar surface form but different goals, and by measuring generalization to new actions within a familiar objective. Prediction remains anchored to held-out human actions; system benefit remains anchored to outcomes.
 
-## 2. One Interleaved Event Stream
+## 2. Interleaved Event Stream
 
 For principal $u$, let
 
@@ -81,7 +81,7 @@ $$
 
 where $C_\phi$ is a versioned context builder that orders, selects, truncates, retrieves, or compresses events to a token budget. The exact context supplied to a reported model call is content-addressed for audit.
 
-There is no separate mathematical object for a proposal slate. Once a model output becomes visible, it is an assistant-authored event in $\mathcal E_u$ and therefore part of the history for later actions. The prefix that generated an assistant event is simply the earlier prefix of the same stream. A separate pre-display context type or snapshot is unnecessary.
+Rendered model outputs are assistant-authored events in $\mathcal E_u$. Their availability times place them in the history of every later action, just as received messages or visible tool results are placed in that history. The earlier prefix of the ordered stream records what was available when each assistant event was generated, and generation provenance links the event to its exact model call.
 
 ### 2.1 Macro-actions
 
@@ -99,7 +99,7 @@ Macro-actions are segmented using observable commit boundaries such as submit or
 
 The core data constraint is availability, not eventual presence in an export. A completed assistant response cannot be placed before tokens rendered. A full webpage cannot be attached when only a small viewport was visible. A later note version cannot become context for an earlier edit. When availability is ambiguous, the event is marked uncertain or excluded rather than silently moved backward in time.
 
-## 3. One Next-Action Objective
+## 3. Next-Action Objective
 
 For serialized target tokens $y_t=(y_{t,1},\ldots,y_{t,L_t})$, define
 
@@ -123,13 +123,13 @@ $$
 
 Loss is masked on every context token and applied only to the human target. Assistant outputs, received messages, and earlier human actions supply context but are not copied as targets by virtue of appearing in the input.
 
-Every example has the same form $(u,h_t,y_t)$. There is no Phase 2 loss, preference pair, winner, loser, rolling preference reference, or special proposal-conditioned example type. Before live assistance, histories simply contain no outputs from this deployed model. After assistance begins, rendered outputs occur naturally in some histories.
+Every training example has the form $(u,h_t,y_t)$. Bootstrap examples are constructed from historical activity. During closed-loop deployment, some histories also contain rendered outputs from the deployed model as preceding assistant events. In both settings, the target is the person's subsequent bounded write action and the likelihood is defined exactly as above.
 
 The objective estimates behavior. It does not assert that the observed action is optimal, recover a counterfactual unaided action, identify which preceding event caused which target span, or optimize a global reward.
 
 ## 4. Bootstrap and Closed-Loop Deployment
 
-There are two operational periods but one learning method.
+Training begins with a historical bootstrap and continues during closed-loop deployment.
 
 ### 4.1 Bootstrap
 
@@ -155,7 +155,7 @@ The loop is:
 6. update the canonical model from recent examples plus replay;
 7. publish only if prediction, retention, capability, and safety gates pass.
 
-The transition from bootstrap to closed-loop use is operational, not mathematical. Exact copying, refinement, synthesis, rejection, and task switching require no new label type. They are different human actions following different histories.
+Both periods use the event-to-example construction in Section 2 and the objective in Section 3. Exact copying, refinement, synthesis, rejection, and task switching appear directly as different human actions following different histories.
 
 ### 4.3 Endogenous feedback
 
@@ -289,7 +289,7 @@ TrainingBatchManifest {
 }
 ```
 
-An assistant sample does not require a separate candidate record to participate in learning. If it is rendered, its event record contains the provenance needed to reconstruct the history. Unrendered generation telemetry may be retained operationally, but it is not placed in the person's observed stream.
+Each rendered assistant sample is stored as an event whose provenance supports exact history reconstruction. Unrendered generation telemetry may be retained operationally outside the person's observed stream.
 
 ## 7. Evaluation
 
@@ -397,7 +397,7 @@ procedure OFFER_POSSIBLE_NEXT_ACTIONS(pi_canonical, live_event_stream, K):
         ))
 ```
 
-No interaction-specific training record is created. Later human writes are processed by `BUILD_EXAMPLES`, which naturally includes these events when they occurred before the action.
+Later human writes are processed by `BUILD_EXAMPLES`, which includes rendered assistant events whenever they occurred before the action.
 
 ### Algorithm 3: Continually update the canonical policy
 
@@ -457,11 +457,11 @@ The method does not establish:
 - that the model is a world simulator, planner, or autonomous executor;
 - that one person's raw activity can be pooled safely across users or tenants.
 
-The method is intentionally narrower. It supplies a continually updated behavioral component inside a human-authorized system. More complex intervention selection, explicit outcome learning, simulation, or planning should be introduced only when a measured system failure identifies the missing capability.
+This scope defines a continually updated behavioral component inside a human-authorized system. Measured system failures can motivate additional capabilities such as intervention selection, explicit outcome learning, simulation, or planning.
 
 ## 10. Related Work
 
-Behavioral cloning is the direct statistical formulation of next-action learning. Carroll et al. motivate separating a learned human model from an agent designed to collaborate with it [1]. The present proposal initially shares one canonical model but preserves the distinction between predictive accuracy and system benefit.
+Behavioral cloning is the direct statistical formulation of next-action learning. Carroll et al. motivate separating a learned human model from an agent designed to collaborate with it [1]. The architecture here uses a canonical predictor within the collaborative system and evaluates its predictive accuracy separately from its effect on system outcomes.
 
 Matti et al. predict one user's keyboard and mouse actions from a short discrete history [2]. Shaikh et al. introduce naturalistic next-action prediction from multimodal computer-use streams and compare prompting, retrieval, supervised adaptation, and learned reasoning–retrieval [3]. These works provide the nearest predictive baselines.
 
@@ -475,7 +475,7 @@ Finally, work on influenceable preferences and feedback optimization warns that 
 
 ## 11. Minimal Implementation Sequence
 
-1. Collect and audit one interleaved event stream across Obsidian, browser, and AI chat.
+1. Collect and audit the interleaved event stream across Obsidian, browser, and AI chat.
 2. Reconstruct bounded human write actions and immutable chronological examples.
 3. Establish predictive signal and defeat trivial, wrong-history, and leakage baselines.
 4. Compare recent context, retrieval or memory, explicit objective induction, and supervised adaptation.
@@ -485,7 +485,7 @@ Finally, work on influenceable preferences and feedback optimization warns that 
 8. Compare human–model outcomes with unaided and static-assistant baselines.
 9. Continue only while prediction, retention, capability, user-control, and outcome gates pass.
 
-This sequence preserves the original ambition while keeping every failure attributable. The first paper tests whether the stream supports a useful continually personalized component and whether that component improves the system in which it is embedded. It does not require a separate preference-learning phase or a speculative planning stack.
+This sequence makes failures attributable while moving directly from personal event data to continually adapted assistance. The first paper tests whether the stream supports useful personalized next-action prediction and whether embedding that predictor in the person's workflow improves joint-system outcomes.
 
 ## References
 

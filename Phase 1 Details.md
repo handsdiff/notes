@@ -4,13 +4,13 @@
 
 ## Status
 
-This document specifies the bootstrap experimental program for [[Paper]]. The project has one learning method—next-human-action prediction from a single interleaved event stream—but it validates that method in stages. This note tests the predictive foundation before outputs from the deployed personalized model begin entering the stream.
+This document specifies the bootstrap experimental program for [[Paper]]. It tests next-human-action prediction from a temporally ordered personal event stream before outputs from the deployed personalized model begin entering that stream.
 
 The proposal contains no experimental results. Operational choices below are proposed defaults and should be fixed before inspecting held-out results.
 
 ## Abstract
 
-Personal AI requires data that makes an individual's context, behavior, and developing intentions legible. The first load-bearing claim is not that a system can infer a complete reward function or act superintelligently. It is that a temporally correct record of a person's read and write activity contains usable signal about what the person will do next.
+Personal AI requires data that makes an individual's context, behavior, and developing intentions legible. The first load-bearing claim is that a temporally correct record of a person's read and write activity contains usable signal about what the person will do next.
 
 We propose a gated sequence of experiments that attempts to invalidate this claim as cheaply as possible. Browser and AI-chat collection begins immediately because prospective context cannot be reconstructed reliably after the fact. In parallel, existing Obsidian Git history is used to validate event reconstruction, action segmentation, chronological splitting, and evaluation code. Once enough browser and chat context has accumulated, a fixed model is used to measure the incremental predictive value of each data source. Only if richer personal context improves prediction do we compare in-context learning, explicit memory or retrieval, and supervised fine-tuning. Only if at least one method exploits the signal do we study scaling with data volume, context budget, recency, and online accumulation.
 
@@ -18,7 +18,7 @@ The primary target is the next human-authored Obsidian macro-action: initially a
 
 ## 1. Purpose
 
-The claim ladder implied by the streamlined project is:
+The project is organized around the following claim ladder:
 
 1. ordinary computer use produces granular personal data;
 2. the data can be reconstructed into a faithful chronological event stream;
@@ -29,13 +29,13 @@ The claim ladder implied by the streamlined project is:
 7. rendered model predictions can improve the outcomes of the joint human–model system; and
 8. continual personalization can outperform the same human working unaided or with a static assistant without unacceptable forgetting or harmful convergence.
 
-Later claims depend on earlier ones. Testing the entire system at once would make a negative result uninterpretable. Phase 1 addresses Claims 1–5 directly and Claim 6 diagnostically through explicit objective-induction baselines and generalization tests. Claims 7–8 require controlled closed-loop deployment and system-level outcome evaluation. They are not new learning objectives.
+Later claims depend on earlier ones. Testing the entire system at once would make a negative result uninterpretable. Phase 1 addresses Claims 1–5 directly and Claim 6 diagnostically through explicit objective-induction baselines and generalization tests. Controlled closed-loop deployment and system-level outcome evaluation address Claims 7–8.
 
 The governing principle is:
 
-> Add one source of complexity only after the simpler system works or has failed in a way that identifies what must change.
+> Introduce complexity only when a simpler system has succeeded or failed in a way that identifies what must change.
 
-This is not primarily an attempt to maximize benchmark performance. It is an attempt to learn what the next experiment should be.
+The program prioritizes diagnostic experiments that identify the next useful question.
 
 ## 2. Core Questions
 
@@ -87,7 +87,7 @@ The first substantive algorithmic experiment begins only after Track A passes it
 
 ### 4.1 Prediction target
 
-The initial target is the next human-authored Obsidian macro-action. The preferred first unit is one newly added sentence or bullet. This is close to the original minimal formulation: given the previous Git history of `Entry.md`, predict the next added line or bullet.
+The initial target is the next human-authored Obsidian macro-action. The preferred first unit is one newly added sentence or bullet: given the prior Git history of `Entry.md`, predict the next added line or bullet.
 
 The first dataset should exclude or separately label:
 
@@ -155,7 +155,7 @@ interaction_id: optional grouping identifier for rendered outputs
 generation_context_hash: optional hash of the serialized generation input
 ```
 
-`available_at` is crucial. The dataset is intended to approximate what the person could have known at the moment of action, rather than what a collector discovered later. Assistant-generation fields are ordinary provenance: they do not create a second context type or a distinct training record.
+`available_at` is crucial. The dataset is intended to approximate what the person could have known at the moment of action, rather than what a collector discovered later. Assistant-generation fields preserve ordinary event provenance and use the same context reconstruction and training schema as other observed events.
 
 ### 5.2 Obsidian
 
@@ -288,9 +288,9 @@ For each context, construct a slate containing the actual next action and severa
 
 Negatives should be difficult enough to test personalization. Useful negatives include actions from the same file, project, time period, and approximate length. Random text from unrelated notes would make the task artificially easy. Candidate ranking also permits comparison with closed models that do not expose reliable token probabilities.
 
-### 7.3 System usefulness is not the primary metric yet
+### 7.3 System usefulness follows bootstrap validation
 
-The original notes consider ranking predictions by expected personal usefulness as well as predictive ability. These should be separated. Phase 1 asks whether the model predicts the observed next action. Usefulness is a property of the deployed human–model system and requires outcome measures plus unaided or static-assistant controls.
+Phase 1 measures whether the model predicts the observed next action. The deployed human–model system is evaluated separately on outcome measures under unaided, static-assistant, and continually personalized conditions.
 
 A small blinded human review may still diagnose whether high-probability alternatives are semantically appropriate despite differing from the recorded action, but it must not silently replace the preregistered prediction metric.
 
@@ -300,7 +300,7 @@ Actions within a day or editing session are correlated. Confidence intervals sho
 
 ## 8. Related Work and Baseline Selection
 
-Related work belongs in this proposal when it supplies an executable comparison or a diagnostic design choice. The goal is not to establish that every adjacent research area has been surveyed. Each adopted baseline should answer a specific question about the stack while changing as little else as possible.
+Related work is included when it supplies an executable comparison or a diagnostic design choice. Each adopted baseline should answer a specific question about the stack while changing as little else as possible.
 
 ### 8.1 Direct next-action prediction
 
@@ -348,7 +348,7 @@ This prevents a stronger base model from appearing to be a better continual lear
 
 ### 8.4 Adopted baseline schedule
 
-The baselines should enter in stages rather than as one large initial leaderboard.
+The baselines enter in a staged schedule that isolates a specific question at each step.
 
 | Stage | Baselines | Question isolated |
 |---|---|---|
@@ -361,9 +361,9 @@ The baselines should enter in stages rather than as one large initial leaderboar
 
 Every condition must use the same target set and respect the same temporal cutoff. Where the underlying model must differ, report that as a separate capability comparison rather than attributing the result entirely to the algorithm.
 
-### 8.5 Deliberate exclusions
+### 8.5 Baseline scope
 
-Memory systems evaluated only on question answering or factual recall are not primary baselines for next-action prediction. Neither are preference optimization, reward modeling, planning, or autonomous computer-use agents. Live exposure of model outputs belongs to later system evaluation, but it does not introduce a new estimator: rendered outputs become ordinary assistant-authored events in the same stream.
+Primary baselines predict the same bounded next-action target from temporally valid history. Memory systems evaluated only on question answering or factual recall serve as supporting evidence only when adapted to that target. Live exposure begins during system evaluation, where rendered outputs become timestamped assistant-authored events available to subsequent predictions.
 
 ## 9. Experimental Staircase
 
@@ -711,7 +711,7 @@ Those questions become worth testing only after the event stream has demonstrate
 
 Phase 1 ends with evidence about whether a personalized model can predict bounded human actions from a temporally valid event stream and can be updated on sealed future windows without unacceptable forgetting.
 
-Closed-loop deployment introduces no second learning method. At selected opportunities, the canonical predictor samples possible next human actions. Outputs confirmed as rendered are appended to the same stream as assistant-authored read events with content, availability time, policy version, and sampling provenance. Later human writes are converted into ordinary $(h_t,y_t)$ examples using every event available before the action.
+Closed-loop deployment continues the next-action method over an expanded stream. At selected opportunities, the canonical predictor samples possible next human actions. Outputs confirmed as rendered are appended as assistant-authored read events with content, availability time, policy version, and sampling provenance. Later human writes are converted into $(h_t,y_t)$ examples using every event available before the action.
 
 The next questions are system-level:
 
@@ -719,10 +719,10 @@ The next questions are system-level:
 2. Does continual personalization improve those outcomes beyond a static assistant?
 3. Does the closed loop remain stable, diverse, reversible, and under user control?
 
-Prediction likelihood continues to measure modeling. Randomized unaided and static-assistant comparisons measure benefit. No preference pair, pre-display context type, or correction label is required.
+Prediction likelihood continues to measure modeling. Randomized unaided and static-assistant comparisons measure the effect of assistance on system outcomes.
 
 ## 18. Conclusion
 
-The fastest path is not to run the largest model-method-data matrix immediately. It is to collect the irrecoverable browser and chat context now while using existing Obsidian history to make the pipeline real. The first substantive experiment then holds the model fixed and asks whether richer personal context improves prediction. The second holds the model and data fixed and asks whether raw ICL, retrieval, semantic memory, inferred objectives, or SFT uses that signal best. Learned retrieval and hybrid methods enter only after the simpler comparisons. Scaling, half-life, online repetition, and model-class comparisons follow only after these earlier claims survive.
+The experimental sequence begins by collecting irrecoverable browser and chat context while using existing Obsidian history to make the pipeline real. The first substantive experiment holds the model fixed and asks whether richer personal context improves prediction. The second holds the model and data fixed and asks whether raw ICL, retrieval, semantic memory, inferred objectives, or SFT uses that signal best. Learned retrieval and hybrid methods follow the simpler comparisons. Scaling, half-life, online repetition, and model-class comparisons follow when these earlier claims survive.
 
-This sequence preserves the original ambition while making failure useful. It can show that collection is inadequate, that personal context lacks signal for the chosen target, that context construction is poor, that current algorithms cannot exploit the signal, that explicit local objectives help, or that one personalization mechanism works. Only after those questions are resolved does the project test whether inserting model predictions into the shared stream improves the human–model system. Any of these results is more valuable than a complex end-to-end system whose failure cannot be located.
+This sequence makes each failure informative. It can show that collection is inadequate, that personal context lacks signal for the chosen target, that context construction is poor, that current algorithms cannot exploit the signal, that explicit local objectives help, or that a personalization mechanism works. Once those questions are resolved, the project tests whether inserting model predictions into the shared stream improves the human–model system.
