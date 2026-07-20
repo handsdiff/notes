@@ -3,20 +3,17 @@
 	- implement papers, tweet about it, write good blog posts, create nice repos
 - have starred events here [[Relevant Events]] get legitimacy visible then outreach to talk, also sam from stash
 
-- prev LBH: Come up with a new algorithms plan based on updated information, or invalidate plan further. If failed to invalidate, describe chosen algorithms and their loss functions compared to the non chosen algorithms. By Thursday.
-  - failed to invalidate
-  - spec [https://handsdiff.github.io/paper](https://handsdiff.github.io/paper)
-  - non chosen [https://handsdiff.github.io/algorithms](https://handsdiff.github.io/algorithms) (just discovered that the formatting is terrible, sorry)
-- new LBH: Articulate vision + addressed growing problem + evidence of time/money costs in a writeup (not necessarily public) by Monday, given better understanding of practical algorithms.
+- prev/new LBH: Articulate vision + addressed growing problem + evidence of time/money costs in a public writeup ~~(perhaps but not necessarily public)~~ by ~~Monday~~ Thursday, given better understanding of practical algorithms.
 - expected LBHs after
-  - Come up with a data plan or invalidate premises of direction. If failed to invalidate, describe data structures and ingestion surfaces compared to alternatives. 
-  - implement working data pipelines
-  - writeup on data structure and goal, different algorithms considered for this purpose, which ones make the most sense, which ones are different although they seem similar at a high level. by thursday after
-  - generate toy example comparing SFT vs ICL vs memory solutions VS different randomly selected amounts of context. by thursday after.
-  - writeup and publish. by monday after.
-  - update toy example with newly ingested data. by monday after.
-  - writeup and publish again. by thursday after.
-  - outreach to algorithms invalidators (ai engineer shortlist, neolab devs). by monday after. (~5.5 weeks)
+    - publish writeup, random tasking from [https://handsdiff.github.io/entry](https://handsdiff.github.io/entry)
+    - Come up with a data plan or invalidate premises of direction. If failed to invalidate, describe data structures and ingestion surfaces compared to alternatives.
+    - implement working data pipelines
+    - writeup on data structure and goal, different algorithms considered for this purpose, which ones make the most sense, which ones are different although they seem similar at a high level. by thursday after
+    - generate toy example comparing SFT vs ICL vs memory solutions VS different randomly selected amounts of context. by thursday after.
+    - writeup and publish. by monday after.
+    - update toy example with newly ingested data. by monday after.
+    - writeup and publish again. by thursday after.
+    - outreach to algorithms invalidators (ai engineer shortlist, neolab devs). by monday after. (~5.5 weeks)
 
 CURRENT
 - DONE [[Paper]], distilled from [[Algorithms]], step 1 is being concrete about the loss functions and algorithms used for phase 1, and concrete about which loss functions and algorithms could reasonably result in demonstrator outperformance for phase 2 from an assistance perspective rather than replacement perspective.
