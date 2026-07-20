@@ -214,3 +214,4 @@ currently thinking through how a currently unidentified target market, that im p
 	coding
 	taking notes
 	messaging others
+	social media output
