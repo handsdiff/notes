@@ -18,18 +18,16 @@ The primary target is the next human-authored Obsidian macro-action: initially a
 
 ## 1. Purpose
 
-The project is organized around the following claim ladder:
+The experiment follows the claim ladder in [[Paper]]:
 
-1. ordinary computer use produces granular personal data;
-2. the data can be reconstructed into a faithful chronological event stream;
-3. prior events contain signal about the person's next action;
-4. a model can extract that signal;
-5. personalization through context, memory, or weight updates improves extraction;
-6. difficult generalization may benefit from representing the person's implied local objective;
-7. rendered model predictions can improve the outcomes of the joint human–model system; and
-8. continual personalization can outperform the same human working unaided or with a static assistant without unacceptable forgetting or harmful convergence.
+1. ordinary activity can be reconstructed as a faithful chronological event stream;
+2. prior events contain signal about the person's next bounded write action;
+3. personal history, memory, or weight adaptation improves extraction of that signal;
+4. continual adaptation preserves useful older behavior while tracking genuine change;
+5. model outputs inserted into the stream can scaffold different or better human actions; and
+6. the continually personalized human–model system improves task outcomes relative to unaided work and static assistance.
 
-Later claims depend on earlier ones. Testing the entire system at once would make a negative result uninterpretable. Phase 1 addresses Claims 1–5 directly and Claim 6 diagnostically through explicit objective-induction baselines and generalization tests. Controlled closed-loop deployment and system-level outcome evaluation address Claims 7–8.
+Later claims depend on earlier ones. Testing the entire system at once would make a negative result uninterpretable. Phase 1 addresses Claims 1–3 directly and Claim 4 through sealed future windows, replay, and capability-retention tests. Explicit objective-induction baselines and generalization tests probe whether goal-like representations help explain Claims 2–3. Controlled closed-loop deployment and system-level outcome evaluation address Claims 5–6.
 
 The governing principle is:
 
@@ -536,16 +534,30 @@ The desired output is a family of capability-conditioned local scaling curves, n
 
 **Question:** Do the conclusions hold as new data arrives and the person's work changes?
 
-Repeat the frozen evaluation protocol on future windows. Each run trains or constructs memory only from earlier data and evaluates on a newly sealed interval. Track:
+Repeat the frozen evaluation protocol on future windows. Each run trains or constructs memory only from earlier data and evaluates on a newly sealed interval.
+
+For weight-updated systems, initialize each candidate from the previously accepted policy. Train it on recent finalized examples mixed with stratified replay from older accepted examples. Replay should cover time periods, applications, action families, and provenance rather than allowing dense recent editing sessions to dominate. Exclude rolling and fixed holdouts from both pools, and publish the candidate only if it passes recent prediction, historical retention, and general-capability gates.
+
+Where compute permits, compare four longitudinal conditions:
+
+1. a frozen personalized model;
+2. updates on recent examples only;
+3. updates on recent examples plus stratified replay; and
+4. cumulative retraining on all eligible history.
+
+Track:
 
 - absolute performance;
 - improvement from added personal context;
 - improvement from each personalization mechanism;
+- recent-window prediction gain;
+- fixed historical retention and per-slice regressions;
+- general reasoning, instruction-following, and tool-use retention;
 - changes in which modalities matter;
 - decay or transfer across projects;
 - collector and representation changes.
 
-This is the first meaningful test of continual personalization. It should remain offline so the predictive foundation can be measured before the deployed model changes the stream. In later closed-loop evaluation, rendered model outputs become ordinary assistant-authored events. Subsequent human writes are trained with the same next-action objective over the same event schema. The data distribution changes; the estimator does not.
+This is the first meaningful test of continual personalization. It should remain offline so the predictive foundation can be measured before the deployed model changes the stream. In later closed-loop evaluation, the accepted recent-plus-replay update continues while rendered model outputs become ordinary assistant-authored events. Subsequent human writes are trained with the same next-action objective over the same event schema. The data distribution changes; the estimator does not.
 
 ## 10. Baselines and Sanity Checks
 
@@ -586,7 +598,7 @@ Deliberately insert a future event in a private test fixture and verify that lea
 | Methods improve offline but decay quickly | data half-life or project shift | emphasize recent updates and online repetition |
 | No current method exploits demonstrably useful data | algorithmic benchmark | preserve the dataset and expose the failure clearly |
 
-The final row is an acceptable research outcome. It turns the personal stream into a concrete continual-learning benchmark rather than forcing a downstream proposal system to be built on an invalidated foundation.
+The final row is an acceptable research outcome. It turns the personal stream into a concrete continual-learning benchmark and prevents closed-loop deployment from being built on an invalidated predictive foundation.
 
 ## 12. Main Confounds to Prevent
 
@@ -652,6 +664,10 @@ Marginal personal-history gain is estimated for multiple history quantities and 
 
 The exact minimum effect size should be fixed after the pipeline smoke test but before examining the substantive held-out comparison. It should be large enough to affect a product or research decision, not merely statistically distinguishable because many correlated edits were counted as independent.
 
+### Continual-learning success
+
+Across sealed future windows, accepted recent-plus-replay updates improve or preserve prediction on the current distribution while keeping fixed historical slices and general capabilities within preregistered tolerances. Recent-only updates quantify the forgetting pressure, and rejected candidates remain unpublished. Success requires an auditable sequence of data cutoffs, replay samples, validation reports, and immutable accepted policy versions.
+
 ## 14. Implementation Order
 
 1. Start browser and chat collectors immediately.
@@ -667,8 +683,9 @@ The exact minimum effect size should be fixed after the pipeline smoke test but 
 11. Compare GUM-style proposition memory and JIT objective conditioning against the same raw evidence.
 12. If the simple methods work, add a LongNAP-style learned retrieval condition and a measured fine-tuning-plus-retrieval hybrid.
 13. Cross selected model-capability levels with chronological history quantities, then measure context-budget scaling, recency, modality, and data half-life using the methods that survived.
-14. Repeat on future sealed windows.
-15. Only then begin controlled closed-loop deployment in which model outputs enter the same event stream and joint-system outcomes are compared with unaided and static-assistant baselines.
+14. Repeat on future sealed windows and compare frozen, recent-only, recent-plus-replay, and cumulative conditions.
+15. Implement immutable candidate publication with recent prediction, historical retention, and general-capability gates.
+16. Only then begin controlled closed-loop deployment in which model outputs enter the same event stream and joint-system outcomes are compared with unaided and static-assistant baselines.
 
 This order moves quickly because collection and pipeline development overlap, but each reported comparison changes one main uncertainty at a time.
 
@@ -685,27 +702,19 @@ Phase 1 should produce:
 - frequency, GRU, raw-ICL, BM25, GUM, JIT-objective, SFT, and learned-retrieval evaluation adapters;
 - generative and candidate-ranking metrics;
 - capability-conditioned local scaling curves, marginal personal-history gains, and interaction estimates with uncertainty;
+- versioned recent/replay manifests, retention reports, and immutable policy-publication records;
 - a qualitative failure analysis keyed to source events;
 - a short decision report after each experimental gate.
 
 The decision reports matter as much as the final benchmark. Each should state which assumption survived, which failed, and what new complexity is justified next.
 
-## 16. Non-Goals
+## 16. Scope of Phase 1
 
-This experiment does not attempt to establish:
+Phase 1 establishes whether a temporally valid personal stream supports useful next-action prediction, whether personal history adds value beyond generic capability, whether goal-like representations improve difficult generalization, and whether continual updates can track new work without unacceptable forgetting.
 
-- a complete or stable human reward function;
-- that recorded behavior is optimal;
-- that prediction necessarily implies understanding;
-- that rendered model outputs improve the person;
-- that prediction loss directly optimizes which model output should be shown;
-- an implicit reward or value function;
-- autonomous computer use;
-- multi-agent coordination;
-- cross-user or enterprise generalization;
-- a final product architecture.
+It stops before the claims that require the model to participate in the person's work. Predictive success alone cannot establish that rendered samples improve outcomes, identify the best intervention to show, recover a unique personal reward, or prove that observed behavior is optimal. Those questions require the controlled closed-loop deployment described below.
 
-Those questions become worth testing only after the event stream has demonstrated predictive signal and at least one tractable method can use it. When live model outputs are later introduced, they use the same event schema and next-action estimator; only the deployed system and data distribution change.
+When live outputs are introduced, they use the same event schema and next-action estimator. The deployed system and data distribution change: rendered samples become timestamped assistant-authored events, and later human actions are learned in the context the person actually experienced.
 
 ## 17. Handoff to Closed-Loop Deployment
 
@@ -725,4 +734,4 @@ Prediction likelihood continues to measure modeling. Randomized unaided and stat
 
 The experimental sequence begins by collecting irrecoverable browser and chat context while using existing Obsidian history to make the pipeline real. The first substantive experiment holds the model fixed and asks whether richer personal context improves prediction. The second holds the model and data fixed and asks whether raw ICL, retrieval, semantic memory, inferred objectives, or SFT uses that signal best. Learned retrieval and hybrid methods follow the simpler comparisons. Scaling, half-life, online repetition, and model-class comparisons follow when these earlier claims survive.
 
-This sequence makes each failure informative. It can show that collection is inadequate, that personal context lacks signal for the chosen target, that context construction is poor, that current algorithms cannot exploit the signal, that explicit local objectives help, or that a personalization mechanism works. Once those questions are resolved, the project tests whether inserting model predictions into the shared stream improves the human–model system.
+This sequence makes each failure informative. It can show that collection is inadequate, that personal context lacks signal for the chosen target, that context construction is poor, that current algorithms cannot exploit the signal, that explicit local objectives help, or that a personalization mechanism works. Once those questions are resolved, the project tests whether presenting model-generated possibilities within the shared stream improves the human–model system.
