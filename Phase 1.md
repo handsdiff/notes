@@ -1,4 +1,3 @@
-# Phase 1
 
 *Learning to assist from personal read–write streams*
 
@@ -10,7 +9,7 @@ Most AI systems learn about a person only when the person stops working to expla
 
 This paper learns from that stream by predicting each bounded human write action from the events that were available before it. Historical activity bootstraps a personalized model. Once deployed, the model samples possible next actions and presents them to the person as part of the ordinary information stream. The person may use, ignore, transform, or move beyond them. Whatever the person does next becomes a new training target conditioned on the history they actually experienced. Continual updates mix these recent examples with stratified replay and publish new model versions only after prediction, retention, and capability checks.
 
-The aim is an increasingly capable human–model system. The model contributes broad knowledge, speed, and alternative continuations; the person contributes goals, private context, judgment, synthesis, and authority. The central hypothesis is that good next-action prediction in difficult cases requires useful representations of what the person is locally trying to accomplish, and that samples from such a model can help the person reach acceptable outcomes faster or better. Held-out actions test the predictive model. Controlled comparisons with unaided work and static assistance test the system it becomes part of.
+The aim is an increasingly capable human–model system. The model contributes broad knowledge, speed, and alternative continuations; the person contributes goals, private context, judgment, synthesis, and authority. The central hypothesis is that good next-action prediction in difficult cases requires useful representations of what the person is locally trying to accomplish, and that samples from such a model can help the person reach acceptable outcomes faster or better. Causally masked actions test the predictive model. Controlled comparisons with unaided work and static assistance test the system it becomes part of.
 
 ## 1. The Missing Substrate for Personal AI
 
