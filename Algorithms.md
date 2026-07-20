@@ -272,9 +272,9 @@ algorithms considered and rejected for now and why: (there are likely practicali
 - it doesnt seem like recsys is the right framework at all. its not really a recommendation. its more a prediction that influences the principal's behavior in some way. even if a 'rec' is good, i wouldnt just 'click accept', i would continue working with the suggestion in mind. loss still decreases if what i type is close to the suggestion. hmm. it changes how the loss function is modeled.
 - unresolved thread between online DPO, online IPO, mirror descent, nash mirror descent, MUPI toy example, recsys vs "suggsys"/two player game vs human model + agent model vs single model
 - tight feedback loops as the unifying value prop of the local vision
-- it feels like the transition from recsys to [[Paper]] is an implicit statement on replacement vs augmentation, but haven't fully articulated it
+- it feels like the transition from recsys to [[Phase 1]] is an implicit statement on replacement vs augmentation, but haven't fully articulated it
 - if the agent is being sampled and those are being shown to the user, and that impacts the user's behavior, since even though the policy may be constant, the input information is now different. the agents responses need to be stored in the data itself, so the human model can update to properly map how the human reacts to the agent's data. if the model is changing constantly to account for the changing agent policy, does the steady state behavior ever actually do something useful?
-- i need to review the loss function in [[Paper]], keeping in mind E2E-TTT and AssistanceZero. i dont like how its combining losses vs having a batch updated ref policy from BC that is used as the baseline for IPO
+- i need to review the loss function in [[Phase 2]], keeping in mind E2E-TTT and AssistanceZero. i dont like how its combining losses vs having a batch updated ref policy from BC that is used as the baseline for IPO
 - are there details with phase 1 that im overlooking? if its in an online setting, do i need to consider meta learning initialization, or replay buffers, or batched descent? and which loss is actually being used, just cross entropy? how often do i update relative to the plans for phase 2?
 - what are the tentative phase 3 plans, if any? i need to create a sandbox/harness that the agent can take actions in, and simulate in, seems to be the primary issue. but if i have that, what algorithms make most sense? Assistance games built on top of reward inference? is human preference data ever used as a value network for rollouts, rather than strict env rewards?
 - how to balance understanding exploration vs exploitation? if a model recommends exploitative action a and i take explorative action b, and the current hypothesis trains the model to have produced closer to b, 
@@ -330,7 +330,7 @@ algorithms considered and rejected for now and why: (there are likely practicali
 	- intended to extend to computer use to "finish predictable tasks for users by acting on predictions about what the user would do next"
 	- i feel like an intuitive understanding of it is using GRPO and self supervised training via prediction to optimize how memory works, since its fundamentally based on an append only log of history that is RAG searchable with BM25
 
-step 1 in local tasking is mostly described in the beginning of [[Paper]]. the only thing that feels weird is how to think through phase 2. the model will be displaying the next write actions it predicts based on the given history. that will actually result in an additional read event the model did not previously consider when it was sampled. how will it ever be able to learn to predict the write event well unless it learns to predict itself? does this actually prevent training or will a good model just figure out how its samples impact the user? the loss function forces its output to (1) be close to the users output and (2) distance itself from counterfactual samples. 
+step 1 in local tasking is mostly described in the beginning of [[Phase 1]]. the only thing that feels weird is how to think through phase 2. the model will be displaying the next write actions it predicts based on the given history. that will actually result in an additional read event the model did not previously consider when it was sampled. how will it ever be able to learn to predict the write event well unless it learns to predict itself? does this actually prevent training or will a good model just figure out how its samples impact the user? the loss function forces its output to (1) be close to the users output and (2) distance itself from counterfactual samples.
 
 it feels like if you just mask the model's samples from the model training then it's fine. the samples will impact the user but if that impact is positive and recognized as such by the user, then you are teaching the model to now predict a 'better' user, which is the goal anyways. if the impact is positive and unrecognized, the user will not use the product, which is a different question. if the impact is negative and recognized as such by the user, it will not be used, so it doesn't matter. and if the impact is negative and not recognized as such by the user, then nothing can help that user anyways
 
@@ -350,10 +350,8 @@ the formulation that the human does not know their reward function, or that the 
 
 there is a risk of amplification of the user's behavior whether thats positive or negative. but its more leverage, if built well. whether thats value creative or not seems up to the user?
 
-i kind of want to understand whether [[Paper]] makes sense from a theoretical perspective. like is this a solvable problem at a fundamental level? what is the complexity?
+i kind of want to understand whether [[Phase 1]] makes sense from a theoretical perspective. like is this a solvable problem at a fundamental level? what is the complexity?
 
 if local scaling laws are positive, then it may imply that building a better application for knowledge work is worthwhile, since improved data granularity improves custom models which leads to a large inference business
 
 longNAP continues to stand out
-
-

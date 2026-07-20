@@ -120,7 +120,7 @@
 		- this relates to the desire for 'superhuman' performance, which may/may not conflict, i'd have to be explicit about it, with the multi agent goals
 		- how does this relate to the take that maybe the goal will appear in context because as an organizing method, local goals are written down
 	- data cleaning likely needs to ensure formatting is skipped, duplicates are handled, and for phase 2 if the agent doesn't have any reasonably confident completions, it shows nothing
-	- is it possible for reasoning to fit into the next write prediction? is this desired? worth testing in [[Phase 1 Details]]? something to be explicitly trained?
+	- is it possible for reasoning to fit into the next write prediction? is this desired? worth testing in [[Phase 1#8. Experimental Program]]? something to be explicitly trained?
 	- should read data be text or html? pros/cons?
 - discusses research similar to longNAP https://claude.ai/chat/d3de1f6d-cd67-404b-a93a-936b3a662d7e
 	- the most interesting related paper which I put into algorithms uses something called LifeTrace for collecting data, takes snapshots at 1 Hz (can we track keyboard usage and snapshot during a pause, like it occurs in git in this obsidian?)
@@ -150,7 +150,7 @@
 		- Feels related to “what to do” not “how to do it”
 	- artificial wisdom as a reward model choice where artificial intelligence is slamming an existing reward model without question
 	- is this just 'horizontal' org memory scaling but more (perhaps unnecessarily) complex?
-	- is collecting agent traces sufficient if 80% of write actions are chatbot interactions? could this be an ablation in [[Paper]]?
+	- is collecting agent traces sufficient if 80% of write actions are chatbot interactions? could this be an ablation in [[Phase 1]]?
 	- https://centaur.run/ how does vision compare and contrast? what evidence, or if no evidence, beliefs support current direction over this? how to collect evidence asap for critical assumptions?
 		- "for tempo team to start adding Centaur on external channels with our partners to accelerate how we do customer support - I think this will be huge, as it lets you tap in its whole brain w/ fine grained perms vs having to have many bots etc"
 	- https://nusomi.com/
@@ -255,4 +255,3 @@ i was trying to force in DPO/IPO as an attempt to create an implicit reward mode
 	long chat that highlighted this https://chatgpt.com/c/6a5e760b-e110-83ea-9610-b0031962916e (discriminator diff measures model surprise which measures learning)
 
 is RL fundamentally replacing? am i searching for augmentative RL?
-

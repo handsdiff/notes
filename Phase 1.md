@@ -1,8 +1,8 @@
-# Learning to Assist from Personal Read–Write Streams
+# Phase 1
 
-*Continual next-action prediction inside a human–model system*
+*Learning to assist from personal read–write streams*
 
-**Status:** Working paper proposal. This document contains no experimental results. The executable bootstrap experiment is specified in [[Phase 1 Details]].
+**Status:** Working research plan. This document contains no experimental results. It specifies the predictive bootstrap, closed-loop behavioral learning, assumptions, and executable experiments for the first phase of the project.
 
 ## Abstract
 
@@ -58,6 +58,25 @@ $$
 Accurate prediction in novel or ambiguous situations may reward an internal representation of $p_u(g\mid h)$. The representation need not be unique, human-readable, stable across tasks, or equivalent to a reward function. The claim is practical: a model that tracks the person's local objective should generalize beyond literal repetition and produce more relevant possibilities at the frontier of the work.
 
 This is a testable bridge rather than a property guaranteed by likelihood training. Raw history can be compared with explicit objective induction; contexts with similar surface form but different goals can test discrimination; and novel actions within a familiar objective can test abstraction. Held-out actions measure prediction, while task outcomes measure whether whatever the model learned is useful in the joint system.
+
+### 1.2 Assumptions and claim boundaries
+
+The work rests on a ranked set of assumptions. They are ordered so that an early failure can stop or redirect the program before later machinery obscures it.
+
+1. **The observable stream contains marginal, goal-relevant information.** Correctly timed browser activity, chats, note state, and prior actions must predict semantic content better than the current artifact and generic knowledge alone.
+2. **Difficult prediction contains objective-level structure.** Repetition and style will explain some behavior, but novel or ambiguous actions should benefit from representing what the person is locally trying to accomplish. No unique, stable, or human-readable latent goal is assumed.
+3. **Predictive competence produces useful possibilities.** A model that learns punctuation or favorite files may compress behavior without helping. Samples must sometimes remind, challenge, reframe, or make a costly continuation available sooner.
+4. **The exposed interaction remains a valid prediction problem.** Once a model sample is rendered, it is part of the person's actual information state. The later human action is therefore a valid behavioral target conditioned on that expanded history.
+5. **The closed loop can improve the joint system without harmful convergence.** Repeated exposure may also anchor the person, narrow behavior, or select for predictability. Outcome controls, exposure limits, provenance, override, diversity audits, and rollback are mandatory.
+6. **Personal context still matters at high base-model capability.** The principal quantity is the within-model gain from correct personal history over no, wrong, or mismatched history—not whether a small personalized model beats an older generic model.
+7. **The pre-action information state can be reconstructed faithfully.** Visible spans, rendered assistant tokens, authorship, timing, and action onset must be known well enough to prevent future leakage.
+8. **The macro-action is a meaningful boundary.** Sentences, bullets, queries, messages, and coherent edit bursts must be large enough to express intent and small enough to be predicted from a single information state.
+9. **Personalization can add local knowledge without sacrificing general capability.** Publication requires both personal prediction gains and retention of reasoning, instruction following, tool use, and unfamiliar-task performance.
+10. **Relevant evidence can be selected from a long, noisy history.** Oracle-context comparisons distinguish missing information from failed retrieval, compression, or context construction.
+11. **Useful evidence accumulates faster than it becomes stale.** Recent data must track genuine movement without letting one session dominate; replay must preserve durable workflows without freezing the model in the past.
+12. **Evaluation can separate prediction, representation, and system benefit.** Chronological prediction, objective-representation diagnostics, and randomized outcome comparisons are different claims and require different evidence.
+
+The observed human action is not assumed to be globally optimal. Phase 1 learns behavior and tests whether predictions help the person; it does not recover a reward function. After samples are shown, the stronger local assumption needed for comparative learning is deferred to [[Phase 2]]: the person's subsequent action is treated as superior to the rendered proposal for the local decision. Keeping that assumption out of the Phase 1 objective preserves a clean test of the behavioral substrate.
 
 ## 2. Interleaved Event Stream
 
@@ -141,7 +160,7 @@ Training begins with a historical bootstrap and continues during closed-loop dep
 
 ### 4.1 Bootstrap
 
-Historical human activity supplies chronological next-action examples. The initial personalized canonical policy $\pi_0$ is trained or configured using in-context history, retrieval, memory, supervised fine-tuning, or a measured combination. [[Phase 1 Details]] specifies the gated experiment that tests collection fidelity, predictive signal, personalization mechanisms, objective-representation diagnostics, and local scaling behavior before live deployment.
+Historical human activity supplies chronological next-action examples. The initial personalized canonical policy $\pi_0$ is trained or configured using in-context history, retrieval, memory, supervised fine-tuning, or a measured combination. Section 8 specifies the gated experiment that tests collection fidelity, predictive signal, personalization mechanisms, objective-representation diagnostics, and local scaling behavior before live deployment.
 
 ### 4.2 Learning through participation
 
@@ -354,7 +373,99 @@ Training need not require goal annotations, but an outcome experiment needs boun
 
 Track prediction and outcomes across policy versions, exposure rates, applications, and projects. Audit anchoring, copied-content rate, behavioral diversity, reversals, ignored suggestions, interruption, user override, capability retention, and recovery after rollback. A system that becomes easier to predict while making the person's work worse has failed.
 
-## 8. Algorithms
+## 8. Experimental Program
+
+Phase 1 is a sequence of gates, not a single end-to-end wager. Prospective collection begins immediately because the most important evidence cannot be reconstructed reliably after the fact. In parallel, existing Obsidian history is used to validate segmentation, serialization, training, and evaluation without pretending that it contains browser or chat context that was never captured.
+
+### 8.1 Core questions
+
+- **Q0 — reconstruction:** can the event stream and exact pre-action information state be reconstructed faithfully?
+- **Q1 — signal:** does existing note history support a mechanically valid next-action task and defeat trivial baselines?
+- **Q2 — source value:** do correctly timed browser and chat events improve prediction beyond the artifact and prior writes?
+- **Q3 — personalization:** when raw context is insufficient, which combination of retrieval, semantic memory, explicit objective induction, and supervised adaptation extracts the signal best?
+- **Q4 — scaling:** how does the marginal value of personal evidence change with model capability, data quantity, recency, and context budget?
+
+The central unit is a finalized human write macro-action. The input contains only events whose `available_at` precedes the action's `began_at`; the target contains the complete committed action; evaluation is paired on identical future targets. Token-level likelihood is reported per action and aggregated with session- or day-level uncertainty so long editing bursts do not masquerade as independent evidence.
+
+### 8.2 Data collection and integrity
+
+Collection covers three initial surfaces:
+
+- **Obsidian:** note snapshots or patches, cursor and selection state when available, visible text, save or focus boundaries, pasted-versus-authored provenance, and coherent edit bursts.
+- **Browser:** URL and title, visible or consumed spans rather than eventual page contents, searches, navigation, media progress, focus state, and timestamps.
+- **AI chats:** prompts, token-render times, tool results, attachments, branching or regeneration state, and assistant text actually exposed before the next human action.
+
+All sources map into the common `Event` record in Section 6. Raw content is immutable and content-addressed; corrections create superseding records. Clock normalization, collector version, privacy state, duplicate suppression, uncertain availability, and source provenance remain explicit. Sensitive or excluded content is removed before dataset publication, not merely hidden from the serializer.
+
+Before modeling, a manually audited sample must pass reconstruction gates for temporal ordering, visible-content fidelity, authorship, action boundaries, source completeness, and absence of future leakage. Failure here blocks predictive claims.
+
+### 8.3 Chronology, manifests, and readiness gates
+
+Splits are chronological and separated by an embargo at least as long as the largest ordinary context window. No random action-level split is permitted. Context retrieval may search only records available by the target cutoff; fine-tuning sees only the training window; model and context-builder selection use validation; the final test window remains sealed until the analysis is frozen.
+
+Every dataset release freezes:
+
+- raw-event snapshot and exclusion policy;
+- segmentation and context-builder versions;
+- train, validation, embargo, and test cutoffs;
+- example IDs, content hashes, and target-token counts;
+- model, tokenizer, prompt, retrieval index, and sampling configuration;
+- metric definitions and predeclared slices.
+
+The first full comparison begins only after the capture audit passes, the target boundary is stable, each major source has usable coverage, and the sealed window contains enough independent sessions and content-bearing actions to estimate paired effects. Calendar time and number of actions are reported, but readiness is determined by coverage and effective sample size.
+
+### 8.4 Experimental staircase
+
+**Experiment 0 — collector and reconstruction audit.** Manually replay sampled sessions from each source. Measure missing-event rate, ordering error, incorrect visible-span rate, authorship error, segmentation disagreement, and leakage. This experiment establishes whether the proposed dataset exists.
+
+**Experiment 1 — Obsidian-only smoke test.** Construct chronological note-edit examples and compare last-action repetition, nearest-neighbor continuation, current-note-only prompting, and temporally valid note history. Inspect high-gain examples to determine whether improvements concern content or only syntax and location.
+
+**Experiment 2 — source ablation.** On an identical sealed target set, compare current artifact; recent writes; notes; browser; chats; all correctly timed sources; shuffled sources; wrong-time sources; and a small manually selected oracle context. The oracle distinguishes a failed data thesis from a failed selector.
+
+**Experiment 3 — personalization mechanism.** Under matched model and evidence budgets, compare raw long context, retrieval, semantic memory, explicit current-objective induction, supervised adaptation, and measured combinations. The explicit-objective condition must be evaluated by its effect on held-out actions, not by how persuasive its summaries sound.
+
+**Experiment 4 — local scaling.** Vary base-model capability, personal-data quantity, recency, context budget, and adaptation capacity. Report the within-model gain from correct personal evidence and interactions among these factors. This tests whether capability substitutes for personal context or makes better use of it.
+
+**Experiment 5 — prospective repetition and continual update.** Freeze the analysis, repeat it on a later untouched interval, then simulate or deploy recent-plus-replay updates. Measure recent gain, historical retention, capability retention, calibration, and recovery after project changes. Only after these gates pass are samples rendered in controlled live windows.
+
+### 8.5 Baselines and metrics
+
+The adopted baseline schedule is deliberately narrow at first:
+
+1. last action, common action, and edit-location heuristics;
+2. same model with no personal history;
+3. same model with correct, shuffled, mismatched-person, and wrong-time history;
+4. retrieval and semantic-memory baselines;
+5. explicit-objective induction;
+6. supervised personalization and recent-plus-replay continual adaptation.
+
+Primary predictive metrics are target-token negative log-likelihood, recorded-action rank among content-sensitive alternatives, operation and location accuracy, exact or semantic top-$k$ inclusion, and calibration. Hard negatives should preserve surface form while changing the active goal, or preserve the goal while changing the plausible action. Report by application, action family, target length, novelty, copy provenance, and whether assistant-authored events occur in context.
+
+The live system evaluation compares unaided work, a fixed assistant, and the continually adapted assistant on bounded tasks. Outcomes include time to an acceptable result, blinded quality, error and rework, completion, interruption, and user-assessed goal satisfaction. Exposure is randomized where causal benefit is claimed.
+
+### 8.6 Confounds and stopping rules
+
+The analysis must not conflate data quantity, context quantity, and optimizer exposure; base capability and personalization method; stylistic fit and content prediction; repeated text and authorship; or next-action prediction and eventual outcome. Behavioral adaptation to collection is measured by pre/post capture comparisons. Inferred objectives are constructed from training-time evidence only and never validated against information from the target action itself.
+
+Stop or redirect when the corresponding weakest link fails:
+
+| Failure | Interpretation | Next move |
+|---|---|---|
+| reconstruction audit fails | the proposed stream is fictional | repair capture before modeling |
+| correct history does not beat controls | little usable personal signal at this boundary | change source coverage or action granularity |
+| oracle context helps but automatic context does not | selection, not data, is the bottleneck | improve retrieval or representation |
+| personalization helps likelihood but not content-sensitive ranking | mostly style or workflow mimicry | redesign targets and hard negatives |
+| stronger models erase personal-history gain | scale substitutes for the stream | narrow the thesis or test rarer private context |
+| live prediction improves but outcomes do not | predictor is not useful assistance | change interface, timing, or sample diversity |
+| outcomes or diversity regress | harmful closed-loop convergence | stop exposure and roll back |
+
+### 8.7 Phase 1 success
+
+Phase 1 succeeds when a frontier-capable model with automatically constructed, temporally valid personal context produces a repeatable and product-relevant gain on future chronological macro-actions over the same model with no, wrong, and mismatched history; the gain survives content-sensitive controls, appears in novel or goal-ambiguous cases, and does not degrade general capabilities. Controlled deployment must then show that rendering samples can improve bounded human–model outcomes without unacceptable anchoring or loss of diversity.
+
+It need not show that a smaller personal model surpasses the strongest generic model. It need not recover a reward function, prove a unique latent goal, or make every suggestion useful. The output of the phase is a validated event substrate, a canonical continually trained behavioral policy, and a controlled interaction stream from which Phase 2 can learn explicit local comparisons.
+
+## 9. Algorithms
 
 ### Algorithm 1: Construct next-action examples
 
@@ -453,7 +564,7 @@ procedure UPDATE_CANONICAL(pi_previous, incoming_examples, replay_state, config)
     return pi_previous, replay_state
 ```
 
-## 9. What the Method Can Establish
+## 10. What the Method Can Establish
 
 The proposal supports three progressively stronger kinds of claim:
 
@@ -465,7 +576,7 @@ Each claim has its own evidence. Likelihood on held-out actions establishes pred
 
 This separation matters because the stream records temporal conditioning, not full causal credit. An observed action need not be optimal; a preceding model output need not have caused it; and a good predictor need not have recovered a unique personal reward. Continual likelihood learning also estimates behavior rather than directly selecting the best moment or content for an intervention. Replay, capability tests, exposure controls, and rollback keep those limits measurable while the core hypothesis is tested.
 
-## 10. Related Work
+## 11. Related Work
 
 Behavioral cloning is the direct statistical formulation of next-action learning. Carroll et al. motivate separating a learned human model from an agent designed to collaborate with it [1]. The architecture here uses a canonical predictor within the collaborative system and evaluates its predictive accuracy separately from its effect on system outcomes.
 
@@ -479,21 +590,27 @@ General User Models and Just-In-Time Objectives provide contrasting representati
 
 Finally, work on influenceable preferences and feedback optimization warns that systems can change the behavior they later learn from and may optimize for easier feedback rather than better outcomes [9, 10]. The proposed closed loop therefore requires outcome controls, exposure provenance, and rollback even though it does not optimize clicks or ratings.
 
-## 11. Research Program
+## 12. Implementation Order and Required Artifacts
 
-1. Collect and audit the interleaved event stream across Obsidian, browser, and AI chat.
-2. Reconstruct bounded human write actions and immutable chronological examples.
-3. Establish predictive signal and defeat trivial, wrong-history, and leakage baselines.
-4. Compare recent context, retrieval or memory, explicit objective induction, and supervised adaptation.
-5. Measure scaling with personal-data quantity, recency, modality, context budget, and model capability.
-6. Repeat on sealed future windows and implement recent-plus-replay continual updates.
-7. Deploy model predictions as clearly attributed events at a controlled exposure rate.
-8. Compare human–model outcomes with unaided and static-assistant baselines.
-9. Continue only while prediction, retention, capability, user-control, and outcome gates pass.
+The local work proceeds in the following order:
 
-This sequence makes failures attributable while moving directly from personal event data to continually adapted assistance. The first paper tests whether the stream supports useful personalized next-action prediction and whether embedding that predictor in the person's workflow improves joint-system outcomes.
+1. implement append-only collectors and clock normalization;
+2. audit reconstructed sessions and repair capture until Experiment 0 passes;
+3. version macro-action segmentation and build immutable examples;
+4. freeze chronological manifests and implement leakage tests;
+5. run the Obsidian smoke test and source ablations;
+6. add retrieval, semantic memory, objective induction, and supervised adaptation;
+7. measure local scaling and repeat on a sealed prospective interval;
+8. implement recent-plus-replay continual publication with rollback;
+9. render samples only in controlled, attributable exposure windows;
+10. evaluate joint-system outcomes and closed-loop stability;
+11. publish the Phase 2 comparison dataset only after pair-validity audits pass.
 
-## 12. Conclusion
+The required artifacts are the collector specification, privacy and exclusion policy, reconstruction audit, segmentation guide, immutable dataset manifests, leakage test suite, baseline harness, evaluation protocol, continual-training manifest, replay index, capability-retention suite, exposure log, randomized outcome protocol, rollback procedure, and model card for every accepted policy version.
+
+The clean handoff to [[Phase 2]] is a stream of interactions containing: the exact prefix before proposal generation, every candidate generated, the subset actually rendered with token-level availability, the later human macro-action, and the behavioral prefix containing what the person really saw. Phase 1 can ignore the pairwise interpretation and continue BC. Phase 2 can use the same immutable events to improve a separate proposer or learn a reusable local reward.
+
+## 13. Conclusion
 
 Personal AI needs a way to learn how one person's changing context becomes action. A temporally faithful read–write stream provides that substrate. It contains what the person encountered, what they chose to do, how their work evolved, and—once the model is deployed—how model-generated possibilities entered the process.
 
