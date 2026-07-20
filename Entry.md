@@ -255,3 +255,14 @@ i was trying to force in DPO/IPO as an attempt to create an implicit reward mode
 	long chat that highlighted this https://chatgpt.com/c/6a5e760b-e110-83ea-9610-b0031962916e (discriminator diff measures model surprise which measures learning)
 
 is RL fundamentally replacing? am i searching for augmentative RL?
+
+enterprise meetings are a form of coordination costs. is the point to reduce meeting time? whats the size of this problem in dollars?
+
+human <> agent <> other human coordination is a form of coordination cost. is this the point? whats the size of this problem in dollars?
+
+knowledge sharing is an enterprise coordination cost
+
+enterprises pay for notion
+mesa is a new startup that got a lot of buzz
+
+the original vision was solving coordination via multi agent systems, but they suffered from lack of context and lack of emulation. you need both. solving context may involve increased data (and reward function) elicitation, but human replacement is a poor product choice given our historical learned emphasis on building products that are maximally engaging, not used once in a while. 
