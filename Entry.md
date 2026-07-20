@@ -1,6 +1,4 @@
 
-- https://x.com/fujikanaeda/status/2078465725065523494?s=20
-- https://x.com/deanwball/status/2078133895766114412?s=20
 - random work
 	- find and sign up for events
 		- apply for paradigm's frontiers hackathon https://www.paradigm.xyz/frontiers-2026
