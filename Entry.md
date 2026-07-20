@@ -231,7 +231,7 @@ Beginning to wonder whether the tightest bottleneck is not human to AI data/rewa
 
 currently thinking through how a currently unidentified target market, that im proxing to myself and my team, actually uses computers/AI.
 	lots of prompting (60-80%?)
-	search into browser
+	search into browser (do i actually even do this anymore? if i do, am i just looking at the AI summary?)
 	coding
 	taking notes
 	messaging others
@@ -245,3 +245,6 @@ how impactful is local data? (relates to local data laws experiment)
 'superhuman model performance' is incompatible with an augmentation value proposition, as opposed to a replacement value proposition. augmentation's goal is superhuman system/centaur performance, which is the goal of any tool.
 
 i was trying to force in DPO/IPO as an attempt to create an implicit reward model that could be used for actual rollouts. this is overly complex and reduces the likelihood of a successful phase 1. this is informed by the characterization of a centaur model as just one implementation of a human model. clearly a human model is useful for this. is it useful for other things?
+	a discriminator model that learns the diff between the human action given history and the model action given history, which results in an implicit reward function from logprob diffs the same way RLHF/DPO does
+	a world model to determine observations from actions that could result in 2 step rollout 'samples' instead of 1 step rollout samples, compressing user next action BC learning with theoretically improved per step decision making, which would become way more plausible with other phase 1 models interacting with each other, and is less plausible for super high entropy browser search, code runs a la ECHO (but ECHO could be used), social media output
+	

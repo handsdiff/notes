@@ -1,22 +1,28 @@
-# Continual Next-Action Learning from Personal Human–Model Event Streams
+# Learning to Assist from Personal Read–Write Streams
 
-*A focused method for personalized prediction and closed-loop human–model assistance*
+*Continual next-action prediction inside a human–model system*
 
 **Status:** Working paper proposal. This document contains no experimental results. The executable bootstrap experiment is specified in [[Phase 1 Details]].
 
 ## Abstract
 
-A person's computer activity forms a temporally ordered stream of information and action. Documents, webpages, messages, tool results, and model outputs become available; the person then writes, edits, searches, prompts, and sends. This paper studies personalized prediction of each bounded human write action from the events available before it. Eligible human writes supply targets, while previously observed events—including rendered model outputs—supply context.
+Most AI systems learn about a person only when the person stops working to explain what they want. Ordinary computer use already contains a richer record. A person reads documents, browses pages, receives messages and model outputs, edits notes, writes queries, sends messages, and changes artifacts. Together these events form a temporal stream of information becoming action.
 
-The model is bootstrapped from historical activity and then deployed inside the stream it learns from. Rendered predictions are recorded as assistant-authored read events, so later human actions are conditioned on the information the person actually encountered. The canonical model is updated continually from recent examples mixed with stratified historical replay and is published only after chronological prediction, retention, and capability checks.
+This paper learns from that stream by predicting each bounded human write action from the events that were available before it. Historical activity bootstraps a personalized model. Once deployed, the model samples possible next actions and presents them to the person as part of the ordinary information stream. The person may use, ignore, transform, or move beyond them. Whatever the person does next becomes a new training target conditioned on the history they actually experienced. Continual updates mix these recent examples with stratified replay and publish new model versions only after prediction, retention, and capability checks.
 
-The human–model system is the object of evaluation. The central hypothesis is that continually personalized predictions help a person achieve acceptable outcomes faster or better than unaided work or static assistance. Good next-action prediction may benefit from representing the person's local objectives, although likelihood training alone cannot identify a unique goal or reward. Predictive accuracy and system benefit are therefore measured separately: held-out actions test the model, while controlled outcome comparisons test the assistance.
+The aim is an increasingly capable human–model system. The model contributes broad knowledge, speed, and alternative continuations; the person contributes goals, private context, judgment, synthesis, and authority. The central hypothesis is that good next-action prediction in difficult cases requires useful representations of what the person is locally trying to accomplish, and that samples from such a model can help the person reach acceptable outcomes faster or better. Held-out actions test the predictive model. Controlled comparisons with unaided work and static assistance test the system it becomes part of.
 
-## 1. Vision and Claims
+## 1. The Missing Substrate for Personal AI
 
-Modern models possess broad knowledge but little grounding in the local state of one person's work. Explicit prompts expose only part of that state. Ordinary computer use supplies a denser record: what the person encountered, what they produced, how their work changed, and which model outputs became part of their thinking.
+A broadly capable model may know how to write, search, analyze, code, or operate software while still having little basis for deciding which action would matter to a particular person now. The missing information is often tacit and fast-changing: the argument the person is developing, the question behind a search, the constraint introduced by a message, the connection they have not yet written down, or the project that has quietly become more important than yesterday's task.
 
-The project studies the joint system
+Explicit prompts reveal fragments of this state. Conventional memory systems preserve facts the person or model already chose to record. Ratings and rankings can provide clearer feedback, but asking for them continuously would turn ordinary work into a labeling exercise. Personal, nondeterministic, and fresh context cannot simply be purchased with more compute or recovered reliably after the fact.
+
+The work itself is a more natural source of supervision. Inbound events show what became available to the person. Outbound actions show what they did next. Their temporal interleaving records how context, judgment, and intention became behavior. A model that can predict that transformation has learned something more useful than a profile of stable preferences: it has learned to track the moving edge of a person's work.
+
+The learning loop becomes richer when the model participates. Its samples are not merely answers to accept or reject; once shown, they become material the person can think with. A suggestion may be copied, edited, combined with another idea, rejected, or used as the catalyst for a different action. The resulting human action remains in the same stream. The interface therefore creates continual supervision without requiring a separate feedback ritual: the model contributes possibilities, the person continues working, and the shared history teaches the next version.
+
+The object of study is the joint system
 
 $$
 \mathcal S_u
@@ -24,7 +30,7 @@ $$
 (\text{person},\text{model},\text{shared event stream},\text{continual update loop}).
 $$
 
-The model supplies timely possible actions; the person contributes private context, judgment, correction, synthesis, and authority; the shared stream preserves their interaction; and continual adaptation updates the model as the person's work evolves. The project tests whether this joint system improves task outcomes relative to the same person working unaided or with a static assistant.
+This system is successful when the model's capabilities and the person's judgment combine to produce work that is faster, better, or newly possible. A useful suggestion need not resemble the final action. Its value may lie in reminding, challenging, reframing, or making an otherwise costly line of thought available at the right moment. The project therefore tests both whether the model learns the person and whether the person–model loop benefits from what it learns.
 
 The research claims form a ladder:
 
@@ -37,9 +43,11 @@ The research claims form a ladder:
 
 Claims 1–4 concern data and prediction. Claims 5–6 concern the deployed system and require intervention-aware outcome evaluation. A failure at one step should not be hidden by adding machinery at a later step.
 
-### 1.1 Implied local objectives
+### 1.1 From prediction to implied local objectives
 
-Let $g_t$ denote the person's active local objective. It may be explicit in the stream or latent to the model. Conceptually, human behavior can be written as $H_u(y\mid h,g)$, while a predictor without a separate goal label estimates
+Much of a person's next action can be predicted from repetition, style, and workflow regularity. The more consequential cases require something else. To anticipate a novel sentence, search, edit, or prompt, a model may need to infer what the current work is for: which ambiguity is being resolved, which result would count as progress, and which constraint makes an otherwise sensible action wrong.
+
+Let $g_t$ denote this active local objective. It may be stated explicitly in the stream or remain latent to the model. Conceptually, human behavior can be written as $H_u(y\mid h,g)$, while a predictor without a separate goal label estimates
 
 $$
 p_u(y\mid h)
@@ -47,9 +55,9 @@ p_u(y\mid h)
 \int H_u(y\mid h,g)\,p_u(g\mid h)\,dg.
 $$
 
-Accurate prediction in novel or ambiguous situations may reward an internal representation of $p_u(g\mid h)$. It does not require that the representation be unique, human-readable, stable across tasks, or equivalent to a reward function. A model may also predict well from repetition, style, or shallow workflow regularities.
+Accurate prediction in novel or ambiguous situations may reward an internal representation of $p_u(g\mid h)$. The representation need not be unique, human-readable, stable across tasks, or equivalent to a reward function. The claim is practical: a model that tracks the person's local objective should generalize beyond literal repetition and produce more relevant possibilities at the frontier of the work.
 
-Objective understanding is therefore a diagnostic hypothesis rather than an assumption of the loss. It can be tested by comparing raw history with explicit objective induction, by evaluating contexts with similar surface form but different goals, and by measuring generalization to new actions within a familiar objective. Prediction remains anchored to held-out human actions; system benefit remains anchored to outcomes.
+This is a testable bridge rather than a property guaranteed by likelihood training. Raw history can be compared with explicit objective induction; contexts with similar surface form but different goals can test discrimination; and novel actions within a familiar objective can test abstraction. Held-out actions measure prediction, while task outcomes measure whether whatever the model learned is useful in the joint system.
 
 ## 2. Interleaved Event Stream
 
@@ -135,9 +143,11 @@ Training begins with a historical bootstrap and continues during closed-loop dep
 
 Historical human activity supplies chronological next-action examples. The initial personalized canonical policy $\pi_0$ is trained or configured using in-context history, retrieval, memory, supervised fine-tuning, or a measured combination. [[Phase 1 Details]] specifies the gated experiment that tests collection fidelity, predictive signal, personalization mechanisms, objective-representation diagnostics, and local scaling behavior before live deployment.
 
-### 4.2 Closed-loop continual deployment
+### 4.2 Learning through participation
 
-At an appropriate action opportunity, the current canonical policy samples possible next human actions:
+The deployed model turns prediction into an interaction. At an appropriate moment, it produces several possible continuations and makes some of them visible. These are possibilities for the person to think with, not items that must be graded. Their effect may appear as direct use, refinement, synthesis, rejection, a task switch, or an action whose connection to the sample is invisible from text alone. The observable learning signal is the next human action in the history that actually occurred.
+
+Formally, the current canonical policy samples possible next human actions:
 
 $$
 z_{t,1:K}\sim\pi_d(\cdot\mid h_t,u).
@@ -443,21 +453,17 @@ procedure UPDATE_CANONICAL(pi_previous, incoming_examples, replay_state, config)
     return pi_previous, replay_state
 ```
 
-## 9. Identification Boundaries and Non-Goals
+## 9. What the Method Can Establish
 
-The method does not establish:
+The proposal supports three progressively stronger kinds of claim:
 
-- that recorded human behavior is optimal;
-- that prediction necessarily implies semantic understanding;
-- that one true or stable personal reward has been recovered;
-- that a particular model output caused a later action;
-- that lower next-action loss improves human outcomes;
-- that continual training directly optimizes which intervention should be shown;
-- that replay prevents all forgetting or harmful convergence;
-- that the model is a world simulator, planner, or autonomous executor;
-- that one person's raw activity can be pooled safely across users or tenants.
+1. **Predictive:** temporally valid personal history improves prediction of future human actions.
+2. **Representational:** goal-like abstractions help especially when surface behavior changes but the local objective persists.
+3. **System-level:** exposing the person to samples from a continually personalized model improves bounded task outcomes.
 
-This scope defines a continually updated behavioral component inside a human-authorized system. Measured system failures can motivate additional capabilities such as intervention selection, explicit outcome learning, simulation, or planning.
+Each claim has its own evidence. Likelihood on held-out actions establishes predictive performance. Representation diagnostics test whether local-objective structure explains some of that performance. Controlled outcome comparisons establish whether participation by the model helps the human–model system.
+
+This separation matters because the stream records temporal conditioning, not full causal credit. An observed action need not be optimal; a preceding model output need not have caused it; and a good predictor need not have recovered a unique personal reward. Continual likelihood learning also estimates behavior rather than directly selecting the best moment or content for an intervention. Replay, capability tests, exposure controls, and rollback keep those limits measurable while the core hypothesis is tested.
 
 ## 10. Related Work
 
@@ -473,7 +479,7 @@ General User Models and Just-In-Time Objectives provide contrasting representati
 
 Finally, work on influenceable preferences and feedback optimization warns that systems can change the behavior they later learn from and may optimize for easier feedback rather than better outcomes [9, 10]. The proposed closed loop therefore requires outcome controls, exposure provenance, and rollback even though it does not optimize clicks or ratings.
 
-## 11. Minimal Implementation Sequence
+## 11. Research Program
 
 1. Collect and audit the interleaved event stream across Obsidian, browser, and AI chat.
 2. Reconstruct bounded human write actions and immutable chronological examples.
@@ -486,6 +492,14 @@ Finally, work on influenceable preferences and feedback optimization warns that 
 9. Continue only while prediction, retention, capability, user-control, and outcome gates pass.
 
 This sequence makes failures attributable while moving directly from personal event data to continually adapted assistance. The first paper tests whether the stream supports useful personalized next-action prediction and whether embedding that predictor in the person's workflow improves joint-system outcomes.
+
+## 12. Conclusion
+
+Personal AI needs a way to learn how one person's changing context becomes action. A temporally faithful read–write stream provides that substrate. It contains what the person encountered, what they chose to do, how their work evolved, and—once the model is deployed—how model-generated possibilities entered the process.
+
+Next-action likelihood turns this stream into a renewable training signal. The model first learns by observing the person's work. It then participates by offering possible continuations. The person continues thinking and acting with those possibilities in view, and the resulting history teaches the next model version. Continual replay preserves older evidence while the model tracks the moving edge of current work.
+
+If the hypothesis holds, the result is a personal model whose usefulness compounds through shared work. Its value comes from predicting the person well enough to place relevant possibilities within reach, while leaving goals, judgment, and authority with the person. The larger possibility is assistance that learns at the pace of a life or organization and helps people reach outcomes that would otherwise take longer, require more effort, or remain undiscovered.
 
 ## References
 
