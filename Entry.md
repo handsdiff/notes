@@ -5,10 +5,12 @@
 - custom models is the best wedge for inference. custom data collection interfaces is the best wedge for custom models
 - i think agents popping off starting in Q4 2025 increased the data bottleneck (see memory space, mercor ARR). when the data bottleneck is addressed, the bottleneck will shift to reverse data i.e. human understanding. whats better to go after?
 - why will littlebird not get eaten by the codex app? why would our intended product not get eaten by the codex app?
+	- can the distinction in usefulness between having access to all necessary context and actually predicting next actions be quantified?
 - for capturing 'read', we likely want to only include the middle of the screen. unclear when to include and when to exclude. if the user scrolls quickly, we would not want to include that data, for example, since they likely did not actually read the part they scrolled by.
 	- in this sense, prediction and augmentation are at odds, because prediction is presumably maximized by maintaining extremely high fidelity to the human data streams, while augmentation, in the vision, involved using the unique capabilities of LLMs (to parse more text) to help progress towards goals faster
 	- the implicit assumption is that the data not read by the human is not useful data, even for the AI
 	- which rests on the assumption that the human is a better filter for data signal for its context window than an LLM is for its context window. but it does also assume that the human is a better filter for data signal for the LLM's context window, which is a fine assumption imo
+
 - random work
 	- find and sign up for events
 		- apply for paradigm's frontiers hackathon https://www.paradigm.xyz/frontiers-2026
