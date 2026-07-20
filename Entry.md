@@ -8,6 +8,7 @@
 		- i am feeling really really bad about our historic, and current, lack of 'existence' and misunderstanding of social proof dynamics
 		- potentially useful for personal blog/website for more legitimacy personally and for company https://x.com/shadcn/status/2075600582518124657?s=20
 		- feeling a desire to have a separate website for my blogs. self hosted shows commitment. substack gets swallowed into the platform.
+		- https://generalagents.com/ good relative benchmark for quality, interesting description of 'behavior' as a training paradigm that resonates
 	- make target market and their growing problem as evidenced by time or money more concrete
 	- go through old information to discover anything relevant
 	- post blog
@@ -110,7 +111,6 @@
 
 
 - # directly relevant - vision
-	- https://generalagents.com/ good relative benchmark for quality, interesting description of 'behavior' as a training paradigm that resonates
 	- there is a tension between human preference as the only possible reward signal and the sutton argument that environmental rewards are the only ground truth data for real superintelligence
 	- https://x.com/willdepue/status/2074178395462848800 "stargate for data"
 		- "data generating surfaces (interactions) matter more than human-generated data / hand-curated RL environments"
