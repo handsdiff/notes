@@ -358,5 +358,5 @@ the vision to tie into that would be as agents get more persistent and increasin
 
 then i absolutely need it to have full context, no question, and the better it is as predicting my next action, the more comfortable i am with it acting on my behalf especially when im liable for its work
 
-as a similar but separate point, the nature of work seems to be increasingly prompting 
+as a similar but separate point, the nature of work seems to be increasingly prompting rather than anything else. your ability to convert what you'
 
