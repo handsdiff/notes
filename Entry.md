@@ -323,3 +323,25 @@ but chatgpt and claude are getting much better at handling memory / compression 
 
 but also I, and im assuming others, use multiple providers and have to juggle context across all of them
 
+crosshatch tried to carry context over to multiple ecommerce sites, which is an interesting target market
+
+they're finding was that apps dont want to give their context away which seems like a technical issue, you can build an app that handles it
+
+tough going keyboard since you dont want to capture everything
+
+for the teams that pay for hosted memory solutions, are they actually retained? what daily value do they derive? i suspect, from the conversations i've had, that it's retrieval.
+
+is next action prediction a forcing function for the context value prop? imo yes. collecting context for retrieval is the current dominant use case. i just dont get why this wasnt a thing before AI, which makes it seem like its not a truly value creative use case, or maybe it is. since you could definitely search over prior context before, AI doesn't uniquely enable search
+
+the value prop of a 'AI embedded' obsidian is different than collecting a bunch of temporal data
+
+this initially stemmed from an AI embedded obsidian, but theres always a question of whether the usage of a product like that is actually valuable work
+
+i think it is in a team setting where the team has more context into my workflows
+
+how would i articulate the gut reaction to why it feels extremely valuable to have a next action predictor? its because i want an AI to model my brain, so that as GDP increasingly flows through agents, my way of thinking persists. its basically not getting left behind.
+
+maybe the enterprise use cases either feel undifferentiated or small when actually written down, such as 'give full context to your agent every time' or 'decrease meeting time by 90%'
+
+i do think that all the context associated with the work before coding would speed up coding a lot. i know darryn has had this problem as well.
+
