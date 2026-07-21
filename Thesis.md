@@ -7,7 +7,15 @@
 -> effectiveness of next action prediction scales with intelligence
 -> there will always be a market for this for people who don't want to get stolen by big labs who need a business model to overcome their data center capex and as a result will only give them portioned context
 
-Context is a trillion dollar cost doubling every 18 months. For every $1 spent on tokens that read context, $16 of human time went into producing it. 
+Context is a trillion dollar cost doubling every 18 months. For every $1 spent on tokens that read context, $16 of human time went into producing it. Full, relevant context for these superintelligent systems is lacking today, but people are able to work around it in varying ways. However, once these systems accrue assets, and more importantly, initiate liabilities, on your behalf, full context is a fundamental necessity, yet insufficient by itself. What's additionally required is a model that can genuinely simulate how you would respond to a given situation.
+
+Temporally interleaved, language-based, read-write action streams from daily computer use is a good place to start. Next action prediction is the best forcing function for maximizing trust and proving the ability to actually convert that context into something tangible and useful. A model trained in this way would learn how you think at a fundamental level; it would be able to simulate how you convert inbound information into outbound action. 
+
+The first step to a model like this involves monitoring and processing inbound information and outbound action, and using continually retrained behavior cloning on outputs conditioned on inputs. This requires zero manual labeling or workflow changes for the user. Second, sample the human model and display its results as suggestions. The user's continued work would act as a positive sample in contrast to the hard negative samples in pairwise preference optimizations via DPO variants to surpass demonstrator performance. 
+
+The result is a model that can achieve your goals for you better than you can alone, as long as it remains in touch with your context, and is aware of what those goals are as a result. This model can then be utilized to participate in the collective intelligence of your organization, the agentic economy as a whole, etc, with true, rather than simulated, alignment.
+
+There will always be a large market of people who want to own the human model that is privy to the full context of their work, while portioning off slices of that valuable resource to closed providers when needed to accomplish a local objective.
 
 
 
