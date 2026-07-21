@@ -15,7 +15,7 @@
 
 **The most expensive part of AI is the human time required to make it useful.**
 
-Context is already a ~$500B cost doubling every 18 months. For every $1 spent on tokens reading context, !$16 of human time went into producing it [[Thesis#^c16dcf]]. Businesses pay people to gather information, decide what matters, communicate it in meetings and messages, translate it into prompts, and correct work produced without it. As intelligence per dollar increases, more context becomes worth processing. The cost of producing and transmitting that context rises alongside the usefulness of the intelligence consuming it.
+Context is already a ~$500B cost doubling every 18 months. For every $1 spent on tokens reading context, ~$12 of human time went into producing it [[Thesis#^c16dcf]]. Businesses pay people to gather information, decide what matters, communicate it in meetings and messages, translate it into prompts, and correct work produced without it. As intelligence per dollar increases, more context becomes worth processing. The cost of producing and transmitting that context rises alongside the usefulness of the intelligence consuming it.
 
 Today, every interaction with a model begins with a human manually reconstructing the relevant state. A prompt is a lossy serialization of what someone knows, what they have seen, what they are trying to accomplish, and what they would reject. More capable models increase the return on this explanation, so people respond by explaining more. The context window grows, but the human remains the API.
 
