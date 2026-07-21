@@ -268,3 +268,4 @@ enterprises pay for notion
 mesa is a new startup that got a lot of buzz
 
 the original vision was solving coordination via multi agent systems, but they suffered from lack of context and lack of emulation. you need both. solving context may involve increased data (and reward function) elicitation, but human replacement is a poor product choice given our historical learned emphasis on building products that are maximally engaging, not used once in a while. 
+
