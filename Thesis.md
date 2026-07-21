@@ -1,4 +1,4 @@
--> time giving context is already large and rapidly increasing. it correlates with intelligence per dollar
+-> time giving context is already large and rapidly increasing. it correlates with intelligence per dollar.
 -> augmentation > replacement due to entitlements vs obligations makes full context a non starter
 -> temporally interleaved language read/write into next action prediction
 -> phase 1 is floored at you, can surpass if suggestions are taken, zero manual labeling, only additive
