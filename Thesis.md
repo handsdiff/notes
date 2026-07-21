@@ -7,5 +7,6 @@
 -> effectiveness of next action prediction scales with intelligence
 -> there will always be a market for this for people who don't want to get stolen by big labs who need a business model to overcome their data center capex and as a result will only give them portioned context
 
+Context is a trillion dollar market doubling every 18 months.
 
 
