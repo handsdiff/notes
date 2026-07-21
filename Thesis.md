@@ -1,3 +1,6 @@
+
+# Notes
+
 -> time giving context and money spent processing context is already large and rapidly increasing. its usefulness, and thus time spent, correlates with intelligence per dollar.
 -> augmentation > replacement due to entitlements vs obligations makes full context a non starter (any other convos re replacement vs augmentation are more about desired work / use of leverage, which unfortunately you just have to get over)
 -> temporally interleaved language read/write into next action prediction (learn how you think, how you respond to stimulus, how you convert inputs to outputs)
@@ -8,9 +11,9 @@
 -> there will always be a market for this for people who don't want to get stolen by big labs who need a business model to overcome their data center capex and as a result will only give them portioned context
 
 
-# Thesis
+# Post
 
-**The most expensive part of AI is the human time required to make intelligence useful.**
+**The most expensive part of AI is the human time required to make it useful.**
 
 Context is already a $500B cost doubling every 18 months. For every $1 spent on tokens reading context, $16 of human time went into producing it. Businesses pay people to gather information, decide what matters, communicate it in meetings and messages, translate it into prompts, and correct work produced without it. As intelligence per dollar increases, more context becomes worth processing. The cost of producing and transmitting that context rises alongside the usefulness of the intelligence consuming it.
 
