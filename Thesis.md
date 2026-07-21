@@ -1,1 +1,6 @@
-
+-> time giving context is already large and rapidly increasing since correlates with intelligence per dollar
+-> augmentation > replacement due to entitlements vs obligations makes full context a non starter
+-> temporally interleaved language read/write into next action prediction
+-> phase 1 is floored at you, can surpass if suggestions are taken, zero manual labeling, only additive
+-> phase 2 surpasses demonstrator performance if human can recognize better actions from the model, since likely the case that demonstrator is not optimal
+-> many of these can result in collective intelligence amongst a team or org
