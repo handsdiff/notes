@@ -1,5 +1,7 @@
 
 - https://x.com/tinkerapi/status/2079281259084407089?s=20
+- https://x.com/threepointone/status/2079278411663466879?s=20
+- (https://x.com/interaction?s=20
 - 
 - could littlebird benefit from longNAP?
 	- they have an agent whose value prop is context. longNAP teaches retrieval reasoning over computer use context.
