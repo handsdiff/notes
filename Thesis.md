@@ -19,7 +19,7 @@ Supplying context to LLMs is a ~$500B cost doubling every 2 years. For every $1 
 
 Today, every interaction with a model begins with a human manually reconstructing the relevant state. A prompt is a lossy serialization of what someone knows, what they have seen, what they are trying to accomplish, and what they would reject. More capable models increase the return on this explanation, so people respond by explaining more. The context window grows, but the human remains the API.
 
-However, once these systems accrue assets, and more importantly, initiate liabilities, on our behalf, full context is a fundamental necessity, yet insufficient by itself. Two people can observe the same information and take different actions because context does not contain the decision rule that converts information into judgment. An agent acting for a person needs a model of that person.
+Once these systems increase persistency, accrue assets, and more importantly, initiate liabilities, on our behalf, full context is a fundamental necessity, yet insufficient by itself. Two people can observe the same information and take different actions because context does not contain the decision rule that converts information into judgment. An agent acting for a person needs a model of that person.
 
 Daily computer use produces the raw material for such a model. People read documents, receive messages, inspect model outputs, browse, search, write prompts, edit notes, and change artifacts. These are not isolated files to retrieve later. They are a temporally interleaved stream of stimulus and response: what entered a person's field of view and what they did next. That stream records how a mind converts inbound information into outbound action.
 
