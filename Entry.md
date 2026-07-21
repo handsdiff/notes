@@ -354,4 +354,9 @@ that formulation implies a context collector is the main value prop, which i thi
 
 probably would open source the data cleaning pipeline. then iterate on algorithms + applications to make it useful, although people could make it useful as they see fit. that seems most value creative.
 
-the vision to tie into that would be as agents get more persistent and increasingly interact between themselves, the alignment between your agent and you is purely correlated to the context it has on you and your goals. again thats replacement vs augmentation, but feels like a grey line more than anything. since augmentation of X steps would be the step after augmentation of 1 step, but how many steps is replacement?
+the vision to tie into that would be as agents get more persistent and increasingly interact between themselves, the alignment between your agent and you is purely correlated to the context it has on you and your goals. again thats replacement vs augmentation, but feels like a grey line more than anything. since augmentation of X steps would be the step after augmentation of 1 step, but how many steps is replacement? does augmentation vs replacement actually come down to liabilities/obligations vs assets/entitlements. i.e. if my agent does the work, i make the money, but i also am responsible for it fucking up
+
+then i absolutely need it to have full context, no question, and the better it is as predicting my next action, the more comfortable i am with it acting on my behalf especially when im liable for its work
+
+as a similar but separate point, the nature of work seems to be increasingly prompting 
+
