@@ -269,3 +269,9 @@ mesa is a new startup that got a lot of buzz
 
 the original vision was solving coordination via multi agent systems, but they suffered from lack of context and lack of emulation. you need both. solving context may involve increased data (and reward function) elicitation, but human replacement is a poor product choice given our historical learned emphasis on building products that are maximally engaging, not used once in a while. 
 
+the enterprise use case might be 1 step turnarounds on internal inbound. how much time is lost on that? another one might be 
+
+it may be just a context game. the actual value prop is processing and cleaning all the work data (a la screenpipe (not sure why littlebird seems to be targeting consumers, but seems more focused on text only suggestions)). the technical skill to turn that into models and a suggestion application might be down the line rather than the main value prop
+
+fable's biggest assigned risk after reading an old version of paper was 50-60% chance that the project gets bogged down in 'infrastructure'
+
