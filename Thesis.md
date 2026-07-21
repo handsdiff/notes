@@ -13,9 +13,9 @@ Temporally interleaved, language-based, read-write action streams from daily com
 
 The first step to a model like this involves monitoring and processing inbound information and outbound action, and using continually retrained behavior cloning on outputs conditioned on inputs. This requires zero manual labeling or workflow changes for the user. Second, sample the human model and display its results as suggestions. The user's continued work would act as a positive sample in contrast to the hard negative samples in pairwise preference optimizations via DPO variants to surpass demonstrator performance. 
 
-The result is a model that can achieve ones goals on ones behalf better than one can alone, as long as it remains in touch with ones context, and is aware of what those goals are as a result. This model can then be utilized to participate in the collective intelligence of an organization, the agentic economy as a whole, etc, with true, rather than simulated, alignment.
+The result is a human model that can accelerate local workflows as long as it remains in touch with ones context, and is aware of what those goals are as a result. This model can then be utilized to participate in the collective intelligence of an organization, the agentic economy as a whole, etc, with true alignment, since its literally trained to respond as one would to a given situation.
 
-There will always be a large market of people who want to own the human model that is privy to the full context of their work, while portioning off slices of that valuable resource to closed providers when needed to accomplish a local objective.
+There will always be a large market of people who want to own the human model that is privy to the full context of their work, while portioning off slices of that valuable resource to closed providers when needed to accomplish a local objective. 
 
 
 
