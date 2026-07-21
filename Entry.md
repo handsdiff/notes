@@ -346,4 +346,12 @@ maybe the enterprise use cases either feel undifferentiated or small when actual
 
 i do think that all the context associated with the work before coding would speed up coding a lot. i know darryn has had this problem as well.
 
-one articulation could be the time spent giving context to an LLM prompt, whether that be a chatbot or agent, either upfront or after the fact when you realize its giving you an answer that lacks context. this has definitely increased exponentially and is nonzero. 
+one articulation could be the time spent giving context to an LLM prompt, whether that be a chatbot or agent, either upfront or after the fact when you realize its giving you an answer that lacks context. this has definitely increased exponentially and is nonzero. the perhaps hot take may be that as intelligence per dollar continues to go exponential, the lack of context increases in pain, not decreases. that feels robust. for who? whoever is hypothetically most retained. i'd probably choose small (<20), technical teams since thats who i am most familiar with
+
+open core where software is open source but the hosted version to not worry about hardware, local llms, retraining, etc is closed source? or just full closed source? soc 2 compliance?
+
+that formulation implies a context collector is the main value prop, which i think it is. applying algorithms to next action prediction + an application for suggestions differs though because its proactive rather than a promptable thing that has context
+
+probably would open source the data cleaning pipeline. then iterate on algorithms + applications to make it useful, although people could make it useful as they see fit. that seems most value creative.
+
+the vision to tie into that would be as agents get more persistent and increasingly interact between themselves, the alignment between your agent and you is purely correlated to the context it has on you and your goals. again thats replacement vs augmentation, but feels like a grey line more than anything. since augmentation of X steps would be the step after augmentation of 1 step, but how many steps is replacement?
