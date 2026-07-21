@@ -345,3 +345,4 @@ maybe the enterprise use cases either feel undifferentiated or small when actual
 
 i do think that all the context associated with the work before coding would speed up coding a lot. i know darryn has had this problem as well.
 
+one articulation could be the time spent giving context to an LLM prompt, whether that be a chatbot or agent, either upfront or after the fact when you realize its giving you an answer that lacks context. this has definitely increased exponentially and is nonzero. 
