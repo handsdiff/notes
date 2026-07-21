@@ -15,7 +15,9 @@ The first step to a model like this involves monitoring and processing inbound i
 
 The result is a human model that can accelerate local workflows as long as it remains in touch with ones context, and is aware of what those goals are as a result. This model can then be utilized to participate in the collective intelligence of an organization, the agentic economy as a whole, etc, with true alignment, since its literally trained to respond as one would to a given situation.
 
-There will always be a large market of people who want to own the human model that is privy to the full context of their work, while portioning off slices of that valuable resource to closed providers when needed to accomplish a local objective. 
+There will always be a large market of people who want to own the human model that is privy to the full context of their work, while portioning off slices of that valuable resource to closed providers when needed to accomplish a local objective. These people should spend zero time needing to explain context or goals to utilize intelligence. The intelligence should be able to digest full context and understand implicit goals from that context, stepping in as needed to accelerate work.
+
+The medium term future consists of billions of these models coordinating in a collective intelligence that dwarfs the output of today's world in the same way that today's world dwarfs the output from 1900. Unless your full context, values, and goals are actually baked into weights via continuous interaction, you won't exist in that world.
 
 
 
