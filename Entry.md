@@ -367,4 +367,16 @@ as a similar but separate point, the nature of work seems to be increasingly pro
 
 i think im happy with the thesis and will polish and publish and move on to data pipelining. just need to catch up with team and go through random paper cuts before hand
 
+for the data, i likely need to do my normal work, then have a separate window that is not tracked that logs the read/write stream. and i need to confirm over the course of a day or two that its a high fidelity representation of my actual inputs and outputs. non comprehensive list of things to handle:
+	needs to handle reading something then scrolling back up to reread it
+	needs to handle having multiple windows across multiple screens open at the same time
 
+the single player vision remains to have the model see what im doing, infer my goal, and tell me how to get there faster. the multi player vision takes this model and allows it to take multi step actions to achieve my goals
+
+predicting multiple actions instead of one action seems similar to trying to get to goals faster but it requires a world model. for example if a model is going to predict a prompt i type in, and it 'knows' im going to need a follow up prompt to actually get what i want, it should recommend the fixed prompt before hand. unclear whether it can do this from the BC and IPO formulation, which is why i was gunning so hard for the reward inference, but then the conversation around local explicit goals being written down made it unclear whether it could do that when those exist
+
+the indeterminate part of the stack that is likely to last longer is the data pipeline. the algorithms and suggestion application less so
+
+important to keep in mind that reduced loss is not the goal, felt value delivery is
+
+it would be great to be more clear about how next action prediction could lead to next N action prediction, i.e. instead of suggesting collecting a piece of context to give to a model, then collecting another piece of context, etc, just generate the entire prompt better and faster than i would have written it.
