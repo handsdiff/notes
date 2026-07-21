@@ -39,4 +39,38 @@ Today, a person is present in only as many decisions as they have time to read a
 
 ^c16dcf
 
-The St. Louis Fed's Real-Time Population Survey — the only nationally representative tracker of AI usage intensity — found in its May 2026 wave that 45.2% of employed Americans use generative AI for their jobs (up from 40.7% in November 2025), and that genAI now accounts for 6.3% of total U.S. work hours, up from 4.1% in late 2024. Screen-recording studies of AI-assisted work (METR) and prompt-level data — the median chatbot message is ~15 words but the mean is ~86, because people paste in documents, code, and briefs — imply roughly 40% of that interaction time goes to supplying context rather than consuming output. Scaled across the ~1 billion knowledge workers worldwide at usage-weighted wages (~$22/hr), that's ~25 billion hours and ~$550B of human time annually — independently cross-checked by ~1 trillion work-related AI messages per year at ~85 seconds of human effort each. The token side has exploded: OpenAI hit $25B annualized revenue by February 2026 and disclosed $2B in monthly revenue this spring, while Anthropic confirmed a $30B run-rate in March — up from $9B at year-end 2025 — and reportedly reached ~$47B by mid-May, driven largely by Claude Code. Of the ~$110B industry total, roughly $40B/yr pays for input tokens processing work context — about $1 for every $13 of salaried human time
+### What the estimate means
+
+The ~$500B figure is a Fermi estimate, not a reported accounting category, market size, or claim that the inputs below are known with precision. It estimates the annual global cost to businesses of actively supplying work context to generative AI: composing and revising prompts, finding and pasting source material, uploading files, briefing a model, and steering or correcting work when relevant context is missing. It also includes an allocation of model spend to processing that input. It does **not** add the much larger pre-existing cost of creating organizational knowledge or communicating it through meetings, messages, and documents.
+
+### Central estimate
+
+The May 2026 [Generative AI Adoption Tracker](https://www.genaiadoptiontracker.com/) reports that 45.2% of employed U.S. respondents used generative AI for work and that generative AI use occupied 6.3% of total U.S. work hours. The tracker is based on the nationally representative Real-Time Population Survey; its methodology and earlier waves are described by the [Harvard Project on Workforce](https://pw.hks.harvard.edu/post/the-generative-ai-adoption-tracker) and in the underlying [NBER research](https://www.nber.org/papers/w32966).
+
+The central calculation is:
+
+`~1.0B knowledge workers × ~2,000 work hours/year × 6.3% genAI-use share × ~40% context-supply share × ~50% global-intensity adjustment ≈ 25B hours/year`
+
+`~25B hours × ~$22/hour usage-weighted labor cost ≈ $550B/year`
+
+The worker count is anchored to Gartner's older projection of [1.14B knowledge workers by 2023](https://www.gartner.com/en/newsroom/press-releases/09-24-2019-gartner-says-worldwide-social-software-and-collaboration-revenue-to-nearly-double-by-2023), used here only as an order-of-magnitude reference rather than a current census. The ~50% adjustment for lower average usage outside the United States, the ~40% context share, and the ~$22/hour global usage-weighted labor cost are model assumptions. They are the largest sources of uncertainty.
+
+The ~40% context share is not a result reported by any single study. It is a modeling judgment informed by three kinds of evidence: METR's [screen-recorded study of experienced developers using AI tools](https://metr.org/blog/2025-07-10-early-2025-ai-experienced-os-dev-study/); a small, nonrepresentative dataset of public ChatGPT conversations in which the [median user message was 15 words and the mean was 86](https://www.semrush.com/news/251916-user-strategies-and-insights-from-real-chatgpt-conversations/), indicating a long tail of much larger inputs; and OpenAI/NBER message-level research finding that [Writing represented about 40% of work-related ChatGPT messages and that roughly two-thirds of Writing messages modified user-supplied text](https://www.nber.org/papers/w34255). These observations support the existence of substantial context-supply work, but they do not directly measure its share of interaction time.
+
+### Bottom-up cross-check
+
+The same [OpenAI/NBER study](https://www.nber.org/papers/w34255) estimated 18B ChatGPT messages per week by July 2025 and classified 27% of June 2025 messages as work-related. Extending that observed ChatGPT volume to other providers and enterprise systems produces a modeled order of magnitude of ~1T work-related AI messages per year. At an assumed ~85 seconds of context-supply effort per message, that is ~24B human hours—close to the top-down estimate. The ~1T messages and ~85 seconds are extrapolations, not directly observed statistics, so this is a reasonableness check rather than independent measurement.
+
+### Model-spend allocation and ratio
+
+The token-side estimate starts with a modeled ~$110B annualized industry revenue pool. Public anchor points include the [2026 Stanford AI Index](https://hai.stanford.edu/assets/files/ai_index_report_2026_chapter_4_economy.pdf), which compiles directional revenue estimates for leading AI companies and cautions that their reliability varies, and Anthropic's May 2026 statement that its run-rate revenue had [crossed $47B](https://www.anthropic.com/news/series-h). Applying assumed shares of ~65% for work use and ~55% for the input side gives:
+
+`~$110B × ~65% work share × ~55% input-side share ≈ $40B/year`
+
+This is user spend allocated to input-side model use, not the providers' marginal compute cost. Against the ~$550B labor estimate, the central arithmetic is ~$13.75 of human time per $1 of input-side model spend. Given the uncertainty, **“more than $10” is better supported than a precise ratio**; ~$12–$14 is a reasonable central range.
+
+Together, the central estimates imply roughly $590B/year before rounding. The headline ~$500B deliberately rounds down, but the plausible range is wide because the context-share, global-intensity, wage, message-volume, and model-spend allocations are all assumptions.
+
+### Growth-rate caveat
+
+The latest adoption series does not support treating the total cost as steadily doubling every 18 months. The work-hour share rose from 4.1% in late 2024 to 6.3% in May 2026; if that 18-month change compounded at a constant rate, it would imply a doubling time of roughly 2.4 years. The more recent part of the series slowed further. By contrast, the provider-revenue component is growing much faster: [Epoch AI's compilation and forecasts](https://epoch.ai/data-insights/anthropic-openai-revenue) imply roughly annual doubling or faster for leading model providers, although those figures cover company revenue rather than context-input spending alone. The evidence therefore supports rapid growth, and especially rapid growth on the model-spend side, but not a measured 18-month doubling rate for the combined cost.
