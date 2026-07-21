@@ -20,6 +20,7 @@
 		- apply for paradigm's frontiers hackathon https://www.paradigm.xyz/frontiers-2026
 		- handle mtndao acceptance
 		- https://colmweb.org/ conference on language modeling
+		- https://sessionize.com/aienyc2026/
 	- increase branding via twitter banner + personal site + company site
 		- i am feeling really really bad about our historic, and current, lack of 'existence' and misunderstanding of social proof dynamics
 		- potentially useful for personal blog/website for more legitimacy personally and for company https://x.com/shadcn/status/2075600582518124657?s=20
