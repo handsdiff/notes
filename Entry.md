@@ -360,3 +360,6 @@ then i absolutely need it to have full context, no question, and the better it i
 
 as a similar but separate point, the nature of work seems to be increasingly prompting rather than anything else. your ability to convert what you've seen and heard into a next action that is value productive is the bottleneck.
 
+95% done pending some internal steel-man'ing around problem <> solution match, belief in direction on the order of years rather than months, and confirmation of solution feasibility against possible alternative solutions. it is meant to be a bit provocative, the actual experimentation and series of load bearing technical hurdles is detailed in other parts of the vault.
+
+i think im happy with the thesis and will polish and publish and move on to data pipelining. just need to catch up with team and go through random paper cuts before hand
