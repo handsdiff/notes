@@ -275,3 +275,18 @@ it may be just a context game. the actual value prop is processing and cleaning 
 
 fable's biggest assigned risk after reading an old version of paper was 50-60% chance that the project gets bogged down in 'infrastructure'
 
+The value prop of next action prediction alone would be that it speeds up work so you can get more done
+
+Probably would want to capture audio with outbound / inbound labels like granola, which is apparently why limitless pivoted as well
+
+The collective intelligence / multi agent stuff is less of a direct enterprise value prop seemingly and more of the vision value prop. The conflation between the vision being the value prop and the initial wedge being the value prop is what’s causing confusion.
+
+Very simply, next action prediction during work speeds you up, if it works. It doesn’t work if models are too stupid. It works if models increasingly improve. Slate made a similar bet but it didn’t work because the models didn’t improve fast enough but realistically because there just wasn’t demand for a repeatable valuable use case
+
+Next prompt prediction could be a very repeatable value prop that is more specific if have enough data, also called out by cofounders
+
+It’s really about painting a picture of what a human model could then be used for. It absolutely can be used for multi agent systems, collective intelligence, assistance games, discriminators, reward models, population simulation etc. probably just make a list of everything that is bounded by user models. Basically keeps you in the loop in an agentic economy. It’s like being on the internet vs not being on the internet, for businesses and for individuals within businesses (which are often used for marketing the business they work for)
+
+I.e. speeds you up, speeds your team up
+
+Painting an enterprise vision likely feels less grandiose but it’s more practical for survival of the economic entity that is a startup
