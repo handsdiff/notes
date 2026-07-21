@@ -380,3 +380,7 @@ the indeterminate part of the stack that is likely to last longer is the data pi
 important to keep in mind that reduced loss is not the goal, felt value delivery is
 
 it would be great to be more clear about how next action prediction could lead to next N action prediction, i.e. instead of suggesting collecting a piece of context to give to a model, then collecting another piece of context, etc, just generate the entire prompt better and faster than i would have written it.
+
+"ProAct predicts future needs from history and persistent memory, then prepares relevant artifacts during idle time. It reports 14.8% fewer turns and 11.7% less user effort—but on a synthetic benchmark, so this is encouraging evidence, not product validation. [ProAct](https://arxiv.org/abs/2605.25971)"
+
+"Anthropic’s latest survey found that experienced workers particularly emphasize judgment, contextual awareness, situational reasoning, trust, and management as capabilities AI still lacks. [Anthropic Economic Index](https://www.anthropic.com/research/economic-index-june-2026-report)"
