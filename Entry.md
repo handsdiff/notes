@@ -361,5 +361,10 @@ then i absolutely need it to have full context, no question, and the better it i
 as a similar but separate point, the nature of work seems to be increasingly prompting rather than anything else. your ability to convert what you've seen and heard into a next action that is value productive is the bottleneck.
 
 95% done pending some internal steel-man'ing around problem <> solution match, belief in direction on the order of years rather than months, and confirmation of solution feasibility against possible alternative solutions. it is meant to be a bit provocative, the actual experimentation and series of load bearing technical hurdles is detailed in other parts of the vault.
+- does my stated first order solution, next action prediction on read-write event streams (assuming the data can be processed properly) ACTUALLY solve for the time spent collecting context for LLMs by reducing it drastically? the clearest connection i see is that the majority of output for knowledge workers nowadays is prompting other models, so to the extent that this generates better or faster prompts for you, then yes.
+- similarly, is the stated first order solution the BEST way to solve the hypothesized problem? what are the alternative solutions to this problem?
+- what trends lead to a belief on the order of years that this direction is worth pursuing? perhaps things ive written down before that are since forgotten
 
 i think im happy with the thesis and will polish and publish and move on to data pipelining. just need to catch up with team and go through random paper cuts before hand
+
+
