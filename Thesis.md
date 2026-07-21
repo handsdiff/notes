@@ -17,7 +17,7 @@
 
 Supplying context to LLMs is a ~**\$600B** cost doubling every 2 years. **For every \$1 spent on tokens reading context, ~\$13 of human time went into producing it.** Businesses pay people to gather information, decide what matters, communicate it in meetings and messages, translate it into prompts, and correct work produced without it. 
 
-Full, relevant context for these superintelligent systems is lacking today, and people attempt to work around it in varying ways. Manually written prompts and in context memory solutions are a lossy serialization of someone's knowledge, environment, goals, and preferences. More capable models increase the return on this context, so people respond by spending more time curating it well. 
+Full, relevant context for these superintelligent systems is lacking today, and people attempt to work around it in varying ways. Manually written prompts and in context memory solutions are a lossy serialization of someone's knowledge, environment, goals, and preferences. More capable models increase the return on this context, so people respond by spending increasing amounts of time curating it. 
 
 Agents are increasingly becoming persistent actors on our behalf. As they accrue assets and, more importantly, initiate liabilities on our behalf, full context is a fundamental necessity. However, it's insufficient by itself. Two people can observe the same information and take different actions because context does not contain the decision rule that converts information into judgment. An agent acting for a person needs a model that can genuinely simulate how one would respond to a given situation.
 
