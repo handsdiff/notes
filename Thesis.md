@@ -7,6 +7,7 @@
 -> effectiveness of next action prediction scales with intelligence
 -> there will always be a market for this for people who don't want to get stolen by big labs who need a business model to overcome their data center capex and as a result will only give them portioned context
 
-Context is a trillion dollar cost doubling every 18 months. For every $1 spent on tokens that read context, $16 of human time went into producing it. As raw intelligence increases, and the associated cost decreases, the felt pain of lack of context only becomes worse.
+Context is a trillion dollar cost doubling every 18 months. For every $1 spent on tokens that read context, $16 of human time went into producing it. 
+
 
 
