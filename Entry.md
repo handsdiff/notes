@@ -1,7 +1,7 @@
 
 - https://x.com/tinkerapi/status/2079281259084407089?s=20
 - https://x.com/threepointone/status/2079278411663466879?s=20
-- (https://x.com/interaction?s=20
+- https://x.com/interaction?s=20
 - 
 - could littlebird benefit from longNAP?
 	- they have an agent whose value prop is context. longNAP teaches retrieval reasoning over computer use context.
@@ -290,3 +290,36 @@ It’s really about painting a picture of what a human model could then be used 
 I.e. speeds you up, speeds your team up
 
 Painting an enterprise vision likely feels less grandiose but it’s more practical for survival of the economic entity that is a startup
+
+the growing problem costing them time/money is that intelligence per dollar is going exponential but they don't have the skills or know-how to actually help them move faster
+
+this is more of an opportunity cost and i'd prefer an actual cost
+
+the actual cost is just the salaries of their workforce and the resultant speed at which they move, but that cost isnt rapidly increasing
+
+token costs are rapidly increasing and will likely continue to do so, but thats too vague
+
+inference net seemed to correctly identify that token costs could be made 90% cheaper
+
+this is more of a new capability and less of a cost reduction
+
+just getting the event stream correct as temporally interleaved read/write seems like the most useful part of the stack
+
+enterprise is likely too vague
+
+others startups/small teams are probably most interested in this, specifically people in startups who are not coding a lot
+
+if they aren't coding, they're doing research, talking to people via messages or calls, or exploring to find relevant people to talk to, or engaging in marketing via writing or social media
+
+who has the deepest pain of not having a next action predictor? this might be someone who spends a lot of time or money on similar solutions
+
+no one really recognizes the problem unless the solution exists, but that may be cope
+
+actually thats not true theres plenty of people who feel the lack of context issue
+
+if youre solving lack of context because you do the best job of cleaning the data in a way that AIs can reason well over, which is essentially memory (even the memory people seem to be doing token space vs weight space discussions), then there are definitely teams that use those memory solutions
+
+but chatgpt and claude are getting much better at handling memory / compression etc
+
+but also I, and im assuming others, use multiple providers and have to juggle context across all of them
+
