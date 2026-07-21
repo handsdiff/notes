@@ -31,7 +31,7 @@ This creates a "human+" augmentative system rather than a replacement human, whe
 
 The same construction changes coordination. Organizations do not think with one mind. Their intelligence comes from many people holding different information, pursuing partially different goals, and updating one another through slow, lossy communication. A single company agent collapses those differences, leading to brittle output. A human model for every participant preserves them, while allowing each person's context and judgment to participate in far more interactions than the person could attend themselves. Those models can exchange information, learn to predict one another, and search for outcomes their humans recognize as progress.
 
-Today, a person is present in only as many decisions as they have time to read and answer. In an agentic economy, that becomes extinction by bandwidth. A human model is how a person's context, goals, and judgment remain present at silicon speed. Billions of them coordinating results in the not have to be a world without humans. It can be the next scale of human collective intelligence.
+Today, a person is present in only as many decisions as they have time to read and answer. In an agentic economy, that becomes extinction by bandwidth. A human model is how a person's context, goals, and judgment remain present at silicon speed. Billions of them coordinating results in the next scale of collective intelligence.
 
 ## Appendix
 
