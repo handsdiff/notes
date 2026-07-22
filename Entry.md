@@ -384,3 +384,5 @@ it would be great to be more clear about how next action prediction could lead t
 "ProAct predicts future needs from history and persistent memory, then prepares relevant artifacts during idle time. It reports 14.8% fewer turns and 11.7% less user effort—but on a synthetic benchmark, so this is encouraging evidence, not product validation. [ProAct](https://arxiv.org/abs/2605.25971)"
 
 "Anthropic’s latest survey found that experienced workers particularly emphasize judgment, contextual awareness, situational reasoning, trust, and management as capabilities AI still lacks. [Anthropic Economic Index](https://www.anthropic.com/research/economic-index-june-2026-report)"
+
+how the AI augmented note taking app relates to the vision is very unclear
