@@ -19,7 +19,6 @@
 		- potentially useful for personal blog/website for more legitimacy personally and for company https://x.com/shadcn/status/2075600582518124657?s=20
 		- feeling a desire to have a separate website for my blogs. self hosted shows commitment. substack gets swallowed into the platform.
 	- go through old information to discover anything relevant
-	- double email Omar
 
 
 - ## directly relevant - practical
