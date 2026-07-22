@@ -17,7 +17,7 @@
 	- find and sign up for events
 		- apply for paradigm's frontiers hackathon https://www.paradigm.xyz/frontiers-2026
 		- handle mtndao acceptance
-		- https://colmweb.org/ conference on language modeling
+		- https://colm.eventhosts.cc/ conference on language modeling
 		- https://sessionize.com/aienyc2026/
 	- increase branding via twitter banner + personal site + company site
 		- i am feeling really really bad about our historic, and current, lack of 'existence' and misunderstanding of social proof dynamics
