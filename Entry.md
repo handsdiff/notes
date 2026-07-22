@@ -2,8 +2,11 @@
 - https://x.com/tinkerapi/status/2079281259084407089?s=20
 - https://x.com/threepointone/status/2079278411663466879?s=20
 - https://x.com/interaction?s=20
+- https://x.com/thoughtfullab/status/2078203652079276258?s=20
+- https://x.com/chewing_a_gum/status/2079628462671970661?s=20
+- https://x.com/oneill_c/status/2077806576665350312?s=20
 - 
-- can the distinction in usefulness between having access to all necessary context and actually predicting next actions be quantified?
+- 
 - honcho's blog is quartz?? https://plasticlabs.ai/blog/posts/Memory-as-Reasoning they also discuss memory as prediction
 	- similar tweet https://x.com/ashwingop/status/2069807820846063932
 
@@ -20,9 +23,8 @@
 		- https://generalagents.com/ good relative benchmark for quality, interesting description of 'behavior' as a training paradigm that resonates
 	- make target market and their growing problem as evidenced by time or money more concrete
 	- go through old information to discover anything relevant
-	- post blog
+	- post thesis piece
 	- double email Omar
-	- put precursor banner on personal
 
 
 
@@ -121,23 +123,24 @@
 	- data cleaning likely needs to ensure formatting is skipped, duplicates are handled, and for phase 2 if the agent doesn't have any reasonably confident completions, it shows nothing
 	- is it possible for reasoning to fit into the next write prediction? is this desired? worth testing in [[Phase 1#8. Experimental Program]]? something to be explicitly trained?
 	- should read data be text or html? pros/cons?
-- discusses research similar to longNAP https://claude.ai/chat/d3de1f6d-cd67-404b-a93a-936b3a662d7e
-	- the most interesting related paper which I put into algorithms uses something called LifeTrace for collecting data, takes snapshots at 1 Hz (can we track keyboard usage and snapshot during a pause, like it occurs in git in this obsidian?)
-	- another one frames 'when to assist' as when its high likelihood that the "user would turn to an AI assistant right now" which is interesting
-- text > screenshots, tons of practical issues from related players around 
-- practically need text PII scrub
-- i was trying to force in DPO/IPO as an attempt to create an implicit reward model that could be used for actual rollouts. this is overly complex and reduces the likelihood of a successful phase 1. this is informed by the characterization of a centaur model as just one implementation of a human model. clearly a human model is useful for this. is it useful for other things?
-	a discriminator model that learns the diff between the human action given history and the model action given history, which results in an implicit reward function from logprob diffs the same way RLHF/DPO does (pending the optimality of the human)
-		i have since learned this is basically GAIL
-	a world model to determine observations from actions that could result in 2 step rollout 'samples' instead of 1 step rollout samples, compressing user next action BC learning with theoretically improved per step decision making, which would become way more plausible with other phase 1 models interacting with each other, and is less plausible for super high entropy browser search, code runs a la ECHO (but ECHO could be used), social media output
-	long chat that highlighted this https://chatgpt.com/c/6a5e760b-e110-83ea-9610-b0031962916e (discriminator diff measures model surprise which measures learning)
-- for the data, i likely need to do my normal work, then have a separate window that is not tracked that logs the read/write stream. and i need to confirm over the course of a day or two that its a high fidelity representation of my actual inputs and outputs. non comprehensive list of things to handle:
-	needs to handle reading something then scrolling back up to reread it
-	needs to handle having multiple windows across multiple screens open at the same time
-- is collecting agent traces sufficient if 80% of write actions are chatbot interactions? could this be an ablation in [[Phase 1]]?
-- how impactful is local data? (relates to local data laws experiment)
-- how many bits of information is required and how many are produced daily?
-- for capturing 'read', we likely want to only include the middle of the screen. unclear when to include and when to exclude. if the user scrolls quickly, we would not want to include that data, for example, since they likely did not actually read the part they scrolled by.
-	- in this sense, prediction and augmentation are at odds, because prediction is presumably maximized by maintaining extremely high fidelity to the human data streams, while augmentation, in the vision, involved using the unique capabilities of LLMs (to parse more text) to help progress towards goals faster
-	- the implicit assumption is that the data not read by the human is not useful data, even for the AI
-	- which rests on the assumption that the human is a better filter for data signal for its context window than an LLM is for its context window. but it does also assume that the human is a better filter for data signal for the LLM's context window, which is a fine assumption imo
+	- discusses research similar to longNAP https://claude.ai/chat/d3de1f6d-cd67-404b-a93a-936b3a662d7e
+		- the most interesting related paper which I put into algorithms uses something called LifeTrace for collecting data, takes snapshots at 1 Hz (can we track keyboard usage and snapshot during a pause, like it occurs in git in this obsidian?)
+		- another one frames 'when to assist' as when its high likelihood that the "user would turn to an AI assistant right now" which is interesting
+	- text > screenshots, tons of practical issues from related players around 
+	- practically need text PII scrub
+	- i was trying to force in DPO/IPO as an attempt to create an implicit reward model that could be used for actual rollouts. this is overly complex and reduces the likelihood of a successful phase 1. this is informed by the characterization of a centaur model as just one implementation of a human model. clearly a human model is useful for this. is it useful for other things?
+		a discriminator model that learns the diff between the human action given history and the model action given history, which results in an implicit reward function from logprob diffs the same way RLHF/DPO does (pending the optimality of the human)
+			i have since learned this is basically GAIL
+		a world model to determine observations from actions that could result in 2 step rollout 'samples' instead of 1 step rollout samples, compressing user next action BC learning with theoretically improved per step decision making, which would become way more plausible with other phase 1 models interacting with each other, and is less plausible for super high entropy browser search, code runs a la ECHO (but ECHO could be used), social media output
+		long chat that highlighted this https://chatgpt.com/c/6a5e760b-e110-83ea-9610-b0031962916e (discriminator diff measures model surprise which measures learning)
+	- for the data, i likely need to do my normal work, then have a separate window that is not tracked that logs the read/write stream. and i need to confirm over the course of a day or two that its a high fidelity representation of my actual inputs and outputs. non comprehensive list of things to handle:
+		needs to handle reading something then scrolling back up to reread it
+		needs to handle having multiple windows across multiple screens open at the same time
+	- is collecting agent traces sufficient if 80% of write actions are chatbot interactions? could this be an ablation in [[Phase 1]]?
+	- how impactful is local data? (relates to local data laws experiment)
+	- how many bits of information is required and how many are produced daily?
+	- for capturing 'read', we likely want to only include the middle of the screen. unclear when to include and when to exclude. if the user scrolls quickly, we would not want to include that data, for example, since they likely did not actually read the part they scrolled by.
+		- in this sense, prediction and augmentation are at odds, because prediction is presumably maximized by maintaining extremely high fidelity to the human data streams, while augmentation, in the vision, involved using the unique capabilities of LLMs (to parse more text) to help progress towards goals faster
+		- the implicit assumption is that the data not read by the human is not useful data, even for the AI
+		- which rests on the assumption that the human is a better filter for data signal for its context window than an LLM is for its context window. but it does also assume that the human is a better filter for data signal for the LLM's context window, which is a fine assumption imo
+	- can the distinction in usefulness between having access to all necessary context and actually predicting next actions be quantified?
