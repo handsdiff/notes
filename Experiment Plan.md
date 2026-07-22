@@ -19,13 +19,7 @@ These 3 steps constitute the 'prediction' phase of the work. All of them likely 
 
 It's clear that using human preference optimization to achieve superhuman performance is a false expectation. However, once there are a plethora of models that can truly deeply understand their user by their proven ability to map inbound to outbound, only then are they able to engage in social 'simulation' with the models of others and work through novel solutions based on their own goals and contexts. This will provide the environmental feedback necessary for human performance. The deterministic simulation of computer/app use I assume will be handled by the rest of the industry as time goes on, rather than be a bottleneck here.
 
-The biggest gaps right now are 
-	actual codification of the initial phases, specifically dataset construction and loss function, to determine gaps
-	review of algorithms from others to see how it relates to my hypotheses. for example prospective learning [[AIXI#^6680d0]] in a multi agent environment https://gemini.google.com/app/9cecb25fc4daff93 might be the better way to frame the interaction in the context of multi agent systems rather than brain modeling, or they might be one in the same?
-	how does DPO differ from recsys like contextual bandits https://gemini.google.com/app/34e424feaeb8374a
-	how does the influence of DPO on the state dynamics influence learning, and is it still valid
-	what is the actual path to environmental evaluation and selective retention, the remaining steps to superintelligence after variation
-	from a thesis perspective, what are the other issues with collective intelligence (first paragraph)
+
 
 for the toy example/experiment we'll want to compare frontier LLMs next action prediction, older LLMs, and fine tuned OS models against varying amounts of data, and quantify losses in sort of a 2x2 matrix. we would like to see how closed source models perform when compared to open sourced, as well as how data availability impacts each. one fear is that just obsidian data will not be enough to show results in either, and we'll need to store browser and ai chatbot data as well, which is likely. ^f4fead
 

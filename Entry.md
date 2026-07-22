@@ -6,11 +6,12 @@
 - https://x.com/chewing_a_gum/status/2079628462671970661?s=20
 - https://x.com/oneill_c/status/2077806576665350312?s=20
 - 
-- 
 - honcho's blog is quartz?? https://plasticlabs.ai/blog/posts/Memory-as-Reasoning they also discuss memory as prediction
 	- similar tweet https://x.com/ashwingop/status/2069807820846063932
 
+
 - random work
+	- post thesis piece
 	- find and sign up for events
 		- apply for paradigm's frontiers hackathon https://www.paradigm.xyz/frontiers-2026
 		- handle mtndao acceptance
@@ -20,13 +21,8 @@
 		- i am feeling really really bad about our historic, and current, lack of 'existence' and misunderstanding of social proof dynamics
 		- potentially useful for personal blog/website for more legitimacy personally and for company https://x.com/shadcn/status/2075600582518124657?s=20
 		- feeling a desire to have a separate website for my blogs. self hosted shows commitment. substack gets swallowed into the platform.
-		- https://generalagents.com/ good relative benchmark for quality, interesting description of 'behavior' as a training paradigm that resonates
-	- make target market and their growing problem as evidenced by time or money more concrete
 	- go through old information to discover anything relevant
-	- post thesis piece
 	- double email Omar
-
-
 
 
 - ## directly relevant - practical
