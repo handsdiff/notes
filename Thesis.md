@@ -37,4 +37,34 @@ The ~\$600B figure is an estimate of the annual global cost to businesses of act
 
 # Misc Notes
 
-tension between articulated thesis and the context generation surface 
+- some tension between articulated thesis of next action prediction and the practical data generation surface value props described in [[Product]]. yes, having a better informational source could improve next action prediction. is it worth the buildout? is the local value prop this better interaction surface, or next action prediction, or data collection and cleaning from existing surfaces?
+	- https://x.com/willdepue/status/2074178395462848800 "stargate for data"
+		- "data generating surfaces (interactions) matter more than human-generated data / hand-curated RL environments"
+		- [[Product]] could be described as a renewable data source in the energy/fossil fuel analogy. it 100% requires a better interaction application, perhaps along the lines of what i've described
+	- data + compute + algorithms for life autocomplete (predicting thoughts) (team understood it as predicting prompts) (team biggest concern is amount of data necessary to feel value)
+		- algorithms have 10-11 figures of annual research spend by the smartest minds on earth
+		- compute you can buy
+		- (nondeterministic, temporal) data is impossible to buy
+		- therefore you need to be producing granular context
+		- the best form of granular context in a computer use setting is writing down your thoughts, since that has the most predictive power on next thought/action vs just scraping computer use
+		- argument that if you don't do this you'll be left behind as algos get superintelligent
+		- (also relates to frontier models differing in reward models from you)
+		- that leads to [[Product]]
+		- definitionally, a model is superintelligent compared to me if it has the ability to predict my actions well (and i cannot predict its actions?)
+	- again, obsidian with link enrichment, auto git with good commit msgs, multi device sync, messaging connectors for easy note taking might be enough. i find myself not deleting stuff because the search is more difficult (ai latency vs app search latency). which is annoying
+		- and bitcoin timestamping because i want it.
+		- not having link enrichment / search over the link content is super annoying, i cant find a gemini chat i had where i was learning about how obsidian handles markdown into its own block language or something. found it from gemini search, its also a couple bullet points above https://gemini.google.com/app/581ea6b83f49a55a
+		- related to the idea that the algorithms and toy examples are to prove that using different tools 'legibilizing thought process of knowledge work' is worth it. and the features necessary to make the legibilization a smooth experience are separate from the algorithms necessary to turn it into something useful
+		- the data construction from the 'raw' process work is the keystone/capstone
+		- the problem with frequent git is that the local size of the git folder becomes massive, i assume there are solutions to this somewhere, but perhaps not?
+- did not mention the tension between human preference as the only true reward signal and environmental rewards as the only true reward signal. likely resolution is that in a society, human preference data = environmental rewards.
+	- discussion with jakub yielded the distinction between nondeterministic reward functions and deterministic reward functions. simpler demarcation is human vs not.
+- The dynamic, fresh context also applies to judgment/feedback. Not just context (inputs)
+- artificial wisdom
+	- Is wisdom more truthful reward functions?
+	- “Artificial wisdom” sounds way more implausible than artificial intelligence
+		- Feels related to “what to do” not “how to do it”
+	- artificial wisdom as a reward model choice where artificial intelligence is slamming an existing reward model without question
+- people think. people share what they think with others. sharing improves others thinking. this happens slowly. is basically one version of a practical thesis.
+- bit of an old hot take. i think enterprise models will look like each employee having their own agent that is tuned to them, and the models are allowed to conversate to collaborate and improve rewards, instead of a monolithic model that everyone shares. personal computing with networking, not timeshared computing. 
+- 
