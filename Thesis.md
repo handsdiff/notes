@@ -15,7 +15,7 @@
 
 **The most expensive part of AI is the human time required to make it useful.**
 
-**For every \$1 spent on tokens reading context, ~\$13 of human time went into producing it.** Businesses pay people to gather information, decide what matters, translate it into prompts, and correct work produced without it. The amount of wasted time is on tThis number is doubling every 2 years.
+**For every \$1 spent on tokens reading context, ~\$13 of human time went into producing it.** Businesses pay people to gather information, decide what matters, translate it into prompts, and correct work produced without it. The value of this wasted time is on track to hit **$1T by next year**, doubling every 2 years.
 
 Full, relevant context for these superintelligent systems is lacking today, and people attempt to work around it in varying ways. Manually written prompts and in context memory solutions are a lossy serialization of a user's knowledge, environment, goals, and preferences. More capable models increase the return on this context, so people respond by spending increasing amounts of time curating it. 
 
