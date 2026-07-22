@@ -15,7 +15,7 @@
 
 **The most expensive part of AI is the human time required to make it useful.**
 
-Supplying context to LLMs is a ~**\$600B** per year time sink, doubling every 2 years. **For every \$1 spent on tokens reading context, ~\$13 of human time went into producing it.** Businesses pay people to gather information, decide what matters, communicate it in meetings and messages, translate it into prompts, and correct work produced without it. 
+Supplying context to LLMs is a ~**\$600B** per year time sink, doubling every 2 years. By next year, businesses will spend over $1T in lost time supplying context to LLMs. **For every \$1 spent on tokens reading context, ~\$13 of human time went into producing it.** Businesses pay people to gather information, decide what matters, communicate it in meetings and messages, translate it into prompts, and correct work produced without it. 
 
 Full, relevant context for these superintelligent systems is lacking today, and people attempt to work around it in varying ways. Manually written prompts and in context memory solutions are a lossy serialization of a user's knowledge, environment, goals, and preferences. More capable models increase the return on this context, so people respond by spending increasing amounts of time curating it. 
 
