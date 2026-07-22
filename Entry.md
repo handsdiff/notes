@@ -3,17 +3,7 @@
 - https://x.com/threepointone/status/2079278411663466879?s=20
 - https://x.com/interaction?s=20
 - 
-- could littlebird benefit from longNAP?
-	- they have an agent whose value prop is context. longNAP teaches retrieval reasoning over computer use context.
-	- how is littlebird different from normal memory
-- custom models is the best wedge for inference. custom data collection interfaces is the best wedge for custom models
-- i think agents popping off starting in Q4 2025 increased the data bottleneck (see memory space, mercor ARR). when the data bottleneck is addressed, the bottleneck will shift to reverse data i.e. human understanding. whats better to go after?
-- why will littlebird not get eaten by the codex app? why would our intended product not get eaten by the codex app?
-	- can the distinction in usefulness between having access to all necessary context and actually predicting next actions be quantified?
-- for capturing 'read', we likely want to only include the middle of the screen. unclear when to include and when to exclude. if the user scrolls quickly, we would not want to include that data, for example, since they likely did not actually read the part they scrolled by.
-	- in this sense, prediction and augmentation are at odds, because prediction is presumably maximized by maintaining extremely high fidelity to the human data streams, while augmentation, in the vision, involved using the unique capabilities of LLMs (to parse more text) to help progress towards goals faster
-	- the implicit assumption is that the data not read by the human is not useful data, even for the AI
-	- which rests on the assumption that the human is a better filter for data signal for its context window than an LLM is for its context window. but it does also assume that the human is a better filter for data signal for the LLM's context window, which is a fine assumption imo
+- can the distinction in usefulness between having access to all necessary context and actually predicting next actions be quantified?
 - honcho's blog is quartz?? https://plasticlabs.ai/blog/posts/Memory-as-Reasoning they also discuss memory as prediction
 	- similar tweet https://x.com/ashwingop/status/2069807820846063932
 
@@ -33,7 +23,11 @@
 	- post blog
 	- double email Omar
 	- put precursor banner on personal
-- directly relevant - practical
+
+
+
+
+- ## directly relevant - practical
 	- https://arxiv.org/pdf/2510.19488v1 labels unlabeled video data with their actions, for future training. seems like deepmind's genie also does this
 	- phase 2 requires only showing samples when confidence exceeds some threshold, likely requires fine tuning
 	- https://arxiv.org/abs/2606.03979 memory consolidation during sleep cycles
@@ -141,89 +135,9 @@
 	needs to handle reading something then scrolling back up to reread it
 	needs to handle having multiple windows across multiple screens open at the same time
 - is collecting agent traces sufficient if 80% of write actions are chatbot interactions? could this be an ablation in [[Phase 1]]?
-
-
-
-
-- # directly relevant - vision
-	- **having full context visibility -> predicting what i will do -> doing something to help me get there feels pretty intrinsically valuable. the relation to knowledge sharing perhaps is confusing because its a different axis along the lines of the data elicitation and enterprise customer adoption pigeon holing. but the reason for the assistants would be to use the human models for multiplayer rollouts. does that hold up? does that cause it to be too long of a winding road to a specific problem? theres definitely conflation in the intended problems to be addressed**
-
-	- 
-	- phrased during conversation as a tool that would elicit different behavior of legibilizing process of thinking in between computer interactions. that behavior doesn't exist as much today since the tool being used 'computer' doesn't really benefit from it. the tools of the future will ('local models')
-	- vision post from roon "the world vision of open weights models running themselves, self replicating, training new versions of themselves (at least the kind of behavioral modifications that won't require massive compute scale), is really not very far away". my read is that 'training on what' i.e. useless without granular data
-	- if my team each has one, then you can actually simulate N step rollouts that are accurate?
-	- i think my hope for phase 2 is that the model can learn the abstract 'thought'/'motivation' i have/or 'connection' I make in my brain, then that loss-ily gets put into my computer, and 'recommend' a better described version of it
-	- proactive, background, interactive. why is there not an agent tailored to me answering these questions in a way i would answer them on the order of hours or days, but in minutes?
-	- phase 2 is intended to open up 'move 37' like capabilities
-	- feel more resolute about the problem of converting personal computer use data into something that can be used to predict actions is deep. equivalent to refining oil to put into a machine that does something useful
-	- https://arxiv.org/pdf/2203.02155 first sentence of the abstract "Making language models bigger does not inherently make them better at following a user’s intent" banger
-	- good thesis piece [[Interaction#^4c96d9]] but thinking about it more, i think there are a few problems/solutions being conflated that need to be separated
-	- instruction following training seems explicitly different from action completion training that im considering. instruction following needs to literally be baked into token completion: https://www.youtube.com/watch?v=XKLGuwvSKvI&list=PLoROMvodv4rPwxE0ONYRa_itZFdaKCylL&index=10
-		- makes a good point that as models drift from supervised policy, their expectation of value increasingly diverges from actual value. (slide at end of lecture)
-	- answering a thought or question i type into notes is VERY different from completing my next action / thought. it could connect IF the action is a good prompt to a chatbot, and the agent is able to query the chatbot and return the response in a separate computer, basically messaging it for me on my behalf the way i would. hmmm
-	- why do i want a model to predict me? dont i want a model to improve me? some self-doubt thoughts. the line of thinking from there though was that it needs my reward model, i cant specify it outside of my actions, my actions therefore need to be maximally legible. the toy example is to establish whether increased legibility improves ability to predict, which i need to tie into ability to understand and raise the ceiling on the reward function. also should clarify somewhere how it ties into multi agent systems and the thesis of ai per employee as the enterprise use case rather than a 'company agent' if that's the stated direction
-	- yup https://thinkingmachines.ai/blog/the-future-worth-building-is-human/
-	- context elicitation -> data processing -> continual SFT -> implicit reward from recsys -> envsim rollouts for discovery (MAS)
-	- ^ stems from coordination as the thing i care about from crypto
-	- i have tension between open sourcing all data and keeping browser history private. i would likely be fine with public browser history if it was properly scrubbed
-	- do i develop a model of each LLM such that it becomes more useful to me? for example even though kimi k3 came out, i dont really have a desire to try it since it isnt so clearly better at a use case for me. there are various reasons behind that. for fable on web, its not clearly more intelligent. for gemini, i have more certainty about what im getting with gemini since i have a sense of how it answers. for the chatgpt app, its easier to access my notes (very similar to why i switched from claude web to claude code, since it more easily accessed my codebase)
-		- this leads me to think there may be a similarity where i want something well built, that is smart, that immediately has access to my thinking history, as a possible value prop. again there are many value props being conflated and i need to recognize that and separate them as an initial go forward step
-	- there seems to be a tension between two seemingly mutually exclusive goals
-		- creating an extremely good human model, that can then be used to simulate the user to enable prospective learning, multi agent settings, assistance games, better personalized search and rec, etc
-		- creating an extremely good centaur model, which optimizes for the envisioned product directly by recognizing the model is making suggestions and optimizing for the combined output
-		- it seems like the more truthful analysis is that the centaur model is an example of prospective learning downstream of the good human model? clearly the human model is the first step, and the vision just needs to be plausible, exciting, valuable, and I need strong belief in it. but the vision does not matter if the early experiments indicate lack of productizability
-	- the limit to the extent of rollouts is probably whatever I can quickly understand. another tension here that needs to be identified and a path chosen is replacement vs augmentation. if my human model is doing rollouts and taking actions, thats full replacement. even if it reports back what its doing, its not ME doing it. i guess this is just management though, which doesnt count as replacement. hmmm. to be more nuanced its replacing one task for another higher leverage task. but its pretty well established that some people like being individual contributors rather than managers
-	- There seems to be a common thread between (1) why multi agent systems (2) how true user modeling is required since it only works when context and mind function differ (3) the research discussing how imitation learning is a prerequisite for multi agent research, that I’m just discovering from Micah’s work
-	- the story i told jakub regarding the verifiable loops -> nonverifiable loops for primary AI tasking makes more sense to me since I think most enterprise AI dollars go to nonverifiable tasks than verifiable tasks ('tokenmaxxing'). im surprised inference net has revenue given they focus on rote tasking, since i would not expect enterprises to actually spend much money on that. maybe i overestimate how smart enterprises are and as a result the problems they actually face. like i would never think spending 100k per month on data extraction would be a reality. this suggests i need to be simpler and more practical with problem formulation. its worth verifying what 'nonverifiable' tasking is.
-	- there seems to be a very core distinction between training a model that is purely a human predictor, then training a generally capable model that optimizes with it (a la assistance games) vs training a single model by instilling human predictive capabilities into a generally capable model. its unclear which is better or which im doing, at least from a theoretical/framework perspective. its obvious i am training a model that uses preference data such that the centaur outperforms the demonstrator alone. which implies a single model. in some sense this model would be 'human+' not just human.
-	- the colloquial explanation would be that it learns implicit, yet uncertain (to prevent reward hacking) goals from predicting me well. then can use the implicit reward to perform rollouts that increase it over some baseline, which reminds me of GRPO where one rollout is performed by the human. the problem that stands out is
-		- cant you just tell it the local goal?? why do you need a predictor?
-		- if you tell it the local goal, cant it already assist proactively?
-		- i guess you'd want to train it to understand the local goal well given the history of actions. but i dont want the UX to be showing an understood goal to the user. but maybe it should be? since a proactive suggestion implies a good understanding of the goal + a good understanding of how to accelerate that goal, which im assuming can be initially built as a human predictor, which i think is a fair characterization, but is harder / multi step, but is better UX. hmm
-		- i think this notion that goals will be implicit from good prediction likely only happens at scale. it comes back to why a predictor is desired at all
-	- Beginning to wonder whether the tightest bottleneck is not human to AI data/reward transfer but AI to human understanding transfer. Or maybe the case that improving the former makes the latter that much more painful
-		- html over markdown improve the latter? reminds me of doublezero founder tweet discussing how to better coordinate agents, devs, and non devs
-	- currently thinking through how a currently unidentified target market, that im proxing to myself and my team, actually uses computers/AI.
-		- lots of prompting (60-80%?)
-		- search into browser (do i actually even do this anymore? if i do, am i just looking at the AI summary?)
-		- coding
-		- taking notes
-		- messaging others
-		- social media output
-	- data vs rewards
-	- human understanding vs AI understanding
-	- how to RLHF html visuals? how to personalize them?
-	- how impactful is local data? (relates to local data laws experiment)
-	- how many bits of information is required and how many are produced daily?
-	- 'superhuman model performance' is incompatible with an augmentation value proposition, as opposed to a replacement value proposition. augmentation's goal is superhuman system/centaur performance, which is the goal of any tool.
-	- is RL fundamentally replacing? am i searching for augmentative RL?
-	- it may be just a context game. the actual value prop is processing and cleaning all the work data (a la screenpipe (not sure why littlebird seems to be targeting consumers, but seems more focused on text only suggestions)). the technical skill to turn that into models and a suggestion application might be down the line rather than the main value prop
-	- The value prop of next action prediction alone would be that it speeds up work so you can get more done
-	- Probably would want to capture audio with outbound / inbound labels like granola, which is apparently why limitless pivoted as well
-	- Very simply, next action prediction during work speeds you up, if it works. It doesn’t work if models are too stupid. It works if models increasingly improve. Slate made a similar bet but it didn’t work because the models didn’t improve fast enough but realistically because there just wasn’t demand for a repeatable valuable use case
-	- Next prompt prediction could be a very repeatable value prop that is more specific if have enough data, also called out by cofounders
-	- I.e. speeds you up, speeds your team up
-	- just getting the event stream correct as temporally interleaved read/write seems like the most useful part of the stack
-	- others startups/small teams are probably most interested in this, specifically people in startups who are not coding a lot
-		- if they aren't coding, they're doing research, talking to people via messages or calls, or exploring to find relevant people to talk to, or engaging in marketing via writing or social media
-		- who has the deepest pain of not having a next action predictor? this might be someone who spends a lot of time or money on similar solutions
-		- actually thats not true theres plenty of people who feel the lack of context issue
-		- if youre solving lack of context because you do the best job of cleaning the data in a way that AIs can reason well over, which is essentially memory (even the memory people seem to be doing token space vs weight space discussions), then there are definitely teams that use those memory solutions
-		- but chatgpt and claude are getting much better at handling memory / compression etc
-		- but also I, and im assuming others, use multiple providers and have to juggle context across all of them
-	- how would i articulate the gut reaction to why it feels extremely valuable to have a next action predictor? its because i want an AI to model my brain, so that as GDP increasingly flows through agents, my way of thinking persists. its basically not getting left behind.
-	- i do think that all the context associated with the work before coding would speed up coding a lot. i know darryn has had this problem as well.
-	- one articulation could be the time spent giving context to an LLM prompt, whether that be a chatbot or agent, either upfront or after the fact when you realize its giving you an answer that lacks context. this has definitely increased exponentially and is nonzero. the perhaps hot take may be that as intelligence per dollar continues to go exponential, the lack of context increases in pain, not decreases. that feels robust. for who? whoever is hypothetically most retained. i'd probably choose small (<20), technical teams since thats who i am most familiar with
-	- open core where software is open source but the hosted version to not worry about hardware, local llms, retraining, etc is closed source? or just full closed source? soc 2 compliance?
-	- that formulation implies a context collector is the main value prop, which i think it is. applying algorithms to next action prediction + an application for suggestions differs though because its proactive rather than a promptable thing that has context
-	- probably would open source the data cleaning pipeline. then iterate on algorithms + applications to make it useful, although people could make it useful as they see fit. that seems most value creative.
-	- the vision to tie into that would be as agents get more persistent and increasingly interact between themselves, the alignment between your agent and you is purely correlated to the context it has on you and your goals. again thats replacement vs augmentation, but feels like a grey line more than anything. since augmentation of X steps would be the step after augmentation of 1 step, but how many steps is replacement? does augmentation vs replacement actually come down to liabilities/obligations vs assets/entitlements. i.e. if my agent does the work, i make the money, but i also am responsible for it fucking up
-	- then i absolutely need it to have full context, no question, and the better it is as predicting my next action, the more comfortable i am with it acting on my behalf especially when im liable for its work
-	- as a similar but separate point, the nature of work seems to be increasingly prompting rather than anything else. your ability to convert what you've seen and heard into a next action that is value productive is the bottleneck.
-	- the single player vision remains to have the model see what im doing, infer my goal, and tell me how to get there faster. the multi player vision takes this model and allows it to take multi step actions to achieve my goals
-	- the indeterminate part of the stack that is likely to last longer is the data pipeline. the algorithms and suggestion application less so
-	- important to keep in mind that reduced loss is not the goal, felt value delivery is
-	- "ProAct predicts future needs from history and persistent memory, then prepares relevant artifacts during idle time. It reports 14.8% fewer turns and 11.7% less user effort—but on a synthetic benchmark, so this is encouraging evidence, not product validation. [ProAct](https://arxiv.org/abs/2605.25971)"
-	- "Anthropic’s latest survey found that experienced workers particularly emphasize judgment, contextual awareness, situational reasoning, trust, and management as capabilities AI still lacks. [Anthropic Economic Index](https://www.anthropic.com/research/economic-index-june-2026-report)"
-	- predicting multiple actions instead of one action seems similar to trying to get to goals faster but it requires a world model. for example if a model is going to predict a prompt i type in, and it 'knows' im going to need a follow up prompt to actually get what i want, it should recommend the fixed prompt before hand. unclear whether it can do this from the BC and IPO formulation, which is why i was gunning so hard for the reward inference, but then the conversation around local explicit goals being written down made it unclear whether it could do that when those exist
-	- it would be great to be more clear about how next action prediction could lead to next N action prediction, i.e. instead of suggesting collecting a piece of context to give to a model, then collecting another piece of context, etc, just generate the entire prompt better and faster than i would have written it.
+- how impactful is local data? (relates to local data laws experiment)
+- how many bits of information is required and how many are produced daily?
+- for capturing 'read', we likely want to only include the middle of the screen. unclear when to include and when to exclude. if the user scrolls quickly, we would not want to include that data, for example, since they likely did not actually read the part they scrolled by.
+	- in this sense, prediction and augmentation are at odds, because prediction is presumably maximized by maintaining extremely high fidelity to the human data streams, while augmentation, in the vision, involved using the unique capabilities of LLMs (to parse more text) to help progress towards goals faster
+	- the implicit assumption is that the data not read by the human is not useful data, even for the AI
+	- which rests on the assumption that the human is a better filter for data signal for its context window than an LLM is for its context window. but it does also assume that the human is a better filter for data signal for the LLM's context window, which is a fine assumption imo

@@ -244,6 +244,8 @@ algorithms considered and rejected for now and why: (there are likely practicali
 		- 
 	- ProAgentBench arxiv.org/abs/2602.04482 (2026)
 		- a benchmark for proactive agents that continuously monitor user screen activities and contextual signals, deciding when to intervene based on historical observations and behavior patterns — essentially the evaluation counterpart to NAP.
+	- [ProAct](https://arxiv.org/abs/2605.25971)
+		- "ProAct predicts future needs from history and persistent memory, then prepares relevant artifacts during idle time. It reports 14.8% fewer turns and 11.7% less user effort—but on a synthetic benchmark, so this is encouraging evidence, not product validation. 
 
 - is phase 1 a process reward model?
 - does phase 1 result in an 'implicit' reward model?

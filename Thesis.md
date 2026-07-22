@@ -57,14 +57,49 @@ The ~\$600B figure is an estimate of the annual global cost to businesses of act
 		- related to the idea that the algorithms and toy examples are to prove that using different tools 'legibilizing thought process of knowledge work' is worth it. and the features necessary to make the legibilization a smooth experience are separate from the algorithms necessary to turn it into something useful
 		- the data construction from the 'raw' process work is the keystone/capstone
 		- the problem with frequent git is that the local size of the git folder becomes massive, i assume there are solutions to this somewhere, but perhaps not?
+	- custom models is the best wedge for inference. custom data collection interfaces is the best wedge for custom models
 - did not mention the tension between human preference as the only true reward signal and environmental rewards as the only true reward signal. likely resolution is that in a society, human preference data = environmental rewards.
 	- discussion with jakub yielded the distinction between nondeterministic reward functions and deterministic reward functions. simpler demarcation is human vs not.
-- The dynamic, fresh context also applies to judgment/feedback. Not just context (inputs)
+- The dynamic, fresh context also applies to judgment/feedback/reward inference. Not just context (inputs)
 - artificial wisdom
 	- Is wisdom more truthful reward functions?
 	- “Artificial wisdom” sounds way more implausible than artificial intelligence
 		- Feels related to “what to do” not “how to do it”
 	- artificial wisdom as a reward model choice where artificial intelligence is slamming an existing reward model without question
-- people think. people share what they think with others. sharing improves others thinking. this happens slowly. is basically one version of a practical thesis.
-- bit of an old hot take. i think enterprise models will look like each employee having their own agent that is tuned to them, and the models are allowed to conversate to collaborate and improve rewards, instead of a monolithic model that everyone shares. personal computing with networking, not timeshared computing. 
-- 
+- practical notes
+	- people think. people share what they think with others. sharing improves others thinking. this happens slowly. is basically one version of a practical thesis.
+	- bit of an old hot take. i think enterprise models will look like each employee having their own agent that is tuned to them, and the models are allowed to conversate to collaborate and improve rewards, instead of a monolithic model that everyone shares. personal computing with networking, not timeshared computing. 
+	- currently thinking through how a currently unidentified target market, that im proxing to myself and my team, actually uses computers/AI.
+		- lots of prompting (60-80%?)
+		- search into browser (do i actually even do this anymore? if i do, am i just looking at the AI summary?)
+		- coding
+		- taking notes
+		- messaging others
+		- social media output
+	- others startups/small teams are probably most interested in this, specifically people in startups who are not coding a lot
+	- if they aren't coding, they're doing research, talking to people via messages or calls, or exploring to find relevant people to talk to, or engaging in marketing via writing or social media
+	- who has the deepest pain of not having a next action predictor? this might be someone who spends a lot of time or money on similar solutions
+	- actually thats not true theres plenty of people who feel the lack of context issue
+	- if youre solving lack of context because you do the best job of cleaning the data in a way that AIs can reason well over, which is essentially memory (even the memory people seem to be doing token space vs weight space discussions), then there are definitely teams that use those memory solutions
+	- but chatgpt and claude are getting much better at handling memory / compression etc
+	- but also I, and im assuming others, use multiple providers and have to juggle context across all of them
+	- one articulation could be the time spent giving context to an LLM prompt, whether that be a chatbot or agent, either upfront or after the fact when you realize its giving you an answer that lacks context. this has definitely increased exponentially and is nonzero. the perhaps hot take may be that as intelligence per dollar continues to go exponential, the lack of context increases in pain, not decreases. that feels robust. for who? whoever is hypothetically most retained. i'd probably choose small (<20), technical teams since thats who i am most familiar with
+	- important to keep in mind that reduced loss is not the goal, felt value delivery is
+	- "Anthropic’s latest survey found that experienced workers particularly emphasize judgment, contextual awareness, situational reasoning, trust, and management as capabilities AI still lacks. [Anthropic Economic Index](https://www.anthropic.com/research/economic-index-june-2026-report)"
+- human understanding vs AI understanding
+	- how to RLHF html visuals? how to personalize them?
+- indeterminism
+	- it may be just a context game. the actual value prop is processing and cleaning all the work data (a la screenpipe (not sure why littlebird seems to be targeting consumers, but seems more focused on text only suggestions)). the technical skill to turn that into models and a suggestion application might be down the line rather than the main value prop
+	- The value prop of next action prediction alone would be that it speeds up work so you can get more done
+	- Probably would want to capture audio with outbound / inbound labels like granola, which is apparently why limitless pivoted as well
+	- Very simply, next action prediction during work speeds you up, if it works. It doesn’t work if models are too stupid. It works if models increasingly improve. Slate made a similar bet but it didn’t work because the models didn’t improve fast enough but realistically because there just wasn’t demand for a repeatable valuable use case
+	- Next prompt prediction could be a very repeatable value prop that is more specific if have enough data, also called out by cofounders
+	- I.e. speeds you up, speeds your team up
+	- just getting the event stream correct as temporally interleaved read/write seems like the most useful part of the stack
+	- that formulation implies a context collector is the main value prop, which i think it is. applying algorithms to next action prediction + an application for suggestions differs though because its proactive rather than a promptable thing that has context
+	- open core where software is open source but the hosted version to not worry about hardware, local llms, retraining, etc is closed source? or just full closed source? soc 2 compliance?
+	- probably would open source the data cleaning pipeline. then iterate on algorithms + applications to make it useful, although people could make it useful as they see fit. that seems most value creative.
+	- the indeterminate part of the stack that is likely to last longer is the data pipeline. the algorithms and suggestion application less so
+- pushing further
+	- predicting multiple actions instead of one action seems similar to trying to get to goals faster but it requires a world model. for example if a model is going to predict a prompt i type in, and it 'knows' im going to need a follow up prompt to actually get what i want, it should recommend the fixed prompt before hand. unclear whether it can do this from the BC and IPO formulation, which is why i was gunning so hard for the reward inference, but then the conversation around local explicit goals being written down made it unclear whether it could do that when those exist
+	- it would be great to be more clear about how next action prediction could lead to next N action prediction, i.e. instead of suggesting collecting a piece of context to give to a model, then collecting another piece of context, etc, just generate the entire prompt better and faster than i would have written it.
