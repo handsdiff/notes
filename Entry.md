@@ -14,7 +14,6 @@
 
 
 - random work
-	- post thesis piece
 	- find and sign up for events
 		- apply for paradigm's frontiers hackathon https://www.paradigm.xyz/frontiers-2026
 		- handle mtndao acceptance
