@@ -27,6 +27,10 @@
 - "you can put knowledge in a prompt but you can't put skill in a prompt"
 - OPD seems like DAgger
 - what shape of continual learning, from an algorithmic perspective, do I most believe in? How does this impact data collection as a valuable slice, as well as the shape of the data processing?
+- annoying giving codex obsidian links over and over
+- annoying telling codex it can ssh into desktop, it should now
+- "get xiao wang" but contextless ai doesnt know how, from deepseek founder
+- tacit knowledge, skills vs information from will brown
 
 
 - random work
