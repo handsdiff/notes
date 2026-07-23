@@ -11,7 +11,7 @@
 - https://news.ycombinator.com/item?id=49010167
 - https://hallerite.com/
 - https://github.com/hallerite/ludic
-- 
+- continual learni
 - honcho's blog is quartz?? https://plasticlabs.ai/blog/posts/Memory-as-Reasoning they also discuss memory as prediction
 	- similar tweet https://x.com/ashwingop/status/2069807820846063932
 
