@@ -12,7 +12,7 @@
 - https://hallerite.com/
 - https://github.com/hallerite/ludic
 - continual learning -> self improvement -> embodied intelligence 
-- Stash Sam had an article on x which I should find again, called engram a vertical  startup
+- Stash Sam had an article on x which I should find again, called engram a vertical  startup https://x.com/samzliu/status/2080210797465379147
 - honcho's blog is quartz?? https://plasticlabs.ai/blog/posts/Memory-as-Reasoning they also discuss memory as prediction
 	- similar tweet https://x.com/ashwingop/status/2069807820846063932
 
