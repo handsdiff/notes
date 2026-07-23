@@ -138,3 +138,4 @@
 		- the implicit assumption is that the data not read by the human is not useful data, even for the AI
 		- which rests on the assumption that the human is a better filter for data signal for its context window than an LLM is for its context window. but it does also assume that the human is a better filter for data signal for the LLM's context window, which is a fine assumption imo
 	- can the distinction in usefulness between having access to all necessary context and actually predicting next actions be quantified?
+	- forgot where i wrote this but need to collect data by time instead of turn? maybe take the 'snapshot' x secs after action ends
