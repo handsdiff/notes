@@ -20,6 +20,9 @@
 	- https://x.com/teortaxesTex/status/2080124637300539646/photo/1
 	- 
 - what are the hardware bottlenecks to continual learning? how do compute resources change on a very fundamental level with continual retraining?
+- skills describing how to do something then if the agent slightly goes off track not knowing what to do is very similar to what DAgger attempts to solve
+- "you can put knowledge in a prompt but you can't put skill in a prompt"
+- OPD seems like DAgger
 
 
 - random work
@@ -28,9 +31,6 @@
 		- potentially useful for personal blog/website for more legitimacy personally and for company https://x.com/shadcn/status/2075600582518124657?s=20
 		- feeling a desire to have a separate website for my blogs. self hosted shows commitment. substack gets swallowed into the platform.
 	- go through old information to discover anything relevant
-		- skills describing how to do something then if the agent slightly goes off track not knowing what to do is very similar to what DAgger attempts to solve
-		- "you can put knowledge in a prompt but you can't put skill in a prompt"
-		- OPD seems like DAgger
 
 
 - ## directly relevant - practical
