@@ -18,7 +18,10 @@
 - omega bangers from deepseek founder
 	- https://x.com/teortaxesTex/status/2080158170857574747/photo/1
 	- https://x.com/teortaxesTex/status/2080124637300539646/photo/1
-	- 
+	- https://x.com/teortaxesTex/status/2080155926011457560/photo/1
+		- "China has no cost advantage in data annotation"
+		- "half our company is annotating data now. Half of our core researchers - the most important people - half are annotating data. We're concentrating on annotating data. Solving the AI problem at this stage relies on annotating data. You just look-it's all about data."
+		- "The gap is mainly in high quality data annotation, then mainly in AI research"
 - what are the hardware bottlenecks to continual learning? how do compute resources change on a very fundamental level with continual retraining?
 - skills describing how to do something then if the agent slightly goes off track not knowing what to do is very similar to what DAgger attempts to solve
 - "you can put knowledge in a prompt but you can't put skill in a prompt"
