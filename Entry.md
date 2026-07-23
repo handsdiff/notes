@@ -31,6 +31,7 @@
 - annoying telling codex it can ssh into desktop, it should now
 - "get xiao wang" but contextless ai doesnt know how, from deepseek founder
 - tacit knowledge, skills vs information from will brown
+- rubric engineering seems so manual. "i know it when i see it"/reward inference may be better but it involves human in the loop. it comes down to trust architecting. lots of related concepts i think.
 
 
 - random work
