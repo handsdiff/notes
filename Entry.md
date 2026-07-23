@@ -33,6 +33,17 @@
 - tacit knowledge, skills vs information from will brown
 - rubric engineering seems so manual. "i know it when i see it"/reward inference may be better but it involves human in the loop. it comes down to trust architecting. lots of related concepts i think.
 - continual learning vs meta learning vs idbd
+- The concept of an agent embedded into your context, inferring your goals, and taking actions to assist you, feels extremely directionally correct
+- Cluely was ahead of its time
+- Starting with computers because I’m currently relatively low skill
+- Reward inference is very important
+- Taking helpful action rather than mimic action is a core tension since there’s plenty of things i would like but don’t actually do since it’s difficult or high friction. Relates to proactive and prospective learning, as well as embodied intelligence.
+- Does action mimicry lead to action assistance? Depends on reward inference. I’ve laid out one path, should identify and dig deeper if needed on biggest assumptions and unknowns
+- Mimicking leads to thinking around continual learning which may not be the right direction vs taking a helpful action directly, which may devolve into recsys, but maybe it’s something with a set of new properties I need to be more rigorous about
+- The way it DOES map is when I run into an issue and then actually solve it, given the context.
+- If I solve it in a multi step way that relates to previous notes around wanting the model to suggest the N steps required for my goal, or if it can condense it into one step even better, rather than just walk me through the existing steps a bit faster. That’s likely the start of it though
+- Maybe should store all data, and just filter by “in sight/mind” data, since might want to use the additional data later, for the purposes of having flexible data collection. Screenpipe? I guess not screenpipe since that by itself won’t allow me to filter into “in sight”. Need to collect both since “in sight” is an additional “feature flag” while collecting all the data
+- Will brown guide suggesting that data ordering doesn’t matter for gradient descent? Why synthetic data as the most interesting 
 
 
 - random work
