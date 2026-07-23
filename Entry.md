@@ -21,6 +21,7 @@
 	- go through old information to discover anything relevant
 		- skills describing how to do something then if the agent slightly goes off track not knowing what to do is very similar to what DAgger attempts to solve
 		- "you can put knowledge in a prompt but you can't put skill in a prompt"
+		- OPD seems like DAgger
 
 
 - ## directly relevant - practical
