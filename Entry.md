@@ -8,6 +8,9 @@
 - https://x.com/SchmidhuberAI/status/2079576596483022963?s=20
 - https://x.com/karpathy/status/2079610838143623371?s=20
 - https://x.com/elliotarledge/status/2079652159201914994?s=20
+- https://news.ycombinator.com/item?id=49010167
+- https://hallerite.com/
+- https://github.com/hallerite/ludic
 - 
 - honcho's blog is quartz?? https://plasticlabs.ai/blog/posts/Memory-as-Reasoning they also discuss memory as prediction
 	- similar tweet https://x.com/ashwingop/status/2069807820846063932
