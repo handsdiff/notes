@@ -15,6 +15,8 @@
 - Stash Sam had an article on x which I should find again, called engram a vertical  startup https://x.com/samzliu/status/2080210797465379147
 - honcho's blog is quartz?? https://plasticlabs.ai/blog/posts/Memory-as-Reasoning they also discuss memory as prediction
 	- similar tweet https://x.com/ashwingop/status/2069807820846063932
+- omega bangers from deepseek founder https://x.com/teortaxesTex/status/2080158170857574747/photo/1
+- 
 
 
 - random work
