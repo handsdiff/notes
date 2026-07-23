@@ -11,7 +11,8 @@
 - https://news.ycombinator.com/item?id=49010167
 - https://hallerite.com/
 - https://github.com/hallerite/ludic
-- continual learni
+- continual learning -> self improvement -> embodied intelligence 
+- Stash Sam had an article on x which I should find again, called engram a vertical  startup
 - honcho's blog is quartz?? https://plasticlabs.ai/blog/posts/Memory-as-Reasoning they also discuss memory as prediction
 	- similar tweet https://x.com/ashwingop/status/2069807820846063932
 
