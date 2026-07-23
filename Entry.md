@@ -23,6 +23,7 @@
 - skills describing how to do something then if the agent slightly goes off track not knowing what to do is very similar to what DAgger attempts to solve
 - "you can put knowledge in a prompt but you can't put skill in a prompt"
 - OPD seems like DAgger
+- what shape of continual learning, from an algorithmic perspective, do I most believe in? How does this impact data collection as a valuable slice, as well as the shape of the data processing?
 
 
 - random work
