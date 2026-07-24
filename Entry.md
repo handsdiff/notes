@@ -17,6 +17,9 @@
 - continual learning should make hugging face, or more specifically open weights for models at different “stages” of learning, much more important. Like git for weights. Who’s building this? Would likely need a custom diff view or some other “interpretability”
 - Infra is a prerequisite for product
 - https://x.com/evangelinejy99/status/2079250052476752325?s=20 relevant to jakub convo
+- is a prerequisite for product
+- https://x.com/evangelinejy99/status/2079250052476752325?s=20 relevant to jakub convo
+- https://www.lesswrong.com/posts/RzeyMfLxwjgGjQFpv/announcing-aixi-labs
 - 
 - honcho's blog is quartz?? https://plasticlabs.ai/blog/posts/Memory-as-Reasoning they also discuss memory as prediction
 	- similar tweet https://x.com/ashwingop/status/2069807820846063932
@@ -54,6 +57,7 @@
 
 - random work
 	- go through old information to discover anything relevant
+	- AIT symposium signup
 
 
 - ## directly relevant - practical
