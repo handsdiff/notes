@@ -13,6 +13,11 @@
 - https://github.com/hallerite/ludic
 - continual learning (learning to learn) -> self improvement -> embodied intelligence is the expectation from deepseek's founder https://x.com/teortaxesTex/status/2080129147817382085
 - Stash Sam had an article on x which I should find again, called engram a vertical  startup an article on x which I should find again, called engram a vertical  startup https://x.com/samzliu/status/2080210797465379147
+- https://x.com/GenAI_is_real/status/2080491992124137775?s=20
+- continual learning should make hugging face, or more specifically open weights for models at different “stages” of learning, much more important. Like git for weights. Who’s building this? Would likely need a custom diff view or some other “interpretability”
+- Infra is a prerequisite for product
+- https://x.com/evangelinejy99/status/2079250052476752325?s=20 relevant to jakub convo
+- 
 - honcho's blog is quartz?? https://plasticlabs.ai/blog/posts/Memory-as-Reasoning they also discuss memory as prediction
 	- similar tweet https://x.com/ashwingop/status/2069807820846063932
 - omega bangers from deepseek founder
@@ -43,7 +48,7 @@
 - The way it DOES map is when I run into an issue and then actually solve it, given the context.
 - If I solve it in a multi step way that relates to previous notes around wanting the model to suggest the N steps required for my goal, or if it can condense it into one step even better, rather than just walk me through the existing steps a bit faster. That’s likely the start of it though
 - Maybe should store all data, and just filter by “in sight/mind” data, since might want to use the additional data later, for the purposes of having flexible data collection. Screenpipe? I guess not screenpipe since that by itself won’t allow me to filter into “in sight”. Need to collect both since “in sight” is an additional “feature flag” while collecting all the data
-- Will brown guide suggesting that data ordering doesn’t matter for gradient descent? Why synthetic data as the most interesting 
+- Will brown guide suggesting that data ordering doesn’t matter for gradient descent? Why synthetic data as the most interesting? Along the lines of allowing the model to generate its own data and teach itself
 
 
 - random work
