@@ -6,6 +6,7 @@
 	- i am feeling really really bad about our historic, and current, lack of 'existence' and misunderstanding of social proof dynamics
 	- potentially useful for personal blog/website for more legitimacy personally and for company https://x.com/shadcn/status/2075600582518124657?s=20
 	- feeling a desire to have a separate website for my blogs. self hosted shows commitment. substack gets swallowed into the platform.
+	- many cracked people have personal sites
 
 - new LBH: Come up with a data plan or invalidate premises of direction. If failed to invalidate, describe data structures and ingestion surfaces compared to alternatives. By Tuesday.
 
