@@ -55,6 +55,8 @@
 - Maybe should store all data, and just filter by “in sight/mind” data, since might want to use the additional data later, for the purposes of having flexible data collection. Screenpipe? I guess not screenpipe since that by itself won’t allow me to filter into “in sight”. Need to collect both since “in sight” is an additional “feature flag” while collecting all the data
 - Will brown guide suggesting that data ordering doesn’t matter for gradient descent? Why synthetic data as the most interesting? Along the lines of allowing the model to generate its own data and teach itself
 - tentative data plan is set up a debugging app thats always on my screen, not tracked, and that maps with highest fidelity what i read and write into an event stream. should properly demarcate i.e. put consolidate stream into events, should include full links for eventual 'full' data not just 'view' data, and should include timestamps which may not necessarily be trained on but turn based vs time based is a big open question
+- "continual data for continual learning"
+- "operationalize data collection" https://www.manifold1.com/episodes/misha-laskin-reflection-ai-from-physics-to-superintelligence/transcript
 
 
 - random work
