@@ -23,6 +23,8 @@
 - https://x.com/Letta_AI/status/2080535211473850822?s=20
 - https://x.com/teortaxesTex/status/2080850405148291153?s=20
 - 
+- kimi delta attention https://arxiv.org/pdf/2510.26692
+- https://people.idsia.ch/~juergen/1991-unnormalized-linear-transformer.html
 - honcho's blog is quartz?? https://plasticlabs.ai/blog/posts/Memory-as-Reasoning they also discuss memory as prediction
 	- similar tweet https://x.com/ashwingop/status/2069807820846063932
 - omega bangers from deepseek founder
@@ -61,8 +63,8 @@
 	- reminds me of cursor when he says self attention is a mechanism inside a encoder block (which is borrowed from the residual block in residual nets) that learns what surrounding context to pay attention to. cursor applied this foundational aspect to code. they basically had the language model fill in the 'blanks' by giving surrounding cursor content as context
 	- i wonder whether slate product issue, among other things, was that it was not well utilizing self attention or auto regression. it was mapping language inputs to api calls we had to create. RL for LLMs was not really a thing yet
 	- LLMs seems to be fractal. they are trained in RL with a good data set and reward signal. now the best way to prompt LLMs is to be very clear about the input and the reward signal, less so about specific directions on how to get there. mentioned something like this earlier here as well
-	- schmidhuber idea that the reduction of bits required to predict events as the reward signal for a continual learner, and requires the ability to independently collect experience via taking action and monitor the consequences of those actions
-		- additionally not worried about safety because such a system will be motivated to 'protect the source of interesting patterns' that it can learn from
+- schmidhuber idea that the reduction of bits required to predict events as the reward signal for a continual learner, and requires the ability to independently collect experience via taking action and monitor the consequences of those actions
+	- additionally not worried about safety because such a system will be motivated to 'protect the source of interesting patterns' that it can learn from
 
 
 - random work
