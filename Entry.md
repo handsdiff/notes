@@ -180,3 +180,5 @@
 		- which rests on the assumption that the human is a better filter for data signal for its context window than an LLM is for its context window. but it does also assume that the human is a better filter for data signal for the LLM's context window, which is a fine assumption imo
 	- can the distinction in usefulness between having access to all necessary context and actually predicting next actions be quantified?
 	- forgot where i wrote this but need to collect data by time instead of turn? maybe take the 'snapshot' x secs after action like scroll or mouse movement or keyboard type ends like git does for obsidian
+	- https://continual-harness.github.io/ how they set up envs / data / loops
+	- 
