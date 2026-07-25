@@ -22,6 +22,7 @@
 - https://www.lesswrong.com/posts/RzeyMfLxwjgGjQFpv/announcing-aixi-labs
 - https://x.com/reactorworld/status/2080711388738249132?s=20
 - https://x.com/miramurati/status/2080715390179766646?s=20
+- https://x.com/Letta_AI/status/2080535211473850822?s=20
 - 
 - honcho's blog is quartz?? https://plasticlabs.ai/blog/posts/Memory-as-Reasoning they also discuss memory as prediction
 	- similar tweet https://x.com/ashwingop/status/2069807820846063932
