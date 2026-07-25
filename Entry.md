@@ -57,6 +57,11 @@
 - tentative data plan is set up a debugging app thats always on my screen, not tracked, and that maps with highest fidelity what i read and write into an event stream. should properly demarcate i.e. put consolidate stream into events, should include full links for eventual 'full' data not just 'view' data, and should include timestamps which may not necessarily be trained on but turn based vs time based is a big open question
 - "continual data for continual learning"
 - "operationalize data collection" https://www.manifold1.com/episodes/misha-laskin-reflection-ai-from-physics-to-superintelligence/transcript
+- https://www.youtube.com/watch?v=e9-0BxyKG10 very foundational explanation of transformers
+	- reminds me of cursor when he says self attention is a mechanism inside a encoder block (which is borrowed from the residual block in residual nets) that learns what surrounding context to pay attention to. cursor applied this foundational aspect to code. they basically had the language model fill in the 'blanks' by giving surrounding cursor content as context
+	- i wonder whether slate product issue, among other things, was that it was not well utilizing self attention or auto regression. it was mapping language inputs to api calls we had to create. RL for LLMs was not really a thing yet
+	- LLMs seems to be fractal. they are trained in RL with a good data set and reward signal. now the best way to prompt LLMs is to be very clear about the input and the reward signal, less so about specific directions on how to get there. mentioned something like this earlier here as well
+	- 
 
 
 - random work
