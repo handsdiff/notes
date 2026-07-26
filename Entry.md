@@ -71,7 +71,7 @@
 - if a model learns that z comes after x and y, is that 'memorization' or is that 'understanding'?
 	- this is usually tested by giving the model a similar but not exact problem or set of problems i.e. a test set. the more solved it is, we label that as understanding
 - "longer context windows are when things are at their most predictable" https://www.youtube.com/watch?v=l6DKRf-fAAM 3b1b entropy vid
-- queries are inputs, keys are inputs, values are the representation of inputs. the weights come from the Q, K, and V matrices in each attention head and the MLP weights, which are stacked multiple times, with residual connections, across multiple layers. 3b1b good vid on this
+- queries are inputs, keys are inputs, values are the representation of inputs. the weights come from the Q, K, and V matrices in each attention head and the MLP weights, which are stacked multiple times, with residual connections, across multiple layers. 3b1b good vid on this, deep learning chapter 6
 
 
 
