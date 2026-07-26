@@ -70,9 +70,7 @@
 - How can you do iid sampling with next action prediction? Won’t the answer likely be in a previous batch that is just memorized? How do you handle autoregressive iid sampling at all? How does pretraining handle this? How else do you avoid pure memorization I.e. terrible test time performance? 
 
 
-- random work
-	- go through old information to discover anything relevant
-	- AIT symposium signup
+
 
 
 - ## directly relevant - practical
