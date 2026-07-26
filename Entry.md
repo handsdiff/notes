@@ -68,6 +68,7 @@
 	- additionally not worried about safety because such a system will be motivated to 'protect the source of interesting patterns' that it can learn from
 - neural net idbd toy example https://share.google/aimode/JBrJjCbEqUnEf5lIW
 - How can you do iid sampling with next action prediction? Won’t the answer likely be in a previous batch that is just memorized? How do you handle autoregressive iid sampling at all? How does pretraining handle this? How else do you avoid pure memorization I.e. terrible test time performance? 
+- if a model learns that z comes after x and y, is that 'memorization' or is that learning?
 
 
 
