@@ -70,6 +70,7 @@
 - How can you do iid sampling with next action prediction? Won’t the answer likely be in a previous batch that is just memorized? How do you handle autoregressive iid sampling at all? How does pretraining handle this? How else do you avoid pure memorization I.e. terrible test time performance? 
 - if a model learns that z comes after x and y, is that 'memorization' or is that 'understanding'?
 	- this is usually tested by giving the model a similar but not exact problem or set of problems i.e. a test set. the more solved it is, we label that as understanding
+- "longer context windows are when things are at their most predictable" https://www.youtube.com/watch?v=l6DKRf-fAAM 3b1b entropy vid
 
 
 
