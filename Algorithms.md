@@ -246,6 +246,8 @@ algorithms considered and rejected for now and why: (there are likely practicali
 		- a benchmark for proactive agents that continuously monitor user screen activities and contextual signals, deciding when to intervene based on historical observations and behavior patterns — essentially the evaluation counterpart to NAP.
 	- [ProAct](https://arxiv.org/abs/2605.25971)
 		- "ProAct predicts future needs from history and persistent memory, then prepares relevant artifacts during idle time. It reports 14.8% fewer turns and 11.7% less user effort—but on a synthetic benchmark, so this is encouraging evidence, not product validation. 
+	- https://arxiv.org/pdf/2606.03979 learn during sleep
+		- conceptually similar to phase 1 but way more complicated, useful to keep in mind if initial implementations fail. specifically uses different frequency updating, low rank MoE, fast vs slow modules, synthetic data and self study, and student/teacher distillation/RL
 
 - is phase 1 a process reward model?
 - does phase 1 result in an 'implicit' reward model?
