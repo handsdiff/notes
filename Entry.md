@@ -74,7 +74,8 @@
 - "longer context windows are when things are at their most predictable" https://www.youtube.com/watch?v=l6DKRf-fAAM 3b1b entropy vid
 - queries are inputs, keys are inputs, values are the representation of inputs. the weights come from the Q, K, and V matrices in each attention head and the MLP weights, which are stacked multiple times, with residual connections, across multiple layers. 3b1b good vid on this, deep learning chapter 6
 - chronological data seems to relate to continual learning, does continual learning even make sense for non chronological data?
-- you can't buy data, you can buy compute. algorithms comes from open science.
+- you can't buy data, you can buy compute, and algorithms comes from open science
+- jakub don't use screenpipe because local storage is cooked
 
 
 
