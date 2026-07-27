@@ -43,7 +43,7 @@ Dynamic evaluation updates a language model on recent tokens before predicting l
 
 Lifelong pretraining studies chronological adaptation to emerging corpora while measuring performance on both new and earlier distributions [6]. Its stability–plasticity problem is directly relevant: recent data should update the personal model without allowing one project or period to erase older workflows or general language-model capabilities.
 
-## 3. Personal Event Stream - TODO
+## 3. Personal Event Stream - WIP
 
 For one person, let
 
