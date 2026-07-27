@@ -56,6 +56,7 @@
 - continual learning vs meta learning vs idbd
 - The concept of an agent embedded into your context, inferring your goals, and taking actions to assist you, feels extremely directionally correct
 - Cluely was ahead of its time
+	- https://github.com/ExistentialAudio/BlackHole
 - Starting with computers because I’m currently relatively low skill
 - Reward inference is very important
 - Taking helpful action rather than mimic action is a core tension since there’s plenty of things i would like but don’t actually do since it’s difficult or high friction. Relates to proactive and prospective learning, as well as embodied intelligence.
@@ -81,7 +82,6 @@
 - "longer context windows are when things are at their most predictable" https://www.youtube.com/watch?v=l6DKRf-fAAM 3b1b entropy vid
 - queries are inputs, keys are inputs, values are the representation of inputs. the weights come from the Q, K, and V matrices in each attention head and the MLP weights, which are stacked multiple times, with residual connections, across multiple layers. 3b1b good vid on this, deep learning chapter 6
 - chronological data seems to relate to continual learning, does continual learning even make sense for non chronological data?
-- you can't buy data, you can buy compute, and algorithms comes from open science
 - jakub don't use screenpipe because local storage is cooked
 - amortizing the cost of retraining across inference time for the retrained model makes it a small % bump on variable costs rather than an imposing fixed cost
 
