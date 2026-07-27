@@ -1,254 +1,62 @@
 
-*Learning to assist from personal read–write streams*
+*Continual next-action learning from personal read–write streams*
 
-**Status:** Working research plan. This document contains no experimental results. It specifies the predictive bootstrap, closed-loop behavioral learning, assumptions, and executable experiments for the first phase of the project.
+**Status:** Working research and implementation plan. This document specifies the data substrate, behavioral-cloning objective, daily evaluation and update loop, and initial experiments for Phase 1.
 
 WARNING: human ideas, but AI writing
 
 ## Abstract
 
-Most AI systems learn about a person only when the person stops working to explain what they want. Ordinary computer use already contains a richer record. A person reads documents, browses pages, receives messages and model outputs, edits notes, writes queries, sends messages, and changes artifacts. Together these events form a temporal stream of information becoming action.
+Ordinary computer use produces a chronological record of information becoming action. A person reads documents, browses pages, receives messages and model outputs, edits notes, writes searches and prompts, sends messages, and changes artifacts. If these events are captured at the time they actually became available, they form a personal read–write stream from which the person's next bounded write action can be predicted.
 
-This paper learns from that stream by predicting each bounded human write action from the events that were available before it. Historical activity bootstraps a personalized model. Once deployed, the model samples possible next actions and presents them to the person as part of the ordinary information stream. The person may use, ignore, transform, or move beyond them. Whatever the person does next becomes a new training target conditioned on the history they actually experienced. Continual updates mix these recent examples with stratified replay and publish new model versions only after prediction, retention, and capability checks.
+Phase 1 builds that stream and applies behavioral cloning to it. Each example contains a fixed-length suffix of the events available before an action and the complete human-authored action that followed. Read events and prior actions are context; only the next human write action receives loss.
 
-The aim is an increasingly capable human–model system. The model contributes broad knowledge, speed, and alternative continuations; the person contributes goals, private context, judgment, synthesis, and authority. The central hypothesis is that good next-action prediction in difficult cases requires useful representations of what the person is locally trying to accomplish, and that samples from such a model can help the person reach acceptable outcomes faster or better. Causally masked actions test the predictive model. Controlled comparisons with unaided work and static assistance test the system it becomes part of.
+Learning is continual. During a day, the model's weights remain fixed while every action is predicted and scored from the sliding causal context. Overnight, that day's examples become training data and are mixed with replay from earlier days. The resulting weights initialize the next day. Historical data is processed through the same chronological loop used for new data, so there is no separate offline training paradigm and no permanent partition of personal activity into training and test examples. Each action is evaluated before it is allowed to train a later model.
 
-## 1. The Missing Substrate for Personal AI
+The first goal is deliberately narrow: implement a temporally faithful event collector, construct reliable macro-action targets, establish that personal history improves next-action prediction, measure how performance changes with context length and continual adaptation, and verify that repeated updates do not erase older behavior or general model capabilities.
 
-A broadly capable model may know how to write, search, analyze, code, or operate software while still having little basis for deciding which action would matter to a particular person now. The missing information is often tacit and fast-changing: the argument the person is developing, the question behind a search, the constraint introduced by a message, the connection they have not yet written down, or the project that has quietly become more important than yesterday's task.
+## 1. Vision
 
-Explicit prompts reveal fragments of this state. Conventional memory systems preserve facts the person or model already chose to record. Ratings and rankings can provide clearer feedback, but asking for them continuously would turn ordinary work into a labeling exercise. Personal, nondeterministic, and fresh context cannot simply be purchased with more compute or recovered reliably after the fact.
+A capable general model may know how to write, search, analyze, code, and operate software while still having little basis for predicting what a particular person will do next. The missing information is often tacit and fast-changing: the argument being developed, the question behind a search, the constraint introduced by a message, the connection between two documents, or the project that has become important today.
 
-The work itself is a more natural source of supervision. Inbound events show what became available to the person. Outbound actions show what they did next. Their temporal interleaving records how context, judgment, and intention became behavior. A model that can predict that transformation has learned something more useful than a profile of stable preferences: it has learned to track the moving edge of a person's work.
+The person's work already contains this information. Inbound events record what became available. Outbound actions record what the person did next. Their temporal interleaving shows how changing context becomes behavior without requiring the person to stop and produce separate labels.
 
-The learning loop becomes richer when the model participates. Its samples are not merely answers to accept or reject; once shown, they become material the person can think with. A suggestion may be copied, edited, combined with another idea, rejected, or used as the catalyst for a different action. The resulting human action remains in the same stream. The interface therefore creates continual supervision without requiring a separate feedback ritual: the model contributes possibilities, the person continues working, and the shared history teaches the next version.
+The working hypothesis is that a model trained on this stream can become a useful predictive model of one person's work. Easy gains may come from style, repetition, and workflow regularity. Harder cases may require tracking what the person is presently trying to accomplish. Phase 1 does not attempt to identify a unique latent goal or reward function; it tests the more direct claim that temporally valid personal history improves prediction of future actions.
 
-The object of study is the joint system
+The research claims are:
 
-$$
-\mathcal S_u
-=
-(\text{person},\text{model},\text{shared event stream},\text{continual update loop}).
-$$
+1. ordinary activity can be reconstructed as a faithful chronological event stream;
+2. prior read and write events contain signal about the next human write action;
+3. behavioral cloning can accumulate that signal in model weights;
+4. longer causal context improves prediction when it contains relevant personal history;
+5. daily continual updates can track changing work while replay preserves older behavior and general capability.
 
-This system is successful when the model's capabilities and the person's judgment combine to produce work that is faster, better, or newly possible. A useful suggestion need not resemble the final action. Its value may lie in reminding, challenging, reframing, or making an otherwise costly line of thought available at the right moment. The project therefore tests both whether the model learns the person and whether the person–model loop benefits from what it learns.
+The initial implementation succeeds only if the data substrate is real and the predictive gain survives simple controls. More complicated learning methods are not a substitute for incorrect timestamps, missing visible content, weak action boundaries, or confused authorship.
 
-The research claims form a ladder:
+## 2. Related Work
 
-1. Ordinary activity can be reconstructed as a faithful chronological event stream.
-2. Prior events contain signal about the person's next bounded write action.
-3. Personal history, memory, or weight adaptation improves extraction of that signal.
-4. Continual adaptation preserves useful older behavior while tracking genuine change.
-5. Model outputs inserted into the stream can scaffold different or better human actions.
-6. The continually personalized human–model system improves task outcomes relative to unaided work and static assistance.
+Behavioral cloning is the direct formulation of learning a human action policy from observed context–action pairs. Carroll et al. distinguish learning a model of human behavior from learning a separate policy that acts with a human [1]. Phase 1 concerns only the behavioral model.
 
-Claims 1–4 concern data and prediction. Claims 5–6 concern the deployed system and require intervention-aware outcome evaluation. A failure at one step should not be hidden by adding machinery at a later step.
+Matti et al. predict one user's keyboard and mouse actions from a short discrete history [2]. Shaikh et al. study next-action prediction from naturalistic computer-use streams and compare prompting, retrieval, supervised adaptation, and learned reasoning–retrieval methods [3]. These works provide the closest task-level precedents and useful baselines for event construction and action prediction.
 
-### 1.1 From prediction to implied local objectives
+Dynamic evaluation updates a language model on recent tokens before predicting later tokens in the same stream [4]. End-to-End Test-Time Training extends this idea by meta-learning an initialization that is explicitly optimized for online next-token updates and by using weight updates to carry information beyond a sliding attention window [5]. Phase 1 uses the same evaluate-before-update principle at a different boundary: human macro-actions are scored throughout a day, and ordinary behavioral-cloning updates occur overnight. The model state persists across days and historical replay is included.
 
-Much of a person's next action can be predicted from repetition, style, and workflow regularity. The more consequential cases require something else. To anticipate a novel sentence, search, edit, or prompt, a model may need to infer what the current work is for: which ambiguity is being resolved, which result would count as progress, and which constraint makes an otherwise sensible action wrong.
+Lifelong pretraining studies chronological adaptation to emerging corpora while measuring performance on both new and earlier distributions [6]. Its stability–plasticity problem is directly relevant: recent data should update the personal model without allowing one project or period to erase older workflows or general language-model capabilities.
 
-Let $g_t$ denote this active local objective. It may be stated explicitly in the stream or remain latent to the model. Conceptually, human behavior can be written as $H_u(y\mid h,g)$, while a predictor without a separate goal label estimates
+## 3. Personal Event Stream
+
+For one person, let
 
 $$
-p_u(y\mid h)
-=
-\int H_u(y\mid h,g)\,p_u(g\mid h)\,dg.
+\mathcal E=(e_1,e_2,\ldots,e_T)
 $$
 
-Accurate prediction in novel or ambiguous situations may reward an internal representation of $p_u(g\mid h)$. The representation need not be unique, human-readable, stable across tasks, or equivalent to a reward function. The claim is practical: a model that tracks the person's local objective should generalize beyond literal repetition and produce more relevant possibilities at the frontier of the work.
-
-This is a testable bridge rather than a property guaranteed by likelihood training. Raw history can be compared with explicit objective induction; contexts with similar surface form but different goals can test discrimination; and novel actions within a familiar objective can test abstraction. Held-out actions measure prediction, while task outcomes measure whether whatever the model learned is useful in the joint system.
-
-### 1.2 Assumptions and claim boundaries
-
-The work rests on a ranked set of assumptions. They are ordered so that an early failure can stop or redirect the program before later machinery obscures it.
-
-1. **The observable stream contains marginal, goal-relevant information.** Correctly timed browser activity, chats, note state, and prior actions must predict semantic content better than the current artifact and generic knowledge alone.
-2. **Difficult prediction contains objective-level structure.** Repetition and style will explain some behavior, but novel or ambiguous actions should benefit from representing what the person is locally trying to accomplish. No unique, stable, or human-readable latent goal is assumed.
-3. **Predictive competence produces useful possibilities.** A model that learns punctuation or favorite files may compress behavior without helping. Samples must sometimes remind, challenge, reframe, or make a costly continuation available sooner.
-4. **The exposed interaction remains a valid prediction problem.** Once a model sample is rendered, it is part of the person's actual information state. The later human action is therefore a valid behavioral target conditioned on that expanded history.
-5. **The closed loop can improve the joint system without harmful convergence.** Repeated exposure may also anchor the person, narrow behavior, or select for predictability. Outcome controls, exposure limits, provenance, override, diversity audits, and rollback are mandatory.
-6. **Personal context still matters at high base-model capability.** The principal quantity is the within-model gain from correct personal history over no, wrong, or mismatched history—not whether a small personalized model beats an older generic model.
-7. **The pre-action information state can be reconstructed faithfully.** Visible spans, rendered assistant tokens, authorship, timing, and action onset must be known well enough to prevent future leakage.
-8. **The macro-action is a meaningful boundary.** Sentences, bullets, queries, messages, and coherent edit bursts must be large enough to express intent and small enough to be predicted from a single information state.
-9. **Personalization can add local knowledge without sacrificing general capability.** Publication requires both personal prediction gains and retention of reasoning, instruction following, tool use, and unfamiliar-task performance.
-10. **Relevant evidence can be selected from a long, noisy history.** Oracle-context comparisons distinguish missing information from failed retrieval, compression, or context construction.
-11. **Useful evidence accumulates faster than it becomes stale.** Recent data must track genuine movement without letting one session dominate; replay must preserve durable workflows without freezing the model in the past.
-12. **Evaluation can separate prediction, representation, and system benefit.** Chronological prediction, objective-representation diagnostics, and randomized outcome comparisons are different claims and require different evidence.
-
-The observed human action is not assumed to be globally optimal. Phase 1 learns behavior and tests whether predictions help the person; it does not recover a reward function. After samples are shown, the stronger local assumption needed for comparative learning is deferred to [[Phase 2]]: the person's subsequent action is treated as superior to the rendered proposal for the local decision. Keeping that assumption out of the Phase 1 objective preserves a clean test of the behavioral substrate.
-
-## 2. Interleaved Event Stream
-
-For principal $u$, let
-
-$$
-\mathcal E_u=(e_1,e_2,\ldots,e_T)
-$$
-
-be a stable temporal ordering of events from all relevant actors:
-
-$$
-\operatorname{actor}(e)
-\in
-\{\text{human},\text{assistant},\text{external},\text{system}\}.
-$$
-
-Events include visible document spans, received messages, browser navigation, searches, model outputs, tool results, application state changes, and human edits. Their role is determined by the prediction boundary:
-
-- Events available before a target action are context.
-- A finalized human-authored write macro-action may become a target.
-- Events that were generated but never rendered are not part of the person's observed history.
-
-For a human action $y_t$ beginning at time $t$, construct
-
-$$
-h_t=C_\phi(\{e_i:\operatorname{available\_at}(e_i)<t\}),
-$$
-
-where $C_\phi$ is a versioned context builder that orders, selects, truncates, retrieves, or compresses events to a token budget. The exact context supplied to a reported model call is content-addressed for audit.
-
-Rendered model outputs are assistant-authored events in $\mathcal E_u$. Their availability times place them in the history of every later action, just as received messages or visible tool results are placed in that history. The earlier prefix of the ordered stream records what was available when each assistant event was generated, and generation provenance links the event to its exact model call.
-
-### 2.1 Macro-actions
-
-Raw keystrokes are too granular and commits are often too coarse. A human write target is a bounded macro-action
-
-$$
-y_t=(d_t,\ell_t,o_t,c_t),
-$$
-
-where $d_t$ is the application or domain, $\ell_t$ is the object location, $o_t$ is the operation, and $c_t$ is its content. Examples include adding one bullet, replacing a coherent span, submitting a search, or sending one message.
-
-Macro-actions are segmented using observable commit boundaries such as submit or save events, focus changes, coherent edit completion, and idle-time debounce. Every target retains provenance. Copied text, model-authored text, automatic edits, and independently authored text must not be conflated.
-
-### 2.2 Temporal fidelity
-
-The core data constraint is availability, not eventual presence in an export. A completed assistant response cannot be placed before tokens rendered. A full webpage cannot be attached when only a small viewport was visible. A later note version cannot become context for an earlier edit. When availability is ambiguous, the event is marked uncertain or excluded rather than silently moved backward in time.
-
-## 3. Next-Action Objective
-
-For serialized target tokens $y_t=(y_{t,1},\ldots,y_{t,L_t})$, define
-
-$$
-\ell_\theta(y_t\mid h_t,u)
-=
-\sum_{j=1}^{L_t}
-\log\pi_\theta(y_{t,j}\mid h_t,u,y_{t,<j}).
-$$
-
-The learning objective is
-
-$$
-\boxed{
-\mathcal L_{\mathrm{BC}}(\theta)
-=
--\mathbb E_{(u,h_t,y_t)}
-\left[\ell_\theta(y_t\mid h_t,u)\right]
-}.
-$$
-
-Loss is masked on every context token and applied only to the human target. Assistant outputs, received messages, and earlier human actions supply context but are not copied as targets by virtue of appearing in the input.
-
-Every training example has the form $(u,h_t,y_t)$. Bootstrap examples are constructed from historical activity. During closed-loop deployment, some histories also contain rendered outputs from the deployed model as preceding assistant events. In both settings, the target is the person's subsequent bounded write action and the likelihood is defined exactly as above.
-
-The objective estimates behavior. It does not assert that the observed action is optimal, recover a counterfactual unaided action, identify which preceding event caused which target span, or optimize a global reward.
-
-## 4. Bootstrap and Closed-Loop Deployment
-
-Training begins with a historical bootstrap and continues during closed-loop deployment.
-
-### 4.1 Bootstrap
-
-Historical human activity supplies chronological next-action examples. The initial personalized canonical policy $\pi_0$ is trained or configured using in-context history, retrieval, memory, supervised fine-tuning, or a measured combination. Section 8 specifies the gated experiment that tests collection fidelity, predictive signal, personalization mechanisms, objective-representation diagnostics, and local scaling behavior before live deployment.
-
-### 4.2 Learning through participation
-
-The deployed model turns prediction into an interaction. At an appropriate moment, it produces several possible continuations and makes some of them visible. These are possibilities for the person to think with, not items that must be graded. Their effect may appear as direct use, refinement, synthesis, rejection, a task switch, or an action whose connection to the sample is invisible from text alone. The observable learning signal is the next human action in the history that actually occurred.
-
-Formally, the current canonical policy samples possible next human actions:
-
-$$
-z_{t,1:K}\sim\pi_d(\cdot\mid h_t,u).
-$$
-
-The interface may render some of these outputs. Every rendered output is appended to the ordinary event stream with assistant provenance and the time it became available. The person continues working. Their next finalized write is later converted into the same kind of BC example using all events available before it.
-
-The loop is:
-
-1. build the current history from the shared stream;
-2. sample and optionally render possible next actions;
-3. append rendered outputs as assistant-authored events;
-4. observe subsequent ordinary human activity;
-5. construct new next-action examples at human write boundaries;
-6. update the canonical model from recent examples plus replay;
-7. publish only if prediction, retention, capability, and safety gates pass.
-
-Both periods use the event-to-example construction in Section 2 and the objective in Section 3. Exact copying, refinement, synthesis, rejection, and task switching appear directly as different human actions following different histories.
-
-### 4.3 Endogenous feedback
-
-The model changes the stream from which its future labels are collected. This creates a joint, nonstationary process: model outputs may inform, anchor, distract, homogenize, or manipulate; human responses then enter later training data. Behavioral replay reduces forgetting but does not establish that this feedback is beneficial.
-
-The system must therefore retain user control, visible provenance, exposure-rate limits, rollback, and randomized evaluation. Prediction metrics alone cannot detect harmful convergence toward behavior made easier for the model to predict.
-
-## 5. Continual Adaptation and Replay
-
-Accepted canonical policies form one lineage
-
-$$
-\pi_0,\pi_1,\ldots,\pi_d.
-$$
-
-For update $d$, initialize a candidate from the previously deployed policy $\pi_{d-1}$. Let $\mathcal N_d$ contain recent finalized examples and let $\mathcal R_d$ be a stratified sample of older accepted examples. The continual objective is
-
-$$
-\boxed{
-\mathcal L_d(\theta)
-=
-\lambda_{\mathrm{recent}}\mathcal L_{\mathrm{BC}}(\mathcal N_d)
-+
-\lambda_{\mathrm{replay}}\mathcal L_{\mathrm{BC}}(\mathcal R_d)
-}.
-$$
-
-The mixture defines a stability–plasticity tradeoff. Recent data tracks current projects and behavior; replay preserves sparse workflows and reduces domination by one correlated session. Replay is stratified by time period, application, action family, provenance, and whether the preceding history contained assistant outputs. That final field is metadata for sampling and evaluation, not a different estimator.
-
-### 5.1 Distinct resource decisions
-
-Four choices should not be collapsed under the word *memory*:
-
-1. **Context memory:** which prior events $C_\phi$ serializes for one prediction.
-2. **Replay memory:** which historical examples remain available for future updates.
-3. **Parametric memory:** which observations enter adaptable model weights.
-4. **Training memory:** the accelerator budget for parameters, optimizer state, contexts, and targets.
-
-Likewise, update trigger, microbatch size, effective optimizer batch, and replay capacity are different quantities. Variable-length examples are packed by total serialized tokens, and gradient accumulation targets a stable number of action tokens per optimizer step.
-
-### 5.2 Immutable publication
-
-Collection continues while a candidate trains. Every job records its parent policy, data cutoff, recent examples, replay sample, context-builder version, optimizer configuration, and validation report. Acceptance creates a new immutable canonical version. Rejection leaves the deployed version and accepted-data watermark unchanged. The previous adapter and optimizer state remain available for rollback.
-
-At minimum, publication requires:
-
-- improvement or non-inferiority on a recent chronological holdout;
-- no unacceptable regression on a fixed historical holdout;
-- no failed high-priority application, action-family, provenance, or target-length slice;
-- finite, stable optimization and no failed general capability check;
-- no triggered closed-loop safety or outcome regression gate when such data is available.
-
-Explicit KL anchoring, teacher distillation, parameter isolation, meta-learned initialization, or adaptive replay are escalation paths when measured failures justify them. They are not prerequisites for the minimal system.
-
-## 6. Minimal Records
-
-The primary store is append-only and versioned. It separates raw events, derived actions, derived examples, replay state, and training manifests.
+be an append-only, stably ordered stream of events. Every event records at least:
 
 ```text
 Event {
   event_id
-  principal_id
-  actor: HUMAN | ASSISTANT | EXTERNAL | SYSTEM
+  actor: HUMAN | EXTERNAL_MODEL | EXTERNAL | SYSTEM
   kind: READ | WRITE | NAVIGATION | STATE
   app
   object_ref
@@ -257,23 +65,59 @@ Event {
   available_at
   ended_at?
   content_ref?
+  source_url?
   provenance
   source_event_ids
   collector_version
   privacy_state
   quality_flags
-
-  // Optional metadata for assistant-authored events:
-  policy_version?
-  sampling_config?
-  interaction_id?
-  rank?
-  generation_context_hash?
 }
+```
 
+The store separates raw captured events from later interpretations. Raw records are immutable. Corrections or improved reconstructions create superseding records rather than rewriting history.
+
+### 3.1 Temporal fidelity
+
+The central rule is:
+
+> An event may enter an action's context only when its recorded content was available to the person before that action began.
+
+Eventual presence in an export is not evidence of prior availability.
+
+- Opening an article records its URL, title, and navigation state. Only the spans actually exposed as the person reads or scrolls become read content. The unread remainder of the article does not.
+- A video or podcast contributes only the material available through the observed playback position, not its complete transcript.
+- An AI-chat response becomes available according to rendered content and timing. A completed response cannot be placed before the tokens or spans the person could see.
+- A note contributes the version and visible state that existed at the time. A later revision cannot become context for an earlier edit.
+- Tool results, received messages, and application state changes enter the stream when they become available, not when a later export happens to record them.
+
+When precise availability cannot be reconstructed, the event is marked uncertain or excluded from predictive examples. URLs and object identifiers may remain as navigation metadata even when the underlying content was not observed.
+
+Collectors use a normalized clock and record their own versions. Cross-application ordering must be stable enough to determine which events preceded an action. A manually replayed sample of sessions is required before modeling to measure missing events, ordering errors, incorrect visible spans, and future leakage.
+
+### 3.2 Human macro-actions
+
+Raw keystrokes are too granular, while commits and final document snapshots are usually too coarse. The prediction target is a bounded human write macro-action:
+
+$$
+y_t=(d_t,\ell_t,o_t,c_t),
+$$
+
+where $d_t$ is the application or domain, $\ell_t$ is the object location, $o_t$ is the operation, and $c_t$ is the committed content.
+
+Examples include:
+
+- adding or replacing one coherent note span;
+- submitting a search;
+- sending a prompt or message;
+- committing a coherent code or document edit.
+
+Segmentation uses observable boundaries such as submit and save events, focus changes, coherent edit completion, and idle-time debounce. The segmentation rule is versioned and every action retains its source events and boundary reason.
+
+Authorship is mandatory. Independently typed text, pasted text, externally generated text, automatic edits, and tool-written content must not be conflated. A paste may still be a human action, but its provenance differs from original typing and must remain available for filtering and analysis. Only finalized human actions become behavioral-cloning targets.
+
+```text
 MacroAction {
   action_id
-  principal_id
   source_event_ids
   domain
   location?
@@ -286,338 +130,401 @@ MacroAction {
   provenance_summary
   confidence
 }
+```
 
+### 3.3 Initial collection surfaces
+
+The first implementation covers:
+
+- **Obsidian:** note patches or snapshots, object location, visible text, cursor and selection when available, save or focus boundaries, coherent edit bursts, and pasted-versus-authored provenance.
+- **Browser:** URL, title, navigation, search submissions, visible or consumed spans, focus state, scroll position, media progress, and timestamps.
+- **AI chats:** prompts, attachments, branching or regeneration state, rendered response spans, tool results, and token or span availability times.
+
+Historical Obsidian Git history is useful for validating note reconstruction, segmentation, serialization, and training. It does not contain browser or chat context that was never captured, and it must not be treated as a complete historical event stream. Full claims about interleaved read–write context require prospective collection.
+
+Sensitive or excluded content is removed before examples are published to the training store. Privacy state and exclusions remain explicit in the raw-event index so that omissions are auditable without exposing excluded content.
+
+### 3.4 Derived examples and manifests
+
+Each action produces a derived example containing references to the causal events, the exact serialized context, the target, and the target-only loss mask.
+
+```text
 BCExample {
   example_id
-  principal_id
   context_event_ids
   serialized_context_ref
   target_action_id
   loss_mask_ref
-  context_builder_version
+  context_length
+  serializer_version
   target_token_count
-  total_token_count
   finalized_at
-  supersedes_example_id?
 }
+```
 
-TrainingBatchManifest {
-  batch_id
-  parent_policy_version
-  candidate_policy_version
-  published_policy_version?
+Each overnight update records the parent model, the day cutoff, recent examples, replay examples, optimizer configuration, and resulting model:
+
+```text
+DailyUpdateManifest {
+  day
+  parent_model_version
+  resulting_model_version
   data_cutoff_at
   recent_example_ids
   replay_example_ids
   replay_mixture
-  replay_buffer_version
-  microbatch_token_limit
-  effective_target_tokens_per_step
+  context_length
   objective_config_hash
   optimizer_config_hash
-  validation_report_ref
+  pre_update_report_ref
+  retention_report_ref
 }
 ```
 
-Each rendered assistant sample is stored as an event whose provenance supports exact history reconstruction. Unrendered generation telemetry may be retained operationally outside the person's observed stream.
+These records make it possible to reproduce any daily prediction or update and to determine whether a result came from more context, different data, or different optimizer exposure.
 
-## 7. Evaluation
+## 4. Training Paradigm
 
-The evaluation must keep prediction, representation, and system benefit separate.
+### 4.1 Fixed-length causal context
 
-### 7.1 Predictive validity
-
-Primary prediction metrics include action-token negative log-likelihood, candidate rank of the recorded action, operation accuracy, location accuracy, and content-sensitive hard-negative ranking. Comparisons are paired on identical future targets. Chronological splits and day- or session-level uncertainty prevent adjacent correlated edits from masquerading as independent evidence.
-
-Necessary controls include no personal history, correct history, shuffled history, wrong-time history, damaged timestamps, trivial repetition baselines, and a manually selected oracle context on a small diagnostic subset. Performance should be reported separately for histories with and without assistant-authored events, while using the same underlying estimator.
-
-### 7.2 Local-objective representation
-
-Goal understanding is tested only after predictive signal exists. Useful diagnostics include:
-
-- raw history versus retrieved raw events;
-- semantic propositions versus the same source evidence;
-- an explicitly induced current objective versus raw context under a matched budget;
-- held-out situations with similar language but different active goals;
-- novel action forms serving a familiar goal;
-- independent human audits of induced objectives.
-
-An objective representation that improves future-action prediction supports a bridge from legible behavior to local intention modeling. It does not establish a stable reward function or explain every prediction.
-
-### 7.3 Joint-system outcomes
-
-The central product evaluation compares at least:
-
-1. the person working without model outputs;
-2. the person with a fixed generic or personalized model;
-3. the person with the continually adapted personalized system.
-
-Let $J(\mathcal S)$ measure outcomes such as time to an acceptable result, final quality, errors, rework, task completion, or user-assessed goal satisfaction. The system hypothesis is
+For a human action $y_t$ beginning at time $t$, first collect all events that were available before action onset:
 
 $$
-J(\text{human + continual personalized model})
->
-J(\text{human alone})
+P_t=\{e_i:\operatorname{available\_at}(e_i)<\operatorname{began\_at}(y_t)\}.
 $$
 
-and, more stringently,
+The context is the most recent $L$ tokens of the serialized ordered prefix:
 
 $$
-J(\text{human + continual personalized model})
->
-J(\text{human + static model}).
+h_t^{(L)}
+=
+\operatorname{suffix}_L\!\left(
+\operatorname{serialize}(\operatorname{sort}(P_t))
+\right).
 $$
 
-Training need not require goal annotations, but an outcome experiment needs bounded tasks, completion criteria, or later human judgment. Randomized no-output or alternative-output windows are required when causal benefit is claimed.
+$L$ is the history-token budget. The serializer and deterministic left-truncation rule are versioned. The window may cross day, session, application, and document boundaries. It does not reset at midnight.
 
-### 7.4 Closed-loop stability
+There is no retrieval, semantic memory, objective induction, or learned selection in the initial method. If relevant information falls outside the last $L$ tokens, the model does not receive it. Context-length experiments test how strongly this limitation matters.
 
-Track prediction and outcomes across policy versions, exposure rates, applications, and projects. Audit anchoring, copied-content rate, behavioral diversity, reversals, ignored suggestions, interruption, user override, capability retention, and recovery after rollback. A system that becomes easier to predict while making the person's work worse has failed.
+### 4.2 Daily evaluate-then-update loop
 
-## 8. Experimental Program
+Let $\theta_d$ be the model at the beginning of day $d$. Its weights remain fixed throughout the day.
 
-Phase 1 is a sequence of gates, not a single end-to-end wager. Prospective collection begins immediately because the most important evidence cannot be reconstructed reliably after the fact. In parallel, existing Obsidian history is used to validate segmentation, serialization, training, and evaluation without pretending that it contains browser or chat context that was never captured.
+For every human macro-action $y_{d,i}$:
 
-### 8.1 Core questions
+1. construct the causal context $h_{d,i}^{(L)}$;
+2. predict and record the likelihood of the action under $\theta_d$;
+3. store the completed action as a new `BCExample`;
+4. allow the observed action to enter the causal context of later actions that day;
+5. do not update model weights until the day is complete.
 
-- **Q0 — reconstruction:** can the event stream and exact pre-action information state be reconstructed faithfully?
-- **Q1 — signal:** does existing note history support a mechanically valid next-action task and defeat trivial baselines?
-- **Q2 — source value:** do correctly timed browser and chat events improve prediction beyond the artifact and prior writes?
-- **Q3 — personalization:** when raw context is insufficient, which combination of retrieval, semantic memory, explicit objective induction, and supervised adaptation extracts the signal best?
-- **Q4 — scaling:** how does the marginal value of personal evidence change with model capability, data quantity, recency, and context budget?
+The day's examples are therefore test examples for $\theta_d$. After they have all been scored, they become eligible training data for the overnight update.
 
-The central unit is a finalized human write macro-action. The input contains only events whose `available_at` precedes the action's `began_at`; the target contains the complete committed action; evaluation is paired on identical future targets. Token-level likelihood is reported per action and aggregated with session- or day-level uncertainty so long editing bursts do not masquerade as independent evidence.
+Let $\mathcal N_d$ be the examples collected on day $d$, and let $\mathcal R_d$ be replay sampled from days before $d$. Overnight training produces:
 
-### 8.2 Data collection and integrity
+$$
+\theta_{d+1}
+=
+\operatorname{Update}(\theta_d,\mathcal N_d,\mathcal R_d).
+$$
 
-Collection covers three initial surfaces:
+The resulting weights persist. The model does not reset to a generic initialization each morning.
 
-- **Obsidian:** note snapshots or patches, cursor and selection state when available, visible text, save or focus boundaries, pasted-versus-authored provenance, and coherent edit bursts.
-- **Browser:** URL and title, visible or consumed spans rather than eventual page contents, searches, navigation, media progress, focus state, and timestamps.
-- **AI chats:** prompts, token-render times, tool results, attachments, branching or regeneration state, and assistant text actually exposed before the next human action.
+### 4.3 Historical and prospective data use the same loop
 
-All sources map into the common `Event` record in Section 6. Raw content is immutable and content-addressed; corrections create superseding records. Clock normalization, collector version, privacy state, duplicate suppression, uncertain availability, and source provenance remain explicit. Sensitive or excluded content is removed before dataset publication, not merely hidden from the serializer.
-
-Before modeling, a manually audited sample must pass reconstruction gates for temporal ordering, visible-content fidelity, authorship, action boundaries, source completeness, and absence of future leakage. Failure here blocks predictive claims.
-
-### 8.3 Chronology, manifests, and readiness gates
-
-Splits are chronological and separated by an embargo at least as long as the largest ordinary context window. No random action-level split is permitted. Context retrieval may search only records available by the target cutoff; fine-tuning sees only the training window; model and context-builder selection use validation; the final test window remains sealed until the analysis is frozen.
-
-Every dataset release freezes:
-
-- raw-event snapshot and exclusion policy;
-- segmentation and context-builder versions;
-- train, validation, embargo, and test cutoffs;
-- example IDs, content hashes, and target-token counts;
-- model, tokenizer, prompt, retrieval index, and sampling configuration;
-- metric definitions and predeclared slices.
-
-The first full comparison begins only after the capture audit passes, the target boundary is stable, each major source has usable coverage, and the sealed window contains enough independent sessions and content-bearing actions to estimate paired effects. Calendar time and number of actions are reported, but readiness is determined by coverage and effective sample size.
-
-### 8.4 Experimental staircase
-
-**Experiment 0 — collector and reconstruction audit.** Manually replay sampled sessions from each source. Measure missing-event rate, ordering error, incorrect visible-span rate, authorship error, segmentation disagreement, and leakage. This experiment establishes whether the proposed dataset exists.
-
-**Experiment 1 — Obsidian-only smoke test.** Construct chronological note-edit examples and compare last-action repetition, nearest-neighbor continuation, current-note-only prompting, and temporally valid note history. Inspect high-gain examples to determine whether improvements concern content or only syntax and location.
-
-**Experiment 2 — source ablation.** On an identical sealed target set, compare current artifact; recent writes; notes; browser; chats; all correctly timed sources; shuffled sources; wrong-time sources; and a small manually selected oracle context. The oracle distinguishes a failed data thesis from a failed selector.
-
-**Experiment 3 — personalization mechanism.** Under matched model and evidence budgets, compare raw long context, retrieval, semantic memory, explicit current-objective induction, supervised adaptation, and measured combinations. The explicit-objective condition must be evaluated by its effect on held-out actions, not by how persuasive its summaries sound.
-
-**Experiment 4 — local scaling.** Vary base-model capability, personal-data quantity, recency, context budget, and adaptation capacity. Report the within-model gain from correct personal evidence and interactions among these factors. This tests whether capability substitutes for personal context or makes better use of it.
-
-**Experiment 5 — prospective repetition and continual update.** Freeze the analysis, repeat it on a later untouched interval, then simulate or deploy recent-plus-replay updates. Measure recent gain, historical retention, capability retention, calibration, and recovery after project changes. Only after these gates pass are samples rendered in controlled live windows.
-
-### 8.5 Baselines and metrics
-
-The adopted baseline schedule is deliberately narrow at first:
-
-1. last action, common action, and edit-location heuristics;
-2. same model with no personal history;
-3. same model with correct, shuffled, mismatched-person, and wrong-time history;
-4. retrieval and semantic-memory baselines;
-5. explicit-objective induction;
-6. supervised personalization and recent-plus-replay continual adaptation.
-
-Primary predictive metrics are target-token negative log-likelihood, recorded-action rank among content-sensitive alternatives, operation and location accuracy, exact or semantic top-$k$ inclusion, and calibration. Hard negatives should preserve surface form while changing the active goal, or preserve the goal while changing the plausible action. Report by application, action family, target length, novelty, copy provenance, and whether assistant-authored events occur in context.
-
-The live system evaluation compares unaided work, a fixed assistant, and the continually adapted assistant on bounded tasks. Outcomes include time to an acceptable result, blinded quality, error and rework, completion, interruption, and user-assessed goal satisfaction. Exposure is randomized where causal benefit is claimed.
-
-### 8.6 Confounds and stopping rules
-
-The analysis must not conflate data quantity, context quantity, and optimizer exposure; base capability and personalization method; stylistic fit and content prediction; repeated text and authorship; or next-action prediction and eventual outcome. Behavioral adaptation to collection is measured by pre/post capture comparisons. Inferred objectives are constructed from training-time evidence only and never validated against information from the target action itself.
-
-Stop or redirect when the corresponding weakest link fails:
-
-| Failure | Interpretation | Next move |
-|---|---|---|
-| reconstruction audit fails | the proposed stream is fictional | repair capture before modeling |
-| correct history does not beat controls | little usable personal signal at this boundary | change source coverage or action granularity |
-| oracle context helps but automatic context does not | selection, not data, is the bottleneck | improve retrieval or representation |
-| personalization helps likelihood but not content-sensitive ranking | mostly style or workflow mimicry | redesign targets and hard negatives |
-| stronger models erase personal-history gain | scale substitutes for the stream | narrow the thesis or test rarer private context |
-| live prediction improves but outcomes do not | predictor is not useful assistance | change interface, timing, or sample diversity |
-| outcomes or diversity regress | harmful closed-loop convergence | stop exposure and roll back |
-
-### 8.7 Phase 1 success
-
-Phase 1 succeeds when a frontier-capable model with automatically constructed, temporally valid personal context produces a repeatable and product-relevant gain on future chronological macro-actions over the same model with no, wrong, and mismatched history; the gain survives content-sensitive controls, appears in novel or goal-ambiguous cases, and does not degrade general capabilities. Controlled deployment must then show that rendering samples can improve bounded human–model outcomes without unacceptable anchoring or loss of diversity.
-
-It need not show that a smaller personal model surpasses the strongest generic model. It need not recover a reward function, prove a unique latent goal, or make every suggestion useful. The output of the phase is a validated event substrate, a canonical continually trained behavioral policy, and a controlled interaction stream from which Phase 2 can learn explicit local comparisons.
-
-## 9. Algorithms
-
-### Algorithm 1: Construct next-action examples
+Historical activity is replayed in chronological day order:
 
 ```text
-procedure BUILD_EXAMPLES(events, segmentation_config, context_config):
+start from the base model
+for each historical day:
+    score that day's actions with the current fixed weights
+    update overnight on that day plus replay from earlier days
+```
+
+Newly collected activity then continues the same lineage without a change in objective, context construction, or update rule.
+
+There is no permanent personal test set in this paradigm. Each day is evaluated before it is learned. Days used while changing segmentation, context length, replay, or optimizer choices form the development stream. For a final reported comparison, the protocol is frozen before a later prospective interval and is not changed until that interval ends. The model still updates after each scored day inside that interval.
+
+### 4.4 Historical replay
+
+Training only on the latest day would allow a dense or unusual session to dominate the model. Replay mixes older examples into every overnight update.
+
+Replay is stratified across:
+
+- time periods;
+- applications;
+- action families;
+- target provenance;
+- target length.
+
+The first implementation uses an explicit recent/replay mixture rather than a complicated adaptive policy. Sampling weights, replay capacity, and the number of optimizer steps are recorded in the daily manifest. Replay examples preserve the causal contexts that existed when their targets occurred; they are never rebuilt from later artifact state.
+
+Replay is intended to preserve older workflows, not to freeze the model in the past. Its effectiveness is measured rather than assumed.
+
+### 4.5 Context-length scaling
+
+The core scaling experiment compares fixed causal history budgets such as 8K, 16K, and 32K tokens.
+
+Each context-length condition follows the same daily loop with:
+
+- identical action targets;
+- identical day boundaries;
+- the same base-model family;
+- matched recent/replay sampling;
+- matched target-token exposure and optimizer steps;
+- only the context budget and unavoidable context-processing compute changed.
+
+This end-to-end comparison measures whether a model trained and evaluated with a longer direct history predicts future actions better. A secondary same-snapshot ablation may score identical targets with differently truncated histories to isolate the immediate value of additional context from the effect of training with that context.
+
+## 5. Behavioral-Cloning Objective
+
+For target action tokens
+
+$$
+y_t=(y_{t,1},\ldots,y_{t,M_t}),
+$$
+
+the log-likelihood under context length $L$ is
+
+$$
+\ell_\theta(y_t\mid h_t^{(L)})
+=
+\sum_{j=1}^{M_t}
+\log \pi_\theta
+\left(
+y_{t,j}
+\mid
+h_t^{(L)},y_{t,<j}
+\right).
+$$
+
+The behavioral-cloning loss is:
+
+$$
+\boxed{
+\mathcal L_{\mathrm{BC}}(\theta;\mathcal D)
+=
+-\frac{1}{|\mathcal D|}
+\sum_{(h,y)\in\mathcal D}
+\frac{1}{|y|}
+\ell_\theta(y\mid h)
+}.
+$$
+
+Loss is masked on every context token and applied only to the human target. Read events, earlier human actions, received messages, external model responses, and tool results provide context but do not become targets merely because they appear in the input.
+
+For overnight update $d$:
+
+$$
+\boxed{
+\mathcal L_d(\theta)
+=
+\lambda_{\mathrm{recent}}
+\mathcal L_{\mathrm{BC}}(\theta;\mathcal N_d)
++
+\lambda_{\mathrm{replay}}
+\mathcal L_{\mathrm{BC}}(\theta;\mathcal R_d)
+}.
+$$
+
+The candidate model is initialized from $\theta_d$, optimized on the recent/replay mixture, checked for numerical failure and major capability regression, and then stored as $\theta_{d+1}$. A parameter-efficient adapter is the default initial implementation because it makes daily training, versioning, and rollback tractable; the data and objective are unchanged if later experiments use full-model updates.
+
+The objective estimates behavior. It does not assert that the observed action was optimal, identify a reward function, or require a labeled goal.
+
+## 6. Algorithms
+
+### Algorithm 1: Construct causal next-action examples
+
+```text
+procedure BUILD_EXAMPLES(events, context_length, serializer, segmentation):
     ordered <- STABLE_TEMPORAL_SORT(events)
-    actions <- SEGMENT_HUMAN_WRITES(ordered, segmentation_config)
+    actions <- SEGMENT_HUMAN_WRITES(ordered, segmentation)
     examples <- []
 
     for action y in actions:
-        if y.confidence < segmentation_config.minimum_confidence:
+        if y.confidence < segmentation.minimum_confidence:
             continue
 
         prior <- events with available_at strictly before y.began_at
-        h <- BUILD_CONTEXT(prior, context_config)
+        serialized <- serializer(prior)
+        h <- TAKE_CAUSAL_SUFFIX(serialized, context_length)
+        included <- EVENTS_CONTRIBUTING_TO(h)
 
         if LEAKS_FUTURE_INFORMATION(h, y):
             continue
 
         examples.append(BCExample(
-            context_event_ids=IDS(prior),
+            context_event_ids=IDS(included),
             serialized_context=FREEZE(h),
             target_action=y,
-            loss_mask=MASK_CONTEXT_AND_SCORE_TARGET(h, y)
+            loss_mask=MASK_CONTEXT_AND_SCORE_TARGET(h, y),
+            context_length=context_length,
+            serializer_version=VERSION(serializer)
         ))
 
     return examples
 ```
 
-### Algorithm 2: Render model predictions into the stream
+### Algorithm 2: Evaluate one day
 
 ```text
-procedure OFFER_POSSIBLE_NEXT_ACTIONS(pi_canonical, live_event_stream, K):
-    h <- BUILD_CONTEXT(events available before current time)
-    samples <- SAMPLE_BOUNDED_ACTIONS(pi_canonical, h, K)
+procedure EVALUATE_DAY(model_d, day_events, prior_event_stream, config):
+    model_d <- FREEZE_WEIGHTS(model_d)
+    stream <- prior_event_stream
+    examples <- []
+    predictions <- []
 
-    rendered <- INTERFACE_RENDER(samples)
+    for event_group in CHRONOLOGICAL_ACTION_GROUPS(day_events):
+        stream.append(event_group.events_before_action)
 
-    for sample z in rendered:
-        APPEND_EVENT(live_event_stream, Event(
-            actor=ASSISTANT,
-            kind=READ,
-            operation=RENDER_SUGGESTION,
-            content=z,
-            available_at=CONFIRMED_RENDER_TIME(z),
-            policy_version=VERSION(pi_canonical),
-            sampling_config=SAMPLING_CONFIG(z),
-            generation_context_hash=HASH(h),
-            provenance=MODEL_OUTPUT
-        ))
+        y <- FINALIZED_HUMAN_ACTION(event_group)
+        h <- TAKE_CAUSAL_SUFFIX(
+            config.serializer(stream events available before y.began_at),
+            config.context_length
+        )
+
+        prediction <- SCORE_ACTION_BEFORE_UPDATE(model_d, h, y)
+        predictions.append(prediction)
+        examples.append(FREEZE_BC_EXAMPLE(h, y, config))
+
+        stream.append(events created by y)
+
+    report <- AGGREGATE_PRE_UPDATE_RESULTS_BY_ACTION_AND_DAY(predictions)
+    return examples, report, stream
 ```
 
-Later human writes are processed by `BUILD_EXAMPLES`, which includes rendered assistant events whenever they occurred before the action.
-
-### Algorithm 3: Continually update the canonical policy
+### Algorithm 3: Update overnight
 
 ```text
-procedure UPDATE_CANONICAL(pi_previous, incoming_examples, replay_state, config):
-    eligible <- FINALIZE_PAST_WATERMARK(incoming_examples, config)
-    replay_state <- UPDATE_REPLAY_INDEX(replay_state, eligible)
-    pending <- EXAMPLES_SINCE_ACCEPTED_CUTOFF(replay_state)
-
-    if not UPDATE_TRIGGERED(pending, config):
-        return pi_previous, replay_state
-
-    recent <- SAMPLE_RECENT_WINDOW(
-        replay_state,
-        exclude=config.recent_holdout
-    )
-    replay <- SAMPLE_STRATIFIED_HISTORY(
-        replay_state,
-        strata=(time, app, action_family, provenance, assistant_history),
-        exclude=(recent, config.fixed_historical_holdout)
+procedure OVERNIGHT_UPDATE(model_d, day_examples, replay_index, config):
+    replay <- SAMPLE_STRATIFIED_PRIOR_DAYS(
+        replay_index,
+        strata=(time_period, app, action_family, provenance, target_length),
+        budget=config.replay_budget
     )
 
-    candidate <- CLONE_ADAPTER(pi_previous)
+    candidate <- CLONE_ADAPTER(model_d)
 
-    for group in PACK_AND_ACCUMULATE(recent, replay, config.token_budgets):
-        L_recent <- MASKED_ACTION_NLL(candidate, group.recent)
-        L_replay <- MASKED_ACTION_NLL(candidate, group.replay)
-        L <- config.lambda_recent * L_recent
-             + config.lambda_replay * L_replay
-        candidate <- OPTIMIZER_STEP(candidate, gradient(L))
+    for batch in PACK_BY_TARGET_AND_CONTEXT_TOKENS(
+        day_examples,
+        replay,
+        config
+    ):
+        recent_loss <- MASKED_ACTION_NLL(candidate, batch.recent)
+        replay_loss <- MASKED_ACTION_NLL(candidate, batch.replay)
+        loss <- config.lambda_recent * recent_loss
+              + config.lambda_replay * replay_loss
+        candidate <- OPTIMIZER_STEP(candidate, gradient(loss))
 
-    report <- EVALUATE_PREDICTION_RETENTION_CAPABILITY_AND_SAFETY(
-        candidate, config.holdouts, config.slices
+    retention <- RUN_CAPABILITY_AND_HISTORICAL_CHECKS(candidate, config)
+
+    if OPTIMIZATION_FAILED(candidate) or MAJOR_CAPABILITY_REGRESSION(retention):
+        return model_d, replay_index
+
+    model_next <- STORE_IMMUTABLE(candidate)
+    replay_index <- ADD_EXAMPLES(replay_index, day_examples)
+    STORE_DAILY_UPDATE_MANIFEST(
+        parent=model_d,
+        result=model_next,
+        recent=day_examples,
+        replay=replay,
+        retention=retention,
+        config=config
     )
-
-    STORE_MANIFEST(candidate, recent, replay, report)
-
-    if PASSES_PUBLICATION_GATES(report):
-        pi_next <- PUBLISH_IMMUTABLE(candidate)
-        ADVANCE_ACCEPTED_CUTOFF(replay_state, pending)
-        return pi_next, replay_state
-
-    return pi_previous, replay_state
+    return model_next, replay_index
 ```
 
-## 10. What the Method Can Establish
+## 7. Evaluation
 
-The proposal supports three progressively stronger kinds of claim:
+### 7.1 Primary measurement
 
-1. **Predictive:** temporally valid personal history improves prediction of future human actions.
-2. **Representational:** goal-like abstractions help especially when surface behavior changes but the local objective persists.
-3. **System-level:** exposing the person to samples from a continually personalized model improves bounded task outcomes.
+The primary metric is pre-update action-token negative log-likelihood. For each day, first average target-token loss within each action and then average across actions. Report the distribution across days so that one long editing session does not masquerade as many independent successes.
 
-Each claim has its own evidence. Likelihood on held-out actions establishes predictive performance. Representation diagnostics test whether local-objective structure explains some of that performance. Controlled outcome comparisons establish whether participation by the model helps the human–model system.
+Secondary measurements include:
 
-This separation matters because the stream records temporal conditioning, not full causal credit. An observed action need not be optimal; a preceding model output need not have caused it; and a good predictor need not have recovered a unique personal reward. Continual likelihood learning also estimates behavior rather than directly selecting the best moment or content for an intervention. Replay, capability tests, exposure controls, and rollback keep those limits measurable while the core hypothesis is tested.
+- operation accuracy;
+- location accuracy;
+- exact or semantic top-$k$ inclusion when generation is evaluated;
+- performance by application, action family, target length, and provenance.
 
-## 11. Related Work
+All model and context-length comparisons are paired on identical actions.
 
-Behavioral cloning is the direct statistical formulation of next-action learning. Carroll et al. motivate separating a learned human model from an agent designed to collaborate with it [1]. The architecture here uses a canonical predictor within the collaborative system and evaluates its predictive accuracy separately from its effect on system outcomes.
+### 7.2 Minimal baselines and controls
 
-Matti et al. predict one user's keyboard and mouse actions from a short discrete history [2]. Shaikh et al. introduce naturalistic next-action prediction from multimodal computer-use streams and compare prompting, retrieval, supervised adaptation, and learned reasoning–retrieval [3]. These works provide the nearest predictive baselines.
+The first experiment compares:
 
-DAgger collects labels in states induced by a learner [4]. The closed loop here has a related on-policy character, but model outputs are information supplied to a person rather than actions executed in an environment, and ordinary human writes—not expert corrections requested at every state—remain the targets.
+1. last-action, common-action, and edit-location heuristics;
+2. the same base model with only the current artifact;
+3. the same model with the correct trailing personal event stream;
+4. the same model with shuffled, wrong-time, or timestamp-damaged history;
+5. the continually adapted model with correct history;
+6. matched continual lineages at 8K, 16K, and 32K context.
 
-Dynamic evaluation and end-to-end test-time training show that likelihood-based adaptation can encode recent sequence structure into weights [5, 6]. They motivate repeated chronological evaluation but do not remove the need for replay, retention tests, and immutable publication.
+The comparison should show whether the event stream adds content-predictive signal beyond repetition, location, and writing style. Wrong-time controls test the temporal construction directly: if damaged chronology performs as well as correct chronology, the collector is not supplying the hypothesized signal.
 
-General User Models and Just-In-Time Objectives provide contrasting representations of personal evidence: retrieved semantic propositions and explicit current-goal abstractions [7, 8]. They are useful diagnostics for whether goal-like representations improve next-action prediction without claiming reward identification.
+### 7.3 Continual-learning measurements
 
-Finally, work on influenceable preferences and feedback optimization warns that systems can change the behavior they later learn from and may optimize for easier feedback rather than better outcomes [9, 10]. The proposed closed loop therefore requires outcome controls, exposure provenance, and rollback even though it does not optimize clicks or ratings.
+Track:
 
-## 12. Implementation Order and Required Artifacts
+- pre-update prediction loss by day;
+- improvement or regression after each overnight update;
+- performance when older applications and action families recur;
+- performance by recency of the relevant history;
+- a small static suite for reasoning, instruction following, tool use, and unfamiliar tasks;
+- the effect of recent/replay mixture on adaptation and retention.
 
-The local work proceeds in the following order:
+Replay succeeds when current prediction improves without systematic degradation on recurring older behavior or the external capability suite.
 
-1. implement append-only collectors and clock normalization;
-2. audit reconstructed sessions and repair capture until Experiment 0 passes;
-3. version macro-action segmentation and build immutable examples;
-4. freeze chronological manifests and implement leakage tests;
-5. run the Obsidian smoke test and source ablations;
-6. add retrieval, semantic memory, objective induction, and supervised adaptation;
-7. measure local scaling and repeat on a sealed prospective interval;
-8. implement recent-plus-replay continual publication with rollback;
-9. render samples only in controlled, attributable exposure windows;
-10. evaluate joint-system outcomes and closed-loop stability;
-11. publish the Phase 2 comparison dataset only after pair-validity audits pass.
+### 7.4 Development and prospective reporting
 
-The required artifacts are the collector specification, privacy and exclusion policy, reconstruction audit, segmentation guide, immutable dataset manifests, leakage test suite, baseline harness, evaluation protocol, continual-training manifest, replay index, capability-retention suite, exposure log, randomized outcome protocol, rollback procedure, and model card for every accepted policy version.
+Historical days used while the protocol is being changed are development data even though every action is scored before training. Once segmentation, serializer, context lengths, replay mixture, optimizer, and metrics are fixed, the complete daily loop is run over a later prospective interval without changing those choices.
 
-The clean handoff to [[Phase 2]] is a stream of interactions containing: the exact prefix before proposal generation, every candidate generated, the subset actually rendered with token-level availability, the later human macro-action, and the behavioral prefix containing what the person really saw. Phase 1 can ignore the pairwise interpretation and continue BC. Phase 2 can use the same immutable events to improve a separate proposer or learn a reusable local reward.
+This is not a static held-out test set. After a prospective day is scored, its examples enter that night's update and may improve prediction on later prospective days. The reported result is the chronological sequence of losses produced by the frozen evaluate-then-update protocol.
 
-## 13. Conclusion
+## 8. Initial Experimental Program
 
-Personal AI needs a way to learn how one person's changing context becomes action. A temporally faithful read–write stream provides that substrate. It contains what the person encountered, what they chose to do, how their work evolved, and—once the model is deployed—how model-generated possibilities entered the process.
+### Experiment 0: Collector and reconstruction audit
 
-Next-action likelihood turns this stream into a renewable training signal. The model first learns by observing the person's work. It then participates by offering possible continuations. The person continues thinking and acting with those possibilities in view, and the resulting history teaches the next model version. Continual replay preserves older evidence while the model tracks the moving edge of current work.
+Manually replay sampled sessions from each source. Measure missing-event rate, temporal-ordering error, incorrect visible-span rate, authorship error, action-boundary disagreement, and future leakage. Modeling does not begin until the stream is adequate to construct causal examples.
 
-If the hypothesis holds, the result is a personal model whose usefulness compounds through shared work. Its value comes from predicting the person well enough to place relevant possibilities within reach, while leaving goals, judgment, and authority with the person. The larger possibility is assistance that learns at the pace of a life or organization and helps people reach outcomes that would otherwise take longer, require more effort, or remain undiscovered.
+### Experiment 1: Obsidian-only smoke test
+
+Use historical note edits to validate temporal reconstruction, macro-action segmentation, serialization, masked loss, daily processing, and overnight replay. Compare trivial baselines, current-note context, and trailing note history. This is a pipeline test, not evidence for the full read–write thesis.
+
+### Experiment 2: Prospective interleaved stream
+
+Collect Obsidian, browser, and AI-chat events prospectively. Test whether correctly timed read and write history improves next-action prediction over the current artifact and damaged-history controls.
+
+### Experiment 3: Context and continual scaling
+
+Run matched 8K, 16K, and 32K lineages through the same days. Measure pre-update daily loss, adaptation after overnight training, older-workflow retention, general capability retention, and training cost.
+
+Phase 1 succeeds when the collector produces auditable causal examples and the continually trained model obtains a repeatable improvement on future daily actions from correct personal history. The gain should increase or remain useful with longer context, survive trivial and wrong-time controls, and avoid unacceptable forgetting.
+
+## 9. Implementation Order
+
+1. define the event, macro-action, example, and daily-manifest schemas;
+2. implement append-only Obsidian collection and clock normalization;
+3. reconstruct historical note edits and audit macro-action segmentation;
+4. implement the deterministic serializer and fixed causal suffix;
+5. build the masked behavioral-cloning dataset and baseline harness;
+6. implement the daily evaluate-then-update loop;
+7. add stratified historical replay and immutable model lineage;
+8. run the Obsidian smoke test;
+9. add prospective browser and AI-chat collection;
+10. run the interleaved-stream and context-length experiments;
+11. monitor continual prediction and capability retention.
+
+The required initial artifacts are the collector specification, privacy and exclusion policy, segmentation guide, reconstruction audit, serializer, immutable example store, leakage tests, baseline harness, daily update manifest, replay index, capability-retention suite, and model card for each accepted lineage.
+
+## 10. Conclusion
+
+Phase 1 asks whether one person's ordinary computer activity can train a continually improving predictor of what they will write next. The hard prerequisite is a faithful event stream: what was actually visible, when it became available, what the person authored, and where one coherent action ended.
+
+The learning rule is simple. A fixed-length suffix of prior events predicts the next human macro-action. The model is evaluated without weight changes throughout the day. Overnight, that day's scored examples are mixed with historical replay and used for behavioral cloning. The resulting weights persist into the next day. Historical and future data follow the same loop.
+
+If this works, the result is a validated data substrate and a personal behavioral model whose performance can be measured continuously as context, experience, and current work change. If it does not, the daily losses and auditable event lineage should make the failure attributable to collection, action construction, context length, optimization, or forgetting rather than hidden inside a more complicated system.
 
 ## References
 
@@ -627,16 +534,8 @@ If the hypothesis holds, the result is a personal model whose usefulness compoun
 
 [3] O. Shaikh et al. [*Learning Next Action Predictors from Human-Computer Interaction*](https://arxiv.org/abs/2603.05923). 2026.
 
-[4] S. Ross, G. Gordon, and D. Bagnell. [*A Reduction of Imitation Learning and Structured Prediction to No-Regret Online Learning*](https://arxiv.org/abs/1011.0686). 2011.
+[4] B. Krause, E. Kahembwe, I. Murray, and S. Renals. [*Dynamic Evaluation of Transformer Language Models*](https://arxiv.org/abs/1904.08378). 2019.
 
-[5] B. Krause, E. Kahembwe, I. Murray, and S. Renals. [*Dynamic Evaluation of Transformer Language Models*](https://arxiv.org/abs/1904.08378). 2019.
+[5] A. Tandon et al. [*End-to-End Test-Time Training for Long Context*](https://arxiv.org/abs/2512.23675). 2025.
 
-[6] A. Tandon et al. [*End-to-End Test-Time Training for Long Context*](https://arxiv.org/abs/2512.23675). 2025.
-
-[7] O. Shaikh et al. [*Creating General User Models from Computer Use*](https://arxiv.org/abs/2505.10831). 2025.
-
-[8] M. S. Lam et al. [*Just-In-Time Objectives: A General Approach for Specialized AI Interactions*](https://arxiv.org/abs/2510.14591). 2025.
-
-[9] M. Carroll, D. Hadfield-Menell, S. Russell, and A. D. Dragan. [*Estimating and Penalizing Induced Preference Shifts in Recommender Systems*](https://arxiv.org/abs/2204.11966). 2022.
-
-[10] M. Williams et al. [*On Targeted Manipulation and Deception when Optimizing LLMs for User Feedback*](https://arxiv.org/abs/2411.02306). 2024.
+[6] X. Jin et al. [*Lifelong Pretraining: Continually Adapting Language Models to Emerging Corpora*](https://arxiv.org/abs/2110.08534). 2022.
