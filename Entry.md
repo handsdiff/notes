@@ -75,6 +75,7 @@
 	- LLMs seems to be fractal. they are trained in RL with a good data set and reward signal. now the best way to prompt LLMs is to be very clear about the input and the reward signal, less so about specific directions on how to get there. mentioned something like this earlier here as well
 - schmidhuber idea that the reduction of bits required to predict events as the reward signal for a continual learner, and requires the ability to independently collect experience via taking action and monitor the consequences of those actions
 	- additionally not worried about safety because such a system will be motivated to 'protect the source of interesting patterns' that it can learn from
+	- https://people.idsia.ch/~juergen/
 - neural net idbd toy example https://share.google/aimode/JBrJjCbEqUnEf5lIW
 - How can you do iid sampling with next action prediction? Won’t the answer likely be in a previous batch that is just memorized? How do you handle autoregressive iid sampling at all? How does pretraining handle this? How else do you avoid pure memorization I.e. terrible test time performance? 
 - if a model learns that z comes after x and y, is that 'memorization' or is that 'understanding'?
@@ -92,8 +93,6 @@
 
 
 - ## directly relevant - practical
-	- https://www.zyphra.com/our-work/plasticity-loss-in-continual-learning
-	- https://www.youtube.com/watch?v=r1qZpYAmqmg LLM training by post training lead at openai
 	- https://www.primeintellect.ai/blog/algorithms-layer
 	- old thought dump
 		- next token prediction on what i write down into the obsidian vault, with the data being the latest typing actions from the obsidian vault.
