@@ -27,6 +27,8 @@
 - https://www.mimica.ai/
 - https://www.markovstudios.com/
 - https://www.ycombinator.com/companies/experiential-labs + https://github.com/experientiallabs/world-model-optimizer
+- https://x.com/RampLabs/status/2081819550329327689?s=20
+- https://x.com/tokenbender/status/2081790994614538327?s=20
 - 
 - kimi delta attention https://arxiv.org/pdf/2510.26692
 - https://people.idsia.ch/~juergen/1991-unnormalized-linear-transformer.html
