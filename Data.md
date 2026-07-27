@@ -38,6 +38,8 @@ disparate notes:
 - how many tokens are common examples of fine tuned models that actually work trained on? how many tokens are frontier models trained on? on what stage? how does LoRA actually impact the amount of needed/useful tokens? how does that change as the underlying model changes?
 	- https://thinkingmachines.ai/blog/ probably should review the old ones too
 - when i open a new tab without typing anything, that will show up to the model, but it wont learn to predict that? in what scenarios is there 'likely' to be a write action and in what scenarios are there not? maybe to solve the suggestion timing issue, the model only gets queried (test time) or predicts (train time) when an input field is focused? since that is a necessary prerequisite for a write action
+- what happened to rewind? where are the users? what are they doing now?
+- (read, app, content) and (write, app, content). obsidian covers some write. the browser history script that fetches some read and write, but some issues flagged by Fable.
 
 ## current scope
 

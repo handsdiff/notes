@@ -92,8 +92,6 @@
 - ## directly relevant - practical
 
 	- 
-	- what happened to rewind? where are the users? what are they doing now?
-	- (read, app, content) and (write, app, content). obsidian covers some write. the browser history script that fetches some read and write, but some issues flagged by Fable.
 	- https://www.zyphra.com/our-work/plasticity-loss-in-continual-learning
 	- https://www.youtube.com/watch?v=r1qZpYAmqmg LLM training by post training lead at openai
 	- https://www.primeintellect.ai/blog/algorithms-layer
