@@ -85,6 +85,7 @@
 - jakub don't use screenpipe because local storage is cooked
 - amortizing the cost of retraining across inference time for the retrained model makes it a small % bump on variable costs rather than an imposing fixed cost
 - https://web.stanford.edu/class/cs329x/
+- https://www.inductionlabs.com/news/scaling-video-pretraining#imitating-human-behavior interesting and somewhat similar
 
 
 
