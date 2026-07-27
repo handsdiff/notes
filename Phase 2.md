@@ -2,7 +2,7 @@
 
 *Coactive improvement from model proposals and human continuations*
 
-**Status:** Research direction following the predictive and closed-loop gates in [[Phase 1]]. This document specifies the comparative signal created when the model shows a possible next action and the person subsequently chooses what to do.
+**Status:** Research direction following the predictive system in [[Phase 1]]. This document specifies the comparative signal created when the model shows a possible next action, the person subsequently chooses what to do, and the system learns whether and when to intervene.
 
 ## Abstract
 
@@ -10,9 +10,9 @@ Phase 1 learns from what the person does. Phase 2 also learns from what the pers
 
 At a bounded decision point, a proposal policy samples possible next actions from the history available before display. Some samples are shown. The person reads them and then writes, searches, edits, or sends something of their own. The core Phase 2 assumption is that this later human action is locally superior to each distinct, comparable proposal the person actually saw. The person need not be an optimal demonstrator in general. They need only be a reliable adjudicator of these local alternatives after the model has made them concrete.
 
-One interaction then supports three different learning problems. The human continuation remains a behavioral-cloning target under the history that includes the displayed samples. The comparison between that continuation and each displayed sample can improve a separate pre-display proposal policy with Identity Preference Optimization (IPO). The same comparisons can train an explicit reward model if a reusable scalar is needed for later reinforcement learning. These roles share data but not objectives or model identity.
+A shown interaction supports three learning problems. The human continuation remains a behavioral-cloning target under the history that includes the displayed samples. The comparison between that continuation and each displayed sample can improve a separate pre-display proposal policy with Identity Preference Optimization (IPO). The same comparisons can train an explicit reward model if a reusable scalar is needed for later reinforcement learning. Across eligible decision points, randomized show-or-abstain outcomes support a fourth problem: learning when an intervention is worthwhile. These roles share data but not objectives or model identity.
 
-The separation matters. Behavioral cloning models how the person acts inside the collaboration. IPO improves what the system proposes before the person acts. A reward model preserves the comparative judgment for later planning or policy-gradient training. None is asked to stand in for the others.
+The separation matters. Behavioral cloning models how the person acts inside the collaboration. IPO improves what the system proposes before the person acts. A reward model preserves the comparative judgment for later planning or policy-gradient training. A separate proactivity policy decides whether and when showing anything is worth interrupting the person. None is asked to stand in for the others.
 
 ## 1. From Prediction to Coactive Improvement
 
@@ -24,7 +24,7 @@ The ambition remains a human–model system that learns implied objectives and r
 
 ## 2. Assumptions
 
-Phase 2 adds the following assumptions to those in [[Phase 1#1.2 Assumptions and claim boundaries]]:
+Phase 2 adds the following assumptions to the collection and modeling conditions in [[Phase 1]]:
 
 1. **Post-proposal local superiority.** If the person sees a proposal and then produces a distinct action addressing the same local decision, the human action is superior to the proposal. This is a core modeling assumption, not an inference from textual similarity.
 2. **Global imperfection is compatible with local authority.** The person may be a noisy, inconsistent, or suboptimal demonstrator across trajectories while still being the authoritative comparator between a displayed sample and the action they choose after seeing it.
@@ -33,6 +33,7 @@ Phase 2 adds the following assumptions to those in [[Phase 1#1.2 Assumptions and
 5. **Equivalent actions are ties.** Exact copies and semantically equivalent realizations supply positive behavioral data but no strict negative preference.
 6. **Local comparison need not reveal causal credit.** A slate may contain several samples, and the later action may combine them. Phase 2 does not infer which token or sample caused which part of the action.
 7. **The comparison is stronger than imitation but weaker than a global reward.** It orders bounded actions at a shared pre-display state. Extrapolation across states, time, or tasks requires evaluation and, eventually, additional outcome data.
+8. **Proposal quality and proactivity are different decisions.** A good candidate can still be shown at a bad time. Silence, dismissal, or the absence of a following action is not by itself a clean label for either candidate quality or timing.
 
 The crucial distinction is between a *generative context* and a *comparison context*. The human action was generated after seeing the proposal. Behavioral cloning must model that fact. The preference statement is different: given the original local decision, the person judges their final action better than the proposal they saw. IPO consumes that comparison; it does not claim that the human action was sampled from an unaided expert policy at the pre-display state.
 
@@ -43,6 +44,8 @@ For interaction $t$, define the exact pre-display history
 $$
 h_t^- = C_\phi(\{e_i:\operatorname{available\_at}(e_i)<\tau_t^{\mathrm{sample}}\}).
 $$
+
+This section conditions on the system having chosen to intervene. Section 4.4 defines that choice separately.
 
 A proposal policy $\rho_d$ samples $K$ bounded actions
 
@@ -67,7 +70,7 @@ Thus $h_t^+$ contains the rendered proposal events, any intervening reads or too
 
 The first pair trains the behavioral model. The second trains a proposer or reward model. The losses never compare log-probabilities evaluated under different histories.
 
-## 4. Three Distinct Learning Objects
+## 4. Four Distinct Learning Objects
 
 ### 4.1 Behavioral policy
 
@@ -81,7 +84,7 @@ $$
 \lambda_{\mathrm{replay}}\mathcal L_{\mathrm{BC}}(\mathcal R_d),
 $$
 
-where exposed examples use $h_t^+$ and unaided examples use their ordinary pre-action histories. Proposal tokens are context and are masked from target loss. Phase 1's continuous collection, stratified replay, immutable publication, capability checks, and rollback remain unchanged.
+where exposed examples use $h_t^+$ and unaided examples use their ordinary pre-action histories. Proposal tokens are context and are masked from target loss. Phase 1's temporal collection, daily evaluate-then-update loop, historical replay, and immutable data and model lineage remain unchanged.
 
 This model estimates collaborative human behavior. It learns copying, refinement, synthesis, rejection, and task switching as different responses to different observed histories.
 
@@ -105,6 +108,34 @@ $$
 $$
 
 This branch is appropriate when the intended product is a reusable reward for reranking, search, planning, or later policy-gradient training. It should be trained and evaluated separately from the proposer. A reward model can generalize comparisons to new actions, but that generalization is precisely where misspecification and out-of-distribution exploitation enter.
+
+### 4.4 Proactivity and abstention policy
+
+Let $\rho(a\mid h)$ answer **what should be proposed?** Let a separate gate
+
+$$
+g_\psi(h)=P_\psi(\text{SHOW}\mid h)
+$$
+
+answer **should anything be proposed now?** The gate may also choose among intervention modes or defer until a later decision point. Keeping it separate prevents a poor proposal from being misdiagnosed as bad timing and prevents an intrusive interface from being mistaken for a weak content model.
+
+The first implementation should keep proactivity outside the generative model. A deterministic, versioned rule identifies safe eligible decision points; within those points, a logged randomization assigns some opportunities to `SHOW` and some to `ABSTAIN`. This produces an interpretable baseline and the counterfactual data needed to measure whether an intervention helped. Always showing only reveals outcomes under showing, while never showing reveals no proposal comparisons.
+
+A learned gate is a later experiment. It can be implemented as a separate head or as an explicit `NO_PROPOSAL` action inside the model, but accepted and rejected proposals alone cannot train it correctly. Those observations lack the counterfactual outcome under silence, and an ignored proposal can mean bad content, bad timing, no current need, or simple distraction. Training requires propensity-logged intervention decisions plus downstream outcomes or explicit timing labels.
+
+For an outcome measure $J$ and interruption cost $c(h)$, the relevant quantity is the incremental value
+
+$$
+A(h)
+=
+\mathbb E[J\mid \text{SHOW},h]
+-
+\mathbb E[J\mid \text{ABSTAIN},h]
+-
+c(h).
+$$
+
+The learned policy shows a proposal only when the estimated advantage is positive at the chosen operating threshold. Contextual-bandit, propensity-weighted, or doubly robust estimation can use randomized collection data; a direct supervised head is justified only when its labels encode the same incremental decision. The gate version, eligibility rule, offer probability, sampled decision, candidates if any, and outcomes are all immutable records.
 
 ## 5. Pair Construction
 
@@ -224,7 +255,7 @@ $$
 \rho_0,\rho_1,\ldots,
 $$
 
-with an optional reward lineage $r_{\varphi_0},r_{\varphi_1},\ldots$. A practical implementation can use one frozen base model with a BC adapter, an IPO adapter, and a reward head. Separate artifacts, optimizer states, data cutoffs, and publication gates are required even when deployment composes them.
+with an optional reward lineage $r_{\varphi_0},r_{\varphi_1},\ldots$ and proactivity lineage $g_{\psi_0},g_{\psi_1},\ldots$. A practical implementation can use one frozen base model with a BC adapter, an IPO adapter, a reward head, and a gate head, although the initial gate is an external versioned rule. Separate artifacts, optimizer states, data cutoffs, and publication gates are required even when deployment composes them.
 
 Three coupling choices should be tested:
 
@@ -241,8 +272,26 @@ Behavioral replay continues exactly as in Phase 1. Preference replay and reward 
 The Phase 1 event store remains authoritative. Phase 2 adds immutable derived records:
 
 ```text
+InterventionDecision {
+  intervention_id
+  decision_point_id
+  pre_display_context_event_ids
+  pre_display_context_hash
+  eligibility_rule_version
+  eligible
+  eligibility_reason
+  gate_version
+  show_probability
+  randomized
+  decision: SHOW | ABSTAIN
+  decision_reason
+  decided_at
+  outcome_ref?
+}
+
 ProposalGeneration {
   interaction_id
+  intervention_id
   principal_id
   proposer_version
   pre_display_context_event_ids
@@ -299,8 +348,14 @@ The full generated slate is retained for audit, but only confirmed rendered cand
 ### Algorithm 1: Collect one coactive interaction
 
 ```text
-procedure COACTIVE_INTERACTION(rho_deployed, live_stream, K):
+procedure COACTIVE_INTERACTION(gate, rho_deployed, live_stream, K):
     h_minus <- FREEZE(BUILD_CONTEXT(events available now))
+    decision <- DECIDE_AND_LOG(gate, h_minus)
+    SCHEDULE_OUTCOME_MEASUREMENT(decision, live_stream)
+
+    if decision == ABSTAIN:
+        return
+
     generated <- SAMPLE_BOUNDED_ACTIONS(rho_deployed, h_minus, K)
     rendered <- INTERFACE_RENDER(generated)
 
@@ -343,7 +398,7 @@ procedure UPDATE_PROPOSER(rho_reference, fresh_pairs, config):
     return rho_reference
 ```
 
-The behavioral updater from [[Phase 1#Algorithm 3: Continually update the canonical policy]] runs independently on the newly created BC examples.
+The behavioral updater from [[Phase 1#Algorithm 3: Update overnight]] runs independently on the newly created BC examples.
 
 ## 10. IPO, Reward Modeling, and Adversarial IRL
 
@@ -392,15 +447,23 @@ Compare the IPO proposer against its exact reference, the current BC policy, a D
 
 Because training preferences all favor the human action, held-out evaluation should include independently judged model-versus-model comparisons and delayed outcome labels. Otherwise a proposer can appear successful merely by becoming more human-like.
 
-### 11.3 Reward-model evaluation
+### 11.3 Proactivity evaluation
+
+Evaluate proposal content under a fixed gate and evaluate the gate under a fixed proposer. Compare `ALWAYS_SHOW`, `NEVER_SHOW`, the deterministic eligibility rule, and each learned gate using randomized or propensity-corrected opportunities. Report intervention rate, helpful-intervention rate, interruption cost, dismissal or ignore rate, time to next useful action, downstream quality and rework, and calibration of estimated incremental value by application and task state.
+
+The decisive question is not whether people often accept suggestions. It is whether showing a proposal at states selected by the gate improves outcomes relative to abstaining at comparable states. A gate that appears selective only because it avoids difficult contexts has not established proactivity.
+
+### 11.4 Reward-model evaluation
 
 Evaluate pairwise accuracy and calibration on later proposer versions, applications, and projects; robustness to length, style, and action-boundary perturbations; cyclic or inconsistent comparisons; and adversarially searched high-reward actions. Before RL, test whether reward differences correlate with blinded outcomes and whether optimization moves samples out of the reward model's training support.
 
-### 11.4 Decision branches
+### 11.5 Decision branches
 
 - If Phase 1 BC improves the joint system and valid pairs are sparse, remain in Phase 1.
 - If valid comparisons are plentiful and direct IPO improves proposals and outcomes, publish a separate proposer lineage.
 - If IPO improves pair margins but not outcomes, revisit interface timing, pair validity, and the local-superiority assumption before increasing optimization pressure.
+- If proposal content is useful under a fixed gate but interventions remain disruptive, improve the external eligibility rule and collect randomized `SHOW`/`ABSTAIN` outcomes before training proactivity inside the model.
+- If a learned gate improves randomized joint-system outcomes at an acceptable intervention rate, publish it as a separate versioned policy rather than treating abstention as an incidental decoding behavior.
 - If the reward model transfers across proposer versions and correlates with outcomes, carry it forward as a candidate scoring component—not yet an additive trajectory return.
 - If sequential failures dominate and local comparisons do not compose, proceed to the model-based and trajectory-level experiments in Phase 3.
 - If exposure causes anchoring, narrowing, manipulation, or worse outcomes, halt preference collection and roll back even if predictive or pairwise metrics improve.
@@ -417,7 +480,7 @@ Personalized RLHF shows that aggregated preferences can hide heterogeneous user 
 
 ## 13. Handoff to Phase 3
 
-Phase 2 can produce three assets: a continual behavioral model of the person inside the shared stream, a proposal policy improved by local comparisons, and an optional action-level reward model. None is yet a long-horizon agent.
+Phase 2 can produce four assets: a continual behavioral model of the person inside the shared stream, a proposal policy improved by local comparisons, an intervention policy that learns when to abstain, and an optional action-level reward model. None is yet a long-horizon agent.
 
 Phase 3 may use the behavioral model to predict human responses, the proposer as an action prior, and the reward model for same-state pruning or shaping. It must not simply sum Phase 2's local score across imagined steps and call the result the person's objective. Longer horizons introduce state transitions, delayed consequences, strategic information gathering, reward identifiability, and the possibility that the system changes the person whose preferences it models. Those questions require trajectory-level evidence, world modeling, guarded execution, and explicit preservation of human authority.
 

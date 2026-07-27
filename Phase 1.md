@@ -9,7 +9,7 @@ WARNING: human ideas, but AI writing
 
 Ordinary computer use produces a chronological record of information becoming action. A person reads documents, browses pages, receives messages and model outputs, edits notes, writes searches and prompts, sends messages, and changes artifacts. If these events are captured at the time they actually became available, they form a personal read–write stream from which the person's next bounded write action can be predicted. Judgment is distilled into weights.
 
-Phase 1 builds that stream and applies behavioral cloning to it. Each example contains a fixed-length prefix of the events available before an action and the complete human-authored action that followed. Read events and prior actions are context; only the next human write action receives loss.
+Phase 1 builds that stream and applies behavioral cloning to it. Each example contains a fixed-length window ending immediately before an action and the complete human-authored action that followed. Read events and prior actions are context; only the next human write action receives loss.
 
 Learning is continual. During a day, the model's weights remain fixed while every action is predicted and scored from the sliding causal context. Overnight, that day's examples become training data and are mixed with replay from earlier days. The resulting weights initialize the next day. Historical data is processed through the same chronological loop used for new data, so there is no separate offline training paradigm and no permanent partition of personal activity into training and test examples. Each action is evaluated before it is allowed to train a later model.
 
@@ -17,9 +17,9 @@ The first goal is deliberately narrow: implement a temporally faithful event col
 
 ## 1. Vision
 
-A capable general model may know how to write, search, analyze, code, and operate software while still having little basis for predicting what a particular person will do next. The missing information is often tacit and fast-changing: the argument being developed, the question behind a search, the constraint introduced by a message, the connection between two documents, or the project that has become important today.
+A capable general model may know how to write, search, analyze, code, and operate software while still having little basis for understanding a particular user. The missing information is often tacit and fast-changing: the argument being developed, the question behind a search, the constraint introduced by a message, the connection between two documents, or the project that has become important today.
 
-The person's work already contains this information. Inbound events record what became available. Outbound actions record what the person did next. Their temporal interleaving shows how changing context becomes behavior without requiring the person to stop and produce separate labels.
+The person's prior computer use likely contains this information. Inbound events record what became available. Outbound actions record what the person did next. Their temporal interleaving shows how changing context becomes behavior without requiring the person to stop and produce separate labels.
 
 The working hypothesis is that a model trained on this stream can become a useful predictive model of one person's work. Easy gains may come from style, repetition, and workflow regularity. Harder cases may require tracking what the person is presently trying to accomplish. Phase 1 does not attempt to identify a unique latent goal or reward function; it tests the more direct claim that temporally valid personal history improves prediction of future actions.
 
@@ -43,7 +43,7 @@ Dynamic evaluation updates a language model on recent tokens before predicting l
 
 Lifelong pretraining studies chronological adaptation to emerging corpora while measuring performance on both new and earlier distributions [6]. Its stability–plasticity problem is directly relevant: recent data should update the personal model without allowing one project or period to erase older workflows or general language-model capabilities.
 
-## 3. Personal Event Stream
+## 3. Personal Event Stream - TODO
 
 For one person, let
 
@@ -78,11 +78,21 @@ The store separates raw captured events from later interpretations. Raw records 
 
 ### 3.1 Temporal fidelity
 
-The central rule is:
+The central data requirement is to make the model's external information state match the information that actually reached the person's brain as closely as the instrumentation permits. The collector cannot observe internal cognition, attention, or memory directly. It can, however, reconstruct observable exposure: what was rendered, visible, audible, foregrounded, selected, or otherwise available through the interface, and when.
 
-> An event may enter an action's context only when its recorded content was available to the person before that action began.
+Let $I_t^{H}$ denote the observable external information available to the human before action $t$, and let $I_t^{M}$ denote the information serialized into the model's context. The collection objective is:
 
-Eventual presence in an export is not evidence of prior availability.
+$$
+I_t^{M}\approx I_t^{H}
+$$
+
+in content, order, and timing. This alignment is what makes behavioral cloning an attempt to distill human judgment and skill into the weights. If the model receives information the person had not seen, it can explain the person's action using leaked evidence and learn a shortcut under a fictional state. If the model omits information the person did see, a skilled action can appear arbitrary or noisy. In either case, the learned conditional behavior is not a faithful model of the judgment that produced the action.
+
+The operational rule is:
+
+> Content may enter an action's context only if it was available through the person's interface before that action began.
+
+Eventual presence in an export, file, page source, or transcript is not evidence of prior exposure.
 
 - Opening an article records its URL, title, and navigation state. Only the spans actually exposed as the person reads or scrolls become read content. The unread remainder of the article does not.
 - A video or podcast contributes only the material available through the observed playback position, not its complete transcript.
@@ -90,11 +100,11 @@ Eventual presence in an export is not evidence of prior availability.
 - A note contributes the version and visible state that existed at the time. A later revision cannot become context for an earlier edit.
 - Tool results, received messages, and application state changes enter the stream when they become available, not when a later export happens to record them.
 
-When precise availability cannot be reconstructed, the event is marked uncertain or excluded from predictive examples. URLs and object identifiers may remain as navigation metadata even when the underlying content was not observed.
+When precise exposure cannot be reconstructed, the event is marked uncertain or excluded from predictive examples. URLs and object identifiers may remain as navigation metadata even when the underlying content was not observed.
 
-Collectors use a normalized clock and record their own versions. Cross-application ordering must be stable enough to determine which events preceded an action. A manually replayed sample of sessions is required before modeling to measure missing events, ordering errors, incorrect visible spans, and future leakage.
+Collectors use a normalized clock and record both when a state change occurred and when a later debounce or collector process finalized its record. Finalization time must never replace the earlier exposure or action-onset time. Cross-application ordering must be stable enough to determine which information preceded an action. A manually replayed sample of sessions is required before modeling to measure missing events, ordering errors, incorrect visible spans, and future leakage.
 
-### 3.2 Human macro-actions
+### 3.2 Snapshot-based human macro-actions
 
 Raw keystrokes are too granular, while commits and final document snapshots are usually too coarse. The prediction target is a bounded human write macro-action:
 
@@ -111,9 +121,25 @@ Examples include:
 - sending a prompt or message;
 - committing a coherent code or document edit.
 
-Segmentation uses observable boundaries such as submit and save events, focus changes, coherent edit completion, and idle-time debounce. The segmentation rule is versioned and every action retains its source events and boundary reason.
+The initial Obsidian rule mirrors the vault's current automatic snapshot behavior:
 
-Authorship is mandatory. Independently typed text, pasted text, externally generated text, automatic edits, and tool-written content must not be conflated. A paste may still be a human action, but its provenance differs from original typing and must remain available for filtering and analysis. Only finalized human actions become behavioral-cloning targets.
+1. The first human text mutation opens a write burst and fixes its `began_at`.
+2. Each subsequent human text mutation in that object resets a three-second idle timer.
+3. After three seconds without another text mutation, the collector snapshots the object. The diff from the prior finalized snapshot becomes one write event if it is nonempty.
+4. Submit, save, focus change, navigation, application shutdown, or another context-changing exposure force the current burst to close without waiting for the timer.
+
+The three-second delay is a deterministic *finalization rule*, not the time at which the action began or its content became available. The record preserves the first mutation time, last mutation time, and later finalization time. This prevents a debounce from moving a human action or a newly visible input across the causal boundary.
+
+The same burst-and-debounce idea applies to viewport changes, but not as one global timer for all keyboard and mouse activity:
+
+- A scroll changes the person's observable information immediately. The collector records viewport state and rendered spans at their actual times, then may consolidate a rapid scroll sequence after three seconds of scroll inactivity. It must preserve all spans exposed during the burst rather than only the final viewport.
+- A context-changing scroll, selection, hover panel, tooltip, focus change, or navigation closes any active write burst before the newly exposed information can condition later writing.
+- Raw pointer movement that changes nothing in the interface is activity telemetry, not a semantic read event and not automatically a write boundary.
+- Timers are per object and modality. Unrelated mouse movement should not silently merge two write bursts or postpone a write boundary.
+
+Three seconds is an initial, versioned hyperparameter. A replayed session audit should compare the resulting boundaries with human judgments and test nearby delays. The goal is not to recover an abstract “turn,” but to construct targets that are both learnable and causally homogeneous: one target should not span an intervening input that changed what the person knew.
+
+Authorship and input method are mandatory. Keyboard/input events, clipboard events, editor transaction metadata, and resulting diffs distinguish independently typed text, pasted text, mixed typed-and-pasted bursts, externally generated text, automatic edits, and tool-written content. A paste may still be a deliberate human action, but it is not evidence that the person generated the pasted tokens. It remains a separately labeled operation available for filtering or for a different prediction target. Only finalized human actions become behavioral-cloning targets.
 
 ```text
 MacroAction {
@@ -124,10 +150,11 @@ MacroAction {
   operation
   content_ref
   began_at
-  committed_at
+  last_mutation_at
+  finalized_at
   boundary_reason
   segmentation_version
-  provenance_summary
+  input_provenance_summary
   confidence
 }
 ```
@@ -136,7 +163,7 @@ MacroAction {
 
 The first implementation covers:
 
-- **Obsidian:** note patches or snapshots, object location, visible text, cursor and selection when available, save or focus boundaries, coherent edit bursts, and pasted-versus-authored provenance.
+- **Obsidian:** mutation-triggered snapshots and diffs, first and last mutation times, three-second per-object debounce, forced boundaries, object location, visible text, cursor and selection when available, and typed-versus-pasted-versus-external provenance.
 - **Browser:** URL, title, navigation, search submissions, visible or consumed spans, focus state, scroll position, media progress, and timestamps.
 - **AI chats:** prompts, attachments, branching or regeneration state, rendered response spans, tool results, and token or span availability times.
 
@@ -264,7 +291,7 @@ Replay is intended to preserve older workflows, not to freeze the model in the p
 
 ### 4.5 Context-length scaling
 
-The core scaling experiment compares fixed causal history budgets such as 8K, 16K, and 32K tokens.
+The core scaling experiment compares fixed causal history budgets of 8K, 16K, 32K, and 64K tokens.
 
 Each context-length condition follows the same daily loop with:
 
@@ -276,6 +303,14 @@ Each context-length condition follows the same daily loop with:
 - only the context budget and unavoidable context-processing compute changed.
 
 This end-to-end comparison measures whether a model trained and evaluated with a longer direct history predicts future actions better. A secondary same-snapshot ablation may score identical targets with differently truncated histories to isolate the immediate value of additional context from the effect of training with that context.
+
+### 4.6 Base model and architecture scaling
+
+The initial checkpoint is [Qwen3.5-9B-Base](https://huggingface.co/Qwen/Qwen3.5-9B-Base) [7]. It is a base rather than instruction-tuned model, has nine billion parameters, and is dense in the routing sense: it does not use a mixture-of-experts router. Its stack is nevertheless a hybrid of Gated DeltaNet and gated-attention layers rather than a conventional all-full-attention Transformer.
+
+The official model card reports a native context length of 262,144 tokens, not 64K. The initial experiment deliberately caps histories at 8K through 64K so that context scaling can be measured within a single checkpoint before paying the cost of the full window.
+
+After the collector and training loop work, matched chronological runs should compare additional base checkpoints, including dense and mixture-of-experts models. These are model-family comparisons, not clean causal claims about dense versus MoE architecture: checkpoints also differ in total and active parameters, pretraining data, tokenizer, attention design, and compute. Each run therefore reports total and active parameters, context limit, training and inference compute, memory, wall-clock cost, and the exact personal examples used. A stronger architecture conclusion requires a matched family or controlled ablation.
 
 ## 5. Behavioral-Cloning Objective
 
@@ -448,7 +483,7 @@ Secondary measurements include:
 - exact or semantic top-$k$ inclusion when generation is evaluated;
 - performance by application, action family, target length, and provenance.
 
-All model and context-length comparisons are paired on identical actions.
+All model and context-length comparisons are paired on identical actions and use the same chronological evaluate-then-update protocol.
 
 ### 7.2 Minimal baselines and controls
 
@@ -459,7 +494,7 @@ The first experiment compares:
 3. the same model with the correct trailing personal event stream;
 4. the same model with shuffled, wrong-time, or timestamp-damaged history;
 5. the continually adapted model with correct history;
-6. matched continual lineages at 8K, 16K, and 32K context.
+6. matched continual lineages at 8K, 16K, 32K, and 64K context.
 
 The comparison should show whether the event stream adds content-predictive signal beyond repetition, location, and writing style. Wrong-time controls test the temporal construction directly: if damaged chronology performs as well as correct chronology, the collector is not supplying the hypothesized signal.
 
@@ -498,7 +533,11 @@ Collect Obsidian, browser, and AI-chat events prospectively. Test whether correc
 
 ### Experiment 3: Context and continual scaling
 
-Run matched 8K, 16K, and 32K lineages through the same days. Measure pre-update daily loss, adaptation after overnight training, older-workflow retention, general capability retention, and training cost.
+Run matched Qwen3.5-9B-Base lineages at 8K, 16K, 32K, and 64K through the same days. Measure pre-update daily loss, adaptation after overnight training, older-workflow retention, general capability retention, and training cost.
+
+### Experiment 4: Model and architecture scaling
+
+Run the frozen protocol on additional base checkpoints, including at least one MoE family. Compare predictive performance and adaptation against active parameters, total parameters, memory, throughput, and training cost. Treat dense-versus-MoE results as model-level evidence unless the comparison controls the other architectural and pretraining differences.
 
 Phase 1 succeeds when the collector produces auditable causal examples and the continually trained model obtains a repeatable improvement on future daily actions from correct personal history. The gain should increase or remain useful with longer context, survive trivial and wrong-time controls, and avoid unacceptable forgetting.
 
@@ -514,7 +553,8 @@ Phase 1 succeeds when the collector produces auditable causal examples and the c
 8. run the Obsidian smoke test;
 9. add prospective browser and AI-chat collection;
 10. run the interleaved-stream and context-length experiments;
-11. monitor continual prediction and capability retention.
+11. compare additional dense and MoE base checkpoints after the Qwen3.5-9B-Base baseline is stable;
+12. monitor continual prediction and capability retention.
 
 The required initial artifacts are the collector specification, privacy and exclusion policy, segmentation guide, reconstruction audit, serializer, immutable example store, leakage tests, baseline harness, daily update manifest, replay index, capability-retention suite, and model card for each accepted lineage.
 
@@ -539,3 +579,5 @@ If this works, the result is a validated data substrate and a personal behaviora
 [5] A. Tandon et al. [*End-to-End Test-Time Training for Long Context*](https://arxiv.org/abs/2512.23675). 2025.
 
 [6] X. Jin et al. [*Lifelong Pretraining: Continually Adapting Language Models to Emerging Corpora*](https://arxiv.org/abs/2110.08534). 2022.
+
+[7] Qwen Team. [*Qwen3.5-9B-Base Model Card*](https://huggingface.co/Qwen/Qwen3.5-9B-Base). 2026.
