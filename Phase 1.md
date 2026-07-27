@@ -289,30 +289,13 @@ The first implementation uses an explicit recent/replay mixture rather than a co
 
 Replay is intended to preserve older workflows, not to freeze the model in the past. Its effectiveness is measured rather than assumed.
 
-### 4.5 Context-length scaling
+### 4.5 Initial model configuration
 
-The core scaling experiment compares fixed causal history budgets of 8K, 16K, 32K, and 64K tokens.
+The first implementation uses [Qwen3.5-9B-Base](https://huggingface.co/Qwen/Qwen3.5-9B-Base) [7] with a 32K-token causal history window. Its weights remain fixed throughout each day and update overnight using that day's scored examples plus historical replay.
 
-Each context-length condition follows the same daily loop with:
+Qwen3.5-9B-Base is a nine-billion-parameter base model. It is dense in the routing sense, although its stack is a hybrid of Gated DeltaNet and gated-attention layers rather than a conventional all-full-attention Transformer. The official model card reports a native context length of 262,144 tokens. The initial 32K window is therefore an implementation and compute choice, not the checkpoint's native limit.
 
-- identical action targets;
-- identical day boundaries;
-- the same base-model family;
-- matched recent/replay sampling;
-- matched target-token exposure and optimizer steps;
-- only the context budget and unavoidable context-processing compute changed.
-
-This end-to-end comparison measures whether a model trained and evaluated with a longer direct history predicts future actions better. A secondary same-snapshot ablation may score identical targets with differently truncated histories to isolate the immediate value of additional context from the effect of training with that context.
-
-### 4.6 Model capability and access scaling
-
-The initial checkpoint is [Qwen3.5-9B-Base](https://huggingface.co/Qwen/Qwen3.5-9B-Base) [7]. It is a base rather than instruction-tuned model, has nine billion parameters, and is dense in the routing sense: it does not use a mixture-of-experts router. Its stack is nevertheless a hybrid of Gated DeltaNet and gated-attention layers rather than a conventional all-full-attention Transformer.
-
-The official model card reports a native context length of 262,144 tokens, not 64K. The initial experiment deliberately caps histories at 8K through 64K so that context scaling can be measured within a single checkpoint before paying the cost of the full window.
-
-The experiment matrix compares this continually updated Qwen lineage with older retained checkpoints, frozen closed models using in-context learning, and stronger open models using the same continual-training recipe. Every model receives the same causal event-stream prefix. Open lineages may update overnight after the day has been scored; closed models never update. Section 8 states each comparison separately.
-
-Dense and mixture-of-experts models are included, but these are model-family comparisons rather than clean causal claims about architecture: checkpoints also differ in total and active parameters, pretraining data, tokenizer, attention design, and compute. Each run reports total and active parameters, context limit, training and inference compute, memory, wall-clock cost, and the exact model revision.
+Once this baseline works, the ablation matrix in Section 8 varies context length, checkpoint recency, and model family without changing the event construction, causal serialization, or daily evaluation protocol.
 
 ## 5. Behavioral-Cloning Objective
 
@@ -541,7 +524,7 @@ All five comparisons use the same live daily protocol. On a given day, every con
 
 **Checkpoint recency.** On day $d$, score every action using the current checkpoint and retained checkpoints from $d-1$, $d-3$, and $d-7$. All remain frozen throughout the day and receive the identical causal event-stream context. This measures the predictive value of recent overnight updates and reveals when those updates hurt current-day prediction.
 
-**Context scaling.** Compare 8K, 16K, 32K, and 64K causal windows using matched Qwen3.5-9B-Base lineages. “More data” here means more prior event-stream data in context, not more historical training examples.
+**Context scaling.** Compare 8K, 16K, 32K, and 64K causal windows using matched Qwen3.5-9B-Base lineages, with 32K as the initial baseline. Action targets, day boundaries, recent/replay sampling, target-token exposure, and optimizer steps remain matched. “More data” here means more prior event-stream data in context, not more historical training examples.
 
 **Practical system comparison.** Compare continually updated Qwen3.5-9B-Base against frontier closed models using ICL only, with identical contexts and targets. This asks whether personal weight updates allow the local open model to compete with a stronger frozen API model.
 
