@@ -83,6 +83,7 @@
 - chronological data seems to relate to continual learning, does continual learning even make sense for non chronological data?
 - you can't buy data, you can buy compute, and algorithms comes from open science
 - jakub don't use screenpipe because local storage is cooked
+- amortizing the cost of retraining across inference time for the retrained model makes it a small % bump on variable costs rather than an imposing fixed cost
 
 
 
