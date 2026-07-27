@@ -25,6 +25,7 @@
 - https://x.com/tydsh/status/2080881800877134004?s=20
 - https://x.com/Kimi_Moonshot/status/2081760186235289764?s=20
 - https://www.mimica.ai/
+- https://www.markovstudios.com/
 - 
 - kimi delta attention https://arxiv.org/pdf/2510.26692
 - https://people.idsia.ch/~juergen/1991-unnormalized-linear-transformer.html
