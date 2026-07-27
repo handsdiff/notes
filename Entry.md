@@ -90,10 +90,8 @@
 
 
 - ## directly relevant - practical
-	- https://www.nature.com/articles/s41586-024-07711-7 loss of plasticity in deep continual learning
-	- who are the biggest screenpipe users? is anyone running prospective learning or reward inference algorithms on their data?
-		- https://github.com/screenpipe/screenpipe
-		- littlebird, dayflow, superhuman go, timescroll
+
+	- 
 	- what happened to rewind? where are the users? what are they doing now?
 	- (read, app, content) and (write, app, content). obsidian covers some write. the browser history script that fetches some read and write, but some issues flagged by Fable.
 	- https://www.zyphra.com/our-work/plasticity-loss-in-continual-learning

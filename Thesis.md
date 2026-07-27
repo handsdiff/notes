@@ -37,6 +37,9 @@ The ~\$600B figure is an estimate of the annual global cost to businesses of act
 
 # Misc Notes
 
+- who are the biggest screenpipe users? is anyone running prospective learning or reward inference algorithms on their data?
+	- https://github.com/screenpipe/screenpipe
+	- littlebird, dayflow, superhuman go, timescroll
 - backbone of a background monitor that learns to mimic, then infer goals, then assist feels very robust across text, visual, audio, digital, and physical domains
 - tension between informational context i.e. background information thats relevant and reward context i.e. preferred style, local objective, judgment/skill, overall goal
 	- likely that the data cleaning attempts to satisfy former (but would still need some sort of 'memory' solution) and next action prediction attempts to satisfy latter (but would still need test time data akin to train time data)
