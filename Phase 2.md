@@ -4,6 +4,9 @@
 
 **Status:** Research direction following the predictive system in [[Phase 1]]. This document specifies the comparative signal created when the model shows a possible next action, the person subsequently chooses what to do, and the system learns whether and when to intervene.
 
+#### Unstructured Notes - to be incorporated
+- phase 2 requires only showing samples when confidence exceeds some threshold, likely requires fine tuning
+
 ## Abstract
 
 Phase 1 learns from what the person does. Phase 2 also learns from what the person does *instead of* a model proposal.

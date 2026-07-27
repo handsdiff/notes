@@ -90,8 +90,6 @@
 
 
 - ## directly relevant - practical
-	- https://arxiv.org/pdf/2510.19488v1 labels unlabeled video data with their actions, for future training. seems like deepmind's genie also does this
-	- phase 2 requires only showing samples when confidence exceeds some threshold, likely requires fine tuning
 	- https://arxiv.org/abs/2606.03979 memory consolidation during sleep cycles
 	- https://edge-bench.org/ continual learning benchmark
 	- meme on whats necessary for selling data https://x.com/distributionat/status/2075253365983068181?s=20
