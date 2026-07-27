@@ -249,7 +249,8 @@ algorithms considered and rejected for now and why: (there are likely practicali
 	- https://arxiv.org/pdf/2606.03979 learn during sleep, data during day
 		- conceptually similar to phase 1 but way more complicated, useful to keep in mind if initial implementations fail. specifically uses different frequency updating, low rank MoE, fast vs slow modules, synthetic data and self study, and student/teacher distillation/RL
 	- https://www.nature.com/articles/s41586-024-07711-7 loss of plasticity in deep continual learning
-		- 
+		- reminds me of idbd by sutton
+	- 
 
 - is phase 1 a process reward model?
 - does phase 1 result in an 'implicit' reward model?
