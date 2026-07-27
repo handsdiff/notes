@@ -84,14 +84,13 @@
 - chronological data seems to relate to continual learning, does continual learning even make sense for non chronological data?
 - jakub don't use screenpipe because local storage is cooked
 - amortizing the cost of retraining across inference time for the retrained model makes it a small % bump on variable costs rather than an imposing fixed cost
+- https://web.stanford.edu/class/cs329x/
 
 
 
 
 
 - ## directly relevant - practical
-
-	- 
 	- https://www.zyphra.com/our-work/plasticity-loss-in-continual-learning
 	- https://www.youtube.com/watch?v=r1qZpYAmqmg LLM training by post training lead at openai
 	- https://www.primeintellect.ai/blog/algorithms-layer
