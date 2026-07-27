@@ -37,6 +37,7 @@ The ~\$600B figure is an estimate of the annual global cost to businesses of act
 
 # Misc Notes
 
+- backbone of a background monitor that learns to mimic, then infer goals, then assist feels very robust across text, visual, audio, digital, and physical domains
 - tension between informational context i.e. background information thats relevant and reward context i.e. preferred style, local objective, judgment/skill, overall goal
 	- likely that the data cleaning attempts to satisfy former (but would still need some sort of 'memory' solution) and next action prediction attempts to satisfy latter (but would still need test time data akin to train time data)
 - some tension between articulated thesis of next action prediction and the practical data generation surface value props described in [[Product]]. yes, having a better informational source could improve next action prediction. is it worth the buildout? is the local value prop this better interaction surface, or next action prediction, or data collection and cleaning from existing surfaces?
