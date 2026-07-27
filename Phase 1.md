@@ -3,6 +3,8 @@
 
 **Status:** Working research plan. This document contains no experimental results. It specifies the predictive bootstrap, closed-loop behavioral learning, assumptions, and executable experiments for the first phase of the project.
 
+WARNING: human ideas, but AI writing
+
 ## Abstract
 
 Most AI systems learn about a person only when the person stops working to explain what they want. Ordinary computer use already contains a richer record. A person reads documents, browses pages, receives messages and model outputs, edits notes, writes queries, sends messages, and changes artifacts. Together these events form a temporal stream of information becoming action.
