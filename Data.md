@@ -22,6 +22,8 @@ revise sensors and interpretations
 
 The current deliverable is a working sensor and inspection system that can be improved through use. A canonical interaction ledger, final segmentation policy, and Phase 1 dataset compiler come later, after the available evidence is understood.
 
+Build the sensor stack from scratch in an owned codebase. Existing projects can inform individual implementation details, but the initial system should not wrap, fork, ingest from, or depend on Screenpipe or another general-purpose recorder. This keeps the sensor behavior, raw data, timing, privacy boundaries, and failure modes directly inspectable and changeable.
+
 ### Minimal commitments
 
 The sensor layer needs only enough common structure to preserve and replay observations:
@@ -46,9 +48,8 @@ Start with the surfaces that dominate the intended Phase 1 context and targets:
 2. **Codex and other AI chats:** prompt-field contents, typing versus paste, submission, the prompt's later rendering in history, response streaming, tool results, conversation identity, and scroll/focus state.
 3. **Browser:** tabs, URL and navigation, DOM/accessibility text, actual viewport, scroll and dwell, input fields, searches, submitted messages, and dynamic content changes.
 4. **macOS-wide fallback:** application/window focus, accessibility tree and notifications, keyboard/mouse/scroll events, clipboard, screenshots, and OCR.
-5. **Screenpipe evaluation:** run a pinned version as a candidate implementation of the generic sensor layer; inspect its raw frames, elements, input events, triggers, timing, gaps, and resource cost before deciding what to reuse or replace.
 
-Application-native sensors should be tested where they offer materially better signals, but this is an empirical question rather than an architectural assumption. The generic fallback establishes what is available everywhere.
+Application-native sensors should be tested where they offer materially better signals, but this is an empirical question rather than an architectural assumption. The custom macOS-wide sensor establishes what can be observed without application cooperation.
 
 ### Local inspector
 
@@ -96,7 +97,7 @@ These are sensor-quality probes, not yet frozen dataset rules.
 ### Implementation order
 
 1. Build the append-only raw journal and a minimal inspector shell.
-2. Evaluate Screenpipe's emitted data as the first generic sensor baseline.
+2. Build a minimal macOS-wide sensor from scratch, beginning with application/window focus and accessibility output, then adding input, clipboard, scroll, and screenshot signals one at a time.
 3. Add one high-fidelity write surface, likely Obsidian, and make its events inspectable.
 4. Add one inbound-information surface, likely the browser.
 5. Add Codex/chat and explicitly test authorship, submission, re-rendering, streaming, and tool-result cases.
@@ -133,8 +134,6 @@ These notes may inform sensor experiments, but they are not commitments about th
 - [[Interaction#^f5c205]]
 - [[Interaction]] overall
 - https://arxiv.org/pdf/2309.12170 older RNN predicting mouse/keyboard data
-- https://x.com/screenpipe/status/2077045452579778664?s=20
-	- it might be in a gemini chat, at the very least in browser history, but there was an old screenpipe PR that cleaned up screenpipe data for training. i think it was for retrieval so maybe it was whatever, but im surprised i did not note it down
 - ways to think about data from Levine https://x.com/svlevine/status/2075721405929508942?s=20
 - https://github.com/experientiallabs/world-model-harness (yc, seems to be productized data cleaning)
 - tension between improving data collection vs experimenting with algorithms to make it useful. need both long term pending ongoing discovery. my current load bearing has been phrased as algorithms, but maybe thats because i already write down thoughts, and the additional work there doesn't feel like i learn anything besides if i write down more thoughts, which would require actually measuring usage rate. the ai could easily do this, pending how the actual git commitments work (is it actually when i stop typing, or just every 10 mins). but iterating on the algorithms will act as a forcing function for what type of data is needed and how it should be structured, which probably makes it more useful as a load bearing
