@@ -304,13 +304,15 @@ Each context-length condition follows the same daily loop with:
 
 This end-to-end comparison measures whether a model trained and evaluated with a longer direct history predicts future actions better. A secondary same-snapshot ablation may score identical targets with differently truncated histories to isolate the immediate value of additional context from the effect of training with that context.
 
-### 4.6 Base model and architecture scaling
+### 4.6 Model capability and access scaling
 
 The initial checkpoint is [Qwen3.5-9B-Base](https://huggingface.co/Qwen/Qwen3.5-9B-Base) [7]. It is a base rather than instruction-tuned model, has nine billion parameters, and is dense in the routing sense: it does not use a mixture-of-experts router. Its stack is nevertheless a hybrid of Gated DeltaNet and gated-attention layers rather than a conventional all-full-attention Transformer.
 
 The official model card reports a native context length of 262,144 tokens, not 64K. The initial experiment deliberately caps histories at 8K through 64K so that context scaling can be measured within a single checkpoint before paying the cost of the full window.
 
-After the collector and training loop work, matched chronological runs should compare additional base checkpoints, including dense and mixture-of-experts models. These are model-family comparisons, not clean causal claims about dense versus MoE architecture: checkpoints also differ in total and active parameters, pretraining data, tokenizer, attention design, and compute. Each run therefore reports total and active parameters, context limit, training and inference compute, memory, wall-clock cost, and the exact personal examples used. A stronger architecture conclusion requires a matched family or controlled ablation.
+After the collector and training loop work, matched chronological runs compare additional open and closed models. Open models are evaluated both with in-context history alone and, where feasible, with the same daily behavioral-cloning and replay protocol. Closed models remain frozen and receive the same causal history through in-context learning only. The practical comparison is therefore an open model with direct context plus personal weight updates against a closed model with the same direct context but no personal weight updates.
+
+The comparison includes stronger open models and multiple capability levels among closed models. This tests separately whether better open models improve prediction under continual adaptation and whether better closed models improve prediction through in-context learning alone. Dense and mixture-of-experts models are included, but these are model-family comparisons rather than clean causal claims about architecture: checkpoints also differ in total and active parameters, pretraining data, tokenizer, attention design, and compute. Each run reports total and active parameters, context limit, training and inference compute, memory, wall-clock cost, and the exact model revision. A stronger architecture conclusion requires a matched family or controlled ablation.
 
 ## 5. Behavioral-Cloning Objective
 
@@ -474,7 +476,7 @@ procedure OVERNIGHT_UPDATE(model_d, day_examples, replay_index, config):
 
 ### 7.1 Primary measurement
 
-The primary metric is pre-update action-token negative log-likelihood. For each day, first average target-token loss within each action and then average across actions. Report the distribution across days so that one long editing session does not masquerade as many independent successes.
+The primary metric is pre-update action-token negative log-likelihood. For each day, first average target-token loss within each action and then average across actions. Report the distribution across days so that one long editing session does not masquerade as many independent successes. Raw token-level losses are compared only when tokenization and probability access are compatible; cross-model comparisons also use the action-level metrics available for every condition.
 
 Secondary measurements include:
 
@@ -487,14 +489,17 @@ All model and context-length comparisons are paired on identical actions and use
 
 ### 7.2 Minimal baselines and controls
 
-The first experiment compares:
+The experimental program compares:
 
 1. last-action, common-action, and edit-location heuristics;
 2. the same base model with only the current artifact;
 3. the same model with the correct trailing personal event stream;
 4. the same model with shuffled, wrong-time, or timestamp-damaged history;
 5. the continually adapted model with correct history;
-6. matched continual lineages at 8K, 16K, 32K, and 64K context.
+6. matched continual lineages at 8K, 16K, 32K, and 64K context;
+7. the current open-model checkpoint against retained checkpoints with data cutoffs one, three, and seven days earlier;
+8. frontier and less-capable closed models using only the identical in-context history;
+9. stronger open models using the same frozen and continually updated conditions.
 
 The comparison should show whether the event stream adds content-predictive signal beyond repetition, location, and writing style. Wrong-time controls test the temporal construction directly: if damaged chronology performs as well as correct chronology, the collector is not supplying the hypothesized signal.
 
@@ -504,6 +509,7 @@ Track:
 
 - pre-update prediction loss by day;
 - improvement or regression after each overnight update;
+- current-day prediction under checkpoints with data cutoffs one, three, and seven days earlier;
 - performance when older applications and action families recur;
 - performance by recency of the relevant history;
 - a small static suite for reasoning, instruction following, tool use, and unfamiliar tasks;
@@ -531,13 +537,24 @@ Use historical note edits to validate temporal reconstruction, macro-action segm
 
 Collect Obsidian, browser, and AI-chat events prospectively. Test whether correctly timed read and write history improves next-action prediction over the current artifact and damaged-history controls.
 
-### Experiment 3: Context and continual scaling
+### Experiment 3: Context length and checkpoint recency
 
 Run matched Qwen3.5-9B-Base lineages at 8K, 16K, 32K, and 64K through the same days. Measure pre-update daily loss, adaptation after overnight training, older-workflow retention, general capability retention, and training cost.
 
-### Experiment 4: Model and architecture scaling
+For every evaluation day, also score the day's actions with retained checkpoints whose training-data cutoffs are one day, three days, and seven days older than the active checkpoint's cutoff. Every checkpoint remains frozen throughout the day and receives the exact same serialized causal context for each action, including earlier observed actions from that day. This measures how much predictive value the intervening overnight updates added for the current distribution; it also reveals when recent updates hurt or when their value decays.
 
-Run the frozen protocol on additional base checkpoints, including at least one MoE family. Compare predictive performance and adaptation against active parameters, total parameters, memory, throughput, and training cost. Treat dense-versus-MoE results as model-level evidence unless the comparison controls the other architectural and pretraining differences.
+### Experiment 4: Open and closed model capability
+
+Evaluate all model conditions live on the same days. For every action, use the identical serialized causal event-stream prefix and score the observed target before any update. Cross-model context boundaries are frozen by event IDs and serialized text, not independently by each model's tokenizer, so every model sees the same information. No condition changes weights during the day. Closed models never receive weight updates; eligible open-model lineages update only after the complete day has been scored.
+
+The primary comparisons are:
+
+1. continually updated Qwen3.5-9B-Base against a frontier closed model using the same context through ICL only;
+2. less-capable versus frontier closed models, all using ICL only;
+3. Qwen3.5-9B-Base versus stronger open models under the same continual update and replay protocol;
+4. within each trainable open-model family, frozen ICL-only prediction versus continual context-plus-weight-update prediction.
+
+These comparisons distinguish practical system performance from the source of the gain. The first asks whether personal weight updates allow the local open model to compete with a stronger frozen API model. The second and third test whether increasing closed- and open-model capability improves next-action prediction in their respective deployment paradigms. The fourth measures the incremental value of weight adaptation within each open family. Dense-versus-MoE, active and total parameters, memory, throughput, and training cost remain secondary model-level analyses.
 
 Phase 1 succeeds when the collector produces auditable causal examples and the continually trained model obtains a repeatable improvement on future daily actions from correct personal history. The gain should increase or remain useful with longer context, survive trivial and wrong-time controls, and avoid unacceptable forgetting.
 
@@ -553,7 +570,7 @@ Phase 1 succeeds when the collector produces auditable causal examples and the c
 8. run the Obsidian smoke test;
 9. add prospective browser and AI-chat collection;
 10. run the interleaved-stream and context-length experiments;
-11. compare additional dense and MoE base checkpoints after the Qwen3.5-9B-Base baseline is stable;
+11. add lagged-checkpoint, closed-model ICL, and stronger open-model comparisons after the Qwen3.5-9B-Base baseline is stable;
 12. monitor continual prediction and capability retention.
 
 The required initial artifacts are the collector specification, privacy and exclusion policy, segmentation guide, reconstruction audit, serializer, immutable example store, leakage tests, baseline harness, daily update manifest, replay index, capability-retention suite, and model card for each accepted lineage.
