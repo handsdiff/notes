@@ -7,13 +7,13 @@ WARNING: human ideas, but AI writing
 
 ## Abstract
 
-Ordinary computer use produces a chronological record of information becoming action. A person reads documents, browses pages, receives messages and model outputs, edits notes, writes searches and prompts, sends messages, and changes artifacts. If these events are captured at the time they actually became available, they form a personal read–write stream from which the person's next bounded write action can be predicted.
+Ordinary computer use produces a chronological record of information becoming action. A person reads documents, browses pages, receives messages and model outputs, edits notes, writes searches and prompts, sends messages, and changes artifacts. If these events are captured at the time they actually became available, they form a personal read–write stream from which the person's next bounded write action can be predicted. Judgment is distilled into weights.
 
-Phase 1 builds that stream and applies behavioral cloning to it. Each example contains a fixed-length suffix of the events available before an action and the complete human-authored action that followed. Read events and prior actions are context; only the next human write action receives loss.
+Phase 1 builds that stream and applies behavioral cloning to it. Each example contains a fixed-length prefix of the events available before an action and the complete human-authored action that followed. Read events and prior actions are context; only the next human write action receives loss.
 
 Learning is continual. During a day, the model's weights remain fixed while every action is predicted and scored from the sliding causal context. Overnight, that day's examples become training data and are mixed with replay from earlier days. The resulting weights initialize the next day. Historical data is processed through the same chronological loop used for new data, so there is no separate offline training paradigm and no permanent partition of personal activity into training and test examples. Each action is evaluated before it is allowed to train a later model.
 
-The first goal is deliberately narrow: implement a temporally faithful event collector, construct reliable macro-action targets, establish that personal history improves next-action prediction, measure how performance changes with context length and continual adaptation, and verify that repeated updates do not erase older behavior or general model capabilities.
+The first goal is deliberately narrow: implement a temporally faithful event collector, construct reliable macro-action targets, establish that personal history improves next-action prediction, measure how performance changes with context length and continual adaptation, and verify that repeated updates do not erase older behavior.
 
 ## 1. Vision
 
@@ -29,7 +29,7 @@ The research claims are:
 2. prior read and write events contain signal about the next human write action;
 3. behavioral cloning can accumulate that signal in model weights;
 4. longer causal context improves prediction when it contains relevant personal history;
-5. daily continual updates can track changing work while replay preserves older behavior and general capability.
+5. daily continual updates can track changing work.
 
 The initial implementation succeeds only if the data substrate is real and the predictive gain survives simple controls. More complicated learning methods are not a substitute for incorrect timestamps, missing visible content, weak action boundaries, or confused authorship.
 
