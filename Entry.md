@@ -92,7 +92,6 @@
 - ## directly relevant - practical
 	- https://arxiv.org/abs/2606.03979 memory consolidation during sleep cycles
 	- https://edge-bench.org/ continual learning benchmark
-	- meme on whats necessary for selling data https://x.com/distributionat/status/2075253365983068181?s=20
 	- how many tokens are common examples of fine tuned models that actually work trained on? how many tokens are frontier models trained on? on what stage? how does LoRA actually impact the amount of needed/useful tokens? how does that change as the underlying model changes?
 		- https://thinkingmachines.ai/blog/ probably should review the old ones too
 	- is it bs to predict next thoughts/actions? why or why not? there is likely some description that is not bullshit for a given workflow, but would need to write it down. the workflow would likely be research/learning. more concretely? is it next token prediction on what/where i type? is it a bit less granular, a semantic action of writing down a note or looking something up or talking to an AI, given a specific platform?
