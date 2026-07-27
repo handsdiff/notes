@@ -23,6 +23,7 @@
 - https://x.com/Letta_AI/status/2080535211473850822?s=20
 - https://x.com/teortaxesTex/status/2080850405148291153?s=20
 - https://x.com/tydsh/status/2080881800877134004?s=20
+- https://x.com/Kimi_Moonshot/status/2081760186235289764?s=20
 - 
 - kimi delta attention https://arxiv.org/pdf/2510.26692
 - https://people.idsia.ch/~juergen/1991-unnormalized-linear-transformer.html
