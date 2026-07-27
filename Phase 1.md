@@ -535,7 +535,7 @@ Use historical note edits to validate temporal reconstruction, macro-action segm
 
 Collect Obsidian, browser, and AI-chat events prospectively. Test whether correctly timed read and write history improves next-action prediction over the current artifact and damaged-history controls.
 
-### Core experiment matrix
+### Experiment 3: Ablation matrix
 
 All five comparisons use the same live daily protocol. On a given day, every condition scores the same actions in the same order before any weight update. Earlier actions from that day enter the causal context for later actions. Cross-model contexts are frozen by event IDs and serialized text so that every model receives the same information, regardless of tokenizer. Open-model updates occur only after the complete day has been scored.
 
