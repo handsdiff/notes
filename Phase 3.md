@@ -2,6 +2,11 @@
 
 **Status:** Directional extension to [[Phase 1]] and [[Phase 2]]. This note isolates multi-step planning, simulation, reward learning, and guarded execution ideas that are outside the local next-action program.
 
+#### Unstructured Notes - to be incorporated
+- https://coasty.ai/
+
+## Abstract
+
 Phase 3 extends the one-step proposal-and-refinement loop into bounded model-based assistance. Its objective is to improve the outcome of the human–model system relative to unaided work and shorter-horizon assistance, not to replace the person with a policy that acts unilaterally. At a decision point, the system simulates several short action trajectories, shows their predicted results and uncertainty, and lets the person select, edit, reject, or ask for clarification. A selected plan authorizes guarded execution in the real computer environment. The resulting transitions, interventions, comparisons, and outcomes supervise later dynamics, reward, and planning updates.
 
 This direction becomes justified only if the earlier phases establish their narrower claims. Phase 1 must produce a faithful event stream, a useful behavioral model, and a safe continual update loop. Phase 2 must show that local comparisons improve proposals or yield a reward model that transfers beyond its collection policy. Phase 3 begins when the main remaining failures are sequential: good local actions do not compose, consequences are delayed, information-gathering actions matter, or planning requires counterfactual state transitions.
