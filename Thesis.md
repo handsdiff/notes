@@ -45,7 +45,7 @@ The ~\$600B figure is an estimate of the annual global cost to businesses of act
 	- https://askjo.ai/ interesting activation on the importance of private AI inference like Venice. surprising there is no dominant player here.
 		- https://www.trymaple.ai/
 		- https://confidentialinference.net/
-		- https://tinfoil.sh/
+		- https://tinfoil.sh/ (https://www.workshoplabs.ai/blog/private-post-training)
 - backbone of a background monitor that learns to mimic, then infer goals, then assist feels very robust across text, visual, audio, digital, and physical domains
 - tension between informational context i.e. background information thats relevant and reward context i.e. preferred style, local objective, judgment/skill, overall goal
 	- likely that the data cleaning attempts to satisfy former (but would still need some sort of 'memory' solution) and next action prediction attempts to satisfy latter (but would still need test time data akin to train time data)
