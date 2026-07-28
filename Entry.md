@@ -20,4 +20,5 @@ if direct cross entropy fails to reason well, we could attempt RL on retrieval o
 
 this would be more of an agent that can predict me rather than a 'human' model, but maybe the distinction is irrelevant since at the end of the day its taking information and using it to produce an action
 
-even when im 'thinking' i dont just have sliding window history in my brain 
+even when im 'thinking' i dont just have sliding window history in my brain, i'm able to access information from any moment, and sometimes i use tools (i.e. my notes) to retrieve old information, but a lot of the time its just in my 'context' window as well. the diff is that LLMs supposedly have perfect recall with context and humans dont? kind of akin to having a note pad.
+
