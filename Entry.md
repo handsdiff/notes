@@ -10,16 +10,3 @@
 - https://web.stanford.edu/class/cs329x/
 
 big blocking question right now is related to the above context details point, why longNAP learned reasoning for retrieval, how e2e-ttt consolidates information, online convex optimization algos, how other memory startups handle it, the continual learning research for the X account above, token efficiency of retrieval, etc, all pointing to a better understanding of how context is managed / trained, and how that surface bumps into the intended surface of the prefixed sliding window default choice. i.e. how to actually use the collected data
-
-it feels like honcho, and a ton of memory startups, are focused on taking the work the agent does, and the user feedback that is sent to those traces, and then updating the agents actions. feels like the natural conclusion of this idea is the agent following the human's actions? in terms of more frequent feedback and the ability to do what the humans wants. but on the other hand its different because the agent is bottlenecked by what the human is doing. but even within that it could be fine because that agent is learning to prompt other agents to do work, so perhaps its 'cooperatively useful'
-
-in terms of my training i likely need a perspective on how fact retrieval compares to 'judgment' from just a sliding window perspective
-
-in other words, does good prediction require the ability, like most agents, to call retrieval tools to fetch relevant context before making a decision? would this require RL? is it more of an ablation than a primary response? likely.
-
-if direct cross entropy fails to reason well, we could attempt RL on retrieval over the full corpus of prior event streams, more similar to longNAP. would this use more or less context? i feel like way more, but it may be useful in terms of performance.
-
-this would be more of an agent that can predict me rather than a 'human' model, but maybe the distinction is irrelevant since at the end of the day its taking information and using it to produce an action
-
-even when im 'thinking' i dont just have sliding window history in my brain, i'm able to access information from any moment, and sometimes i use tools (i.e. my notes) to retrieve old information, but a lot of the time its just in my 'context' window as well. the diff is that LLMs supposedly have perfect recall with context and humans dont? kind of akin to having a note pad.
-
