@@ -96,6 +96,7 @@ algorithms considered and rejected for now and why: (there are likely practicali
 		- there exists standard pretraining datasets, like this paper used, if you want a clean pretrain for the intended task to work
 		- the core concept that dynamic evaluation does not work since of poor weight initialization, and then during test time you batch updates as well as have a sliding context window, feels very applicable
 		- TTT-E2E resulted in faster and lower loss on test sets. not obvious since even though its backpropogating continuously, it still needs to be able to predict the next token well
+		- https://github.com/test-time-training/e2e
 	- https://arxiv.org/pdf/2602.16284 extends cartridges with KV efficiency
 		- optimization, not core concept
 	- https://arxiv.org/pdf/2004.10964 continuous pre training (bit old, 2020)
@@ -363,3 +364,5 @@ i kind of want to understand whether [[Phase 1]] makes sense from a theoretical 
 if local scaling laws are positive, then it may imply that building a better application for knowledge work is worthwhile, since improved data granularity improves custom models which leads to a large inference business
 
 longNAP continues to stand out
+
+is OPD/OPSD the goated algorithm since you literally just tell the agent what to fix? and then during batched training it increases the probability of the desired tokens from the prompt before when the fix was stated? i wonder if anyone has done this / people are doing it

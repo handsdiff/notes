@@ -37,7 +37,14 @@ disparate notes:
 	- is it cheaper to update weights continuously or update prompts continuously? actually feels like weights? since querying prompts on a frontier model is super expensive?
 - how many tokens are common examples of fine tuned models that actually work trained on? how many tokens are frontier models trained on? on what stage? how does LoRA actually impact the amount of needed/useful tokens? how does that change as the underlying model changes?
 	- https://thinkingmachines.ai/blog/ probably should review the old ones too
+	- quantifying memorization in LLMs, seems very relevant as it relates to the need for synthetic Q/A data. also useful for describing how much content saturates a model before it has to start compressing in order to maintain / improve performance (compression = intelligence)
+		- https://arxiv.org/pdf/2505.24832
+		- https://x.com/jxmnop/status/1929903028372459909
+	- exactly how much human data was initially used to train the RLHF part of chatgpt?
+	- how many bits of information is required and how many are produced daily?
 - when i open a new tab without typing anything, that will show up to the model, but it wont learn to predict that? in what scenarios is there 'likely' to be a write action and in what scenarios are there not? maybe to solve the suggestion timing issue, the model only gets queried (test time) or predicts (train time) when an input field is focused? since that is a necessary prerequisite for a write action
+	- when i delete something in obsidian, i am focusing on a potential input field, but no write action occurs. i mean technically one does, but not with content. hmmm
+	- how does 'no recommendation' fit into the framework?
 - what happened to rewind? where are the users? what are they doing now?
 - (read, app, content) and (write, app, content). obsidian covers some write. the browser history script that fetches some read and write, but some issues flagged by Fable.
 - i DO NOT want to build something that requires 'connecting apps'. sounds super annoying.
@@ -45,6 +52,33 @@ disparate notes:
 - https://huggingface.co/learn/llm-course/en/chapter12/3 rubric engineering (like deepseek GRPO) MAY help the model bootstrap faster by learning things like proper syntax before it learns content
 	- https://huggingface.co/docs/trl/grpo_trainer
 - https://gemini.google.com/app/26a5dd577dc3bde7 sutton's idbd may be better for continual learning, it just seems to train slower. there are also optimizers other than typical gradient descent that seem to be more efficient for online convex optimization problems
+- data structure comp https://github.com/tsinghua-fib-lab/FingerTip-20K
+- new algorithms in [[Algorithms]], plus just how the relevant algorithms like longNAP structure data
+- does my intended SFT approach (autoregressive train on next action prediction i.e. causal mask) violate i.i.d. data assumptions? does shopify's generative recommender have the same issue? what do those assumptions actually mean in practice? do all online or continual learning setups violate this? how does this relate to the practice of storing rollouts in a buffer that you then sample from? does that essentially fix i.i.d. for continual learning scenarios?
+	- https://gemini.google.com/app/9de51346992f5bae wild stuff
+- going back to the youtube interleaved data example, even when im reading a paper we would want the content i actually read to be shown before i type a note, not the entire paper. this seems very difficult to collect properly and perhaps prohibitive for good learning.
+- one way to frame the data construction question is what level of 'noise' is acceptable? for instance i probably want to exclude clicking around obsidian to copy paste something, but probably want to include when i write down a long train of thought, but would that mess up the dataset construction since its no longer cleanly autoregressive?
+- the use of git as a natural boundary likely helps but thats not really 'next token' or 'next action' prediction if multiple 'actions' were taken in a commit, one or more of which involves adding a word to the middle of some old note.
+- data discussion https://gemini.google.com/app/434faa2eae499b25 for our work
+- this has a nice framework for data structure, even though i disagree / am confused about some of his main desires https://gwern.net/guardian-angel#ux
+- i suspect for phase 1 the goal will be to learn token level structure before it can learn action level content. you might get a loss discontinuity (via early flatlining before more data shows improved loss due to content learning beginning)
+- data cleaning likely needs to ensure formatting is skipped, duplicates are handled, and for phase 2 if the agent doesn't have any reasonably confident completions, it shows nothing
+- is it possible for reasoning to fit into the next write prediction? is this desired? worth testing in [[Phase 1#8. Experimental Program]]? something to be explicitly trained?
+- should read data be text or html? pros/cons?
+- discusses research similar to longNAP https://claude.ai/chat/d3de1f6d-cd67-404b-a93a-936b3a662d7e
+	- the most interesting related paper which I put into algorithms uses something called LifeTrace for collecting data, takes snapshots at 1 Hz (can we track keyboard usage and snapshot during a pause, like it occurs in git in this obsidian?)
+	- another one frames 'when to assist' as when its high likelihood that the "user would turn to an AI assistant right now" which is interesting
+- practically need text PII scrub
+- can the distinction in usefulness between having access to all necessary context and actually predicting next actions be quantified? i.e. context vs judgment i.e. the difference in two models having the same context and the weights resulting in different outputs? probably as part of the ablations yes
+- forgot where i wrote this but need to collect data by time instead of turn? maybe take the 'snapshot' x secs after action like scroll or mouse movement or keyboard type ends like git does for obsidian
+- for the data, i likely need to do my normal work, then have a separate window that is not tracked that logs the read/write stream. and i need to confirm over the course of a day or two that its a high fidelity representation of my actual inputs and outputs. non comprehensive list of things to handle:
+	needs to handle reading something then scrolling back up to reread it
+	needs to handle having multiple windows across multiple screens open at the same time
+- is collecting agent traces sufficient if 80% of write actions are chatbot interactions? could this be an ablation in [[Phase 1]]?
+- i wonder whether you need the data to be literally temporally interleaved to predict well. like i pause a youtube video, write down thoughts, play the youtube video. etc. its incorrect to put the entire transcript in when the page is first visited, since the goal is to most closely simulate how my brain works. the actual construction of the dataset is literally 90% of the work here. will take trial and error. may be worth thinking how to improve it
+	- if im watching a youtube video for example, i suspect the best data structure would be the transcript of the part i watched as <read, browser, youtube, transcript chunk> then <write, obsidian, entry, written note>.
+- might help with data ingestion, seemingly open source/self hosted granola https://github.com/Zackriya-Solutions/meetily
+- very informative and critical reward inference discussion with papers foundational from dragan that i havent come across otherwise https://gemini.google.com/app/4f984ce16e37337a, includes data structure discussion and examples
 
 ## current scope
 
