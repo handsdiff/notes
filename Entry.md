@@ -87,13 +87,13 @@
 - amortizing the cost of retraining across inference time for the retrained model makes it a small % bump on variable costs rather than an imposing fixed cost
 - https://web.stanford.edu/class/cs329x/
 - https://www.inductionlabs.com/news/scaling-video-pretraining#imitating-human-behavior interesting and somewhat similar
+- shows that AI is unable to improve recursively purely through context/notes, without weight updating https://epoch.ai/publications/earthborne-rangers-benchmark
 
 
 
 
 
 - ## directly relevant - practical
-	- https://www.primeintellect.ai/blog/algorithms-layer
 	- old thought dump
 		- next token prediction on what i write down into the obsidian vault, with the data being the latest typing actions from the obsidian vault.
 		- i suspect it will be so terrible as to not even try because it does not know what im reading

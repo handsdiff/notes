@@ -41,6 +41,7 @@ disparate notes:
 - what happened to rewind? where are the users? what are they doing now?
 - (read, app, content) and (write, app, content). obsidian covers some write. the browser history script that fetches some read and write, but some issues flagged by Fable.
 - i DO NOT want to build something that requires 'connecting apps'. sounds super annoying.
+- https://www.primeintellect.ai/blog/algorithms-layer could be useful for implementation
 
 ## current scope
 
