@@ -19,8 +19,9 @@ algorithms considered and rejected for now and why: (there are likely practicali
 			- "cool new approach to address the spike problem in on-policy self-distillation by letting the privileged information steer the student distribution during rollouts directly"
 	- OPD
 		- OPD is just OPSD but the distillation is from a different model, not the same. so doesn't rely on ground truth existence BUT cannot achieve superhuman performance. perhaps helpful for phase 3
+		- very useful if you RLVR a strong teacher, then OPD with dense supervision into a small LoRA
 	- https://arxiv.org/pdf/2606.30406 MOPD
-		- just trains a model with multiple teachers at once instead of one
+		- just trains a model with multiple teachers at once instead of one. very useful for distilling multiple 'capabilities' than trying to teach each one at once
 	- PNLC https://arxiv.org/pdf/2505.18098v2
 		- this requires a large corpus of offline data that you train a model on, to then grade and steer a live models actions with reasonings. seems indirect compared to CE loss or sDPO
 	- NLAC https://arxiv.org/pdf/2512.04601
