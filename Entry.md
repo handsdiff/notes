@@ -4,10 +4,6 @@
 - https://x.com/thoughtfullab/status/2078203652079276258?s=20
 - https://x.com/chewing_a_gum/status/2079628462671970661?s=20
 - https://x.com/oneill_c/status/2077806576665350312?s=20
-- https://x.com/SchmidhuberAI/status/2079576596483022963?s=20
-- https://x.com/karpathy/status/2079610838143623371?s=20
-- https://x.com/elliotarledge/status/2079652159201914994?s=20
-- https://news.ycombinator.com/item?id=49010167
 
 
 - honcho's blog is quartz?? https://plasticlabs.ai/blog/posts/Memory-as-Reasoning they also discuss memory as prediction
