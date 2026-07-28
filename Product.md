@@ -109,4 +109,7 @@ i suspect everyone on team will need code handling + interactive html sharing na
 
 super annoying and slowing me down to have to constantly switch to obsidian, pick the right file, scroll all the way down, type the note, then go back to youtube and click play again. i lose train of thought to take rote action
 
-maintaining links is honestly annoying
+maintaining links between lines/notes in obsidian is honestly annoying
+
+continual learning should make hugging face, or more specifically open weights for models at different “stages” of learning, much more important. Like git for weights. Who’s building this? Would likely need a custom diff view or some other “interpretability”
+

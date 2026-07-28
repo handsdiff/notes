@@ -1,7 +1,6 @@
 
 - https://x.com/tinkerapi/status/2079281259084407089?s=20
 - https://x.com/threepointone/status/2079278411663466879?s=20
-- https://x.com/interaction?s=20
 - https://x.com/thoughtfullab/status/2078203652079276258?s=20
 - https://x.com/chewing_a_gum/status/2079628462671970661?s=20
 - https://x.com/oneill_c/status/2077806576665350312?s=20
@@ -14,8 +13,7 @@
 - 
 - Stash Sam had an article on x which I should find again, called engram a vertical memory startup https://x.com/samzliu/status/2080210797465379147
 - https://x.com/GenAI_is_real/status/2080491992124137775?s=20
-- continual learning should make hugging face, or more specifically open weights for models at different “stages” of learning, much more important. Like git for weights. Who’s building this? Would likely need a custom diff view or some other “interpretability”
-- Infra is a prerequisite for product
+- 
 - https://x.com/evangelinejy99/status/2079250052476752325?s=20 relevant to jakub convo
 - https://www.lesswrong.com/posts/RzeyMfLxwjgGjQFpv/announcing-aixi-labs
 - https://x.com/reactorworld/status/2080711388738249132?s=20
@@ -31,6 +29,7 @@
 - https://x.com/tokenbender/status/2081790994614538327?s=20
 - https://x.com/hypersoren/status/2081519685305045119?s=20
 - https://x.com/sama/status/2081513071135346814?s=20
+- "State-space models don’t need positional embeddings because positional embeddings are baked into the recurrence"
 
 
 - honcho's blog is quartz?? https://plasticlabs.ai/blog/posts/Memory-as-Reasoning they also discuss memory as prediction
