@@ -37,6 +37,16 @@ The ~\$600B figure is an estimate of the annual global cost to businesses of act
 
 # Misc Notes
 
+- supporting takes. "continual data for continual learning"
+	- omega bangers from deepseek founder
+		- https://x.com/teortaxesTex/status/2080158170857574747/photo/1
+		- https://x.com/teortaxesTex/status/2080124637300539646/photo/1
+		- https://x.com/teortaxesTex/status/2080155926011457560/photo/1
+			- "China has no cost advantage in data annotation"
+			- "half our company is annotating data now. Half of our core researchers - the most important people - half are annotating data. We're concentrating on annotating data. Solving the AI problem at this stage relies on annotating data. You just look-it's all about data."
+			- "The gap is mainly in high quality data annotation, then mainly in AI research"
+	- continual learning (learning to learn) -> self improvement -> embodied intelligence is the expectation from deepseek's founder https://x.com/teortaxesTex/status/2080129147817382085
+	- "operationalize data collection" https://www.manifold1.com/episodes/misha-laskin-reflection-ai-from-physics-to-superintelligence/transcript
 - who are the biggest screenpipe users? is anyone running prospective learning or reward inference algorithms on their data?
 	- https://github.com/screenpipe/screenpipe
 	- https://github.com/JerryZLiu/Dayflow
@@ -47,6 +57,7 @@ The ~\$600B figure is an estimate of the annual global cost to businesses of act
 		- https://confidentialinference.net/
 		- https://tinfoil.sh/ (https://www.workshoplabs.ai/blog/private-post-training)
 - backbone of a background monitor that learns to mimic, then infer goals, then assist feels very robust across text, visual, audio, digital, and physical domains
+- The concept of an agent embedded into your context, inferring your goals, and taking actions to assist you, feels extremely directionally correct
 - tension between informational context i.e. background information thats relevant and reward context i.e. preferred style, local objective, judgment/skill, overall goal
 	- likely that the data cleaning attempts to satisfy former (but would still need some sort of 'memory' solution) and next action prediction attempts to satisfy latter (but would still need test time data akin to train time data)
 - some tension between articulated thesis of next action prediction and the practical data generation surface value props described in [[Product]]. yes, having a better informational source could improve next action prediction. is it worth the buildout? is the local value prop this better interaction surface, or next action prediction, or data collection and cleaning from existing surfaces?

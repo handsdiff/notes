@@ -54,8 +54,6 @@ disparate notes:
 - https://gemini.google.com/app/26a5dd577dc3bde7 sutton's idbd may be better for continual learning, it just seems to train slower. there are also optimizers other than typical gradient descent that seem to be more efficient for online convex optimization problems
 - data structure comp https://github.com/tsinghua-fib-lab/FingerTip-20K
 - new algorithms in [[Algorithms]], plus just how the relevant algorithms like longNAP structure data
-- does my intended SFT approach (autoregressive train on next action prediction i.e. causal mask) violate i.i.d. data assumptions? does shopify's generative recommender have the same issue? what do those assumptions actually mean in practice? do all online or continual learning setups violate this? how does this relate to the practice of storing rollouts in a buffer that you then sample from? does that essentially fix i.i.d. for continual learning scenarios?
-	- https://gemini.google.com/app/9de51346992f5bae wild stuff
 - going back to the youtube interleaved data example, even when im reading a paper we would want the content i actually read to be shown before i type a note, not the entire paper. this seems very difficult to collect properly and perhaps prohibitive for good learning.
 - one way to frame the data construction question is what level of 'noise' is acceptable? for instance i probably want to exclude clicking around obsidian to copy paste something, but probably want to include when i write down a long train of thought, but would that mess up the dataset construction since its no longer cleanly autoregressive?
 - the use of git as a natural boundary likely helps but thats not really 'next token' or 'next action' prediction if multiple 'actions' were taken in a commit, one or more of which involves adding a word to the middle of some old note.
@@ -80,8 +78,6 @@ disparate notes:
 - might help with data ingestion, seemingly open source/self hosted granola https://github.com/Zackriya-Solutions/meetily
 	- https://github.com/ExistentialAudio/BlackHole
 - very informative and critical reward inference discussion with papers foundational from dragan that i havent come across otherwise https://gemini.google.com/app/4f984ce16e37337a, includes data structure discussion and examples
-- "continual data for continual learning"
-- "operationalize data collection" https://www.manifold1.com/episodes/misha-laskin-reflection-ai-from-physics-to-superintelligence/transcript
 - thought dump
 	- Taking helpful action rather than mimic action is a core tension since there’s plenty of things i would like but don’t actually do since it’s difficult or high friction. Relates to proactive and prospective learning, as well as embodied intelligence.
 	- Does action mimicry lead to action assistance? Depends on reward inference. I’ve laid out one path, should identify and dig deeper if needed on biggest assumptions and unknowns
@@ -90,6 +86,19 @@ disparate notes:
 	- If I solve it in a multi step way that relates to previous notes around wanting the model to suggest the N steps required for my goal, or if it can condense it into one step even better, rather than just walk me through the existing steps a bit faster. That’s likely the start of it though
 	- Maybe should store all data, and just filter by “in sight/mind” data, since might want to use the additional data later, for the purposes of having flexible data collection. Screenpipe? I guess not screenpipe since that by itself won’t allow me to filter into “in sight”. Need to collect both since “in sight” is an additional “feature flag” while collecting all the data
 	- tentative data plan is set up a debugging app thats always on my screen, not tracked, and that maps with highest fidelity what i read and write into an event stream. should properly demarcate i.e. put consolidate stream into events, should include full links for eventual 'full' data not just 'view' data, and should include timestamps which may not necessarily be trained on but turn based vs time based is a big open question
+- rubric engineering seems so manual. "i know it when i see it"/reward inference may be better but it involves human in the loop. it comes down to trust architecting. lots of related concepts i think.
+- internalizing continual learning
+	- what shape of continual learning, from an algorithmic perspective, do I most believe in? How does this impact data collection as a valuable slice, as well as the shape of the data processing?
+	- what are the hardware bottlenecks to continual learning? how do compute resources change on a very fundamental level with continual retraining?
+	- does my intended SFT approach (autoregressive train on next action prediction i.e. causal mask) violate i.i.d. data assumptions? does shopify's generative recommender have the same issue? what do those assumptions actually mean in practice? do all online or continual learning setups violate this? how does this relate to the practice of storing rollouts in a buffer that you then sample from? does that essentially fix i.i.d. for continual learning scenarios?
+		- https://gemini.google.com/app/9de51346992f5bae wild stuff
+- problems
+	- annoying giving codex obsidian links over and over
+	- annoying telling codex it can ssh into desktop, it should now
+	- "get xiao wang" but contextless ai doesnt know how, from deepseek founder
+- like these concepts as a demo
+	- "you can put knowledge in a prompt but you can't put skill in a prompt"
+	- tacit knowledge, skills vs information from will brown. weights distilling judgment. visceral example of same context -> different output. 
 
 ## current scope
 

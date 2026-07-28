@@ -11,8 +11,8 @@
 - https://news.ycombinator.com/item?id=49010167
 - https://hallerite.com/
 - https://github.com/hallerite/ludic
-- continual learning (learning to learn) -> self improvement -> embodied intelligence is the expectation from deepseek's founder https://x.com/teortaxesTex/status/2080129147817382085
-- Stash Sam had an article on x which I should find again, called engram a vertical  startup an article on x which I should find again, called engram a vertical  startup https://x.com/samzliu/status/2080210797465379147
+- 
+- Stash Sam had an article on x which I should find again, called engram a vertical memory startup https://x.com/samzliu/status/2080210797465379147
 - https://x.com/GenAI_is_real/status/2080491992124137775?s=20
 - continual learning should make hugging face, or more specifically open weights for models at different “stages” of learning, much more important. Like git for weights. Who’s building this? Would likely need a custom diff view or some other “interpretability”
 - Infra is a prerequisite for product
@@ -31,37 +31,16 @@
 - https://x.com/tokenbender/status/2081790994614538327?s=20
 - https://x.com/hypersoren/status/2081519685305045119?s=20
 - https://x.com/sama/status/2081513071135346814?s=20
-- 
-- kimi delta attention https://arxiv.org/pdf/2510.26692
-- https://people.idsia.ch/~juergen/1991-unnormalized-linear-transformer.html
+
+
 - honcho's blog is quartz?? https://plasticlabs.ai/blog/posts/Memory-as-Reasoning they also discuss memory as prediction
 	- similar tweet https://x.com/ashwingop/status/2069807820846063932
-- omega bangers from deepseek founder
-	- https://x.com/teortaxesTex/status/2080158170857574747/photo/1
-	- https://x.com/teortaxesTex/status/2080124637300539646/photo/1
-	- https://x.com/teortaxesTex/status/2080155926011457560/photo/1
-		- "China has no cost advantage in data annotation"
-		- "half our company is annotating data now. Half of our core researchers - the most important people - half are annotating data. We're concentrating on annotating data. Solving the AI problem at this stage relies on annotating data. You just look-it's all about data."
-		- "The gap is mainly in high quality data annotation, then mainly in AI research"
-- what are the hardware bottlenecks to continual learning? how do compute resources change on a very fundamental level with continual retraining?
-- skills describing how to do something then if the agent slightly goes off track not knowing what to do is very similar to what DAgger attempts to solve
-- "you can put knowledge in a prompt but you can't put skill in a prompt"
-- OPD seems like DAgger
-- what shape of continual learning, from an algorithmic perspective, do I most believe in? How does this impact data collection as a valuable slice, as well as the shape of the data processing?
-- annoying giving codex obsidian links over and over
-- annoying telling codex it can ssh into desktop, it should now
-- "get xiao wang" but contextless ai doesnt know how, from deepseek founder
-- tacit knowledge, skills vs information from will brown
-- rubric engineering seems so manual. "i know it when i see it"/reward inference may be better but it involves human in the loop. it comes down to trust architecting. lots of related concepts i think.
-- continual learning vs meta learning vs idbd
-- The concept of an agent embedded into your context, inferring your goals, and taking actions to assist you, feels extremely directionally correct
-- 
+
+
 - https://www.youtube.com/watch?v=e9-0BxyKG10 very foundational explanation of transformers
 	- reminds me of cursor when he says self attention is a mechanism inside a encoder block (which is borrowed from the residual block in residual nets) that learns what surrounding context to pay attention to. cursor applied this foundational aspect to code. they basically had the language model fill in the 'blanks' by giving surrounding cursor content as context
 	- i wonder whether slate product issue, among other things, was that it was not well utilizing self attention or auto regression. it was mapping language inputs to api calls we had to create. RL for LLMs was not really a thing yet
 	- LLMs seems to be fractal. they are trained in RL with a good data set and reward signal. now the best way to prompt LLMs is to be very clear about the input and the reward signal, less so about specific directions on how to get there. mentioned something like this earlier here as well
-- 
-- 
 
 - big question for data codification is whether you give a tool call to fetch the content of a web page rather than the content itself during training. how does that change the state and action space? does it more clearly separate the action space of the agent from the state space of the environment? are there two environments?
 - how do harnesses actually handle context and content fetching? if it fetches a website that has 10M tokens, what does it do? or if it runs a terminal command that has 2M tokens worth of lines, what does it do? there must be context management logic? is it basic sliding window? compression? (longNAP implementation likely sheds some light on this)

@@ -252,7 +252,8 @@ algorithms considered and rejected for now and why: (there are likely practicali
 	- https://www.nature.com/articles/s41586-024-07711-7 + https://arxiv.org/pdf/2606.24752v1 loss of plasticity in deep continual learning
 		- reminds me of idbd by sutton in how the original paper detects important / not important weights and resets accordingly (super hand wavy but generally accurate description)
 		- found in non LLMs ^, no prescription in future work on LLMs
-	- 
+	- https://people.idsia.ch/~juergen/1991-unnormalized-linear-transformer.html
+		- 
 
 - is phase 1 a process reward model?
 - does phase 1 result in an 'implicit' reward model?
