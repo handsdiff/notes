@@ -257,7 +257,8 @@ algorithms considered and rejected for now and why: (there are likely practicali
 		- tests a bunch of models on their ability to generate good QA-style SFT examples
 		- might be useful if that is needed later
 	- open source dreamer v4 https://next-state.github.io/open-dreamer/
-	- 
+	- https://arxiv.org/pdf/2607.16097 quantifies SFT vs RL
+		- lots of details but essentially shows that RL performance is positively correlated to SFT performance, it can also extend low prob SFT moves if they're useful, while reinforcing 
 
 - is phase 1 a process reward model?
 - does phase 1 result in an 'implicit' reward model?
