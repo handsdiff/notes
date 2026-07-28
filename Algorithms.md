@@ -262,6 +262,9 @@ algorithms considered and rejected for now and why: (there are likely practicali
 		- lots of details but essentially shows that RL performance is positively correlated to SFT performance in terms of ceiling and training speed, it can also extend low prob SFT moves if they're useful, while reinforcing strong moves
 		- has more details on actual numbers
 	- https://docs.adaptionlabs.ai/api/resources/autoscientist/methods/create essentially productizes autoresearch on your data, from my understanding. may be useful later
+	- https://arxiv.org/pdf/2607.11020 researches whether an LLM can learn facts into weights continuously
+		- seems counterpositioned to the cartridges paper which makes it seem like you can actually do this
+		- 
 
 - is phase 1 a process reward model?
 - does phase 1 result in an 'implicit' reward model?
