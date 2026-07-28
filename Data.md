@@ -44,7 +44,7 @@ disparate notes:
 - https://www.primeintellect.ai/blog/algorithms-layer could be useful for implementation
 - https://huggingface.co/learn/llm-course/en/chapter12/3 rubric engineering (like deepseek GRPO) MAY help the model bootstrap faster by learning things like proper syntax before it learns content
 	- https://huggingface.co/docs/trl/grpo_trainer
-- 
+- https://gemini.google.com/app/26a5dd577dc3bde7 sutton's idbd may be better for continual learning, it just seems to train slower
 
 ## current scope
 
