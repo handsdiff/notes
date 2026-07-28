@@ -524,7 +524,7 @@ All five comparisons use the same live daily protocol. On a given day, every con
 
 **Checkpoint recency.** On day $d$, score every action using the current checkpoint and retained checkpoints from $d-1$, $d-3$, and $d-7$. All remain frozen throughout the day and receive the identical causal event-stream context. This measures the predictive value of recent overnight updates and reveals when those updates hurt current-day prediction.
 
-**Context scaling.** Compare 8K, 16K, 32K, and 64K causal windows using matched Qwen3.5-9B-Base lineages, with 32K as the initial baseline. Action targets, day boundaries, recent/replay sampling, target-token exposure, and optimizer steps remain matched. “More data” here means more prior event-stream data in context, not more historical training examples.
+**Context scaling.** Compare 8K, 16K, 32K, and 64K causal windows using matched Qwen3.5-9B-Base lineages, with 32K as the initial baseline. Action targets, day boundaries, recent/replay sampling, target-token exposure, and optimizer steps remain matched. “More data” here means more prior event-stream data in context, not more historical training examples. This alludes to discussions around what 'model capabilities' even mean when discussed broadly. Are 64K and 8K context windows both 'model capabilities'? How do we normalize for prompt quality or available tools?
 
 **Practical system comparison.** Compare continually updated Qwen3.5-9B-Base against frontier closed models using ICL only, with identical contexts and targets. This asks whether personal weight updates allow the local open model to compete with a stronger frozen API model.
 
