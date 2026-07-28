@@ -105,6 +105,7 @@ disparate notes:
 - if im writing in one window with another window open, is that text being read?
 - perhaps useful for the agent chart part of capture [0001-trajectory-format.md](https://github.com/harbor-framework/harbor/blob/main/rfcs/0001-trajectory-format.md) [trajectory-v1.schema.json](https://github.com/letta-ai/trajectory/blob/main/schema/trajectory-v1.schema.json)
 - i think in some sense, if there isnt enough data, that implies a better interaction surface like [[Product]]. if there is enough data, a better interaction surface may still be necessary, but may not be the most important thing vs market visibility and positioning
+- 
 
 ## current scope
 
