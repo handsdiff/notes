@@ -264,6 +264,8 @@ algorithms considered and rejected for now and why: (there are likely practicali
 	- https://docs.adaptionlabs.ai/api/resources/autoscientist/methods/create essentially productizes autoresearch on your data, from my understanding. may be useful later
 	- https://arxiv.org/pdf/2607.11020 researches whether an LLM can learn facts into weights continuously
 		- seems counterpositioned to the cartridges paper which makes it seem like you can actually do this
+		- i feel like weights aren't for facts though. weights are for converting information to action (still need a good word for this)
+		- interesting take from the author in a later MTS interview that kimi k3 was increasingly trained on 'work' rather than on 'answers' and that that is the direction of training
 		- 
 
 - is phase 1 a process reward model?
