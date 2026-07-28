@@ -8,15 +8,6 @@
 - https://x.com/karpathy/status/2079610838143623371?s=20
 - https://x.com/elliotarledge/status/2079652159201914994?s=20
 - https://news.ycombinator.com/item?id=49010167
-- https://hallerite.com/
-- https://github.com/hallerite/ludic
-- https://docs.adaptionlabs.ai/
-- 
-- Stash Sam had an article on x which I should find again, called engram a vertical memory startup https://x.com/samzliu/status/2080210797465379147
-- https://x.com/GenAI_is_real/status/2080491992124137775?s=20
-x
-- 
-- https://x.com/evangelinejy99/status/2079250052476752325?s=20 relevant to jakub convo
 
 
 - honcho's blog is quartz?? https://plasticlabs.ai/blog/posts/Memory-as-Reasoning they also discuss memory as prediction
