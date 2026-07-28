@@ -21,10 +21,9 @@
 - https://x.com/Letta_AI/status/2080535211473850822?s=20
 - https://x.com/teortaxesTex/status/2080850405148291153?s=20
 - https://x.com/tydsh/status/2080881800877134004?s=20
-- https://x.com/Kimi_Moonshot/status/2081760186235289764?s=20
-- https://www.mimica.ai/
+
 - https://github.com/ramp-public/portallib portable lora from ramp, open source code, may be useful
-- https://x.com/tokenbender/status/2081790994614538327?s=20
+
 
 
 
