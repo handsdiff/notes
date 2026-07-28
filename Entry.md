@@ -1,4 +1,5 @@
 
+- 
 - context details
 	- big question for data codification is whether you give a tool call to fetch the content of a web page rather than the content itself during training. how does that change the state and action space? does it more clearly separate the action space of the agent from the state space of the environment? are there two environments?
 		- lots of good information that seems relevant in this guys feed https://x.com/oneill_c
