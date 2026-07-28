@@ -42,6 +42,9 @@ disparate notes:
 - (read, app, content) and (write, app, content). obsidian covers some write. the browser history script that fetches some read and write, but some issues flagged by Fable.
 - i DO NOT want to build something that requires 'connecting apps'. sounds super annoying.
 - https://www.primeintellect.ai/blog/algorithms-layer could be useful for implementation
+- https://huggingface.co/learn/llm-course/en/chapter12/3 rubric engineering (like deepseek GRPO) MAY help the model bootstrap faster by learning things like proper syntax before it learns content
+	- https://huggingface.co/docs/trl/grpo_trainer
+- 
 
 ## current scope
 

@@ -94,11 +94,7 @@
 
 
 - ## directly relevant - practical
-	- https://huggingface.co/learn/llm-course/en/chapter12/3
 	- predictive computer use from tsinghua https://github.com/tsinghua-fib-lab/FingerTip-20K
-	- the visualization of robot trying to push the L into position properly where it just tries a bunch of actions, then takes the top 20% based on the rewards, then samples from that, etc, until it can do the task, feels useful, but needs DPO rather than codified rewards? 
-		- is this hopeless? is it way too slow to collect data to optimize properly? or does LoRA for this actually not need many samples?
-	- https://huggingface.co/docs/trl/grpo_trainer
 	- https://x.com/albustime/status/2073986970653515817?s=20 description of what common LLM terms mean
 	- alternative framework to consider
 		- i.e. the better framework is that the model is learning its environment, which primarily involves interacting with me, and it needs to understand me. its recommendations are actions in a state transition system. states are given reward when its recommendations are accepted. to be able to learn a good policy here, it will need to be able to predict my actions first as practical bootstrapping? kind of like alphago training on expert data before doing MCTS self play? is MCTS impossible here? its tough for the environment as a whole, but it can do MCTS on interactions with ME once it has modeled me as a 'player' in its environment whose actions mostly determine the state transitions? that seems interesting, albeit a bit unclear
