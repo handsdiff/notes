@@ -21,6 +21,7 @@
 - https://x.com/Letta_AI/status/2080535211473850822?s=20
 - https://x.com/teortaxesTex/status/2080850405148291153?s=20
 - https://x.com/tydsh/status/2080881800877134004?s=20
+- [https://huggingface.co/papers/2607.20465
 
 
 - honcho's blog is quartz?? https://plasticlabs.ai/blog/posts/Memory-as-Reasoning they also discuss memory as prediction
