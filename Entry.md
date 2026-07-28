@@ -9,3 +9,5 @@
 - https://web.stanford.edu/class/cs329x/
 
 big blocking question right now is related to the above context details point, why longNAP learned reasoning for retrieval, how e2e-ttt consolidates information, online convex optimization algos, how other memory startups handle it, the continual learning research for the X account above, token efficiency of retrieval, etc, all pointing to a better understanding of how context is managed / trained, and how that surface bumps into the intended surface of the prefixed sliding window default choice. i.e. how to actually use the collected data
+
+it feels like honcho, and a ton of memory startups, are 
