@@ -22,10 +22,6 @@
 - https://x.com/teortaxesTex/status/2080850405148291153?s=20
 - https://x.com/tydsh/status/2080881800877134004?s=20
 
-- https://github.com/ramp-public/portallib portable lora from ramp, open source code, may be useful
-
-
-
 
 - honcho's blog is quartz?? https://plasticlabs.ai/blog/posts/Memory-as-Reasoning they also discuss memory as prediction
 	- similar tweet https://x.com/ashwingop/status/2069807820846063932

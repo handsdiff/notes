@@ -99,6 +99,8 @@ disparate notes:
 - like these concepts as a demo
 	- "you can put knowledge in a prompt but you can't put skill in a prompt"
 	- tacit knowledge, skills vs information from will brown. weights distilling judgment. visceral example of same context -> different output. 
+- prime intellect, inference net, freesolo, unsloth, tinker, self stack as possible training options
+- https://github.com/ramp-public/portallib portable lora from ramp, open source code, may be useful
 
 ## current scope
 
