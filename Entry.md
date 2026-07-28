@@ -1,11 +1,4 @@
 
-- https://x.com/tinkerapi/status/2079281259084407089?s=20
-- https://x.com/threepointone/status/2079278411663466879?s=20
-- https://x.com/thoughtfullab/status/2078203652079276258?s=20
-- https://x.com/chewing_a_gum/status/2079628462671970661?s=20
-- https://x.com/oneill_c/status/2077806576665350312?s=20
-
-
 - honcho's blog is quartz?? https://plasticlabs.ai/blog/posts/Memory-as-Reasoning they also discuss memory as prediction
 	- similar tweet https://x.com/ashwingop/status/2069807820846063932
 - big question for data codification is whether you give a tool call to fetch the content of a web page rather than the content itself during training. how does that change the state and action space? does it more clearly separate the action space of the agent from the state space of the environment? are there two environments?
