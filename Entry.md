@@ -13,6 +13,7 @@
 - https://docs.adaptionlabs.ai/
 - Stash Sam had an article on x which I should find again, called engram a vertical memory startup https://x.com/samzliu/status/2080210797465379147
 - https://x.com/GenAI_is_real/status/2080491992124137775?s=20
+- https://www.youtube.com/watch?v=ZBpY7MEra9w
 - 
 - https://x.com/evangelinejy99/status/2079250052476752325?s=20 relevant to jakub convo
 - https://www.lesswrong.com/posts/RzeyMfLxwjgGjQFpv/announcing-aixi-labs
@@ -21,7 +22,7 @@
 - https://x.com/Letta_AI/status/2080535211473850822?s=20
 - https://x.com/teortaxesTex/status/2080850405148291153?s=20
 - https://x.com/tydsh/status/2080881800877134004?s=20
-- [https://huggingface.co/papers/2607.20465
+- https://huggingface.co/papers/2607.20465
 
 
 - honcho's blog is quartz?? https://plasticlabs.ai/blog/posts/Memory-as-Reasoning they also discuss memory as prediction
