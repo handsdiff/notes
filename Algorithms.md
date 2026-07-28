@@ -253,7 +253,10 @@ algorithms considered and rejected for now and why: (there are likely practicali
 		- reminds me of idbd by sutton in how the original paper detects important / not important weights and resets accordingly (super hand wavy but generally accurate description)
 		- found in non LLMs ^, no prescription in future work on LLMs
 	- https://people.idsia.ch/~juergen/1991-unnormalized-linear-transformer.html
-		- 
+	- https://arxiv.org/pdf/2607.20465 data prep bench
+		- tests a bunch of models on their ability to generate good QA-style SFT examples
+		- might be useful if that is needed later
+	- 
 
 - is phase 1 a process reward model?
 - does phase 1 result in an 'implicit' reward model?
