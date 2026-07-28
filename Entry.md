@@ -23,13 +23,9 @@
 - https://x.com/tydsh/status/2080881800877134004?s=20
 - https://x.com/Kimi_Moonshot/status/2081760186235289764?s=20
 - https://www.mimica.ai/
-- https://www.markovstudios.com/
-- https://www.ycombinator.com/companies/experiential-labs + https://github.com/experientiallabs/world-model-optimizer
-- https://x.com/RampLabs/status/2081819550329327689?s=20
+- https://github.com/ramp-public/portallib portable lora from ramp, open source code, may be useful
 - https://x.com/tokenbender/status/2081790994614538327?s=20
-- https://x.com/hypersoren/status/2081519685305045119?s=20
-- 
-- "State-space models don’t need positional embeddings because positional embeddings are baked into the recurrence"
+
 
 
 - honcho's blog is quartz?? https://plasticlabs.ai/blog/posts/Memory-as-Reasoning they also discuss memory as prediction
