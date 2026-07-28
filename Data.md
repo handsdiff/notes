@@ -78,7 +78,18 @@ disparate notes:
 - i wonder whether you need the data to be literally temporally interleaved to predict well. like i pause a youtube video, write down thoughts, play the youtube video. etc. its incorrect to put the entire transcript in when the page is first visited, since the goal is to most closely simulate how my brain works. the actual construction of the dataset is literally 90% of the work here. will take trial and error. may be worth thinking how to improve it
 	- if im watching a youtube video for example, i suspect the best data structure would be the transcript of the part i watched as <read, browser, youtube, transcript chunk> then <write, obsidian, entry, written note>.
 - might help with data ingestion, seemingly open source/self hosted granola https://github.com/Zackriya-Solutions/meetily
+	- https://github.com/ExistentialAudio/BlackHole
 - very informative and critical reward inference discussion with papers foundational from dragan that i havent come across otherwise https://gemini.google.com/app/4f984ce16e37337a, includes data structure discussion and examples
+- "continual data for continual learning"
+- "operationalize data collection" https://www.manifold1.com/episodes/misha-laskin-reflection-ai-from-physics-to-superintelligence/transcript
+- thought dump
+	- Taking helpful action rather than mimic action is a core tension since there’s plenty of things i would like but don’t actually do since it’s difficult or high friction. Relates to proactive and prospective learning, as well as embodied intelligence.
+	- Does action mimicry lead to action assistance? Depends on reward inference. I’ve laid out one path, should identify and dig deeper if needed on biggest assumptions and unknowns
+	- Mimicking leads to thinking around continual learning which may not be the right direction vs taking a helpful action directly, which may devolve into recsys, but maybe it’s something with a set of new properties I need to be more rigorous about
+	- The way it DOES map is when I run into an issue and then actually solve it, given the context.
+	- If I solve it in a multi step way that relates to previous notes around wanting the model to suggest the N steps required for my goal, or if it can condense it into one step even better, rather than just walk me through the existing steps a bit faster. That’s likely the start of it though
+	- Maybe should store all data, and just filter by “in sight/mind” data, since might want to use the additional data later, for the purposes of having flexible data collection. Screenpipe? I guess not screenpipe since that by itself won’t allow me to filter into “in sight”. Need to collect both since “in sight” is an additional “feature flag” while collecting all the data
+	- tentative data plan is set up a debugging app thats always on my screen, not tracked, and that maps with highest fidelity what i read and write into an event stream. should properly demarcate i.e. put consolidate stream into events, should include full links for eventual 'full' data not just 'view' data, and should include timestamps which may not necessarily be trained on but turn based vs time based is a big open question
 
 ## current scope
 
