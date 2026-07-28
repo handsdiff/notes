@@ -256,6 +256,7 @@ algorithms considered and rejected for now and why: (there are likely practicali
 	- https://arxiv.org/pdf/2607.20465 data prep bench
 		- tests a bunch of models on their ability to generate good QA-style SFT examples
 		- might be useful if that is needed later
+	- open source dreamer v4 https://next-state.github.io/open-dreamer/
 	- 
 
 - is phase 1 a process reward model?
