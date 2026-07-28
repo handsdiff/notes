@@ -101,6 +101,9 @@ disparate notes:
 	- tacit knowledge, skills vs information from will brown. weights distilling judgment. visceral example of same context -> different output. 
 - prime intellect, inference net, freesolo, unsloth, tinker, self stack as possible training options
 - https://github.com/ramp-public/portallib portable lora from ramp, open source code, may be useful
+- if you scroll too fast to read then it shouldnt be marked as a read. this is probably handled by waiting 3 seconds to scroll
+- if im writing in one window with another window open, is that text being read?
+- 
 
 ## current scope
 
