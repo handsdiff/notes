@@ -11,14 +11,12 @@
 - https://hallerite.com/
 - https://github.com/hallerite/ludic
 - https://docs.adaptionlabs.ai/
+- 
 - Stash Sam had an article on x which I should find again, called engram a vertical memory startup https://x.com/samzliu/status/2080210797465379147
 - https://x.com/GenAI_is_real/status/2080491992124137775?s=20
-- https://www.youtube.com/watch?v=ZBpY7MEra9w
+x
 - 
 - https://x.com/evangelinejy99/status/2079250052476752325?s=20 relevant to jakub convo
-- https://www.lesswrong.com/posts/RzeyMfLxwjgGjQFpv/announcing-aixi-labs
-- https://x.com/reactorworld/status/2080711388738249132?s=20
-- https://x.com/miramurati/status/2080715390179766646?s=20
 
 
 - honcho's blog is quartz?? https://plasticlabs.ai/blog/posts/Memory-as-Reasoning they also discuss memory as prediction

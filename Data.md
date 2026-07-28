@@ -103,7 +103,7 @@ disparate notes:
 - https://github.com/ramp-public/portallib portable lora from ramp, open source code, may be useful
 - if you scroll too fast to read then it shouldnt be marked as a read. this is probably handled by waiting 3 seconds to scroll
 - if im writing in one window with another window open, is that text being read?
-- 
+- perhaps useful for the agent chart part of capture [0001-trajectory-format.md](https://github.com/harbor-framework/harbor/blob/main/rfcs/0001-trajectory-format.md) [trajectory-v1.schema.json](https://github.com/letta-ai/trajectory/blob/main/schema/trajectory-v1.schema.json)
 
 ## current scope
 
