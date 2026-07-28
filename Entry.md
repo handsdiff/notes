@@ -28,19 +28,16 @@
 - https://x.com/RampLabs/status/2081819550329327689?s=20
 - https://x.com/tokenbender/status/2081790994614538327?s=20
 - https://x.com/hypersoren/status/2081519685305045119?s=20
-- https://x.com/sama/status/2081513071135346814?s=20
+- 
 - "State-space models don’t need positional embeddings because positional embeddings are baked into the recurrence"
 
 
 - honcho's blog is quartz?? https://plasticlabs.ai/blog/posts/Memory-as-Reasoning they also discuss memory as prediction
 	- similar tweet https://x.com/ashwingop/status/2069807820846063932
-
-
 - https://www.youtube.com/watch?v=e9-0BxyKG10 very foundational explanation of transformers
 	- reminds me of cursor when he says self attention is a mechanism inside a encoder block (which is borrowed from the residual block in residual nets) that learns what surrounding context to pay attention to. cursor applied this foundational aspect to code. they basically had the language model fill in the 'blanks' by giving surrounding cursor content as context
 	- i wonder whether slate product issue, among other things, was that it was not well utilizing self attention or auto regression. it was mapping language inputs to api calls we had to create. RL for LLMs was not really a thing yet
 	- LLMs seems to be fractal. they are trained in RL with a good data set and reward signal. now the best way to prompt LLMs is to be very clear about the input and the reward signal, less so about specific directions on how to get there. mentioned something like this earlier here as well
-
 - big question for data codification is whether you give a tool call to fetch the content of a web page rather than the content itself during training. how does that change the state and action space? does it more clearly separate the action space of the agent from the state space of the environment? are there two environments?
 - how do harnesses actually handle context and content fetching? if it fetches a website that has 10M tokens, what does it do? or if it runs a terminal command that has 2M tokens worth of lines, what does it do? there must be context management logic? is it basic sliding window? compression? (longNAP implementation likely sheds some light on this)
 - there is an openai 2023 paper in lecture 18 of cs224r that shows model confidence is much less calibrated after PPO post training than after pre training. how is this data even collected? the pre train model should not be able to do question answer formats, no?

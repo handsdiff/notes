@@ -47,6 +47,7 @@ The ~\$600B figure is an estimate of the annual global cost to businesses of act
 			- "The gap is mainly in high quality data annotation, then mainly in AI research"
 	- continual learning (learning to learn) -> self improvement -> embodied intelligence is the expectation from deepseek's founder https://x.com/teortaxesTex/status/2080129147817382085
 	- "operationalize data collection" https://www.manifold1.com/episodes/misha-laskin-reflection-ai-from-physics-to-superintelligence/transcript
+	- https://x.com/sama/status/2081513071135346814?s=20 relates to my 'one computer for agent, one computer for me' as it relates to the vision for the work
 - who are the biggest screenpipe users? is anyone running prospective learning or reward inference algorithms on their data?
 	- https://github.com/screenpipe/screenpipe
 	- https://github.com/JerryZLiu/Dayflow
