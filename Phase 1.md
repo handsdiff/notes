@@ -543,6 +543,8 @@ All seven comparisons use the same live daily protocol. On a given day, every co
 
 **Learning Objective**. Replace token level cross entropy loss + behavior cloning with cosine similarity on the embeddings of the ground truth and predicted outputs as the reward for GRPO or RLOO. This compares the rigidity and accuracy of behavior cloning on sequence likelihoods with the flexibility and semanticity of cosine similarity reward maximization.
 
+**Time Data**. Include the timestamp into the data, otherwise training normally. This determines whether the inclusion of timestamps impacts model performance by introducing a potential understanding of how delays impact thinking.
+
 **Checkpoint recency.** On day $d$, score every action using the current checkpoint and retained checkpoints from $d-1$, $d-3$, and $d-7$. All remain frozen throughout the day and receive the identical causal event-stream context. This measures the predictive value of recent overnight updates and reveals when those updates hurt current-day prediction.
 
 **Context scaling.** Compare 8K, 16K, 32K, and 64K causal windows using matched Qwen3.5-9B-Base lineages, with 32K as the initial baseline. Action targets, day boundaries, recent/replay sampling, target-token exposure, and optimizer steps remain matched. “More data” here means more prior event-stream data in context, not more historical training examples. This alludes to discussions around what 'model capabilities' even mean when discussed broadly. Are 64K and 8K context windows both 'model capabilities'? How do we normalize for prompt quality or available tools?
