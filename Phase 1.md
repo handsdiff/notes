@@ -62,172 +62,99 @@ Dynamic evaluation updates a language model on recent tokens before predicting l
 
 Lifelong pretraining studies chronological adaptation to emerging corpora while measuring performance on both new and earlier distributions [6]. Its stability–plasticity problem is directly relevant: recent data should update the personal model without allowing one project or period to erase older workflows or general language-model capabilities.
 
-## 3. Personal Event Stream - WIP, to be iterated on in [[Data]]
+## 3. Data Construction - WIP, driven by [[Data]]
 
-For one person, let
+The data construction is not solved by writing down an event schema in advance. The first job is to build a sensor, use the computer normally, and inspect whether its output looks like a faithful account of what was read and written. The representation should change in response to failures observed in real traces.
 
-$$
-\mathcal E=(e_1,e_2,\ldots,e_T)
-$$
+The north star is qualitative temporal fidelity: the stored stream should approximate the information that was available to the person and the output the person produced, in the order in which this happened. Relevance to next-write prediction is the practical test. If a trace omits information that obviously mattered, includes information the person did not see, or breaks one action into nonsensical pieces, the sensor or conversion rule is wrong.
 
-be an append-only, stably ordered stream of events. Every event records at least:
+### 3.1 Sensor iteration loop
 
-```text
-Event {
-  event_id
-  actor: HUMAN | EXTERNAL_MODEL | EXTERNAL | SYSTEM
-  kind: READ | WRITE | NAVIGATION | STATE
-  app
-  object_ref
-  operation
-  began_at
-  available_at
-  ended_at?
-  content_ref?
-  source_url?
-  provenance
-  source_event_ids
-  collector_version
-  privacy_state
-  quality_flags
-}
-```
+The first implementation should include a separate debugging window that is excluded from collection and displays the stream being stored. The loop is:
 
-The store separates raw captured events from later interpretations. Raw records are immutable. Corrections or improved reconstructions create superseding records rather than rewriting history.
+1. deploy the smallest useful sensor;
+2. do normal work;
+3. watch the resulting read/write stream in the debugging window;
+4. compare it with the actual experience of reading and writing;
+5. fix snapshotting, extraction, delay, deduplication, or event construction;
+6. repeat for at least a day or two before treating the output as training data.
 
-### 3.1 Temporal fidelity
+The raw representation should initially preserve more information than seems necessary. Different algorithms may need different derived structures, and premature filtering may permanently remove the evidence needed to construct them. Raw snapshots, input signals, timestamps, source information, and later interpretations should remain distinguishable.
 
-The central data requirement is to make the model's external information state match the information that actually reached the person's brain as closely as the instrumentation permits. The collector cannot observe internal cognition, attention, or memory directly. It can, however, reconstruct observable exposure: what was rendered, visible, audible, foregrounded, selected, or otherwise available through the interface, and when.
+### 3.2 Candidate snapshot triggers
 
-Let $I_t^{H}$ denote the observable external information available to the human before action $t$, and let $I_t^{M}$ denote the information serialized into the model's context. The collection objective is:
+The initial sensor uses delays to reduce noise and to obtain a rough signal of attention:
 
-$$
-I_t^{M}\approx I_t^{H}
-$$
+- after keyboard input, wait `WRITE_DELAY` seconds—perhaps three—without additional input before taking a write snapshot;
+- after a mouse movement, click, or scroll, wait `READ_DELAY` seconds—perhaps one—before taking a read snapshot.
 
-in content, order, and timing. This alignment is what makes behavioral cloning an attempt to distill human judgment and skill into the weights. If the model receives information the person had not seen, it can explain the person's action using leaked evidence and learn a shortcut under a fictional state. If the model omits information the person did see, a skilled action can appear arbitrary or noisy. In either case, the learned conditional behavior is not a faithful model of the judgment that produced the action.
+These are starting points to tune through the debugging display, not settled action boundaries. The write delay should remove some noise from backspacing, typo correction, and cursor movement. The read delay should avoid treating content passed during a fast scroll as though it were read. Both introduce failure modes:
 
-The operational rule is:
+- text written and deleted inside the delay may disappear from a final diff;
+- multiple meaningful actions may occur inside one delay window;
+- a short but meaningful exposure may be missed;
+- a delayed snapshot may capture a later state rather than the state that triggered it;
+- keyboard and mouse activity may interact in ways that make a single global timer misleading.
 
-> Content may enter an action's context only if it was available through the person's interface before that action began.
+The collector should therefore retain the triggering input events and their times in addition to the later snapshot. Whether the final event time should be the trigger, the settled state, or both is an empirical decision. The same applies to whether a burst becomes one action or several.
 
-Eventual presence in an export, file, page source, or transcript is not evidence of prior exposure.
+### 3.3 What a snapshot should contain
 
-- Opening an article records its URL, title, and navigation state. Only the spans actually exposed as the person reads or scrolls become read content. The unread remainder of the article does not.
-- A video or podcast contributes only the material available through the observed playback position, not its complete transcript.
-- An AI-chat response becomes available according to rendered content and timing. A completed response cannot be placed before the tokens or spans the person could see.
-- A note contributes the version and visible state that existed at the time. A later revision cannot become context for an earlier edit.
-- Tool results, received messages, and application state changes enter the stream when they become available, not when a later export happens to record them.
+A read snapshot should contain the text the person was likely looking at, not every token technically present in the application or page. For the first version:
 
-When precise exposure cannot be reconstructed, the event is marked uncertain or excluded from predictive examples. URLs and object identifiers may remain as navigation metadata even when the underlying content was not observed.
+- ignore unselected or unfocused windows;
+- prefer application, accessibility, or DOM text corresponding to the active viewport when available;
+- otherwise experiment with a central screen crop that removes peripheral interface chrome;
+- ignore audio and video initially;
+- retain cursor, selection, viewport, focus, and application metadata when available.
 
-Collectors use a normalized clock and record both when a state change occurred and when a later debounce or collector process finalized its record. Finalization time must never replace the earlier exposure or action-onset time. Cross-application ordering must be stable enough to determine which information preceded an action. A manually replayed sample of sessions is required before modeling to measure missing events, ordering errors, incorrect visible spans, and future leakage.
+The crop and focus rules are hypotheses to inspect, not claims about attention. Clicking into an Obsidian note may make the surrounding text relevant again, but it is not yet clear whether that should create a repeated read event. Similarly, scrolling back to a previously seen span may be meaningful rereading rather than duplicate data.
 
-### 3.2 Snapshot-based human macro-actions
+The viewed snapshot and the complete underlying resource must remain separate. A browser event should retain the full URL and may retain or later fetch the complete page for reconstruction or retrieval, while the read stream contains only the view that the sensor believed was exposed. Opening a URL is not evidence that the complete article was read. HTML can be converted to Markdown with tools such as Readability or Trafilatura, but this conversion does not resolve what portion belonged in the snapshot.
 
-Raw keystrokes are too granular, while commits and final document snapshots are usually too coarse. The prediction target is a bounded human write macro-action:
+### 3.4 From snapshots to a read/write stream
 
-$$
-y_t=(d_t,\ell_t,o_t,c_t),
-$$
+The initial stored form can be JSON. It should be easy to inspect and contain enough information to re-run later conversion rules. Candidate fields include:
 
-where $d_t$ is the application or domain, $\ell_t$ is the object location, $o_t$ is the operation, and $c_t$ is the committed content.
+- timestamp or timestamps;
+- read/write candidate;
+- author or source;
+- application and destination;
+- application-specific location, such as an Obsidian path;
+- optional full link or resource reference;
+- extracted Markdown content;
+- raw snapshot and input-event references;
+- collector and conversion versions.
 
-Examples include:
+This is not yet the final event ontology. Navigation, focus changes, deletions, selections, automatic edits, and externally generated writes may eventually require additional types rather than being forced into a read/write Boolean.
 
-- adding or replacing one coherent note span;
-- submitting a search;
-- sending a prompt or message;
-- committing a coherent code or document edit.
+Successive snapshots will often overlap. Deduplication should remove repeated content created by continuous capture without erasing a later return to the same material. The first implementation should preserve enough raw information to compare alternatives:
 
-The initial Obsidian rule mirrors the vault's current automatic snapshot behavior:
+- remove overlap only between nearby snapshots that appear to represent one continuous exposure;
+- retain a later reread, or encode it as a new exposure to the same content;
+- test whether duration and repetition are useful signals rather than assuming repeated text is always noise.
 
-1. The first human text mutation opens a write burst and fixes its `began_at`.
-2. Each subsequent human text mutation in that object resets a three-second idle timer.
-3. After three seconds without another text mutation, the collector snapshots the object. The diff from the prior finalized snapshot becomes one write event if it is nonempty.
-4. Submit, save, focus change, navigation, application shutdown, or another context-changing exposure force the current burst to close without waiting for the timer.
+Write events require similar iteration. Diffs between snapshots can consolidate raw keystrokes into useful chunks, but the collector must distinguish typing, pasting, mixed input, automatic edits, and model-authored text. Cursor movement, insertion into earlier text, deletion, and a draft that is completely removed are all cases to inspect in the debugging stream. A final empty diff should not silently prove that nothing behaviorally relevant happened.
 
-The three-second delay is a deterministic *finalization rule*, not the time at which the action began or its content became available. The record preserves the first mutation time, last mutation time, and later finalization time. This prevents a debounce from moving a human action or a newly visible input across the causal boundary.
+### 3.5 Initial surfaces and prediction opportunity
 
-The same burst-and-debounce idea applies to viewport changes, but not as one global timer for all keyboard and mouse activity:
+The initial surfaces are:
 
-- A scroll changes the person's observable information immediately. The collector records viewport state and rendered spans at their actual times, then may consolidate a rapid scroll sequence after three seconds of scroll inactivity. It must preserve all spans exposed during the burst rather than only the final viewport.
-- A context-changing scroll, selection, hover panel, tooltip, focus change, or navigation closes any active write burst before the newly exposed information can condition later writing.
-- Raw pointer movement that changes nothing in the interface is activity telemetry, not a semantic read event and not automatically a write boundary.
-- Timers are per object and modality. Unrelated mouse movement should not silently merge two write bursts or postpone a write boundary.
+- Obsidian;
+- browser use;
+- Codex and other AI-chat interfaces.
 
-Three seconds is an initial, versioned hyperparameter. A replayed session audit should compare the resulting boundaries with human judgments and test nearby delays. The goal is not to recover an abstract “turn,” but to construct targets that are both learnable and causally homogeneous: one target should not span an intervening input that changed what the person knew.
+Audio and video can be added after the text stream is credible. Historical Obsidian Git history is useful for testing reconstruction and diff logic, but it cannot substitute for a prospective interleaved stream because it omits browser and chat inputs.
 
-Authorship and input method are mandatory. Keyboard/input events, clipboard events, editor transaction metadata, and resulting diffs distinguish independently typed text, pasted text, mixed typed-and-pasted bursts, externally generated text, automatic edits, and tool-written content. A paste may still be a deliberate human action, but it is not evidence that the person generated the pasted tokens. It remains a separately labeled operation available for filtering or for a different prediction target. Only finalized human actions become behavioral-cloning targets.
+The simplest live prediction opportunity is when a text field receives focus outside the prediction model itself. At that point the system can sample a possible next write action. This is operationally useful, but it is not automatically the same boundary as the later completed write action: the person may read more, move focus, delete text, or never write. Focus opportunities, displayed suggestions, and resulting writes must therefore be logged separately. If a prediction is shown, it becomes new input to the person and changes the subsequent stream.
 
-```text
-MacroAction {
-  action_id
-  source_event_ids
-  domain
-  location?
-  operation
-  content_ref
-  began_at
-  last_mutation_at
-  finalized_at
-  boundary_reason
-  segmentation_version
-  input_provenance_summary
-  confidence
-}
-```
+The first implementation may use remote models and storage to iterate quickly and make larger-model comparisons practical. The collector still needs explicit exclusions and provenance so that sensitive data and model-authored content can be identified rather than silently mixed into human targets.
 
-### 3.3 Initial collection surfaces
+### 3.6 Freezing a version for training
 
-The first implementation covers:
+Only after the sensor produces a convincing stream should one snapshot-to-event conversion be frozen for an experiment. That version converts the richer records into chronologically ordered read/write events and constructs candidate write targets. The exact segmentation remains versioned because changing delay, deduplication, or diff rules changes the learning problem.
 
-- **Obsidian:** mutation-triggered snapshots and diffs, first and last mutation times, three-second per-object debounce, forced boundaries, object location, visible text, cursor and selection when available, and typed-versus-pasted-versus-external provenance.
-- **Browser:** URL, title, navigation, search submissions, visible or consumed spans, focus state, scroll position, media progress, and timestamps.
-- **AI chats:** prompts, attachments, branching or regeneration state, rendered response spans, tool results, and token or span availability times.
-
-Historical Obsidian Git history is useful for validating note reconstruction, segmentation, serialization, and training. It does not contain browser or chat context that was never captured, and it must not be treated as a complete historical event stream. Full claims about interleaved read–write context require prospective collection.
-
-Sensitive or excluded content is removed before examples are published to the training store. Privacy state and exclusions remain explicit in the raw-event index so that omissions are auditable without exposing excluded content.
-
-### 3.4 Derived examples and manifests
-
-Each action produces a derived example containing references to the causal events, the exact serialized context, the target, and the target-only loss mask.
-
-```text
-BCExample {
-  example_id
-  context_event_ids
-  serialized_context_ref
-  target_action_id
-  loss_mask_ref
-  context_length
-  serializer_version
-  target_token_count
-  finalized_at
-}
-```
-
-Each overnight update records the parent model, the day cutoff, recent examples, replay examples, optimizer configuration, and resulting model:
-
-```text
-DailyUpdateManifest {
-  day
-  parent_model_version
-  resulting_model_version
-  data_cutoff_at
-  recent_example_ids
-  replay_example_ids
-  replay_mixture
-  context_length
-  objective_config_hash
-  optimizer_config_hash
-  pre_update_report_ref
-  retention_report_ref
-}
-```
-
-These records make it possible to reproduce any daily prediction or update and to determine whether a result came from more context, different data, or different optimizer exposure.
+For a human action $y_t$, the model context may contain only records available before the action boundary chosen by that conversion version. The conversion must explicitly assign and document any `available_at` timestamp used for a derived input event and any `began_at` timestamp used for a candidate write target; these are decisions made by the frozen conversion, not timestamps silently inferred from snapshot finalization. Each training example stores the exact derived context, target, source records, conversion version, and target-only loss mask. The daily update manifest separately records the parent model, data cutoff, recent and replay examples, optimizer configuration, and resulting model. These are algorithm-specific derived records, not the authoritative form of the raw activity.
 
 ## 4. Training Paradigm
 
@@ -261,7 +188,7 @@ For every human macro-action $y_{d,i}$:
 
 1. construct the causal context $h_{d,i}^{(L)}$;
 2. predict and record the likelihood of the action under $\theta_d$;
-3. store the completed action as a new `BCExample`;
+3. store the completed action as a frozen training example;
 4. allow the observed action to enter the causal context of later actions that day;
 5. do not update model weights until the day is complete.
 
@@ -393,7 +320,7 @@ procedure BUILD_EXAMPLES(events, context_length, serializer, segmentation):
         if LEAKS_FUTURE_INFORMATION(h, y):
             continue
 
-        examples.append(BCExample(
+        examples.append(TRAINING_EXAMPLE(
             context_event_ids=IDS(included),
             serialized_context=FREEZE(h),
             target_action=y,
@@ -425,7 +352,7 @@ procedure EVALUATE_DAY(model_d, day_events, prior_event_stream, config):
 
         prediction <- SCORE_ACTION_BEFORE_UPDATE(model_d, h, y)
         predictions.append(prediction)
-        examples.append(FREEZE_BC_EXAMPLE(h, y, config))
+        examples.append(FREEZE_TRAINING_EXAMPLE(h, y, config))
 
         stream.append(events created by y)
 
@@ -527,7 +454,7 @@ This is not a static held-out test set. After a prospective day is scored, its e
 
 ### Experiment 0: Collector and reconstruction audit
 
-Manually replay sampled sessions from each source. Measure missing-event rate, temporal-ordering error, incorrect visible-span rate, authorship error, action-boundary disagreement, and future leakage. Modeling does not begin until the stream is adequate to construct causal examples.
+Build the debugging display and run the smallest sensors during ordinary work. Inspect the resulting snapshots and derived stream against the actual experience, then revise delays, crops, extraction, deduplication, provenance, and event boundaries. Once the qualitative output is credible, manually replay sampled sessions and measure missing-event rate, temporal-ordering error, incorrect content inclusion, authorship error, action-boundary disagreement, and future leakage. Modeling does not begin until one conversion version is frozen.
 
 ### Experiment 1: Obsidian-only smoke test
 
@@ -563,24 +490,25 @@ Phase 1 succeeds when the collector produces auditable causal examples and the c
 
 ## 9. Implementation Order
 
-1. define the event, macro-action, example, and daily-manifest schemas;
-2. implement append-only Obsidian collection and clock normalization;
-3. reconstruct historical note edits and audit macro-action segmentation;
-4. implement the deterministic serializer and fixed causal suffix;
-5. build the masked behavioral-cloning dataset and baseline harness;
-6. implement the daily evaluate-then-update loop;
-7. add stratified historical replay and immutable model lineage;
-8. run the Obsidian smoke test;
-9. add prospective browser and AI-chat collection;
-10. run the interleaved-stream and context-length experiments;
-11. add lagged-checkpoint, closed-model ICL, and stronger open-model comparisons after the Qwen3.5-9B-Base baseline is stable;
-12. monitor continual prediction and capability retention.
+1. build an excluded debugging display for the raw snapshots and read/write stream;
+2. implement the smallest Obsidian sensor with rich snapshots, input events, and timestamps;
+3. use it during ordinary work and iterate on write delay, extraction, diffs, provenance, deduplication, and boundaries;
+4. add browser and AI-chat sensors and repeat the same inspection loop;
+5. freeze and version one snapshot-to-event and write-target conversion;
+6. reconstruct historical note edits as a pipeline test without treating them as a complete historical stream;
+7. implement the deterministic serializer and fixed causal suffix;
+8. build the masked behavioral-cloning dataset and baseline harness;
+9. implement the daily evaluate-then-update loop;
+10. add stratified historical replay and immutable model lineage;
+11. run the prospective interleaved-stream and context-length experiments;
+12. add lagged-checkpoint, closed-model ICL, and stronger open-model comparisons after the Qwen3.5-9B-Base baseline is stable;
+13. monitor continual prediction and capability retention.
 
-The required initial artifacts are the collector specification, privacy and exclusion policy, segmentation guide, reconstruction audit, serializer, immutable example store, leakage tests, baseline harness, daily update manifest, replay index, capability-retention suite, and model card for each accepted lineage.
+The required initial artifacts are the excluded debugging display, raw snapshot and input-event store, inspected trace log, privacy and exclusion policy, frozen conversion specification, reconstruction audit, serializer, immutable example store, leakage tests, baseline harness, daily update manifest, replay index, capability-retention suite, and model card for each accepted lineage.
 
 ## 10. Conclusion
 
-Phase 1 asks whether one person's ordinary computer activity can train a continually improving predictor of what they will write next. The hard prerequisite is a faithful event stream: what was actually visible, when it became available, what the person authored, and where one coherent action ended.
+Phase 1 asks whether one person's ordinary computer activity can train a continually improving predictor of what they will write next. The hard prerequisite is a credible sensor-derived account of observable exposure and authorship: what appeared to be read, when it became available, what the person produced, and how the frozen conversion divided that activity into candidate actions.
 
 The learning rule is simple. A fixed-length suffix of prior events predicts the next human macro-action. The model is evaluated without weight changes throughout the day. Overnight, that day's scored examples are mixed with historical replay and used for behavioral cloning. The resulting weights persist into the next day. Historical and future data follow the same loop.
 
