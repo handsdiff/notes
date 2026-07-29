@@ -4,7 +4,6 @@ likely need to
 	1) codify data structure needed for chosen algorithms, codify how to extract from base data structure to algorithm structure for each step, set up all ingestion points and monitor cleanliness
 
 #### disparate notes
-- ways to think about data from Levine https://x.com/svlevine/status/2075721405929508942?s=20
 - somewhat helpful gemini thread regarding data structure and previous attempts. but need to parse the bs https://gemini.google.com/app/b242920671bf7d32
 - how many tokens are common examples of fine tuned models that actually work trained on? how many tokens are frontier models trained on? on what stage? how does LoRA actually impact the amount of needed/useful tokens? how does that change as the underlying model changes?
 	- https://thinkingmachines.ai/blog/ probably should review the old ones too
