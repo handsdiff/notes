@@ -27,7 +27,6 @@ likely need to
 
 
 - new algorithms in [[Algorithms]], plus just how the relevant algorithms like longNAP structure data
-- very informative and critical reward inference discussion with papers foundational from dragan that i havent come across otherwise https://gemini.google.com/app/4f984ce16e37337a, includes data structure discussion and examples
 
 #### more formal notes
 - iteration plan

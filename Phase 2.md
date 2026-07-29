@@ -6,6 +6,7 @@
 
 #### Unstructured Notes - to be incorporated
 - phase 2 requires only showing samples when confidence exceeds some threshold, likely requires fine tuning
+- very informative and critical reward inference discussion with papers foundational from dragan that i havent come across otherwise https://gemini.google.com/app/4f984ce16e37337a, includes data structure discussion and examples
 
 ## Abstract
 
