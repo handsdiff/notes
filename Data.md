@@ -1,15 +1,10 @@
 likely need to
 1) generate a data hypothesis by collecting all the disparate notes around data processing i've collected
-2) review the data structures from relevant similar papers like I did for algorithms to determine which is worth implementing
-3) implement the data ingestion and cleaning pipeline and monitor it
+2) implement the data ingestion and cleaning pipeline and monitor it
 	1) codify data structure needed for chosen algorithms, codify how to extract from base data structure to algorithm structure for each step, set up all ingestion points and monitor cleanliness
 
 #### disparate notes
-- [[Experiment Plan - Old]]
-- some nitpicks for data construction ^527840
-	- need to handle copy / paste actions from different apps into obsidian to not mistake that for user typing
-	- need to handle moving a cursor in between sentences across notes or anywhere else typing is occurring, editing, deletion, typos, etc
-	- git across my entire computer wherever im writing? it nicely handles breaking down actions into chunks, whereas raw keystrokes have a ton of noise around moving cursors, backspacing, typos, etc. hmmm.
+- 
 - [[Interaction#^f5c205]]
 - [[Interaction]] overall
 - https://arxiv.org/pdf/2309.12170 older RNN predicting mouse/keyboard data
@@ -113,6 +108,11 @@ likely need to
 
 #### more formal notes
 - wait WRITE_DELAY (perhaps 3) seconds after a keyboard entry and READ_DELAY (perhaps 1 second) mouse movement or mouse scroll or mouse click, then take a SNAPSHOT
+	- the purpose of the delay is to reduce noise associated with backspacing, typos, etc while writing. the downside is missing critical actions, since per the deduplication, we'll essentially be looking for diffs from the previous state which may be lost depending on the use case
+	- some nitpicks for data construction ^527840
+		- need to handle copy / paste actions from different apps into obsidian to not mistake that for user typing
+		- need to handle moving a cursor in between sentences across notes or anywhere else typing is occurring, editing, deletion, typos, etc
+		- git across my entire computer wherever im writing? it nicely handles breaking down actions into chunks, whereas raw keystrokes have a ton of noise around moving cursors, backspacing, typos, etc. hmmm.
 - a SNAPSHOT takes the text that the user is likely *actually* looking at, rather than the full screen, to best simulate actual inbound information
 	- will be informed by actual implementation, but should probably start with ignoring unselected/unfocused windows, unless it's a video, but perhaps for v0.1 we ignore video.
 	- should take the 'middle' of the screen as much as possible, maybe like 30% borders from the left, right, and 50% from the bottom
