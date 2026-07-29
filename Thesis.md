@@ -37,6 +37,14 @@ The ~\$600B figure is an estimate of the annual global cost to businesses of act
 
 # Misc Notes
 
+- in other words
+	- observe you, predict from your behavior what you care about, and eventually start proactively suggesting how to achieve your reward faster or in higher magnitude
+	- the point of the model learning how my brain works is to understand my goals/preferences, and then recommend how to achieve those faster
+	- having full context visibility -> predicting what i will do -> doing something to help me get there feels pretty intrinsically valuable
+	- The concept of an agent embedded into your context, inferring your goals, and taking actions to assist you, feels extremely directionally correct
+	- backbone of a background monitor that learns to mimic, then infer goals, then assist feels very robust across text, visual, audio, digital, and physical domains
+	- personal models / interaction models / proactive models + local data exposure will collect tacit knowledge orders of magnitude more than systems that take a prompt and work for hours
+	- the original goal was to implicitly detect goal and then suggest something / take some action to get me there faster
 - tension between context time as information dumping vs reward/judgment specification
 - tension between behavior cloning and superhuman augmentation
 - the uncovered cubic section between omar shaikh's work around user modeling, next action prediction, just in time objectives, etc and data capturing work such as rewind, screenpipe, coast, etc and continual learning and memory work, etc, is one way to describe the target vision
@@ -45,8 +53,7 @@ The ~\$600B figure is an estimate of the annual global cost to businesses of act
 - extremely extremely good from cole wyeth discussing how local reward models relates to alignment https://www.lesswrong.com/posts/JT3qCYDimskcBdiEr/the-hard-core-of-alignment-is-robustifying-rl vision thesis post
 - "next thought prediction" is more aligned with my vision than "next action prediction"
 - [[Experiment Plan - Old]]
-- backbone of a background monitor that learns to mimic, then infer goals, then assist feels very robust across text, visual, audio, digital, and physical domains
-	- personal models / interaction models / proactive models + local data exposure will collect tacit knowledge orders of magnitude more than systems that take a prompt and work for hours
+- 
 - still such a banger https://thinkingmachines.ai/blog/interaction-models/. every source they city resonates ^15beb6
 - supporting takes. "continual data for continual learning"
 	- omega bangers from deepseek founder
@@ -135,7 +142,7 @@ The ~\$600B figure is an estimate of the annual global cost to businesses of act
 	- open core where software is open source but the hosted version to not worry about hardware, local llms, retraining, etc is closed source? or just full closed source? soc 2 compliance?
 	- probably would open source the data cleaning pipeline. then iterate on algorithms + applications to make it useful, although people could make it useful as they see fit. that seems most value creative.
 	- the indeterminate part of the stack that is likely to last longer is the data pipeline. the algorithms and suggestion application less so
-- pushing further
+- pushing further / unresolved steps
 	- predicting multiple actions instead of one action seems similar to trying to get to goals faster but it requires a world model. for example if a model is going to predict a prompt i type in, and it 'knows' im going to need a follow up prompt to actually get what i want, it should recommend the fixed prompt before hand. unclear whether it can do this from the BC and IPO formulation, which is why i was gunning so hard for the reward inference, but then the conversation around local explicit goals being written down made it unclear whether it could do that when those exist
 	- it would be great to be more clear about how next action prediction could lead to next N action prediction, i.e. instead of suggesting collecting a piece of context to give to a model, then collecting another piece of context, etc, just generate the entire prompt better and faster than i would have written it.
 	- still a tension between behavior cloning and superhuman performance. since the original goal was to implicitly detect goal and then suggest something / take some action to get me there faster
