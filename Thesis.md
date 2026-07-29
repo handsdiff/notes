@@ -37,7 +37,9 @@ The ~\$600B figure is an estimate of the annual global cost to businesses of act
 
 # Misc Notes
 
+- [[Experiment Plan - Old]]
 - backbone of a background monitor that learns to mimic, then infer goals, then assist feels very robust across text, visual, audio, digital, and physical domains
+	- personal models / interaction models / proactive models + local data exposure will collect tacit knowledge orders of magnitude more than systems that take a prompt and work for hours
 - supporting takes. "continual data for continual learning"
 	- omega bangers from deepseek founder
 		- https://x.com/teortaxesTex/status/2080158170857574747/photo/1

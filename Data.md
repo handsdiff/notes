@@ -13,8 +13,7 @@ likely need to
 	- does defining actions as time steps like this make sense (i.e. git commit after x seconds of no action as natural 'states')? how does it relate to thinking machines focus on 'time based' chunking of data? worth exploring. time based vs turn based. they have an SGLang PR that I should review.
 		- still such a banger https://thinkingmachines.ai/blog/interaction-models/. every source they city resonates ^15beb6
 		- "with a wider release later this year"
-		- personal models / interaction models / proactive models + local data exposure will collect tacit knowledge orders of magnitude more than systems that take a prompt and work for hours
-	- maybe the lack of this work publicly is simply that the data production + data cleaning combination is too high of a hill to climb?
+		- 
 - [[Interaction#^f5c205]]
 - [[Interaction]] overall
 - https://arxiv.org/pdf/2309.12170 older RNN predicting mouse/keyboard data
@@ -128,12 +127,7 @@ likely need to
 	- does this work for obsidian writes, browser search, ai chats, paper reading, x reading?
 - 
 
-
-
-
-
-
-## current scope
+#### initial plan
 
 Build and deploy sensors from scratch, then iterate from what they actually expose rather than predefining the final data structure.
 
