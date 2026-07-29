@@ -116,7 +116,7 @@ likely need to
 
 
 #### more formal notes
-- wait DELAY (perhaps ) seconds after a keyboard entry or mouse movement or mouse scroll, then take a SNAPSHOT
+- wait DELAY (perhaps 3) seconds after a keyboard entry or mouse movement or mouse scroll, then take a SNAPSHOT
 - a SNAPSHOT takes the text that the user is likely *actually* looking at, rather than the full screen, to best simulate actual inbound information
 - collection surfaces will be informed by actual implementation, but likely covers codex app, browser use
 - 
