@@ -274,6 +274,8 @@ algorithms considered and rejected for now and why: (there are likely practicali
 		- 
 	- https://github.com/ramp-public/portallib portable lora from ramp, open source code, may be useful
 		- 
+	- ECHO https://arxiv.org/pdf/2605.24517
+		- classic algo surprised i missed it. basically learns how the env reacts to actions. very solid. perhaps useful for later phases
 
 - is phase 1 a process reward model?
 - does phase 1 result in an 'implicit' reward model?
