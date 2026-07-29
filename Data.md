@@ -16,38 +16,7 @@ likely need to
 - might help with data ingestion, seemingly open source/self hosted granola https://github.com/Zackriya-Solutions/meetily
 	- https://github.com/ExistentialAudio/BlackHole
 - data discussion https://gemini.google.com/app/434faa2eae499b25 for our work
-
-
-- new algorithms in [[Algorithms]], plus just how the relevant algorithms like longNAP structure data
-- very informative and critical reward inference discussion with papers foundational from dragan that i havent come across otherwise https://gemini.google.com/app/4f984ce16e37337a, includes data structure discussion and examples
-- thought dump
-	- Taking helpful action rather than mimic action is a core tension since there’s plenty of things i would like but don’t actually do since it’s difficult or high friction. Relates to proactive and prospective learning, as well as embodied intelligence.
-	- Does action mimicry lead to action assistance? Depends on reward inference. I’ve laid out one path, should identify and dig deeper if needed on biggest assumptions and unknowns
-	- Mimicking leads to thinking around continual learning which may not be the right direction vs taking a helpful action directly, which may devolve into recsys, but maybe it’s something with a set of new properties I need to be more rigorous about
-	- The way it DOES map is when I run into an issue and then actually solve it, given the context.
-	- If I solve it in a multi step way that relates to previous notes around wanting the model to suggest the N steps required for my goal, or if it can condense it into one step even better, rather than just walk me through the existing steps a bit faster. That’s likely the start of it though
-	- Maybe should store all data, and just filter by “in sight/mind” data, since might want to use the additional data later, for the purposes of having flexible data collection. Screenpipe? I guess not screenpipe since that by itself won’t allow me to filter into “in sight”. Need to collect both since “in sight” is an additional “feature flag” while collecting all the data
-	- tentative data plan is set up a debugging app thats always on my screen, not tracked, and that maps with highest fidelity what i read and write into an event stream. should properly demarcate i.e. put consolidate stream into events, should include full links for eventual 'full' data not just 'view' data, and should include timestamps which may not necessarily be trained on but turn based vs time based is a big open question
-- rubric engineering seems so manual. "i know it when i see it"/reward inference may be better but it involves human in the loop. it comes down to trust architecting. lots of related concepts i think.
-- internalizing continual learning
-	- what shape of continual learning, from an algorithmic perspective, do I most believe in? How does this impact data collection as a valuable slice, as well as the shape of the data processing?
-	- what are the hardware bottlenecks to continual learning? how do compute resources change on a very fundamental level with continual retraining?
-	- does my intended SFT approach (autoregressive train on next action prediction i.e. causal mask) violate i.i.d. data assumptions? does shopify's generative recommender have the same issue? what do those assumptions actually mean in practice? do all online or continual learning setups violate this? how does this relate to the practice of storing rollouts in a buffer that you then sample from? does that essentially fix i.i.d. for continual learning scenarios?
-		- https://gemini.google.com/app/9de51346992f5bae wild stuff
-- problems
-	- annoying giving codex obsidian links over and over
-	- annoying telling codex it can ssh into desktop, it should now
-	- "get xiao wang" but contextless ai doesnt know how, from deepseek founder
-- like these concepts as a demo
-	- "you can put knowledge in a prompt but you can't put skill in a prompt"
-	- tacit knowledge, skills vs information from will brown. weights distilling judgment. visceral example of same context -> different output. 
-- prime intellect, inference net, freesolo, unsloth, tinker, self stack as possible training options
-- https://github.com/ramp-public/portallib portable lora from ramp, open source code, may be useful
-- if you scroll too fast to read then it shouldnt be marked as a read. this is probably handled by waiting 3 seconds to scroll
-- if im writing in one window with another window open, is that text being read?
-- perhaps useful for the agent chart part of capture [0001-trajectory-format.md](https://github.com/harbor-framework/harbor/blob/main/rfcs/0001-trajectory-format.md) [trajectory-v1.schema.json](https://github.com/letta-ai/trajectory/blob/main/schema/trajectory-v1.schema.json)
 - i think in some sense, if there isnt enough data, that implies a better interaction surface like [[Product]]. if there is enough data, a better interaction surface may still be necessary, but may not be the most important thing vs market visibility and positioning
-- 
 - context details
 	- big question for data codification is whether you give a tool call to fetch the content of a web page rather than the content itself during training. how does that change the state and action space? does it more clearly separate the action space of the agent from the state space of the environment? are there two environments?
 		- lots of good information that seems relevant in this guys feed https://x.com/oneill_c
@@ -55,11 +24,15 @@ likely need to
 	- how do harnesses actually handle context and content fetching? if it fetches a website that has 10M tokens, what does it do? or if it runs a terminal command that has 2M tokens worth of lines, what does it do? there must be context management logic? is it basic sliding window? compression? (longNAP implementation likely sheds some light on this)
 		- answered here https://gemini.google.com/app/ffa1c56253618253. for search, basically fetches initial segment of predefined length, saving rest to a local sandbox file that supports pagination or grep for future tool calls. for commands, fetches head and tail of predefined lengths, saving full to a local sandbox file that supports grep
 		- context management logic basically involves summarizing history when context gets too close to limit, saving last N turns for consistency
-- still unclear whether you need to apply synthetic q/a self study to the data to improve understanding rather than memorization, and how that relates to maintaining support for question answering / chatting, and how that relates to introducing reasoning rather than pure SFT. although these are likely later ablations rather than initial work
-- if i click into my obsidian to type something, am i now reading the set of text around where im typing?
 
+
+- new algorithms in [[Algorithms]], plus just how the relevant algorithms like longNAP structure data
+- very informative and critical reward inference discussion with papers foundational from dragan that i havent come across otherwise https://gemini.google.com/app/4f984ce16e37337a, includes data structure discussion and examples
 
 #### more formal notes
+- iteration plan
+	- for the data, i likely need to do my normal work, then have a separate window that is not tracked that logs the read/write stream. and i need to confirm over the course of a day or two that its a high fidelity representation of my actual inputs and outputs. 
+	- tentative data plan is set up a debugging app thats always on my screen, not tracked, and that maps with highest fidelity what i read and write into an event stream. should properly demarcate i.e. put consolidate stream into events, should include full links for eventual 'full' data not just 'view' data, and should include timestamps which may not necessarily be trained on but turn based vs time based is a big open question
 - wait WRITE_DELAY (perhaps 3) seconds after a keyboard entry and READ_DELAY (perhaps 1 second) mouse movement or mouse scroll or mouse click, then take a SNAPSHOT
 	- actual values will need to be tuned through iteration of the demo app displaying stored data
 	- the purpose of the delay is to reduce noise associated with backspacing, typos, etc while writing. the downside is missing critical actions, since per the deduplication, we'll essentially be looking for diffs from the previous state which may be lost depending on the use case
@@ -67,11 +40,13 @@ likely need to
 		- need to handle copy / paste actions from different apps into obsidian to not mistake that for user typing
 		- need to handle moving a cursor in between sentences across notes or anywhere else typing is occurring, editing, deletion, typos, etc
 		- git across my entire computer wherever im writing? it nicely handles breaking down actions into chunks, whereas raw keystrokes have a ton of noise around moving cursors, backspacing, typos, etc. hmmm.
+	- if you scroll too fast to read then it shouldnt be marked as a read. this is probably handled by waiting READ_DELAY seconds to scroll
 - a SNAPSHOT takes the text that the user is likely *actually* looking at, rather than the full screen, to best simulate actual inbound information
 	- will be informed by actual implementation, but should probably start with ignoring unselected/unfocused windows, unless it's a video, but perhaps for v0.1 we ignore video.
 	- should take the 'middle' of the screen as much as possible, maybe like 30% borders from the left, right, and 50% from the bottom
 	- should ensure overlapping data is completely removed before storing as an event, specifically the content
 	- ignoring audio and video for now since transcription feels trivial relative
+	- if i click into my obsidian to type something, am i now reading the set of text around where im typing?
 - collection surfaces will be informed by actual implementation, but likely covers codex app, browser use, obsidian
 - the text from a SNAPSHOT is converted into a DATA STRUCTURE. this can likely be heavily optimized, so we want to start from something that contains more information than necessary that is able to then be filtered, so the simplest is likely json
 	- needs to handle reading something then scrolling back up to reread it, which i would probably include again. this is different from the deduplication which is more for successive events containing the same data while i spend time reading it. but maybe we shouldnt even de-dup that, since that implies more of an impression on my thinking? if you incorporate that with time, it implies that connections are possibly being made
@@ -83,7 +58,6 @@ likely need to
 	- when i delete something in obsidian, i am focusing on a potential input field, but no write action occurs. i mean technically one does, but not with content. hmmm
 	- how does 'no recommendation' fit into the framework?
 - one way to frame the data construction question is what level of 'noise' is acceptable? for instance i probably want to exclude clicking around obsidian to copy paste something, but probably want to include when i write down a long train of thought, but would that mess up the dataset construction since its no longer cleanly autoregressive?
-- for the data, i likely need to do my normal work, then have a separate window that is not tracked that logs the read/write stream. and i need to confirm over the course of a day or two that its a high fidelity representation of my actual inputs and outputs. 
 
 
 #### initial plan

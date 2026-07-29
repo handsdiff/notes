@@ -255,19 +255,24 @@ algorithms considered and rejected for now and why: (there are likely practicali
 		- reminds me of idbd by sutton in how the original paper detects important / not important weights and resets accordingly (super hand wavy but generally accurate description)
 		- found in non LLMs ^, no prescription in future work on LLMs
 	- https://people.idsia.ch/~juergen/1991-unnormalized-linear-transformer.html
+		- 
 	- https://arxiv.org/pdf/2607.20465 data prep bench
 		- tests a bunch of models on their ability to generate good QA-style SFT examples
 		- might be useful if that is needed later
 	- open source dreamer v4 https://next-state.github.io/open-dreamer/
+		- 
 	- https://arxiv.org/pdf/2607.16097 quantifies SFT vs RL
 		- lots of details but essentially shows that RL performance is positively correlated to SFT performance in terms of ceiling and training speed, it can also extend low prob SFT moves if they're useful, while reinforcing strong moves
 		- has more details on actual numbers
 	- https://docs.adaptionlabs.ai/api/resources/autoscientist/methods/create essentially productizes autoresearch on your data, from my understanding. may be useful later
+		- 
 	- https://arxiv.org/pdf/2607.11020 researches whether an LLM can learn facts into weights continuously
 		- seems counterpositioned to the cartridges paper which makes it seem like you can actually do this
 		- i feel like weights aren't for facts though. weights are for converting information to action (still need a good word for this)
 		- interesting take from the author in a later MTS interview that kimi k3 was increasingly trained on 'work' rather than on 'answers' and that that is the direction of training
 	- https://arxiv.org/pdf/2507.21071v2 fingertip 20k, like longNAP at a high level but mobile, from tsinghua
+		- 
+	- https://github.com/ramp-public/portallib portable lora from ramp, open source code, may be useful
 		- 
 
 - is phase 1 a process reward model?
@@ -393,3 +398,10 @@ big blocking question right now is related to the above context details point, w
 discusses research similar to longNAP https://claude.ai/chat/d3de1f6d-cd67-404b-a93a-936b3a662d7e
 	- the most interesting related paper which I put into algorithms uses something called LifeTrace for collecting data, takes snapshots at 1 Hz (can we track keyboard usage and snapshot during a pause, like it occurs in git in this obsidian?)
 	- another one frames 'when to assist' as when its high likelihood that the "user would turn to an AI assistant right now" which is interesting
+
+internalizing continual learning
+	- what shape of continual learning, from an algorithmic perspective, do I most believe in? How does this impact data collection as a valuable slice, as well as the shape of the data processing?
+	- what are the hardware bottlenecks to continual learning? how do compute resources change on a very fundamental level with continual retraining?
+	- does my intended SFT approach (autoregressive train on next action prediction i.e. causal mask) violate i.i.d. data assumptions? does shopify's generative recommender have the same issue? what do those assumptions actually mean in practice? do all online or continual learning setups violate this? how does this relate to the practice of storing rollouts in a buffer that you then sample from? does that essentially fix i.i.d. for continual learning scenarios?
+		- https://gemini.google.com/app/9de51346992f5bae wild stuff
+- 

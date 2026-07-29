@@ -18,11 +18,11 @@
 		- promoted teacher only after validation improved
 		- does RSI lead to frontier models that can develop these algorithms for you? does that imply that you can always achieve better than frontier performance?
 - computer use companies like Markov may help with raw capture, from which causal event data can be constructed in theory. in practice its unclear if there is uncaptured data when it comes down to brass tacks
-- can implement on hugging face, tinker, prime intellect, unsloth, axolotl, freesolo, custom build, etc
+- can implement on hugging face, inference net, tinker, prime intellect, unsloth, axolotl, freesolo, custom build, etc
 - i suspect for phase 1 the goal will be to learn token level structure before it can learn action level content. you might get a loss discontinuity (via early flatlining before more data shows improved loss due to content learning beginning)
 - if 80% and growing amount of write actions are just prompting agents, what does the phase 1 model learn?
 - the intended base model starting point does not have user assistant trained into it
-	- 
+- still unclear whether you need to apply synthetic q/a self study to the data to improve understanding rather than memorization, and how that relates to maintaining support for question answering / chatting, and how that relates to introducing reasoning rather than pure SFT. although these are likely later ablations rather than initial work
 
 ## Abstract
 

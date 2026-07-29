@@ -114,3 +114,8 @@ maintaining links between lines/notes in obsidian is honestly annoying
 continual learning should make hugging face, or more specifically open weights for models at different “stages” of learning, much more important. Like git for weights. Who’s building this? Would likely need a custom diff view or some other “interpretability”
 
 easier to render diffs now? https://diffs.com/ from code storage team
+
+problems
+	- annoying giving codex obsidian links over and over
+	- annoying telling codex it can ssh into desktop, it should now
+	- "get xiao wang" but contextless ai doesnt know how, from deepseek founder

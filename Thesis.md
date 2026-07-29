@@ -136,3 +136,13 @@ The ~\$600B figure is an estimate of the annual global cost to businesses of act
 	- predicting multiple actions instead of one action seems similar to trying to get to goals faster but it requires a world model. for example if a model is going to predict a prompt i type in, and it 'knows' im going to need a follow up prompt to actually get what i want, it should recommend the fixed prompt before hand. unclear whether it can do this from the BC and IPO formulation, which is why i was gunning so hard for the reward inference, but then the conversation around local explicit goals being written down made it unclear whether it could do that when those exist
 	- it would be great to be more clear about how next action prediction could lead to next N action prediction, i.e. instead of suggesting collecting a piece of context to give to a model, then collecting another piece of context, etc, just generate the entire prompt better and faster than i would have written it.
 	- still a tension between behavior cloning and superhuman performance. since the original goal was to implicitly detect goal and then suggest something / take some action to get me there faster
+- thought dump
+	- Taking helpful action rather than mimic action is a core tension since there’s plenty of things i would like but don’t actually do since it’s difficult or high friction. Relates to proactive and prospective learning, as well as embodied intelligence.
+	- Does action mimicry lead to action assistance? Depends on reward inference. I’ve laid out one path, should identify and dig deeper if needed on biggest assumptions and unknowns
+	- Mimicking leads to thinking around continual learning which may not be the right direction vs taking a helpful action directly, which may devolve into recsys, but maybe it’s something with a set of new properties I need to be more rigorous about
+	- The way it DOES map is when I run into an issue and then actually solve it, given the context.
+	- If I solve it in a multi step way that relates to previous notes around wanting the model to suggest the N steps required for my goal, or if it can condense it into one step even better, rather than just walk me through the existing steps a bit faster. That’s likely the start of it though
+- like these concepts as a demo
+	- "you can put knowledge in a prompt but you can't put skill in a prompt"
+	- tacit knowledge, skills vs information from will brown. weights distilling judgment. visceral example of same context -> different output. 
+	- 
