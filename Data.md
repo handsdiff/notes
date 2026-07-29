@@ -125,7 +125,7 @@ likely need to
 - collection surfaces will be informed by actual implementation, but likely covers codex app, browser use, obsidian
 - the text from a SNAPSHOT is converted into a DATA STRUCTURE. this can likely be heavily optimized, so we want to start from something that contains more information than necessary that is able to then be filtered, so the simplest is likely json
 - the json likely has read/write boolean field, author/source field, link optional field, content field, where the content should likely be markdown
-- does this work for obsidian writes, browser search, ai chats, paper reading, x reading?
+	- does this work for obsidian writes, browser search, ai chats, paper reading, x reading?
 - 
 
 
