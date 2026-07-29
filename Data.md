@@ -16,8 +16,7 @@ likely need to
 - data structure comp https://github.com/tsinghua-fib-lab/FingerTip-20K
 - new algorithms in [[Algorithms]], plus just how the relevant algorithms like longNAP structure data
 - data discussion https://gemini.google.com/app/434faa2eae499b25 for our work
-- this has a nice framework for data structure, even though i disagree / am confused about some of his main desires https://gwern.net/guardian-angel#ux
-- i suspect for phase 1 the goal will be to learn token level structure before it can learn action level content. you might get a loss discontinuity (via early flatlining before more data shows improved loss due to content learning beginning)
+- 
 - data cleaning likely needs to ensure formatting is skipped, duplicates are handled, and for phase 2 if the agent doesn't have any reasonably confident completions, it shows nothing
 - is it possible for reasoning to fit into the next write prediction? is this desired? worth testing in [[Phase 1#8. Experimental Program]]? something to be explicitly trained?
 - should read data be text or html? pros/cons?
