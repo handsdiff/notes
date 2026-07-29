@@ -403,56 +403,74 @@ procedure OVERNIGHT_UPDATE(model_d, day_examples, replay_index, config):
 
 ## 7. Evaluation
 
-The frozen data conversion determines the unit being predicted: one candidate human write action and the records available before it. Evaluation should not assume a more elaborate action ontology than the sensor has established. It should answer four questions:
+At each action boundary, the frozen data conversion produces:
 
-1. Can the model predict the content the person actually wrote?
-2. Does the correctly timed personal information improve that prediction?
-3. Does learning from earlier actions improve later predictions beyond merely putting history in context?
-4. Does continual updating damage older personal behavior or general model capabilities?
+$$
+(h_t,y_t),
+$$
 
-### 7.1 Predicting the actual next write
+where $h_t$ is the causally available personal information and $y_t$ is the human-authored action content that actually followed. Evaluation measures prediction of $y_t$, the contribution of information in $h_t$, and the contribution of personal learning already stored in the model weights.
 
-Every action is scored before the model trains on it. When token probabilities are available, the primary distributional measurement is mean target-token negative log-likelihood for the complete action. This measures how much probability the model assigned to what the person actually wrote, rather than whether one decoded sample happened to resemble it.
+Every action is evaluated before it becomes training data. Model weights remain fixed during the day, all conditions receive the same target, and each alternative context is produced by an explicit intervention on the frozen pre-action record pool.
 
-When the model is asked to generate the action, also compare the generated content with the actual human-authored content. The initial candidate is cosine similarity under one frozen embedding model, using a fixed decoding procedure and output budget. Record the generated text and length alongside the score so that empty, generic, copied, or truncated predictions remain inspectable. This semantic score measures similarity of the realized output, not calibrated probability.
+### 7.1 Prediction measurements
 
-If the same cosine similarity is used as the RL reward in Experiment 3, improvement on that score is expected and is still relevant, but it cannot be the only evaluation. Target likelihood and inspection of prospective predictions are needed to distinguish a better action predictor from direct exploitation of the chosen embedding measure.
+The first measurement is action-level negative log-likelihood:
 
-Loss is first averaged within each action. Results are then reported by day, including the distribution of action-level scores within the day. Token-level likelihoods are compared only where tokenization and probability access make the comparison valid. Semantic generation scores can compare otherwise incompatible models if every condition uses the same target, embedding model, decoding rule, and output budget.
+$$
+\operatorname{NLL}(y_t\mid h_t,\theta)
+=
+-\frac{1}{|y_t|}
+\sum_{j=1}^{|y_t|}
+\log p_\theta(y_{t,j}\mid h_t,y_{t,<j}).
+$$
 
-Operation, location, and action-family accuracy are not initial metrics. They become valid only if inspection of the collected data produces reliable definitions and labels for those properties.
+This measures the probability assigned to the complete action the person produced. It is used for comparisons that share compatible tokenization and probability access.
 
-### 7.2 Does the preceding information matter?
+The second measurement evaluates the action the model generates. Under a fixed decoding rule and output budget, let $\hat y_t$ be the predicted action. Its content is compared with the actual action using cosine similarity under a frozen embedding model:
 
-The strongest evidence for an input-to-action mapping is a paired context intervention. The same checkpoint predicts the same action under:
+$$
+\operatorname{SemSim}(\hat y_t,y_t)
+=
+\cos\!\left(\phi(\hat y_t),\phi(y_t)\right).
+$$
 
-1. the current artifact or local surface alone;
-2. the correctly timed causal event stream;
-3. a matched control in which earlier records are removed, reordered, or replaced with records from the wrong time while context budget and serialization remain fixed as closely as possible.
+The generated text, target text, and score are retained together for inspection. NLL measures the model's distribution over the observed action; semantic similarity measures the content of the outbound action it actually predicts. The learning-objective ablation reports both.
 
-For each action, compute the change in target likelihood and generated-action similarity between the correct context and each control. The paired difference matters more than the absolute score: a capable language model may predict plausible text without using the personal information at all.
+Scores are calculated per action and then summarized by day. The report retains the distribution of action-level scores within each day so that a long session or a large action does not dominate the result.
 
-If correct history does not outperform a length-matched wrong-time history, Phase 1 has not shown that the captured information explains the outbound action. Later interventions can remove particular source records or time ranges to identify which prior information mattered. These should be introduced in response to the observed stream rather than by assuming application or action categories in advance.
+### 7.2 Measuring the information-to-action mapping
 
-Any trivial heuristic baseline must likewise be defined as an executable predictor after inspecting the action distribution. “Last action” or “common action” is not a baseline until it specifies the exact content it outputs and how that output is scored.
+For each target action, the same checkpoint is evaluated with three versions of its input:
 
-### 7.3 Does learning reside in the weights?
+1. the current artifact or local application state;
+2. the correctly timed causal history;
+3. a matched history with earlier records removed, reordered, or drawn from the wrong time.
 
-Context and weight learning are separate effects. To measure weight adaptation, the current model and its comparison checkpoints receive the exact same frozen context for the same future action. Compare:
+Context length and serialization are held fixed as closely as the intervention permits. Two paired effects are reported for both NLL and semantic similarity:
+
+- **history value:** correct causal history versus the current artifact alone;
+- **temporal value:** correct causal history versus the matched wrong-time history.
+
+The first measures whether prior personal information helps predict the action. The second measures whether the specific information available at that point in time matters, rather than merely the presence of additional personal text. Ablations over particular records or time ranges can later localize which parts of the causal history account for the improvement.
+
+### 7.3 Measuring learning in the weights
+
+To isolate the effect of personal training, different checkpoints predict the same action from the same causal context:
 
 - the unadapted base model;
 - the current continually updated checkpoint;
-- retained checkpoints whose personal-data cutoffs are one, three, and seven days earlier.
+- retained checkpoints with personal-data cutoffs one, three, and seven days earlier.
 
-The base-to-current difference estimates the cumulative value of personal weight updates. Current-to-lagged differences estimate the value—or harm—of recent updates. All checkpoints remain fixed during the day and are scored on identical actions before those actions become training data. A history-context improvement is therefore not mislabeled as learning in weights, and a stronger checkpoint is not allowed to receive better information.
+The base-to-current difference measures the cumulative predictive value of personal weight updates. The current-to-lagged differences measure the value of the most recent updates. Each checkpoint remains fixed throughout the day, and the action is scored before any of the compared models train on it.
 
-### 7.4 Retention and reporting
+### 7.4 Retention and chronological reporting
 
-Personal retention is measured in two ways. Before accepting an overnight update, compare the parent and candidate on a fixed audit sample of earlier examples; this detects immediate forgetting but is not evidence of generalization because those actions may have been trained on. The stronger evidence is performance when older subjects, artifacts, or behaviors naturally recur in later pre-update actions.
+Before an overnight candidate replaces its parent, both are evaluated on the same audit sample of earlier personal examples. The change measures immediate retention of previously learned behavior. Performance on later pre-update actions that return to older work provides the prospective measure of whether that behavior remained useful.
 
-General capability retention is a separate safety measurement. Select and freeze a named external evaluation suite before the prospective run, then report candidate-versus-parent changes separately from personal prediction results. It should not be folded into a composite Phase 1 score.
+General capability retention is measured on a fixed external suite selected before the prospective run. These results are reported separately from personal next-action prediction.
 
-Development and prospective data follow the chronological protocol in Section 4.3. The principal report is the sequence of pre-update daily results and paired intervention effects, not a single aggregate detached from time. Initial runs should expose the variance and failure modes before fixing a universal success threshold.
+Development and prospective collection follow Section 4.3. The principal result is the chronological sequence of daily pre-update scores together with the paired history, timing, and checkpoint effects. This preserves when each prediction was made, what information was available, and what personal data each model had already learned.
 
 ## 8. Initial Experimental Program
 
