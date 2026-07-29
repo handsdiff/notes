@@ -348,7 +348,7 @@ $$
 }.
 $$
 
-The candidate model is initialized from $\theta_d$, optimized on the recent/replay mixture, checked for numerical failure and major capability regression, and then stored as $\theta_{d+1}$. A parameter-efficient adapter is the default initial implementation because it makes daily training, versioning, and rollback tractable; the data and objective are unchanged if later experiments use full-model updates.
+The candidate model is initialized from $\theta_d$, optimized on the recent/replay mixture, checked for numerical failure and major capability regression, and then stored as $\theta_{d+1}$. A parameter-efficient adapter is the default initial implementation because it makes daily training, versioning, and rollback tractable; the data and objective are unchanged if later experiments use full-model updates. Practical starting points for LoRA learning rate, batch size, rank, scaling, and epoch count are reported by O'Neill et al. [8]; these are sweep priors rather than assumed optima because their study uses static, judge-filtered SFT data rather than continual personal action data.
 
 The objective estimates behavior. It does not assert that the observed action was optimal, identify a reward function, or require a labeled goal.
 
@@ -580,3 +580,5 @@ If this works, the result is a validated data substrate and a personal behaviora
 [6] X. Jin et al. [*Lifelong Pretraining: Continually Adapting Language Models to Emerging Corpora*](https://arxiv.org/abs/2110.08534). 2022.
 
 [7] Qwen Team. [*Qwen3.5-9B-Base Model Card*](https://huggingface.co/Qwen/Qwen3.5-9B-Base). 2026.
+
+[8] C. O'Neill, M. Jayasekara, and H. Partridge. [*Post-Training Science for Supervised Fine-Tuning*](https://www.datocms-assets.com/104802/1781805778-baseten-research-sft.pdf). 2026.
