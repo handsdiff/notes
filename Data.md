@@ -4,7 +4,7 @@ likely need to
 3) implement the data ingestion and cleaning pipeline and monitor it
 	1) codify data structure needed for chosen algorithms, codify how to extract from base data structure to algorithm structure for each step, set up all ingestion points and monitor cleanliness
 
-disparate notes:
+#### disparate notes
 - [[Experiment Plan - Old]]
 - some nitpicks for data construction ^527840
 	- need to handle copy / paste actions from different apps into obsidian to not mistake that for user typing
@@ -113,6 +113,15 @@ disparate notes:
 		- answered here https://gemini.google.com/app/ffa1c56253618253. for search, basically fetches initial segment of predefined length, saving rest to a local sandbox file that supports pagination or grep for future tool calls. for commands, fetches head and tail of predefined lengths, saving full to a local sandbox file that supports grep
 		- context management logic basically involves summarizing history when context gets too close to limit, saving last N turns for consistency
 - still unclear whether you need to apply synthetic q/a self study to the data to improve understanding rather than memorization, and how that relates to maintaining support for question answering / chatting, and how that relates to introducing reasoning rather than pure SFT. although these are likely later ablations rather than initial work
+
+
+#### more formal notes
+- wait DELAY seconds after a keyboard entry or mouse m
+
+
+
+
+
 
 ## current scope
 
