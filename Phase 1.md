@@ -466,7 +466,7 @@ Collect Obsidian, browser, and AI-chat events prospectively. Test whether correc
 
 ### Experiment 3: Ablation matrix
 
-All seven comparisons use the same live daily protocol. On a given day, every condition scores the same actions in the same order before any weight update. Earlier actions from that day enter the causal context for later actions. Cross-model contexts are frozen by event IDs and serialized text so that every model receives the same information, regardless of tokenizer. Open-model updates occur only after the complete day has been scored.
+All eight comparisons use the same live daily protocol. On a given day, every condition scores the same actions in the same order before any weight update. Earlier actions from that day enter the causal context for later actions. Cross-model contexts are frozen by event IDs and serialized text so that every model receives the same information, regardless of tokenizer. Open-model updates occur only after the complete day has been scored.
 
 **Learning Objective**. Replace token level cross entropy loss + behavior cloning with cosine similarity on the embeddings of the ground truth and predicted outputs as the reward for GRPO or RLOO. This compares the rigidity and accuracy of behavior cloning on sequence likelihoods with the flexibility and semanticity of cosine similarity reward maximization.
 
@@ -496,7 +496,7 @@ Phase 1 succeeds when the collector produces auditable causal examples and the c
 4. add browser and AI-chat sensors and repeat the same inspection loop;
 5. freeze and version one snapshot-to-event and write-target conversion;
 6. reconstruct historical note edits as a pipeline test without treating them as a complete historical stream;
-7. implement the deterministic serializer and fixed causal suffix;
+7. implement the deterministic serializer and fixed causal prefix;
 8. build the masked behavioral-cloning dataset and baseline harness;
 9. implement the daily evaluate-then-update loop;
 10. add stratified historical replay and immutable model lineage;
