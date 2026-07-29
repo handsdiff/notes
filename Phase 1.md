@@ -403,52 +403,56 @@ procedure OVERNIGHT_UPDATE(model_d, day_examples, replay_index, config):
 
 ## 7. Evaluation
 
-### 7.1 Primary measurement
+The frozen data conversion determines the unit being predicted: one candidate human write action and the records available before it. Evaluation should not assume a more elaborate action ontology than the sensor has established. It should answer four questions:
 
-The primary metric is pre-update action-token negative log-likelihood. For each day, first average target-token loss within each action and then average across actions. Report the distribution across days so that one long editing session does not masquerade as many independent successes. Raw token-level losses are compared only when tokenization and probability access are compatible; cross-model comparisons also use the action-level metrics available for every condition.
+1. Can the model predict the content the person actually wrote?
+2. Does the correctly timed personal information improve that prediction?
+3. Does learning from earlier actions improve later predictions beyond merely putting history in context?
+4. Does continual updating damage older personal behavior or general model capabilities?
 
-Secondary measurements include:
+### 7.1 Predicting the actual next write
 
-- operation accuracy;
-- location accuracy;
-- exact or semantic top-$k$ inclusion when generation is evaluated;
-- performance by application, action family, target length, and provenance.
+Every action is scored before the model trains on it. When token probabilities are available, the primary distributional measurement is mean target-token negative log-likelihood for the complete action. This measures how much probability the model assigned to what the person actually wrote, rather than whether one decoded sample happened to resemble it.
 
-All model and context-length comparisons are paired on identical actions and use the same chronological evaluate-then-update protocol.
+When the model is asked to generate the action, also compare the generated content with the actual human-authored content. The initial candidate is cosine similarity under one frozen embedding model, using a fixed decoding procedure and output budget. Record the generated text and length alongside the score so that empty, generic, copied, or truncated predictions remain inspectable. This semantic score measures similarity of the realized output, not calibrated probability.
 
-### 7.2 Minimal baselines and controls
+If the same cosine similarity is used as the RL reward in Experiment 3, improvement on that score is expected and is still relevant, but it cannot be the only evaluation. Target likelihood and inspection of prospective predictions are needed to distinguish a better action predictor from direct exploitation of the chosen embedding measure.
 
-The experimental program compares:
+Loss is first averaged within each action. Results are then reported by day, including the distribution of action-level scores within the day. Token-level likelihoods are compared only where tokenization and probability access make the comparison valid. Semantic generation scores can compare otherwise incompatible models if every condition uses the same target, embedding model, decoding rule, and output budget.
 
-1. last-action, common-action, and edit-location heuristics;
-2. the same base model with only the current artifact;
-3. the same model with the correct trailing personal event stream;
-4. the same model with shuffled, wrong-time, or timestamp-damaged history;
-5. the continually adapted model with correct history.
+Operation, location, and action-family accuracy are not initial metrics. They become valid only if inspection of the collected data produces reliable definitions and labels for those properties.
 
-The comparison should show whether the event stream adds content-predictive signal beyond repetition, location, and writing style. Wrong-time controls test the temporal construction directly: if damaged chronology performs as well as correct chronology, the collector is not supplying the hypothesized signal.
+### 7.2 Does the preceding information matter?
 
-The context, checkpoint, and model-capability comparisons are defined separately in the experiment matrix in Section 8.
+The strongest evidence for an input-to-action mapping is a paired context intervention. The same checkpoint predicts the same action under:
 
-### 7.3 Continual-learning measurements
+1. the current artifact or local surface alone;
+2. the correctly timed causal event stream;
+3. a matched control in which earlier records are removed, reordered, or replaced with records from the wrong time while context budget and serialization remain fixed as closely as possible.
 
-Track:
+For each action, compute the change in target likelihood and generated-action similarity between the correct context and each control. The paired difference matters more than the absolute score: a capable language model may predict plausible text without using the personal information at all.
 
-- pre-update prediction loss by day;
-- improvement or regression after each overnight update;
-- current-day prediction under checkpoints with data cutoffs one, three, and seven days earlier;
-- performance when older applications and action families recur;
-- performance by recency of the relevant history;
-- a small static suite for reasoning, instruction following, tool use, and unfamiliar tasks;
-- the effect of recent/replay mixture on adaptation and retention.
+If correct history does not outperform a length-matched wrong-time history, Phase 1 has not shown that the captured information explains the outbound action. Later interventions can remove particular source records or time ranges to identify which prior information mattered. These should be introduced in response to the observed stream rather than by assuming application or action categories in advance.
 
-Replay succeeds when current prediction improves without systematic degradation on recurring older behavior or the external capability suite.
+Any trivial heuristic baseline must likewise be defined as an executable predictor after inspecting the action distribution. “Last action” or “common action” is not a baseline until it specifies the exact content it outputs and how that output is scored.
 
-### 7.4 Development and prospective reporting
+### 7.3 Does learning reside in the weights?
 
-Historical days used while the protocol is being changed are development data even though every action is scored before training. Once segmentation, serializer, context lengths, replay mixture, optimizer, and metrics are fixed, the complete daily loop is run over a later prospective interval without changing those choices.
+Context and weight learning are separate effects. To measure weight adaptation, the current model and its comparison checkpoints receive the exact same frozen context for the same future action. Compare:
 
-This is not a static held-out test set. After a prospective day is scored, its examples enter that night's update and may improve prediction on later prospective days. The reported result is the chronological sequence of losses produced by the frozen evaluate-then-update protocol.
+- the unadapted base model;
+- the current continually updated checkpoint;
+- retained checkpoints whose personal-data cutoffs are one, three, and seven days earlier.
+
+The base-to-current difference estimates the cumulative value of personal weight updates. Current-to-lagged differences estimate the value—or harm—of recent updates. All checkpoints remain fixed during the day and are scored on identical actions before those actions become training data. A history-context improvement is therefore not mislabeled as learning in weights, and a stronger checkpoint is not allowed to receive better information.
+
+### 7.4 Retention and reporting
+
+Personal retention is measured in two ways. Before accepting an overnight update, compare the parent and candidate on a fixed audit sample of earlier examples; this detects immediate forgetting but is not evidence of generalization because those actions may have been trained on. The stronger evidence is performance when older subjects, artifacts, or behaviors naturally recur in later pre-update actions.
+
+General capability retention is a separate safety measurement. Select and freeze a named external evaluation suite before the prospective run, then report candidate-versus-parent changes separately from personal prediction results. It should not be folded into a composite Phase 1 score.
+
+Development and prospective data follow the chronological protocol in Section 4.3. The principal report is the sequence of pre-update daily results and paired intervention effects, not a single aggregate detached from time. Initial runs should expose the variance and failure modes before fixing a universal success threshold.
 
 ## 8. Initial Experimental Program
 
