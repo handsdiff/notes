@@ -104,7 +104,7 @@ likely need to
 	- should ensure overlapping data is completely removed before storing as an event, specifically the content
 - collection surfaces will be informed by actual implementation, but likely covers codex app, browser use, obsidian
 - the text from a SNAPSHOT is converted into a DATA STRUCTURE. this can likely be heavily optimized, so we want to start from something that contains more information than necessary that is able to then be filtered, so the simplest is likely json
-- the json likely has read/write boolean field, author/source field, destination field (only for write, type is union of apps, each app has its own set of fields for example obsidian has a file path while browser likely just demarcates between search and ai chat), link optional field, content field, where the content should likely be markdown
+- the json likely has time, read/write boolean field, author/source field, destination field (only for write, type is union of apps, each app has its own set of fields for example obsidian has a file path while browser likely just demarcates between search and ai chat), link optional field, content field, where the content should likely be markdown
 - if you do delay based event demarcation and within a delay you write multiple events, you would need to then separate out those events
 - start with remote LLM and data storage to avoid storage issues and allow for seamless larger model ablations
 
