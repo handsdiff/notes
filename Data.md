@@ -4,8 +4,6 @@ likely need to
 	1) codify data structure needed for chosen algorithms, codify how to extract from base data structure to algorithm structure for each step, set up all ingestion points and monitor cleanliness
 
 #### disparate notes
-- [[Interaction]] overall
-- https://arxiv.org/pdf/2309.12170 older RNN predicting mouse/keyboard data
 - https://x.com/screenpipe/status/2077045452579778664?s=20
 	- it might be in a gemini chat, at the very least in browser history, but there was an old screenpipe PR that cleaned up screenpipe data for training. i think it was for retrieval so maybe it was whatever, but im surprised i did not note it down
 - ways to think about data from Levine https://x.com/svlevine/status/2075721405929508942?s=20

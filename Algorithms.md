@@ -218,6 +218,7 @@ algorithms considered and rejected for now and why: (there are likely practicali
 			- also discusses going the next step of taking a computer use agent to allow the predictor model to actually take actions
 			- one thing that stands out is that this is much more replacement than augmentation
 			- https://github.com/GeneralUserModels/tada
+			- references https://arxiv.org/pdf/2309.12170 which forecasts keyboard/mouse actions using RNNs and CV
 		- https://oshaikh.com/papers/gums general user models
 			- i thought this was insane but it just seems to create natural language propositions based on computer use, and recommend based on that. simple, but somewhat effective. this might be similar to something my work ends up falling back to. likely a very good baseline to compare to, as well as good resource for comparable data preprocessing and UX
 		- https://oshaikh.com/papers/grounding grounding towards common knowledge research
