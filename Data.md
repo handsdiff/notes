@@ -79,6 +79,7 @@ likely need to
 	- should ensure overlapping data is completely removed before storing as an event, specifically the content
 - collection surfaces will be informed by actual implementation, but likely covers codex app, browser use, obsidian
 - the text from a SNAPSHOT is converted into a DATA STRUCTURE. this can likely be heavily optimized, so we want to start from something that contains more information than necessary that is able to then be filtered, so the simplest is likely json
+	- needs to handle reading something then scrolling back up to reread it, which i would probably include again. this is different from the deduplication which is more for successive events containing the same data while i spend time reading it. but maybe we shouldnt even de-dup that, since that implies more of an impression on my thinking? if you incorporate that with time, it implies that connections are possi
 - the json likely has time, read/write boolean field, author/source field, destination field (only for write, type is union of apps, each app has its own set of fields for example obsidian has a file path while browser likely just demarcates between search and ai chat), link optional field, content field, where the content should likely be markdown
 	- readability and trafilatura are tools to convert html to markdown
 - if you do delay based event demarcation and within a delay you write multiple events, you would need to then separate out those events
