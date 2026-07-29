@@ -235,6 +235,7 @@ algorithms considered and rejected for now and why: (there are likely practicali
 			- good work on collecting and cleaning data, again useful for practical implementations upcoming and as baselines, less useful as novel algorithms
 			- interesting that the output was a generative UI, not a language suggestion/recommendation. using something called Poppins, which is open source
 			- UI was chosen since there was a take that chatbot UX is poor, and they didnt want to the model to suggest to take actions to the user, they just wanted to present something useful
+		- https://web.stanford.edu/class/cs329x/slides/Lecture6_A_hai_grounding.pdf
 	- https://collaborative-agents.github.io/
 		- this seems to be basically the same as general user models from shaikh
 	- CTRL-Rec https://arxiv.org/pdf/2510.12742

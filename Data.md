@@ -1,6 +1,5 @@
 likely need to
-1) generate a data hypothesis by collecting all the disparate notes around data processing i've collected
-2) implement the data ingestion and cleaning pipeline and monitor it
+1) implement the data ingestion and cleaning pipeline and monitor it
 	1) codify data structure needed for chosen algorithms, codify how to extract from base data structure to algorithm structure for each step, set up all ingestion points and monitor cleanliness
 
 #### disparate notes
@@ -24,6 +23,7 @@ likely need to
 	- how do harnesses actually handle context and content fetching? if it fetches a website that has 10M tokens, what does it do? or if it runs a terminal command that has 2M tokens worth of lines, what does it do? there must be context management logic? is it basic sliding window? compression? (longNAP implementation likely sheds some light on this)
 		- answered here https://gemini.google.com/app/ffa1c56253618253. for search, basically fetches initial segment of predefined length, saving rest to a local sandbox file that supports pagination or grep for future tool calls. for commands, fetches head and tail of predefined lengths, saving full to a local sandbox file that supports grep
 		- context management logic basically involves summarizing history when context gets too close to limit, saving last N turns for consistency
+
 #### more formal notes
 - iteration plan
 	- for the data, i likely need to do my normal work, then have a separate window that is not tracked that logs the read/write stream. and i need to confirm over the course of a day or two that its a high fidelity representation of my actual inputs and outputs. 
