@@ -10,6 +10,7 @@ likely need to
 		- https://x.com/jxmnop/status/1929903028372459909
 	- exactly how much human data was initially used to train the RLHF part of chatgpt?
 	- how many bits of information is required and how many are produced daily?
+	- its likely actually important to answer this question because it will help determine the optimal number of weights to encode the given dataset
 - i wonder whether you need the data to be literally temporally interleaved to predict well. like i pause a youtube video, write down thoughts, play the youtube video. etc. its incorrect to put the entire transcript in when the page is first visited, since the goal is to most closely simulate how my brain works. the actual construction of the dataset is literally 90% of the work here. will take trial and error. may be worth thinking how to improve it
 	- if im watching a youtube video for example, i suspect the best data structure would be the transcript of the part i watched as <read, browser, youtube, transcript chunk> then <write, obsidian, entry, written note>.
 - might help with data ingestion, seemingly open source/self hosted granola https://github.com/Zackriya-Solutions/meetily
