@@ -7,7 +7,17 @@
 
 #### Misc Notes
 - "possible experiment / toy example to have the git history of notes, randomly remove increasing portions of it, in-context prompt frontier and/or weight space update a smaller LLM, rank predictions based on personal expected usefulness/predictive ability (perhaps just pairwise), establish trend line if any. compare across differing frontier models and/or differing small/local LLMs. do this online to collect more data on how it evolves over time"
-- could probably track which examples are consistently failing from historical replay and weight based on their failure rate? maybe could also weight based on frequency?
+- super relevant analysis of algorithms, compared to prompt space, and data tricks/tips needed to juice performance at least in that specific domain https://thinkingmachines.ai/news/learning-to-replicate-expert-judgment-in-financial-tasks/
+	- is it cheaper to update weights continuously or update prompts continuously? actually feels like weights? since querying prompts on a frontier model is super expensive?
+	- findings
+		- data quality, specifically representation of actions, matters as much if not more than training algorithms
+		- prompt/ICL baseline must be strong
+		- model disagreement is useful for data auditing. could probably track which examples are consistently failing from historical replay and weight based on their failure rate? maybe could also weight based on frequency?
+		- round robin interleaving of batches outperformed sequential task training AND full random mixing. hmmm.
+		- plain GRPO did not work, needed interleaved batching, CISPO importance ratio clipping, OPD, and reference regularization
+		- promoted teacher only after validation improved
+		- does RSI lead to frontier models that can develop these algorithms for you? does that imply that you can always achieve better than frontier performance?
+	- 
 
 ## Abstract
 
