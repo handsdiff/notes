@@ -1,4 +1,4 @@
-# Phase 3 Direction: Model-Based Assistance over Increasing Horizons
+# Phase 3 Direction: Model-Based Assistance over Increasing Horizons - WIP
 
 **Status:** Directional extension to [[Phase 1]] and [[Phase 2]]. This note isolates multi-step planning, simulation, reward learning, and guarded execution ideas that are outside the local next-action program.
 

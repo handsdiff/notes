@@ -1,4 +1,4 @@
-# Phase 2
+# Phase 2 - WIP
 
 *Coactive improvement from model proposals and human continuations*
 
