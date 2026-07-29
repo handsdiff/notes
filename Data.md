@@ -4,7 +4,6 @@ likely need to
 	1) codify data structure needed for chosen algorithms, codify how to extract from base data structure to algorithm structure for each step, set up all ingestion points and monitor cleanliness
 
 #### disparate notes
-- somewhat helpful gemini thread regarding data structure and previous attempts. but need to parse the bs https://gemini.google.com/app/b242920671bf7d32
 - how many tokens are common examples of fine tuned models that actually work trained on? how many tokens are frontier models trained on? on what stage? how does LoRA actually impact the amount of needed/useful tokens? how does that change as the underlying model changes?
 	- https://thinkingmachines.ai/blog/ probably should review the old ones too
 	- quantifying memorization in LLMs, seems very relevant as it relates to the need for synthetic Q/A data. also useful for describing how much content saturates a model before it has to start compressing in order to maintain / improve performance (compression = intelligence)
@@ -12,9 +11,7 @@ likely need to
 		- https://x.com/jxmnop/status/1929903028372459909
 	- exactly how much human data was initially used to train the RLHF part of chatgpt?
 	- how many bits of information is required and how many are produced daily?
-- when i open a new tab without typing anything, that will show up to the model, but it wont learn to predict that? in what scenarios is there 'likely' to be a write action and in what scenarios are there not? maybe to solve the suggestion timing issue, the model only gets queried (test time) or predicts (train time) when an input field is focused? since that is a necessary prerequisite for a write action
-	- when i delete something in obsidian, i am focusing on a potential input field, but no write action occurs. i mean technically one does, but not with content. hmmm
-	- how does 'no recommendation' fit into the framework?
+
 - what happened to rewind? where are the users? what are they doing now?
 - (read, app, content) and (write, app, content). obsidian covers some write. the browser history script that fetches some read and write, but some issues flagged by Fable.
 - i DO NOT want to build something that requires 'connecting apps'. sounds super annoying.
@@ -105,6 +102,8 @@ likely need to
 - if you do delay based event demarcation and within a delay you write multiple events, you would need to then separate out those events
 - start with remote LLM and data storage to avoid storage issues and allow for seamless larger model ablations
 - start with sampling the model to predict a write action after a text field of any kind is focused, outside of the model itself. this also naively but perhaps well enough solves the issue of 'when' to suggest/sample/intervene. further work can attempt to internalize timing into the model, which becomes more of a self aware assistance game rather than simple behavior cloning
+	- when i delete something in obsidian, i am focusing on a potential input field, but no write action occurs. i mean technically one does, but not with content. hmmm
+	- how does 'no recommendation' fit into the framework?
 
 #### initial plan
 
