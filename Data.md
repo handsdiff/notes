@@ -106,6 +106,14 @@ disparate notes:
 - perhaps useful for the agent chart part of capture [0001-trajectory-format.md](https://github.com/harbor-framework/harbor/blob/main/rfcs/0001-trajectory-format.md) [trajectory-v1.schema.json](https://github.com/letta-ai/trajectory/blob/main/schema/trajectory-v1.schema.json)
 - i think in some sense, if there isnt enough data, that implies a better interaction surface like [[Product]]. if there is enough data, a better interaction surface may still be necessary, but may not be the most important thing vs market visibility and positioning
 - readability and trafilatura are tools to convert html to markdown
+- context details
+	- big question for data codification is whether you give a tool call to fetch the content of a web page rather than the content itself during training. how does that change the state and action space? does it more clearly separate the action space of the agent from the state space of the environment? are there two environments?
+		- lots of good information that seems relevant in this guys feed https://x.com/oneill_c
+		- essentially follows the lines of 'reasoned retrieval'. you RL the agent to use tools to figure out what information it needs. related to the below point as well
+	- how do harnesses actually handle context and content fetching? if it fetches a website that has 10M tokens, what does it do? or if it runs a terminal command that has 2M tokens worth of lines, what does it do? there must be context management logic? is it basic sliding window? compression? (longNAP implementation likely sheds some light on this)
+		- answered here https://gemini.google.com/app/ffa1c56253618253. for search, basically fetches initial segment of predefined length, saving rest to a local sandbox file that supports pagination or grep for future tool calls. for commands, fetches head and tail of predefined lengths, saving full to a local sandbox file that supports grep
+		- context management logic basically involves summarizing history when context gets too close to limit, saving last N turns for consistency
+- 
 
 ## current scope
 

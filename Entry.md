@@ -1,17 +1,7 @@
 
-- context details
-	- big question for data codification is whether you give a tool call to fetch the content of a web page rather than the content itself during training. how does that change the state and action space? does it more clearly separate the action space of the agent from the state space of the environment? are there two environments?
-		- lots of good information that seems relevant in this guys feed https://x.com/oneill_c
-	- how do harnesses actually handle context and content fetching? if it fetches a website that has 10M tokens, what does it do? or if it runs a terminal command that has 2M tokens worth of lines, what does it do? there must be context management logic? is it basic sliding window? compression? (longNAP implementation likely sheds some light on this)
-		- answered here https://gemini.google.com/app/ffa1c56253618253. for search, basically fetches initial segment of predefined length, saving rest to a local sandbox file that supports pagination or grep for future tool calls. for commands, fetches head and tail of predefined lengths, saving full to a local sandbox file that supports grep
-		- context management logic basically involves summarizing history when context gets too close to limit, saving last N turns for consistency
-- there is an openai 2023 paper in lecture 18 of cs224r that shows model confidence is much less calibrated after PPO post training than after pre training. how is this data even collected? the pre train model should not be able to do question answer formats, no?
-	- the inability to self model uncertainty is brought up as an issue with human AI interaction/collaboration
-	- its unclear how 'uncertainty' even natively exists in the model? maybe the probability of the 'winning' token directly? im sure someone has researched this. relates to the dragan waymo interview
 - https://web.stanford.edu/class/cs329x/
+- freesolo guy suggested using RL with the reward as a semantic content similarity instead of straight SFT
 
 big blocking question right now is related to the above context details point, why longNAP learned reasoning for retrieval, how e2e-ttt consolidates information, online convex optimization algos, how other memory startups handle it, the continual learning research for the X account above, token efficiency of retrieval, etc, all pointing to a better understanding of how context is managed / trained, and how that surface bumps into the intended surface of the prefixed sliding window default choice. i.e. how to actually use the collected data
 
 - https://x.com/vatsalbajaj/status/2080750160200831068
-- https://x.com/oneill_c/status/2079989201941192924
-- 
