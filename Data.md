@@ -20,7 +20,6 @@ likely need to
 - 
 - 
 - 
-- is collecting agent traces sufficient if 80% of write actions are chatbot interactions? could this be an ablation in [[Phase 1]]?
 - i wonder whether you need the data to be literally temporally interleaved to predict well. like i pause a youtube video, write down thoughts, play the youtube video. etc. its incorrect to put the entire transcript in when the page is first visited, since the goal is to most closely simulate how my brain works. the actual construction of the dataset is literally 90% of the work here. will take trial and error. may be worth thinking how to improve it
 	- if im watching a youtube video for example, i suspect the best data structure would be the transcript of the part i watched as <read, browser, youtube, transcript chunk> then <write, obsidian, entry, written note>.
 - might help with data ingestion, seemingly open source/self hosted granola https://github.com/Zackriya-Solutions/meetily
@@ -79,7 +78,7 @@ likely need to
 	- should ensure overlapping data is completely removed before storing as an event, specifically the content
 - collection surfaces will be informed by actual implementation, but likely covers codex app, browser use, obsidian
 - the text from a SNAPSHOT is converted into a DATA STRUCTURE. this can likely be heavily optimized, so we want to start from something that contains more information than necessary that is able to then be filtered, so the simplest is likely json
-	- needs to handle reading something then scrolling back up to reread it, which i would probably include again. this is different from the deduplication which is more for successive events containing the same data while i spend time reading it. but maybe we shouldnt even de-dup that, since that implies more of an impression on my thinking? if you incorporate that with time, it implies that connections are possi
+	- needs to handle reading something then scrolling back up to reread it, which i would probably include again. this is different from the deduplication which is more for successive events containing the same data while i spend time reading it. but maybe we shouldnt even de-dup that, since that implies more of an impression on my thinking? if you incorporate that with time, it implies that connections are possibly being made
 - the json likely has time, read/write boolean field, author/source field, destination field (only for write, type is union of apps, each app has its own set of fields for example obsidian has a file path while browser likely just demarcates between search and ai chat), link optional field, content field, where the content should likely be markdown
 	- readability and trafilatura are tools to convert html to markdown
 - if you do delay based event demarcation and within a delay you write multiple events, you would need to then separate out those events
@@ -89,7 +88,6 @@ likely need to
 	- how does 'no recommendation' fit into the framework?
 - one way to frame the data construction question is what level of 'noise' is acceptable? for instance i probably want to exclude clicking around obsidian to copy paste something, but probably want to include when i write down a long train of thought, but would that mess up the dataset construction since its no longer cleanly autoregressive?
 - for the data, i likely need to do my normal work, then have a separate window that is not tracked that logs the read/write stream. and i need to confirm over the course of a day or two that its a high fidelity representation of my actual inputs and outputs. 
-	- 
 
 
 #### initial plan

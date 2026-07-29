@@ -20,6 +20,7 @@
 - computer use companies like Markov may help with raw capture, from which causal event data can be constructed in theory. in practice its unclear if there is uncaptured data when it comes down to brass tacks
 - can implement on hugging face, tinker, prime intellect, unsloth, freesolo, custom build, etc
 - i suspect for phase 1 the goal will be to learn token level structure before it can learn action level content. you might get a loss discontinuity (via early flatlining before more data shows improved loss due to content learning beginning)
+- if 80% and growing amount of write actions are just prompting agents, what does the phase 1 model learn?
 
 ## Abstract
 
