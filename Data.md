@@ -10,10 +10,6 @@ likely need to
 	- need to handle copy / paste actions from different apps into obsidian to not mistake that for user typing
 	- need to handle moving a cursor in between sentences across notes or anywhere else typing is occurring, editing, deletion, typos, etc
 	- git across my entire computer wherever im writing? it nicely handles breaking down actions into chunks, whereas raw keystrokes have a ton of noise around moving cursors, backspacing, typos, etc. hmmm.
-	- does defining actions as time steps like this make sense (i.e. git commit after x seconds of no action as natural 'states')? how does it relate to thinking machines focus on 'time based' chunking of data? worth exploring. time based vs turn based. they have an SGLang PR that I should review.
-		- still such a banger https://thinkingmachines.ai/blog/interaction-models/. every source they city resonates ^15beb6
-		- "with a wider release later this year"
-		- 
 - [[Interaction#^f5c205]]
 - [[Interaction]] overall
 - https://arxiv.org/pdf/2309.12170 older RNN predicting mouse/keyboard data
@@ -123,9 +119,9 @@ likely need to
 	- should ensure overlapping data is completely removed before storing as an event, specifically the content
 - collection surfaces will be informed by actual implementation, but likely covers codex app, browser use, obsidian
 - the text from a SNAPSHOT is converted into a DATA STRUCTURE. this can likely be heavily optimized, so we want to start from something that contains more information than necessary that is able to then be filtered, so the simplest is likely json
-- the json likely has read/write boolean field, author/source field, link optional field, content field, where the content should likely be markdown
-	- does this work for obsidian writes, browser search, ai chats, paper reading, x reading?
-- 
+- the json likely has read/write boolean field, author/source field, destination field (only for write, type is union of apps, each app has its own set of fields for example obsidian has a file path while browser likely just demarcates between search and ai chat), link optional field, content field, where the content should likely be markdown
+- if you do delay based event demarcation and within a delay you write multiple events, you would need to then separate out those events
+- start with remote LLM and data storage to avoid storage issues and allow for seamless larger model ablations
 
 #### initial plan
 
