@@ -380,3 +380,10 @@ if local scaling laws are positive, then it may imply that building a better app
 longNAP continues to stand out
 
 is OPD/OPSD the goated algorithm since you literally just tell the agent what to fix? and then during batched training it increases the probability of the desired tokens from the prompt before when the fix was stated? i wonder if anyone has done this / people are doing it
+
+may be useful for better fact retrieval as time goes on:
+big blocking question right now is related to the above context details point, why longNAP learned reasoning for retrieval, how e2e-ttt consolidates information, online convex optimization algos, how other memory startups handle it, the continual learning research for the X account above, token efficiency of retrieval, etc, all pointing to a better understanding of how context is managed / trained, and how that surface bumps into the intended surface of the prefixed sliding window default choice. i.e. how to actually use the collected data
+- charlie o neill work
+- cartridges and broader engram work
+- e2e-ttt work
+- omar shaikh work
