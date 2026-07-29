@@ -15,9 +15,6 @@ likely need to
 
 - data structure comp https://github.com/tsinghua-fib-lab/FingerTip-20K
 - new algorithms in [[Algorithms]], plus just how the relevant algorithms like longNAP structure data
-
-- one way to frame the data construction question is what level of 'noise' is acceptable? for instance i probably want to exclude clicking around obsidian to copy paste something, but probably want to include when i write down a long train of thought, but would that mess up the dataset construction since its no longer cleanly autoregressive?
-- the use of git as a natural boundary likely helps but thats not really 'next token' or 'next action' prediction if multiple 'actions' were taken in a commit, one or more of which involves adding a word to the middle of some old note.
 - data discussion https://gemini.google.com/app/434faa2eae499b25 for our work
 - this has a nice framework for data structure, even though i disagree / am confused about some of his main desires https://gwern.net/guardian-angel#ux
 - i suspect for phase 1 the goal will be to learn token level structure before it can learn action level content. you might get a loss discontinuity (via early flatlining before more data shows improved loss due to content learning beginning)
@@ -98,6 +95,7 @@ likely need to
 - start with sampling the model to predict a write action after a text field of any kind is focused, outside of the model itself. this also naively but perhaps well enough solves the issue of 'when' to suggest/sample/intervene. further work can attempt to internalize timing into the model, which becomes more of a self aware assistance game rather than simple behavior cloning
 	- when i delete something in obsidian, i am focusing on a potential input field, but no write action occurs. i mean technically one does, but not with content. hmmm
 	- how does 'no recommendation' fit into the framework?
+- one way to frame the data construction question is what level of 'noise' is acceptable? for instance i probably want to exclude clicking around obsidian to copy paste something, but probably want to include when i write down a long train of thought, but would that mess up the dataset construction since its no longer cleanly autoregressive?
 
 #### initial plan
 
