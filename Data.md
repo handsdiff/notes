@@ -106,6 +106,7 @@ likely need to
 
 #### more formal notes
 - wait WRITE_DELAY (perhaps 3) seconds after a keyboard entry and READ_DELAY (perhaps 1 second) mouse movement or mouse scroll or mouse click, then take a SNAPSHOT
+	- actual values will need to be tuned through iteration of the demo app displaying stored data
 	- the purpose of the delay is to reduce noise associated with backspacing, typos, etc while writing. the downside is missing critical actions, since per the deduplication, we'll essentially be looking for diffs from the previous state which may be lost depending on the use case
 	- some nitpicks for data construction ^527840
 		- need to handle copy / paste actions from different apps into obsidian to not mistake that for user typing
