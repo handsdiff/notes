@@ -4,8 +4,6 @@ likely need to
 	1) codify data structure needed for chosen algorithms, codify how to extract from base data structure to algorithm structure for each step, set up all ingestion points and monitor cleanliness
 
 #### disparate notes
-- 
-- [[Interaction#^f5c205]]
 - [[Interaction]] overall
 - https://arxiv.org/pdf/2309.12170 older RNN predicting mouse/keyboard data
 - https://x.com/screenpipe/status/2077045452579778664?s=20
