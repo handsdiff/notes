@@ -113,6 +113,7 @@ likely need to
 		- answered here https://gemini.google.com/app/ffa1c56253618253. for search, basically fetches initial segment of predefined length, saving rest to a local sandbox file that supports pagination or grep for future tool calls. for commands, fetches head and tail of predefined lengths, saving full to a local sandbox file that supports grep
 		- context management logic basically involves summarizing history when context gets too close to limit, saving last N turns for consistency
 - still unclear whether you need to apply synthetic q/a self study to the data to improve understanding rather than memorization, and how that relates to maintaining support for question answering / chatting, and how that relates to introducing reasoning rather than pure SFT. although these are likely later ablations rather than initial work
+- if i click into my obsidian to type something, am i now reading the set of text around where im typing?
 
 
 #### more formal notes
@@ -124,6 +125,8 @@ likely need to
 - collection surfaces will be informed by actual implementation, but likely covers codex app, browser use, obsidian
 - the text from a SNAPSHOT is converted into a DATA STRUCTURE. this can likely be heavily optimized, so we want to start from something that contains more information than necessary that is able to then be filtered, so the simplest is likely json
 - the json likely has read/write boolean field, author/source field, link optional field, content field, where the content should likely be markdown
+- does this work for obsidian writes, browser search, ai chats, paper reading, x reading?
+- 
 
 
 
