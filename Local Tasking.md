@@ -8,7 +8,10 @@
 	- feeling a desire to have a separate website for my blogs. self hosted shows commitment. substack gets swallowed into the platform.
 	- many cracked people have personal sites
 
-- new LBH: Come up with a data plan or invalidate premises of direction. If failed to invalidate, describe data structures and ingestion surfaces compared to alternatives. By Tuesday.
+- prev LBH: Come up with a data plan or invalidate premises of direction. If failed to invalidate, describe data structures and ingestion surfaces compared to alternatives. By Tuesday.
+	- day late, weekend was sloppy
+- new LBH: Publish an article describing the differences in data collection required when the explicit purpose is next action (thought, content) prediction, along with how [[Product]] work may be necessary to fully realize the goal, rather than starting from what in my opinion is qualitatively different UX in a lossless retrieval paradigm such as the screenpipe-like apps popping up as well as 'fact compression' work a la ONeill. By Friday.
+	- do i care about information to action mapping or do i care about a temporal understanding of past work? the thing about judgment + proactive suggestions is that its qualitatively different UX, so doesn't really feel like you can 'lineage' or MVP your way up to it
 
 CURRENT
 - DONE [[Phase 1]] and [[Phase 2]], distilled from [[Algorithms]], step 1 is being concrete about the loss functions and algorithms used for phase 1, and concrete about which loss functions and algorithms could reasonably result in demonstrator outperformance for phase 2 from an assistance perspective rather than replacement perspective.
