@@ -406,4 +406,5 @@ internalizing continual learning
 	- what are the hardware bottlenecks to continual learning? how do compute resources change on a very fundamental level with continual retraining?
 	- does my intended SFT approach (autoregressive train on next action prediction i.e. causal mask) violate i.i.d. data assumptions? does shopify's generative recommender have the same issue? what do those assumptions actually mean in practice? do all online or continual learning setups violate this? how does this relate to the practice of storing rollouts in a buffer that you then sample from? does that essentially fix i.i.d. for continual learning scenarios?
 		- https://gemini.google.com/app/9de51346992f5bae wild stuff
-- 
+
+useful swath of research by https://arxiv.org/search/cs?searchtype=author&query=Shrivastava,+V, lead author on ECHO paper
