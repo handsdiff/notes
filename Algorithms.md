@@ -277,6 +277,8 @@ algorithms considered and rejected for now and why: (there are likely practicali
 		- 
 	- ECHO https://arxiv.org/pdf/2605.24517
 		- classic algo surprised i missed it. basically learns how the env reacts to actions. very solid. perhaps useful for later phases
+	- edgebench https://arxiv.org/pdf/2607.05155
+		- establishes how models perform learning in real world environments by updating themselves, shows log sigmoid learning and learning rate doubling every 3 months on frontier models. very related to continual learning imo
 
 - is phase 1 a process reward model?
 - does phase 1 result in an 'implicit' reward model?
