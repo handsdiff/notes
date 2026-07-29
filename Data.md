@@ -104,6 +104,7 @@ likely need to
 - the json likely has time, read/write boolean field, author/source field, destination field (only for write, type is union of apps, each app has its own set of fields for example obsidian has a file path while browser likely just demarcates between search and ai chat), link optional field, content field, where the content should likely be markdown
 - if you do delay based event demarcation and within a delay you write multiple events, you would need to then separate out those events
 - start with remote LLM and data storage to avoid storage issues and allow for seamless larger model ablations
+- start with sampling the model to predict a write action after a text field of any kind is focused, outside of the model itself. this also naively but perhaps well enough solves the issue of 'when' to suggest/sample/intervene. further work can attempt to internalize timing into the model, which becomes more of a self aware assistance game rather than simple behavior cloning
 
 #### initial plan
 
