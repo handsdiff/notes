@@ -267,6 +267,7 @@ algorithms considered and rejected for now and why: (there are likely practicali
 		- seems counterpositioned to the cartridges paper which makes it seem like you can actually do this
 		- i feel like weights aren't for facts though. weights are for converting information to action (still need a good word for this)
 		- interesting take from the author in a later MTS interview that kimi k3 was increasingly trained on 'work' rather than on 'answers' and that that is the direction of training
+	- https://arxiv.org/pdf/2507.21071v2 fingertip 20k, like longNAP at a high level but mobile, from tsinghua
 		- 
 
 - is phase 1 a process reward model?
