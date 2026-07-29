@@ -12,16 +12,10 @@ likely need to
 	- exactly how much human data was initially used to train the RLHF part of chatgpt?
 	- how many bits of information is required and how many are produced daily?
 
-- what happened to rewind? where are the users? what are they doing now?
-- (read, app, content) and (write, app, content). obsidian covers some write. the browser history script that fetches some read and write, but some issues flagged by Fable.
-- i DO NOT want to build something that requires 'connecting apps'. sounds super annoying.
-- https://www.primeintellect.ai/blog/algorithms-layer could be useful for implementation
-- https://huggingface.co/learn/llm-course/en/chapter12/3 rubric engineering (like deepseek GRPO) MAY help the model bootstrap faster by learning things like proper syntax before it learns content
-	- https://huggingface.co/docs/trl/grpo_trainer
-- https://gemini.google.com/app/26a5dd577dc3bde7 sutton's idbd may be better for continual learning, it just seems to train slower. there are also optimizers other than typical gradient descent that seem to be more efficient for online convex optimization problems
+
 - data structure comp https://github.com/tsinghua-fib-lab/FingerTip-20K
 - new algorithms in [[Algorithms]], plus just how the relevant algorithms like longNAP structure data
-- going back to the youtube interleaved data example, even when im reading a paper we would want the content i actually read to be shown before i type a note, not the entire paper. this seems very difficult to collect properly and perhaps prohibitive for good learning.
+
 - one way to frame the data construction question is what level of 'noise' is acceptable? for instance i probably want to exclude clicking around obsidian to copy paste something, but probably want to include when i write down a long train of thought, but would that mess up the dataset construction since its no longer cleanly autoregressive?
 - the use of git as a natural boundary likely helps but thats not really 'next token' or 'next action' prediction if multiple 'actions' were taken in a commit, one or more of which involves adding a word to the middle of some old note.
 - data discussion https://gemini.google.com/app/434faa2eae499b25 for our work
