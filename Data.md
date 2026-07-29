@@ -116,12 +116,13 @@ likely need to
 
 
 #### more formal notes
-- wait DELAY (perhaps 3) seconds after a keyboard entry or mouse movement or mouse scroll or mouse, then take a SNAPSHOT
+- wait WRITE_DELAY (perhaps 3) seconds after a keyboard entry and READ_DELAY (perhaps 1 second) mouse movement or mouse scroll or mouse click, then take a SNAPSHOT
 - a SNAPSHOT takes the text that the user is likely *actually* looking at, rather than the full screen, to best simulate actual inbound information
 	- will be informed by actual implementation, but should probably start with ignoring unselected/unfocused windows, unless it's a video, but perhaps for v0.1 we ignore video.
 	- should take the 'middle' of the screen as much as possible, maybe like 30% borders from the left, right, and 50% from the bottom
+	- should ensure overlapping data is completely removed before storing as an event, specifically the content
 - collection surfaces will be informed by actual implementation, but likely covers codex app, browser use, obsidian
-- the text from a SNAPSHOT is converted into a data structure. this can likely be heavily optimized, so we want to start from something that contains more information than necessary that is able to then be filtered, so the simplest is likely json
+- the text from a SNAPSHOT is converted into a DATA STRUCTURE. this can likely be heavily optimized, so we want to start from something that contains more information than necessary that is able to then be filtered, so the simplest is likely json
 - the json likely has read/write boolean field, author/source field, link optional field, content field, where the content should likely be markdown
 
 
