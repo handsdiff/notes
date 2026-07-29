@@ -18,11 +18,8 @@ likely need to
 - data discussion https://gemini.google.com/app/434faa2eae499b25 for our work
 - 
 - 
-- can the distinction in usefulness between having access to all necessary context and actually predicting next actions be quantified? i.e. context vs judgment i.e. the difference in two models having the same context and the weights resulting in different outputs? probably as part of the ablations yes
-- forgot where i wrote this but need to collect data by time instead of turn? maybe take the 'snapshot' x secs after action like scroll or mouse movement or keyboard type ends like git does for obsidian
-- for the data, i likely need to do my normal work, then have a separate window that is not tracked that logs the read/write stream. and i need to confirm over the course of a day or two that its a high fidelity representation of my actual inputs and outputs. non comprehensive list of things to handle:
-	needs to handle reading something then scrolling back up to reread it
-	needs to handle having multiple windows across multiple screens open at the same time
+- 
+- 
 - is collecting agent traces sufficient if 80% of write actions are chatbot interactions? could this be an ablation in [[Phase 1]]?
 - i wonder whether you need the data to be literally temporally interleaved to predict well. like i pause a youtube video, write down thoughts, play the youtube video. etc. its incorrect to put the entire transcript in when the page is first visited, since the goal is to most closely simulate how my brain works. the actual construction of the dataset is literally 90% of the work here. will take trial and error. may be worth thinking how to improve it
 	- if im watching a youtube video for example, i suspect the best data structure would be the transcript of the part i watched as <read, browser, youtube, transcript chunk> then <write, obsidian, entry, written note>.
@@ -90,6 +87,9 @@ likely need to
 	- when i delete something in obsidian, i am focusing on a potential input field, but no write action occurs. i mean technically one does, but not with content. hmmm
 	- how does 'no recommendation' fit into the framework?
 - one way to frame the data construction question is what level of 'noise' is acceptable? for instance i probably want to exclude clicking around obsidian to copy paste something, but probably want to include when i write down a long train of thought, but would that mess up the dataset construction since its no longer cleanly autoregressive?
+- for the data, i likely need to do my normal work, then have a separate window that is not tracked that logs the read/write stream. and i need to confirm over the course of a day or two that its a high fidelity representation of my actual inputs and outputs. 
+	- 
+
 
 #### initial plan
 
