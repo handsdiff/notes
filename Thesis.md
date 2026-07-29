@@ -38,8 +38,8 @@ The ~\$600B figure is an estimate of the annual global cost to businesses of act
 # Misc Notes
 
 - the uncovered cubic section between omar shaikh's work around user modeling, next action prediction, just in time objectives, etc and data capturing work such as rewind, screenpipe, coast, etc and continual learning and memory work, etc, is one way to describe the target vision
+	- seemingly a gap between append only agent turn logs as some vague 'memory' solution vs use as a formal interleaved dataset where the agent can learn causal loops, which opens up multi agent systems which opens up collective intelligence. again, ECHO seems to be the first version of this
 - i DO NOT want to build something that requires 'connecting apps'. sounds super annoying.
-- seemingly a gap between append only agent turn logs as some vague 'memory' solution vs use as a formal interleaved dataset where the agent can learn causal loops, which opens up multi agent systems which opens up collective intelligence. again, ECHO seems to be the first version of this
 - extremely extremely good from cole wyeth discussing how local reward models relates to alignment https://www.lesswrong.com/posts/JT3qCYDimskcBdiEr/the-hard-core-of-alignment-is-robustifying-rl vision thesis post
 - "next thought prediction" is more aligned with my vision than "next action prediction"
 - [[Experiment Plan - Old]]
