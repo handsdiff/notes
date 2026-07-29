@@ -16,10 +16,8 @@ likely need to
 - data structure comp https://github.com/tsinghua-fib-lab/FingerTip-20K
 - new algorithms in [[Algorithms]], plus just how the relevant algorithms like longNAP structure data
 - data discussion https://gemini.google.com/app/434faa2eae499b25 for our work
-- discusses research similar to longNAP https://claude.ai/chat/d3de1f6d-cd67-404b-a93a-936b3a662d7e
-	- the most interesting related paper which I put into algorithms uses something called LifeTrace for collecting data, takes snapshots at 1 Hz (can we track keyboard usage and snapshot during a pause, like it occurs in git in this obsidian?)
-	- another one frames 'when to assist' as when its high likelihood that the "user would turn to an AI assistant right now" which is interesting
-- practically need text PII scrub
+- 
+- 
 - can the distinction in usefulness between having access to all necessary context and actually predicting next actions be quantified? i.e. context vs judgment i.e. the difference in two models having the same context and the weights resulting in different outputs? probably as part of the ablations yes
 - forgot where i wrote this but need to collect data by time instead of turn? maybe take the 'snapshot' x secs after action like scroll or mouse movement or keyboard type ends like git does for obsidian
 - for the data, i likely need to do my normal work, then have a separate window that is not tracked that logs the read/write stream. and i need to confirm over the course of a day or two that its a high fidelity representation of my actual inputs and outputs. non comprehensive list of things to handle:
