@@ -37,7 +37,7 @@ The ~\$600B figure is an estimate of the annual global cost to businesses of act
 
 # Misc Notes
 
-- in other words
+- stated plainly
 	- observe you, predict from your behavior what you care about, and eventually start proactively suggesting how to achieve your reward faster or in higher magnitude
 	- the point of the model learning how my brain works is to understand my goals/preferences, and then recommend how to achieve those faster
 	- having full context visibility -> predicting what i will do -> doing something to help me get there feels pretty intrinsically valuable
@@ -51,9 +51,8 @@ The ~\$600B figure is an estimate of the annual global cost to businesses of act
 	- seemingly a gap between append only agent turn logs as some vague 'memory' solution vs use as a formal interleaved dataset where the agent can learn causal loops, which opens up multi agent systems which opens up collective intelligence. again, ECHO seems to be the first version of this
 - i DO NOT want to build something that requires 'connecting apps'. sounds super annoying.
 - extremely extremely good from cole wyeth discussing how local reward models relates to alignment https://www.lesswrong.com/posts/JT3qCYDimskcBdiEr/the-hard-core-of-alignment-is-robustifying-rl vision thesis post
-- "next thought prediction" is more aligned with my vision than "next action prediction"
+- "next thought prediction" or "next content prediction" is more aligned with my vision than "next action prediction"
 - [[Experiment Plan - Old]]
-- 
 - still such a banger https://thinkingmachines.ai/blog/interaction-models/. every source they city resonates ^15beb6
 - supporting takes. "continual data for continual learning"
 	- omega bangers from deepseek founder
