@@ -241,7 +241,7 @@ The first implementation uses [Qwen3.5-9B-Base](https://huggingface.co/Qwen/Qwen
 
 Qwen3.5-9B-Base is a nine-billion-parameter base model. It is dense in the routing sense, although its stack is a hybrid of Gated DeltaNet and gated-attention layers rather than a conventional all-full-attention Transformer. The official model card reports a native context length of 262,144 tokens. The initial 32K window is therefore an implementation and compute choice, not the checkpoint's native limit.
 
-Once this baseline works, the ablation matrix in Section 8 varies context length, checkpoint recency, and model family without changing the event construction, causal serialization, or daily evaluation protocol.
+Once this baseline works, the ablation matrix in Section 7 varies context length, checkpoint recency, and model family without changing the event construction, causal serialization, or daily evaluation protocol.
 
 ## 5. Behavioral-Cloning Objective
 
@@ -401,78 +401,7 @@ procedure OVERNIGHT_UPDATE(model_d, day_examples, replay_index, config):
     return model_next, replay_index
 ```
 
-## 7. Evaluation
-
-At each action boundary, the frozen data conversion produces:
-
-$$
-(h_t,y_t),
-$$
-
-where $h_t$ is the causally available personal information and $y_t$ is the human-authored action content that actually followed. Evaluation measures prediction of $y_t$, the contribution of information in $h_t$, and the contribution of personal learning already stored in the model weights.
-
-Every action is evaluated before it becomes training data. Model weights remain fixed during the day, all conditions receive the same target, and each alternative context is produced by an explicit intervention on the frozen pre-action record pool.
-
-### 7.1 Prediction measurements
-
-The first measurement is action-level negative log-likelihood:
-
-$$
-\operatorname{NLL}(y_t\mid h_t,\theta)
-=
--\frac{1}{|y_t|}
-\sum_{j=1}^{|y_t|}
-\log p_\theta(y_{t,j}\mid h_t,y_{t,<j}).
-$$
-
-This measures the probability assigned to the complete action the person produced. It is used for comparisons that share compatible tokenization and probability access.
-
-The second measurement evaluates the action the model generates. Under a fixed decoding rule and output budget, let $\hat y_t$ be the predicted action. Its content is compared with the actual action using cosine similarity under a frozen embedding model:
-
-$$
-\operatorname{SemSim}(\hat y_t,y_t)
-=
-\cos\!\left(\phi(\hat y_t),\phi(y_t)\right).
-$$
-
-The generated text, target text, and score are retained together for inspection. NLL measures the model's distribution over the observed action; semantic similarity measures the content of the outbound action it actually predicts. The learning-objective ablation reports both.
-
-Scores are calculated per action and then summarized by day. The report retains the distribution of action-level scores within each day so that a long session or a large action does not dominate the result.
-
-### 7.2 Measuring the information-to-action mapping
-
-For each target action, the same checkpoint is evaluated with three versions of its input:
-
-1. the current artifact or local application state;
-2. the correctly timed causal history;
-3. a matched history with earlier records removed, reordered, or drawn from the wrong time.
-
-Context length and serialization are held fixed as closely as the intervention permits. Two paired effects are reported for both NLL and semantic similarity:
-
-- **history value:** correct causal history versus the current artifact alone;
-- **temporal value:** correct causal history versus the matched wrong-time history.
-
-The first measures whether prior personal information helps predict the action. The second measures whether the specific information available at that point in time matters, rather than merely the presence of additional personal text. Ablations over particular records or time ranges can later localize which parts of the causal history account for the improvement.
-
-### 7.3 Measuring learning in the weights
-
-To isolate the effect of personal training, different checkpoints predict the same action from the same causal context:
-
-- the unadapted base model;
-- the current continually updated checkpoint;
-- retained checkpoints with personal-data cutoffs one, three, and seven days earlier.
-
-The base-to-current difference measures the cumulative predictive value of personal weight updates. The current-to-lagged differences measure the value of the most recent updates. Each checkpoint remains fixed throughout the day, and the action is scored before any of the compared models train on it.
-
-### 7.4 Retention and chronological reporting
-
-Before an overnight candidate replaces its parent, both are evaluated on the same audit sample of earlier personal examples. The change measures immediate retention of previously learned behavior. Performance on later pre-update actions that return to older work provides the prospective measure of whether that behavior remained useful.
-
-General capability retention is measured on a fixed external suite selected before the prospective run. These results are reported separately from personal next-action prediction.
-
-Development and prospective collection follow Section 4.3. The principal result is the chronological sequence of daily pre-update scores together with the paired history, timing, and checkpoint effects. This preserves when each prediction was made, what information was available, and what personal data each model had already learned.
-
-## 8. Initial Experimental Program
+## 7. Initial Experimental Program
 
 ### Experiment 0: Collector and reconstruction audit
 
@@ -510,7 +439,7 @@ For the context and open-model conditions, also report adaptation after overnigh
 
 Phase 1 succeeds when the collector produces auditable causal examples and the continually trained model obtains a repeatable improvement on future daily actions from correct personal history. The gain should increase or remain useful with longer context, survive trivial and wrong-time controls, and avoid unacceptable forgetting.
 
-## 9. Implementation Order
+## 8. Implementation Order
 
 1. build an excluded debugging display for the raw snapshots and read/write stream;
 2. implement the smallest Obsidian sensor with rich snapshots, input events, and timestamps;
@@ -528,7 +457,7 @@ Phase 1 succeeds when the collector produces auditable causal examples and the c
 
 The required initial artifacts are the excluded debugging display, raw snapshot and input-event store, inspected trace log, privacy and exclusion policy, frozen conversion specification, reconstruction audit, serializer, immutable example store, leakage tests, baseline harness, daily update manifest, replay index, capability-retention suite, and model card for each accepted lineage.
 
-## 10. Conclusion
+## 9. Conclusion
 
 Phase 1 asks whether one person's ordinary computer activity can train a continually improving predictor of what they will write next. The hard prerequisite is a credible sensor-derived account of observable exposure and authorship: what appeared to be read, when it became available, what the person produced, and how the frozen conversion divided that activity into candidate actions.
 
