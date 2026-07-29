@@ -16,10 +16,6 @@ likely need to
 - data structure comp https://github.com/tsinghua-fib-lab/FingerTip-20K
 - new algorithms in [[Algorithms]], plus just how the relevant algorithms like longNAP structure data
 - data discussion https://gemini.google.com/app/434faa2eae499b25 for our work
-- 
-- data cleaning likely needs to ensure formatting is skipped, duplicates are handled, and for phase 2 if the agent doesn't have any reasonably confident completions, it shows nothing
-- is it possible for reasoning to fit into the next write prediction? is this desired? worth testing in [[Phase 1#8. Experimental Program]]? something to be explicitly trained?
-- should read data be text or html? pros/cons?
 - discusses research similar to longNAP https://claude.ai/chat/d3de1f6d-cd67-404b-a93a-936b3a662d7e
 	- the most interesting related paper which I put into algorithms uses something called LifeTrace for collecting data, takes snapshots at 1 Hz (can we track keyboard usage and snapshot during a pause, like it occurs in git in this obsidian?)
 	- another one frames 'when to assist' as when its high likelihood that the "user would turn to an AI assistant right now" which is interesting
@@ -62,7 +58,7 @@ likely need to
 - if im writing in one window with another window open, is that text being read?
 - perhaps useful for the agent chart part of capture [0001-trajectory-format.md](https://github.com/harbor-framework/harbor/blob/main/rfcs/0001-trajectory-format.md) [trajectory-v1.schema.json](https://github.com/letta-ai/trajectory/blob/main/schema/trajectory-v1.schema.json)
 - i think in some sense, if there isnt enough data, that implies a better interaction surface like [[Product]]. if there is enough data, a better interaction surface may still be necessary, but may not be the most important thing vs market visibility and positioning
-- readability and trafilatura are tools to convert html to markdown
+- 
 - context details
 	- big question for data codification is whether you give a tool call to fetch the content of a web page rather than the content itself during training. how does that change the state and action space? does it more clearly separate the action space of the agent from the state space of the environment? are there two environments?
 		- lots of good information that seems relevant in this guys feed https://x.com/oneill_c
@@ -89,6 +85,7 @@ likely need to
 - collection surfaces will be informed by actual implementation, but likely covers codex app, browser use, obsidian
 - the text from a SNAPSHOT is converted into a DATA STRUCTURE. this can likely be heavily optimized, so we want to start from something that contains more information than necessary that is able to then be filtered, so the simplest is likely json
 - the json likely has time, read/write boolean field, author/source field, destination field (only for write, type is union of apps, each app has its own set of fields for example obsidian has a file path while browser likely just demarcates between search and ai chat), link optional field, content field, where the content should likely be markdown
+	- readability and trafilatura are tools to convert html to markdown
 - if you do delay based event demarcation and within a delay you write multiple events, you would need to then separate out those events
 - start with remote LLM and data storage to avoid storage issues and allow for seamless larger model ablations
 - start with sampling the model to predict a write action after a text field of any kind is focused, outside of the model itself. this also naively but perhaps well enough solves the issue of 'when' to suggest/sample/intervene. further work can attempt to internalize timing into the model, which becomes more of a self aware assistance game rather than simple behavior cloning
