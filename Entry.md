@@ -15,3 +15,6 @@
 	- 'generalization' as a vague concept feels impossible. regret minimization feels like a much more robust framework. since if you're in a new domain you will have to learn.
 	- for the purposes of mimicking my behavior, the 'learning' feels less about the domains shifting and more about whether my judgment shifts or not. it doesnt feel like my judgment shifts that fast, so a model that is sufficiently parametrized should be able to learn it
 - any work out there that quantifies the context size of an adult human brain? how does this context size relate to 'reasoning to retrieve'?
+- one of the questions, related to Data notes, seems to be how much 'data' do i produce, or more specifically how much data signifies a single distribution, and how many weights are necessary, assuming some average LLM architecture, learn that data, according to papers like Kaplan and Chinchilla
+- using LLMs to essentially do continuous hyperparameter search feels useful and also rote at the same time
+- speed and cost matter
