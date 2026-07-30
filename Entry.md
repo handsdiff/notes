@@ -11,4 +11,7 @@
 - how can data providers show that current frontier models perform poorly on their data without sending that data to the frontier model provider, therefore giving up the content for free? TEEs and open weight comparisons
 - if the best ai engineers strain infra by coming up with new implementations that infra people need to then figure out how to best support, they must not be using the infra, no? since it does not support them. what lower level framework are they using?
 - https://www.youtube.com/watch?v=wjZofJX0v4M basic 3b1b transformers explanation since its always helpful to re-understand the basics
-	- in the LLM scenario, the weights are being tuned, from any data that backprop flows through, to increase the quality of the attention paid to prior tokens for the purposes of 
+	- in the LLM scenario, the weights are being tuned, from any data that backprop flows through, to increase the quality of the attention paid to prior tokens for the purposes of better predicting what comes next
+	- 'generalization' as a vague concept feels impossible. regret minimization feels like a much more robust framework. since if you're in a new domain you will have to learn.
+	- for the purposes of mimicking my behavior, the 'learning' feels less about the domains shifting and more about whether my judgment shifts or not. it doesnt feel like my judgment shifts that fast, so a model that is sufficiently parametrized should be able to learn it
+- 
