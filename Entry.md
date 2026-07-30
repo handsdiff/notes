@@ -22,3 +22,4 @@
 - speed and cost matter
 - currently going through some foundational videos to get a better intuition for how the data should be collected and structured, since that determines everything downstream
 - do any data providers like scale/surge/mercor/handshake sell pretraining data? or just RL data
+- https://x.com/teodorio/status/2082791256833323010?s=20
