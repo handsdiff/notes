@@ -19,3 +19,4 @@
 - using LLMs to essentially do continuous hyperparameter search feels useful and also rote at the same time
 - speed and cost matter
 - currently going through some foundational videos to get a better intuition for how the data should be collected and structured, since that determines everything downstream
+- do any data providers like scale/surge/mercor/handshake sell pretraining data? or just RL data
