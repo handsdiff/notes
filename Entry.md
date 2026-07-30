@@ -10,3 +10,5 @@
 - do i care about information to action mapping or do i care about a temporal understanding of past work? the thing about judgment + proactive suggestions is that its qualitatively different UX, so doesn't really feel like you can 'lineage' or MVP your way up to it
 - how can data providers show that current frontier models perform poorly on their data without sending that data to the frontier model provider, therefore giving up the content for free? TEEs and open weight comparisons
 - if the best ai engineers strain infra by coming up with new implementations that infra people need to then figure out how to best support, they must not be using the infra, no? since it does not support them. what lower level framework are they using?
+- https://www.youtube.com/watch?v=wjZofJX0v4M basic 3b1b transformers explanation since its always helpful to re-understand the basics
+	- in the LLM scenario, the weights are being tuned, from any data that backprop flows through, to increase the quality of the attention paid to prior tokens for the purposes of 
