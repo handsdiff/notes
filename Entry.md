@@ -7,4 +7,3 @@
 	- MLA projects the tokens into a learned latent space, then runs attention on them. the KV cache is largely reduced since you now need to store the latent conversion matrix instead, and linear algebra allows you to combine the QK multiplication up front and the V multiplication with the output matrix at the end, to produce the output of the head. each head still computes its own weights, which contributes to high performance
 	- this video helps me understand schmidhuber's 'fast and slow' weights better, since QK in basic attention basically learn how to apply importance to V, so QK is fast weights and V is slow weights
 	- with a KV cache, flops are linear with respect to context, but it caused memory to be quadratic
-- https://x.com/dgt10011/status/2082558594818494916?s=20
