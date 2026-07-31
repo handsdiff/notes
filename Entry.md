@@ -4,6 +4,8 @@
 - https://x.com/sonyatweetybird/status/2082549709223436658?s=20
 - https://x.com/francoischauba1/status/2082858605477552417?s=46
 - https://x.com/river_ai_inc/status/2082973918873415699?s=20
+- https://x.com/henrytdowling/status/2082972472010260844?s=20
+- https://x.com/jonchu/status/2082988928374894757?s=20
 - 
 - probably worth trying coast, https://x.com/shadcn/status/2082519375194763675?s=20 tons of these popping up. orchids a new one too. there was another one i saw i didnt save, it ends with two i's
 - https://www.youtube.com/watch?v=0VLAoVGf_74 welch labs vid on MLA
