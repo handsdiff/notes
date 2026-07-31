@@ -41,3 +41,7 @@ Alex now onboard with data??
 Follow up with Caleb Jonah and zile for more events even in SF and also kevin 
 
 https://www.ycrootaccess.com/p/multi-gpu-kernels-intelligence-per
+
+https://www.youtube.com/watch?v=r1qZpYAmqmg
+- course from guy who does training at openai says that non reasoning, human interactivity post training/RLHF has on the order of 100k data examples, 100k training cost on the order of days, and the bottleneck is data and evals
+- if i do token level cross entropy loss for phase 1, will that delete learned pretraining language abilities? does that same issue apply to RLHF? why or why not?
