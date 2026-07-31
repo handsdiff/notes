@@ -4,9 +4,9 @@
 - https://x.com/sonyatweetybird/status/2082549709223436658?s=20
 - https://x.com/francoischauba1/status/2082858605477552417?s=46
 - https://x.com/river_ai_inc/status/2082973918873415699?s=20
-- https://x.com/henrytdowling/status/2082972472010260844?s=20
+- https://x.com/henrytdowling/status/2082972472010260844?s=20 Twitter following is increasing more than me, how to improve
 - https://x.com/jonchu/status/2082988928374894757?s=20
-- https://www.11x.ai/case-study/ornn
+- https://www.11x.ai/case-study/ornn relates to jakub discussion about early outreach and invalidation. Also relates to Kevin yc feedback about emailing not coding. They seem to have done this to determine ICP, and they had something that caught the attention of these players.
 - https://x.com/CoreAutoAI/status/2082937120508067938?s=20
 - 
 - probably worth trying coast, https://x.com/shadcn/status/2082519375194763675?s=20 tons of these popping up. orchids a new one too. there was another one i saw i didnt save, it ends with two i's https://x.com/ii_posts/status/2082855223400243634?s=20
@@ -33,3 +33,9 @@
 - https://x.com/teodorio/status/2082791256833323010?s=20
 
 some mixed personal/work todos in my notes app
+
+One conclusion from jakub convo was that if anyones cobbling together something like screenpipe (all solutions are bad even just for this) with something like prime intellect or applied compute, they’d be the closest target
+
+Alex now onboard with data??
+
+Follow up with Caleb Jonah and zile for more events even in SF and also kevin 
