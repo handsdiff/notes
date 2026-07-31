@@ -11,6 +11,7 @@
 - prev LBH: Come up with a data plan or invalidate premises of direction. If failed to invalidate, describe data structures and ingestion surfaces compared to alternatives. By Tuesday.
 	- day late, weekend was sloppy
 - new LBH: Publish an article describing the differences in data collection required when the explicit purpose is next action (thought, content) prediction, along with how [[Product]] work may be necessary to fully realize the goal, rather than starting from what in my opinion is qualitatively different UX in a lossless retrieval paradigm such as the screenpipe-like apps popping up as well as 'fact compression' work a la ONeill. The focus is on the practicalities of data capture as discovered from the previous LBH. By Friday.
+	- 
 - simplified version to team: Publish an article describing the concrete differences in data collection required when the explicit purpose is prediction rather than retrieval. The focus is on the practicalities of data capture as discovered from the previous LBH. By Friday.
 
 CURRENT

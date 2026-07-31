@@ -39,3 +39,5 @@ One conclusion from jakub convo was that if anyones cobbling together something 
 Alex now onboard with data??
 
 Follow up with Caleb Jonah and zile for more events even in SF and also kevin 
+
+https://www.ycrootaccess.com/p/multi-gpu-kernels-intelligence-per
