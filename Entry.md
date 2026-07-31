@@ -20,6 +20,10 @@
 - one of the questions, related to Data notes, seems to be how much 'data' do i produce, or more specifically how much data signifies a single distribution, and how many weights are necessary, assuming some average LLM architecture, learn that data, according to papers like Kaplan and Chinchilla
 - using LLMs to essentially do continuous hyperparameter search feels useful and also rote at the same time
 - speed and cost matter
-- currently going through some foundational videos to get a better intuition for how the data should be collected and structured, since that determines everything downstream
+- 
+**currently going through some foundational videos to get a better intuition for how the data should be collected and structured, since that determines everything downstream**
+- 
 - do any data providers like scale/surge/mercor/handshake sell pretraining data? or just RL data
 - https://x.com/teodorio/status/2082791256833323010?s=20
+
+some mixed personal/work todos in my notes app
