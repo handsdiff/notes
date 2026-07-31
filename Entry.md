@@ -6,8 +6,10 @@
 - https://x.com/river_ai_inc/status/2082973918873415699?s=20
 - https://x.com/henrytdowling/status/2082972472010260844?s=20
 - https://x.com/jonchu/status/2082988928374894757?s=20
+- https://www.11x.ai/case-study/ornn
+- https://x.com/CoreAutoAI/status/2082937120508067938?s=20
 - 
-- probably worth trying coast, https://x.com/shadcn/status/2082519375194763675?s=20 tons of these popping up. orchids a new one too. there was another one i saw i didnt save, it ends with two i's
+- probably worth trying coast, https://x.com/shadcn/status/2082519375194763675?s=20 tons of these popping up. orchids a new one too. there was another one i saw i didnt save, it ends with two i's https://x.com/ii_posts/status/2082855223400243634?s=20
 - https://www.youtube.com/watch?v=0VLAoVGf_74 welch labs vid on MLA
 	- if you train on each data point in a continual learning setting, or like e2e-ttt, then you cant use a KV cache? since the key and value for each token is different after each generation? i guess that conflates token generation with data points?
 	- MLA projects the tokens into a learned latent space, then runs attention on them. the KV cache is largely reduced since you now need to store the latent conversion matrix instead, and linear algebra allows you to combine the QK multiplication up front and the V multiplication with the output matrix at the end, to produce the output of the head. each head still computes its own weights, which contributes to high performance
