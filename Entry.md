@@ -45,3 +45,7 @@ https://www.ycrootaccess.com/p/multi-gpu-kernels-intelligence-per
 https://www.youtube.com/watch?v=r1qZpYAmqmg
 - course from guy who does training at openai says that non reasoning, human interactivity post training/RLHF has on the order of 100k data examples, 100k training cost on the order of days, and the bottleneck is data and evals
 - if i do token level cross entropy loss for phase 1, will that delete learned pretraining language abilities? does that same issue apply to RLHF? why or why not?
+
+good tweet https://x.com/andrewho03/status/2082786931419812338
+
+probably makes sense to partner with labs like prime intellect. handle the data collection and structuring side and work with them to train and serve the models. bootstrapping / rev share that eventually is handled by owning the customer (the data source)
