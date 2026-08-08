@@ -9,6 +9,37 @@
 - https://www.11x.ai/case-study/ornn relates to jakub discussion about early outreach and invalidation. Also relates to Kevin yc feedback about emailing not coding. They seem to have done this to determine ICP, and they had something that caught the attention of these players.
 - https://x.com/CoreAutoAI/status/2082937120508067938?s=20
 - https://x.com/willccbb/status/2083221912998601003?s=20
+- https://x.com/AlexiGlad/status/2083230922196107288?s=20
+- https://x.com/teortaxesTex/status/2083273714783617202?s=20
+- https://x.com/teortaxesTex/status/2083641024442732619?s=20
+- https://x.com/SchmidhuberAI/status/2069808010461884539?s=20
+- https://x.com/eliebakouch/status/2084272149649355017?s=20
+- https://x.com/marksaroufim/status/2084328575466160491?s=20
+- https://x.com/henrytdowling/status/2084100456637206900?s=20
+- https://x.com/grx_xce/status/2084361692792934488?s=20 how does this make money?
+- https://x.com/shawmakesmagic/status/2084372897490248113?s=20
+- https://x.com/LanaElys/status/2083945344203657606?s=20
+- https://arxiv.org/pdf/2502.19312
+- https://x.com/samzliu/status/2084664154766659665?s=20 does this suffice for link indexing the way I wanted for product? How are web chatbot chats parsed?
+- Silico from goodfire is public now
+- https://mysyke.com/research/the-shape-of-memory-benchmarks
+- less wrong Steven Byrnes email
+- All trains of thought come back to simply producing a public result
+- https://x.com/gakonst/status/2084416414413443403?s=20
+- https://arxiv.org/abs/2607.23802
+- https://x.com/gakonst/status/2084416414413443403?s=20
+- https://x.com/GaryMarcus/status/2084479075926876196?s=20
+- https://x.com/JeffDean/status/2085034604172603724?s=20
+- https://x.com/PrimeIntellect/status/2085086999267144083?s=20
+- https://x.com/tenobrus/status/2025648199898407345?s=20
+- still picking up a ton of followers https://x.com/henrytdowling/status/2085111119203430628?s=20
+- one of the reasons I moved to judgment is because I think memory doesn’t actually work well due to issues like blast radius or temporal updating
+- The notion that judgment distillation is required for multi agent systems might actually be a forcing function
+- I think the trust and liability argument is strong but esoteric without examples
+- https://x.com/gabriel1/status/2085418582192841147?s=20
+- https://x.com/bgurley/status/2085407223824756945?s=20
+- https://x.com/chamath/status/2085292687670812833?s=20
+- https://x.com/eliebakouch/status/2085548357645152526?s=20
 - 
 - probably worth trying coast, https://x.com/shadcn/status/2082519375194763675?s=20 tons of these popping up. orchids a new one too. there was another one i saw i didnt save, it ends with two i's https://x.com/ii_posts/status/2082855223400243634?s=20
 - https://www.youtube.com/watch?v=0VLAoVGf_74 welch labs vid on MLA
