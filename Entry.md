@@ -51,6 +51,7 @@
 - I think the focus on a public result stems from the fact that talk is cheap and undifferentiated building is cheap and attention is expensive as AI improves
 - Probably relates to the article jakub shared about how LLMs commodify blank approach so thiel approach remains
 - https://x.com/tobi/status/2086192833061323111?s=20
+- https://x.com/jxmnop/status/2086586918880596406?s=20
 - 
 - probably worth trying coast, https://x.com/shadcn/status/2082519375194763675?s=20 tons of these popping up. orchids a new one too. there was another one i saw i didnt save, it ends with two i's https://x.com/ii_posts/status/2082855223400243634?s=20
 - https://www.youtube.com/watch?v=0VLAoVGf_74 welch labs vid on MLA
