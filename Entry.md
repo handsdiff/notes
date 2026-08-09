@@ -40,6 +40,17 @@
 - https://x.com/bgurley/status/2085407223824756945?s=20
 - https://x.com/chamath/status/2085292687670812833?s=20
 - https://x.com/eliebakouch/status/2085548357645152526?s=20
+- https://x.com/fjzzq2002/status/2085463523203915962?s=20
+- https://substack.com/@gwern/note/c-310947581?r=4r3bqf
+- want to confirm I’ve written somewhere about the potential necessity of reasoning to predict rather than raw prediction, perhaps combined with RL with semantic similarity rather than log probs
+- Also want to confirm the thinking around how context is searched agentically or fed once, which I think I’ve written about in the ablations
+- Helpful to read the prime intellect harness to see how they do context search via Python REPL / PTC to compare, and also the actual purpose / use cases of multi agent system work they released
+- My estimation is that multi agent stuff is useless without differing judgment which is why you need to drastically reduce the friction of distilling judgment into weights I.e my vision, but maybe that stems from a poor understanding of MARL leading to wasted development time
+- I think you get around its loss of “superhuman capability” intrinsically (whatever that means) that I had issues with before since it can just prompt any model it wants to get that capability the way a human does, so it’s a very specific piece in a broader puzzle
+- will need to refresh the intuitions I was building before vacation and also put out the article LBH before meeting tomorrow so I can hit the ground running with data implementation and iteration in a way others could use without me for a week
+- I think the focus on a public result stems from the fact that talk is cheap and undifferentiated building is cheap and attention is expensive as AI improves
+- Probably relates to the article jakub shared about how LLMs commodify blank approach so thiel approach remains
+- https://x.com/tobi/status/2086192833061323111?s=20
 - 
 - probably worth trying coast, https://x.com/shadcn/status/2082519375194763675?s=20 tons of these popping up. orchids a new one too. there was another one i saw i didnt save, it ends with two i's https://x.com/ii_posts/status/2082855223400243634?s=20
 - https://www.youtube.com/watch?v=0VLAoVGf_74 welch labs vid on MLA
