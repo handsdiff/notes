@@ -74,6 +74,8 @@
 - target market? https://x.com/himanshustwts/status/2086704020337602733?s=20
 - https://x.com/irl_danB/status/2086798648306704886?s=20
 - https://www.trycaret.com/
+- https://x.com/gakonst/status/2086846192701640817?s=20
+- https://x.com/shadcn/status/2086737201723764847?s=20
 - 
 
 https://www.youtube.com/watch?v=r1qZpYAmqmg
