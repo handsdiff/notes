@@ -74,7 +74,7 @@ The north star is qualitative temporal fidelity: the stored stream should approx
 
 The first implementation should include a separate debugging window that is excluded from collection and displays the stream being stored. The loop is:
 
-1. deploy the smallest useful sensor;
+1. deploy the smallest useful sensor set across Obsidian, Chrome, and Codex;
 2. do normal work;
 3. watch the resulting read/write stream in the debugging window;
 4. compare it with the actual experience of reading and writing;
@@ -145,6 +145,8 @@ The initial surfaces are:
 - Obsidian;
 - browser use;
 - Codex and other AI-chat interfaces.
+
+All three surfaces are collected prospectively from the beginning so that their causal interleaving is preserved. Collection scope is separate from training scope: the first training and pipeline smoke tests may use only the Obsidian projection, without delaying Chrome or Codex collection.
 
 Audio and video can be added after the text stream is credible. Historical Obsidian Git history is useful for testing reconstruction and diff logic, but it cannot substitute for a prospective interleaved stream because it omits browser and chat inputs.
 
@@ -420,15 +422,15 @@ The initial program is exploratory. Live predictions are displayed and judged in
 
 ### Experiment 0: Collector and reconstruction audit
 
-Build the debugging display and run the smallest sensors during ordinary work. Inspect the resulting snapshots and derived stream against the actual experience, then revise delays, crops, extraction, deduplication, provenance, and event boundaries. Once the qualitative output is credible, manually replay sampled sessions and measure missing-event rate, temporal-ordering error, incorrect content inclusion, authorship error, action-boundary disagreement, and future leakage. Modeling does not begin until one conversion version is frozen.
+Build the debugging display and run minimum viable Obsidian, Chrome, and Codex sensors during ordinary work. Inspect the resulting snapshots and derived stream against the actual experience, then revise delays, crops, extraction, deduplication, provenance, and event boundaries. Once the qualitative output is credible, manually replay sampled sessions and measure missing-event rate, temporal-ordering error, incorrect content inclusion, authorship error, action-boundary disagreement, and future leakage. Modeling does not begin until one conversion version is frozen.
 
 ### Experiment 1: Obsidian-only smoke test
 
-Use historical note edits to validate temporal reconstruction, write-event construction, serialization, masked loss, daily processing, and overnight replay. Compare current-note context with trailing note history and inspect the resulting loss and predictions. This is a pipeline test, not evidence for the full read–write thesis or a competitive baseline.
+Project the already collected stream down to Obsidian events, together with historical note edits where useful, to validate temporal reconstruction, write-event construction, serialization, masked loss, daily processing, and overnight replay. Compare current-note context with trailing note history and inspect the resulting loss and predictions. This is a pipeline test, not evidence for the full read–write thesis or a competitive baseline.
 
 ### Experiment 2: Prospective interleaved stream
 
-Collect Obsidian, browser, and AI-chat events prospectively. Display focus-triggered predictions for qualitative inspection while excluding those prediction events from the Phase 1 dataset. Test whether correctly timed read and write history improves pre-update loss over the current artifact and damaged-history controls.
+Use the prospectively collected interleaved Obsidian, Chrome, and Codex stream. Display focus-triggered predictions for qualitative inspection while excluding those prediction events from the Phase 1 dataset. Test whether correctly timed read and write history improves pre-update loss over the current artifact and damaged-history controls.
 
 ### Experiment 3: Ablation matrix
 
@@ -459,9 +461,9 @@ The initial Phase 1 bar is deliberately provisional: the collector produces an i
 ## 8. Implementation Order
 
 1. build an excluded debugging display for the raw snapshots and read/write stream;
-2. implement the smallest Obsidian sensor with rich snapshots, input events, and timestamps;
-3. use it during ordinary work and iterate on write delay, extraction, diffs, provenance, deduplication, and boundaries;
-4. add browser and AI-chat sensors and repeat the same inspection loop;
+2. implement minimum viable Obsidian, Chrome, and Codex sensors with rich snapshots, input events, source identity, and timestamps;
+3. run all three during ordinary work and inspect both source-specific capture and cross-application causal ordering;
+4. iterate on delays, extraction, viewport capture, diffs, provenance, deduplication, and event boundaries across the combined stream;
 5. freeze and version one snapshot-to-event and write-target conversion;
 6. implement the focus-triggered prediction display and store displayed predictions as Phase 1-excluded read events;
 7. reconstruct historical note edits as a pipeline test without treating them as a complete historical stream;
