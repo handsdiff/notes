@@ -115,4 +115,7 @@ its not 10x higher if its judgment and context retrieval is akin to the user tho
 
 what is the human intelligence per watt? what is the human learning signal per flop?
 
-maybe retrieval is optimized to compare to pure weight optimization? obviously can combine the two as well. just need to start somewhere
+maybe retrieval is optimized to compare to pure weight optimization? obviously can combine the two as well. just need to start somewhere. can one be developed independent of the other? 
+
+one way to think about the data collection is that it defines how to separate signal from noise in the data? since im attempting to focus on things i actually read/write rather than full history? or do i want to give full history, would that improve ability to predict next action? should i start calling it next content to properly differentiate? and also when i copy paste data into obsidian, is that a way of filtering signal from noise for the model? (in the vein of signal to noise handling per sutton's description of his work)
+
