@@ -77,15 +77,6 @@
 - do any data providers like scale/surge/mercor/handshake sell pretraining data? or just RL data
 - https://x.com/teodorio/status/2082791256833323010?s=20
 
-some mixed personal/work todos in my notes app
-
-One conclusion from jakub convo was that if anyones cobbling together something like screenpipe (all solutions are bad even just for this) with something like prime intellect or applied compute or inference net, they’d be the closest target
-
-Alex now onboard with data??
-
-Follow up with Caleb Jonah and zile for more events even in SF and also kevin 
-
-
 https://www.ycrootaccess.com/p/multi-gpu-kernels-intelligence-per
 
 https://www.youtube.com/watch?v=r1qZpYAmqmg
