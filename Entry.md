@@ -124,3 +124,5 @@ maybe retrieval is optimized to compare to pure weight optimization? obviously c
 
 one way to think about the data collection is that it defines how to separate signal from noise in the data? since im attempting to focus on things i actually read/write rather than full history? or do i want to give full history, would that improve ability to predict next action? should i start calling it next content to properly differentiate? and also when i copy paste data into obsidian, is that a way of filtering signal from noise for the model? (in the vein of signal to noise handling per sutton's description of his work)
 
+being good at the specific thing of converting stimulus to response, rather than attempting to maintain question answering or frontier level intelligence, since that ability can be gotten from just calling/prompting those models, invalidates the prior beliefs around superhuman intelligence doing everything for you, just aligned, and i havent fully thought through this yet
+
