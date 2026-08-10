@@ -86,5 +86,5 @@ does the terminal state of such a product require combining individual models to
 
 what highly value creative workflows become much cheaper or faster with judgment infused weights?
 
-
+one way to frame the conclusion of thesis is that the only way to specify rewards properly is via imitative -> comparative learning. but the less naive step after may just be rubrics.
 
