@@ -72,6 +72,7 @@
 - https://x.com/teodorio/status/2082791256833323010?s=20
 - contains pre training data set? https://x.com/eliebakouch/status/2086833600360521852?s=20
 - target market? https://x.com/himanshustwts/status/2086704020337602733?s=20
+- https://x.com/irl_danB/status/2086798648306704886?s=20
 - 
 
 https://www.youtube.com/watch?v=r1qZpYAmqmg
