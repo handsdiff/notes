@@ -85,6 +85,7 @@ https://www.youtube.com/watch?v=r1qZpYAmqmg
 
 
 why not just tell the computer use agent your goals? why require it to 'infer' your goals from your context?
+- one difference is tightly coupled vs long running
 
 can't properly distribute without a kernel to rally around. people use the term 'reason to exist', 'mission', 'vision', etc but more internalized its just something to point to when thinking about or referencing the entity. otherwise the entity doesn't exist. it comes from a 'feeling' perspective.
 
