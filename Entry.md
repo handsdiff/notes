@@ -88,3 +88,4 @@ what highly value creative workflows become much cheaper or faster with judgment
 
 one way to frame the conclusion of thesis is that the only way to specify rewards properly is via imitative -> comparative learning. but the less naive step after may just be rubrics.
 
+if a dominant method of training models is training multiple models on independent tasks then distilling into a single model, can you have one of the initially trained models be a 'meta learner' that is optimized for quick learning on downstream tasks, and have the final model retain that capability while retaining other capabilities as well? why or why not? is meta learning at odds with 'expertise'?
