@@ -76,6 +76,7 @@
 - https://www.trycaret.com/
 - https://x.com/gakonst/status/2086846192701640817?s=20
 - https://x.com/shadcn/status/2086737201723764847?s=20
+- https://x.com/river_ai_inc/status/2086903810216386802?s=20
 - 
 
 https://www.youtube.com/watch?v=r1qZpYAmqmg
