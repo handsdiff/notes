@@ -128,7 +128,5 @@ being good at the specific thing of converting stimulus to response, rather than
 
 character write -> event write -> screen read -> screen crop -> interleave
 
-is it working here
-
 
 
