@@ -84,5 +84,3 @@ https://www.youtube.com/watch?v=r1qZpYAmqmg
 - if i do token level cross entropy loss for phase 1, will that delete learned pretraining language abilities? does that same issue apply to RLHF? why or why not?
 
 good tweet https://x.com/andrewho03/status/2082786931419812338
-
-probably makes sense to partner with labs like prime intellect. handle the data collection and structuring side and work with them to train and serve the models. bootstrapping / rev share that eventually is handled by owning the customer (the data source)
