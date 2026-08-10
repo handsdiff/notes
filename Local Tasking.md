@@ -17,6 +17,8 @@
 	- very well said for the masses: "https://x.com/davidcrawshaw/status/2083209856656568697"
 - simplified version to team: Publish an article describing the concrete differences in data collection required when the explicit purpose is prediction rather than retrieval. The focus is on the practicalities of data capture as discovered from the previous LBH. By Friday.
 
+**currently going through some foundational videos to get a better intuition for how the data should be collected and structured, since that determines everything downstream**
+
 CURRENT
 - DONE [[Phase 1]] and [[Phase 2]], distilled from [[Algorithms]], step 1 is being concrete about the loss functions and algorithms used for phase 1, and concrete about which loss functions and algorithms could reasonably result in demonstrator outperformance for phase 2 from an assistance perspective rather than replacement perspective.
 - DONE [[Phase 3]], distilled from [[Algorithms]], step 2 is directionally discussing phase 3 goals, without necessarily being concrete about the intended algorithms and loss functions

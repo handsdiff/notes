@@ -3,6 +3,8 @@ likely need to
 	1) codify data structure needed for chosen algorithms, codify how to extract from base data structure to algorithm structure for each step, set up all ingestion points and monitor cleanliness
 
 #### disparate notes
+- one window can be selected while im scrolling another window
+- scrolling too fast should not be counted as read
 - how many tokens are common examples of fine tuned models that actually work trained on? how many tokens are frontier models trained on? on what stage? how does LoRA actually impact the amount of needed/useful tokens? how does that change as the underlying model changes?
 	- https://thinkingmachines.ai/blog/ probably should review the old ones too
 	- quantifying memorization in LLMs, seems very relevant as it relates to the need for synthetic Q/A data. also useful for describing how much content saturates a model before it has to start compressing in order to maintain / improve performance (compression = intelligence)
@@ -11,6 +13,8 @@ likely need to
 	- exactly how much human data was initially used to train the RLHF part of chatgpt?
 	- how many bits of information is required and how many are produced daily?
 	- its likely actually important to answer this question because it will help determine the optimal number of weights to encode the given dataset
+	- any work out there that quantifies the context size of an adult human brain? how does this context size relate to 'reasoning to retrieve'?
+	- one of the questions, related to Data notes, seems to be how much 'data' do i produce, or more specifically how much data signifies a single distribution, and how many weights are necessary, assuming some average LLM architecture, learn that data, according to papers like Kaplan and Chinchilla
 - i wonder whether you need the data to be literally temporally interleaved to predict well. like i pause a youtube video, write down thoughts, play the youtube video. etc. its incorrect to put the entire transcript in when the page is first visited, since the goal is to most closely simulate how my brain works. the actual construction of the dataset is literally 90% of the work here. will take trial and error. may be worth thinking how to improve it
 	- if im watching a youtube video for example, i suspect the best data structure would be the transcript of the part i watched as <read, browser, youtube, transcript chunk> then <write, obsidian, entry, written note>.
 - might help with data ingestion, seemingly open source/self hosted granola https://github.com/Zackriya-Solutions/meetily

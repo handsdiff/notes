@@ -53,7 +53,6 @@
 - https://x.com/tobi/status/2086192833061323111?s=20
 - https://x.com/jxmnop/status/2086586918880596406?s=20
 - https://x.com/witcheer/status/2086418529008443421?s=20
-- 
 - probably worth trying coast, https://x.com/shadcn/status/2082519375194763675?s=20 tons of these popping up. orchids a new one too. there was another one i saw i didnt save, it ends with two i's https://x.com/ii_posts/status/2082855223400243634?s=20
 	- cotypist too
 - https://www.youtube.com/watch?v=0VLAoVGf_74 welch labs vid on MLA
@@ -68,22 +67,13 @@
 	- in the LLM scenario, the weights are being tuned, from any data that backprop flows through, to increase the quality of the attention paid to prior tokens for the purposes of better predicting what comes next
 	- 'generalization' as a vague concept feels impossible. regret minimization feels like a much more robust framework. since if you're in a new domain you will have to learn.
 	- for the purposes of mimicking my behavior, the 'learning' feels less about the domains shifting and more about whether my judgment shifts or not. it doesnt feel like my judgment shifts that fast, so a model that is sufficiently parametrized should be able to learn it
-- any work out there that quantifies the context size of an adult human brain? how does this context size relate to 'reasoning to retrieve'?
-- one of the questions, related to Data notes, seems to be how much 'data' do i produce, or more specifically how much data signifies a single distribution, and how many weights are necessary, assuming some average LLM architecture, learn that data, according to papers like Kaplan and Chinchilla
-- using LLMs to essentially do continuous hyperparameter search feels useful and also rote at the same time
-- speed and cost matter
-- 
-**currently going through some foundational videos to get a better intuition for how the data should be collected and structured, since that determines everything downstream**
-- 
 - do any data providers like scale/surge/mercor/handshake sell pretraining data? or just RL data
 - https://x.com/teodorio/status/2082791256833323010?s=20
-
-https://www.ycrootaccess.com/p/multi-gpu-kernels-intelligence-per
+- 
 
 https://www.youtube.com/watch?v=r1qZpYAmqmg
 - course from guy who does training at openai says that non reasoning, human interactivity post training/RLHF has on the order of 100k data examples, 100k training cost on the order of days, and the bottleneck is data and evals
 - if i do token level cross entropy loss for phase 1, will that delete learned pretraining language abilities? does that same issue apply to RLHF? why or why not?
-
 
 why not just tell the computer use agent your goals? why require it to 'infer' your goals from your context?
 - one difference is tightly coupled vs long running
@@ -92,4 +82,8 @@ why not just tell the computer use agent your goals? why require it to 'infer' y
 can't properly distribute without a kernel to rally around. people use the term 'reason to exist', 'mission', 'vision', etc but more internalized its just something to point to when thinking about or referencing the entity. otherwise the entity doesn't exist. it comes from a 'feeling' perspective.
 
 does the terminal state of such a product require combining individual models to improve the initial state of new models? by taking the data from individual models to train the 'base model'? is that not just what big labs are doing?
+
+what highly value creative workflows become much cheaper or faster with judgment infused weights?
+
+
 
