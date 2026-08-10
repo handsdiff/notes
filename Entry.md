@@ -55,6 +55,7 @@
 - https://x.com/witcheer/status/2086418529008443421?s=20
 - 
 - probably worth trying coast, https://x.com/shadcn/status/2082519375194763675?s=20 tons of these popping up. orchids a new one too. there was another one i saw i didnt save, it ends with two i's https://x.com/ii_posts/status/2082855223400243634?s=20
+	- cotypist too
 - https://www.youtube.com/watch?v=0VLAoVGf_74 welch labs vid on MLA
 	- if you train on each data point in a continual learning setting, or like e2e-ttt, then you cant use a KV cache? since the key and value for each token is different after each generation? i guess that conflates token generation with data points?
 	- MLA projects the tokens into a learned latent space, then runs attention on them. the KV cache is largely reduced since you now need to store the latent conversion matrix instead, and linear algebra allows you to combine the QK multiplication up front and the V multiplication with the output matrix at the end, to produce the output of the head. each head still computes its own weights, which contributes to high performance
@@ -86,6 +87,9 @@ https://www.youtube.com/watch?v=r1qZpYAmqmg
 
 why not just tell the computer use agent your goals? why require it to 'infer' your goals from your context?
 - one difference is tightly coupled vs long running
+- another might be proactive vs reactive
 
 can't properly distribute without a kernel to rally around. people use the term 'reason to exist', 'mission', 'vision', etc but more internalized its just something to point to when thinking about or referencing the entity. otherwise the entity doesn't exist. it comes from a 'feeling' perspective.
+
+does the terminal state of such a product require combining individual models to improve the initial state of new models? by taking the data from individual models to train the 'base model'? is that not just what big labs are doing?
 
