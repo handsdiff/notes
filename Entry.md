@@ -70,6 +70,8 @@
 	- for the purposes of mimicking my behavior, the 'learning' feels less about the domains shifting and more about whether my judgment shifts or not. it doesnt feel like my judgment shifts that fast, so a model that is sufficiently parametrized should be able to learn it
 - do any data providers like scale/surge/mercor/handshake sell pretraining data? or just RL data
 - https://x.com/teodorio/status/2082791256833323010?s=20
+- contains pre training data set? https://x.com/eliebakouch/status/2086833600360521852?s=20
+- target market? https://x.com/himanshustwts/status/2086704020337602733?s=20
 - 
 
 https://www.youtube.com/watch?v=r1qZpYAmqmg
