@@ -83,4 +83,5 @@ https://www.youtube.com/watch?v=r1qZpYAmqmg
 - course from guy who does training at openai says that non reasoning, human interactivity post training/RLHF has on the order of 100k data examples, 100k training cost on the order of days, and the bottleneck is data and evals
 - if i do token level cross entropy loss for phase 1, will that delete learned pretraining language abilities? does that same issue apply to RLHF? why or why not?
 
-good tweet https://x.com/andrewho03/status/2082786931419812338
+
+why not just tell the computer use agent your goals? why require it to 'infer' your goals from your context?
