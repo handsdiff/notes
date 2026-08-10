@@ -89,3 +89,24 @@ what highly value creative workflows become much cheaper or faster with judgment
 one way to frame the conclusion of thesis is that the only way to specify rewards properly is via imitative -> comparative learning. but the less naive step after may just be rubrics.
 
 if a dominant method of training models is training multiple models on independent tasks then distilling into a single model, can you have one of the initially trained models be a 'meta learner' that is optimized for quick learning on downstream tasks, and have the final model retain that capability while retaining other capabilities as well? why or why not? is meta learning at odds with 'expertise'?
+
+is next action prediction a forcing function for solving memory rather than solving goal and reward inference? it basically learns what to pay attention to given the full history of logs
+- from shopify ceo, state = memo(f(log))
+
+does the implementation of prime intellect's harness provide a blueprint for the meta optimization required for self improvement towards next action prediction? is this 'training'? the weights arent being updated but the retrieval algorithm would be, ideally forced through iterations given the reward signal (whether thats some token level next action prediction or cosine sim score)
+
+thesis has a ton of good work but it feels a bit weird since its unclear how the described solution solves the time giving context. the way it would is that the next action predictor learns how to manipulate the log history, therefore never needing explicit context? memory solutions solve a similar problem. which implies that the forcing function is learned log attention rather than goal inference. i guess thats a more specific description of learning response to stimulus, so it would make sense in that vein
+
+you dont need a proactive assistant if the goal is reasoning over log history though
+
+one way to describe the true problem being solved is extracting reward signal from human behavior
+
+prime intellect-like python REPL PTC might overfit to the data set. but if you just have a literal shitton of 'hardcoded rules', with some forcing function for less code + readable code, maybe thats fine? kind of reminds me of a AIXI optimal agent keeping all potential environments in its head and acting on whatever prior is most likely
+
+the counterargument would be that hardcoded lost to weights long term, but can weights learn how to optimally retrieve/reason, if the context window is limited? to what extent is 'working memory' and 'memory retrieval' two separate systems in the brain? there is definitely some 'tool' being used in the brain implicitly when i read something (to connect to something else, because it 'reminds' me of something prior) which i also can somewhat 'call' explicitly if im trying really hard to remember something and then i remember it
+
+the other way it connects, referencing above, is that it if most of my typing now and increasingly in the future is to give information to another agent to complete some task, then this learned next action predictor learns how to do that. does this increase leverage in the same way that people viewed number of employees as a status symbol for leverage? the thing about humans is that they require convincing and can opt out, whereas agents are tools without sovereignty (everything is a tool so not to be taken personally, basically give an input, have some expectation of an output, get an output, not really clear nor care how it works, has speed and cost and reliability properties)
+
+proactive is a nice narrative until you realize the cost is 10x higher than reactive
+
+its not 10x higher if its judgment and context retrieval is akin to the user though
