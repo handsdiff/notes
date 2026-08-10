@@ -109,4 +109,4 @@ the other way it connects, referencing above, is that it if most of my typing no
 
 proactive is a nice narrative until you realize the cost is 10x higher than reactive
 
-its not 10x higher if its judgment and context retrieval is akin to the user though
+its not 10x higher if its judgment and context retrieval is akin to the user though. not akin though, more like knows what i actually want rather than what im trying to express. which is basically where phase 2 comes in, which phase 1 bootstraps. and in theory phase 2 bootstraps phase 3 in the same way that pretraining bootstraps RLVR
