@@ -72,5 +72,7 @@ Build and deploy sensors from scratch, then iterate from what they actually expo
 
 - different views have different crop requirements. cannot blanket crop left right by 10% since it cuts off obsidian but allows twitter slop, and vice versa
 - extremely overbearing feeling of needing to conform my work to make sure it fits well into the data not the other way around, i think the typing delay doesn't allow for spontaneous thinking so it feels a bit intense
-- if i cannot scroll anymore, thats probably an indication im reading the bottom section of the screen
+- if i cannot scroll down anymore, thats probably an indication im reading the bottom section of the screen, and we should capture that in the data rather than using the default 50% cutoff
+- are these issues with cutoffs for read why people use formal, supported integrations? the problem with the integrations is that they don't capture 'attention', they only capture content. who's to say that I read a specific item or not? not that my method is necessarily capturing that, but it feels closer, and a slack mcp server for instance does not seem like it would be able to capture read properly
+- is it possible to do eye tracking without an always on camera?
 - 
