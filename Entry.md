@@ -132,5 +132,6 @@ one way to think about the data collection is that it defines how to separate si
 
 being good at the specific thing of converting stimulus to response, rather than attempting to maintain question answering or frontier level intelligence, since that ability can be gotten from just calling/prompting those models, invalidates the prior beliefs around superhuman intelligence doing everything for you, just aligned, and i havent fully thought through this yet
 
+it doesnt seem like the write into the codex app worked properly
 
 
