@@ -75,4 +75,5 @@ Build and deploy sensors from scratch, then iterate from what they actually expo
 - if i cannot scroll down anymore, thats probably an indication im reading the bottom section of the screen, and we should capture that in the data rather than using the default 50% cutoff
 - are these issues with cutoffs for read why people use formal, supported integrations? the problem with the integrations is that they don't capture 'attention', they only capture content. who's to say that I read a specific item or not? not that my method is necessarily capturing that, but it feels closer, and a slack mcp server for instance does not seem like it would be able to capture read properly
 - is it possible to do eye tracking without an always on camera?
+- the bounding box crop/cutoff leaves fragmented sentences. is there a way to intelligently not do this? then you would need to decide if you want to keep or leave it though, which loops back to the issue around each view having different cropping requirements at different times
 - 
