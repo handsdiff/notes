@@ -134,3 +134,6 @@ one way to think about the data collection is that it defines how to separate si
 being good at the specific thing of converting stimulus to response, rather than attempting to maintain question answering or frontier level intelligence, since that ability can be gotten from just calling/prompting those models, invalidates the prior beliefs around superhuman intelligence doing everything for you, just aligned, and i havent fully thought through this yet
 
 what pushes read/write delay up is the time required to fully form a thought that isnt half baked, and having the ai predict halfway chunks will elicit less 'stimulus response simulation'. what pushes it down is the intuition that super long chunks will be harder for the ai to predict and may combine multiple thought into one, as well as making it higher friction for the human to evaluate and use at test time. unresolved.
+
+typing a line
+typing another line
