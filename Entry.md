@@ -79,7 +79,7 @@
 - https://x.com/gakonst/status/2086846192701640817?s=20
 - https://x.com/shadcn/status/2086737201723764847?s=20
 - https://x.com/river_ai_inc/status/2086903810216386802?s=20
-- focusing on next content prediction because it’s a forcing function for tacit knowledge data collection, goal inference, and memory algorithms, and it enables intelligent autocomplete, proactive goal oriented assistance, and multi agent systems
+- focusing on next content prediction because it’s a forcing function for data collection quality, judgment distillation, goal inference, and memory algorithms, and it enables intelligent autocomplete, proactive goal oriented assistance, and multi agent systems
 - 
 
 https://www.youtube.com/watch?v=r1qZpYAmqmg
