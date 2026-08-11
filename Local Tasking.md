@@ -17,18 +17,15 @@
 	- very well said for the masses: "https://x.com/davidcrawshaw/status/2083209856656568697"
 - simplified version to team: Publish an article describing the concrete differences in data collection required when the explicit purpose is prediction rather than retrieval. The focus is on the practicalities of data capture as discovered from the previous LBH. By Friday.
 
-**currently going through some foundational videos to get a better intuition for how the data should be collected and structured, since that determines everything downstream**
-
 CURRENT
 - DONE [[Phase 1]] and [[Phase 2]], distilled from [[Algorithms]], step 1 is being concrete about the loss functions and algorithms used for phase 1, and concrete about which loss functions and algorithms could reasonably result in demonstrator outperformance for phase 2 from an assistance perspective rather than replacement perspective.
 - DONE [[Phase 3]], distilled from [[Algorithms]], step 2 is directionally discussing phase 3 goals, without necessarily being concrete about the intended algorithms and loss functions
 - DONE [[Phase 1]] and [[Phase 2]], distilled from [[Algorithms]], step 3 is enriching step 1 with all the plausible ways it could go wrong, and expected next steps required in those failure modes
 - DONE [[Phase 1#1.2 Assumptions and claim boundaries]] step 4 is rank the assumptions required for phase 1 to show frontier performance in order of importance to final goal
-- IN PROGRESS [[Data]] step 5 is determining what data to collect for phase 1 and 2, and how to clean it for phase 1
-- step 6 is enriching step 5 with all the plausible ways the data could be misconfigured, and expected next steps in those failure modes
-- step 7 is publishing this plan publicly as a blog post, for legitimacy/legibility purposes
-- step 8 is implementing the hypothesized data collection
-- step 9 is go through inbound backlog to invalidate any takes up until this point
+- DONE [[Data]] step 5 is determining what data to collect for phase 1 and 2, and how to clean it for phase 1
+- DONE step 6 is enriching step 5 with all the plausible ways the data could be misconfigured, and expected next steps in those failure modes
+- DONE step 7 is publishing this plan publicly as a blog post, for legitimacy/legibility purposes
+- IN PROGRESS step 8 is implementing the hypothesized data collection
 
 LATER
 - step 10 is implement the experiment
