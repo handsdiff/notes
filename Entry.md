@@ -79,7 +79,7 @@
 - https://x.com/gakonst/status/2086846192701640817?s=20
 - https://x.com/shadcn/status/2086737201723764847?s=20
 - https://x.com/river_ai_inc/status/2086903810216386802?s=20
-- focusing on next content prediction because it’s a forcing function for data collection quality, judgment distillation, goal inference, and memory algorithms, and it enables intelligent autocomplete, proactive goal oriented assistance, and multi agent systems
+- focusing on next content prediction because it’s a forcing function for data collection quality, judgment distillation, goal inference, and memory algorithms, and it enables intelligent autocomplete, proactive goal oriented assistance, robust user simulation, and multi agent systems
 - seems extremely relevant to discussions around context windows / retrieval vs judgment etc 
 	- https://arxiv.org/pdf/2605.23668v2 "a key step towards proactive interaction is next query prediction" should study the data construction and method used for actually implementing the 'dynamic memory' but from an initial skim it just seems like a scratchpad that the LLM can use...
 - https://tullie.ai/blog/titans-neural-memory
