@@ -78,4 +78,6 @@ Build and deploy sensors from scratch, then iterate from what they actually expo
 - the bounding box crop/cutoff leaves fragmented sentences. is there a way to intelligently not do this? then you would need to decide if you want to keep or leave it though, which loops back to the issue around each view having different cropping requirements at different times
 - google chrome browser search write uses the full url instead of the search query
 - still need to determine 'author' of content, and distinguishing read from what ive just written, or more likely that just gets handled in the soup of training
-- pressing enter after a type 
+- pressing enter after a type seems to have issues with collecting the data inserted before the type
+
+
