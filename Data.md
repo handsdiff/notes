@@ -76,4 +76,6 @@ Build and deploy sensors from scratch, then iterate from what they actually expo
 - are these issues with cutoffs for read why people use formal, supported integrations? the problem with the integrations is that they don't capture 'attention', they only capture content. who's to say that I read a specific item or not? not that my method is necessarily capturing that, but it feels closer, and a slack mcp server for instance does not seem like it would be able to capture read properly
 - is it possible to do eye tracking without an always on camera?
 - the bounding box crop/cutoff leaves fragmented sentences. is there a way to intelligently not do this? then you would need to decide if you want to keep or leave it though, which loops back to the issue around each view having different cropping requirements at different times
-- 
+- google chrome browser search write uses the full url instead of the search query
+- still need to determine 'author' of content, and distinguishing read from what ive just written, or more likely that just gets handled in the soup of training
+- pressing enter after a type 
