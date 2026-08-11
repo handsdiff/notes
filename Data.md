@@ -67,3 +67,10 @@ Build and deploy sensors from scratch, then iterate from what they actually expo
 **North star:** qualitative temporal fidelity of snapshots—capturing, as closely as possible, what information was available to the human and what the human produced, in the correct causal order.
 
 **Loop:** deploy the smallest useful sensor → inspect its raw snapshots during real work → compare them with the actual inbound/outbound experience → fix the sensor or snapshotting → repeat. Use relevance to next-write prediction as a practical proxy.
+
+### implementation issues
+
+- different views have different crop requirements. cannot blanket crop left right by 10% since it cuts off obsidian but allows twitter slop, and vice versa
+- extremely overbearing feeling of needing to conform my work to make sure it fits well into the data not the other way around, i think the typing delay doesn't allow for spontaneous thinking so it feels a bit intense
+- if i cannot scroll anymore, thats probably an indication im reading the bottom section of the screen
+- 
