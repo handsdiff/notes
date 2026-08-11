@@ -80,7 +80,8 @@
 - https://x.com/shadcn/status/2086737201723764847?s=20
 - https://x.com/river_ai_inc/status/2086903810216386802?s=20
 - focusing on next content prediction because it’s a forcing function for data collection quality, judgment distillation, goal inference, and memory algorithms, and it enables intelligent autocomplete, proactive goal oriented assistance, and multi agent systems
-- 
+- seems extremely relevant to discussions around context windows / retrieval vs judgment etc 
+	- https://arxiv.org/pdf/2605.23668v2 "a key step towards proactive interaction is next query prediction"
 
 https://www.youtube.com/watch?v=r1qZpYAmqmg
 - course from guy who does training at openai says that non reasoning, human interactivity post training/RLHF has on the order of 100k data examples, 100k training cost on the order of days, and the bottleneck is data and evals
