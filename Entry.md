@@ -1,5 +1,8 @@
 
 - https://x.com/mitch_troy/status/2082513195357307158?s=20
+- https://x.com/trajectorylabs/status/2087165247023092104?s=20
+- https://x.com/teortaxesTex/status/2087168074222907771?s=20
+- 
 - https://x.com/ankrgyl/status/2082565187064811637?s=20
 - https://x.com/sonyatweetybird/status/2082549709223436658?s=20
 - https://x.com/francoischauba1/status/2082858605477552417?s=46
