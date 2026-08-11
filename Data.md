@@ -79,5 +79,7 @@ Build and deploy sensors from scratch, then iterate from what they actually expo
 - google chrome browser search write uses the full url instead of the search query
 - still need to determine 'author' of content, and distinguishing read from what ive just written, or more likely that just gets handled in the soup of training
 - pressing enter after a type seems to have issues with collecting the data inserted before the type
+- how best to handle copy paste
+- how best to handle autocomplete from other sources? for example if i type in 'ge < Enter >' into browser search it brings me to gemini. probably just want the model to complete the entire thing. i.e. the model learns to predict navigating to gemini.google.com i.e. the full url
 
 
