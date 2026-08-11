@@ -81,5 +81,7 @@ Build and deploy sensors from scratch, then iterate from what they actually expo
 - pressing enter after a type seems to have issues with collecting the data inserted before the type
 - how best to handle copy paste
 - how best to handle autocomplete from other sources? for example if i type in 'ge < Enter >' into browser search it brings me to gemini. probably just want the model to complete the entire thing. i.e. the model learns to predict navigating to gemini.google.com i.e. the full url
+- can extract text from youtube videos but not subtitles
+- 
 
 

@@ -137,3 +137,7 @@ being good at the specific thing of converting stimulus to response, rather than
 what pushes read/write delay up is the time required to fully form a thought that isnt half baked, and having the ai predict halfway chunks will elicit less 'stimulus response simulation'. what pushes it down is the intuition that super long chunks will be harder for the ai to predict and may combine multiple thought into one, as well as making it higher friction for the human to evaluate and use at test time. unresolved.
 
 kind of hard to do work while also monitoring whether the capture is high fidelity or not because i specifically need to monitor both reads and writes and specifically whether the read is able to well match what i actually ingest
+
+i wonder how it works with youtube videos, it seems like its able to extract text from the video which i was not expecting, but it does not seem to capture subtitles
+
+counting surrounding notes as a read whenever i click into obsidian to type something feels like a lot of noise but maybe the attention mechanism of training will learn to handle it
