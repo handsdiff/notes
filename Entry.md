@@ -84,6 +84,7 @@
 	- https://arxiv.org/pdf/2605.23668v2 "a key step towards proactive interaction is next query prediction" should study the data construction and method used for actually implementing the 'dynamic memory' but from an initial skim it just seems like a scratchpad that the LLM can use...
 	- going from roughly 40 to roughly 44 score is pretty weak no? went through the training method but havent combed through the datasets or construction yet
 - https://tullie.ai/blog/titans-neural-memory
+- https://x.com/eliebakouch/status/2087179305474298162?s=20
 - 
 
 https://www.youtube.com/watch?v=r1qZpYAmqmg
