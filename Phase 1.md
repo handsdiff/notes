@@ -164,6 +164,34 @@ The target $y_t$ is the full serialized human write event produced by this conve
 
 The model context may contain only Phase 1-eligible records available before the action boundary chosen by the conversion version. The conversion must explicitly assign and document any `available_at` timestamp used for a derived input event and any `began_at` timestamp used for a candidate write target; these are decisions made by the frozen conversion, not timestamps silently inferred from snapshot finalization. Each training example stores the exact derived context, full serialized target, source records, conversion version, and target mask. The daily update manifest separately records the parent model, data cutoff, recent and replay examples, optimizer configuration, and resulting model. These are algorithm-specific derived records, not the authoritative form of the raw activity.
 
+**Causal dataset construction is a required conversion step.** JSONL append order, sequence number, and collector emission time must never be used as the training chronology. A write may be appended only after `WRITE_DELAY`, while a read observed during that write may be appended earlier. Treating all earlier file records as context would therefore allow information captured after the action began—and potentially part of the target itself—to enter the model input.
+
+The frozen conversion must assign event times from the underlying evidence and construct every example by time, for example:
+
+```text
+procedure BUILD_CAUSAL_EXAMPLE(converted_events, target_write, config):
+    target_start <- target_write.began_at
+
+    prior <- events in converted_events where
+             PHASE1_ELIGIBLE(event) and
+             event.available_at < target_start
+
+    ordered_prior <- STABLE_TEMPORAL_SORT(prior)
+    context <- TAKE_CAUSAL_SUFFIX(
+        config.serializer(ordered_prior),
+        config.context_length
+    )
+
+    return FREEZE_EXAMPLE(
+        context=context,
+        target=SERIALIZE_FULL_WRITE_EVENT(target_write),
+        source_event_ids=IDS(EVENTS_CONTRIBUTING_TO(context)),
+        conversion_version=config.conversion_version
+    )
+```
+
+For the initial conservative conversion, a read's `available_at` should be the screen-capture time recorded by the sensor (currently approximated by `settledAt`), not OCR completion or JSONL emission time. A write target's `began_at` should be its first mutating input time. A completed prior write receives a separately defined terminal `available_at` from the frozen conversion; it must not become context merely because its derived record happens to appear earlier in the file. The exact timestamp mapping may be revised between conversion versions, but the filter `event.available_at < target_write.began_at` is mandatory. For example, if a Codex write begins at 13:36:24.882, a read captured at 13:36:25.808 is excluded from that write's context even when the read is physically written to `events.jsonl` before the delayed write record.
+
 ## 4. Training Paradigm
 
 ### 4.1 Fixed-length causal context
