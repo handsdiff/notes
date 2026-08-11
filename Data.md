@@ -81,7 +81,8 @@ Build and deploy sensors from scratch, then iterate from what they actually expo
 - pressing enter after a type seems to have issues with collecting the data inserted before the type
 - how best to handle copy paste
 - how best to handle autocomplete from other sources? for example if i type in 'ge < Enter >' into browser search it brings me to gemini. probably just want the model to complete the entire thing. i.e. the model learns to predict navigating to gemini.google.com i.e. the full url
-- can extract text from youtube videos but not subtitles
+- can extract text from youtube videos but not subtitles? or is that a cropping issue
 - ive glossed over 'where' something is being written but it feels like it matters. for example if im editing an article, and the model learns that i often click into a paragraph to make an edit, how will that appear during training? will the model see a confusing mix of sentence completion and sentence editing? another example is that when i click into the title of a substack article, it seems like the model knowing thats a title will help it predict better. if it thinks the entire google chrome app is the same thing, its going to be quite confused about what im typing into gemini vs what im typing into a substack draft...
+- i originally think i handled the 'where' thesis by only performing sampling when a text field was focused. i guess the core distinction, which reminds me of cursor, is how to codify the state of the cursor into the context, to give it an understanding of where it is, or is there some other way to solve this problem
 
 
