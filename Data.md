@@ -90,6 +90,9 @@ Build and deploy sensors from scratch, then iterate from what they actually expo
 - are we capturing backspaces in write events?
 - im seeing issues with read/write capture where what i wrote is tracked into read, before the write event completes, which breaks causality. also for the line i wrote above, it was combined in a write event with the line before it, which is wrong since i wrote the line before it way prior.
 - regarding copy and paste, we probably want to specifically exclude pasted data from training? or do we want the model to predict the pasted data? it feels more likely that we'd want it to predict the 'paste' action or keyboard movements (cmd V) rather than waste time predicting the content of the paste, since its not actual 'content' written by the user in the sense of distilling judgment
-- 
+- do we want the model to predict WHERE focus will occur as well? in the context of copy paste it seems interesting, although the UX for it seems impossible besides choosing an app. i guess you could specify the preceding text or input field, but would need to think about it.
+	- whats interesting is that cursor, which was made explicit to me yesterday, was not just autocomplete existing cursor, it was where cursor should go next
+- the desire to predict where focus will occur next is more obvious when you consider copy paste scenarios
+- the problem with copy paste in the context of displaying predictions/samples is that i cant copy paste from the model's suggestion to my work, which would be the flow, without fucking up
 
 

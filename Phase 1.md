@@ -160,9 +160,9 @@ The first implementation may use remote models and storage to iterate quickly an
 
 Only after the sensor produces a convincing stream should one snapshot-to-event conversion be frozen for an experiment. That version converts the richer records into chronologically ordered read/write events and constructs candidate write targets. The exact segmentation remains versioned because changing delay, deduplication, or diff rules changes the learning problem.
 
-The target $y_t$ is the full serialized human write event produced by this conversion, not merely its content field. Its eventual JSON fields are determined by the sensor iteration rather than prescribed in advance. Initially, every target field receives loss except the timestamp. The timestamp remains available as event metadata, and whether temporal information should appear in model inputs is tested separately.
+Each converted write keeps observed pre-mutation state distinct from the human outcome. The conditioning state contains the destination and bounded semantic context around the initial caret or selection; it is appended to the causal history as model input. The target $y_t$ is the full serialized net human write outcome produced by the conversion: initially its operation, inserted content, removed content, and net edit offset. Every outcome field receives loss. The initial cursor offset and the net edit offset are retained separately because cursor movement and multiple edits within a settled burst can make them differ. Action and capture timestamps remain example metadata, and whether temporal information should appear in model inputs is tested separately.
 
-The model context may contain only Phase 1-eligible records available before the action boundary chosen by the conversion version. The conversion must explicitly assign and document any `available_at` timestamp used for a derived input event and any `began_at` timestamp used for a candidate write target; these are decisions made by the frozen conversion, not timestamps silently inferred from snapshot finalization. Each training example stores the exact derived context, full serialized target, source records, conversion version, and target mask. The daily update manifest separately records the parent model, data cutoff, recent and replay examples, optimizer configuration, and resulting model. These are algorithm-specific derived records, not the authoritative form of the raw activity.
+The historical model context may contain only Phase 1-eligible records available before the action boundary chosen by the conversion version. The conversion must explicitly assign and document any `available_at` timestamp used for a derived input event and any `began_at` timestamp used for a candidate write target; these are decisions made by the frozen conversion, not timestamps silently inferred from snapshot finalization. The pre-mutation conditioning state is separately admitted as observed query state: the active tap captures it after intercepting the first input but before returning that mutation to the application, and it must not be silently backdated as an ordinary history event. Each training example stores the exact derived history, query, complete model input, serialized outcome target, source records, conversion version, and target mask. The daily update manifest separately records the parent model, data cutoff, recent and replay examples, optimizer configuration, and resulting model. These are algorithm-specific derived records, not the authoritative form of the raw activity.
 
 **Causal dataset construction is a required conversion step.** JSONL append order, sequence number, and collector emission time must never be used as the training chronology. A write may be appended only after `WRITE_DELAY`, while a read observed during that write may be appended earlier. Treating all earlier file records as context would therefore allow information captured after the action began—and potentially part of the target itself—to enter the model input.
 
@@ -177,15 +177,20 @@ procedure BUILD_CAUSAL_EXAMPLE(converted_events, target_write, config):
              event.available_at < target_start
 
     ordered_prior <- STABLE_TEMPORAL_SORT(prior)
-    context <- TAKE_CAUSAL_SUFFIX(
-        config.serializer(ordered_prior),
+    serialized_history <- config.serializer(ordered_prior)
+    query <- SERIALIZE_PRE_MUTATION_CONDITIONING(target_write)
+    model_input <- TAKE_CAUSAL_SUFFIX(
+        CONCAT(serialized_history, query),
         config.context_length
     )
+    history <- HISTORY_PORTION(model_input)
 
     return FREEZE_EXAMPLE(
-        context=context,
-        target=SERIALIZE_FULL_WRITE_EVENT(target_write),
-        source_event_ids=IDS(EVENTS_CONTRIBUTING_TO(context)),
+        context=history,
+        query=query,
+        model_input=model_input,
+        target=SERIALIZE_WRITE_OUTCOME(target_write),
+        source_event_ids=IDS(EVENTS_CONTRIBUTING_TO(history)),
         conversion_version=config.conversion_version
     )
 ```
@@ -202,17 +207,19 @@ $$
 P_t=\{e_i:\operatorname{available\_at}(e_i)<\operatorname{began\_at}(y_t)\}.
 $$
 
-The context is the most recent $L$ tokens of the serialized ordered prefix:
+Let $q_t$ be the serialized observed destination and semantic cursor state. The model input is the most recent $L$ tokens of the serialized ordered prefix followed by that query:
 
 $$
 h_t^{(L)}
 =
 \operatorname{suffix}_L\!\left(
-\operatorname{serialize}(\operatorname{sort}(P_t))
+\operatorname{concat}\!\left(
+\operatorname{serialize}(\operatorname{sort}(P_t)), q_t
+\right)
 \right).
 $$
 
-$L$ is the history-token budget. The serializer and deterministic left-truncation rule are versioned. The window may cross day, session, application, and document boundaries. It does not reset at midnight.
+$L$ is the total input-token budget, so the query consumes part of it and remains at the right edge while older history is truncated first. The serializer and deterministic left-truncation rule are versioned. The history window may cross day, session, application, and document boundaries. It does not reset at midnight.
 
 There is no retrieval, semantic memory, objective induction, or learned selection in the initial method. If relevant information falls outside the last $L$ tokens, the model does not receive it. Context-length experiments test how strongly this limitation matters.
 
@@ -282,13 +289,13 @@ Once this baseline works, the ablation matrix in Section 7 varies context length
 
 ## 5. Behavioral-Cloning Objective
 
-For the full serialized write-event target
+For the full serialized net write-outcome target
 
 $$
 y_t=(y_{t,1},\ldots,y_{t,M_t}),
 $$
 
-let $m_{t,j}=0$ for tokens belonging to the timestamp field and $m_{t,j}=1$ for every other target token. The masked log-likelihood under context length $L$ is
+let $m_{t,j}=1$ for every target token. Timestamps and observed conditioning state are example metadata or model input rather than target fields. The masked log-likelihood under context length $L$ is
 
 $$
 \ell_\theta(y_t\mid h_t^{(L)})
@@ -316,7 +323,7 @@ $$
 }.
 $$
 
-Loss is masked on every context token and on the target timestamp. It is applied to every other token in the full human write event. The exact target fields remain whatever the iterated and frozen conversion defines. Read events, earlier human actions, received messages, external model responses, and tool results provide context but do not become targets merely because they appear in the input. Model predictions displayed during Phase 1 are excluded from the Phase 1 context as well as from its targets.
+Loss is masked on every model-input token and applied to every token in the human write outcome. The exact outcome fields remain whatever the iterated and frozen conversion defines. Read events, earlier human actions, received messages, external model responses, tool results, destination, and initial cursor state provide input but do not become targets merely because they are available to the model. Model predictions displayed during Phase 1 are excluded from the Phase 1 context as well as from its targets.
 
 For overnight update $d$:
 
@@ -348,8 +355,9 @@ procedure PREDICT_ON_FOCUS(model_d, raw_stream, focus_event, config):
         version=config.conversion_version
     )
     eligible <- PHASE1_ELIGIBLE(converted)
+    query <- SERIALIZE_FOCUS_CONDITIONING(focus_event)
     h <- TAKE_CAUSAL_SUFFIX(
-        config.serializer(STABLE_TEMPORAL_SORT(eligible)),
+        CONCAT(config.serializer(STABLE_TEMPORAL_SORT(eligible)), query),
         config.context_length
     )
 
@@ -378,22 +386,23 @@ procedure BUILD_AND_SCORE_DAY(model_d, frozen_events, config):
         prior <- events in frozen_events where
                  PHASE1_ELIGIBLE(event) and
                  event.available_at < y.began_at
+        serialized_history <- config.serializer(STABLE_TEMPORAL_SORT(prior))
+        query <- SERIALIZE_PRE_MUTATION_CONDITIONING(y)
         h <- TAKE_CAUSAL_SUFFIX(
-            config.serializer(STABLE_TEMPORAL_SORT(prior)),
+            CONCAT(serialized_history, query),
             config.context_length
         )
-        included <- EVENTS_CONTRIBUTING_TO(h)
+        included <- EVENTS_CONTRIBUTING_TO(HISTORY_PORTION(h))
 
-        target <- SERIALIZE_FULL_WRITE_EVENT(y, config.serializer)
-        target_mask <- MASK_ALL_TARGET_FIELDS_EXCEPT(
-            target,
-            excluded_fields=(timestamp)
-        )
+        target <- SERIALIZE_WRITE_OUTCOME(y, config.serializer)
+        target_mask <- MASK_ALL_TARGET_FIELDS(target)
         loss <- MASKED_TARGET_NLL(model_d, h, target, target_mask)
         losses.append(loss)
 
         examples.append(FREEZE_TRAINING_EXAMPLE(
-            context=h,
+            context=HISTORY_PORTION(h),
+            query=query,
+            model_input=h,
             target=target,
             target_mask=target_mask,
             source_event_ids=IDS(included),
@@ -466,7 +475,7 @@ All nine comparisons use the same live daily protocol. On a given day, every con
 
 **Learning Objective**. Replace token-level cross-entropy loss and behavioral cloning with cosine similarity on the embeddings of the ground-truth and predicted human write content as the reward for GRPO or RLOO. This compares sequence-likelihood training with semantic-similarity reward maximization.
 
-**Time Data**. Include timestamps in the model input while leaving the target timestamp unscored. This determines whether temporal information changes prediction by allowing the model to use delays between events.
+**Time Data**. Include event and query timestamps in the model input while leaving them outside the outcome target. This determines whether temporal information changes prediction by allowing the model to use delays between events.
 
 **Checkpoint recency.** On day $d$, score every action using the current checkpoint and retained checkpoints from $d-1$, $d-3$, and $d-7$. All remain frozen throughout the day and receive the identical causal event-stream context. This measures the predictive value of recent overnight updates and reveals when those updates hurt current-day prediction.
 
@@ -509,7 +518,7 @@ The required initial artifacts are the excluded debugging display, raw snapshot 
 
 Phase 1 asks whether one person's ordinary computer activity can train a continually improving predictor of what they will write next. The hard prerequisite is a credible sensor-derived account of observable exposure and authorship: what appeared to be read, when it became available, what the person produced, and how the frozen conversion divided that activity into full write events.
 
-The learning rule is simple. A fixed-length suffix of prior Phase 1-eligible events predicts the next full human write event, with the timestamp excluded from loss. The current model displays a prediction when a text field receives focus. That displayed prediction is stored in the raw stream but excluded from Phase 1 learning; modeling the resulting feedback loop begins in Phase 2. The model's weights remain fixed throughout the day. Overnight, that day's scored examples are mixed with historical replay and used for a LoRA behavioral-cloning update whose weights persist into the next day.
+The learning rule is simple. A fixed-length suffix of prior Phase 1-eligible events plus the observed destination and semantic cursor context predicts the next net human write outcome. The current model displays a prediction when a text field receives focus. That displayed prediction is stored in the raw stream but excluded from Phase 1 learning; modeling the resulting feedback loop begins in Phase 2. The model's weights remain fixed throughout the day. Overnight, that day's scored examples are mixed with historical replay and used for a LoRA behavioral-cloning update whose weights persist into the next day.
 
 The initial evidence is intentionally lightweight: qualitative inspection of displayed predictions and the direction and magnitude of loss changes across ablations. If those results are promising, robust baselines and formal human evaluation follow. If they are not, the daily losses and auditable event lineage should make the failure attributable to collection, write-event construction, context, optimization, or continual updating rather than hidden inside a more complicated system.
 
