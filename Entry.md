@@ -6,6 +6,7 @@
 - https://x.ai/bot
 - https://arxiv.org/abs/2608.05987
 - https://arxiv.org/abs/2608.09888
+- https://arxiv.org/abs/2608.09819
 - 
 - https://x.com/ankrgyl/status/2082565187064811637?s=20
 - https://x.com/sonyatweetybird/status/2082549709223436658?s=20
