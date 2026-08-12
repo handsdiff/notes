@@ -10,7 +10,7 @@
 - https://arxiv.org/abs/2608.09819
 - vision relevant https://x.com/dwarkesh_sp/status/2087586004572221767?s=20
 - https://x.com/eliebakouch/status/2087567163783614976
-- 
+- work relevant, training on company data? https://x.com/elonmusk/status/2087604711767896527
 - https://x.com/ankrgyl/status/2082565187064811637?s=20
 - https://x.com/sonyatweetybird/status/2082549709223436658?s=20
 - https://x.com/francoischauba1/status/2082858605477552417?s=46
