@@ -96,3 +96,11 @@ Build and deploy sensors from scratch, then iterate from what they actually expo
 - the problem with copy paste in the context of displaying predictions/samples is that i cant copy paste from the model's suggestion to my work, which would be the flow, without fucking up
 
 
+current challenges i just addressed but need to test are
+- handling cursor position as a necessary input for good content prediction
+- masking everything except added content for the purposes of training
+- adding EOS tokens in data cleanup
+
+current challenges im addressing are
+- handling copy paste. making the call to avoid loss on the pasted output, replacing it with a special paste token like EOS
+- handling write diffs. there are still tons of examples where the write demarcation includes previously written text when it should not be.
