@@ -110,5 +110,6 @@ at the same time i want to put out the article
 - mapping whats written to my actual work, i think copy paste comes down to authorship, i think write diffs come down to event demarcation. the work around content prediction seems less of a data capture and more of an application challenge which leaks into how data is collected.
 - not 100% confident the list of differences are non overlapping to each other and also comprehensive yet. not sure if i could make explicit why that is. i think it's because the questions from entry are not fully answered yet
 - the revision iterations i did for thesis have made it something i can easily reference as very indicative of my thinking, not sure i can say the same for this piece yet
+- Probably just need to share the draft with team to see
 
 the capture is currently off as i work through the challenges
