@@ -165,3 +165,5 @@ can likely use the ai's transcript to extract all the nitpicks i ran into
 sam's tweet about the issues people run into when building their own company brains is good because it shows that enterprises are spending time on the problem they are solving. what enterprises are spending time on collecting high fidelity causal data? RL? what about in non verifiable domains?
 
 why exactly do i want judgment vs recall? what does 'intelligence' even mean? that it can perform better judgment on the context than i can? i feel like thats not it. its more that it can do the same thing faster, or some things better, but i likely need to get more concrete about this
+
+proactive assistance ^ because i cant trust the agent to go do something since i have to review its work, kind of like how if you hire someone and you have to monitor them, you havent actually removed any bottlenecks
