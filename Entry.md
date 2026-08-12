@@ -161,3 +161,6 @@ good point made earlier that cursor's early tab completion was not just completi
 want to take a better look at stash/honcho to juxtapose it vs my intentions to make the difference clearer. clearly they are trying to use 'sleep time compute' to distill judgment into context. honcho uses human crafted SFT. whats the difference in training data? how does this lead to different solved problems or at the very least different outcomes?
 want to revise the article after writing down the very clear and robust differences in data collection, currently at the point of understanding where raw recording COULD reconstruct both recall and judgment, but the existing tools actually focus on recall, thus negatively impacting judgment? but why exactly? causal ordering and event demarcation?
 want to do all this with the tracking on, but theres tracking issues i want to solve before then. but i want to make these tracking issues known to support the article writing and core differences
+can likely use the ai's transcript to extract all the nitpicks i ran into
+sam's tweet about the issues people run into when building their own company brains is good because it shows that enterprises are spending time on the problem they are solving. what enterprises are spending time on collecting high fidelity causal data? RL? what about in non verifiable domains?
+
