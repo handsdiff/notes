@@ -166,4 +166,5 @@ sam's tweet about the issues people run into when building their own company bra
 
 why exactly do i want judgment vs recall? what does 'intelligence' even mean? that it can perform better judgment on the context than i can? i feel like thats not it. its more that it can do the same thing faster, or some things better, but i likely need to get more concrete about this
 
-proactive assistance ^ because i cant trust the agent to go do something since i have to review its work, kind of like how if you hire someone and you have to monitor them, you havent actually removed any bottlenecks
+proactive assistance ^ because i cant trust the agent to go do something since i have to review its work, kind of like how if you hire someone and you have to monitor them, you havent actually removed any bottlenecks. the counterargument is that frontier models are smarter than you, but if they were smarter than me i would trust them more to proactively do work on my behalf? feels like a bit of a confused argument... because they're increasingly doing work on my behalf, does it need to be proactive? not sure why it initially sounded good but 'proactive' doesn't describe delegation.
+
