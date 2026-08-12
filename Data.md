@@ -89,6 +89,7 @@ Build and deploy sensors from scratch, then iterate from what they actually expo
 - wont be able to include terminal data even though i likely want to until the app is separate from showing debugging logs in my terminal, to avoid recursive tracking
 - are we capturing backspaces in write events?
 - im seeing issues with read/write capture where what i wrote is tracked into read, before the write event completes, which breaks causality. also for the line i wrote above, it was combined in a write event with the line before it, which is wrong since i wrote the line before it way prior.
+- regarding copy and paste, we probably want to specifically exclude pasted data from training? or do we want the model to predict the pasted data? it feels more likely that we'd want it to predict the 'paste' action or keyboard movements (cmd V) rather than waste time predicting the content of the paste, since its not actual 'content' written by the user in the sense of distilling judgment
 - 
 
 
