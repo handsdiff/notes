@@ -84,5 +84,6 @@ Build and deploy sensors from scratch, then iterate from what they actually expo
 - can extract text from youtube videos but not subtitles? or is that a cropping issue
 - ive glossed over 'where' something is being written but it feels like it matters. for example if im editing an article, and the model learns that i often click into a paragraph to make an edit, how will that appear during training? will the model see a confusing mix of sentence completion and sentence editing? another example is that when i click into the title of a substack article, it seems like the model knowing thats a title will help it predict better. if it thinks the entire google chrome app is the same thing, its going to be quite confused about what im typing into gemini vs what im typing into a substack draft...
 - i originally think i handled the 'where' thesis by only performing sampling when a text field was focused. i guess the core distinction, which reminds me of cursor, is how to codify the state of the cursor into the context, to give it an understanding of where it is, or is there some other way to solve this problem
+- it feels like when there is a large time gap before a write, that indicates thinking may have occurred, which implies good next content prediction would be more useful
 
 
