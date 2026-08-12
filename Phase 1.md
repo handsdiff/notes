@@ -521,7 +521,7 @@ The required initial artifacts are the excluded debugging display, raw snapshot 
 
 ## 9. Conclusion
 
-Phase 1 asks whether one person's ordinary computer activity can train a continually improving predictor of what they will write next. The hard prerequisite is a credible sensor-derived account of observable exposure and authorship: what appeared to be read, when it became available, what the person produced, and how the frozen conversion divided that activity into full write events.
+Phase 1 asks whether one person's ordinary computer activity can train a continually improving predictor of what they will write next. The hard prerequisite is a credible sensor-derived account of observable exposure and authorship: what appeared to be read, when it became available, what the person produced, and how the frozen conversion divided that activity into bounded write bursts.
 
 The learning rule is simple. A fixed-length suffix of prior Phase 1-eligible events plus the observed destination and semantic cursor context predicts the content of the next human write burst. The current model displays a prediction when a text field receives focus. That displayed prediction is stored in the raw stream but excluded from Phase 1 learning; modeling the resulting feedback loop begins in Phase 2. The model's weights remain fixed throughout the day. Overnight, that day's scored examples are mixed with historical replay and used for a LoRA behavioral-cloning update whose weights persist into the next day.
 
