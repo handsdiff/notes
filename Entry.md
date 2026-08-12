@@ -9,6 +9,7 @@
 - https://x.com/alexshander03/status/2087418185079468485?s=20
 - https://arxiv.org/abs/2608.09819
 - vision relevant https://x.com/dwarkesh_sp/status/2087586004572221767?s=20
+- https://x.com/eliebakouch/status/2087567163783614976
 - 
 - https://x.com/ankrgyl/status/2082565187064811637?s=20
 - https://x.com/sonyatweetybird/status/2082549709223436658?s=20
