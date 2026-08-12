@@ -86,5 +86,9 @@ Build and deploy sensors from scratch, then iterate from what they actually expo
 - i originally think i handled the 'where' thesis by only performing sampling when a text field was focused. i guess the core distinction, which reminds me of cursor, is how to codify the state of the cursor into the context, to give it an understanding of where it is, or is there some other way to solve this problem
 - it feels like when there is a large time gap before a write, that indicates thinking may have occurred, which implies good next content prediction would be more useful
 - if the next write needs to be conditioned on not only the history of read write, but where the cursor is, is this data captured in training? how would you even define cursor positioning? pixel coordinates are likely a poor candidate? maybe you have to define a sliding window of what's before and after the cursors position? that acts as a hyperparameter?
+- wont be able to include terminal data even though i likely want to until the app is separate from showing debugging logs in my terminal, to avoid recursive tracking
+- are we capturing backspaces in write events?
+- im seeing issues with read/write capture where what i wrote is tracked into read, before the write event completes, which breaks causality. also for the line i wrote above, it was combined in a write event with the line before it, which is wrong since i wrote the line before it way prior.
+- 
 
 
