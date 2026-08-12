@@ -158,3 +158,6 @@ why is basic memory, i.e. applying algorithms to fetch data, not good enough? yo
 
 good point made earlier that cursor's early tab completion was not just completing your existing cursor section, it would jump to the next likely cursor location in the codebase!
 
+want to take a better look at stash/honcho to juxtapose it vs my intentions to make the difference clearer. clearly they are trying to use 'sleep time compute' to distill judgment into context. honcho uses human crafted SFT. whats the difference in training data? how does this lead to different solved problems or at the very least different outcomes?
+want to revise the article after writing down the very clear and robust differences in data collection, currently at the point of understanding where raw recording COULD reconstruct both recall and judgment, but the existing tools actually focus on recall, thus negatively impacting judgment? but why exactly? causal ordering and event demarcation?
+want to do all this with the tracking on, but theres tracking issues i want to solve before then. but i want to make these tracking issues known to support the article writing and core differences
