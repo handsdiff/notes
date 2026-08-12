@@ -170,3 +170,5 @@ proactive assistance ^ because i cant trust the agent to go do something since i
 
 the impetus for information -> action was definitely the multi agent systems failing diversity. the line of thinking was that diversity in judgment was needed, not just diversity in context. the issue was that giving solid context to the agent continuously was an issue, which is why the workflow capturing came up. but why not just use screenpipe/coast? thats because ive worked with memory solutions and they're pretty bad at paying attention i.e. separating signal from noise. they dont know WHAT to focus on, leading them to confusion. then the thought was how could you get them to learn what to pay attention to, which led to next write prediction?
 
+doing what im building for coding sounds awful and uselessly slow compared to dominant training methods. why? what properties cause this? i think it comes down to 'verifiability', but i think another word for this, or perhaps a broader definition, is needed
+
