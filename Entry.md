@@ -149,3 +149,12 @@ kind of hard to do work while also monitoring whether the capture is high fideli
 i wonder how it works with youtube videos, it seems like its able to extract text from the video which i was not expecting, but it does not seem to capture subtitles
 
 counting surrounding notes as a read whenever i click into obsidian to type something feels like a lot of noise but maybe the attention mechanism of training will learn to handle it
+
+why do i think that mapping input -> output like myself is necessary? why not just 'company brain' things? do they solve different issues?
+
+are the weights learning 'information attention' when applied to the forcing function of next content prediction? are the issues with event demarcation in next content prediction bad enough that you MUST go to next token prediction at the most granular level? i.e. a keystroke? there's no way that is what is necessary
+
+why is basic memory, i.e. applying algorithms to fetch data, not good enough? you can have a forcing function to learn how to fetch prior history intelligently that may not be next action/token/content prediction? or can you not?
+
+good point made earlier that cursor's early tab completion was not just completing your existing cursor section, it would jump to the next likely cursor location in the codebase!
+
