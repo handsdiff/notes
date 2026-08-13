@@ -127,4 +127,4 @@ want to tell a new agent roughly the following points
 - read source attribution (but i think this is minor)
  while cleaning up the article based on the agent feedback
 
-given the amount of work i'm putting into curating the data pipeline, and the fact that the agent is comparing from the raw logs to ensure the data capturing is high fidelity, i wonder why not just train directly on the raw logs? 
+given the amount of work i'm putting into curating the data pipeline, and the fact that the agent is comparing from the raw logs to ensure the data capturing is high fidelity, i wonder why not just train directly on the raw logs? its because i dont want to teach slop (random backspacing, typos, mistakes, etc). is that valid? what does that actually imply?
