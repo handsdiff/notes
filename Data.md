@@ -130,6 +130,7 @@ what's causing a bit of a delay is that i slightly lost track of the state of th
 - cursor positioning state specification (surrounding semantic content)
 - cursor biased diffing (write event demarcation), stale read authorship (active-write read exclusion)
 - large deletion bugs, read source attribution bug
+- **currently waiting on stale read authorship and read source attribution and large deletion bugs, then will test everything above while working through Entry before moving on to special tokens and loss masking**
 - EOS token, paste token, backspace token
 - proper loss target/masking (only on content, with correct tokens from prior)
 - separate app to include terminal window
