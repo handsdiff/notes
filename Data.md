@@ -132,4 +132,4 @@ what's causing a bit of a delay is that i slightly lost track of the state of th
 - EOS token, paste token, backspace token
 - proper loss target/masking (only on content, with correct tokens from prior)
 - large deletion bugs, read source attribution bug
-- separate tab to include terminal window
+- separate app to include terminal window
