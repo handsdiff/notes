@@ -113,3 +113,14 @@ at the same time i want to put out the article
 - Probably just need to share the draft with team to see
 
 the capture is currently off as i work through the challenges
+
+want to tell a new agent roughly the following points
+- The line before it was combined into the write (cursor biased diffing, concrete examples from coding agent)
+- What I wrote was tracked into read before the write
+  completed (handled by compiler but still dirties event stream)
+- EOS token
+- paste token and associated loss masking
+- proper content production masking
+- cursor position as defined by semantic surroundings as necessary metadata for actual suggestion
+- large deletion bugfixes from run 5
+- 
