@@ -127,9 +127,9 @@ the meta task i seem to be doing with the consolidated of these points is making
 
 what's causing a bit of a delay is that i slightly lost track of the state of the implementation vs whats to be done vs whats done but untested
 
-- cursor biased diffing, stale read authorship (active-write read exclusion)
-- cursor positioning state specification
+- cursor biased diffing (write event demarcation), stale read authorship (active-write read exclusion)
+- cursor positioning state specification (surrounding semantic content)
 - EOS token, paste token, backspace token
-- proper loss target/masking (only on content, with correct tokens)
-- large deletion bugs
-- read source attribution
+- proper loss target/masking (only on content, with correct tokens from prior)
+- large deletion bugs, read source attribution bug
+- separate tab to include terminal window
