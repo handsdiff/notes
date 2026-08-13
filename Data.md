@@ -133,3 +133,10 @@ what's causing a bit of a delay is that i slightly lost track of the state of th
 - proper loss target/masking (only on content, with correct tokens from prior)
 - large deletion bugs, read source attribution bug
 - separate app to include terminal window
+- condition training on cursor position, focus time sampling
+
+
+if handling backspace token, model should likely not predict anything because the user cant copy paste a backspace prediction. or maybe we should include it for straight sampling, ignoring the 'usability' of it. thats actually likely better
+the model should also predict the special paste token and show that to the user. we basically need to indicate that the model is right or not. but that will be a UX issue since something will be in clipboard already so the user would need to dump the currently copied contents somewhere, then fetch the predicted content via copy paste
+i suspect that when i start sampling it will corrupt the data heavily and will need to appropriately mask that to consider completion
+
