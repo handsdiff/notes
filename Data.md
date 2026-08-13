@@ -140,3 +140,4 @@ if handling backspace token, model should likely not predict anything because th
 the model should also predict the special paste token and show that to the user. we basically need to indicate that the model is right or not. but that will be a UX issue since something will be in clipboard already so the user would need to dump the currently copied contents somewhere, then fetch the predicted content via copy paste
 i suspect that when i start sampling it will corrupt the data heavily and will need to appropriately mask that to consider completion
 
+

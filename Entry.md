@@ -184,3 +184,5 @@ doing what im building for coding sounds awful and uselessly slow compared to do
 regarding the 'training for retrieval', i already concluded that harnesses must already do this after answering prior questions i had around how it handles super long inbound info. and shaikh's longNAP does this too, so it seems obviously necessary to be able to reason over context retrieval. the question is whether to stick with existing algos (bm25, etc) or allow new tool creation (REPL, PTC, RLM)
 
 chatbots -> agents -> embedded agents
+
+wrote this prior but don't attention mechs already handle noise? what is sutton talking about
