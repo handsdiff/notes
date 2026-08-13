@@ -119,8 +119,10 @@ want to tell a new agent roughly the following points
 - What I wrote was tracked into read before the write
   completed (handled by compiler but still dirties event stream)
 - EOS token
-- paste token and associated loss masking
+- paste handling via paste token and associated loss masking (50% of tokens are pasted tokens in my 3h run 5)
 - proper content production masking
 - cursor position as defined by semantic surroundings as necessary metadata for actual suggestion
 - large deletion bugfixes from run 5
+- something about cursor coordinates from the coding agent
+- read source attribution (but i think this is minor)
  while cleaning up the article based on the agent feedback
