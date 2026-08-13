@@ -8,14 +8,16 @@
 	- feeling a desire to have a separate website for my blogs. self hosted shows commitment. substack gets swallowed into the platform.
 	- many cracked people have personal sites
 
-- prev LBH: Come up with a data plan or invalidate premises of direction. If failed to invalidate, describe data structures and ingestion surfaces compared to alternatives. By Tuesday.
-	- day late, weekend was sloppy
-- new LBH: Publish an article describing the differences in data collection required when the explicit purpose is next action (thought, content) prediction, along with how [[Product]] work may be necessary to fully realize the goal, rather than starting from what in my opinion is qualitatively different UX in a lossless retrieval paradigm such as the screenpipe-like apps popping up as well as 'fact compression' work a la ONeill. The focus is on the practicalities of data capture as discovered from the previous LBH. By Friday.
-	- data will be captured in mass and existing data capturing tools are ass
-	- I think there will be a natural transition to data for training rather than data for retrieval, and that everyone will have personal models
-		- data for training retrieval needs a ground truth so under the umbrella of training
-	- very well said for the masses: "https://x.com/davidcrawshaw/status/2083209856656568697"
-- simplified version to team: Publish an article describing the concrete differences in data collection required when the explicit purpose is prediction rather than retrieval. The focus is on the practicalities of data capture as discovered from the previous LBH. By Friday.
+- prev LBH: Publish an article describing the concrete differences in data collection required when the explicit purpose is prediction rather than retrieval. The focus is on the practicalities of data capture as discovered from the previous LBH. By Wednesday.
+    - this was invalidated, since the concrete differences in data collection were not properly uncovered from making the plan
+    - had to implement an initial version (which differed from the plan since i ran into practical implementation issues). this uncovered things i felt confident enough to make public. then posted the article.
+    - so this LBH invalidated, next one was that implementing an initial version would uncover concrete differences that i could publish, which failed to invalidate
+- new LBH: By Tuesday I will have a version of the data pipeline whose collected data I am willing to either train on or give to a closed source model to test in context prediction.
+    - event demarcation issues
+    - loss masking issues
+        - metadata
+        - copy pasted content
+    - cursor position state issues
 
 CURRENT
 - DONE [[Phase 1]] and [[Phase 2]], distilled from [[Algorithms]], step 1 is being concrete about the loss functions and algorithms used for phase 1, and concrete about which loss functions and algorithms could reasonably result in demonstrator outperformance for phase 2 from an assistance perspective rather than replacement perspective.

@@ -154,4 +154,5 @@ The ~\$600B figure is an estimate of the annual global cost to businesses of act
 - like these concepts as a demo
 	- "you can put knowledge in a prompt but you can't put skill in a prompt"
 	- tacit knowledge, skills vs information from will brown. weights distilling judgment. visceral example of same context -> different output. 
-	- 
+- very well said for the masses: "https://x.com/davidcrawshaw/status/2083209856656568697"
+- 
