@@ -17,8 +17,7 @@
 - https://arxiv.org/abs/2608.10915
 - https://arxiv.org/abs/2602.12237
 - https://linqapp.com/
-- CURSOR_DIFF_NEW_LINE
-- LEFT_CURSOR_ANCHOR SEMANTIC_CURSOR_INSERT RIGHT_CURSOR_ANCHOR
+- 
 - https://x.com/ankrgyl/status/2082565187064811637?s=20
 - https://x.com/sonyatweetybird/status/2082549709223436658?s=20
 - https://x.com/francoischauba1/status/2082858605477552417?s=46
@@ -188,5 +187,3 @@ regarding the 'training for retrieval', i already concluded that harnesses must 
 chatbots -> agents -> embedded agents
 
 wrote this prior but don't attention mechs already handle noise? what is sutton talking about
-
-AUTHORSHIP_TEXT_TEST
