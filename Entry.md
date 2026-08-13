@@ -15,6 +15,7 @@
 - Database systems (state) with git like branching is an inevitability? For agents to do rollouts on production systems? (Branchbench guy)
 - https://arxiv.org/abs/2606.30573
 - https://arxiv.org/abs/2608.10915
+- https://arxiv.org/abs/2602.12237
 - 
 - https://x.com/ankrgyl/status/2082565187064811637?s=20
 - https://x.com/sonyatweetybird/status/2082549709223436658?s=20
