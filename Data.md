@@ -112,6 +112,7 @@ want to tell a new agent roughly the following points
 - What I wrote was tracked into read before the write
   completed (handled by compiler but still dirties event stream)
 - EOS token
+- backspace token
 - paste handling via paste token and associated loss masking (50% of tokens are pasted tokens in my 3h run 5)
 - proper content production masking
 - cursor position as defined by semantic surroundings as necessary metadata for actual suggestion
