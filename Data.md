@@ -123,4 +123,4 @@ want to tell a new agent roughly the following points
 - proper content production masking
 - cursor position as defined by semantic surroundings as necessary metadata for actual suggestion
 - large deletion bugfixes from run 5
-- 
+ while cleaning up the article based on the agent feedback
