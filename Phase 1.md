@@ -28,13 +28,13 @@
 
 Ordinary computer use produces a chronological record of information becoming action. A person reads documents, browses pages, receives messages and model outputs, edits notes, writes searches and prompts, sends messages, and changes artifacts. If these events are captured at the time they actually became available, they form a personal read–write stream from which the person's next bounded write action can be predicted. Judgment is distilled into weights.
 
-Phase 1 builds that stream and applies behavioral cloning to it. Each example contains a fixed-length causal history plus the observed destination and semantic cursor context immediately before an action, followed by the exact nonempty content the person wrote. Read events and prior actions are context; only the written content and its structural end-of-sequence token receive loss.
+Phase 1 builds that stream and applies behavioral cloning to it. Each example contains a fixed-length causal history plus the observed destination, semantic cursor context, and current clipboard state immediately before an action, followed by a structured write completion. Authored text, grounded paste actions, and a structural end-of-sequence token receive loss; copied payload tokens do not, although their resolved content and provenance remain available in later history.
 
-During live use, the model is queried when a text field receives focus and its predicted content is shown to the user for qualitative inspection. The displayed prediction is captured in the raw stream as a model-authored read event but excluded from the Phase 1 dataset. Modeling how the prediction changes later human behavior begins in Phase 2.
+During live use, the model is queried when a text field receives focus and its predicted write completion is shown to the user for qualitative inspection. Grounded action markers such as paste are rendered by the interface rather than displayed as literal text. The displayed prediction is captured in the raw stream as a model-authored read event but excluded from the Phase 1 dataset. Modeling how the prediction changes later human behavior begins in Phase 2.
 
 Learning is continual. During a day, the model's weights remain fixed while every action is scored from the sliding causal context. Overnight, that day's examples become training data and are mixed with replay from earlier days. The resulting weights initialize the next day. Historical data can be processed through the same chronological loop when its causal inputs are sufficiently complete. Each action contributes a pre-update loss before it is allowed to train a later model.
 
-The first goal is deliberately narrow: implement a temporally faithful event collector, construct reliable write-content targets, establish that personal history improves next-content prediction, measure how performance changes with context length and continual adaptation, and observe whether repeated updates erase older behavior.
+The first goal is deliberately narrow: implement a temporally faithful event collector, construct reliable write-completion targets, establish that personal history improves next-write prediction, measure how performance changes with context length and continual adaptation, and observe whether repeated updates erase older behavior.
 
 ## 1. Vision
 
@@ -136,7 +136,7 @@ Successive snapshots will often overlap. Deduplication should remove repeated co
 - retain a later reread, or encode it as a new exposure to the same content;
 - test whether duration and repetition are useful signals rather than assuming repeated text is always noise.
 
-Write events require similar iteration. Diffs between snapshots can consolidate raw keystrokes into useful chunks, but the collector must distinguish typing, pasting, mixed input, automatic edits, and model-authored text. Cursor movement, insertion into earlier text, deletion, and a draft that is completely removed are all cases to inspect in the debugging stream. A final empty diff should not silently prove that nothing behaviorally relevant happened.
+Write events require similar iteration. Diffs between snapshots can consolidate raw keystrokes into useful chunks, but the collector must distinguish typing, pasting, mixed input, automatic edits, and model-authored text. Cursor movement, insertion into earlier text, deletion, and a draft that is completely removed are all cases to inspect in the debugging stream. A final empty diff should not silently prove that nothing behaviorally relevant happened. Clipboard observations and copy commands remain raw conditioning evidence rather than creating a third COPY event: the derived Phase 1 event stream remains READ and WRITE.
 
 ### 3.5 Initial surfaces and prediction opportunity
 
@@ -150,7 +150,7 @@ All three surfaces are collected prospectively from the beginning so that their 
 
 Audio and video can be added after the text stream is credible. Historical Obsidian Git history is useful for testing reconstruction and diff logic, but it cannot substitute for a prospective interleaved stream because it omits browser and chat inputs.
 
-The live model is queried when a text field receives focus outside the prediction model itself. It samples a content string from the causal history plus the destination and semantic cursor context available at that moment, then displays that content to the user. This focus trigger determines when a prediction is shown; it does not define the supervised training boundary. Training examples are separately constructed from the causal history and pre-mutation conditioning available before each write action actually begins. Before live prediction is implemented, the interface must capture the same destination-and-cursor query at focus time. The existing first-mutation snapshot validates offline dataset construction but cannot substitute for focus-time conditioning, and movement between focus and writing remains a train–serve difference to measure.
+The live model is queried when a text field receives focus outside the prediction model itself. It samples a structured write completion from the causal history plus the destination, semantic cursor context, and current clipboard state available at that moment, then displays that completion to the user. A predicted paste action is bound to the conditioned pasteboard version and is invalidated or regenerated if the clipboard changes. This focus trigger determines when a prediction is shown; it does not define the supervised training boundary. Training examples are separately constructed from the causal history and pre-mutation conditioning available before each write action actually begins. Before live prediction is implemented, the interface must capture the same destination, cursor, and clipboard query at focus time. The existing first-mutation snapshot validates offline dataset construction but cannot substitute for focus-time conditioning, and cursor, selection, or clipboard changes between focus and writing remain train–serve differences to measure.
 
 A displayed prediction becomes information the person has read. It is therefore stored in the raw stream as a model-authored read event, but the frozen Phase 1 conversion marks it as excluded: it does not enter Phase 1 contexts, targets, or replay. Phase 2 can add these events back when it begins modeling how suggestions influence subsequent behavior. During Phase 1, the predictions are shown only for informal human inspection; no preference label or explicit response model is constructed.
 
@@ -160,9 +160,9 @@ The first implementation may use remote models and storage to iterate quickly an
 
 Only after the sensor produces a convincing stream should one snapshot-to-event conversion be frozen for an experiment. That version converts the richer records into chronologically ordered read/write events and constructs candidate write targets. The exact segmentation remains versioned because changing delay, deduplication, or diff rules changes the learning problem.
 
-Each converted write keeps observed pre-mutation state distinct from the human output. The conditioning state contains the destination and bounded semantic context around the initial caret or selection; it is appended to the causal history as model input. The semantic Phase 1 target is exactly the nonempty `content` string the person wrote. The model loader tokenizes that string with automatic special tokens disabled, appends exactly one EOS token from the selected tokenizer, and applies loss to every content token and the EOS token. EOS is a structural terminator, not captured human content. Operation, removed content, provenance, and net edit offset remain event metadata for reconstruction, audit, later context, evaluation strata, and possible later objectives, but receive no Phase 1 loss. The initial cursor offset and net edit offset are retained separately because cursor movement and multiple edits within a settled burst can make them differ. The conservative first conversion excludes pure deletions and bursts whose net edit offset differs from the conditioned initial cursor from target eligibility, while retaining those verified write events in subsequent causal history. Action and capture timestamps remain example metadata, and whether temporal information should appear in model inputs is tested separately.
+Each converted write keeps observed pre-mutation state distinct from the human output. The conditioning state contains the destination, bounded semantic context around the initial caret or selection, and current clipboard state; it is appended to the causal history as model input. The WRITE event retains the exact resolved net content and structured authorship provenance. In the Phase 1 target, authored spans are tokenized normally and each Cmd-V span proven to use the conditioned clipboard becomes one atomic paste-action token. The pasted payload receives no target loss, but its resolved content and paste provenance remain in the event and in subsequent history. The model loader maps the structured segments, appends exactly one EOS token from the selected tokenizer, and applies loss to authored tokens, paste-action tokens, and EOS. EOS is a structural terminator, not captured human content. Operation, removed content, provenance, and net edit offset remain event metadata for reconstruction, audit, later context, evaluation strata, and possible later objectives, but receive no Phase 1 loss. Numeric cursor offsets are retained as diagnostics but neither alter the canonical diff nor impose a separate eligibility gate when complete range-native semantic cursor context is available. The conservative conversion excludes pure deletions, incomplete semantic conditioning, unresolved authorship, and legacy writes with paste evidence that cannot be segmented, while retaining otherwise verified WRITE events in subsequent causal history. Action and capture timestamps remain example metadata, and whether temporal information should appear in model inputs is tested separately.
 
-The historical model context may contain only Phase 1-eligible records available before the action boundary chosen by the conversion version. The conversion must explicitly assign and document any `available_at` timestamp used for a derived input event and any `began_at` timestamp used for a candidate write target; these are decisions made by the frozen conversion, not timestamps silently inferred from snapshot finalization. The pre-mutation conditioning state is separately admitted as observed query state: the active tap captures it after intercepting the first input but before returning that mutation to the application, and it must not be silently backdated as an ordinary history event. Each training example stores the exact derived history, query, complete model input, plain-text content target, outcome metadata, source records, conversion version, and target-mask contract. The tokenizer-specific loader retains the most recent input-token suffix, tokenizes the target without automatic special tokens, appends exactly one tokenizer EOS token, and masks loss onto the complete target sequence including EOS. The daily update manifest separately records the parent model, data cutoff, recent and replay examples, optimizer configuration, and resulting model. These are algorithm-specific derived records, not the authoritative form of the raw activity.
+The historical model context may contain only Phase 1-eligible records available before the action boundary chosen by the conversion version. The conversion must explicitly assign and document any `available_at` timestamp used for a derived input event and any `began_at` timestamp used for a candidate write target; these are decisions made by the frozen conversion, not timestamps silently inferred from snapshot finalization. Prior WRITE serialization retains resolved pasted content together with its paste provenance, because that content was present in the artifact and may condition later actions even though it received no loss when originally pasted. The pre-mutation conditioning state is separately admitted as observed query state: the active tap captures it after intercepting the first input but before returning that mutation to the application, and it must not be silently backdated as an ordinary history event. Each training example stores the exact derived history, query, complete model input, structured target segments, resolved outcome metadata, source records, conversion version, and target-mask contract. The tokenizer-specific loader retains the most recent input-token suffix, tokenizes authored segments without automatic special tokens, maps each proven paste segment to one atomic paste token, appends exactly one tokenizer EOS token, and masks loss onto authored tokens, paste actions, and EOS. The daily update manifest separately records the parent model, data cutoff, recent and replay examples, optimizer configuration, and resulting model. These are algorithm-specific derived records, not the authoritative form of the raw activity.
 
 **Causal dataset construction is a required conversion step.** JSONL append order, sequence number, and collector emission time must never be used as the training chronology. A write may be appended only after `WRITE_DELAY`, while a read observed during that write may be appended earlier. Treating all earlier file records as context would therefore allow information captured after the action began—and potentially part of the target itself—to enter the model input.
 
@@ -189,7 +189,7 @@ procedure BUILD_CAUSAL_EXAMPLE(converted_events, target_write, config):
         context=history,
         query=query,
         model_input=model_input,
-        target=target_write.content,
+        target=BUILD_STRUCTURED_WRITE_TARGET(target_write.authorship_segments),
         source_event_ids=IDS(EVENTS_CONTRIBUTING_TO(history)),
         conversion_version=config.conversion_version
     )
@@ -207,7 +207,7 @@ $$
 P_t=\{e_i:\operatorname{available\_at}(e_i)<\operatorname{began\_at}(y_t)\}.
 $$
 
-Let $q_t$ be the serialized observed destination and semantic cursor state. The model input is the most recent $L$ tokens of the serialized ordered prefix followed by that query:
+Let $q_t$ be the serialized observed destination, semantic cursor state, and current clipboard state. The model input is the most recent $L$ tokens of the serialized ordered prefix followed by that query:
 
 $$
 h_t^{(L)}
@@ -289,13 +289,13 @@ Once this baseline works, the ablation matrix in Section 7 varies context length
 
 ## 5. Behavioral-Cloning Objective
 
-For the tokenized plain-text content followed by exactly one EOS token,
+For the tokenizer-specific serialization of the structured write target—authored spans tokenized normally, each grounded paste represented by one atomic paste token, and exactly one EOS token appended by the loader—
 
 $$
 y_t=(y_{t,1},\ldots,y_{t,M_t}),
 $$
 
-where $y_{t,M_t}=\langle\mathrm{EOS}\rangle$, let $m_{t,j}=1$ for every content token and the EOS token. Destination, cursor state, timestamps, operation, removed content, and edit offset are query state or example metadata rather than target fields. The masked log-likelihood under context length $L$ is
+where $y_{t,M_t}=\langle\mathrm{EOS}\rangle$, let $m_{t,j}=1$ for every authored token, paste-action token, and EOS token. Resolved pasted payload tokens are omitted from the target rather than masked in place. Destination, cursor state, clipboard state, timestamps, operation, removed content, and edit offset are query state or example metadata rather than target fields. The masked log-likelihood under context length $L$ is
 
 $$
 \ell_\theta(y_t\mid h_t^{(L)})
@@ -323,7 +323,7 @@ $$
 }.
 $$
 
-Loss is masked on every model-input token and applied to every token in the human-written content string plus the single loader-appended EOS token. Read events, earlier human actions, received messages, external model responses, tool results, destination, initial cursor state, and edit metadata provide input or audit evidence but do not become targets merely because they are available. Model predictions displayed during Phase 1 are excluded from the Phase 1 context as well as from its targets.
+Loss is masked on every model-input token and applied to authored target tokens, one token for each grounded paste action, and the single loader-appended EOS token. Read events, earlier human actions, resolved pasted payloads, received messages, external model responses, tool results, destination, initial cursor state, clipboard state, and edit metadata provide input or audit evidence but do not become targets merely because they are available. Model predictions displayed during Phase 1 are excluded from the Phase 1 context as well as from its targets.
 
 For overnight update $d$:
 
@@ -361,16 +361,17 @@ procedure PREDICT_ON_FOCUS(model_d, raw_stream, focus_event, config):
         config.context_length
     )
 
-    predicted_content <- GENERATE_CONTENT_UNTIL_EOS(model_d, h, config)
-    DISPLAY_TO_USER(predicted_content)
+    predicted_completion <- GENERATE_WRITE_COMPLETION_UNTIL_EOS(model_d, h, config)
+    DISPLAY_WRITE_COMPLETION(predicted_completion)
 
     raw_stream.append(MODEL_READ_EVENT(
-        content=predicted_content,
+        content=RENDERED_CONTENT(predicted_completion),
+        actions=GROUNDED_ACTIONS(predicted_completion),
         available_at=DISPLAY_TIME(),
         excluded_from_phase1=true
     ))
 
-    return predicted_content
+    return predicted_completion
 ```
 
 ### Algorithm 2: Construct and score one day
@@ -394,12 +395,18 @@ procedure BUILD_AND_SCORE_DAY(model_d, frozen_events, config):
         )
         included <- EVENTS_CONTRIBUTING_TO(HISTORY_PORTION(h))
 
-        if y.content is empty or y.net_edit_offset != y.initial_cursor_offset:
+        if y.content is empty or
+           not HAS_COMPLETE_SEMANTIC_CONDITIONING(y) or
+           not HAS_RESOLVED_AUTHORSHIP(y):
             RETAIN_AS_HISTORY_BUT_SKIP_TARGET(y)
             continue
-        target <- y.content
-        target_tokens <- TOKENIZE(target, add_special_tokens=false)
-        training_target <- CONCAT(target_tokens, [config.tokenizer.eos_token_id])
+        target <- BUILD_STRUCTURED_WRITE_TARGET(y.authorship_segments)
+        training_target <- LOAD_PHASE1_TARGET(
+            target,
+            paste_token_id=config.tokenizer.paste_token_id,
+            eos_token_id=config.tokenizer.eos_token_id,
+            add_special_tokens=false
+        )
         target_mask <- MASK_ALL_TOKENS(training_target)
         loss <- MASKED_TARGET_NLL(model_d, h, training_target, target_mask)
         losses.append(loss)
@@ -478,9 +485,9 @@ Use the prospectively collected interleaved Obsidian, Chrome, and Codex stream. 
 
 All nine comparisons use the same live daily protocol. On a given day, every condition scores the same actions in the same order before any weight update. Earlier actions from that day enter the causal context for later actions. Cross-model contexts are frozen by event IDs and serialized text so that every model receives the same information, regardless of tokenizer. Open-model updates occur only after the complete day has been scored.
 
-**Learning Objective**. Replace token-level cross-entropy loss and behavioral cloning with cosine similarity on the embeddings of the ground-truth and predicted human write content as the reward for GRPO or RLOO. This compares sequence-likelihood training with semantic-similarity reward maximization.
+**Learning Objective**. Replace token-level cross-entropy loss and behavioral cloning with cosine similarity on the embeddings of the ground-truth and predicted resolved write content as the reward for GRPO or RLOO. This compares sequence-likelihood training with semantic-similarity reward maximization.
 
-**Time Data**. Include event and query timestamps in the model input while leaving them outside the content target. This determines whether temporal information changes prediction by allowing the model to use delays between events.
+**Time Data**. Include event and query timestamps in the model input while leaving them outside the structured write target. This determines whether temporal information changes prediction by allowing the model to use delays between events.
 
 **Checkpoint recency.** On day $d$, score every action using the current checkpoint and retained checkpoints from $d-1$, $d-3$, and $d-7$. All remain frozen throughout the day and receive the identical causal event-stream context. This measures the predictive value of recent overnight updates and reveals when those updates hurt current-day prediction.
 
@@ -488,7 +495,7 @@ All nine comparisons use the same live daily protocol. On a given day, every con
 
 **Sliding window versus context retrieval.** At the fixed 32K baseline context budget, compare the trailing 32K causal prefix against a context containing the most recent 16K tokens plus 16K tokens retrieved from the earlier causally available history. BM25 uses the serialized recent 16K token prefix as its query, and fetched items are chronologically packed into context. Because a long event-stream query may be dominated by generic interface language, query preprocessing removes or downweights common interface boilerplate using a fixed rule established before prospective evaluation. This tests whether selecting related older events is more predictive than allocating the entire context budget to contiguous recent history. Dense, hybrid, reranked, learned, embedded, LongNAP-style reasoned retrieval, and agent-controlled retrieval tool use are possible later extensions but are outside the initial ablation matrix.
 
-**Direct prediction versus reasoning before prediction.** Using the same checkpoint and causal context, compare direct generation of the next content string against generation with a fixed-budget private reasoning scratchpad before the same content. The scratchpad is model-authored intermediate computation: it is not displayed, does not enter the human event stream, and is not scored as though it were observed human reasoning. Only the final content through EOS is evaluated. Hold the final-content decoding budget and decoding rule fixed, and report the additional reasoning tokens, latency, and compute separately. This tests whether explicit deliberation about the current task, likely objective, and causal dependencies improves content prediction independently of context retrieval.
+**Direct prediction versus reasoning before prediction.** Using the same checkpoint and causal context, compare direct generation of the next structured write completion against generation with a fixed-budget private reasoning scratchpad before the same completion. The scratchpad is model-authored intermediate computation: it is not displayed, does not enter the human event stream, and is not scored as though it were observed human reasoning. Only the final completion through EOS is evaluated. Hold the final-completion decoding budget and decoding rule fixed, and report the additional reasoning tokens, latency, and compute separately. This tests whether explicit deliberation about the current task, likely objective, and causal dependencies improves write prediction independently of context retrieval.
 
 **Practical system comparison.** Compare continually updated Qwen3.5-9B-Base against frontier closed models using ICL only, with identical contexts and targets. This asks whether personal weight updates allow the local open model to compete with a stronger frozen API model and quantifies the difference in value between supplying information in context and storing judgment in weights.
 
@@ -507,9 +514,9 @@ The initial Phase 1 bar is deliberately provisional: the collector produces an i
 3. run all three during ordinary work and inspect both source-specific capture and cross-application causal ordering;
 4. iterate on delays, extraction, viewport capture, diffs, provenance, deduplication, and event boundaries across the combined stream;
 5. freeze and version one snapshot-to-event and write-target conversion;
-6. implement and validate focus-time destination/cursor conditioning, then the focus-triggered prediction display, and store displayed predictions as Phase 1-excluded read events;
+6. implement and validate focus-time destination/cursor/clipboard conditioning, then the focus-triggered prediction display, and store displayed predictions as Phase 1-excluded read events;
 7. reconstruct historical note edits as a pipeline test without treating them as a complete historical stream;
-8. implement the deterministic serializer, causal prefix, cursor-conditioning query, and target loader that appends one loss-bearing EOS token to the content;
+8. implement the deterministic serializer, causal prefix, destination/cursor/clipboard query, and structured target loader that maps grounded paste actions to one atomic token and appends one loss-bearing EOS token;
 9. build the behavioral-cloning dataset and loss-tracking harness;
 10. implement the once-daily LoRA update;
 11. add stratified historical replay and immutable model lineage;
@@ -517,13 +524,13 @@ The initial Phase 1 bar is deliberately provisional: the collector produces an i
 13. add lagged-checkpoint, closed-model ICL, and stronger open-model comparisons after the Qwen3.5-9B-Base baseline is stable;
 14. introduce robust baselines and formal human evaluation after the pipeline and early loss trends justify them.
 
-The required initial artifacts are the excluded debugging display, raw snapshot and input-event store, focus-time destination/cursor capture, live prediction display, inspected trace log, privacy and exclusion policy, frozen conversion specification, explicit Phase 1 exclusion for displayed predictions, reconstruction audit, serializer and content-plus-EOS target mask, immutable example store, leakage tests, loss-tracking harness, daily update manifest, and replay index.
+The required initial artifacts are the excluded debugging display, raw snapshot and input-event store, focus-time destination/cursor/clipboard capture, live prediction display, inspected trace log, privacy and exclusion policy, frozen conversion specification, explicit Phase 1 exclusion for displayed predictions, reconstruction and authorship audit, serializer and authored-text/paste-action/EOS target mask, immutable example store, leakage tests, loss-tracking harness, daily update manifest, and replay index.
 
 ## 9. Conclusion
 
 Phase 1 asks whether one person's ordinary computer activity can train a continually improving predictor of what they will write next. The hard prerequisite is a credible sensor-derived account of observable exposure and authorship: what appeared to be read, when it became available, what the person produced, and how the frozen conversion divided that activity into bounded write bursts.
 
-The learning rule is simple. A fixed-length suffix of prior Phase 1-eligible events plus the observed destination and semantic cursor context predicts the content of the next human write burst. The current model displays a prediction when a text field receives focus. That displayed prediction is stored in the raw stream but excluded from Phase 1 learning; modeling the resulting feedback loop begins in Phase 2. The model's weights remain fixed throughout the day. Overnight, that day's scored examples are mixed with historical replay and used for a LoRA behavioral-cloning update whose weights persist into the next day.
+The learning rule is simple. A fixed-length suffix of prior Phase 1-eligible READ and WRITE events plus the observed destination, semantic cursor context, and current clipboard state predicts the next human write completion. The target contains authored text and grounded paste actions rather than copied payload tokens, while resolved pasted content remains available to later history. The current model displays a prediction when a text field receives focus. That displayed prediction is stored in the raw stream but excluded from Phase 1 learning; modeling the resulting feedback loop begins in Phase 2. The model's weights remain fixed throughout the day. Overnight, that day's scored examples are mixed with historical replay and used for a LoRA behavioral-cloning update whose weights persist into the next day.
 
 The initial evidence is intentionally lightweight: qualitative inspection of displayed predictions and the direction and magnitude of loss changes across ablations. If those results are promising, robust baselines and formal human evaluation follow. If they are not, the daily losses and auditable event lineage should make the failure attributable to collection, write-event construction, context, optimization, or continual updating rather than hidden inside a more complicated system.
 
