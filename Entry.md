@@ -190,3 +190,6 @@ regarding the 'training for retrieval', i already concluded that harnesses must 
 chatbots -> agents -> embedded agents
 
 wrote this prior but don't attention mechs already handle noise? what is sutton talking about
+
+coordinated intelligences decide to communicate when the surprise associated with a failed prediction exceeds a threshold over some period of time, rather than sharing everything that happens. this is due to the finite nature of content windows and energy. ai's may handle this differently. if you aren't at least implicitly tracking your expectation of cooperative action, then you aren't cooperating
+
