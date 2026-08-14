@@ -150,5 +150,9 @@ need to confirm testing for the stale read authorship applied to popups, but sin
 im wondering what happens in our event log if i type something into obsidian, then within 3 seconds also type soemthing into browser.
   does that show up as two write events or one?
 
+copied content
+
+typed before copied content typed after
+
 
 
