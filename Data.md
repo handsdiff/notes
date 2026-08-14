@@ -77,15 +77,11 @@ Build and deploy sensors from scratch, then iterate from what they actually expo
 - the bounding box crop/cutoff leaves fragmented sentences. is there a way to intelligently not do this? then you would need to decide if you want to keep or leave it though, which loops back to the issue around each view having different cropping requirements at different times
 
 
-
-
 - how best to handle autocomplete from other sources? for example if i type in 'ge < Enter >' into browser search it brings me to gemini. probably just want the model to complete the entire thing. i.e. the model learns to predict navigating to gemini.google.com i.e. the full url
 - can extract text from youtube videos but not subtitles? or is that a cropping issue
 
 
 - it feels like when there is a large time gap before a write, that indicates thinking may have occurred, which implies good next content prediction would be more useful
-
-
 
 - regarding copy and paste, we probably want to specifically exclude pasted data from training? or do we want the model to predict the pasted data? it feels more likely that we'd want it to predict the 'paste' action or keyboard movements (cmd V) rather than waste time predicting the content of the paste, since its not actual 'content' written by the user in the sense of distilling judgment
 - do we want the model to predict WHERE focus will occur as well? in the context of copy paste it seems interesting, although the UX for it seems impossible besides choosing an app. i guess you could specify the preceding text or input field, but would need to think about it.
@@ -99,10 +95,4 @@ Build and deploy sensors from scratch, then iterate from what they actually expo
 - proper loss target/masking (only on content, with correct tokens from prior)
 - focus time sampling
 - terminal invalidation
-
-
-
-
-
-
 
