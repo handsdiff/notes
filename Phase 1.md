@@ -362,7 +362,7 @@ procedure PREDICT_ON_FOCUS(model_d, raw_stream, focus_event, config):
         query,
         tokenizer=config.tokenizer,
         token_budget=config.context_length,
-        oldest_oversized_event="explicit_content_tail"
+        oldest_oversized_event="explicit_authorship_preserving_text_tail"
     )
 
     predicted_completion <- GENERATE_WRITE_COMPLETION_UNTIL_EOS(model_d, h, config)
