@@ -92,5 +92,4 @@ Build and deploy sensors from scratch, then iterate from what they actually expo
 - the meta task i seem to be doing with the consolidated of these points is making the training set higher fidelity towards the job of predicting user generated content given available information. i am wondering whether this work can be deleted or simplified before diving into optimization
 
 - terminal invalidation
-- focus time sampling
 
