@@ -91,8 +91,6 @@ Build and deploy sensors from scratch, then iterate from what they actually expo
 - given the amount of work i'm putting into curating the data pipeline, and the fact that the agent is comparing from the raw logs to ensure the data capturing is high fidelity, i wonder why not just train directly on the raw logs? its because i dont want to teach slop (random backspacing, typos, mistakes, etc). is that valid? what does that actually imply?
 - the meta task i seem to be doing with the consolidated of these points is making the training set higher fidelity towards the job of predicting user generated content given available information. i am wondering whether this work can be deleted or simplified before diving into optimization
 
-
-- proper loss target/masking (only on content, with correct tokens from prior)
-- focus time sampling
 - terminal invalidation
+- focus time sampling
 
