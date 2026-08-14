@@ -20,7 +20,12 @@
 - https://x.com/0xSero/status/2087832594138247382?s=20, also Shayon tweet about the Silicon Valley comms woman, also the poke team used some guy I think I followed on Twitter
 - https://x.com/magikarp_tokens/status/2087859173748854983?s=20
 - https://x.com/andrewho03/status/2087780056571789540?s=20
-- 
+- team used some guy I think I followed on Twitter
+- https://x.com/magikarp_tokens/status/2087859173748854983?s=20
+- https://x.com/andrewho03/status/2087780056571789540?s=20
+- cursor founder email to screenpipe guy regarding buildspace feedback as example of good GTM (recognizing where target market is, thoughtful feedback)
+- Figma founder analyzing graph of target market and outreaching specifically to high influence nodes
+- Primitive focusing on the engineering leads with the deep problem to sell their product reminds me of the 
 - https://x.com/ankrgyl/status/2082565187064811637?s=20
 - https://x.com/sonyatweetybird/status/2082549709223436658?s=20
 - https://x.com/francoischauba1/status/2082858605477552417?s=46
