@@ -143,16 +143,9 @@ i suspect that when i start sampling it will corrupt the data heavily and will n
 
 need to confirm testing for the stale read authorship applied to popups, but since thats small, want to also test something else
 
-whats remaining is EOS token, paste token, backspace token
-
-"  Important fidelity improvements, but not blockers for an initial offline pilot:
-
-  - Structured Chrome URLs, Obsidian paths, and reliable field identities.
-  - Surface-specific read crops and better sentence-boundary handling.
-  - YouTube/subtitle and other nonstandard reading surfaces.
-  - Focus-time cursor/destination capture for live prediction. Current pre-mutation conditioning is sufficient only for offline training.
-  - Separating autocomplete/model-generated text from genuinely authored text."
-  "
+- paste handling
+- focus time sampling
+- terminal invalidation
 
 
 
