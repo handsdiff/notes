@@ -71,88 +71,36 @@ Build and deploy sensors from scratch, then iterate from what they actually expo
 ### implementation issues
 
 - different views have different crop requirements. cannot blanket crop left right by 10% since it cuts off obsidian but allows twitter slop, and vice versa
-- extremely overbearing feeling of needing to conform my work to make sure it fits well into the data not the other way around, i think the typing delay doesn't allow for spontaneous thinking so it feels a bit intense
-- if i cannot scroll down anymore, thats probably an indication im reading the bottom section of the screen, and we should capture that in the data rather than using the default 50% cutoff
 - are these issues with cutoffs for read why people use formal, supported integrations? the problem with the integrations is that they don't capture 'attention', they only capture content. who's to say that I read a specific item or not? not that my method is necessarily capturing that, but it feels closer, and a slack mcp server for instance does not seem like it would be able to capture read properly
-- is it possible to do eye tracking without an always on camera?
+- if i cannot scroll down anymore, thats probably an indication im reading the bottom section of the screen, and we should capture that in the data rather than using the default 50% cutoff
+
 - the bounding box crop/cutoff leaves fragmented sentences. is there a way to intelligently not do this? then you would need to decide if you want to keep or leave it though, which loops back to the issue around each view having different cropping requirements at different times
-- google chrome browser search write uses the full url instead of the search query
-- still need to determine 'author' of content, and distinguishing read from what ive just written, or more likely that just gets handled in the soup of training
-- pressing enter after a type seems to have issues with collecting the data inserted before the type
-- how best to handle copy paste, still an issue
+
+
+
+
 - how best to handle autocomplete from other sources? for example if i type in 'ge < Enter >' into browser search it brings me to gemini. probably just want the model to complete the entire thing. i.e. the model learns to predict navigating to gemini.google.com i.e. the full url
 - can extract text from youtube videos but not subtitles? or is that a cropping issue
-- ive glossed over 'where' something is being written but it feels like it matters. for example if im editing an article, and the model learns that i often click into a paragraph to make an edit, how will that appear during training? will the model see a confusing mix of sentence completion and sentence editing? another example is that when i click into the title of a substack article, it seems like the model knowing thats a title will help it predict better. if it thinks the entire google chrome app is the same thing, its going to be quite confused about what im typing into gemini vs what im typing into a substack draft...
-- i originally think i handled the 'where' thesis by only performing sampling when a text field was focused. i guess the core distinction, which reminds me of cursor, is how to codify the state of the cursor into the context, to give it an understanding of where it is, or is there some other way to solve this problem
+
+
 - it feels like when there is a large time gap before a write, that indicates thinking may have occurred, which implies good next content prediction would be more useful
-- if the next write needs to be conditioned on not only the history of read write, but where the cursor is, is this data captured in training? how would you even define cursor positioning? pixel coordinates are likely a poor candidate? maybe you have to define a sliding window of what's before and after the cursors position? that acts as a hyperparameter?
-- wont be able to include terminal data even though i likely want to until the app is separate from showing debugging logs in my terminal, to avoid recursive tracking
-- are we capturing backspaces in write events?
-- im seeing issues with read/write capture where what i wrote is tracked into read, before the write event completes, which breaks causality. also for the line i wrote above, it was combined in a write event with the line before it, which is wrong since i wrote the line before it way prior.
+
+
+
 - regarding copy and paste, we probably want to specifically exclude pasted data from training? or do we want the model to predict the pasted data? it feels more likely that we'd want it to predict the 'paste' action or keyboard movements (cmd V) rather than waste time predicting the content of the paste, since its not actual 'content' written by the user in the sense of distilling judgment
 - do we want the model to predict WHERE focus will occur as well? in the context of copy paste it seems interesting, although the UX for it seems impossible besides choosing an app. i guess you could specify the preceding text or input field, but would need to think about it.
 	- whats interesting is that cursor, which was made explicit to me yesterday, was not just autocomplete existing cursor, it was where cursor should go next
 - the desire to predict where focus will occur next is more obvious when you consider copy paste scenarios
 - the problem with copy paste in the context of displaying predictions/samples is that i cant copy paste from the model's suggestion to my work, which would be the flow, without fucking up
+- given the amount of work i'm putting into curating the data pipeline, and the fact that the agent is comparing from the raw logs to ensure the data capturing is high fidelity, i wonder why not just train directly on the raw logs? its because i dont want to teach slop (random backspacing, typos, mistakes, etc). is that valid? what does that actually imply?
+- the meta task i seem to be doing with the consolidated of these points is making the training set higher fidelity towards the job of predicting user generated content given available information. i am wondering whether this work can be deleted or simplified before diving into optimization
 
 
-current challenges i just addressed but need to test are
-- handling cursor position as a necessary input for good content prediction
-- masking everything except added content for the purposes of training
-- adding EOS tokens in data cleanup
-
-current challenges im addressing are
-- handling copy paste. making the call to avoid loss on the pasted output, replacing it with a special paste token like EOS
-- handling write diffs. there are still tons of examples where the write demarcation includes previously written text when it should not be.
-
-the capture is currently off as i work through the challenges
-
-want to tell a new agent roughly the following points
-- The line before it was combined into the write (cursor biased diffing, concrete examples from coding agent)
-- What I wrote was tracked into read before the write
-  completed (handled by compiler but still dirties event stream)
-- EOS token
-- backspace token
-- paste handling via paste token and associated loss masking (50% of tokens are pasted tokens in my 3h run 5)
-- proper content production masking
-- cursor position as defined by semantic surroundings as necessary metadata for actual suggestion
-- large deletion bugfixes from run 5
-- something about cursor coordinates from the coding agent
-- read source attribution (but i think this is minor)
-all of these fall under causal fidelity, authorship, and event demarcation
-
-given the amount of work i'm putting into curating the data pipeline, and the fact that the agent is comparing from the raw logs to ensure the data capturing is high fidelity, i wonder why not just train directly on the raw logs? its because i dont want to teach slop (random backspacing, typos, mistakes, etc). is that valid? what does that actually imply?
-
-the meta task i seem to be doing with the consolidated of these points is making the training set higher fidelity towards the job of predicting user generated content given available information. i am wondering whether this work can be deleted or simplified before diving into optimization
-
-what's causing a bit of a delay is that i slightly lost track of the state of the implementation vs whats to be done vs whats done but untested
-
-- cursor positioning state specification (surrounding semantic content)
-- cursor biased diffing (write event demarcation), stale read authorship (active-write read exclusion)
-- large deletion bugs, read source attribution bug
-- **currently waiting on stale read authorship and read source attribution and large deletion bugs, then will test everything above while working through Entry before moving on to special tokens and loss masking**
-- EOS token, paste token, backspace token
 - proper loss target/masking (only on content, with correct tokens from prior)
-- separate app to include terminal window
-- condition training on cursor position, focus time sampling
-
-
-if handling backspace token, model should likely not predict anything because the user cant copy paste a backspace prediction. or maybe we should include it for straight sampling, ignoring the 'usability' of it. thats actually likely better
-the model should also predict the special paste token and show that to the user. we basically need to indicate that the model is right or not. but that will be a UX issue since something will be in clipboard already so the user would need to dump the currently copied contents somewhere, then fetch the predicted content via copy paste
-i suspect that when i start sampling it will corrupt the data heavily and will need to appropriately mask that to consider completion
-
-need to confirm testing for the stale read authorship applied to popups, but since thats small, want to also test something else
-
-- paste handling
 - focus time sampling
 - terminal invalidation
 
-im wondering what happens in our event log if i type something into obsidian, then within 3 seconds also type soemthing into browser.
-  does that show up as two write events or one?
 
-copied content
-
-typed before copied content typed after
 
 
 
