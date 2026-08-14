@@ -357,9 +357,12 @@ procedure PREDICT_ON_FOCUS(model_d, raw_stream, focus_event, config):
     )
     eligible <- PHASE1_ELIGIBLE(converted)
     query <- SERIALIZE_FOCUS_CONDITIONING(focus_event)
-    h <- TAKE_CAUSAL_SUFFIX(
-        CONCAT(config.serializer(STABLE_TEMPORAL_SORT(eligible)), query),
-        config.context_length
+    h <- PACK_EVENT_SUFFIX(
+        MAP(config.model_serializer, STABLE_TEMPORAL_SORT(eligible)),
+        query,
+        tokenizer=config.tokenizer,
+        token_budget=config.context_length,
+        oldest_oversized_event="explicit_content_tail"
     )
 
     predicted_completion <- GENERATE_WRITE_COMPLETION_UNTIL_EOS(model_d, h, config)
@@ -388,11 +391,14 @@ procedure BUILD_AND_SCORE_DAY(model_d, frozen_events, config):
         prior <- events in frozen_events where
                  PHASE1_ELIGIBLE(event) and
                  event.available_at < y.began_at
-        serialized_history <- config.serializer(STABLE_TEMPORAL_SORT(prior))
+        serialized_events <- MAP(config.model_serializer, STABLE_TEMPORAL_SORT(prior))
         query <- SERIALIZE_PRE_MUTATION_CONDITIONING(y)
-        h <- TAKE_CAUSAL_SUFFIX(
-            CONCAT(serialized_history, query),
-            config.context_length
+        h <- PACK_EVENT_SUFFIX(
+            serialized_events,
+            query,
+            tokenizer=config.tokenizer,
+            token_budget=config.context_length,
+            oldest_oversized_event="explicit_content_tail"
         )
         included <- EVENTS_CONTRIBUTING_TO(HISTORY_PORTION(h))
 
