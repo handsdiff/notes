@@ -146,7 +146,7 @@ The initial surfaces are:
 - browser use;
 - Codex and other AI-chat interfaces.
 
-All three surfaces are collected prospectively from the beginning so that their causal interleaving is preserved. Collection scope is separate from training scope: the first training and pipeline smoke tests may use only the Obsidian projection, without delaying Chrome or Codex collection.
+All three surfaces are collected prospectively from the beginning so that their causal interleaving is preserved. The initial training and pipeline smoke test uses the combined Obsidian, Chrome/browser, and Codex stream, including eligible write targets from all three surfaces and their shared causal history. Per-application projections may be reported as diagnostics, but an Obsidian-only projection is not the primary test of whether the stream contains predictive signal.
 
 Audio and video can be added after the text stream is credible. Historical Obsidian Git history is useful for testing reconstruction and diff logic, but it cannot substitute for a prospective interleaved stream because it omits browser and chat inputs.
 
@@ -480,13 +480,13 @@ The initial program is exploratory. Live predictions are displayed and judged in
 
 Build the debugging display and run minimum viable Obsidian, Chrome, and Codex sensors during ordinary work. Inspect the resulting snapshots and derived stream against the actual experience, then revise delays, crops, extraction, deduplication, provenance, and event boundaries. Once the qualitative output is credible, manually replay sampled sessions and measure missing-event rate, temporal-ordering error, incorrect content inclusion, authorship error, action-boundary disagreement, and future leakage. Modeling does not begin until one conversion version is frozen.
 
-### Experiment 1: Obsidian-only smoke test
+### Experiment 1: Interleaved multi-application smoke test
 
-Project the already collected stream down to Obsidian events, together with historical note edits where useful, to validate temporal reconstruction, write-event construction, serialization, masked loss, daily processing, and overnight replay. Compare current-note context with trailing note history and inspect the resulting loss and predictions. This is a pipeline test, not evidence for the full read–write thesis or a competitive baseline.
+Use one frozen, audited prospective stream containing ordinary work across Obsidian, Chrome/browser, and Codex. Train and score eligible writes from all three surfaces while conditioning on their combined causal READ/WRITE history. Validate temporal reconstruction, write-event construction, serialization, masked loss, daily processing, and overnight replay, then inspect aggregate and per-application loss and sampled predictions for an initial signal. Historical note edits may remain a separate reconstruction diagnostic, but they do not replace the interleaved smoke test. This is still a pipeline and signal test, not evidence for the full read–write thesis or a competitive baseline.
 
-### Experiment 2: Prospective interleaved stream
+### Experiment 2: Prospective continual interleaved stream
 
-Use the prospectively collected interleaved Obsidian, Chrome, and Codex stream. Display focus-triggered predictions for qualitative inspection while excluding those prediction events from the Phase 1 dataset. Test whether correctly timed read and write history improves pre-update loss over the current artifact and damaged-history controls.
+Continue collecting and scoring the interleaved Obsidian, Chrome/browser, and Codex stream prospectively across daily score-before-update and replay cycles. Display focus-triggered predictions for qualitative inspection while excluding those prediction events from the Phase 1 dataset. Test whether correctly timed read and write history improves pre-update loss over the current artifact and damaged-history controls.
 
 ### Experiment 3: Ablation matrix
 
