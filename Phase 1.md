@@ -162,7 +162,7 @@ Only after the sensor produces a convincing stream should one snapshot-to-event 
 
 Each converted write keeps observed pre-mutation state distinct from the human output. The conditioning state contains the destination, bounded semantic context around the initial caret or selection, and current clipboard state; it is appended to the causal history as model input. The WRITE event retains the exact resolved net content and structured authorship provenance. In the Phase 1 target, authored spans are tokenized normally and each Cmd-V span proven to use the conditioned clipboard becomes the reserved `<|paste|>` marker encoded by the selected model's unchanged tokenizer. The pasted payload receives no target loss, but its resolved content and paste provenance remain in the event and in subsequent history. The model loader maps the structured segments, appends exactly one EOS token from the selected tokenizer, and applies loss to authored tokens, paste-marker tokens, and EOS. EOS is a structural terminator, not captured human content. Operation, removed content, provenance, and net edit offset remain event metadata for reconstruction, audit, later context, evaluation strata, and possible later objectives, but receive no Phase 1 loss. Numeric cursor offsets are retained as diagnostics but neither alter the canonical diff nor impose a separate eligibility gate when complete range-native semantic cursor context is available. The conservative conversion excludes pure deletions, incomplete semantic conditioning, unresolved authorship, and legacy writes with paste evidence that cannot be segmented, while retaining otherwise verified WRITE events in subsequent causal history. Action and capture timestamps remain example metadata, and whether temporal information should appear in model inputs is tested separately.
 
-The historical model context may contain only Phase 1-eligible records available before the action boundary chosen by the conversion version. The conversion must explicitly assign and document any `available_at` timestamp used for a derived input event and any `began_at` timestamp used for a candidate write target; these are decisions made by the frozen conversion, not timestamps silently inferred from snapshot finalization. Prior WRITE serialization retains resolved pasted content together with its paste provenance, because that content was present in the artifact and may condition later actions even though it received no loss when originally pasted. The pre-mutation conditioning state is separately admitted as observed query state: the active tap captures it after intercepting the first input but before returning that mutation to the application, and it must not be silently backdated as an ordinary history event. Each training example stores the exact derived history, query, complete model input, structured target segments, resolved outcome metadata, source records, conversion version, and target-mask contract. The tokenizer-specific loader retains the most recent input-token suffix, tokenizes authored segments and the reserved `<|paste|>` marker without automatic special tokens or vocabulary modification, appends exactly one tokenizer EOS token, and masks loss onto authored tokens, paste-marker tokens, and EOS. The daily update manifest separately records the parent model, data cutoff, recent and replay examples, optimizer configuration, and resulting model. These are algorithm-specific derived records, not the authoritative form of the raw activity.
+The historical model context may contain only Phase 1-eligible records available before the action boundary chosen by the conversion version. The conversion must explicitly assign and document any `available_at` timestamp used for a derived input event and any `began_at` timestamp used for a candidate write target; these are decisions made by the frozen conversion, not timestamps silently inferred from snapshot finalization. Prior WRITE serialization retains resolved pasted content together with its paste provenance, because that content was present in the artifact and may condition later actions even though it received no loss when originally pasted. The pre-mutation conditioning state is separately admitted as observed query state: the active tap captures it after intercepting the first input but before returning that mutation to the application, and it must not be silently backdated as an ordinary history event. Each training example stores the exact derived history, query, complete model input, structured target segments, resolved outcome metadata, source records, conversion version, and target-mask contract. The model-facing history serializer is intentionally compact: it retains event kind, content, semantic source or destination, write operation and nonempty removal, and resolved authorship segments; collector identifiers, numeric offsets, boundary reasons, and sensor provenance remain in a separate audit projection. The tokenizer-specific loader packs the newest complete serialized event blocks plus the complete query within the input budget. If the oldest retained event crosses the boundary, only its content tail may be retained behind an explicit truncation marker; malformed partial JSON is never emitted. The loader then tokenizes authored segments and the reserved `<|paste|>` marker without automatic special tokens or vocabulary modification, appends exactly one tokenizer EOS token, and masks loss onto authored tokens, paste-marker tokens, and EOS. The daily update manifest separately records the parent model, data cutoff, recent and replay examples, optimizer configuration, and resulting model. These are algorithm-specific derived records, not the authoritative form of the raw activity.
 
 **Causal dataset construction is a required conversion step.** JSONL append order, sequence number, and collector emission time must never be used as the training chronology. A write may be appended only after `WRITE_DELAY`, while a read observed during that write may be appended earlier. Treating all earlier file records as context would therefore allow information captured after the action began—and potentially part of the target itself—to enter the model input.
 
@@ -177,11 +177,14 @@ procedure BUILD_CAUSAL_EXAMPLE(converted_events, target_write, config):
              event.available_at < target_start
 
     ordered_prior <- STABLE_TEMPORAL_SORT(prior)
-    serialized_history <- config.serializer(ordered_prior)
+    serialized_events <- MAP(config.model_serializer, ordered_prior)
     query <- SERIALIZE_PRE_MUTATION_CONDITIONING(target_write)
-    model_input <- TAKE_CAUSAL_SUFFIX(
-        CONCAT(serialized_history, query),
-        config.context_length
+    model_input <- PACK_EVENT_SUFFIX(
+        serialized_events,
+        query,
+        tokenizer=config.tokenizer,
+        token_budget=config.context_length,
+        oldest_oversized_event="explicit_content_tail"
     )
     history <- HISTORY_PORTION(model_input)
 
@@ -207,19 +210,17 @@ $$
 P_t=\{e_i:\operatorname{available\_at}(e_i)<\operatorname{began\_at}(y_t)\}.
 $$
 
-Let $q_t$ be the serialized observed destination, semantic cursor state, and current clipboard state. The model input is the most recent $L$ tokens of the serialized ordered prefix followed by that query:
+Let $q_t$ be the serialized observed destination, semantic cursor state, and current clipboard state. Let $\operatorname{pack}_L$ retain the newest complete serialized event blocks plus the complete query within $L$ tokens, with explicit content-tail truncation only for the oldest retained oversized event. The model input is:
 
 $$
 h_t^{(L)}
 =
-\operatorname{suffix}_L\!\left(
-\operatorname{concat}\!\left(
+\operatorname{pack}_L\!\left(
 \operatorname{serialize}(\operatorname{sort}(P_t)), q_t
-\right)
 \right).
 $$
 
-$L$ is the total input-token budget, so the query consumes part of it and remains at the right edge while older history is truncated first. The serializer and deterministic left-truncation rule are versioned. The history window may cross day, session, application, and document boundaries. It does not reset at midnight.
+$L$ is the total input-token budget, so the query consumes part of it and remains at the right edge while older complete events are removed first. The serializer, event delimiter, explicit oversized-event marker, and deterministic packing rule are versioned. The history window may cross day, session, application, and document boundaries. It does not reset at midnight.
 
 There is no retrieval, semantic memory, objective induction, or learned selection in the initial method. If relevant information falls outside the last $L$ tokens, the model does not receive it. Context-length experiments test how strongly this limitation matters.
 
