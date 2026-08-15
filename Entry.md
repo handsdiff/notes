@@ -1,6 +1,4 @@
 
-- work relevant, training on company data? https://x.com/elonmusk/status/2087604711767896527
-- https://x.com/eliebakouch/status/2087659219956928873?s=20
 - Database systems (state) with git like branching is an inevitability? For agents to do rollouts on production systems? (Branchbench guy)
 - https://arxiv.org/abs/2606.30573
 - https://arxiv.org/abs/2608.10915
