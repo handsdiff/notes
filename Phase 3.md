@@ -4,6 +4,9 @@
 
 #### Unstructured Notes - to be incorporated
 - https://coasty.ai/
+- possibly useful for execution https://www.theagi.company/blog/agi-mcp-for-every-app-on-your-phone
+- https://x.ai/bot possibly useful for execution, along with the other agent builds that do the same thing (agent with a box)
+- 
 
 ## Abstract
 
