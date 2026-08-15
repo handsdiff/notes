@@ -1,6 +1,5 @@
 
 
-- https://x.com/trajectorylabs/status/2087165247023092104?s=20
 - https://x.com/teortaxesTex/status/2087168074222907771?s=20
 - https://x.com/divgarg/status/2087270846088007956?s=20
 - https://x.ai/bot
