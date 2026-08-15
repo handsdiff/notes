@@ -194,12 +194,7 @@ the impetus for information -> action was definitely the multi agent systems fai
 
 doing what im building for coding sounds awful and uselessly slow compared to dominant training methods. why? what properties cause this? i think it comes down to 'verifiability', but i think another word for this, or perhaps a broader definition, is needed
 
-regarding the 'training for retrieval', i already concluded that harnesses must already do this after answering prior questions i had around how it handles super long inbound info. and shaikh's longNAP does this too, so it seems obviously necessary to be able to reason over context retrieval. the question is whether to stick with existing algos (bm25, etc) or allow new tool creation (REPL, PTC, RLM)
 
-chatbots -> agents -> embedded agents
-
-wrote this prior but don't attention mechs already handle noise? what is sutton talking about
-- attention mechs handle noise within datasets i.e. it learns what to pay attention to and what not to, whereas sutton's explanation is specifically for when incoming data is unfiltered and the model itself needs to learn both what to pay attention to and how to ignore stuff? it still doesnt make much sense
 
 coordinated intelligences decide to communicate when the surprise associated with a failed prediction exceeds a threshold over some period of time, rather than sharing everything that happens. this is due to the finite nature of content windows and energy. ai's may handle this differently. if you aren't at least implicitly tracking your expectation of cooperative action, then you aren't cooperating
 
