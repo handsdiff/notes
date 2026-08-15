@@ -93,5 +93,7 @@ Build and deploy sensors from scratch, then iterate from what they actually expo
 
 - terminal invalidation
 - How will it author a tweet for example? Need to actually look at the data for how its defining cursor state. This may or may not lead to vision models being necessary but it feels so heavyweight for the task of content conversi
-- 
+
+
+need to handle autocomplete from other sources. i want the model to learn that rather than learn "Tab" (vscode, browser search, etc).
 
