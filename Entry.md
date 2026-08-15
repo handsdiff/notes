@@ -1,7 +1,4 @@
 
-- https://arxiv.org/abs/2608.05987
-- https://arxiv.org/abs/2608.09888
-- https://x.com/alexshander03/status/2087418185079468485?s=20
 - https://arxiv.org/abs/2608.09819
 - vision relevant https://x.com/dwarkesh_sp/status/2087586004572221767?s=20
 - https://x.com/eliebakouch/status/2087567163783614976
