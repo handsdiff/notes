@@ -25,7 +25,11 @@
 - https://x.com/andrewho03/status/2087780056571789540?s=20
 - cursor founder email to screenpipe guy regarding buildspace feedback as example of good GTM (recognizing where target market is, thoughtful feedback)
 - Figma founder analyzing graph of target market and outreaching specifically to high influence nodes
-- Primitive focusing on the engineering leads with the deep problem to sell their product reminds me of the 
+- Primitive focusing on the engineering leads with the deep problem to sell their product reminds me of the figma example and also darryn’s stated issue with his devs not following the same bar as him 
+- https://x.com/jay_azhang/status/2088317992895471630?s=20
+- https://x.com/max_paperclips/status/2088400890562777312?s=20
+- qwen 3.8 is opus 4.6 intelligence in 27B dense local weights? How does this support or refute directional beliefs that supported the build and thesis and vision direction?
+- 
 - https://x.com/ankrgyl/status/2082565187064811637?s=20
 - https://x.com/sonyatweetybird/status/2082549709223436658?s=20
 - https://x.com/francoischauba1/status/2082858605477552417?s=46
