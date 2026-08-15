@@ -199,6 +199,7 @@ regarding the 'training for retrieval', i already concluded that harnesses must 
 chatbots -> agents -> embedded agents
 
 wrote this prior but don't attention mechs already handle noise? what is sutton talking about
+- attention mechs handle noise within datasets i.e. it learns what to pay attention to and what not to, whereas sutton's explanation is specifically for when incoming data is unfiltered and the model itself needs to learn both what to pay attention to and how to ignore stuff? it still doesnt make much sense
 
 coordinated intelligences decide to communicate when the surprise associated with a failed prediction exceeds a threshold over some period of time, rather than sharing everything that happens. this is due to the finite nature of content windows and energy. ai's may handle this differently. if you aren't at least implicitly tracking your expectation of cooperative action, then you aren't cooperating
 
@@ -207,3 +208,5 @@ couple vision thoughts
 - increasingly spend more time prompting out of any other type of output, which, since its english, feels learnable as an output
 
 i wonder what latency will be. could probably benchmark by trying to only sample when the data has had historical delays in cursor positioning? probably not though.
+
+as im typing, i think ive lost the plot a bit on what i want predicted. if im typing something, click to the middle to edit it, then go back to the end to continue, the entire thing at the end is a single write event. i dont want multiple write events. i think i was lazy and need to pay more care to actual event demarcation. likely what happened is that i ran into the "type in the middle issue" in some other context and overgeneralized the case
