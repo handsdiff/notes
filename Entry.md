@@ -205,3 +205,5 @@ coordinated intelligences decide to communicate when the surprise associated wit
 couple vision thoughts
 - increasingly spend more time thinking out of anything else, since 'labor' is being automated
 - increasingly spend more time prompting out of any other type of output, which, since its english, feels learnable as an output
+
+i wonder what latency will be. could probably benchmark by trying to only sample when the data has had historical delays in cursor positioning? probably not though.
