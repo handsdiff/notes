@@ -24,6 +24,7 @@
 - the intended base model starting point does not have user assistant trained into it
 - still unclear whether you need to apply synthetic q/a self study to the data to improve understanding rather than memorization, and how that relates to maintaining support for question answering / chatting, and how that relates to introducing reasoning rather than pure SFT. although these are likely later ablations rather than initial work
 - regarding the 'training for retrieval', i already concluded that harnesses must already do this after answering prior questions i had around how it handles super long inbound info. and shaikh's longNAP does this too, so it seems obviously necessary to be able to reason over context retrieval. the question is whether to stick with existing algos (bm25, etc) or allow new tool creation (REPL, PTC, RLM)
+	- if you combine some ideas from prime intellect's python REPL / PTC recursivity in the sliding window vs context retrieval ablation, and its slow, you might be able to use OPD to convert that to a smaller model with the same performance and lower latency
 - claude tokenizer repro https://x.com/magikarp_tokens/status/2087859173748854983?s=20
 - interpretability platform https://www.goodfire.com/silico
 - 
