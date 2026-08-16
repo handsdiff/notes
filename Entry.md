@@ -18,11 +18,7 @@
 - i think re-writing down why i believe what i believe, from the arc of exploration since march, fresh again would be very helpful, will likely have to do this to some extent during LBH after next
 - getting dylan to do alex cdev feels very net positive
 
-- https://x.com/bgurley/status/2085407223824756945?s=20
-- https://x.com/chamath/status/2085292687670812833?s=20
-- https://x.com/eliebakouch/status/2085548357645152526?s=20
-- https://x.com/fjzzq2002/status/2085463523203915962?s=20
-- https://substack.com/@gwern/note/c-310947581?r=4r3bqf
+
 - want to confirm I’ve written somewhere about the potential necessity of reasoning to predict rather than raw prediction, perhaps combined with RL with semantic similarity rather than log probs
 - Also want to confirm the thinking around how context is searched agentically or fed once, which I think I’ve written about in the ablations
 	- if you combine some ideas from prime intellect's python REPL / PTC recursivity in the sliding window vs context retrieval ablation, and its slow, you might be able to use OPD to convert that to a smaller model with the same performance and lower latency
