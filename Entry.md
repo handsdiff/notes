@@ -1,13 +1,11 @@
 
-- 
 - https://www.anthropic.com/research/multiagent-systems
-
-- 
-- https://x.com/jay_azhang/status/2088317992895471630?s=20
 - https://x.com/max_paperclips/status/2088400890562777312?s=20
-- qwen 3.8 is opus 4.6 intelligence in 27B dense local weights? How does this support or refute directional beliefs that supported the build and thesis and vision direction?
-- 
-- https://x.com/ankrgyl/status/2082565187064811637?s=20
+	- qwen 3.8 is opus 4.6 intelligence in 27B dense local weights? How does this support or refute directional beliefs that supported the build and thesis and vision direction?
+	- do chinchilla scaling laws no longer apply? what are empirical scaling laws actually occurring?
+
+
+
 - https://x.com/sonyatweetybird/status/2082549709223436658?s=20
 - https://x.com/francoischauba1/status/2082858605477552417?s=46
 - https://x.com/river_ai_inc/status/2082973918873415699?s=20
