@@ -10,4 +10,5 @@
 - https://x.com/henrytdowling/status/2082972472010260844?s=20 Twitter following is increasing more than me, how to improve
 - https://www.11x.ai/case-study/ornn relates to jakub discussion about early outreach and invalidation. Also relates to Kevin yc feedback about emailing not coding. They seem to have done this to determine ICP, and they had something that caught the attention of these players.
 - still picking up a ton of followers https://x.com/henrytdowling/status/2085111119203430628?s=20
+- seems super similar from positioning but then you look and its just another chatbot/agent? https://getenergy.com/
 - 
