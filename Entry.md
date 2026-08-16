@@ -18,7 +18,6 @@
 - i think re-writing down why i believe what i believe, from the arc of exploration since march, fresh again would be very helpful, will likely have to do this to some extent during LBH after next
 - getting dylan to do alex cdev feels very net positive
 
--
 - https://x.com/bgurley/status/2085407223824756945?s=20
 - https://x.com/chamath/status/2085292687670812833?s=20
 - https://x.com/eliebakouch/status/2085548357645152526?s=20
