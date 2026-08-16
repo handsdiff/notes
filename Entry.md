@@ -6,6 +6,7 @@
 - coreauto interview discussing continual learning that seems intelligent https://x.com/CoreAutoAI/status/2082937120508067938?s=20
 - "RL without verifiable rewards" from will brown https://www.youtube.com/watch?v=AQv3qRCG6Gw&t=2s probably worth skimming only 20 mins
 - https://x.com/grx_xce/status/2084361692792934488?s=20 how does this make money?
+- My estimation is that multi agent stuff is useless without differing judgment which is why you need to drastically reduce the friction of distilling judgment into weights I.e my vision, but maybe that stems from a poor understanding of MARL leading to wasted development time
 
 - gaining a better intuition for enterprise GTM, its literally like spending money on Ramp. it shows up as credit card charges. getting someone to pay for something usually starts with the individuals at the company paying for something with the company card, like we do. dont have experience with big contracts or know what that means, but it seems like basically people have IT departments that administer products for a team or company
 - very simple: should save you a ton of time. i've never paid for an 'enterprise' product that did not feel extremely established like ramp/carta.
@@ -18,26 +19,6 @@
 - i think re-writing down why i believe what i believe, from the arc of exploration since march, fresh again would be very helpful, will likely have to do this to some extent during LBH after next
 - getting dylan to do alex cdev feels very net positive
 
-
-- want to confirm I’ve written somewhere about the potential necessity of reasoning to predict rather than raw prediction, perhaps combined with RL with semantic similarity rather than log probs
-- Also want to confirm the thinking around how context is searched agentically or fed once, which I think I’ve written about in the ablations
-	- if you combine some ideas from prime intellect's python REPL / PTC recursivity in the sliding window vs context retrieval ablation, and its slow, you might be able to use OPD to convert that to a smaller model with the same performance and lower latency
-- Helpful to read the prime intellect harness to see how they do context search via Python REPL / PTC to compare, and also the actual purpose / use cases of multi agent system work they released
-- My estimation is that multi agent stuff is useless without differing judgment which is why you need to drastically reduce the friction of distilling judgment into weights I.e my vision, but maybe that stems from a poor understanding of MARL leading to wasted development time
-- I think you get around its loss of “superhuman capability” intrinsically (whatever that means) that I had issues with before since it can just prompt any model it wants to get that capability the way a human does, so it’s a very specific piece in a broader puzzle
-- will need to refresh the intuitions I was building before vacation and also put out the article LBH before meeting tomorrow so I can hit the ground running with data implementation and iteration in a way others could use without me for a week
-- I think the focus on a public result stems from the fact that talk is cheap and undifferentiated building is cheap and attention is expensive as AI improves
-- Probably relates to the article jakub shared about how LLMs commodify blank approach so thiel approach remains
-- https://x.com/tobi/status/2086192833061323111?s=20
-- https://x.com/jxmnop/status/2086586918880596406?s=20
-- https://x.com/witcheer/status/2086418529008443421?s=20
-- probably worth trying coast, https://x.com/shadcn/status/2082519375194763675?s=20 tons of these popping up. orchids a new one too. there was another one i saw i didnt save, it ends with two i's https://x.com/ii_posts/status/2082855223400243634?s=20
-	- cotypist too https://cotypist.app/
-- https://www.youtube.com/watch?v=0VLAoVGf_74 welch labs vid on MLA
-	- if you train on each data point in a continual learning setting, or like e2e-ttt, then you cant use a KV cache? since the key and value for each token is different after each generation? i guess that conflates token generation with data points?
-	- MLA projects the tokens into a learned latent space, then runs attention on them. the KV cache is largely reduced since you now need to store the latent conversion matrix instead, and linear algebra allows you to combine the QK multiplication up front and the V multiplication with the output matrix at the end, to produce the output of the head. each head still computes its own weights, which contributes to high performance
-	- this video helps me understand schmidhuber's 'fast and slow' weights better, since QK in basic attention basically learn how to apply importance to V, so QK is fast weights and V is slow weights
-	- with a KV cache, flops are linear with respect to context, but it caused memory to be quadratic
 - do i care about information to action mapping or do i care about a temporal understanding of past work? the thing about judgment + proactive suggestions is that its qualitatively different UX, so doesn't really feel like you can 'lineage' or MVP your way up to it
 - how can data providers show that current frontier models perform poorly on their data without sending that data to the frontier model provider, therefore giving up the content for free? TEEs and open weight comparisons
 - if the best ai engineers strain infra by coming up with new implementations that infra people need to then figure out how to best support, they must not be using the infra, no? since it does not support them. what lower level framework are they using?

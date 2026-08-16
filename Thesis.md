@@ -154,8 +154,7 @@ The ~\$600B figure is an estimate of the annual global cost to businesses of act
 	- one of the reasons I moved to judgment is because I think memory doesn’t actually work well due to issues like blast radius or temporal updating
 	- The notion that judgment distillation is required for multi agent systems might actually be a forcing function
 	- I think the trust and liability argument is strong but esoteric without examples
-- 
-- like these concepts as a demo
+	- I think you get around its loss of “superhuman capability” intrinsically (whatever that means) that I had issues with before since it can just prompt any model it wants to get that capability the way a human does, so it’s a very specific piece in a broader puzzle
 	- "you can put knowledge in a prompt but you can't put skill in a prompt"
 	- tacit knowledge, skills vs information from will brown. weights distilling judgment. visceral example of same context -> different output. 
 - very well said for the masses: "https://x.com/davidcrawshaw/status/2083209856656568697"
