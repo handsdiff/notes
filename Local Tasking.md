@@ -18,6 +18,7 @@
         - metadata
         - copy pasted content
     - cursor position state issues
+- likely after: publish first write up by Friday
 
 CURRENT
 - DONE [[Phase 1]] and [[Phase 2]], distilled from [[Algorithms]], step 1 is being concrete about the loss functions and algorithms used for phase 1, and concrete about which loss functions and algorithms could reasonably result in demonstrator outperformance for phase 2 from an assistance perspective rather than replacement perspective.

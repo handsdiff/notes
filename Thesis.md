@@ -157,4 +157,5 @@ The ~\$600B figure is an estimate of the annual global cost to businesses of act
 - very well said for the masses: "https://x.com/davidcrawshaw/status/2083209856656568697"
 - vision relevant https://x.com/dwarkesh_sp/status/2087586004572221767?s=20
 - https://x.com/eliebakouch/status/2087567163783614976
+- the mention of "learn functions to manipulate, write, and retrieve facts" reminds me of the ablations i've discussed regarding "learning to build context" in the vein of shaikh's longNAP work https://x.com/francoischauba1/status/2082858605477552417?s=46
 - 

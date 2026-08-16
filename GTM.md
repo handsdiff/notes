@@ -7,4 +7,6 @@
 - Figma founder analyzing graph of target market and outreaching specifically to high influence nodes
 - Primitive focusing on the engineering leads with the deep problem to sell their product reminds me of the figma example and also darryn’s stated issue with his devs not following the same bar as him 
 - process rewarding from accounting agent founder - https://x.com/ankrgyl/status/2082565187064811637?s=20
+- https://x.com/henrytdowling/status/2082972472010260844?s=20 Twitter following is increasing more than me, how to improve
+- https://www.11x.ai/case-study/ornn relates to jakub discussion about early outreach and invalidation. Also relates to Kevin yc feedback about emailing not coding. They seem to have done this to determine ICP, and they had something that caught the attention of these players.
 - 

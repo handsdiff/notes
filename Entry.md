@@ -3,38 +3,13 @@
 - https://x.com/max_paperclips/status/2088400890562777312?s=20
 	- qwen 3.8 is opus 4.6 intelligence in 27B dense local weights? How does this support or refute directional beliefs that supported the build and thesis and vision direction?
 	- do chinchilla scaling laws no longer apply? what are empirical scaling laws actually occurring?
-
-
-
-- https://x.com/sonyatweetybird/status/2082549709223436658?s=20
-- https://x.com/francoischauba1/status/2082858605477552417?s=46
-- https://x.com/river_ai_inc/status/2082973918873415699?s=20
-- https://x.com/henrytdowling/status/2082972472010260844?s=20 Twitter following is increasing more than me, how to improve
-- https://x.com/jonchu/status/2082988928374894757?s=20
-- https://www.11x.ai/case-study/ornn relates to jakub discussion about early outreach and invalidation. Also relates to Kevin yc feedback about emailing not coding. They seem to have done this to determine ICP, and they had something that caught the attention of these players.
-- https://x.com/CoreAutoAI/status/2082937120508067938?s=20
-- https://x.com/willccbb/status/2083221912998601003?s=20
-- https://x.com/AlexiGlad/status/2083230922196107288?s=20
-- https://x.com/teortaxesTex/status/2083273714783617202?s=20
-- https://x.com/teortaxesTex/status/2083641024442732619?s=20
-- https://x.com/SchmidhuberAI/status/2069808010461884539?s=20
-- https://x.com/eliebakouch/status/2084272149649355017?s=20
-- https://x.com/marksaroufim/status/2084328575466160491?s=20
-- https://x.com/henrytdowling/status/2084100456637206900?s=20
+- coreauto interview discussing continual learning that seems intelligent https://x.com/CoreAutoAI/status/2082937120508067938?s=20
+- "RL without verifiable rewards" from will brown https://www.youtube.com/watch?v=AQv3qRCG6Gw&t=2s probably worth skimming only 20 mins
 - https://x.com/grx_xce/status/2084361692792934488?s=20 how does this make money?
-- https://x.com/shawmakesmagic/status/2084372897490248113?s=20
-- https://x.com/LanaElys/status/2083945344203657606?s=20
-- https://arxiv.org/pdf/2502.19312
+
+
 - https://x.com/samzliu/status/2084664154766659665?s=20 does this suffice for link indexing the way I wanted for product? How are web chatbot chats parsed?
-- Silico from goodfire is public now
-- https://mysyke.com/research/the-shape-of-memory-benchmarks
-- less wrong Steven Byrnes email
-- All trains of thought come back to simply producing a public result
-- https://x.com/gakonst/status/2084416414413443403?s=20
-- https://arxiv.org/abs/2607.23802
-- https://x.com/gakonst/status/2084416414413443403?s=20
-- https://x.com/GaryMarcus/status/2084479075926876196?s=20
-- https://x.com/JeffDean/status/2085034604172603724?s=20
+
 - https://x.com/PrimeIntellect/status/2085086999267144083?s=20
 - https://x.com/tenobrus/status/2025648199898407345?s=20
 - still picking up a ton of followers https://x.com/henrytdowling/status/2085111119203430628?s=20
