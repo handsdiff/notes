@@ -13,8 +13,10 @@
 - what are the requirements necessary to feel like i cant live without the autocomplete? it needs to be correct and fast. it needs to predict what im going to write to a high degree. im unsure if i could get more specific than that. cost. latency. performance. it comes down to whether you can build it or not.
 - the technical public aspect of it is showing 'local scaling laws', open sourcing data collection pipeline. could also offer hosted training for enterprises, etc. lot more ideas here i haven't made explicit yet. blocked by getting a result. probably need to clarify the goal. i do want to show we exist and are technical and can do frontier work. i also want to establish positioning / brand that reflects the beliefs that led to the work while offering something that can be downloaded and used. 
 	- common references to my beliefs from a few months ago feels crucial to avoid allowing lower magnitude information to negatively impact high magnitude beliefs that seem smaller due to forgetting
+	- i think building the app in a way that is easily usable by agents to configure, since realistically everyone will use their agent to interact with it anyways, feels correct
 - just staying on track, with the conviction for why, with changing information, for myself is step one. applying this to the team is step two. applying this to the market (public positioning, brand, etc) is step 3. trying to do step 3 makes step 1's foundational cracks (not lack of truth, but lack of consistent belief in why) clear ^
 - i think re-writing down why i believe what i believe, from the arc of exploration since march, fresh again would be very helpful, will likely have to do this to some extent during LBH after next
+- getting dylan to do alex cdev feels very net positive
 
 -
 - https://x.com/bgurley/status/2085407223824756945?s=20
