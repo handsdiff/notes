@@ -1,4 +1,6 @@
 
+- https://x.com/svlevine/status/2088759791128825975?s=20
+- https://x.com/GenAI_is_real/status/2088756326172422471?s=20 reminds me of what I was saying about reward models being the diff
 - Database systems (state) with git like branching is an inevitability? For agents to do rollouts on production systems? (Branchbench guy)
 - https://arxiv.org/abs/2606.30573
 - https://arxiv.org/abs/2608.10915

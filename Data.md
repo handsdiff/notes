@@ -92,7 +92,7 @@ Build and deploy sensors from scratch, then iterate from what they actually expo
 - the meta task i seem to be doing with the consolidated of these points is making the training set higher fidelity towards the job of predicting user generated content given available information. i am wondering whether this work can be deleted or simplified before diving into optimization
 
 - terminal invalidation
-- How will it author a tweet for example? Need to actually look at the data for how its defining cursor state. This may or may not lead to vision models being necessary but it feels so heavyweight for the task of content conversion
+- How will it author a tweet for example? Need to actually look at the data for how its defining cursor state. This may or may not lead to vision models being necessary but it feels so heavyweight for the task of content conversionon
 
 
 need to handle autocomplete from other sources. i want the model to learn that rather than learn "Tab" (vscode, browser search, etc).
