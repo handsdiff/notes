@@ -151,6 +151,10 @@ The ~\$600B figure is an estimate of the annual global cost to businesses of act
 	- Mimicking leads to thinking around continual learning which may not be the right direction vs taking a helpful action directly, which may devolve into recsys, but maybe it’s something with a set of new properties I need to be more rigorous about
 	- The way it DOES map is when I run into an issue and then actually solve it, given the context.
 	- If I solve it in a multi step way that relates to previous notes around wanting the model to suggest the N steps required for my goal, or if it can condense it into one step even better, rather than just walk me through the existing steps a bit faster. That’s likely the start of it though
+	- one of the reasons I moved to judgment is because I think memory doesn’t actually work well due to issues like blast radius or temporal updating
+	- The notion that judgment distillation is required for multi agent systems might actually be a forcing function
+	- I think the trust and liability argument is strong but esoteric without examples
+- 
 - like these concepts as a demo
 	- "you can put knowledge in a prompt but you can't put skill in a prompt"
 	- tacit knowledge, skills vs information from will brown. weights distilling judgment. visceral example of same context -> different output. 

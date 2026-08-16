@@ -7,15 +7,13 @@
 - "RL without verifiable rewards" from will brown https://www.youtube.com/watch?v=AQv3qRCG6Gw&t=2s probably worth skimming only 20 mins
 - https://x.com/grx_xce/status/2084361692792934488?s=20 how does this make money?
 
+- gaining a better intuition for enterprise GTM, its literally like spending money on Ramp. it shows up as credit card charges. getting someone to pay for something usually starts with the individuals at the company paying for something with the company card, like we do. dont have experience with big contracts or know what that means, but it seems like basically people have IT departments that administer products for a team or company
+- very simple: should save you a ton of time. i've never paid for an 'enterprise' product that did not feel extremely established like ramp/carta.
+- its clear how research is different from starting up. its sometimes wrong to ingest a bunch of inbound with no purpose rather than working for a purpose and then doing research to knock out blockers. 
+- what are the requirements necessary to feel like i cant live without the autocomplete? it needs to be correct and fast. it needs to predict what im going to write to a high degree. im unsure if i could get more specific than that. 
+- the technical public aspect of it is showing 'local scaling laws', open sourcing data collection pipeline. could also offer hosted training for enterprises, etc. lot more ideas here i haven't made explicit yet.
 
-- https://x.com/samzliu/status/2084664154766659665?s=20 does this suffice for link indexing the way I wanted for product? How are web chatbot chats parsed?
-
-- https://x.com/PrimeIntellect/status/2085086999267144083?s=20
-- https://x.com/tenobrus/status/2025648199898407345?s=20
-- still picking up a ton of followers https://x.com/henrytdowling/status/2085111119203430628?s=20
-- one of the reasons I moved to judgment is because I think memory doesn’t actually work well due to issues like blast radius or temporal updating
-- The notion that judgment distillation is required for multi agent systems might actually be a forcing function
-- I think the trust and liability argument is strong but esoteric without examples
+- 
 - https://x.com/gabriel1/status/2085418582192841147?s=20
 - https://x.com/bgurley/status/2085407223824756945?s=20
 - https://x.com/chamath/status/2085292687670812833?s=20
