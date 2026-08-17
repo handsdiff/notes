@@ -10,6 +10,8 @@
 - codex's open source implementation has work around compaction, which is honestly extremely good, and also long context retrieval, which is also very good. 
 	- reasoning to retrieve can be useful as part of the ablation
 	- can the encryption blocks be used in the same way reasoning blocks were used for distillation
+- was on twitter, saw a carmack tweet responded to by suarez, reminded of RLC, looked at papers. this feels very predictable at least the action of opening up RLC. i'd want the AI to basically show me the relevant papers im looking for rather than me writing it down in my notes as a reference for later. so this example would be the agent detects from the vector of looking it up that i want to find the streaming RL work that carmack is referencing, and find it for me. does the implementation plan lead to that? is there a shorter, generalizable way to that?
+
 
 - gaining a better intuition for enterprise GTM, its literally like spending money on Ramp. it shows up as credit card charges. getting someone to pay for something usually starts with the individuals at the company paying for something with the company card, like we do. dont have experience with big contracts or know what that means, but it seems like basically people have IT departments that administer products for a team or company
 - very simple: should save you a ton of time. i've never paid for an 'enterprise' product that did not feel extremely established like ramp/carta.
@@ -128,3 +130,5 @@ if everyone is self sufficient and no one transacts, GDP is zero despite everyon
 for all the AI spend that companies are doing now, what were those dollars doing before? salaries? no because hiring hasn't seem to gone down. increased revenue i.e. they didnt exist before? not necessarily for a lot of teams. where else?
 
 can sample model for prediction when the historical probability of a write (purely quantitative, not learned) that is long is high?
+
+if i havent fully consolidated thoughts on PTC a la RLM for fetching memory well, need to do so once i get to this point

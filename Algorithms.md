@@ -284,6 +284,7 @@ algorithms considered and rejected for now and why: (there are likely practicali
 		- going from roughly 40 to roughly 44 score is pretty weak no? went through the training method but havent combed through the datasets or construction yet
 	- https://arxiv.org/pdf/2501.00663 titans, learning to memory at test time
 	- https://x.com/jsuarez/status/2089372615744086019?s=20 RL practical discussion
+	- insane resource. frontier RL 2026 https://rl-conference.cc/ (conference schedule, custom websites, accepted papers -> paper schedule)
 
 - is phase 1 a process reward model?
 - does phase 1 result in an 'implicit' reward model?
