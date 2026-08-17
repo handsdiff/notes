@@ -30,7 +30,7 @@
 	- Helpful to read the prime intellect harness to see how they do context search via Python REPL / PTC to compare, and also the actual purpose / use cases of multi agent system work they released
 - claude tokenizer repro https://x.com/magikarp_tokens/status/2087859173748854983?s=20
 - interpretability platform https://www.goodfire.com/silico
-- 
+- the retrieval ablation and the reasoning ablation are extremely critical
 
 ## Abstract
 
