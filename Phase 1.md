@@ -39,6 +39,17 @@
 - the retrieval ablation and the reasoning ablation are extremely critical
 - https://console.river.ai/ seems cheaper + longer context than tinker, but do they support base models?
 - the reason i think i will need to go as far as to determine sampling timing + harness necessary for it is that it provides a forcing function for which writes to train on, since we want to train on material content ideally, not random formatting. and determining when sampling occurs, since we want that to ideally be equivalent to training loss, implies training loss. otherwise there's no core reason for one training loss masking over the other
+- what are the requirements necessary to feel like i cant live without the autocomplete? it needs to be correct and fast. it needs to predict what im going to write to a high degree. im unsure if i could get more specific than that. cost. latency. performance. it comes down to whether you can build it or not.
+- codex's open source implementation has work around compaction, which is honestly extremely good, and also long context retrieval, which is also very good. 
+	- reasoning to retrieve can be useful as part of the ablation
+	- can the encryption blocks be used in the same way reasoning blocks were used for distillation
+	- i did work in a codex app thread (explain autocompaction in codex) that shows that we can take the compaction encrypted blocks and port them to other gpt threads! we can also pass a trace into the compaction function and gets a 'compaction' capsule we can reuse in other threads as needed. you can also compose multiple compactions into a single thread and it combines the information from both
+- was on twitter, saw a carmack tweet responded to by suarez, reminded of RLC, looked at papers. this feels very predictable at least the action of opening up RLC. i'd want the AI to basically show me the relevant papers im looking for rather than me writing it down in my notes as a reference for later. so this example would be the agent detects from the vector of looking it up that i want to find the streaming RL work that carmack is referencing, and find it for me. does the implementation plan lead to that? is there a shorter, generalizable way to that?
+	- why not just tell the computer use agent your goals? why require it to 'infer' your goals from your context?
+		- one difference is tightly coupled vs long running
+		- another might be proactive vs reactive
+	- i already basically do the above with the codex app
+	- is this example just search learned from RL? and intermediate rewards for clicking the correct intermediate links is the equivalent of jensen's EIOS (early indicators of success)?
 
 ## Abstract
 
