@@ -279,6 +279,9 @@ algorithms considered and rejected for now and why: (there are likely practicali
 		- classic algo surprised i missed it. basically learns how the env reacts to actions. very solid. perhaps useful for later phases
 	- edgebench https://arxiv.org/pdf/2607.05155
 		- establishes how models perform learning in real world environments by updating themselves, shows log sigmoid learning and learning rate doubling every 3 months on frontier models. very related to continual learning imo
+	- seems extremely relevant to discussions around context windows / retrieval vs judgment etc 
+		- https://arxiv.org/pdf/2605.23668v2 "a key step towards proactive interaction is next query prediction" should study the data construction and method used for actually implementing the 'dynamic memory' but from an initial skim it just seems like a scratchpad that the LLM can use...
+		- going from roughly 40 to roughly 44 score is pretty weak no? went through the training method but havent combed through the datasets or construction yet
 
 - is phase 1 a process reward model?
 - does phase 1 result in an 'implicit' reward model?

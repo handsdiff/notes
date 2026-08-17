@@ -26,15 +26,7 @@
 - the integral of technicality + time needs to exceed that of your customers, by definition
 - yc ai startups as target, long lake like PE rollups as target, probably more come up if I just brainstorm alongside thesis/how we got here/what I care about writing
 - Phase 1 seems like mid training whereas phase 3 seems like post training. Per byrnes phase 2 dpo is usually called rl but more like imitative learning with high bits per sample 
-
-- https://x.com/river_ai_inc/status/2086903810216386802?s=20
-- focusing on next content prediction because it’s a forcing function for data collection quality, judgment distillation, goal inference, and memory algorithms, and it enables intelligent autocomplete, proactive goal oriented assistance, robust user simulation, and multi agent systems
-- seems extremely relevant to discussions around context windows / retrieval vs judgment etc 
-	- https://arxiv.org/pdf/2605.23668v2 "a key step towards proactive interaction is next query prediction" should study the data construction and method used for actually implementing the 'dynamic memory' but from an initial skim it just seems like a scratchpad that the LLM can use...
-	- going from roughly 40 to roughly 44 score is pretty weak no? went through the training method but havent combed through the datasets or construction yet
-- https://tullie.ai/blog/titans-neural-memory
-- https://x.com/eliebakouch/status/2087179305474298162?s=20
-- 
+ 
 
 https://www.youtube.com/watch?v=r1qZpYAmqmg
 - course from guy who does training at openai says that non reasoning, human interactivity post training/RLHF has on the order of 100k data examples, 100k training cost on the order of days, and the bottleneck is data and evals
