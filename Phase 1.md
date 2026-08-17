@@ -31,6 +31,7 @@
 - claude tokenizer repro https://x.com/magikarp_tokens/status/2087859173748854983?s=20
 - interpretability platform https://www.goodfire.com/silico
 - the retrieval ablation and the reasoning ablation are extremely critical
+- https://console.river.ai/ seems cheaper + longer context than tinker, but do they support base models?
 
 ## Abstract
 
