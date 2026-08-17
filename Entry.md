@@ -27,13 +27,8 @@
 - yc ai startups as target, long lake like PE rollups as target, probably more come up if I just brainstorm alongside thesis/how we got here/what I care about writing
 - Phase 1 seems like mid training whereas phase 3 seems like post training. Per byrnes phase 2 dpo is usually called rl but more like imitative learning with high bits per sample 
 
-- 
-
-- https://x.com/teodorio/status/2082791256833323010?s=20
-- contains pre training data set? https://x.com/eliebakouch/status/2086833600360521852?s=20
-- target market? https://x.com/himanshustwts/status/2086704020337602733?s=20
+-
 - https://x.com/irl_danB/status/2086798648306704886?s=20
-- https://www.trycaret.com/
 - https://x.com/gakonst/status/2086846192701640817?s=20
 - https://x.com/shadcn/status/2086737201723764847?s=20
 - https://x.com/gakonst/status/2086846192701640817?s=20
