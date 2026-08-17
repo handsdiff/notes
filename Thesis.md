@@ -37,6 +37,7 @@ The ~\$600B figure is an estimate of the annual global cost to businesses of act
 
 # Misc Notes
 
+- https://www.anthropic.com/research/multiagent-systems
 - stated plainly
 	- observe you, predict from your behavior what you care about, and eventually start proactively suggesting how to achieve your reward faster or in higher magnitude
 	- the point of the model learning how my brain works is to understand my goals/preferences, and then recommend how to achieve those faster
