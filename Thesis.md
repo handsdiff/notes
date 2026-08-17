@@ -47,6 +47,7 @@ The ~\$600B figure is an estimate of the annual global cost to businesses of act
 	- the original goal was to implicitly detect goal and then suggest something / take some action to get me there faster
 - tension between context time as information dumping vs reward/judgment specification
 - tension between behavior cloning and superhuman augmentation
+- My estimation is that multi agent stuff is useless without differing judgment which is why you need to drastically reduce the friction of distilling judgment into weights I.e my vision, but maybe that stems from a poor understanding of MARL leading to wasted development time
 - the uncovered cubic section between omar shaikh's work around user modeling, next action prediction, just in time objectives, etc and data capturing work such as rewind, screenpipe, coast, etc and continual learning and memory work, etc, is one way to describe the target vision
 	- seemingly a gap between append only agent turn logs as some vague 'memory' solution vs use as a formal interleaved dataset where the agent can learn causal loops, which opens up multi agent systems which opens up collective intelligence. again, ECHO seems to be the first version of this
 - i DO NOT want to build something that requires 'connecting apps'. sounds super annoying.

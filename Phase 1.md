@@ -50,6 +50,7 @@
 		- another might be proactive vs reactive
 	- i already basically do the above with the codex app
 	- is this example just search learned from RL? and intermediate rewards for clicking the correct intermediate links is the equivalent of jensen's EIOS (early indicators of success)?
+- https://huggingface.co/Motif-Technologies/Motif-3 pretraining dataset? base model?
 
 ## Abstract
 
