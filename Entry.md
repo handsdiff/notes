@@ -138,3 +138,7 @@ as im typing, i think ive lost the plot a bit on what i want predicted. if im ty
 how would an IT department / local AI native engineer easily set this up and monitor it for their team? apparently thats the diff between 100k contracts and 10M contracts
 
 is choosing something technically difficult an attempt to differentiate on skill because of an inability to differentiate on what actually matters, which is customer understanding? differentiating on skill allows you to be vague about the problem, solution, and target market
+
+if everyone is self sufficient and no one transacts, GDP is zero despite everyone having what they need. increased GDP seems to correlate to increased interdependence, which may indicate increased fragility.
+
+for all the AI spend that companies are doing now, what were those dollars doing before? salaries? no because hiring hasn't seem to gone down. increased revenue i.e. they didnt exist before? not necessarily for a lot of teams. where else?
