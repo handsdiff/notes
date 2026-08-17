@@ -5,7 +5,6 @@
 	- do chinchilla scaling laws no longer apply? what are empirical scaling laws actually occurring?
 - coreauto interview discussing continual learning that seems intelligent https://x.com/CoreAutoAI/status/2082937120508067938?s=20
 - "RL without verifiable rewards" from will brown https://www.youtube.com/watch?v=AQv3qRCG6Gw&t=2s probably worth skimming only 20 mins
-- 
 - My estimation is that multi agent stuff is useless without differing judgment which is why you need to drastically reduce the friction of distilling judgment into weights I.e my vision, but maybe that stems from a poor understanding of MARL leading to wasted development time
 - https://huggingface.co/Motif-Technologies/Motif-3 pretraining dataset? base model?
 - codex's open source implementation has work around compaction, which is honestly extremely good, and also long context retrieval, which is also very good. 
