@@ -12,6 +12,7 @@
 	- you dont need a proactive assistant if the goal is reasoning over log history though
 - https://x.com/jxmnop/status/2089442261587448120?s=20 https://engram.com/blog/legal-agents-with-memory
 - https://x.com/lefttailguy/status/2055068083203797067?s=20
+- https://x.com/emollick/status/2089101803199607071
 
  
 
