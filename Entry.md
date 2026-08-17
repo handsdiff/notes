@@ -11,6 +11,7 @@
 	- do i care about information to action mapping or do i care about a temporal understanding of past work? the thing about judgment + proactive suggestions is that its qualitatively different UX, so doesn't really feel like you can 'lineage' or MVP your way up to it
 	- you dont need a proactive assistant if the goal is reasoning over log history though
 - https://x.com/jxmnop/status/2089442261587448120?s=20 https://engram.com/blog/legal-agents-with-memory
+- https://x.com/lefttailguy/status/2055068083203797067?s=20
 
  
 
