@@ -27,12 +27,6 @@
 - yc ai startups as target, long lake like PE rollups as target, probably more come up if I just brainstorm alongside thesis/how we got here/what I care about writing
 - Phase 1 seems like mid training whereas phase 3 seems like post training. Per byrnes phase 2 dpo is usually called rl but more like imitative learning with high bits per sample 
 
--
-- https://x.com/irl_danB/status/2086798648306704886?s=20
-- https://x.com/gakonst/status/2086846192701640817?s=20
-- https://x.com/shadcn/status/2086737201723764847?s=20
-- https://x.com/gakonst/status/2086846192701640817?s=20
-- https://x.com/shadcn/status/2086737201723764847?s=20
 - https://x.com/river_ai_inc/status/2086903810216386802?s=20
 - focusing on next content prediction because it’s a forcing function for data collection quality, judgment distillation, goal inference, and memory algorithms, and it enables intelligent autocomplete, proactive goal oriented assistance, robust user simulation, and multi agent systems
 - seems extremely relevant to discussions around context windows / retrieval vs judgment etc 
