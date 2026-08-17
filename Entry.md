@@ -10,7 +10,6 @@
 - codex's open source implementation has work around compaction, which is honestly extremely good, and also long context retrieval, which is also very good. 
 	- reasoning to retrieve can be useful as part of the ablation
 	- can the encryption blocks be used in the same way reasoning blocks were used for distillation
--
 
 - gaining a better intuition for enterprise GTM, its literally like spending money on Ramp. it shows up as credit card charges. getting someone to pay for something usually starts with the individuals at the company paying for something with the company card, like we do. dont have experience with big contracts or know what that means, but it seems like basically people have IT departments that administer products for a team or company
 - very simple: should save you a ton of time. i've never paid for an 'enterprise' product that did not feel extremely established like ramp/carta.

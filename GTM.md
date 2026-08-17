@@ -11,4 +11,15 @@
 - https://www.11x.ai/case-study/ornn relates to jakub discussion about early outreach and invalidation. Also relates to Kevin yc feedback about emailing not coding. They seem to have done this to determine ICP, and they had something that caught the attention of these players.
 - still picking up a ton of followers https://x.com/henrytdowling/status/2085111119203430628?s=20
 - seems super similar from positioning but then you look and its just another chatbot/agent? https://getenergy.com/
+- broke down wafer’s indirect channel growth strategy:
+    - longform posts (reshared to X and Linkedin):
+        - substack for technical writing (not necessarily about wafer)
+            - ~biweekly
+        - blog for wafer posts
+            - ~weekly
+    - X’s
+        - shitposting + reply guying
+            - 3-4 a day
+        - wafer bullposts
+            - daily
 - 
