@@ -42,7 +42,7 @@
 
  
 
-does the terminal state of such a product require combining individual models to improve the initial state of new models? by taking the data from individual models to train the 'base model'? is that not just what big labs are doing?
+
 
 what highly value creative workflows become much cheaper or faster with judgment infused weights?
 
