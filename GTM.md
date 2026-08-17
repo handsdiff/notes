@@ -34,4 +34,4 @@
 		- prospective learning is foundational ^
 - sam's tweet about the issues people run into when building their own company brains is good because it shows that enterprises are spending time on the problem they are solving. what enterprises are spending time on collecting high fidelity causal data? RL? what about in non verifiable domains?
 - how would an IT department / local AI native engineer easily set this up and monitor it for their team? apparently thats the diff between 100k contracts and 10M contracts
-- 
+- is choosing something technically difficult an attempt to differentiate on skill because of an inability to differentiate on what actually matters, which is customer understanding? differentiating on skill allows you to be vague about the problem, solution, and target market

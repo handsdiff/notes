@@ -101,5 +101,6 @@ what pushes read/write delay up is the time required to fully form a thought tha
 
 i wonder how it works with youtube videos, it seems like its able to extract text from the video which i was not expecting, but it does not seem to capture subtitles
 
+as im typing, i think ive lost the plot a bit on what i want predicted. if im typing something, click to the middle to edit it, then go back to the end to continue, the entire thing at the end is a single write event. i dont want multiple write events. i think i was lazy and need to pay more care to actual event demarcation. likely what happened is that i ran into the "type in the middle issue" in some other context and overgeneralized the case. i think what i'd actually want is to predict the final version of that output if it does not contain some read event in between.
 
 
