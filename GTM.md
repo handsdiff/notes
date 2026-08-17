@@ -23,6 +23,7 @@
         - wafer bullposts
             - daily
 - positioning
+	- lots of takes in [[Thesis]]
 	- being good at the specific thing of converting stimulus to response, rather than attempting to maintain question answering or frontier level intelligence, since that ability can be gotten from just calling/prompting those models, invalidates the prior beliefs around superhuman intelligence doing everything for you, just aligned, and i havent fully thought through this yet
 	- why do i think that mapping input -> output like myself is necessary? why not just 'company brain' things? do they solve different issues?
 	- i do think continual learning is specifically regarding judgment, not memory. you want the agent to do y given x. its not that you want the agent to know x necessarily, thats a means to an end. most people assume the agents raw horsepower will be good enough that it would obviously result in y given x. this could be a good way to frame the writeup.
