@@ -14,15 +14,7 @@
 - https://x.com/jxmnop/status/2089442261587448120?s=20 https://engram.com/blog/legal-agents-with-memory
 - https://x.com/lefttailguy/status/2055068083203797067?s=20
 - https://x.com/emollick/status/2089101803199607071
-
- 
-
-
-
-
-
-
-
-
-
-
+- https://x.com/eliebakouch/status/2089466875965035007?s=20
+- https://x.com/googrish/status/2089450354836725762?s=20
+- https://x.com/kalomaze/status/2089448036993020360?s=20
+- 
