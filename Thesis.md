@@ -146,6 +146,8 @@ The ~\$600B figure is an estimate of the annual global cost to businesses of act
 	- it would be great to be more clear about how next action prediction could lead to next N action prediction, i.e. instead of suggesting collecting a piece of context to give to a model, then collecting another piece of context, etc, just generate the entire prompt better and faster than i would have written it.
 	- still a tension between behavior cloning and superhuman performance. since the original goal was to implicitly detect goal and then suggest something / take some action to get me there faster
 	- does the terminal state of such a product require combining individual models to improve the initial state of new models? by taking the data from individual models to train the 'base model'? is that not just what big labs are doing?
+	- what highly value creative workflows become much cheaper or faster with judgment infused weights?
+	- one way to frame the conclusion of thesis is that the only way to specify rewards properly is via imitative -> comparative learning. but the less naive step after may just be rubrics.
 - thought dump
 	- Taking helpful action rather than mimic action is a core tension since there’s plenty of things i would like but don’t actually do since it’s difficult or high friction. Relates to proactive and prospective learning, as well as embodied intelligence.
 	- Does action mimicry lead to action assistance? Depends on reward inference. I’ve laid out one path, should identify and dig deeper if needed on biggest assumptions and unknowns
