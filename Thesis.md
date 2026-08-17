@@ -161,4 +161,5 @@ The ~\$600B figure is an estimate of the annual global cost to businesses of act
 - vision relevant https://x.com/dwarkesh_sp/status/2087586004572221767?s=20
 - https://x.com/eliebakouch/status/2087567163783614976
 - the mention of "learn functions to manipulate, write, and retrieve facts" reminds me of the ablations i've discussed regarding "learning to build context" in the vein of shaikh's longNAP work https://x.com/francoischauba1/status/2082858605477552417?s=46
+- very very good talk from river.ai founder. they know what they're doing. mentioned all the relevant research https://x.com/river_ai_inc/status/2086903810216386802?s=20
 - 
