@@ -20,7 +20,11 @@
 - getting dylan to do alex cdev feels very net positive
 - how does introducing a temporal component to the collected data change the qualitative response of normal agents like Codex, vs just telling it that there is a git history? what about comparing it to just the current content? this feels interesting and important to quantify/benchmark, since it may be enough to have this rather than training to predict output.
 	- do i care about information to action mapping or do i care about a temporal understanding of past work? the thing about judgment + proactive suggestions is that its qualitatively different UX, so doesn't really feel like you can 'lineage' or MVP your way up to it
-- 
+- open source data pipeline, offer hosted base models and training to get judgment distilled models on top, promise of accelerating all your computer work. Boundaries around what it’s different from (computer use agents, frontier LLMs). The vector of diff from models top sample to human ending in aggregate points to superhuman performance (last claim is load bearing). Not a concern of replacement since human defines the direction while AI emphasizes it
+- pivoting away from crypto/resource allocation hard and that’s causing the cracks
+- the integral of technicality + time needs to exceed that of your customers, by definition
+- yc ai startups as target, long lake like PE rollups as target, probably more come up if I just brainstorm alongside thesis/how we got here/what I care about writing
+- Phase 1 seems like mid training whereas phase 3 seems like post training. Per byrnes phase 2 dpo is usually called rl but more like imitative learning with high bits per sample 
 
 - 
 - do any data providers like scale/surge/mercor/handshake sell pretraining data? or just RL data
