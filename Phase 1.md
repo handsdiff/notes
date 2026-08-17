@@ -32,10 +32,13 @@
 		- from shopify ceo, state = memo(f(log))
 	- does the implementation of prime intellect's harness provide a blueprint for the meta optimization required for self improvement towards next action prediction? is this 'training'? the weights arent being updated but the retrieval algorithm would be, ideally forced through iterations given the reward signal (whether thats some token level next action prediction or cosine sim score)
 	- thesis has a ton of good work but it feels a bit weird since its unclear how the described solution solves the time giving context. the way it would is that the next action predictor learns how to manipulate the log history, therefore never needing explicit context? memory solutions solve a similar problem. which implies that the forcing function is learned log attention rather than goal inference. i guess thats a more specific description of learning response to stimulus, so it would make sense in that vein
+	- prime intellect-like python REPL PTC might overfit to the data set. but if you just have a literal shitton of 'hardcoded rules', with some forcing function for less code + readable code, maybe thats fine? kind of reminds me of a AIXI optimal agent keeping all potential environments in its head and acting on whatever prior is most likely
+	- the counterargument would be that hardcoded lost to weights long term, but can weights learn how to optimally retrieve/reason, if the context window is limited? to what extent is 'working memory' and 'memory retrieval' two separate systems in the brain? there is definitely some 'tool' being used in the brain implicitly when i read something (to connect to something else, because it 'reminds' me of something prior) which i also can somewhat 'call' explicitly if im trying really hard to remember something and then i remember it
 - claude tokenizer repro https://x.com/magikarp_tokens/status/2087859173748854983?s=20
 - interpretability platform https://www.goodfire.com/silico
 - the retrieval ablation and the reasoning ablation are extremely critical
 - https://console.river.ai/ seems cheaper + longer context than tinker, but do they support base models?
+- the reason i think i will need to go as far as to determine sampling timing + harness necessary for it is that it provides a forcing function for which writes to train on, since we want to train on material content ideally, not random formatting. and determining when sampling occurs, since we want that to ideally be equivalent to training loss, implies training loss. otherwise there's no core reason for one training loss masking over the other
 
 ## Abstract
 

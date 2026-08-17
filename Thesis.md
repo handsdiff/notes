@@ -51,6 +51,10 @@ The ~\$600B figure is an estimate of the annual global cost to businesses of act
 	- seemingly a gap between append only agent turn logs as some vague 'memory' solution vs use as a formal interleaved dataset where the agent can learn causal loops, which opens up multi agent systems which opens up collective intelligence. again, ECHO seems to be the first version of this
 - i DO NOT want to build something that requires 'connecting apps'. sounds super annoying.
 - extremely extremely good from cole wyeth discussing how local reward models relates to alignment https://www.lesswrong.com/posts/JT3qCYDimskcBdiEr/the-hard-core-of-alignment-is-robustifying-rl vision thesis post
+- couple vision thoughts
+	- increasingly spend more time thinking/deciding out of anything else, since 'labor' is being automated
+	- increasingly spend more time prompting out of any other type of output, which, since its english, feels learnable as an output
+	- prompt autocomplete i originally was skeptical of but it may actually describe it well, given theses around the amount of work performed by agents now and increasingly so. agents are literally the gateway to anything we do, increasingly
 - "next thought prediction" or "next content prediction" is more aligned with my vision than "next action prediction"
 - [[Experiment Plan - Old]]
 - still such a banger https://thinkingmachines.ai/blog/interaction-models/. every source they city resonates ^15beb6
@@ -141,6 +145,7 @@ The ~\$600B figure is an estimate of the annual global cost to businesses of act
 	- open core where software is open source but the hosted version to not worry about hardware, local llms, retraining, etc is closed source? or just full closed source? soc 2 compliance?
 	- probably would open source the data cleaning pipeline. then iterate on algorithms + applications to make it useful, although people could make it useful as they see fit. that seems most value creative.
 	- the indeterminate part of the stack that is likely to last longer is the data pipeline. the algorithms and suggestion application less so
+	- one way to describe the true problem being solved is extracting reward signal from human behavior
 - pushing further / unresolved steps
 	- predicting multiple actions instead of one action seems similar to trying to get to goals faster but it requires a world model. for example if a model is going to predict a prompt i type in, and it 'knows' im going to need a follow up prompt to actually get what i want, it should recommend the fixed prompt before hand. unclear whether it can do this from the BC and IPO formulation, which is why i was gunning so hard for the reward inference, but then the conversation around local explicit goals being written down made it unclear whether it could do that when those exist
 	- it would be great to be more clear about how next action prediction could lead to next N action prediction, i.e. instead of suggesting collecting a piece of context to give to a model, then collecting another piece of context, etc, just generate the entire prompt better and faster than i would have written it.

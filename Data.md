@@ -97,3 +97,9 @@ Build and deploy sensors from scratch, then iterate from what they actually expo
 
 need to handle autocomplete from other sources. i want the model to learn that rather than learn "Tab" (vscode, browser search, etc).
 
+what pushes read/write delay up is the time required to fully form a thought that isnt half baked, and having the ai predict halfway chunks will elicit less 'stimulus response simulation'. what pushes it down is the intuition that super long chunks will be harder for the ai to predict and may combine multiple thought into one, as well as making it higher friction for the human to evaluate and use at test time. unresolved.
+
+i wonder how it works with youtube videos, it seems like its able to extract text from the video which i was not expecting, but it does not seem to capture subtitles
+
+
+

@@ -22,4 +22,16 @@
             - 3-4 a day
         - wafer bullposts
             - daily
+- positioning
+	- being good at the specific thing of converting stimulus to response, rather than attempting to maintain question answering or frontier level intelligence, since that ability can be gotten from just calling/prompting those models, invalidates the prior beliefs around superhuman intelligence doing everything for you, just aligned, and i havent fully thought through this yet
+	- why do i think that mapping input -> output like myself is necessary? why not just 'company brain' things? do they solve different issues?
+	- i do think continual learning is specifically regarding judgment, not memory. you want the agent to do y given x. its not that you want the agent to know x necessarily, thats a means to an end. most people assume the agents raw horsepower will be good enough that it would obviously result in y given x. this could be a good way to frame the writeup.
+	- why is basic memory, i.e. applying algorithms to fetch data, not good enough? you can have a forcing function to learn how to fetch prior history intelligently that may not be next action/token/content prediction? or can you not?
+	- good point made earlier that cursor's early tab completion was not just completing your existing cursor section, it would jump to the next likely cursor location in the codebase!
+	- want to take a better look at stash/honcho to juxtapose it vs my intentions to make the difference clearer. clearly they are trying to use 'sleep time compute' to distill judgment into context. honcho uses human crafted SFT. whats the difference in training data? how does this lead to different solved problems or at the very least different outcomes?
+	- the impetus for information -> action was definitely the multi agent systems failing diversity. the line of thinking was that diversity in judgment was needed, not just diversity in context. the issue was that giving solid context to the agent continuously was an issue, which is why the workflow capturing came up. but why not just use screenpipe/coast? thats because ive worked with memory solutions and they're pretty bad at paying attention i.e. separating signal from noise. they dont know WHAT to focus on, leading them to confusion. then the thought was how could you get them to learn what to pay attention to, which led to next write prediction?
+		- coordinated intelligences decide to communicate when the surprise associated with a failed prediction exceeds a threshold over some period of time, rather than sharing everything that happens. this is due to the finite nature of content windows and energy. ai's may handle this differently. if you aren't at least implicitly tracking your expectation of cooperative action, then you aren't cooperating
+		- prospective learning is foundational ^
+- sam's tweet about the issues people run into when building their own company brains is good because it shows that enterprises are spending time on the problem they are solving. what enterprises are spending time on collecting high fidelity causal data? RL? what about in non verifiable domains?
+- how would an IT department / local AI native engineer easily set this up and monitor it for their team? apparently thats the diff between 100k contracts and 10M contracts
 - 
