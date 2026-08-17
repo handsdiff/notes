@@ -10,7 +10,7 @@
 - codex's open source implementation has work around compaction, which is honestly extremely good, and also long context retrieval, which is also very good. 
 	- reasoning to retrieve can be useful as part of the ablation
 	- can the encryption blocks be used in the same way reasoning blocks were used for distillation
-	- i did work in a codex app thread that shows that we can take the compaction encrypted blocks and port them to other gpt threads!
+	- i did work in a codex app thread (explain autocompaction in codex) that shows that we can take the compaction encrypted blocks and port them to other gpt threads! we can also pass a trace into the compaction function and gets a 'compaction' capsule we can reuse in other threads as needed
 - was on twitter, saw a carmack tweet responded to by suarez, reminded of RLC, looked at papers. this feels very predictable at least the action of opening up RLC. i'd want the AI to basically show me the relevant papers im looking for rather than me writing it down in my notes as a reference for later. so this example would be the agent detects from the vector of looking it up that i want to find the streaming RL work that carmack is referencing, and find it for me. does the implementation plan lead to that? is there a shorter, generalizable way to that?
 
 
