@@ -133,3 +133,6 @@ for all the AI spend that companies are doing now, what were those dollars doing
 can sample model for prediction when the historical probability of a write (purely quantitative, not learned) that is long is high?
 
 if i havent fully consolidated thoughts on PTC a la RLM for fetching memory well, need to do so once i get to this point
+
+prompt autocomplete i originally was skeptical of but it may actually describe it well, given theses around the amount of work performed by agents now and increasingly so. agents are literally the gateway to anything we do, increasingly
+
