@@ -282,6 +282,7 @@ algorithms considered and rejected for now and why: (there are likely practicali
 	- seems extremely relevant to discussions around context windows / retrieval vs judgment etc 
 		- https://arxiv.org/pdf/2605.23668v2 "a key step towards proactive interaction is next query prediction" should study the data construction and method used for actually implementing the 'dynamic memory' but from an initial skim it just seems like a scratchpad that the LLM can use...
 		- going from roughly 40 to roughly 44 score is pretty weak no? went through the training method but havent combed through the datasets or construction yet
+	- https://arxiv.org/pdf/2501.00663 titans, learning to memory at test time
 
 - is phase 1 a process reward model?
 - does phase 1 result in an 'implicit' reward model?
