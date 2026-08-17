@@ -142,3 +142,5 @@ is choosing something technically difficult an attempt to differentiate on skill
 if everyone is self sufficient and no one transacts, GDP is zero despite everyone having what they need. increased GDP seems to correlate to increased interdependence, which may indicate increased fragility.
 
 for all the AI spend that companies are doing now, what were those dollars doing before? salaries? no because hiring hasn't seem to gone down. increased revenue i.e. they didnt exist before? not necessarily for a lot of teams. where else?
+
+can sample model for prediction when the historical probability of a write (purely quantitative, not learned) that is long is high?
