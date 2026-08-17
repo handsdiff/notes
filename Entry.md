@@ -17,4 +17,6 @@
 - https://x.com/eliebakouch/status/2089466875965035007?s=20
 - https://x.com/googrish/status/2089450354836725762?s=20
 - https://x.com/kalomaze/status/2089448036993020360?s=20
+- https://x.com/kalomaze/status/2089095370332893234?s=20
+- https://x.com/kalomaze/status/2089462097164079193?s=20
 - 
