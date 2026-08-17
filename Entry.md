@@ -29,10 +29,6 @@
 - yc ai startups as target, long lake like PE rollups as target, probably more come up if I just brainstorm alongside thesis/how we got here/what I care about writing
 - Phase 1 seems like mid training whereas phase 3 seems like post training. Per byrnes phase 2 dpo is usually called rl but more like imitative learning with high bits per sample 
 
-
-check whether the river ai talk mentions any other papers i havent gone over, or theses i havent considered
-
-enables prospective learning
  
 https://www.youtube.com/watch?v=r1qZpYAmqmg
 - course from guy who does training at openai says that non reasoning, human interactivity post training/RLHF has on the order of 100k data examples, 100k training cost on the order of days, and the bottleneck is data and evals
