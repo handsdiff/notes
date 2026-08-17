@@ -47,12 +47,9 @@
 
 
 
-is next action prediction a forcing function for solving memory rather than solving goal and reward inference? it basically learns what to pay attention to given the full history of logs
-- from shopify ceo, state = memo(f(log))
 
-does the implementation of prime intellect's harness provide a blueprint for the meta optimization required for self improvement towards next action prediction? is this 'training'? the weights arent being updated but the retrieval algorithm would be, ideally forced through iterations given the reward signal (whether thats some token level next action prediction or cosine sim score)
 
-thesis has a ton of good work but it feels a bit weird since its unclear how the described solution solves the time giving context. the way it would is that the next action predictor learns how to manipulate the log history, therefore never needing explicit context? memory solutions solve a similar problem. which implies that the forcing function is learned log attention rather than goal inference. i guess thats a more specific description of learning response to stimulus, so it would make sense in that vein
+
 
 you dont need a proactive assistant if the goal is reasoning over log history though
 
