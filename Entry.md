@@ -12,6 +12,11 @@
 	- can the encryption blocks be used in the same way reasoning blocks were used for distillation
 	- i did work in a codex app thread (explain autocompaction in codex) that shows that we can take the compaction encrypted blocks and port them to other gpt threads! we can also pass a trace into the compaction function and gets a 'compaction' capsule we can reuse in other threads as needed. you can also compose multiple compactions into a single thread and it combines the information from both
 - was on twitter, saw a carmack tweet responded to by suarez, reminded of RLC, looked at papers. this feels very predictable at least the action of opening up RLC. i'd want the AI to basically show me the relevant papers im looking for rather than me writing it down in my notes as a reference for later. so this example would be the agent detects from the vector of looking it up that i want to find the streaming RL work that carmack is referencing, and find it for me. does the implementation plan lead to that? is there a shorter, generalizable way to that?
+	- why not just tell the computer use agent your goals? why require it to 'infer' your goals from your context?
+		- one difference is tightly coupled vs long running
+		- another might be proactive vs reactive
+	- i already basically do the above with the codex app
+	- is this example 
 
 
 - gaining a better intuition for enterprise GTM, its literally like spending money on Ramp. it shows up as credit card charges. getting someone to pay for something usually starts with the individuals at the company paying for something with the company card, like we do. dont have experience with big contracts or know what that means, but it seems like basically people have IT departments that administer products for a team or company
@@ -37,9 +42,7 @@ https://www.youtube.com/watch?v=r1qZpYAmqmg
 - course from guy who does training at openai says that non reasoning, human interactivity post training/RLHF has on the order of 100k data examples, 100k training cost on the order of days, and the bottleneck is data and evals
 - if i do token level cross entropy loss for phase 1, will that delete learned pretraining language abilities? does that same issue apply to RLHF? why or why not?
 
-why not just tell the computer use agent your goals? why require it to 'infer' your goals from your context?
-- one difference is tightly coupled vs long running
-- another might be proactive vs reactive
+
 
 can't properly distribute without a kernel to rally around. people use the term 'reason to exist', 'mission', 'vision', etc but more internalized its just something to point to when thinking about or referencing the entity. otherwise the entity doesn't exist. it comes from a 'feeling' perspective.
 
