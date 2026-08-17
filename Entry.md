@@ -31,6 +31,8 @@
 
 
 check whether the river ai talk mentions any other papers i havent gone over, or theses i havent considered
+
+enables prospective learning
  
 https://www.youtube.com/watch?v=r1qZpYAmqmg
 - course from guy who does training at openai says that non reasoning, human interactivity post training/RLHF has on the order of 100k data examples, 100k training cost on the order of days, and the bottleneck is data and evals
