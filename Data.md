@@ -5,7 +5,7 @@ likely need to
 #### disparate notes
 - one window can be selected while im scrolling another window
 - scrolling too fast should not be counted as read
-- how many tokens are common examples of fine tuned models that actually work trained on? how many tokens are frontier models trained on? on what stage? how does LoRA actually impact the amount of needed/useful tokens? how does that change as the underlying model changes?
+- how many tokens are common examples of fine tuned models that actually work trained on? how many tokens are frontier models trained on? on what stage? how does LoRA actually impact the amount of needed/useful tokens? how does that change as the underlying model changes? ^9cf13c
 	- https://thinkingmachines.ai/blog/ probably should review the old ones too
 	- quantifying memorization in LLMs, seems very relevant as it relates to the need for synthetic Q/A data. also useful for describing how much content saturates a model before it has to start compressing in order to maintain / improve performance (compression = intelligence)
 		- https://arxiv.org/pdf/2505.24832

@@ -2,6 +2,7 @@
 - https://x.com/max_paperclips/status/2088400890562777312?s=20
 	- qwen 3.8 is opus 4.6 intelligence in 27B dense local weights? How does this support or refute directional beliefs that supported the build and thesis and vision direction?
 	- do chinchilla scaling laws no longer apply? what are empirical scaling laws actually occurring?
+	- [[Data#^9cf13c]]
 - coreauto interview discussing continual learning that seems intelligent https://x.com/CoreAutoAI/status/2082937120508067938?s=20
 - "RL without verifiable rewards" from will brown https://www.youtube.com/watch?v=AQv3qRCG6Gw&t=2s probably worth skimming only 20 mins
 - training vid from openai guy https://www.youtube.com/watch?v=r1qZpYAmqmg
