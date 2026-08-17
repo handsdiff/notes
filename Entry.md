@@ -11,7 +11,7 @@
 - codex's open source implementation has work around compaction, which is honestly extremely good, and also long context retrieval, which is also very good. 
 	- reasoning to retrieve can be useful as part of the ablation
 	- can the encryption blocks be used in the same way reasoning blocks were used for distillation
-	- 
+-
 
 - gaining a better intuition for enterprise GTM, its literally like spending money on Ramp. it shows up as credit card charges. getting someone to pay for something usually starts with the individuals at the company paying for something with the company card, like we do. dont have experience with big contracts or know what that means, but it seems like basically people have IT departments that administer products for a team or company
 - very simple: should save you a ton of time. i've never paid for an 'enterprise' product that did not feel extremely established like ramp/carta.
@@ -30,8 +30,10 @@
 - the integral of technicality + time needs to exceed that of your customers, by definition
 - yc ai startups as target, long lake like PE rollups as target, probably more come up if I just brainstorm alongside thesis/how we got here/what I care about writing
 - Phase 1 seems like mid training whereas phase 3 seems like post training. Per byrnes phase 2 dpo is usually called rl but more like imitative learning with high bits per sample 
- 
 
+
+check whether the river ai talk mentions any other papers i havent gone over, or theses i havent considered
+ 
 https://www.youtube.com/watch?v=r1qZpYAmqmg
 - course from guy who does training at openai says that non reasoning, human interactivity post training/RLHF has on the order of 100k data examples, 100k training cost on the order of days, and the bottleneck is data and evals
 - if i do token level cross entropy loss for phase 1, will that delete learned pretraining language abilities? does that same issue apply to RLHF? why or why not?
