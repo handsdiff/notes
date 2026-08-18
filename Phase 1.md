@@ -94,145 +94,127 @@ Dynamic evaluation updates a language model on recent tokens before predicting l
 
 Lifelong pretraining studies chronological adaptation to emerging corpora while measuring performance on both new and earlier distributions [6]. Its stability–plasticity problem is directly relevant: recent data should update the personal model without allowing one project or period to erase older workflows or general language-model capabilities.
 
-## 3. Data Construction - WIP, driven by [[Data]]
+## 3. Data Pipeline
 
-The data construction is not solved by writing down an event schema in advance. The first job is to build a sensor, use the computer normally, and inspect whether its output looks like a faithful account of what was read and written. The representation should change in response to failures observed in real traces.
-
-The north star is qualitative temporal fidelity: the stored stream should approximate the information that was available to the person and the output the person produced, in the order in which this happened. Relevance to next-write prediction is the practical test. If a trace omits information that obviously mattered, includes information the person did not see, or breaks one action into nonsensical pieces, the sensor or conversion rule is wrong.
-
-### 3.1 Sensor iteration loop
-
-The first implementation should include a separate debugging window that is excluded from collection and displays the stream being stored. The loop is:
-
-1. deploy the smallest useful sensor set across Obsidian, Chrome, and Codex;
-2. do normal work;
-3. watch the resulting read/write stream in the debugging window;
-4. compare it with the actual experience of reading and writing;
-5. fix snapshotting, extraction, delay, deduplication, or event construction;
-6. repeat for at least a day or two before treating the output as training data.
-
-The raw representation should initially preserve more information than seems necessary. Different algorithms may need different derived structures, and premature filtering may permanently remove the evidence needed to construct them. Raw snapshots, input signals, timestamps, source information, and later interpretations should remain distinguishable.
-
-### 3.2 Candidate snapshot triggers
-
-The initial sensor uses delays to reduce noise and to obtain a rough signal of attention:
-
-- after keyboard input, wait `WRITE_DELAY` seconds—perhaps three—without additional input before taking a write snapshot;
-- after a mouse movement, click, or scroll, wait `READ_DELAY` seconds—perhaps one—before taking a read snapshot.
-
-These are starting points to tune through the debugging display, not settled action boundaries. The write delay should remove some noise from backspacing, typo correction, and cursor movement. The read delay should avoid treating content passed during a fast scroll as though it were read. Both introduce failure modes:
-
-- text written and deleted inside the delay may disappear from a final diff;
-- multiple meaningful actions may occur inside one delay window;
-- a short but meaningful exposure may be missed;
-- a delayed snapshot may capture a later state rather than the state that triggered it;
-- keyboard and mouse activity may interact in ways that make a single global timer misleading.
-
-The collector should therefore retain the triggering input events and their times in addition to the later snapshot. Whether the final event time should be the trigger, the settled state, or both is an empirical decision. The same applies to whether a burst becomes one action or several.
-
-### 3.3 What a snapshot should contain
-
-A read snapshot should contain the text the person was likely looking at, not every token technically present in the application or page. For the first version:
-
-- ignore unselected or unfocused windows;
-- prefer application, accessibility, or DOM text corresponding to the active viewport when available;
-- otherwise experiment with a central screen crop that removes peripheral interface chrome;
-- ignore audio and video initially;
-- retain cursor, selection, viewport, focus, and application metadata when available.
-
-The crop and focus rules are hypotheses to inspect, not claims about attention. Clicking into an Obsidian note may make the surrounding text relevant again, but it is not yet clear whether that should create a repeated read event. Similarly, scrolling back to a previously seen span may be meaningful rereading rather than duplicate data.
-
-The viewed snapshot and the complete underlying resource must remain separate. A browser event should retain the full URL and may retain or later fetch the complete page for reconstruction or retrieval, while the read stream contains only the view that the sensor believed was exposed. Opening a URL is not evidence that the complete article was read. HTML can be converted to Markdown with tools such as Readability or Trafilatura, but this conversion does not resolve what portion belonged in the snapshot.
-
-### 3.4 From snapshots to a read/write stream
-
-The initial stored form can be JSON. It should be easy to inspect and contain enough information to re-run later conversion rules. Candidate fields include:
-
-- timestamp or timestamps;
-- read/write candidate;
-- author or source;
-- application and destination;
-- application-specific location, such as an Obsidian path;
-- optional full link or resource reference;
-- extracted Markdown content;
-- raw snapshot and input-event references;
-- collector and conversion versions.
-
-This is not yet the final event ontology. Navigation, focus changes, deletions, selections, automatic edits, and externally generated writes may eventually require additional types rather than being forced into a read/write Boolean.
-
-Successive snapshots will often overlap. Deduplication should remove repeated content created by continuous capture without erasing a later return to the same material. The first implementation should preserve enough raw information to compare alternatives:
-
-- remove overlap only between nearby snapshots that appear to represent one continuous exposure;
-- retain a later reread, or encode it as a new exposure to the same content;
-- test whether duration and repetition are useful signals rather than assuming repeated text is always noise.
-
-Write events require similar iteration. Diffs between snapshots can consolidate raw keystrokes into useful chunks, but the collector must distinguish typing, pasting, mixed input, automatic edits, and model-authored text. Cursor movement, insertion into earlier text, deletion, and a draft that is completely removed are all cases to inspect in the debugging stream. A final empty diff should not silently prove that nothing behaviorally relevant happened. Clipboard observations and copy commands remain raw conditioning evidence rather than creating a third COPY event: the derived Phase 1 event stream remains READ and WRITE.
-
-### 3.5 Initial surfaces and prediction opportunity
-
-The initial surfaces are:
-
-- Obsidian;
-- browser use;
-- Codex and other AI-chat interfaces.
-
-All three surfaces are collected prospectively from the beginning so that their causal interleaving is preserved. The initial training and pipeline smoke test uses the combined Obsidian, Chrome/browser, and Codex stream, including eligible write targets from all three surfaces and their shared causal history. Per-application projections may be reported as diagnostics, but an Obsidian-only projection is not the primary test of whether the stream contains predictive signal.
-
-Audio and video can be added after the text stream is credible. Historical Obsidian Git history is useful for testing reconstruction and diff logic, but it cannot substitute for a prospective interleaved stream because it omits browser and chat inputs.
-
-In later prospective use, the live model is queried when a text field receives focus outside the prediction model itself. It samples a structured write completion from the causal history plus the destination, semantic cursor context, and current clipboard state available at that moment, then displays that completion to the user. A predicted paste action is bound to the conditioned pasteboard version and is invalidated or regenerated if the clipboard changes. This focus trigger determines when a prediction is shown; it does not define the supervised training boundary. The foundational offline test instead uses the causal history and pre-mutation conditioning available before each write action actually begins. Before live prediction is implemented, the interface must capture the same destination, cursor, and clipboard query at focus time. The existing first-mutation snapshot validates offline dataset construction but cannot substitute for focus-time conditioning, and cursor, selection, or clipboard changes between focus and writing remain train–serve differences to measure.
-
-The initial Phase 1 experiment deliberately holds this conditional task fixed: predict write content given known destination, semantic cursor context, clipboard state, and causal history. Idle-triggered sampling, prediction of the future destination or cursor location, and learned proactivity are deferred assumption-removal experiments rather than prerequisites for the first training result. They should be introduced only after the content predictor has been evaluated and the focus-triggered interface provides evidence that the simpler boundary is inadequate.
-
-A displayed prediction becomes information the person has read. It is therefore stored in the raw stream as a model-authored read event, but the frozen Phase 1 conversion marks it as excluded: it does not enter Phase 1 contexts, targets, or replay. Phase 2 can add these events back when it begins modeling how suggestions influence subsequent behavior. During Phase 1, the predictions are shown only for informal human inspection; no preference label or explicit response model is constructed.
-
-The first implementation may use remote models and storage to iterate quickly and make larger-model comparisons practical. The collector still needs explicit exclusions and provenance so that sensitive data and model-authored content can be identified rather than silently mixed into human targets.
-
-### 3.6 Freezing a version for training
-
-The initial frozen conversion treats event validity and target eligibility separately. A verified WRITE remains in causal history even when it is not used as a target. Authored-text-only completions must contain at least four grapheme characters after trimming surrounding whitespace; shorter completions are recorded as explicit target exclusions. Grounded paste-only and mixed paste targets bypass this minimum because the paste action itself is loss-bearing. The threshold is versioned and can be ablated later.
-
-Only after the sensor produces a convincing stream should one snapshot-to-event conversion be frozen for an experiment. That version converts the richer records into chronologically ordered read/write events and constructs candidate write targets. The exact segmentation remains versioned because changing delay, deduplication, or diff rules changes the learning problem.
-
-Each converted write keeps observed pre-mutation state distinct from the human output. The conditioning state contains the destination, bounded semantic context around the initial caret or selection, and current clipboard state; it is appended to the causal history as model input. The WRITE event retains the exact resolved net content and structured authorship provenance. In the Phase 1 target, authored spans are tokenized normally and each Cmd-V span proven to use the conditioned clipboard becomes the reserved `<|paste|>` marker encoded by the selected model's unchanged tokenizer. The pasted payload receives no target loss, but its resolved content and paste provenance remain in the event and in subsequent history. The model loader maps the structured segments, appends exactly one EOS token from the selected tokenizer, and applies loss to authored tokens, paste-marker tokens, and EOS. EOS is a structural terminator, not captured human content. Operation, removed content, provenance, and net edit offset remain event metadata for reconstruction, audit, later context, evaluation strata, and possible later objectives, but receive no Phase 1 loss. Numeric cursor offsets are retained as diagnostics but neither alter the canonical diff nor impose a separate eligibility gate when complete range-native semantic cursor context is available. The conservative conversion excludes pure deletions, incomplete semantic conditioning, unresolved authorship, and legacy writes with paste evidence that cannot be segmented, while retaining otherwise verified WRITE events in subsequent causal history. Action and capture timestamps remain example metadata, and whether temporal information should appear in model inputs is tested separately.
-
-The historical model context may contain only Phase 1-eligible records available before the action boundary chosen by the conversion version. The conversion must explicitly assign and document any `available_at` timestamp used for a derived input event and any `began_at` timestamp used for a candidate write target; these are decisions made by the frozen conversion, not timestamps silently inferred from snapshot finalization. Prior WRITE serialization retains resolved pasted content together with its paste provenance, because that content was present in the artifact and may condition later actions even though it received no loss when originally pasted. The pre-mutation conditioning state is separately admitted as observed query state: the active tap captures it after intercepting the first input but before returning that mutation to the application, and it must not be silently backdated as an ordinary history event. Each training example stores the exact derived history, query, complete model input, structured target segments, resolved outcome metadata, source records, conversion version, and target-mask contract. The model-facing history serializer is intentionally compact: READ text appears once as top-level content; a structured WRITE's resolved text appears once across provenance-bearing authorship segments rather than being duplicated as top-level content; semantic source or destination, write operation, and nonempty removal remain available. Collector identifiers, numeric offsets, boundary reasons, redundant resolved text, and sensor provenance remain in a separate audit projection. The tokenizer-specific loader packs the newest complete serialized event blocks plus the complete query within the input budget. If the oldest retained event crosses the boundary, only its semantic text tail may be retained behind an explicit truncation marker; a structured WRITE retains the authorship types of the surviving segments, and malformed partial JSON is never emitted. The loader then tokenizes authored segments and the reserved `<|paste|>` marker without automatic special tokens or vocabulary modification, appends exactly one tokenizer EOS token, and masks loss onto authored tokens, paste-marker tokens, and EOS. The packing manifest distinguishes the history-plus-query input budget from total training-sequence capacity: the target is appended outside the input budget and must never be silently truncated. The foundational run manifest records chronological block boundaries, model and context configurations, per-example pre-update scores and samples, training examples, optimizer configuration, and resulting personalized checkpoints. A later prospective daily manifest additionally records recent/replay selection and persistent daily lineage. These are algorithm-specific derived records, not the authoritative form of the raw activity.
-
-**Causal dataset construction is a required conversion step.** JSONL append order, sequence number, and collector emission time must never be used as the training chronology. A write may be appended only after `WRITE_DELAY`, while a read observed during that write may be appended earlier. Treating all earlier file records as context would therefore allow information captured after the action began—and potentially part of the target itself—to enter the model input.
-
-The frozen conversion must assign event times from the underlying evidence and construct every example by time, for example:
+Phase 1 uses a raw-first, versioned pipeline:
 
 ```text
-procedure BUILD_CAUSAL_EXAMPLE(converted_events, target_write, config):
-    target_start <- target_write.began_at
-
-    prior <- events in converted_events where
-             PHASE1_ELIGIBLE(event) and
-             event.available_at < target_start
-
-    ordered_prior <- STABLE_TEMPORAL_SORT(prior)
-    serialized_events <- MAP(config.model_serializer, ordered_prior)
-    query <- SERIALIZE_PRE_MUTATION_CONDITIONING(target_write)
-    model_input <- PACK_EVENT_SUFFIX(
-        serialized_events,
-        query,
-        tokenizer=config.tokenizer,
-        token_budget=config.context_length,
-        oldest_oversized_event="explicit_authorship_preserving_text_tail"
-    )
-    history <- HISTORY_PORTION(model_input)
-
-    return FREEZE_EXAMPLE(
-        context=history,
-        query=query,
-        model_input=model_input,
-        target=BUILD_STRUCTURED_WRITE_TARGET(target_write.authorship_segments),
-        source_event_ids=IDS(EVENTS_CONTRIBUTING_TO(history)),
-        conversion_version=config.conversion_version
-    )
+lossless sensor evidence
+→ semantic READ/WRITE reduction
+→ causal write-prediction examples
+→ model-specific packing and loss masks
 ```
 
-For the initial conservative conversion, a read's `available_at` should be the screen-capture time recorded by the sensor (currently approximated by `settledAt`), not OCR completion or JSONL emission time. A write target's `began_at` should be its first mutating input time. A completed prior write receives a separately defined terminal `available_at` from the frozen conversion; it must not become context merely because its derived record happens to appear earlier in the file. The exact timestamp mapping may be revised between conversion versions, but the filter `event.available_at < target_write.began_at` is mandatory. For example, if a Codex write begins at 13:36:24.882, a read captured at 13:36:25.808 is excluded from that write's context even when the read is physically written to `events.jsonl` before the delayed write record.
+These layers have different authority. `raw.jsonl` is the authoritative record of what the sensors observed. Finalized events are a reproducible interpretation of that evidence. Causal examples are a further interpretation for one prediction task. Packed tensors are mechanical artifacts for one tokenizer and model. A failure in a later layer should normally be repairable without recollecting the session; a failure to preserve the necessary raw evidence is not.
+
+The north star is fidelity to the information available to the person and the content the person produced, with authorship, action boundaries, and causal order preserved well enough to support next-write prediction. The live preview is useful for finding obvious failures, but it is not training authority.
+
+### 3.1 Prospective collection and session authority
+
+The collector records ordinary work prospectively across Obsidian, Chrome/browser interfaces, Codex, and supported text surfaces such as Visual Studio Code. Capturing all supported applications from the beginning preserves their causal interleaving. An Obsidian-only reconstruction cannot recover research read in Chrome or prompts and responses exchanged in Codex after the fact.
+
+Each run begins with an immutable `session.json` containing the resolved read/write delays, crop settings, application allowlist and exclusions, schema and collector versions, start time, and executable digest. A run writes:
+
+- `raw.jsonl`, containing sensor observations, input timing, screenshots and OCR references, Accessibility states, clipboard evidence, checkpoints, suppressions, and unresolved attempts;
+- `events.preview.jsonl`, containing provisional READ/WRITE interpretations for inspection only;
+- retained full-window screenshots and their hashes, unless image retention was deliberately disabled.
+
+The separate Coupled event viewer and collector are excluded from semantic collection. The viewer mirrors the provisional stream and resolved session settings, but closing it does not stop collection and neither its display nor JSONL line order defines the dataset. Both raw text observations and screenshots may contain sensitive content, so collection must be paused around material that should not be retained.
+
+The current delays are trailing quiet-period segmentation rules, not causal timestamps. Activity resets the relevant timer; settlement starts capture or closes a burst. The exact configured values remain versioned and tunable, but changing them changes event demarcation and therefore the dataset.
+
+### 3.2 READ evidence
+
+A READ candidate begins after pointer movement, click, scroll, or application activation and settles only after a complete `READ_DELAY`. At settlement the collector re-resolves the application, content window, display, title, and bounds together. If the surface changed, writing began, or the screenshot completed against a different surface, the stale candidate remains in raw evidence and does not become a READ.
+
+For an eligible stable surface, the collector captures the target window's screen-coordinate rectangle, retains the full source image, applies the configured recognition crop, and runs local OCR. The current default crop keeps the middle 80 percent of the window width and the vertical band from 10 through 65 percent. This is a deliberately rough attention proxy, not a claim about gaze. The complete OCR result for that recognition region is retained before semantic overlap removal, and the full screenshot allows OCR and crop rules to be rerun later.
+
+The screenshot mechanism is rectangular rather than truly window-isolated. A covering window can therefore appear in the pixels even when its application is excluded. Capture-time surface revalidation prevents wrong metadata from being silently attached to a different surface, while the raw screenshot remains necessary for auditing residual occlusion and OCR errors. Tiny helper and auxiliary browser surfaces are retained raw but suppressed as candidate READs.
+
+A mutating input supersedes an unsettled READ on the same work surface so that partially authored output is not mislabeled as inbound information. The offline reducer also removes delayed captures proven to land inside an active WRITE. Genuine new viewing activity during a long write can remain eligible when the evidence does not contain the active write's output.
+
+### 3.3 WRITE evidence and authorship
+
+WRITE capture is based on editable state, not reconstructed keystroke characters. On the first mutation-capable input, an active event tap synchronously captures the focused Accessibility element before returning the input to the application. The attempt retains:
+
+- the `BEFORE` value and selection, with explicit completeness and truncation status so transitions requiring unavailable text are ineligible;
+- application, window, role, and available field identity;
+- range-native semantic text before, inside, and after the caret or selection, with bounded fallbacks;
+- numeric selection coordinates as diagnostic evidence;
+- the current clipboard text, types, hash, truncation state, and pasteboard version;
+- ordered input classes and subsequent editable checkpoints, without storing typed key characters.
+
+The collector holds that specific editable element through the burst. Each subsequent input resets `WRITE_DELAY`; pointer or caret relocation, focus loss, Return in applicable fields, and other proven boundaries may settle it earlier. Short post-input checkpoints and a synchronous pre-Return observation preserve transient submission fields that clear or disappear before the normal delay. Secure fields are excluded.
+
+The semantic write is reconstructed from complete editable states as the canonical smallest contiguous `BEFORE → AFTER` change. Initial cursor position never biases this diff, and there is no synthetic `BEFORE → empty` deletion fallback. Deletions, replacements, automatic formatting, transient checkpoints, and Accessibility epoch changes remain observable evidence; the reducer selects an outcome only when the transition is supported rather than guessing from input signals. Application-generated formatting inside an otherwise verified transition currently remains part of the resolved content rather than receiving a separate provenance type.
+
+Pastes require separate authorship evidence. Cmd-V captures immediate pre/post-paste editable states and binds the observed transition to the clipboard version present in the write's conditioning state. A verified WRITE retains its resolved document change plus ordered `authored_text`, `paste`, or unresolved authorship segments. The pasted payload and provenance remain available in the event and later history, but pasted payload tokens are not treated as human-generated target text. Copy and clipboard changes remain raw environment evidence and conditioning state; they do not create a third semantic `COPY` event. Mixed type–paste–type bursts are eligible only when their authorship segmentation can be proved.
+
+The result is deliberately asymmetric: a WRITE event is a faithful record of the resolved edit, while a Phase 1 target is only the portion of that edit the model is meant to predict. Operation, removal, edit offset, destination, and reconstruction provenance remain audit or conditioning metadata and receive no content-prediction loss.
+
+### 3.4 Semantic READ/WRITE reduction
+
+After collection, the versioned reducer consumes only `session.json` and `raw.jsonl`. It never treats `events.preview.jsonl` as evidence. Its output is:
+
+- `events.jsonl`, the finalized semantic READ and WRITE stream;
+- `unresolved.jsonl`, ambiguous attempts and deliberate non-event dispositions;
+- `reduction.json`, the configuration, counts, and hashes binding the raw and derived artifacts.
+
+Every finalized event carries stable raw lineage, the selected observation, the rule applied, and the reason for the decision. Re-running the same reducer over the same evidence must be byte-identical. Event identifiers remain stable across reducer revisions so that a later rule change can be compared with the earlier interpretation.
+
+The reducer performs the semantic decisions that do not belong in the live collector: canonical write reconstruction, transient Return recovery, deletion and Cut handling, paste authorship resolution, composition of same-editable attempts when the evidence proves one completion, active-write READ suppression, helper-surface filtering, and adjacent viewport overlap removal in semantic time. Overlap is removed only between compatible adjacent READs; an intervening WRITE or surface change resets the comparison so a later reread is not erased. Evidence that cannot support a conservative decision remains unresolved rather than becoming a guessed event.
+
+The finalized ontology for the initial experiment contains only READ and WRITE. This does not mean every raw signal is one of those events: focus, navigation, copy, selection, and suppression records can remain evidence or conditioning without becoming prediction targets.
+
+### 3.5 Causal example compilation
+
+The causal compiler verifies the reducer manifest, hashes, stable event IDs, and raw lineage, then evaluates every finalized WRITE for use as a training example. It does not repeat semantic reduction. The chronology is derived from capture evidence:
+
+```text
+read.available_at        = read.capturedAt
+target_write.began_at    = target_write.beganAt
+prior_write.available_at = prior_write.terminalDecisionAt
+
+context(target) = stable_sort(
+    eligible events where event.available_at < target_write.began_at
+)
+```
+
+JSONL append order, sequence number, settlement time, OCR completion time, and event emission time are never substitutes for this chronology. A delayed WRITE may be appended after a READ that was actually captured after the write began. Including that READ because it appeared earlier in the file would leak post-action information—and potentially the target itself—into the model input.
+
+The model input for the initial task is:
+
+```text
+causally available READ/WRITE history
++ pre-mutation destination, semantic cursor, and clipboard query
+```
+
+The pre-mutation query is admitted under its explicit capture semantics: the first input has been intercepted, but the application has not processed it. It is not silently backdated as an ordinary historical event. Each example preserves the exact contributing event IDs, serialized history, query, structured target, resolved outcome metadata, conversion version, and raw lineage.
+
+Event validity and target eligibility remain separate. Verified WRITEs stay in later causal history even when they receive no target loss. The conservative initial target set excludes pure deletions, incomplete conditioning, unresolved authorship, and text-only completions shorter than four trimmed user-perceived characters. Grounded paste-only and mixed-paste completions bypass the length threshold because the paste action itself is loss-bearing. Records explicitly marked ineligible for Phase 1—including future displayed model predictions—are excluded from both targets and Phase 1 context.
+
+### 3.6 Model-specific packing and loss boundary
+
+Compiled examples are tokenizer-independent. A model-specific packer retains the newest complete serialized event blocks plus the complete query within the history-plus-query input budget. The query stays at the right edge. Older events are removed first; if the oldest retained event itself crosses the boundary, only an explicitly marked, authorship-preserving semantic text tail may be retained. Partial JSON is never emitted, and the target is appended outside the input budget rather than silently truncated.
+
+For Qwen, authored spans are tokenized normally. Each proven paste segment becomes the literal reserved string `<|paste|>`, encoded with the unchanged native tokenizer rather than by adding a token to its vocabulary. The loader appends exactly one native EOS token. Loss is masked off the entire history, query, and padding and applied only to authored target tokens, the existing-token sequence spelling `<|paste|>`, and EOS. The copied payload is absent from the current target but remains resolved in the historical WRITE event that later examples can observe.
+
+The packing manifest pins the tokenizer identity and revision, input budget, paste-marker encoding, EOS identifier, truncation rule, file digests, and loss-mask contract. This keeps the semantic dataset reusable across Qwen, frontier in-context baselines, and later model choices without treating one tokenizer's tensors as data authority.
+
+### 3.7 Iteration, freeze, and current boundary
+
+The practical iteration loop is:
+
+1. collect normal interleaved work while using the excluded viewer only as a debugging aid;
+2. reduce the raw session and inspect finalized events, screenshots, and unresolved evidence;
+3. compile and audit causal examples, then inspect the actual loss-bearing targets;
+4. pack and audit the model-specific representation;
+5. fix recurrent material errors at the earliest responsible layer, version the changed rule, and replay the preserved raw evidence;
+6. freeze collector, reducer, compiler, serializer, tokenizer, and packing manifests before comparing models.
+
+The current training candidate implements this boundary with the `phase1-semantic-v6` reducer and `phase1-causal-v14` compiler. Those names identify the present frozen interpretation, not timeless theoretical requirements. Historical Obsidian Git data remains useful for unit tests, but the foundational experiment uses prospective, interleaved browser, Codex, Obsidian, and supported editor/terminal activity.
+
+The initial offline experiment intentionally predicts write content with destination, semantic cursor context, clipboard state, and causal history already observed. It does not predict where the future write will occur, when the model should intervene, or how the user will react to a suggestion. A later live interface must capture the same query when a text field receives focus; first-mutation conditioning is sufficient to validate the offline task but is too late to serve a live prediction. Train–serve differences between focus and mutation must be measured before that interface is evaluated. Idle-triggered prediction, destination prediction, richer resource identity, true window-isolated capture, audio/video, and learned proactivity are deferred assumption-removal experiments rather than blockers for the foundational comparison.
 
 ## 4. Training Paradigm
 
