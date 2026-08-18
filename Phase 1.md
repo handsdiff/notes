@@ -373,119 +373,137 @@ The objective estimates behavior. It does not assert that the observed action wa
 ### Algorithm 1 (later prospective): Display a prediction when a text field receives focus
 
 ```text
-procedure PREDICT_ON_FOCUS(model_d, raw_stream, focus_event, config):
-    converted <- APPLY_FROZEN_CONVERSION(
-        raw_stream,
-        cutoff=focus_event.time,
-        version=config.conversion_version
+procedure PREDICT_ON_FOCUS(model, causal_event_prefix, focus_observation, config):
+    query <- SERIALIZE_FOCUS_CONDITIONING(focus_observation)
+    plan <- MATERIALIZE_FROZEN_CONTEXT_PLAN(
+        causal_event_prefix,
+        cutoff=focus_observation.captured_at,
+        query=query,
+        config=config.context_plan
     )
-    eligible <- PHASE1_ELIGIBLE(converted)
-    query <- SERIALIZE_FOCUS_CONDITIONING(focus_event)
-    h <- PACK_EVENT_SUFFIX(
-        MAP(config.model_serializer, STABLE_TEMPORAL_SORT(eligible)),
-        query,
-        tokenizer=config.tokenizer,
-        token_budget=config.context_length,
-        oldest_oversized_event="explicit_authorship_preserving_text_tail"
+    h <- ENCODE_EXACT_CONTEXT_PLAN(
+        plan,
+        tokenizer=model.tokenizer,
+        require_all_planned_semantic_content=true
     )
 
-    predicted_completion <- GENERATE_WRITE_COMPLETION_UNTIL_EOS(model_d, h, config)
-    DISPLAY_WRITE_COMPLETION(predicted_completion)
+    predicted_completion <- GENERATE_WRITE_COMPLETION_UNTIL_EOS(model, h, config)
 
-    raw_stream.append(MODEL_READ_EVENT(
-        content=RENDERED_CONTENT(predicted_completion),
-        actions=GROUNDED_ACTIONS(predicted_completion),
-        available_at=DISPLAY_TIME(),
-        excluded_from_phase1=true
+    if DESTINATION_CURSOR_OR_CLIPBOARD_CHANGED(focus_observation):
+        RECORD_INVALIDATED_PREDICTION(predicted_completion, reason="query_drift")
+        return no_display
+
+    display_observation <- DISPLAY_WRITE_COMPLETION(predicted_completion)
+    raw_stream.append(MODEL_PREDICTION_DISPLAY_OBSERVATION(
+        query_id=focus_observation.id,
+        content=display_observation.rendered_content,
+        actions=display_observation.grounded_actions,
+        displayed_at=display_observation.time,
+        phase1_eligible=false
     ))
 
-    return predicted_completion
+    return predicted_completion, plan, h, display_observation
 ```
 
-### Algorithm 2: Construct and score one chronological block
+The displayed prediction is later evaluated using the frozen `plan` and `h` returned by this call. A pre-mutation query observed after focus cannot replace them. The display observation remains raw evidence until the semantic reducer processes it; the provisional live stream does not become training authority.
+
+### Algorithm 2: Score one chronological block under a common semantic context plan
 
 ```text
-procedure BUILD_AND_SCORE_BLOCK(model_k, frozen_events, block_action_ids, config):
-    model_k <- FREEZE_WEIGHTS(model_k)
-    examples <- []
-    losses <- []
+procedure SCORE_BLOCK(models, compiled_dataset, context_plans, block_id, config):
+    VERIFY_FROZEN_COMPILER_AND_SOURCE_MANIFESTS(compiled_dataset)
+    examples <- ELIGIBLE_EXAMPLES_IN_BLOCK(compiled_dataset, block_id)
+    results <- []
 
-    actions <- HUMAN_WRITE_EVENTS(frozen_events) where
-               action.id in block_action_ids
-    for y in STABLE_TEMPORAL_SORT(actions):
-        prior <- events in frozen_events where
-                 PHASE1_ELIGIBLE(event) and
-                 event.available_at < y.began_at
-        serialized_events <- MAP(config.model_serializer, STABLE_TEMPORAL_SORT(prior))
-        query <- SERIALIZE_PRE_MUTATION_CONDITIONING(y)
-        h <- PACK_EVENT_SUFFIX(
-            serialized_events,
-            query,
-            tokenizer=config.tokenizer,
-            token_budget=config.context_length,
-            oldest_oversized_event="explicit_authorship_preserving_text_tail"
+    for example in STABLE_TEMPORAL_SORT(examples):
+        plan <- context_plans[example.id]
+        ASSERT_PLAN_MATCHES_COMPILED_EXAMPLE(
+            plan,
+            source_event_ids=example.source_event_ids,
+            serialized_text=example.serialized_history,
+            query=example.query
         )
-        included <- EVENTS_CONTRIBUTING_TO(HISTORY_PORTION(h))
 
-        if y.content is empty or
-           not HAS_COMPLETE_SEMANTIC_CONDITIONING(y) or
-           not HAS_RESOLVED_AUTHORSHIP(y):
-            RETAIN_AS_HISTORY_BUT_SKIP_TARGET(y)
-            continue
-        target <- BUILD_STRUCTURED_WRITE_TARGET(y.authorship_segments)
-        training_target <- LOAD_PHASE1_TARGET(
-            target,
-            paste_marker="<|paste|>",
-            eos_token_id=config.tokenizer.eos_token_id,
-            add_special_tokens=false
-        )
-        target_mask <- MASK_ALL_TOKENS(training_target)
-        loss <- MASKED_TARGET_NLL(model_k, h, training_target, target_mask)
-        losses.append(loss)
+        per_model <- {}
+        for condition in [frozen_base_qwen, frozen_frontier, personalized_qwen]:
+            model <- FREEZE_WEIGHTS(models[condition])
+            h <- ENCODE_EXACT_CONTEXT_PLAN(
+                plan,
+                tokenizer=model.tokenizer,
+                require_all_planned_semantic_content=true
+            )
+            ASSERT_FITS_RUNTIME_WITH_UNTRUNCATED_TARGET(h, example.target, model)
 
-        examples.append(FREEZE_TRAINING_EXAMPLE(
-            context=HISTORY_PORTION(h),
-            query=query,
-            model_input=h,
-            target=target,
-            target_mask=target_mask,
-            source_event_ids=IDS(included),
-            conversion_version=config.conversion_version,
-            serializer_version=VERSION(config.serializer)
+            prediction <- SAMPLE_COMPLETION(model, h, config.decoding[condition])
+            nll <- TARGET_NLL_IF_EXPOSED(model, h, example.target)
+            per_model[condition] <- RECORD_PREUPDATE_RESULT(
+                prediction=prediction,
+                per_example_nll=nll,
+                input_digest=DIGEST(h),
+                context_plan_id=plan.id,
+                latency=MEASURED_LATENCY(),
+                cost=OBSERVED_COST()
+            )
+
+        results.append(FREEZE_EXAMPLE_RESULT(
+            example_id=example.id,
+            target=example.target,
+            conditions=per_model
         ))
 
-    return examples, AGGREGATE_BLOCK_LOSS(losses)
+    ASSERT_COMPLETE_BLOCK_SCORED_BEFORE_UPDATE(results, block_id)
+    return FREEZE_BLOCK_REPORT(
+        results=results,
+        macro_example_nll=MACRO_NLL_BY_CONDITION(results),
+        micro_target_token_nll=MICRO_NLL_BY_CONDITION(results)
+    )
 ```
+
+Target eligibility is owned by the frozen causal compiler, including the minimum authored-content length and paste exceptions. The scorer must not reimplement those decisions. A common context plan contains exact event IDs, exact serialized text, and the exact query; model-specific tokenization may encode that plan differently but may not select a different semantic history. If the plan does not fit one runtime, it is shortened once for every condition and refrozen before scoring begins.
 
 ### Algorithm 3: Update personalized Qwen after a scored block
 
 ```text
-procedure UPDATE_PERSONALIZED_QWEN(model_k, scored_blocks, config):
-    cumulative_examples <- UNION_EXAMPLES(scored_blocks)
-    candidate <- CLONE_ADAPTER(model_k)
+procedure UPDATE_PERSONALIZED_QWEN(model_k, scored_blocks, compiled_dataset,
+                                  context_plans, config):
+    ASSERT_EVERY_EXAMPLE_IN_LATEST_BLOCK_WAS_SCORED(scored_blocks)
+    example_ids <- CUMULATIVE_ELIGIBLE_EXAMPLE_IDS(scored_blocks)
+    packed <- PACK_QWEN_FROM_EXACT_CONTEXT_PLANS(
+        compiled_dataset,
+        context_plans,
+        example_ids,
+        paste_marker="<|paste|>",
+        append_exactly_one_native_eos=true,
+        target_outside_input_budget=true
+    )
+    datums <- APPLY_VERIFIED_CAUSAL_SHIFT_AND_LOSS_MASK(packed)
+    candidate <- CLONE_TRAINING_STATE(model_k)
 
-    for batch in PACK_BY_TARGET_AND_CONTEXT_TOKENS(
-        cumulative_examples,
-        config
-    ):
-        loss <- MASKED_ACTION_NLL(candidate, batch)
-        candidate <- OPTIMIZER_STEP(candidate, gradient(loss))
+    for epoch in config.epochs:
+        for datum in DETERMINISTIC_ORDER(datums, epoch, config.seed):
+            loss <- MASKED_TARGET_CROSS_ENTROPY(candidate, datum)
+            candidate <- OPTIMIZER_STEP(candidate, gradient(loss))
 
     if OPTIMIZATION_FAILED(candidate):
         return model_k
 
     diagnostics <- RECORD_UPDATE_DIAGNOSTICS(model_k, candidate, config)
-    model_next <- STORE_IMMUTABLE(candidate)
+    model_next <- STORE_IMMUTABLE_SAMPLER_AND_OPTIMIZER_STATE(candidate)
     STORE_FOUNDATIONAL_RUN_MANIFEST(
         parent=model_k,
         result=model_next,
         scored_blocks=scored_blocks,
-        cumulative_examples=cumulative_examples,
+        cumulative_example_ids=example_ids,
+        compiled_dataset_digest=DIGEST(compiled_dataset),
+        context_plan_digest=DIGEST(context_plans),
+        packed_dataset_digest=DIGEST(packed),
         diagnostics=diagnostics,
         config=config
     )
     return model_next
 ```
+
+The completed Run 8 Tinker overfit validates the Qwen packing, causal shift, loss masks, rank-32 LoRA path, EOS and paste-marker generation, optimizer updates, checkpoint save, and optimizer-state reload. It does not implement or validate the chronological block runner above and is not evidence that personalization predicts unseen future actions.
 
 ## 7. Initial Experimental Program
 
@@ -493,21 +511,23 @@ The initial program is an offline, exploratory capacity test over collected chro
 
 ### Experiment 0: Collector and reconstruction audit
 
-Build the debugging display and run minimum viable Obsidian, Chrome, and Codex sensors during ordinary work. Inspect the resulting snapshots and derived stream against the actual experience, then revise delays, crops, extraction, deduplication, provenance, and event boundaries. Once the qualitative output is credible, manually replay sampled sessions and measure missing-event rate, temporal-ordering error, incorrect content inclusion, authorship error, action-boundary disagreement, and future leakage. Modeling does not begin until one conversion version is frozen.
+**Current status: completed for the candidate baseline, with per-session auditing continuing.** The excluded viewer, prospective Obsidian/Chrome/Codex/VS Code collector, raw-first semantic reducer, causal compiler, Qwen packer, and reconstruction/authorship audits are implemented. The current candidate is frozen as `phase1-semantic-v6` plus `phase1-causal-v14`. New authoritative sessions still require manual sampling for missing events, temporal-ordering error, incorrect content inclusion, authorship error, action-boundary disagreement, destination ambiguity, future leakage, unresolved evidence, and target exclusions. A recurrent material failure or a collector/reducer/compiler change reopens this gate and creates a new versioned lineage.
+
+The completed Run 8 Tinker overfit is the final mechanical part of this audit. It proves that the frozen pack can train a rank-32 Qwen LoRA through the intended loss mask, generate the exact training targets through EOS, and save and reload sampler and optimizer state. Because all 28 examples were repeatedly trained to memorization, it is not evidence for next-write prediction or the Phase 1 hypothesis.
 
 ### Experiment 1: Foundational three-model predictive-capacity test
 
-Use one frozen, audited chronological stream containing ordinary work across Obsidian, Chrome/browser, Codex, and other already supported writing surfaces such as VS Code. Divide eligible writes into contiguous developmental blocks and condition every arm on the same basic trailing causal READ/WRITE history plus destination, semantic cursor context, and clipboard state. Compare:
+**This is the next behavioral experiment.** Use one frozen, audited chronological stream containing substantially more ordinary work across Obsidian, Chrome/browser, Codex, and other already supported writing surfaces such as VS Code. Divide eligible writes into contiguous developmental blocks and condition every arm on the same frozen semantic context plan: the same READ/WRITE event IDs and serialized text plus destination, semantic cursor context, and clipboard state. Compare:
 
 1. frozen Qwen3.5-9B-Base using sliding-window in-context prediction;
 2. frozen `gpt-5.6-sol` at `xhigh` reasoning using sliding-window in-context prediction;
 3. personalized Qwen3.5-9B-Base, which scores each block before training on that block and all preceding eligible examples.
 
-Validate the three arms against the same tokenizer-independent event and serialized-text plan. Record every generated completion, per-example Qwen pre-update loss, any genuinely comparable frontier-model score exposed by its interface, block aggregates, and per-application projections. Inspect predictions directly for an initial capacity signal. The same trace may be rerun for fast, versioned development; these reruns are not fresh prospective evidence. Historical note edits may remain a separate reconstruction diagnostic, but they do not replace the interleaved test.
+Validate the three arms against the same tokenizer-independent event and serialized-text plan. Record every generated completion, per-example Qwen pre-update loss, both macro example-average and micro target-token aggregates, any genuinely comparable frontier-model score exposed by its interface, latency, cost, and per-application projections. Inspect predictions directly for an initial capacity signal. The same trace may be rerun for fast, versioned development; these reruns are not fresh prospective evidence. Historical note edits may remain a separate reconstruction diagnostic, but they do not replace the interleaved test.
 
 ### Experiment 2: Prospective continual interleaved stream
 
-Only after Experiment 1 produces a signal worth deploying, continue collecting and scoring the interleaved stream prospectively across fixed score-before-update intervals, initially days. Implement focus-time destination/cursor/clipboard capture and display focus-triggered predictions for qualitative inspection while excluding those prediction events from the Phase 1 dataset. Add persistent checkpoint lineage and explicit replay when full cumulative training becomes impractical. Test whether correctly timed read and write history improves pre-update loss over the current artifact and damaged-history controls.
+Only after Experiment 1 produces a signal worth deploying, continue collecting and scoring the interleaved stream prospectively across fixed score-before-update intervals, initially days. Implement focus-time destination/cursor/clipboard capture and display focus-triggered predictions for qualitative inspection while excluding those prediction events from the Phase 1 dataset. Preserve the exact focus-time input and score each displayed prediction against the later eligible write without replacing it with the later pre-mutation query. Record paired focus/pre-mutation state and drift; focus-conditioned training, if needed, becomes a separately versioned dataset rather than a silent modification of the foundational task. Add persistent checkpoint lineage and explicit replay when full cumulative training becomes impractical. Test whether correctly timed read and write history improves pre-update loss over the current artifact and damaged-history controls.
 
 ### Experiment 3: Ablation matrix
 
@@ -519,7 +539,7 @@ After the foundational comparison is stable, ablations use the same chronologica
 
 **Checkpoint recency.** On day $d$, score every action using the current checkpoint and retained checkpoints from $d-1$, $d-3$, and $d-7$. All remain frozen throughout the day and receive the identical causal event-stream context. This measures the predictive value of recent overnight updates and reveals when those updates hurt current-day prediction.
 
-**Context scaling.** Compare 8K, 16K, 32K, and 64K causal windows using matched Qwen3.5-9B-Base lineages, with 32K as the initial baseline. Action targets, chronological block boundaries, cumulative training data, target-token exposure, and optimizer steps remain matched; later prospective comparisons also match replay selection. “More data” here means more prior event-stream data in context, not more historical training examples. This alludes to discussions around what 'model capabilities' even mean when discussed broadly. Are 64K and 8K context windows both 'model capabilities'? How do we normalize for prompt quality or available tools?
+**Context scaling.** Compare 8K, 16K, 32K, and—where the actual runtime leaves sufficient room for the complete untruncated target—64K causal windows using matched Qwen3.5-9B-Base lineages, with 32K as the initial baseline. The authenticated Tinker runtime currently exposes a 65,536-token total limit even though the checkpoint advertises a longer native context, so a nominal 64K history-plus-query setting must be reduced or run elsewhere if the target would exceed total capacity. Action targets, chronological block boundaries, cumulative training data, target-token exposure, and optimizer steps remain matched; later prospective comparisons also match replay selection. “More data” here means more prior event-stream data in context, not more historical training examples. This alludes to discussions around what 'model capabilities' even mean when discussed broadly. Are 64K and 8K context windows both 'model capabilities'? How do we normalize for prompt quality or available tools?
 
 **Sliding window versus context retrieval.** At the fixed 32K baseline context budget, compare the trailing 32K causal prefix against a context containing the most recent 16K tokens plus 16K tokens retrieved from the earlier causally available history. BM25 uses the serialized recent 16K token prefix as its query, and fetched items are chronologically packed into context. Because a long event-stream query may be dominated by generic interface language, query preprocessing removes or downweights common interface boilerplate using a fixed rule established before prospective evaluation. This tests whether selecting related older events is more predictive than allocating the entire context budget to contiguous recent history. Dense, hybrid, reranked, learned, embedded, LongNAP-style reasoned retrieval, and agent-controlled retrieval tool use are possible later extensions but are outside the initial ablation matrix.
 
@@ -537,22 +557,38 @@ The foundational Phase 1 bar is deliberately provisional: the collector produces
 
 ## 8. Implementation Order
 
-1. build an excluded debugging display for the raw snapshots and read/write stream;
-2. implement minimum viable Obsidian, Chrome, and Codex sensors with rich snapshots, input events, source identity, and timestamps;
-3. run all three during ordinary work and inspect both source-specific capture and cross-application causal ordering;
-4. iterate on delays, extraction, viewport capture, diffs, provenance, deduplication, and event boundaries across the combined stream;
-5. freeze and version one snapshot-to-event and write-target conversion;
-6. reconstruct historical note edits as a pipeline test without treating them as a complete historical stream;
-7. implement the deterministic serializer, causal prefix, pre-mutation destination/cursor/clipboard query, and structured target loader that maps grounded paste actions to a reserved marker encoded by the unchanged tokenizer and appends one loss-bearing EOS token;
-8. build the behavioral-cloning dataset, per-example loss tracker, and versioned chronological-block runner;
-9. collect a substantial ordinary-work trace and freeze a tokenizer-independent event and serialized-text context plan;
-10. implement the three foundational arms: frozen base Qwen3.5-9B, frozen `gpt-5.6-sol` at `xhigh` using ICL, and cumulatively trained Qwen3.5-9B;
-11. run and iterate on the offline three-model predictive-capacity comparison, preserving score-before-update ordering inside every versioned run;
-12. add broader objective, context, retrieval, checkpoint, and model-family ablations only after the foundational result is interpretable;
-13. if the result justifies live use, implement focus-time destination/cursor/clipboard conditioning, the focus-triggered prediction display, and explicit Phase 1 exclusion for displayed predictions;
-14. then implement the prospective update cadence, stratified replay, persistent model lineage, and later robust human evaluation.
+The implementation has passed the data-fidelity and mechanical-training gates. The remaining order is organized by completed foundation, immediate capacity test, and later prospective work.
 
-The required foundational artifacts are the excluded debugging display, raw snapshot and input-event store, inspected trace log, privacy and exclusion policy, frozen conversion specification, reconstruction and authorship audit, serializer and authored-text/paste-action/EOS target mask, immutable example store, leakage tests, per-example scoring and sampling harness, chronological block plan, three model-condition manifests, and personalized Qwen update lineage. Focus-time capture, the live prediction display, displayed-prediction exclusions, a daily update manifest, and a replay index are required for the later prospective harness rather than for the initial capacity test.
+### 8.1 Completed foundation
+
+1. Implement prospective READ and WRITE collection across Obsidian, Chrome, Codex, and Visual Studio Code, including its integrated terminal.
+2. Preserve immutable session configuration, raw OCR/screenshots, Accessibility write states, input timing, cursor and clipboard conditioning, paste evidence, suppressions, and unresolved attempts.
+3. Separate authoritative raw evidence from the provisional excluded debugging viewer.
+4. Implement and audit the deterministic raw-only semantic reducer, currently `phase1-semantic-v6`, with stable lineage and explicit unresolved dispositions.
+5. Implement and audit the causal compiler, currently `phase1-causal-v14`, including strict temporal cutoffs, compact history serialization, content-target eligibility, and target/context exclusions.
+6. Implement the Qwen packer with complete-event context packing, preserved right-edge query, literal `<|paste|>` encoding under the unchanged tokenizer, one native EOS, untruncated targets, and exact causal-LM loss masks.
+7. Validate the provider-neutral causal shift and authenticated Tinker tokenizer compatibility.
+8. Complete the bounded Run 8 rank-32 LoRA overfit, exact-generation, paste/EOS, checkpoint, and optimizer-state reload gate. Retain it as mechanical evidence only.
+
+### 8.2 Immediate next: foundational predictive-capacity test
+
+1. Collect substantially more ordinary interleaved work without changing the candidate collector, delays, crops, reducer, or compiler mid-session.
+2. Reduce, compile, and audit each session. Inspect samples against the actual work, quantify unresolved and excluded records, and change the pipeline only for recurrent material failures. Any change starts a new versioned lineage.
+3. Freeze the resulting dataset, chronological block boundaries, target set, and a common tokenizer-independent context plan containing exact event IDs, exact serialized text, and the exact query for every example.
+4. Implement the chronological block runner and immutable run manifest. It must record every per-example target, prediction, available NLL, latency, cost, macro example-average loss, micro target-token loss, model version, decoding configuration, and context-plan digest before permitting an update.
+5. Implement the three scoring conditions over that common plan: frozen Qwen3.5-9B-Base, frozen `gpt-5.6-sol` at `xhigh`, and the current personalized Qwen checkpoint.
+6. Extend the validated Tinker LoRA path from memorization to prequential updates: score the complete block first, then train on cumulative eligible examples through that block, save sampler and optimizer state, and use the result only for the next block.
+7. Run the three-model comparison, inspect the generated completions directly, and report chronological, aggregate, and per-application results. Developmental reruns over the same trace remain versioned reruns, not new prospective evidence.
+
+### 8.3 Later work, conditional on a useful signal
+
+1. Run the objective, timestamp, context-length, retrieval, reasoning, checkpoint-recency, and model-scaling ablations without changing the frozen event substrate.
+2. Implement focus-time destination/cursor/clipboard capture, refresh or invalidate on query drift, and compare focus-time state with the existing pre-mutation state.
+3. Build the focus-triggered prediction display and preserve displayed predictions as raw observations that remain excluded from Phase 1 contexts and targets.
+4. Only then introduce a prospective score-before-update cadence, persistent checkpoint lineage, and replay when cumulative retraining becomes impractical.
+5. Defer modeling suggestion-conditioned human behavior to Phase 2 and destination prediction or learned proactivity until the content predictor and focus-triggered interface establish that they are necessary.
+
+The only missing artifacts for the foundational capacity test are a larger frozen ordinary-work dataset, a shared semantic context-plan artifact, the three-condition per-example scoring and sampling harness, the chronological block runner, and the prequential personalized-Qwen update lineage. Focus-time capture, live display, daily manifests, and replay are later requirements rather than blockers for the offline comparison.
 
 ## 9. Conclusion
 
