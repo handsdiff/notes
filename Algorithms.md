@@ -418,3 +418,6 @@ internalizing continual learning
 		- https://gemini.google.com/app/9de51346992f5bae wild stuff
 
 useful swath of research by https://arxiv.org/search/cs?searchtype=author&query=Shrivastava,+V, lead author on ECHO paper
+
+https://cursor.com/blog/problems-2024
+
