@@ -53,6 +53,7 @@
 - https://huggingface.co/Motif-Technologies/Motif-3 pretraining dataset? base model?
 - historical concern: it felt like focus-time conditioning might be necessary even for offline training because the point at which to sample the model could determine which events receive loss
 	- current resolution: the foundational test deliberately uses causally valid pre-mutation conditioning to test content-prediction capacity offline; focus-time conditioning and the live sampling harness follow only if that simpler test produces a useful signal
+- important to keep in mind that the original impetus was to collect clean data and see if increased data improves performance, rather than develop a super useful system immediately. applying frontier techniques and algorithms to the data or moving to phase 2 are exploratory ablations whereas the primary purpose initially is to get the work out in the open and allow people to build on it with/without our help
 
 ## Abstract
 
