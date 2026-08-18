@@ -213,7 +213,7 @@ The practical iteration loop is:
 5. fix recurrent material errors at the earliest responsible layer, version the changed rule, and replay the preserved raw evidence;
 6. freeze collector, reducer, compiler, serializer, tokenizer, and packing manifests before comparing models.
 
-The current training candidate implements this boundary with the `phase1-semantic-v6` reducer and `phase1-causal-v14` compiler. Those names identify the present frozen interpretation, not timeless theoretical requirements. Historical Obsidian Git data remains useful for unit tests, but the foundational experiment uses prospective, interleaved browser, Codex, Obsidian, and supported editor/terminal activity.
+The current training candidate implements this boundary with the `phase1-semantic-v7` reducer and `phase1-causal-v14` compiler. Those names identify the present frozen interpretation, not timeless theoretical requirements. Historical Obsidian Git data remains useful for unit tests, but the foundational experiment uses prospective, interleaved browser, Codex, Obsidian, and supported editor/terminal activity.
 
 Each collection session remains an immutable independently auditable artifact, and the current causal compiler processes one finalized reduction at a time. Before Experiment 1, a deterministic corpus assembler must combine compatible compiled sessions without rewriting their event IDs or source lineage. Compatibility means the same effective data and learning contract, not the same application mix, project, or subject matter. The corpus manifest pins ordered session IDs and hashes, collection and semantic-schema compatibility, reducer/compiler/serializer/query/target contracts, session start and end times, coverage-boundary status, chronological block boundaries, and the context-plan policy used by the experiment.
 
@@ -518,7 +518,7 @@ The initial program is an offline, exploratory capacity test over collected chro
 
 ### Experiment 0: Collector and reconstruction audit
 
-**Current status: completed for the candidate baseline, with per-session auditing continuing.** The excluded viewer, prospective Obsidian/Chrome/Codex/VS Code collector, raw-first semantic reducer, causal compiler, Qwen packer, and reconstruction/authorship audits are implemented. The current candidate is frozen as `phase1-semantic-v6` plus `phase1-causal-v14`. New authoritative sessions still require manual sampling for missing events, temporal-ordering error, incorrect content inclusion, authorship error, action-boundary disagreement, destination ambiguity, future leakage, unresolved evidence, and target exclusions. A recurrent material failure or a collector/reducer/compiler change reopens this gate and creates a new versioned lineage.
+**Current status: completed for the candidate baseline, with per-session auditing continuing.** The excluded viewer, prospective Obsidian/Chrome/Codex/VS Code collector, raw-first semantic reducer, causal compiler, Qwen packer, and reconstruction/authorship audits are implemented. The current candidate is frozen as `phase1-semantic-v7` plus `phase1-causal-v14`. New authoritative sessions still require manual sampling for missing events, temporal-ordering error, incorrect content inclusion, authorship error, action-boundary disagreement, destination ambiguity, future leakage, unresolved evidence, and target exclusions. A recurrent material failure or a collector/reducer/compiler change reopens this gate and creates a new versioned lineage.
 
 The completed Run 8 Tinker overfit is the final mechanical part of this audit. It proves that the frozen pack can train a rank-32 Qwen LoRA through the intended loss mask, generate the exact training targets through EOS, and save and reload sampler and optimizer state. Because all 28 examples were repeatedly trained to memorization, it is not evidence for next-write prediction or the Phase 1 hypothesis.
 
@@ -571,7 +571,7 @@ The implementation has passed the data-fidelity and mechanical-training gates. T
 1. Implement prospective READ and WRITE collection across Obsidian, Chrome, Codex, and Visual Studio Code, including its integrated terminal.
 2. Preserve immutable session configuration, raw OCR/screenshots, Accessibility write states, input timing, cursor and clipboard conditioning, paste evidence, suppressions, and unresolved attempts.
 3. Separate authoritative raw evidence from the provisional excluded debugging viewer.
-4. Implement and audit the deterministic raw-only semantic reducer, currently `phase1-semantic-v6`, with stable lineage and explicit unresolved dispositions.
+4. Implement and audit the deterministic raw-only semantic reducer, currently `phase1-semantic-v7`, with stable lineage and explicit unresolved dispositions.
 5. Implement and audit the causal compiler, currently `phase1-causal-v14`, including strict temporal cutoffs, compact history serialization, content-target eligibility, and target/context exclusions.
 6. Implement the Qwen packer with complete-event context packing, preserved right-edge query, literal `<|paste|>` encoding under the unchanged tokenizer, one native EOS, untruncated targets, and exact causal-LM loss masks.
 7. Validate the provider-neutral causal shift and authenticated Tinker tokenizer compatibility.
