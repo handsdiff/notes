@@ -285,6 +285,7 @@ algorithms considered and rejected for now and why: (there are likely practicali
 	- https://arxiv.org/pdf/2501.00663 titans, learning to memory at test time
 	- https://x.com/jsuarez/status/2089372615744086019?s=20 RL practical discussion
 	- insane resource. frontier RL 2026 https://rl-conference.cc/ (conference schedule, custom websites, accepted papers -> paper schedule)
+	- https://arxiv.org/pdf/2202.06991 differentiable search index -> knowledge in weights directly
 
 - is phase 1 a process reward model?
 - does phase 1 result in an 'implicit' reward model?
