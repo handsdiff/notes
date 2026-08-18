@@ -214,6 +214,10 @@ The practical iteration loop is:
 
 The current training candidate implements this boundary with the `phase1-semantic-v6` reducer and `phase1-causal-v14` compiler. Those names identify the present frozen interpretation, not timeless theoretical requirements. Historical Obsidian Git data remains useful for unit tests, but the foundational experiment uses prospective, interleaved browser, Codex, Obsidian, and supported editor/terminal activity.
 
+Each collection session remains an immutable independently auditable artifact, and the current causal compiler processes one finalized reduction at a time. Before Experiment 1, a deterministic corpus assembler must combine compatible compiled sessions without rewriting their event IDs or source lineage. Compatibility means the same effective data and learning contract, not the same application mix, project, or subject matter. The corpus manifest pins ordered session IDs and hashes, collection and semantic-schema compatibility, reducer/compiler/serializer/query/target contracts, session start and end times, coverage-boundary status, chronological block boundaries, and the context-plan policy used by the experiment.
+
+Cumulative training may use every preceding compatible session even when collection stopped between sessions. Cross-session context is a separate decision: an interrupted or unknown interval makes the observed history incomplete, but it does not make earlier events causally invalid. The corpus therefore preserves earlier eligible events while inserting an explicit structural gap boundary that distinguishes continuous, interrupted, and unknown coverage. This boundary is serialization metadata rather than a third semantic event type. Automatically resetting context at every session would discard potentially useful cross-day history; hard reset versus gap-aware carryover remains a versioned ablation.
+
 The initial offline experiment intentionally predicts write content with destination, semantic cursor context, clipboard state, and causal history already observed. It does not predict where the future write will occur, when the model should intervene, or how the user will react to a suggestion. A later live interface must capture the same query when a text field receives focus; first-mutation conditioning is sufficient to validate the offline task but is too late to serve a live prediction. Train–serve differences between focus and mutation must be measured before that interface is evaluated. Idle-triggered prediction, destination prediction, richer resource identity, true window-isolated capture, audio/video, and learned proactivity are deferred assumption-removal experiments rather than blockers for the foundational comparison.
 
 ## 4. Training Paradigm
@@ -236,7 +240,7 @@ h_t^{(L)}
 \right).
 $$
 
-$L$ is the total history-plus-query input-token budget, so the query consumes part of it and remains at the right edge while older complete events are removed first. Target tokens are appended outside $L$; the training harness must provide the resulting total sequence capacity and may not truncate the target. The serializer, event delimiter, explicit oversized-event marker, and deterministic packing rule are versioned. The history window may cross day, session, application, and document boundaries. It does not reset at midnight.
+$L$ is the total history-plus-query input-token budget, so the query consumes part of it and remains at the right edge while older complete events are removed first. Target tokens are appended outside $L$; the training harness must provide the resulting total sequence capacity and may not truncate the target. The serializer, event delimiter, explicit oversized-event marker, deterministic gap marker, and packing rule are versioned. The history window may cross day, session, application, and document boundaries. It does not reset at midnight. When collection coverage between two sessions was interrupted or is unknown, the context retains the earlier causally eligible history behind the explicit gap marker rather than presenting it as the immediate complete prefix.
 
 For the foundational cross-model comparison, the canonical Qwen packing rule materializes this suffix once and freezes it as a semantic context plan containing the exact retained event IDs, exact serialized text—including any explicit oldest-event tail—and exact query. Every condition then receives that same semantic plan. A model may tokenize it differently but may not use its tokenizer to select older or additional events. If the frozen plan does not fit one runtime, it is shortened once for all conditions and refrozen before scoring.
 
@@ -576,11 +580,12 @@ The implementation has passed the data-fidelity and mechanical-training gates. T
 
 1. Collect substantially more ordinary interleaved work without changing the candidate collector, delays, crops, reducer, or compiler mid-session.
 2. Reduce, compile, and audit each session. Inspect samples against the actual work, quantify unresolved and excluded records, and change the pipeline only for recurrent material failures. Any change starts a new versioned lineage.
-3. Freeze the resulting dataset, chronological block boundaries, target set, and a common semantic context plan containing exact event IDs, exact serialized text, and the exact query for every example.
-4. Implement the chronological block runner and immutable run manifest. It must record every per-example target, prediction, available NLL, latency, cost, macro example-average loss, micro target-token loss, model version, decoding configuration, and context-plan digest before permitting an update.
-5. Implement the three scoring conditions over that common plan: frozen Qwen3.5-9B-Base, frozen `gpt-5.6-sol` at `xhigh`, and the current personalized Qwen checkpoint.
-6. Extend the validated Tinker LoRA path from memorization to prequential updates: score the complete block first, then train on cumulative eligible examples through that block, save sampler and optimizer state, and use the result only for the next block.
-7. Run the three-model comparison, inspect the generated completions directly, and report chronological, aggregate, and per-application results. Developmental reruns over the same trace remain versioned reruns, not new prospective evidence.
+3. Implement the deterministic multi-session corpus assembler. Freeze the ordered compatible sessions, their artifact hashes and compatibility fingerprints, explicit continuous/interrupted/unknown coverage boundaries, and the policy governing whether context crosses each structural gap.
+4. Freeze the resulting corpus, chronological block boundaries, target set, and a common semantic context plan containing exact event IDs, exact serialized text and gap markers, and the exact query for every example.
+5. Implement the chronological block runner and immutable run manifest. It must record every per-example target, prediction, available NLL, latency, cost, macro example-average loss, micro target-token loss, model version, decoding configuration, corpus digest, and context-plan digest before permitting an update.
+6. Implement the three scoring conditions over that common plan: frozen Qwen3.5-9B-Base, frozen `gpt-5.6-sol` at `xhigh`, and the current personalized Qwen checkpoint.
+7. Extend the validated Tinker LoRA path from memorization to prequential updates: score the complete block first, then train on cumulative eligible examples through that block, save sampler and optimizer state, and use the result only for the next block.
+8. Run the three-model comparison, inspect the generated completions directly, and report chronological, aggregate, and per-application results. Developmental reruns over the same trace remain versioned reruns, not new prospective evidence.
 
 ### 8.3 Later work, conditional on a useful signal
 
@@ -590,7 +595,7 @@ The implementation has passed the data-fidelity and mechanical-training gates. T
 4. Only then introduce a prospective score-before-update cadence, persistent checkpoint lineage, and replay when cumulative retraining becomes impractical.
 5. Defer modeling suggestion-conditioned human behavior to Phase 2 and destination prediction or learned proactivity until the content predictor and focus-triggered interface establish that they are necessary.
 
-The only missing artifacts for the foundational capacity test are a larger frozen ordinary-work dataset, a shared semantic context-plan artifact, the three-condition per-example scoring and sampling harness, the chronological block runner, and the prequential personalized-Qwen update lineage. Focus-time capture, live display, daily manifests, and replay are later requirements rather than blockers for the offline comparison.
+The only missing artifacts for the foundational capacity test are a larger audited set of ordinary-work sessions, a deterministic multi-session corpus manifest and assembler, a shared semantic context-plan artifact with explicit gap boundaries, the three-condition per-example scoring and sampling harness, the chronological block runner, and the prequential personalized-Qwen update lineage. Focus-time capture, live display, daily manifests, and replay are later requirements rather than blockers for the offline comparison.
 
 ## 9. Conclusion
 
