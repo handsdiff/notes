@@ -252,7 +252,7 @@ For block $B_k$, compare three conditions:
 2. frozen `gpt-5.6-sol` at `xhigh` reasoning using the same trailing causal information in context;
 3. personalized Qwen3.5-9B-Base checkpoint $\theta_k$, trained only on blocks preceding $B_k$.
 
-The conditions receive the same tokenizer-independent plan of event IDs, serialized text, destination, semantic cursor context, clipboard state, and target. Model-specific tokenization may differ, but one condition must not receive older or additional semantic information merely because its tokenizer packs differently. Record each generated prediction and, where the interface exposes a valid target likelihood, its per-example pre-update loss; metrics that are not exposed comparably across model interfaces must be reported separately rather than treated as identical.
+The conditions receive the same frozen semantic plan of event IDs, serialized text, destination, semantic cursor context, clipboard state, and target. Model-specific tokenization may differ, but one condition must not receive older or additional semantic information merely because its tokenizer packs differently. Record each generated prediction and, where the interface exposes a valid target likelihood, its per-example pre-update loss; metrics that are not exposed comparably across model interfaces must be reported separately rather than treated as identical.
 
 Only after all examples in $B_k$ have been scored may they enter the cumulative training set $A_k=\bigcup_{j\leq k}B_j$. Updating the personalized condition produces $\theta_{k+1}$ for the next block. The two frozen in-context conditions never train on the personal examples. This is prequential evaluation inside each run:
 
@@ -525,7 +525,7 @@ The completed Run 8 Tinker overfit is the final mechanical part of this audit. I
 2. frozen `gpt-5.6-sol` at `xhigh` reasoning using sliding-window in-context prediction;
 3. personalized Qwen3.5-9B-Base, which scores each block before training on that block and all preceding eligible examples.
 
-Validate the three arms against the same tokenizer-independent event and serialized-text plan. Record every generated completion, per-example Qwen pre-update loss, both macro example-average and micro target-token aggregates, any genuinely comparable frontier-model score exposed by its interface, latency, cost, and per-application projections. Inspect predictions directly for an initial capacity signal. The same trace may be rerun for fast, versioned development; these reruns are not fresh prospective evidence. Historical note edits may remain a separate reconstruction diagnostic, but they do not replace the interleaved test.
+Validate the three arms against the same frozen event and serialized-text plan. Record every generated completion, per-example Qwen pre-update loss, both macro example-average and micro target-token aggregates, any genuinely comparable frontier-model score exposed by its interface, latency, cost, and per-application projections. Inspect predictions directly for an initial capacity signal. The same trace may be rerun for fast, versioned development; these reruns are not fresh prospective evidence. Historical note edits may remain a separate reconstruction diagnostic, but they do not replace the interleaved test.
 
 ### Experiment 2: Prospective continual interleaved stream
 
@@ -576,7 +576,7 @@ The implementation has passed the data-fidelity and mechanical-training gates. T
 
 1. Collect substantially more ordinary interleaved work without changing the candidate collector, delays, crops, reducer, or compiler mid-session.
 2. Reduce, compile, and audit each session. Inspect samples against the actual work, quantify unresolved and excluded records, and change the pipeline only for recurrent material failures. Any change starts a new versioned lineage.
-3. Freeze the resulting dataset, chronological block boundaries, target set, and a common tokenizer-independent context plan containing exact event IDs, exact serialized text, and the exact query for every example.
+3. Freeze the resulting dataset, chronological block boundaries, target set, and a common semantic context plan containing exact event IDs, exact serialized text, and the exact query for every example.
 4. Implement the chronological block runner and immutable run manifest. It must record every per-example target, prediction, available NLL, latency, cost, macro example-average loss, micro target-token loss, model version, decoding configuration, and context-plan digest before permitting an update.
 5. Implement the three scoring conditions over that common plan: frozen Qwen3.5-9B-Base, frozen `gpt-5.6-sol` at `xhigh`, and the current personalized Qwen checkpoint.
 6. Extend the validated Tinker LoRA path from memorization to prequential updates: score the complete block first, then train on cumulative eligible examples through that block, save sampler and optimizer state, and use the result only for the next block.
