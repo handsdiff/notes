@@ -238,6 +238,8 @@ $$
 
 $L$ is the total history-plus-query input-token budget, so the query consumes part of it and remains at the right edge while older complete events are removed first. Target tokens are appended outside $L$; the training harness must provide the resulting total sequence capacity and may not truncate the target. The serializer, event delimiter, explicit oversized-event marker, and deterministic packing rule are versioned. The history window may cross day, session, application, and document boundaries. It does not reset at midnight.
 
+For the foundational cross-model comparison, the canonical Qwen packing rule materializes this suffix once and freezes it as a semantic context plan containing the exact retained event IDs, exact serialized text—including any explicit oldest-event tail—and exact query. Every condition then receives that same semantic plan. A model may tokenize it differently but may not use its tokenizer to select older or additional events. If the frozen plan does not fit one runtime, it is shortened once for all conditions and refrozen before scoring.
+
 There is no retrieval, semantic memory, objective induction, or learned selection in the initial method. If relevant information falls outside the last $L$ tokens, the model does not receive it. Context-length experiments test how strongly this limitation matters.
 
 ### 4.2 Foundational chronological score-then-update loop
@@ -260,7 +262,7 @@ for each chronological block:
     score every example with frozen base Qwen
     sample and score as available with frozen gpt-5.6-sol xhigh
     score every example with the current personalized Qwen
-    train the personalized Qwen on cumulative preceding examples
+    train the personalized Qwen on cumulative examples through the just-scored block
 ```
 
 The same trace may be rerun rapidly while data conversion, context construction, optimizer, block size, or evaluation changes. Each rerun is a new developmental lineage and must not be described as fresh prospective evidence. Once a configuration is frozen, newly arriving blocks provide genuinely prospective score-before-update evidence without requiring a static validation partition.
@@ -419,8 +421,8 @@ procedure SCORE_BLOCK(models, compiled_dataset, context_plans, block_id, config)
         plan <- context_plans[example.id]
         ASSERT_PLAN_MATCHES_COMPILED_EXAMPLE(
             plan,
-            source_event_ids=example.source_event_ids,
-            serialized_text=example.serialized_history,
+            eligible_source_event_ids=example.source_event_ids,
+            serialized_source_events=example.serialized_history,
             query=example.query
         )
 
@@ -479,7 +481,7 @@ procedure UPDATE_PERSONALIZED_QWEN(model_k, scored_blocks, compiled_dataset,
     datums <- APPLY_VERIFIED_CAUSAL_SHIFT_AND_LOSS_MASK(packed)
     candidate <- CLONE_TRAINING_STATE(model_k)
 
-    for epoch in config.epochs:
+    for epoch in 1..config.epochs:
         for datum in DETERMINISTIC_ORDER(datums, epoch, config.seed):
             loss <- MASKED_TARGET_CROSS_ENTROPY(candidate, datum)
             candidate <- OPTIMIZER_STEP(candidate, gradient(loss))
