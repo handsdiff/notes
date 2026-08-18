@@ -51,6 +51,7 @@
 	- i already basically do the above with the codex app
 	- is this example just search learned from RL? and intermediate rewards for clicking the correct intermediate links is the equivalent of jensen's EIOS (early indicators of success)?
 - https://huggingface.co/Motif-Technologies/Motif-3 pretraining dataset? base model?
+- it feels like focus time conditioning is necessary even for offline training because the point at which to sample the model is determined by iterating on focus time conditioning, and the events on which to apply loss is determined by the points at which the model is intended to be sampled
 
 ## Abstract
 
