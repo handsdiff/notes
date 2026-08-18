@@ -15,6 +15,10 @@ likely need to
 	- its likely actually important to answer this question because it will help determine the optimal number of weights to encode the given dataset
 	- any work out there that quantifies the context size of an adult human brain? how does this context size relate to 'reasoning to retrieve'?
 	- one of the questions, related to Data notes, seems to be how much 'data' do i produce, or more specifically how much data signifies a single distribution, and how many weights are necessary, assuming some average LLM architecture, learn that data, according to papers like Kaplan and Chinchilla
+	-  https://x.com/max_paperclips/status/2088400890562777312?s=20
+		- qwen 3.8 is opus 4.6 intelligence in 27B dense local weights? How does this support or refute directional beliefs that supported the build and thesis and vision direction?
+		- do chinchilla scaling laws no longer apply? what are empirical scaling laws actually occurring?
+		- do kaplan and chinchilla scaling laws refer to all tokens? or just tokens with loss applied to them? is it the same since the laws only apply to pretraining?
 - i wonder whether you need the data to be literally temporally interleaved to predict well. like i pause a youtube video, write down thoughts, play the youtube video. etc. its incorrect to put the entire transcript in when the page is first visited, since the goal is to most closely simulate how my brain works. the actual construction of the dataset is literally 90% of the work here. will take trial and error. may be worth thinking how to improve it
 	- if im watching a youtube video for example, i suspect the best data structure would be the transcript of the part i watched as <read, browser, youtube, transcript chunk> then <write, obsidian, entry, written note>.
 - might help with data ingestion, seemingly open source/self hosted granola https://github.com/Zackriya-Solutions/meetily
