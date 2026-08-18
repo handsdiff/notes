@@ -10,3 +10,5 @@
 	- you dont need a proactive assistant if the goal is reasoning over log history though
 - https://x.com/scott_linderman/status/2089725782667227641?s=20
 - https://x.com/brexHQ/status/2089412872094773735?s=20
+- https://x.com/MTSlive/status/2089724146225926360?s=20
+- 
