@@ -51,7 +51,8 @@
 	- i already basically do the above with the codex app
 	- is this example just search learned from RL? and intermediate rewards for clicking the correct intermediate links is the equivalent of jensen's EIOS (early indicators of success)?
 - https://huggingface.co/Motif-Technologies/Motif-3 pretraining dataset? base model?
-- it feels like focus time conditioning is necessary even for offline training because the point at which to sample the model is determined by iterating on focus time conditioning, and the events on which to apply loss is determined by the points at which the model is intended to be sampled
+- historical concern: it felt like focus-time conditioning might be necessary even for offline training because the point at which to sample the model could determine which events receive loss
+	- current resolution: the foundational test deliberately uses causally valid pre-mutation conditioning to test content-prediction capacity offline; focus-time conditioning and the live sampling harness follow only if that simpler test produces a useful signal
 
 ## Abstract
 
@@ -59,9 +60,9 @@ Ordinary computer use produces a chronological record of information becoming ac
 
 Phase 1 builds that stream and applies behavioral cloning to it. Each example contains a fixed-length causal history plus the observed destination, semantic cursor context, and current clipboard state immediately before an action, followed by a structured write completion. Authored text, grounded paste actions, and a structural end-of-sequence token receive loss; copied payload tokens do not, although their resolved content and provenance remain available in later history.
 
-During live use, the model is queried when a text field receives focus and its predicted write completion is shown to the user for qualitative inspection. Grounded action markers such as paste are rendered by the interface rather than displayed as literal text. The displayed prediction is captured in the raw stream as a model-authored read event but excluded from the Phase 1 dataset. Modeling how the prediction changes later human behavior begins in Phase 2.
+The immediate foundational test runs offline over a frozen chronological trace. It compares three conditions using the same basic sliding-window history and write query: frozen Qwen3.5-9B-Base, frozen `gpt-5.6-sol` at `xhigh` reasoning using in-context prediction, and a Qwen3.5-9B-Base model updated on preceding examples. Every example is predicted and scored before it is allowed to train the personalized Qwen condition. Chronological blocks are chosen for fast experimental iteration rather than tied to calendar days, and the same developmental trace may be rerun under separately versioned configurations.
 
-Learning is continual. During a day, the model's weights remain fixed while every action is scored from the sliding causal context. Overnight, that day's examples become training data and are mixed with replay from earlier days. The resulting weights initialize the next day. Historical data can be processed through the same chronological loop when its causal inputs are sufficiently complete. Each action contributes a pre-update loss before it is allowed to train a later model.
+A later prospective Phase 1 implementation queries the model automatically when a text field receives focus and shows its predicted write completion for qualitative inspection. Grounded action markers such as paste are rendered by the interface rather than displayed as literal text. Displayed predictions are captured in the raw stream as model-authored read events but excluded from the Phase 1 dataset. That later harness can use fixed daily checkpoints, overnight updates, and historical replay; modeling how displayed predictions change human behavior begins in Phase 2.
 
 The first goal is deliberately narrow: implement a temporally faithful event collector, construct reliable write-completion targets, establish that personal history improves next-write prediction, measure how performance changes with context length and continual adaptation, and observe whether repeated updates erase older behavior.
 
@@ -89,7 +90,7 @@ Behavioral cloning is the direct formulation of learning a human action policy f
 
 Matti et al. predict one user's keyboard and mouse actions from a short discrete history [2]. Shaikh et al. study next-action prediction from naturalistic computer-use streams and compare prompting, retrieval, supervised adaptation, and learned reasoning–retrieval methods [3]. These works provide the closest task-level precedents and useful baselines for event construction and action prediction. This work is a more rigorous decomposition and test of the same direction.
 
-Dynamic evaluation updates a language model on recent tokens before predicting later tokens in the same stream [4]. End-to-End Test-Time Training extends this idea by meta-learning an initialization that is explicitly optimized for online next-token updates and by using weight updates to carry information beyond a sliding attention window [5]. Phase 1 uses the same score-before-update principle at a different boundary: human write events are scored throughout a day, and ordinary behavioral-cloning updates occur overnight. The model state persists across days and historical replay is included.
+Dynamic evaluation updates a language model on recent tokens before predicting later tokens in the same stream [4]. End-to-End Test-Time Training extends this idea by meta-learning an initialization that is explicitly optimized for online next-token updates and by using weight updates to carry information beyond a sliding attention window [5]. Phase 1 uses the same score-before-update principle at a different boundary: the foundational test scores chronological write blocks before updating the personalized condition, while the later prospective harness may score throughout a day and update overnight. Persistent model state and historical replay belong to that later continual implementation.
 
 Lifelong pretraining studies chronological adaptation to emerging corpora while measuring performance on both new and earlier distributions [6]. Its stability–plasticity problem is directly relevant: recent data should update the personal model without allowing one project or period to erase older workflows or general language-model capabilities.
 
@@ -179,7 +180,7 @@ All three surfaces are collected prospectively from the beginning so that their 
 
 Audio and video can be added after the text stream is credible. Historical Obsidian Git history is useful for testing reconstruction and diff logic, but it cannot substitute for a prospective interleaved stream because it omits browser and chat inputs.
 
-The live model is queried when a text field receives focus outside the prediction model itself. It samples a structured write completion from the causal history plus the destination, semantic cursor context, and current clipboard state available at that moment, then displays that completion to the user. A predicted paste action is bound to the conditioned pasteboard version and is invalidated or regenerated if the clipboard changes. This focus trigger determines when a prediction is shown; it does not define the supervised training boundary. Training examples are separately constructed from the causal history and pre-mutation conditioning available before each write action actually begins. Before live prediction is implemented, the interface must capture the same destination, cursor, and clipboard query at focus time. The existing first-mutation snapshot validates offline dataset construction but cannot substitute for focus-time conditioning, and cursor, selection, or clipboard changes between focus and writing remain train–serve differences to measure.
+In later prospective use, the live model is queried when a text field receives focus outside the prediction model itself. It samples a structured write completion from the causal history plus the destination, semantic cursor context, and current clipboard state available at that moment, then displays that completion to the user. A predicted paste action is bound to the conditioned pasteboard version and is invalidated or regenerated if the clipboard changes. This focus trigger determines when a prediction is shown; it does not define the supervised training boundary. The foundational offline test instead uses the causal history and pre-mutation conditioning available before each write action actually begins. Before live prediction is implemented, the interface must capture the same destination, cursor, and clipboard query at focus time. The existing first-mutation snapshot validates offline dataset construction but cannot substitute for focus-time conditioning, and cursor, selection, or clipboard changes between focus and writing remain train–serve differences to measure.
 
 The initial Phase 1 experiment deliberately holds this conditional task fixed: predict write content given known destination, semantic cursor context, clipboard state, and causal history. Idle-triggered sampling, prediction of the future destination or cursor location, and learned proactivity are deferred assumption-removal experiments rather than prerequisites for the first training result. They should be introduced only after the content predictor has been evaluated and the focus-triggered interface provides evidence that the simpler boundary is inadequate.
 
@@ -195,7 +196,7 @@ Only after the sensor produces a convincing stream should one snapshot-to-event 
 
 Each converted write keeps observed pre-mutation state distinct from the human output. The conditioning state contains the destination, bounded semantic context around the initial caret or selection, and current clipboard state; it is appended to the causal history as model input. The WRITE event retains the exact resolved net content and structured authorship provenance. In the Phase 1 target, authored spans are tokenized normally and each Cmd-V span proven to use the conditioned clipboard becomes the reserved `<|paste|>` marker encoded by the selected model's unchanged tokenizer. The pasted payload receives no target loss, but its resolved content and paste provenance remain in the event and in subsequent history. The model loader maps the structured segments, appends exactly one EOS token from the selected tokenizer, and applies loss to authored tokens, paste-marker tokens, and EOS. EOS is a structural terminator, not captured human content. Operation, removed content, provenance, and net edit offset remain event metadata for reconstruction, audit, later context, evaluation strata, and possible later objectives, but receive no Phase 1 loss. Numeric cursor offsets are retained as diagnostics but neither alter the canonical diff nor impose a separate eligibility gate when complete range-native semantic cursor context is available. The conservative conversion excludes pure deletions, incomplete semantic conditioning, unresolved authorship, and legacy writes with paste evidence that cannot be segmented, while retaining otherwise verified WRITE events in subsequent causal history. Action and capture timestamps remain example metadata, and whether temporal information should appear in model inputs is tested separately.
 
-The historical model context may contain only Phase 1-eligible records available before the action boundary chosen by the conversion version. The conversion must explicitly assign and document any `available_at` timestamp used for a derived input event and any `began_at` timestamp used for a candidate write target; these are decisions made by the frozen conversion, not timestamps silently inferred from snapshot finalization. Prior WRITE serialization retains resolved pasted content together with its paste provenance, because that content was present in the artifact and may condition later actions even though it received no loss when originally pasted. The pre-mutation conditioning state is separately admitted as observed query state: the active tap captures it after intercepting the first input but before returning that mutation to the application, and it must not be silently backdated as an ordinary history event. Each training example stores the exact derived history, query, complete model input, structured target segments, resolved outcome metadata, source records, conversion version, and target-mask contract. The model-facing history serializer is intentionally compact: READ text appears once as top-level content; a structured WRITE's resolved text appears once across provenance-bearing authorship segments rather than being duplicated as top-level content; semantic source or destination, write operation, and nonempty removal remain available. Collector identifiers, numeric offsets, boundary reasons, redundant resolved text, and sensor provenance remain in a separate audit projection. The tokenizer-specific loader packs the newest complete serialized event blocks plus the complete query within the input budget. If the oldest retained event crosses the boundary, only its semantic text tail may be retained behind an explicit truncation marker; a structured WRITE retains the authorship types of the surviving segments, and malformed partial JSON is never emitted. The loader then tokenizes authored segments and the reserved `<|paste|>` marker without automatic special tokens or vocabulary modification, appends exactly one tokenizer EOS token, and masks loss onto authored tokens, paste-marker tokens, and EOS. The packing manifest distinguishes the history-plus-query input budget from total training-sequence capacity: the target is appended outside the input budget and must never be silently truncated. The daily update manifest separately records the parent model, data cutoff, recent and replay examples, optimizer configuration, and resulting model. These are algorithm-specific derived records, not the authoritative form of the raw activity.
+The historical model context may contain only Phase 1-eligible records available before the action boundary chosen by the conversion version. The conversion must explicitly assign and document any `available_at` timestamp used for a derived input event and any `began_at` timestamp used for a candidate write target; these are decisions made by the frozen conversion, not timestamps silently inferred from snapshot finalization. Prior WRITE serialization retains resolved pasted content together with its paste provenance, because that content was present in the artifact and may condition later actions even though it received no loss when originally pasted. The pre-mutation conditioning state is separately admitted as observed query state: the active tap captures it after intercepting the first input but before returning that mutation to the application, and it must not be silently backdated as an ordinary history event. Each training example stores the exact derived history, query, complete model input, structured target segments, resolved outcome metadata, source records, conversion version, and target-mask contract. The model-facing history serializer is intentionally compact: READ text appears once as top-level content; a structured WRITE's resolved text appears once across provenance-bearing authorship segments rather than being duplicated as top-level content; semantic source or destination, write operation, and nonempty removal remain available. Collector identifiers, numeric offsets, boundary reasons, redundant resolved text, and sensor provenance remain in a separate audit projection. The tokenizer-specific loader packs the newest complete serialized event blocks plus the complete query within the input budget. If the oldest retained event crosses the boundary, only its semantic text tail may be retained behind an explicit truncation marker; a structured WRITE retains the authorship types of the surviving segments, and malformed partial JSON is never emitted. The loader then tokenizes authored segments and the reserved `<|paste|>` marker without automatic special tokens or vocabulary modification, appends exactly one tokenizer EOS token, and masks loss onto authored tokens, paste-marker tokens, and EOS. The packing manifest distinguishes the history-plus-query input budget from total training-sequence capacity: the target is appended outside the input budget and must never be silently truncated. The foundational run manifest records chronological block boundaries, model and context configurations, per-example pre-update scores and samples, training examples, optimizer configuration, and resulting personalized checkpoints. A later prospective daily manifest additionally records recent/replay selection and persistent daily lineage. These are algorithm-specific derived records, not the authoritative form of the raw activity.
 
 **Causal dataset construction is a required conversion step.** JSONL append order, sequence number, and collector emission time must never be used as the training chronology. A write may be appended only after `WRITE_DELAY`, while a read observed during that write may be appended earlier. Treating all earlier file records as context would therefore allow information captured after the action began—and potentially part of the target itself—to enter the model input.
 
@@ -257,69 +258,65 @@ $L$ is the total history-plus-query input-token budget, so the query consumes pa
 
 There is no retrieval, semantic memory, objective induction, or learned selection in the initial method. If relevant information falls outside the last $L$ tokens, the model does not receive it. Context-length experiments test how strongly this limitation matters.
 
-### 4.2 Daily score-then-update loop
+### 4.2 Foundational chronological score-then-update loop
 
-Phase 1 uses two different triggers deliberately. Live generation occurs when a text field receives focus. Supervised scoring and training use the causal prefix immediately before the resulting write action begins. The earlier focus-time query is a user-interface decision; it does not redefine which preceding information belongs to the training example.
+The foundational test uses a frozen, audited trace divided into contiguous chronological blocks $B_1,\ldots,B_K$. A block is a versioned experimental unit—initially a convenient number of eligible writes or one or more captured sessions—not a calendar-day commitment. There is no random or permanently held-out train/validation/test split. Within each run, every example is predicted and scored before it may enter the personalized model's training set.
 
-Let $\theta_d$ be the model at the beginning of day $d$. Its weights remain fixed throughout the day.
+For block $B_k$, compare three conditions:
 
-For every human write event $y_{d,i}$:
+1. frozen Qwen3.5-9B-Base using the trailing causal window in context;
+2. frozen `gpt-5.6-sol` at `xhigh` reasoning using the same trailing causal information in context;
+3. personalized Qwen3.5-9B-Base checkpoint $\theta_k$, trained only on blocks preceding $B_k$.
 
-1. construct the causal context $h_{d,i}^{(L)}$;
-2. predict and record the likelihood of the action under $\theta_d$;
-3. store the completed action as a frozen training example;
-4. allow the observed action to enter the causal context of later actions that day;
-5. do not update model weights until the day is complete.
+The conditions receive the same tokenizer-independent plan of event IDs, serialized text, destination, semantic cursor context, clipboard state, and target. Model-specific tokenization may differ, but one condition must not receive older or additional semantic information merely because its tokenizer packs differently. Record each generated prediction and, where the interface exposes a valid target likelihood, its per-example pre-update loss; metrics that are not exposed comparably across model interfaces must be reported separately rather than treated as identical.
 
-The day's examples provide a pre-update loss trace for $\theta_d$. After they have all been scored, they become eligible training data for the overnight update.
+Only after all examples in $B_k$ have been scored may they enter the cumulative training set $A_k=\bigcup_{j\leq k}B_j$. Updating the personalized condition produces $\theta_{k+1}$ for the next block. The two frozen in-context conditions never train on the personal examples. This is prequential evaluation inside each run:
 
-Let $\mathcal N_d$ be the examples collected on day $d$, and let $\mathcal R_d$ be replay sampled from days before $d$. Overnight training produces:
+```text
+start personalized Qwen from the base checkpoint
+for each chronological block:
+    score every example with frozen base Qwen
+    sample and score as available with frozen gpt-5.6-sol xhigh
+    score every example with the current personalized Qwen
+    train the personalized Qwen on cumulative preceding examples
+```
+
+The same trace may be rerun rapidly while data conversion, context construction, optimizer, block size, or evaluation changes. Each rerun is a new developmental lineage and must not be described as fresh prospective evidence. Once a configuration is frozen, newly arriving blocks provide genuinely prospective score-before-update evidence without requiring a static validation partition.
+
+### 4.3 Later prospective continual loop
+
+If the foundational comparison shows useful predictive capacity, Phase 1 can operationalize the same causal objective in a live continual harness. Live generation then occurs when a text field receives focus, while supervised scoring continues to use the causal prefix and observed query immediately before each write begins. Focus is a user-interface trigger; it does not silently move later information into the training example.
+
+The initial prospective cadence may use one day as a block. Let $\theta_d$ be the personalized model at the beginning of day $d$ and keep its weights fixed while every eligible action that day receives a pre-update score. After the complete day has been scored, training produces:
 
 $$
 \theta_{d+1}
 =
-\operatorname{Update}(\theta_d,\mathcal N_d,\mathcal R_d).
+\operatorname{Update}(\theta_d,\mathcal N_d,\mathcal R_d),
 $$
 
-The resulting weights persist. The model does not reset to a generic initialization each morning. A once-daily update is the deliberate initial baseline: it keeps the collection period stationary, makes model lineage legible, and permits batched training. It is not a claim that one day is the optimal update interval.
+where $\mathcal N_d$ is the newly scored day and $\mathcal R_d$ is replay from prior days. The resulting weights persist. A daily boundary keeps live collection stationary and model lineage legible, but it is a later operational baseline rather than a prerequisite for the foundational capacity test or a claim that one day is the optimal update interval.
 
-### 4.3 Historical and prospective data use the same loop
+### 4.4 Later replay and persistent lineage
 
-Historical activity is replayed in chronological day order:
+The foundational test can train on all cumulative preceding examples directly. Explicit replay becomes necessary when the corpus or prospective update schedule makes full cumulative retraining impractical. Its purpose is to preserve older workflows rather than freeze the model in the past.
 
-```text
-start from the base model
-for each historical day:
-    score that day's actions with the current fixed weights
-    update overnight on that day plus replay from earlier days
-```
-
-Newly collected activity then continues the same lineage without a change in objective, context construction, or update rule. This applies only where the historical source contains enough information to reconstruct the required causal examples. Existing Obsidian Git history is a pipeline test, not a substitute for the prospectively captured interleaved stream.
-
-The initial run is developmental: segmentation, context length, replay, and optimizer choices may change between days, with each version recorded alongside its loss trace. A later robust comparison can freeze those choices before a prospective interval. The model can still update after each scored day inside that interval.
-
-### 4.4 Historical replay
-
-Training only on the latest day would allow a dense or unusual session to dominate the model. Replay mixes older examples into every overnight update.
-
-The initial replay policy is deliberately simple. Once the conversion schema has been frozen, replay is stratified using stable fields actually present in the data, initially:
+The first prospective replay policy is deliberately simple. Once the conversion schema has been frozen, replay is stratified using stable fields actually present in the data, initially:
 
 - time periods;
 - applications;
 - target provenance;
 - target length.
 
-The first implementation uses an explicit recent/replay mixture rather than an adaptive policy. Sampling weights, replay capacity, strata, and the number of optimizer steps are recorded in the daily manifest. Replay examples preserve the causal contexts that existed when their targets occurred; they are never rebuilt from later artifact state.
+Sampling weights, replay capacity, strata, optimizer steps, parent checkpoint, and resulting checkpoint are recorded in the daily manifest. Replay examples preserve the causal contexts that existed when their targets occurred; they are never rebuilt from later artifact state. Replay effectiveness is measured rather than assumed.
 
-Replay is intended to preserve older workflows, not to freeze the model in the past. Its effectiveness is measured rather than assumed.
+### 4.5 Foundational model configuration
 
-### 4.5 Initial model configuration
-
-The first implementation uses [Qwen3.5-9B-Base](https://huggingface.co/Qwen/Qwen3.5-9B-Base) [7] with a 32K-token causal history window. Its weights remain fixed throughout each day and update overnight using that day's scored examples plus historical replay.
+The foundational comparison uses [Qwen3.5-9B-Base](https://huggingface.co/Qwen/Qwen3.5-9B-Base) [7] and `gpt-5.6-sol` at `xhigh` reasoning with the same basic trailing causal context plan, initially bounded by the 32K history-plus-query baseline. The two Qwen conditions begin from the same base checkpoint. One remains frozen and predicts through in-context history only; the other receives parameter-efficient updates on preceding chronological blocks. `gpt-5.6-sol` remains frozen and predicts through in-context history only.
 
 Qwen3.5-9B-Base is a nine-billion-parameter base model. It is dense in the routing sense, although its stack is a hybrid of Gated DeltaNet and gated-attention layers rather than a conventional all-full-attention Transformer. The official model card reports a native context length of 262,144 tokens. The initial 32K window is therefore an implementation and compute choice, not the checkpoint's native limit.
 
-Once this baseline works, the ablation matrix in Section 7 varies context length, checkpoint recency, and model family without changing the event construction, causal serialization, or daily scoring protocol. The once-daily LoRA update with explicit replay is a deliberate baseline against which more complicated continual-learning methods can later be compared.
+This three-way comparison precedes the larger ablation matrix. Later experiments may vary context length, checkpoint recency, model family, update cadence, and replay without changing the event construction, causal serialization, or score-before-update rule.
 
 ## 5. Behavioral-Cloning Objective
 
@@ -359,27 +356,23 @@ $$
 
 Loss is masked on every model-input token and applied to authored target tokens, every existing-vocabulary token spelling the reserved marker for each grounded paste action, and the single loader-appended EOS token. Read events, earlier human actions, resolved pasted payloads, received messages, external model responses, tool results, destination, initial cursor state, clipboard state, and edit metadata provide input or audit evidence but do not become targets merely because they are available. Model predictions displayed during Phase 1 are excluded from the Phase 1 context as well as from its targets.
 
-For overnight update $d$:
+For foundational update $k$, let $\mathcal A_k$ contain all eligible examples from chronological blocks through $B_k$. The personalized Qwen objective is:
 
 $$
 \boxed{
-\mathcal L_d(\theta)
+\mathcal L_k(\theta)
 =
-\lambda_{\mathrm{recent}}
-\mathcal L_{\mathrm{BC}}(\theta;\mathcal N_d)
-+
-\lambda_{\mathrm{replay}}
-\mathcal L_{\mathrm{BC}}(\theta;\mathcal R_d)
+\mathcal L_{\mathrm{BC}}(\theta;\mathcal A_k)
 }.
 $$
 
-The candidate model is initialized from $\theta_d$, optimized on the recent/replay mixture, checked for numerical failure, and then stored as $\theta_{d+1}$ together with update diagnostics. A parameter-efficient adapter is the default initial implementation because it makes daily training, versioning, and rollback tractable; the data and objective are unchanged if later experiments use full-model updates. Practical starting points for LoRA learning rate, batch size, rank, scaling, and epoch count are reported by O'Neill et al. [8]; these are sweep priors rather than assumed optima because their study uses static, judge-filtered SFT data rather than continual personal action data.
+The candidate is initialized from the preceding personalized checkpoint $\theta_k$, optimized only after $B_k$ has been scored, checked for numerical failure, and stored as $\theta_{k+1}$ together with run diagnostics. A parameter-efficient adapter is the default foundational implementation because it makes rapid training, versioning, and rollback tractable; the data and objective are unchanged if later experiments use full-model updates. A later prospective harness may replace full cumulative training with the recent/replay mixture in Section 4.3 without changing which target tokens receive loss. Practical starting points for LoRA learning rate, batch size, rank, scaling, and epoch count are reported by O'Neill et al. [8]; these are sweep priors rather than assumed optima because their study uses static, judge-filtered SFT data rather than continual personal action data.
 
 The objective estimates behavior. It does not assert that the observed action was optimal, identify a reward function, or require a labeled goal.
 
 ## 6. Algorithms
 
-### Algorithm 1: Display a prediction when a text field receives focus
+### Algorithm 1 (later prospective): Display a prediction when a text field receives focus
 
 ```text
 procedure PREDICT_ON_FOCUS(model_d, raw_stream, focus_event, config):
@@ -411,15 +404,16 @@ procedure PREDICT_ON_FOCUS(model_d, raw_stream, focus_event, config):
     return predicted_completion
 ```
 
-### Algorithm 2: Construct and score one day
+### Algorithm 2: Construct and score one chronological block
 
 ```text
-procedure BUILD_AND_SCORE_DAY(model_d, frozen_events, config):
-    model_d <- FREEZE_WEIGHTS(model_d)
+procedure BUILD_AND_SCORE_BLOCK(model_k, frozen_events, block_action_ids, config):
+    model_k <- FREEZE_WEIGHTS(model_k)
     examples <- []
     losses <- []
 
-    actions <- HUMAN_WRITE_EVENTS(frozen_events)
+    actions <- HUMAN_WRITE_EVENTS(frozen_events) where
+               action.id in block_action_ids
     for y in STABLE_TEMPORAL_SORT(actions):
         prior <- events in frozen_events where
                  PHASE1_ELIGIBLE(event) and
@@ -448,7 +442,7 @@ procedure BUILD_AND_SCORE_DAY(model_d, frozen_events, config):
             add_special_tokens=false
         )
         target_mask <- MASK_ALL_TOKENS(training_target)
-        loss <- MASKED_TARGET_NLL(model_d, h, training_target, target_mask)
+        loss <- MASKED_TARGET_NLL(model_k, h, training_target, target_mask)
         losses.append(loss)
 
         examples.append(FREEZE_TRAINING_EXAMPLE(
@@ -462,68 +456,64 @@ procedure BUILD_AND_SCORE_DAY(model_d, frozen_events, config):
             serializer_version=VERSION(config.serializer)
         ))
 
-    return examples, AGGREGATE_DAILY_LOSS(losses)
+    return examples, AGGREGATE_BLOCK_LOSS(losses)
 ```
 
-### Algorithm 3: Update overnight
+### Algorithm 3: Update personalized Qwen after a scored block
 
 ```text
-procedure OVERNIGHT_UPDATE(model_d, day_examples, replay_index, config):
-    replay <- SAMPLE_STRATIFIED_REPLAY(
-        replay_index,
-        strata=config.replay_strata,
-        budget=config.replay_budget
-    )
-
-    candidate <- CLONE_ADAPTER(model_d)
+procedure UPDATE_PERSONALIZED_QWEN(model_k, scored_blocks, config):
+    cumulative_examples <- UNION_EXAMPLES(scored_blocks)
+    candidate <- CLONE_ADAPTER(model_k)
 
     for batch in PACK_BY_TARGET_AND_CONTEXT_TOKENS(
-        day_examples,
-        replay,
+        cumulative_examples,
         config
     ):
-        recent_loss <- MASKED_ACTION_NLL(candidate, batch.recent)
-        replay_loss <- MASKED_ACTION_NLL(candidate, batch.replay)
-        loss <- config.lambda_recent * recent_loss
-              + config.lambda_replay * replay_loss
+        loss <- MASKED_ACTION_NLL(candidate, batch)
         candidate <- OPTIMIZER_STEP(candidate, gradient(loss))
 
     if OPTIMIZATION_FAILED(candidate):
-        return model_d, replay_index
+        return model_k
 
-    diagnostics <- RECORD_UPDATE_DIAGNOSTICS(model_d, candidate, config)
+    diagnostics <- RECORD_UPDATE_DIAGNOSTICS(model_k, candidate, config)
     model_next <- STORE_IMMUTABLE(candidate)
-    replay_index <- ADD_EXAMPLES(replay_index, day_examples)
-    STORE_DAILY_UPDATE_MANIFEST(
-        parent=model_d,
+    STORE_FOUNDATIONAL_RUN_MANIFEST(
+        parent=model_k,
         result=model_next,
-        recent=day_examples,
-        replay=replay,
+        scored_blocks=scored_blocks,
+        cumulative_examples=cumulative_examples,
         diagnostics=diagnostics,
         config=config
     )
-    return model_next, replay_index
+    return model_next
 ```
 
 ## 7. Initial Experimental Program
 
-The initial program is exploratory. Live predictions are displayed and judged informally while pre-update loss provides the quantitative trace. The first purpose of the ablations is to see whether changing the data, context, objective, or checkpoint causes interpretable changes in loss and in the apparent quality of sampled predictions. Robust competitive baselines and a formal human-evaluation protocol come after the data and training pipeline are credible.
+The initial program is an offline, exploratory capacity test over collected chronological data. Pre-update loss where available and generated predictions provide the quantitative and qualitative traces; no live suggestion interface or daily deployment scheduler is required. Rapid reruns are expected while the data, context, optimizer, block size, and evaluation are being developed, with every run versioned and score-before-update ordering preserved. A later prospective harness freezes a credible configuration, displays focus-triggered predictions, and updates on newly arriving data.
 
 ### Experiment 0: Collector and reconstruction audit
 
 Build the debugging display and run minimum viable Obsidian, Chrome, and Codex sensors during ordinary work. Inspect the resulting snapshots and derived stream against the actual experience, then revise delays, crops, extraction, deduplication, provenance, and event boundaries. Once the qualitative output is credible, manually replay sampled sessions and measure missing-event rate, temporal-ordering error, incorrect content inclusion, authorship error, action-boundary disagreement, and future leakage. Modeling does not begin until one conversion version is frozen.
 
-### Experiment 1: Interleaved multi-application smoke test
+### Experiment 1: Foundational three-model predictive-capacity test
 
-Use one frozen, audited prospective stream containing ordinary work across Obsidian, Chrome/browser, and Codex. Train and score eligible writes from all three surfaces while conditioning on their combined causal READ/WRITE history. Validate temporal reconstruction, write-event construction, serialization, masked loss, daily processing, and overnight replay, then inspect aggregate and per-application loss and sampled predictions for an initial signal. Historical note edits may remain a separate reconstruction diagnostic, but they do not replace the interleaved smoke test. This is still a pipeline and signal test, not evidence for the full read–write thesis or a competitive baseline.
+Use one frozen, audited chronological stream containing ordinary work across Obsidian, Chrome/browser, Codex, and other already supported writing surfaces such as VS Code. Divide eligible writes into contiguous developmental blocks and condition every arm on the same basic trailing causal READ/WRITE history plus destination, semantic cursor context, and clipboard state. Compare:
+
+1. frozen Qwen3.5-9B-Base using sliding-window in-context prediction;
+2. frozen `gpt-5.6-sol` at `xhigh` reasoning using sliding-window in-context prediction;
+3. personalized Qwen3.5-9B-Base, which scores each block before training on that block and all preceding eligible examples.
+
+Validate the three arms against the same tokenizer-independent event and serialized-text plan. Record every generated completion, per-example Qwen pre-update loss, any genuinely comparable frontier-model score exposed by its interface, block aggregates, and per-application projections. Inspect predictions directly for an initial capacity signal. The same trace may be rerun for fast, versioned development; these reruns are not fresh prospective evidence. Historical note edits may remain a separate reconstruction diagnostic, but they do not replace the interleaved test.
 
 ### Experiment 2: Prospective continual interleaved stream
 
-Continue collecting and scoring the interleaved Obsidian, Chrome/browser, and Codex stream prospectively across daily score-before-update and replay cycles. Display focus-triggered predictions for qualitative inspection while excluding those prediction events from the Phase 1 dataset. Test whether correctly timed read and write history improves pre-update loss over the current artifact and damaged-history controls.
+Only after Experiment 1 produces a signal worth deploying, continue collecting and scoring the interleaved stream prospectively across fixed score-before-update intervals, initially days. Implement focus-time destination/cursor/clipboard capture and display focus-triggered predictions for qualitative inspection while excluding those prediction events from the Phase 1 dataset. Add persistent checkpoint lineage and explicit replay when full cumulative training becomes impractical. Test whether correctly timed read and write history improves pre-update loss over the current artifact and damaged-history controls.
 
 ### Experiment 3: Ablation matrix
 
-All nine comparisons use the same live daily protocol. On a given day, every condition scores the same actions in the same order before any weight update. Earlier actions from that day enter the causal context for later actions. Cross-model contexts are frozen by event IDs and serialized text so that every model receives the same information, regardless of tokenizer. Open-model updates occur only after the complete day has been scored.
+After the foundational comparison is stable, ablations use the same chronological score-before-update protocol. During development the unit may be a fixed example block or captured session; during later prospective use it may be a day. Every condition scores the same actions in the same order before any weight update, and earlier actions enter the causal context for later actions. Cross-model contexts are frozen by event IDs and serialized text so that every model receives the same information, regardless of tokenizer. Open-model updates occur only after the complete block has been scored.
 
 **Learning Objective**. Replace token-level cross-entropy loss and behavioral cloning with cosine similarity on the embeddings of the ground-truth and predicted resolved write content as the reward for GRPO or RLOO. This compares sequence-likelihood training with semantic-similarity reward maximization.
 
@@ -531,21 +521,21 @@ All nine comparisons use the same live daily protocol. On a given day, every con
 
 **Checkpoint recency.** On day $d$, score every action using the current checkpoint and retained checkpoints from $d-1$, $d-3$, and $d-7$. All remain frozen throughout the day and receive the identical causal event-stream context. This measures the predictive value of recent overnight updates and reveals when those updates hurt current-day prediction.
 
-**Context scaling.** Compare 8K, 16K, 32K, and 64K causal windows using matched Qwen3.5-9B-Base lineages, with 32K as the initial baseline. Action targets, day boundaries, recent/replay sampling, target-token exposure, and optimizer steps remain matched. “More data” here means more prior event-stream data in context, not more historical training examples. This alludes to discussions around what 'model capabilities' even mean when discussed broadly. Are 64K and 8K context windows both 'model capabilities'? How do we normalize for prompt quality or available tools?
+**Context scaling.** Compare 8K, 16K, 32K, and 64K causal windows using matched Qwen3.5-9B-Base lineages, with 32K as the initial baseline. Action targets, chronological block boundaries, cumulative training data, target-token exposure, and optimizer steps remain matched; later prospective comparisons also match replay selection. “More data” here means more prior event-stream data in context, not more historical training examples. This alludes to discussions around what 'model capabilities' even mean when discussed broadly. Are 64K and 8K context windows both 'model capabilities'? How do we normalize for prompt quality or available tools?
 
 **Sliding window versus context retrieval.** At the fixed 32K baseline context budget, compare the trailing 32K causal prefix against a context containing the most recent 16K tokens plus 16K tokens retrieved from the earlier causally available history. BM25 uses the serialized recent 16K token prefix as its query, and fetched items are chronologically packed into context. Because a long event-stream query may be dominated by generic interface language, query preprocessing removes or downweights common interface boilerplate using a fixed rule established before prospective evaluation. This tests whether selecting related older events is more predictive than allocating the entire context budget to contiguous recent history. Dense, hybrid, reranked, learned, embedded, LongNAP-style reasoned retrieval, and agent-controlled retrieval tool use are possible later extensions but are outside the initial ablation matrix.
 
 **Direct prediction versus reasoning before prediction.** Using the same checkpoint and causal context, compare direct generation of the next structured write completion against generation with a fixed-budget private reasoning scratchpad before the same completion. The scratchpad is model-authored intermediate computation: it is not displayed, does not enter the human event stream, and is not scored as though it were observed human reasoning. Only the final completion through EOS is evaluated. Hold the final-completion decoding budget and decoding rule fixed, and report the additional reasoning tokens, latency, and compute separately. This tests whether explicit deliberation about the current task, likely objective, and causal dependencies improves write prediction independently of context retrieval.
 
-**Practical system comparison.** Compare continually updated Qwen3.5-9B-Base against frontier closed models using ICL only, with identical contexts and targets. This asks whether personal weight updates allow the local open model to compete with a stronger frozen API model and quantifies the difference in value between supplying information in context and storing judgment in weights.
+**Practical system comparison.** Experiment 1 establishes the initial comparison among frozen base Qwen3.5-9B, frozen `gpt-5.6-sol` at `xhigh` using ICL only, and personalized Qwen3.5-9B, with identical semantic contexts and targets. Later repetitions may substitute other frontier closed models. This asks whether personal weight updates allow the local open model to compete with a stronger frozen model and quantifies the difference between supplying personal information only in context and also storing regularities in weights.
 
 **Closed-model scaling.** Compare less-capable and frontier closed models, all using ICL only. This tests whether greater closed-model capability improves personal next-action prediction when the model cannot receive personal weight updates. 
 
 **Open-model scaling.** Compare Qwen3.5-9B-Base with stronger open models using the same continual-training and replay recipe. Where feasible, also score each open model without personal weight updates. This tests whether greater open-model capability improves baseline prediction and whether it changes the value obtained from continual weight updates.
 
-For the context and open-model conditions, also report adaptation after overnight training, older-workflow retention, general capability retention, and training cost. Dense-versus-MoE behavior, active and total parameters, memory, and throughput are secondary model-level analyses.
+For the context and open-model conditions, also report adaptation after each update, older-workflow retention, general capability retention, and training cost. Dense-versus-MoE behavior, active and total parameters, memory, and throughput are secondary model-level analyses.
 
-The initial Phase 1 bar is deliberately provisional: the collector produces an intelligible causal stream, training runs stably, displayed predictions sometimes appear relevant, and the ablations produce loss changes worth investigating. Those results determine which comparisons deserve robust baselines and formal human evaluation.
+The foundational Phase 1 bar is deliberately provisional: the collector produces an intelligible causal stream, training runs stably, offline sampled predictions sometimes appear relevant, and the three-model comparison produces loss or prediction-quality differences worth investigating. Those results determine whether a live focus-triggered harness, broader ablations, robust baselines, and formal human evaluation are justified.
 
 ## 8. Implementation Order
 
@@ -554,25 +544,25 @@ The initial Phase 1 bar is deliberately provisional: the collector produces an i
 3. run all three during ordinary work and inspect both source-specific capture and cross-application causal ordering;
 4. iterate on delays, extraction, viewport capture, diffs, provenance, deduplication, and event boundaries across the combined stream;
 5. freeze and version one snapshot-to-event and write-target conversion;
-6. implement and validate focus-time destination/cursor/clipboard conditioning, then the focus-triggered prediction display, and store displayed predictions as Phase 1-excluded read events;
-7. reconstruct historical note edits as a pipeline test without treating them as a complete historical stream;
-8. implement the deterministic serializer, causal prefix, destination/cursor/clipboard query, and structured target loader that maps grounded paste actions to a reserved marker encoded by the unchanged tokenizer and appends one loss-bearing EOS token;
-9. build the behavioral-cloning dataset and loss-tracking harness;
-10. implement the once-daily LoRA update;
-11. add stratified historical replay and immutable model lineage;
-12. run the prospective interleaved-stream and initial ablations;
-13. add lagged-checkpoint, closed-model ICL, and stronger open-model comparisons after the Qwen3.5-9B-Base baseline is stable;
-14. introduce robust baselines and formal human evaluation after the pipeline and early loss trends justify them.
+6. reconstruct historical note edits as a pipeline test without treating them as a complete historical stream;
+7. implement the deterministic serializer, causal prefix, pre-mutation destination/cursor/clipboard query, and structured target loader that maps grounded paste actions to a reserved marker encoded by the unchanged tokenizer and appends one loss-bearing EOS token;
+8. build the behavioral-cloning dataset, per-example loss tracker, and versioned chronological-block runner;
+9. collect a substantial ordinary-work trace and freeze a tokenizer-independent event and serialized-text context plan;
+10. implement the three foundational arms: frozen base Qwen3.5-9B, frozen `gpt-5.6-sol` at `xhigh` using ICL, and cumulatively trained Qwen3.5-9B;
+11. run and iterate on the offline three-model predictive-capacity comparison, preserving score-before-update ordering inside every versioned run;
+12. add broader objective, context, retrieval, checkpoint, and model-family ablations only after the foundational result is interpretable;
+13. if the result justifies live use, implement focus-time destination/cursor/clipboard conditioning, the focus-triggered prediction display, and explicit Phase 1 exclusion for displayed predictions;
+14. then implement the prospective update cadence, stratified replay, persistent model lineage, and later robust human evaluation.
 
-The required initial artifacts are the excluded debugging display, raw snapshot and input-event store, focus-time destination/cursor/clipboard capture, live prediction display, inspected trace log, privacy and exclusion policy, frozen conversion specification, explicit Phase 1 exclusion for displayed predictions, reconstruction and authorship audit, serializer and authored-text/paste-action/EOS target mask, immutable example store, leakage tests, loss-tracking harness, daily update manifest, and replay index.
+The required foundational artifacts are the excluded debugging display, raw snapshot and input-event store, inspected trace log, privacy and exclusion policy, frozen conversion specification, reconstruction and authorship audit, serializer and authored-text/paste-action/EOS target mask, immutable example store, leakage tests, per-example scoring and sampling harness, chronological block plan, three model-condition manifests, and personalized Qwen update lineage. Focus-time capture, the live prediction display, displayed-prediction exclusions, a daily update manifest, and a replay index are required for the later prospective harness rather than for the initial capacity test.
 
 ## 9. Conclusion
 
-Phase 1 asks whether one person's ordinary computer activity can train a continually improving predictor of what they will write next. The hard prerequisite is a credible sensor-derived account of observable exposure and authorship: what appeared to be read, when it became available, what the person produced, and how the frozen conversion divided that activity into bounded write bursts.
+Phase 1 asks first whether one person's ordinary computer activity contains enough signal to predict what they will write next, and later whether that predictor can improve continually in live use. The hard prerequisite is a credible sensor-derived account of observable exposure and authorship: what appeared to be read, when it became available, what the person produced, and how the frozen conversion divided that activity into bounded write bursts.
 
-The learning rule is simple. A fixed-length suffix of prior Phase 1-eligible READ and WRITE events plus the observed destination, semantic cursor context, and current clipboard state predicts the next human write completion. The target contains authored text and grounded paste actions rather than copied payload tokens, while resolved pasted content remains available to later history. The current model displays a prediction when a text field receives focus. That displayed prediction is stored in the raw stream but excluded from Phase 1 learning; modeling the resulting feedback loop begins in Phase 2. The model's weights remain fixed throughout the day. Overnight, that day's scored examples are mixed with historical replay and used for a LoRA behavioral-cloning update whose weights persist into the next day.
+The foundational learning rule is simple. A fixed-length suffix of prior Phase 1-eligible READ and WRITE events plus the observed destination, semantic cursor context, and current clipboard state predicts the next human write completion. The target contains authored text and grounded paste actions rather than copied payload tokens, while resolved pasted content remains available to later history. A frozen base Qwen, a frozen frontier model using the same information in context, and a cumulatively trained Qwen are compared over chronological blocks; every example is scored before it can train the personalized condition.
 
-The initial evidence is intentionally lightweight: qualitative inspection of displayed predictions and the direction and magnitude of loss changes across ablations. If those results are promising, robust baselines and formal human evaluation follow. If they are not, the daily losses and auditable event lineage should make the failure attributable to collection, write-event construction, context, optimization, or continual updating rather than hidden inside a more complicated system.
+The initial evidence is intentionally lightweight: per-example pre-update losses where available, aggregate and per-application traces, and direct inspection of offline generated predictions. If those results are promising, Phase 1 proceeds to focus-triggered live predictions, persistent score-before-update updates, replay, robust baselines, and formal human evaluation. Displayed predictions are then stored in the raw stream but excluded from Phase 1 learning; modeling the resulting feedback loop begins in Phase 2. If the foundational result is not promising, the auditable event and run lineage should make the failure attributable to collection, write-event construction, context, model capacity, or optimization rather than hidden inside a more complicated deployed system.
 
 ## References
 
