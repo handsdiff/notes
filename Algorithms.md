@@ -287,6 +287,7 @@ algorithms considered and rejected for now and why: (there are likely practicali
 	- insane resource. frontier RL 2026 https://rl-conference.cc/ (conference schedule, custom websites, accepted papers -> paper schedule)
 	- https://arxiv.org/pdf/2202.06991 differentiable search index -> knowledge in weights directly
 	- reasoning vs knowledge latest research https://claude.ai/chat/c4dd1c91-cacd-4599-a6c3-874720e2e9a3
+	- discusses ambiguity in learned distribution impacting LLM training https://arxiv.org/pdf/2608.15448
 
 - is phase 1 a process reward model?
 - does phase 1 result in an 'implicit' reward model?
