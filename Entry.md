@@ -15,4 +15,6 @@
 - from engram blog
 	- "Their knowledge naturally accumulates as they work" what this actually means is that there exists an indexing step in the brain that is paired with a sublinear query step, and those steps can occur in parallel and sequence as needed. its tough for me to visualize 'knowledge' in weights since all 'knowledge' feels completely opaque and purely measured by ability to make a certain decision / take a certain action given a set of information (could recognize that the set of information is bounded or incomplete and specifically explore to discover new information, which should fall into this bucket)
 	- i think this is the same as compression. given a fixed brain size / parameter size, the better you're able to compress fundamental concept A, the more fundamental concepts you can store, the more room you have to creatively combine concepts. compression is the method, decision making is the forcing function
+	- next action prediction as a forcing function for information retrieval feels correct, but perhaps missing the explicit compression aspect? perhaps not
+	- "We train the agent end-to-end in a harness that enables it to use tools over its notes and raw documents" yeah this is what i am insinuating with references to prime intellect PTC
 	- 
