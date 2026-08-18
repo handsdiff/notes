@@ -267,7 +267,9 @@ The same trace may be rerun rapidly while data conversion, context construction,
 
 ### 4.3 Later prospective continual loop
 
-If the foundational comparison shows useful predictive capacity, Phase 1 can operationalize the same causal objective in a live continual harness. Live generation then occurs when a text field receives focus, while supervised scoring continues to use the causal prefix and observed query immediately before each write begins. Focus is a user-interface trigger; it does not silently move later information into the training example.
+If the foundational comparison shows useful predictive capacity, Phase 1 can test the content predictor in a live continual harness. Live generation then occurs when a text field receives focus and uses the destination, semantic cursor context, clipboard state, and causal history captured for that actual focus-time query. A displayed prediction must be evaluated against the subsequent eligible write using the exact input from which it was generated; later pre-mutation state cannot be substituted into that prediction's score.
+
+The current offline training examples remain conditioned on the richer pre-mutation observation because focus-time capture has not yet been collected. The prospective harness therefore records paired focus-time and pre-mutation states, measures their drift, and treats this as an explicit train–serve difference. Training directly on focus-time opportunities is a later versioned dataset decision, not something introduced by silently moving timestamps or fields inside the existing examples.
 
 The initial prospective cadence may use one day as a block. Let $\theta_d$ be the personalized model at the beginning of day $d$ and keep its weights fixed while every eligible action that day receives a pre-update score. After the complete day has been scored, training produces:
 
@@ -296,7 +298,7 @@ Sampling weights, replay capacity, strata, optimizer steps, parent checkpoint, a
 
 The foundational comparison uses [Qwen3.5-9B-Base](https://huggingface.co/Qwen/Qwen3.5-9B-Base) [7] and `gpt-5.6-sol` at `xhigh` reasoning with the same basic trailing causal context plan, initially bounded by the 32K history-plus-query baseline. The two Qwen conditions begin from the same base checkpoint. One remains frozen and predicts through in-context history only; the other receives parameter-efficient updates on preceding chronological blocks. `gpt-5.6-sol` remains frozen and predicts through in-context history only.
 
-Qwen3.5-9B-Base is a nine-billion-parameter base model. It is dense in the routing sense, although its stack is a hybrid of Gated DeltaNet and gated-attention layers rather than a conventional all-full-attention Transformer. The official model card reports a native context length of 262,144 tokens. The initial 32K window is therefore an implementation and compute choice, not the checkpoint's native limit.
+Qwen3.5-9B-Base is a nine-billion-parameter base model. It is dense in the routing sense, although its stack is a hybrid of Gated DeltaNet and gated-attention layers rather than a conventional all-full-attention Transformer. The official model card reports a native context length of 262,144 tokens. The authenticated Tinker runtime currently exposes a 65,536-token maximum for this model. The initial 32K history-plus-query window is therefore an implementation and compute choice that fits the validated runtime after allowing additional capacity for the untruncated target. Any larger-context ablation must record and respect the actual serving or training runtime's total sequence limit rather than relying only on the checkpoint's advertised native length.
 
 This three-way comparison precedes the larger ablation matrix. Later experiments may vary context length, checkpoint recency, model family, update cadence, and replay without changing the event construction, causal serialization, or score-before-update rule.
 
@@ -335,6 +337,20 @@ $$
 \ell_\theta(y\mid h)
 }.
 $$
+
+This definition is the macro example-average objective: each write first produces its own mean target-token negative log-likelihood, and each write then contributes equally regardless of target length. The experiment also reports micro token NLL,
+
+$$
+\mathcal L_{\mathrm{micro}}(\theta;\mathcal D)
+=
+-\frac{
+\sum_{(h,y)\in\mathcal D}\ell_\theta(y\mid h)
+}{
+\sum_{(h,y)\in\mathcal D}\sum_j m_j
+},
+$$
+
+which weights longer targets in proportion to their loss-bearing tokens. Every example retains its individual pre-update NLL, and block reports contain both macro example-average and micro target-token averages. The mechanical Tinker overfit reports micro weighted-token NLL as its headline aggregate; it must not be presented as the same statistic as macro example-average loss. Each training run records its actual provider-side reduction and example-sampling policy so that optimization weighting is not inferred from an aggregate evaluation metric.
 
 Loss is masked on every model-input token and applied to authored target tokens, every existing-vocabulary token spelling the reserved marker for each grounded paste action, and the single loader-appended EOS token. Read events, earlier human actions, resolved pasted payloads, received messages, external model responses, tool results, destination, initial cursor state, clipboard state, and edit metadata provide input or audit evidence but do not become targets merely because they are available. Model predictions displayed during Phase 1 are excluded from the Phase 1 context as well as from its targets.
 
