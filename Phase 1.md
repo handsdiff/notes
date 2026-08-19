@@ -57,15 +57,15 @@
 
 ## Abstract
 
-Ordinary computer use produces a chronological record of information becoming action. A person reads documents, browses pages, receives messages and model outputs, edits notes, writes searches and prompts, sends messages, and changes artifacts. If these events are captured at the time they actually became available, they form a personal read–write stream from which the person's next bounded write action can be predicted. Judgment is distilled into weights.
+Ordinary computer use produces a chronological record of information becoming action. A person reads documents, browses pages, receives messages and model outputs, edits notes, writes searches and prompts, sends messages, and changes artifacts. If these events are captured at the time they actually became available, they form a personal read–write stream from which the person's next closed composition—the substantive thought expressed through one or more low-level edits—can be predicted. Judgment is distilled into weights.
 
-Phase 1 builds that stream and applies behavioral cloning to it. Each example contains a fixed-length causal history plus the observed destination, semantic cursor context, and current clipboard state immediately before an action, followed by a structured write completion. Authored text, grounded paste actions, and a structural end-of-sequence token receive loss; copied payload tokens do not, although their resolved content and provenance remain available in later history.
+Phase 1 builds that stream and applies behavioral cloning to it. Faithful low-level WRITEs remain audit evidence, but the learning unit is a closed composition episode: the finalized authored content corresponding to one intended output, potentially reconstructed across pauses, cursor movement, and correction. Each example contains a fixed-length causal history plus the observed destination, semantic cursor context, and current clipboard state immediately before the episode, followed by its structured completion. Authored text, grounded paste actions, and a structural end-of-sequence token receive loss; copied payload tokens do not, although their resolved content and provenance remain available in later history.
 
 The immediate foundational test runs offline over a frozen chronological trace. It compares three conditions using the same basic sliding-window history and write query: frozen Qwen3.5-9B-Base, frozen `gpt-5.6-sol` at `xhigh` reasoning using in-context prediction, and a Qwen3.5-9B-Base model updated on preceding examples. Every example is predicted and scored before it is allowed to train the personalized Qwen condition. Chronological blocks are chosen for fast experimental iteration rather than tied to calendar days, and the same developmental trace may be rerun under separately versioned configurations.
 
 A later prospective Phase 1 implementation queries the model automatically when a text field receives focus and shows its predicted write completion for qualitative inspection. Grounded action markers such as paste are rendered by the interface rather than displayed as literal text. Displayed predictions are captured in the raw stream as model-authored read events but excluded from the Phase 1 dataset. That later harness can use fixed daily checkpoints, overnight updates, and historical replay; modeling how displayed predictions change human behavior begins in Phase 2.
 
-The first goal is deliberately narrow: implement a temporally faithful event collector, construct reliable write-completion targets, establish that personal history improves next-write prediction, measure how performance changes with context length and continual adaptation, and observe whether repeated updates erase older behavior.
+The first goal is deliberately narrow: implement a temporally faithful event collector, construct reliable closed-composition targets, establish that personal history improves next-thought prediction at this operational level, measure how performance changes with context length and continual adaptation, and observe whether repeated updates erase older behavior.
 
 ## 1. Vision
 
@@ -78,7 +78,7 @@ The working hypothesis is that a model trained on this stream can become a usefu
 The research claims are:
 
 1. ordinary activity can be reconstructed as a faithful chronological event stream;
-2. prior read and write events contain signal about the next human write action;
+2. prior read and closed-composition events contain signal about the next human substantive composition;
 3. behavioral cloning can accumulate that signal in model weights;
 4. longer causal context improves prediction when it contains relevant personal history;
 5. daily continual updates can track changing work.
@@ -167,17 +167,35 @@ The reducer performs the semantic decisions that do not belong in the live colle
 
 The finalized ontology for the initial experiment contains only READ and WRITE. This does not mean every raw signal is one of those events: focus, navigation, copy, selection, and suppression records can remain evidence or conditioning without becoming prediction targets.
 
-### 3.5 Causal example compilation
+### 3.5 Closed composition episodes
 
-The causal compiler verifies the reducer manifest, hashes, stable event IDs, and raw lineage, then evaluates every finalized WRITE for use as a training example. It does not repeat semantic reduction. The chronology is derived from capture evidence:
+Semantic WRITEs describe faithful editable-state transitions. They are deliberately finer-grained than the behavior Phase 1 learns. A cursor relocation, pause, typo repair, or middle edit may end one sensor interval without ending the thought being expressed. A versioned episode constructor therefore projects semantic micro-WRITEs into model-facing closed compositions before causal examples are built:
+
+```text
+raw evidence
+→ semantic READ/WRITE micro-events
+→ closed composition episodes
+→ causal examples
+→ model-specific tokens
+```
+
+An episode begins from the conditioning state preceding its first mutation and may remain open through quiet periods, cursor movement within the evolving composition, corrections to newly authored text, and a return to the composition frontier. It closes only with observed evidence such as submission, a change of logical destination, or a later stable observation that proves the composition ended. Session termination alone is not closure.
+
+Every accepted multi-WRITE episode must have continuously replayable editable state, stable logical editable identity, no overlapping outside WRITE, and no novel causal READ between its members. An exact READ already available at episode onset may be crossed and suppressed as redundant; a novel READ partitions the episode because it changes the information available to the person. Ambiguous trajectories are excluded rather than stitched together.
+
+The model-facing history uses the same closed-composition projection as the targets. Micro-WRITEs survive only as immutable lineage and audit evidence; they are not serialized as independent thoughts. Closed but short or mechanical compositions may remain history-only. Unclosed and unresolved fragments are omitted from the cognitive history rather than mislabeled as independent outputs. The operational adjudication test is: at the initial conditioning point, what single completion would have substantially captured the intended output and made the subsequent edit trajectory unnecessary?
+
+### 3.6 Causal example compilation
+
+The causal compiler verifies the reducer and episode manifests, hashes, stable event IDs, and raw lineage, then evaluates every finalized closed episode for use as a training example. It does not repeat semantic reduction or episode construction. The chronology is derived from capture evidence:
 
 ```text
 read.available_at        = read.capturedAt
-target_write.began_at    = target_write.beganAt
-prior_write.available_at = prior_write.terminalDecisionAt
+target_episode.began_at    = first_member.beganAt
+prior_episode.available_at = final_member.terminalDecisionAt
 
 context(target) = stable_sort(
-    eligible events where event.available_at < target_write.began_at
+    eligible events where event.available_at < target_episode.began_at
 )
 ```
 
@@ -192,9 +210,9 @@ causally available READ/WRITE history
 
 The pre-mutation query is admitted under its explicit capture semantics: the first input has been intercepted, but the application has not processed it. It is not silently backdated as an ordinary historical event. Each example preserves the exact contributing event IDs, serialized history, query, structured target, resolved outcome metadata, conversion version, and raw lineage.
 
-Event validity and target eligibility remain separate. Verified WRITEs stay in later causal history even when they receive no target loss. The conservative initial target set excludes pure deletions, incomplete conditioning, unresolved authorship, and text-only completions shorter than four trimmed user-perceived characters. Grounded paste-only and mixed-paste completions bypass the length threshold because the paste action itself is loss-bearing. Records explicitly marked ineligible for Phase 1—including future displayed model predictions—are excluded from both targets and Phase 1 context.
+Event validity, episode closure, and target eligibility remain separate. Faithful semantic WRITEs remain auditable even when they do not become independent history or loss. The current conservative target set requires a closed evidence-backed episode with at least 40 trimmed authored characters and six authored words. Closed shorter compositions remain model-facing history; unresolved or unclosed fragments receive no loss and do not masquerade as thoughts in later context. Grounded paste actions do not bypass the substantive authored-content threshold. Records explicitly marked ineligible for Phase 1—including future displayed model predictions—are excluded from both targets and Phase 1 context.
 
-### 3.6 Model-specific packing and loss boundary
+### 3.7 Model-specific packing and loss boundary
 
 Compiled examples are tokenizer-independent. A model-specific packer retains the newest complete serialized event blocks plus the complete query within the history-plus-query input budget. The query stays at the right edge. Older events are removed first; if the oldest retained event itself crosses the boundary, only an explicitly marked, authorship-preserving semantic text tail may be retained. Partial JSON is never emitted, and the target is appended outside the input budget rather than silently truncated.
 
@@ -202,20 +220,21 @@ For Qwen, authored spans are tokenized normally. Each proven paste segment becom
 
 The packing manifest pins the tokenizer identity and revision, input budget, paste-marker encoding, EOS identifier, truncation rule, file digests, and loss-mask contract. This keeps the semantic dataset reusable across Qwen, frontier in-context baselines, and later model choices without treating one tokenizer's tensors as data authority.
 
-### 3.7 Iteration, freeze, and current boundary
+### 3.8 Iteration, freeze, and current boundary
 
 The practical iteration loop is:
 
 1. collect normal interleaved work while using the excluded viewer only as a debugging aid;
 2. reduce the raw session and inspect finalized events, screenshots, and unresolved evidence;
-3. compile and audit causal examples, then inspect the actual loss-bearing targets;
-4. pack and audit the model-specific representation;
-5. fix recurrent material errors at the earliest responsible layer, version the changed rule, and replay the preserved raw evidence;
-6. freeze collector, reducer, compiler, serializer, tokenizer, and packing manifests before comparing models.
+3. construct and audit closed composition episodes, including the model-facing historical WRITE stream;
+4. compile causal examples and inspect the actual loss-bearing targets;
+5. pack and audit the model-specific representation;
+6. fix recurrent material errors at the earliest responsible layer, version the changed rule, and replay the preserved raw evidence;
+7. freeze collector, reducer, episode constructor, compiler, serializer, tokenizer, and packing manifests before comparing models.
 
-The current training candidate implements this boundary with the `phase1-semantic-v7` reducer and `phase1-causal-v14` compiler. Those names identify the present frozen interpretation, not timeless theoretical requirements. Historical Obsidian Git data remains useful for unit tests, but the foundational experiment uses prospective, interleaved browser, Codex, Obsidian, and supported editor/terminal activity.
+The current training candidate implements this boundary with the `phase1-semantic-v8` reducer, `phase1-episode-v2` constructor, `phase1-episode-causal-v2` compiler projection, and `phase1-token-pack-v7` packer. Those names identify the present candidate interpretation, not timeless theoretical requirements. Historical Obsidian Git data remains useful for unit tests, but the foundational experiment uses prospective, interleaved browser, Codex, Obsidian, and supported editor/terminal activity.
 
-Each collection session remains an immutable independently auditable artifact, and the current causal compiler processes one finalized reduction at a time. Before Experiment 1, a deterministic corpus assembler must combine compatible compiled sessions without rewriting their event IDs or source lineage. Compatibility means the same effective data and learning contract, not the same application mix, project, or subject matter. The corpus manifest pins ordered session IDs and hashes, collection and semantic-schema compatibility, reducer/compiler/serializer/query/target contracts, session start and end times, coverage-boundary status, chronological block boundaries, and the context-plan policy used by the experiment.
+Each collection session remains an immutable independently auditable artifact. Per-session semantic reductions and causal micro projections are combined by a deterministic corpus assembler without rewriting event IDs or source lineage; the episode constructor then normalizes that cross-session stream. Compatibility means the same effective data and learning contract, not the same application mix, project, or subject matter. The corpus manifest pins ordered session IDs and hashes, collection and semantic-schema compatibility, reducer/episode/compiler/serializer/query/target contracts, session start and end times, coverage-boundary status, chronological block boundaries, and the context-plan policy used by the experiment.
 
 Cumulative training may use every preceding compatible session even when collection stopped between sessions. Cross-session context is a separate decision: an interrupted or unknown interval makes the observed history incomplete, but it does not make earlier events causally invalid. The corpus therefore preserves earlier eligible events while inserting an explicit structural gap boundary that distinguishes continuous, interrupted, and unknown coverage. This boundary is serialization metadata rather than a third semantic event type. Automatically resetting context at every session would discard potentially useful cross-day history; hard reset versus gap-aware carryover remains a versioned ablation.
 
@@ -249,7 +268,7 @@ There is no retrieval, semantic memory, objective induction, or learned selectio
 
 ### 4.2 Foundational chronological score-then-update loop
 
-The foundational test uses a frozen, audited trace divided into contiguous chronological blocks $B_1,\ldots,B_K$. A block is a versioned experimental unit—initially a convenient number of eligible writes or one or more captured sessions—not a calendar-day commitment. There is no random or permanently held-out train/validation/test split. Within each run, every example is predicted and scored before it may enter the personalized model's training set.
+The foundational test uses a frozen, audited trace divided into contiguous chronological blocks $B_1,\ldots,B_K$. A block is a versioned experimental unit—initially a convenient number of eligible closed compositions or one or more captured sessions—not a calendar-day commitment. There is no random or permanently held-out train/validation/test split. Within each run, every example is predicted and scored before it may enter the personalized model's training set.
 
 For block $B_k$, compare three conditions:
 
@@ -345,7 +364,7 @@ $$
 }.
 $$
 
-This definition is the macro example-average objective: each write first produces its own mean target-token negative log-likelihood, and each write then contributes equally regardless of target length. The experiment also reports micro token NLL,
+This definition is the macro example-average objective: each closed composition episode first produces its own mean target-token negative log-likelihood, and each episode then contributes equally regardless of target length. The experiment also reports micro token NLL,
 
 $$
 \mathcal L_{\mathrm{micro}}(\theta;\mathcal D)
@@ -518,13 +537,13 @@ The initial program is an offline, exploratory capacity test over collected chro
 
 ### Experiment 0: Collector and reconstruction audit
 
-**Current status: completed for the candidate baseline, with per-session auditing continuing.** The excluded viewer, prospective Obsidian/Chrome/Codex/VS Code collector, raw-first semantic reducer, causal compiler, Qwen packer, and reconstruction/authorship audits are implemented. The current candidate is frozen as `phase1-semantic-v7` plus `phase1-causal-v14`. New authoritative sessions still require manual sampling for missing events, temporal-ordering error, incorrect content inclusion, authorship error, action-boundary disagreement, destination ambiguity, future leakage, unresolved evidence, and target exclusions. A recurrent material failure or a collector/reducer/compiler change reopens this gate and creates a new versioned lineage.
+**Current status: completed for the micro-event substrate; the closed-episode candidate is locally audited and awaiting its final Qwen mechanical smoke.** The excluded viewer, prospective Obsidian/Chrome/Codex/VS Code collector, raw-first semantic reducer, episode constructor, causal compiler, Qwen packer, and reconstruction/authorship audits are implemented. The current candidate is `phase1-semantic-v8` plus `phase1-episode-v2` and `phase1-episode-causal-v2`. New authoritative sessions still require sampling for missing events, temporal-ordering error, incorrect content inclusion, authorship error, episode-boundary disagreement, destination ambiguity, future leakage, unresolved evidence, and target exclusions. A recurrent material failure or a collector/reducer/episode/compiler change reopens this gate and creates a new versioned lineage.
 
 The completed Run 8 Tinker overfit is the final mechanical part of this audit. It proves that the frozen pack can train a rank-32 Qwen LoRA through the intended loss mask, generate the exact training targets through EOS, and save and reload sampler and optimizer state. Because all 28 examples were repeatedly trained to memorization, it is not evidence for next-write prediction or the Phase 1 hypothesis.
 
 ### Experiment 1: Foundational three-model predictive-capacity test
 
-**This is the next behavioral experiment.** Use one frozen, audited chronological stream containing substantially more ordinary work across Obsidian, Chrome/browser, Codex, and other already supported writing surfaces such as VS Code. Divide eligible writes into contiguous developmental blocks and condition every arm on the same frozen semantic context plan: the same READ/WRITE event IDs and serialized text plus destination, semantic cursor context, and clipboard state. Compare:
+**This is the next behavioral experiment.** Use one frozen, audited chronological stream containing ordinary work across Obsidian, Chrome/browser, Codex, and other already supported writing surfaces such as VS Code. Divide eligible closed composition episodes into contiguous developmental blocks and condition every arm on the same frozen normalized context plan: the same READ/closed-WRITE event IDs and serialized text plus destination, semantic cursor context, and clipboard state. Compare:
 
 1. frozen Qwen3.5-9B-Base using sliding-window in-context prediction;
 2. frozen `gpt-5.6-sol` at `xhigh` reasoning using sliding-window in-context prediction;
@@ -571,18 +590,19 @@ The implementation has passed the data-fidelity and mechanical-training gates. T
 1. Implement prospective READ and WRITE collection across Obsidian, Chrome, Codex, and Visual Studio Code, including its integrated terminal.
 2. Preserve immutable session configuration, raw OCR/screenshots, Accessibility write states, input timing, cursor and clipboard conditioning, paste evidence, suppressions, and unresolved attempts.
 3. Separate authoritative raw evidence from the provisional excluded debugging viewer.
-4. Implement and audit the deterministic raw-only semantic reducer, currently `phase1-semantic-v7`, with stable lineage and explicit unresolved dispositions.
-5. Implement and audit the causal compiler, currently `phase1-causal-v14`, including strict temporal cutoffs, compact history serialization, content-target eligibility, and target/context exclusions.
-6. Implement the Qwen packer with complete-event context packing, preserved right-edge query, literal `<|paste|>` encoding under the unchanged tokenizer, one native EOS, untruncated targets, and exact causal-LM loss masks.
-7. Validate the provider-neutral causal shift and authenticated Tinker tokenizer compatibility.
-8. Complete the bounded Run 8 rank-32 LoRA overfit, exact-generation, paste/EOS, checkpoint, and optimizer-state reload gate. Retain it as mechanical evidence only.
+4. Implement and audit the deterministic raw-only semantic reducer, currently `phase1-semantic-v8`, with stable lineage and explicit unresolved dispositions.
+5. Implement and audit the closed-composition constructor, currently `phase1-episode-v2`, including evidence-gated merging, novel-READ partitioning, normalized model-facing WRITE history, substantiveness, and complete micro-WRITE dispositions.
+6. Implement and audit the causal episode projection, currently `phase1-episode-causal-v2`, including strict temporal cutoffs, compact history serialization, content-target eligibility, and target/context exclusions.
+7. Implement the Qwen packer with complete-event context packing, preserved right-edge query, literal `<|paste|>` encoding under the unchanged tokenizer, one native EOS, untruncated targets, and exact causal-LM loss masks.
+8. Validate the provider-neutral causal shift and authenticated Tinker tokenizer compatibility.
+9. Complete the bounded Run 8 rank-32 LoRA overfit, exact-generation, paste/EOS, checkpoint, and optimizer-state reload gate. Retain it as mechanical evidence only.
 
 ### 8.2 Immediate next: foundational predictive-capacity test
 
 1. Collect substantially more ordinary interleaved work without changing the candidate collector, delays, crops, reducer, or compiler mid-session.
-2. Reduce, compile, and audit each session. Inspect samples against the actual work, quantify unresolved and excluded records, and change the pipeline only for recurrent material failures. Any change starts a new versioned lineage.
-3. Implement the deterministic multi-session corpus assembler. Freeze the ordered compatible sessions, their artifact hashes and compatibility fingerprints, explicit continuous/interrupted/unknown coverage boundaries, and the policy governing whether context crosses each structural gap.
-4. Freeze the resulting corpus, chronological block boundaries, target set, and a common semantic context plan containing exact event IDs, exact serialized text and gap markers, and the exact query for every example.
+2. Reduce, compile the micro projection, and audit each session. Inspect samples against the actual work, quantify unresolved and excluded records, and change the pipeline only for recurrent material failures. Any change starts a new versioned lineage.
+3. Assemble compatible sessions, preserving ordered hashes and explicit continuous/interrupted/unknown coverage boundaries, then construct and audit closed episodes over the combined stream.
+4. Freeze the episode-normalized corpus, chronological block boundaries, target set, and a common semantic context plan containing exact event IDs, exact serialized text and gap markers, and the exact query for every example.
 5. Implement the chronological block runner and immutable run manifest. It must record every per-example target, prediction, available NLL, latency, cost, macro example-average loss, micro target-token loss, model version, decoding configuration, corpus digest, and context-plan digest before permitting an update.
 6. Implement the three scoring conditions over that common plan: frozen Qwen3.5-9B-Base, frozen `gpt-5.6-sol` at `xhigh`, and the current personalized Qwen checkpoint.
 7. Extend the validated Tinker LoRA path from memorization to prequential updates: score the complete block first, then train on cumulative eligible examples through that block, save sampler and optimizer state, and use the result only for the next block.
