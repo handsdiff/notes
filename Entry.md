@@ -12,3 +12,6 @@
 - i would probably like to remove paste action prediction since that does not predict content given a cursor position, its more about where you paste something and what you decide to copy
 - its clear that the lack of specific problem leads to indeterminate building which leads to failure
 - just 200 events cost $30. meaning 2000 events will cost $300.
+- it feels like whats closest to my intentions is to predict only long sequences of text input
+- i think combing thru the data will uncover drift in implementation vs my desires, coupled with the increased capture during the debugging, we may be able to run it again and see
+- it was supposed to be able to save time for people, but if it cant do that then its not useful
