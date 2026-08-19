@@ -7,3 +7,6 @@
 - how does introducing a temporal component to the collected data change the qualitative response of normal agents like Codex, vs just telling it that there is a git history? what about comparing it to just the current content? this feels interesting and important to quantify/benchmark, since it may be enough to have this rather than training to predict output.
 	- do i care about information to action mapping or do i care about a temporal understanding of past work? the thing about judgment + proactive suggestions is that its qualitatively different UX, so doesn't really feel like you can 'lineage' or MVP your way up to it
 	- you dont need a proactive assistant if the goal is reasoning over log history though
+
+- you cannot simultaneously maintain strict causal fidelity if you want to ensure full write blocks. for example if i write a half sentence, then go research something, then finish the sentence. you want the model to predict the half sentence? no. you want the model to predict the full sentence? well then its not maintaining causal fidelity. and what defines if the sentence was full or not. what if i write a full sentence, then do research, then go back and add to the sentence?
+- 
