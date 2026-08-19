@@ -9,4 +9,5 @@
 	- you dont need a proactive assistant if the goal is reasoning over log history though
 
 - you cannot simultaneously maintain strict causal fidelity if you want to ensure full write blocks. for example if i write a half sentence, then go research something, then finish the sentence. you want the model to predict the half sentence? no. you want the model to predict the full sentence? well then its not maintaining causal fidelity. and what defines if the sentence was full or not. what if i write a full sentence, then do research, then go back and add to the sentence?
-- 
+- i would probably like to remove paste action prediction since that does not predict content given a cursor position, its more about where you paste something and what you decide to copy
+- its clear that the lack of specific problem leads to indeterminate building which leads to failure
