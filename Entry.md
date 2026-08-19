@@ -26,4 +26,4 @@
 	- qwen best example is 139, gpt best example is 65
 	- both qwen and gpt sol only get matches on things that are mode collapsing or short, like paste actions or URLs. sol did better because it was also able to get short words
 	- maybe LLM judge / cosine sim with RL was considered better for more intermediate learning steps? which is weird since RL is considered much LESS sample efficient than SFT, but that would indicate the opposite?
-	- 
+	- havent found an example of this, i know for a fact there is one at 2026-08-19T12:43:16:708Z in the new data, but editing a sentence in between within a write delay should not be separate write events sometimes. i initially added it after seeing a prior example that i now forget but it feels net useless? or at the very least it should be cleaned into a single training example for the purposes of loss, and in the training set it can either stay a single write or remain raw i dont necessary think it has a large impact
