@@ -22,4 +22,4 @@
 	- could also be addressed by using a non base model rather than a base model, but would need to test this
 	- the clipboard should be empty unless it was edited in the last X seconds. i think the current data displays it all the time
 	- it seems like task instructions are being given to qwen, which i dont think makes sense. 
-	- 
+	- very interesting finding is that out of the box qwen is completely base model crap, first trained qwen learns format completely, next one starts predicting short form 'mode collapse'y answers, and last one starts predicting substantive sentences (that are still wrong)
