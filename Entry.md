@@ -23,7 +23,6 @@
 	- the clipboard should be empty unless it was edited in the last X seconds. i think the current data displays it all the time
 	- it seems like task instructions are being given to qwen, which i dont think makes sense. 
 	- very interesting finding is that out of the box qwen is completely base model crap, first trained qwen learns format completely, next one starts predicting short form 'mode collapse'y answers, and last one starts predicting substantive sentences (that are still wrong)
-	- another interesting finding is that the best qwen example (131) feels materially stronger in terms of understanding my next write / how my brain works than the best gpt example (111)
-	- both qwen and gpt sol only get matches on things that are mode collapsing or short, like paste actions or URLs
+	- both qwen and gpt sol only get matches on things that are mode collapsing or short, like paste actions or URLs. sol did better because it was also able to get short words
 	- maybe LLM judge / cosine sim with RL was considered better for more intermediate learning steps? which is weird since RL is considered much LESS sample efficient than SFT, but that would indicate the opposite?
 	- 
