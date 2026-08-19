@@ -1,6 +1,5 @@
 
 - coreauto interview discussing continual learning that seems intelligent https://x.com/CoreAutoAI/status/2082937120508067938?s=20
-- "RL without verifiable rewards" from will brown https://www.youtube.com/watch?v=AQv3qRCG6Gw&t=2s probably worth skimming only 20 mins
 - training vid from openai guy https://www.youtube.com/watch?v=r1qZpYAmqmg
 	- says that non reasoning, human interactivity post training/RLHF has on the order of 100k data examples, 100k training cost on the order of days, and the bottleneck is data and evals
 	- if i do token level cross entropy loss for phase 1, will that delete learned pretraining language abilities? does that same issue apply to RLHF? why or why not?

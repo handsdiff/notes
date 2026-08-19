@@ -49,3 +49,4 @@
 	- i think this is the same as compression. given a fixed brain size / parameter size, the better you're able to compress fundamental concept A, the more fundamental concepts you can store, the more room you have to creatively combine concepts. compression is the method, decision making is the forcing function
 	- next action prediction as a forcing function for information retrieval feels correct, but perhaps missing the explicit compression aspect? perhaps not
 	- "We train the agent end-to-end in a harness that enables it to use tools over its notes and raw documents" yeah this is what i am insinuating with references to prime intellect PTC
+- "RL without verifiable rewards" from will brown https://www.youtube.com/watch?v=AQv3qRCG6Gw&t=2s probably worth skimming only 20 mins
