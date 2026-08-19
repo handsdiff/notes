@@ -28,6 +28,8 @@
 	- maybe LLM judge / cosine sim with RL was considered better for more intermediate learning steps? which is weird since RL is considered much LESS sample efficient than SFT, but that would indicate the opposite?
 	- havent found an example of this, i know for a fact there is one at 2026-08-19T12:43:16:708Z in the new data, but editing a sentence in between within a write delay should not be separate write events sometimes. i initially added it after seeing a prior example that i now forget but it feels net useless? or at the very least it should be cleaned into a single training example for the purposes of loss, and in the training set it can either stay a single write or remain raw i dont necessary think it has a large impact
 	- when i use my codex session as a judge on the data, instead of the raw numbers being 4/200 for personalized qwen and 22/200 for gpt sol, is closer to 11/150 for qwen and 33/150 for gpt sol
+	- unclear how read is handled when information is displayed transitorily, such as the thinking of the codex app
+	- 
 - i think its best to specifically separate the use/sampling of the model from this initial training stage. the goal first is to establish to learnability of the substantive writes, rather than how to use such a model. you could attempt to couple the two but it leads to more complexity which decreases success likelihood
 - tinker on top of pufferlib instead of torch? are we using torch? https://x.com/jsuarez/status/2090091692607291467?s=20
 - what im attempting to do with the episodic rewrite i.e. focusing on closed substantive writes as loss targets rather than current level of granularity is changing the event demarcation logic to better map my intentions
