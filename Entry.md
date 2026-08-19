@@ -21,4 +21,5 @@
 	- untrained qwen base is complete slop since it tries to just output json having seen json. to me this indicates that the ergonomics of the data are not clean enough, but it may be a non issue because the trained qwen base model starts making actual predictions after the first block
 	- could also be addressed by using a non base model rather than a base model, but would need to test this
 	- the clipboard should be empty unless it was edited in the last X seconds. i think the current data displays it all the time
+	- it seems like task instructions are being given to qwen, which i dont think makes sense. 
 	- 
