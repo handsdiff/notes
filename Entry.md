@@ -16,4 +16,4 @@
 - i think combing thru the data will uncover drift in implementation vs my desires, coupled with the increased capture during the debugging, we may be able to run it again and see
 - it was supposed to be able to save time for people, but if it cant do that then its not useful
 - https://x.com/trycua/status/2089770780053643397?s=20
-- 
+- i need to reread this https://arxiv.org/html/2603.05923v1
