@@ -17,3 +17,6 @@
 - it was supposed to be able to save time for people, but if it cant do that then its not useful
 - https://x.com/trycua/status/2089770780053643397?s=20
 - i need to reread this https://arxiv.org/html/2603.05923v1
+- notes from looking at the data
+	- untrained qwen base is complete slop since it tries to just output json having seen json. to me this indicates that the ergonomics of the data are not clean enough, but it may be a non issue because the trained qwen base model starts making actual predictions after the first block
+	- 
