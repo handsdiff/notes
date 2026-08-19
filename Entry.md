@@ -19,4 +19,6 @@
 - i need to reread this https://arxiv.org/html/2603.05923v1
 - notes from looking at the data
 	- untrained qwen base is complete slop since it tries to just output json having seen json. to me this indicates that the ergonomics of the data are not clean enough, but it may be a non issue because the trained qwen base model starts making actual predictions after the first block
+	- could also be addressed by using a non base model rather than a base model, but would need to test this
+	- the clipboard should be empty unless it was edited in the last X seconds. i think the current data displays it all the time
 	- 
