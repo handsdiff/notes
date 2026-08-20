@@ -60,5 +60,6 @@
 - https://pieces.app/
 - if i run the model with a 'reward' that captures the similarity in what it outputted to what the actual next substantive write was, is that suddenly "much lower signal per flop" than my current token level cross entropy training? that doesn't seem to make much sense. i feel like this 'objective' ablation is one of the first, if not the first, ablation i'd like to run, since it feels so relevant to the 'use of information'
 - lots of conflation between judgment being required for multi agent systems vs solving 'memory' by teaching how to use context not just what context exists
+- one interesting test would be if the LLM predicts your next thought faster than you think of and write it down
 
 
