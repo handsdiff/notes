@@ -5,7 +5,7 @@
 	- if i do token level cross entropy loss for phase 1, will that delete learned pretraining language abilities? does that same issue apply to RLHF? why or why not?
 	- should we attempt fine tuning a reasoning model rather than a base model? the reasoning core may improve performance
 	- over and over, the bottleneck is data and evals. fine tuning is estimated to take 10k-100k problems, $10k-$100k in spend, and days of training
-	- "there is no reason trying to optimize things for your current level of compute because next year you will have more and that will perform better" internalizing this is important when it comes to the goal of the published results being to establish 'local scaling laws'
+	- "there is no reason trying to optimize things for your current level of compute because next year you will have more and that will perform better" internalizing this is important when it comes to the goal of the published results being to establish 'local scaling laws'. what matters is what scales, and the rate of scaling.
 - how does introducing a temporal component to the collected data change the qualitative response of normal agents like Codex, vs just telling it that there is a git history? what about comparing it to just the current content? this feels interesting and important to quantify/benchmark, since it may be enough to have this rather than training to predict output.
 	- do i care about information to action mapping or do i care about a temporal understanding of past work? the thing about judgment + proactive suggestions is that its qualitatively different UX, so doesn't really feel like you can 'lineage' or MVP your way up to it
 	- you dont need a proactive assistant if the goal is reasoning over log history though
