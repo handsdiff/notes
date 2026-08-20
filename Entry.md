@@ -55,5 +55,6 @@
 - i want cost/latency tracking as well as raw performance tracking on the experiment
 - https://arxiv.org/pdf/2608.17981v1
 - one way to describe the tension with the stated problem its addressing of not needing to provide context, besides the other ones listed in the thesis notes, is that the model is specifically not meant to be prompted via question answer. so you cant really rely on it to have some innate knowledge of everything youre working on. perhaps its more like talking to yourself, and yourself has faster, lower cost information retrieval and usage than you do, but that has not been proven yet. so the feelings around the lack of clarity around this addressing a current enterprise problem costing time or money is still unclear. obviously the vision is that it saves you time, but then you'd want to address people who think they spend a lot of time thinking? or doing rote work during their day to day? which feels widespread but vague rather than acute and deep. imagination vs practicality is the meta challenge.
+- you likely can't sell software. you can sell hardware, or customer service, or network effects.
 
 
