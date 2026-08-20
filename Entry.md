@@ -38,4 +38,4 @@
 - the way i described to jakub earlier was that the unique insight was that next thought prediction was a forcing function for properly learning how to apply information to an action, rather than alternative methods for supplying relevant information
 - apparently on tinker qwen 3.5 35b a3b base is cheaper than qwen3.5 9b base? its MoE vs dense is the only thing
 - should we clean up the read data in postprocessing by removing repetitive data like cutoff side panels in obsidian or chrome?
-- 
+- The FineWeb Datasets: Decanting the Web for the Finest Text Data at Scale
