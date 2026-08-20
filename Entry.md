@@ -52,5 +52,5 @@
 	- how to do something vs facts vs what to do given input might all be different things. the first and the third seem similar?
 - it seems like its fine to create the event demarcation we're going for rather than trying to create more synthetic datasets of the longer term goals since the things that are truly important will be done on the spot. hopefully, with the ai filling in those gaps, it allows you to move faster, so there are new gaps to fill, it can fill in more gaps, etc
 - https://arxiv.org/abs/2608.16072
-- 
+- i want cost/latency tracking as well as raw performance tracking on the experiment
 
