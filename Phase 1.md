@@ -519,7 +519,7 @@ procedure UPDATE_PERSONALIZED_QWEN(model_k, scored_blocks, compiled_dataset,
         parent=model_k,
         result=model_next,
         scored_blocks=scored_blocks,
-        cumulative_example_ids=example_ids,
+        newly_trained_example_ids=example_ids,
         compiled_dataset_digest=DIGEST(compiled_dataset),
         context_plan_digest=DIGEST(context_plans),
         packed_dataset_digest=DIGEST(packed),
@@ -553,7 +553,7 @@ Validate the three arms against the same frozen event and serialized-text plan. 
 
 ### Experiment 2: Prospective continual interleaved stream
 
-Only after Experiment 1 produces a signal worth deploying, continue collecting and scoring the interleaved stream prospectively across fixed score-before-update intervals, initially days. Implement focus-time destination/cursor/clipboard capture and display focus-triggered predictions for qualitative inspection while excluding those prediction events from the Phase 1 dataset. Preserve the exact focus-time input and score each displayed prediction against the later eligible write without replacing it with the later pre-mutation query. Record paired focus/pre-mutation state and drift; focus-conditioned training, if needed, becomes a separately versioned dataset rather than a silent modification of the foundational task. Add persistent checkpoint lineage and explicit replay when full cumulative training becomes impractical. Test whether correctly timed read and write history improves pre-update loss over the current artifact and damaged-history controls.
+Only after Experiment 1 produces a signal worth deploying, continue collecting and scoring the interleaved stream prospectively across fixed score-before-update intervals, initially days. Implement focus-time destination/cursor/clipboard capture and display focus-triggered predictions for qualitative inspection while excluding those prediction events from the Phase 1 dataset. Preserve the exact focus-time input and score each displayed prediction against the later eligible write without replacing it with the later pre-mutation query. Record paired focus/pre-mutation state and drift; focus-conditioned training, if needed, becomes a separately versioned dataset rather than a silent modification of the foundational task. Add persistent checkpoint lineage and make replay a separate, explicitly labeled intervention rather than the default update policy. Test whether correctly timed read and write history improves pre-update loss over the current artifact and damaged-history controls.
 
 ### Experiment 3: Ablation matrix
 
@@ -611,7 +611,7 @@ The deterministic multi-session assembly, raw-authoritative episode corpus, five
 1. Run the objective, timestamp, context-length, retrieval, reasoning, checkpoint-recency, and model-scaling ablations without changing the frozen event substrate.
 2. Implement focus-time destination/cursor/clipboard capture, refresh or invalidate on query drift, and compare focus-time state with the existing pre-mutation state.
 3. Build the focus-triggered prediction display and preserve displayed predictions as raw observations that remain excluded from Phase 1 contexts and targets.
-4. Only then introduce a prospective score-before-update cadence, persistent checkpoint lineage, and replay when cumulative retraining becomes impractical.
+4. Only then introduce a prospective score-before-update cadence and persistent checkpoint lineage; add replay only as a separately measured intervention if forgetting or scale justifies it.
 5. Defer modeling suggestion-conditioned human behavior to Phase 2 and destination prediction or learned proactivity until the content predictor and focus-triggered interface establish that they are necessary.
 
 No implementation artifact remains missing for the current foundational capacity test. Its remaining work is provider execution, artifact audit, and interpretation. More homogeneous prospective data is required for confirmation rather than for this developmental run. Focus-time capture, live display, daily manifests, and replay remain later requirements rather than blockers for the offline comparison.
