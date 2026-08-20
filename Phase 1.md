@@ -493,7 +493,7 @@ Target eligibility is owned by the frozen causal compiler, including the minimum
 procedure UPDATE_PERSONALIZED_QWEN(model_k, scored_blocks, compiled_dataset,
                                   context_plans, config):
     ASSERT_EVERY_EXAMPLE_IN_LATEST_BLOCK_WAS_SCORED(scored_blocks)
-    example_ids <- CUMULATIVE_ELIGIBLE_EXAMPLE_IDS(scored_blocks)
+    example_ids <- ELIGIBLE_EXAMPLE_IDS(LATEST_SCORED_BLOCK(scored_blocks))
     packed <- PACK_QWEN_FROM_EXACT_CONTEXT_PLANS(
         compiled_dataset,
         context_plans,
