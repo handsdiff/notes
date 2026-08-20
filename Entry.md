@@ -39,3 +39,4 @@
 - apparently on tinker qwen 3.5 35b a3b base is cheaper than qwen3.5 9b base? its MoE vs dense is the only thing
 - should we clean up the read data in postprocessing by removing repetitive data like cutoff side panels in obsidian or chrome?
 - The FineWeb Datasets: Decanting the Web for the Finest Text Data at Scale
+- posttrained model instead of base model for fine tuning?
