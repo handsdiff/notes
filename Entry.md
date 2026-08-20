@@ -66,6 +66,6 @@
 - its still kind of confusing to me how prime intellect has 100m in rev. youre telling me will brown joined because of his public verifiers repo, then they launched lab, and there was demand for lab? and that scaled to 100m in 8 months? is it inference? is it gpu rental? is it skilled labor? the stated mission was open science, which is what brought the team together. converting the open science mission to revenue is the unclear step
 - similarly, how is thinking machines making money? gpu rental? training? inference?
 - if you consider the human 'completion' the advantage towards an unknown reward, does that unify phase 1 and 2/3 training? its reliant on the humans best estimation of the reward, but it prevents the model from reward hacking.
-- 
+- did capture miss my write at 2026;08;20T19:53:27.266?
 
 
