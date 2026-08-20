@@ -7,6 +7,7 @@
 	- over and over, the bottleneck is data and evals. fine tuning is estimated to take 10k-100k problems, $10k-$100k in spend, and days of training
 	- "there is no reason trying to optimize things for your current level of compute because next year you will have more and that will perform better" internalizing this is important when it comes to the goal of the published results being to establish 'local scaling laws'. what matters is what scales, and the rate of scaling.
 	- seems increasingly obvious that phase 1 is sft and phase 2/3 is rl, which is a classic pipeline
+	- having a hard time internalizing the actual difference between a 'rule based verifier' used for RL that is essentially human preferences, vs some other method of human preference data? i guess a 'rubric' is literally the only way to encode human preference data in a way that is scalable? but this then allows you to do RL? (obviously also need envs to do rollouts, more compute, etc)
 - how does introducing a temporal component to the collected data change the qualitative response of normal agents like Codex, vs just telling it that there is a git history? what about comparing it to just the current content? this feels interesting and important to quantify/benchmark, since it may be enough to have this rather than training to predict output.
 	- do i care about information to action mapping or do i care about a temporal understanding of past work? the thing about judgment + proactive suggestions is that its qualitatively different UX, so doesn't really feel like you can 'lineage' or MVP your way up to it
 	- you dont need a proactive assistant if the goal is reasoning over log history though
@@ -65,5 +66,6 @@
 - its still kind of confusing to me how prime intellect has 100m in rev. youre telling me will brown joined because of his public verifiers repo, then they launched lab, and there was demand for lab? and that scaled to 100m in 8 months? is it inference? is it gpu rental? is it skilled labor? the stated mission was open science, which is what brought the team together. converting the open science mission to revenue is the unclear step
 - similarly, how is thinking machines making money? gpu rental? training? inference?
 - if you consider the human 'completion' the advantage towards an unknown reward, does that unify phase 1 and 2/3 training? its reliant on the humans best estimation of the reward, but it prevents the model from reward hacking.
+- 
 
 
