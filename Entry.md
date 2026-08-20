@@ -67,5 +67,6 @@
 - similarly, how is thinking machines making money? gpu rental? training? inference?
 - if you consider the human 'completion' the advantage towards an unknown reward, does that unify phase 1 and 2/3 training? its reliant on the humans best estimation of the reward, but it prevents the model from reward hacking.
 - did capture miss my write at 2026:08:20T19:53:27.266?
+- good thesis thread / practical thread on phase 1 vs 2/3 thats worth skimming over again https://claude.ai/chat/5019602c-f0fe-40bd-b737-cad6682cd5be
 
 
