@@ -8,6 +8,7 @@
 	- "there is no reason trying to optimize things for your current level of compute because next year you will have more and that will perform better" internalizing this is important when it comes to the goal of the published results being to establish 'local scaling laws'. what matters is what scales, and the rate of scaling.
 	- seems increasingly obvious that phase 1 is sft and phase 2/3 is rl, which is a classic pipeline
 	- having a hard time internalizing the actual difference between a 'rule based verifier' used for RL that is essentially human preferences, vs some other method of human preference data? i guess a 'rubric' is literally the only way to encode human preference data in a way that is scalable? but this then allows you to do RL? (obviously also need envs to do rollouts, more compute, etc)
+	- stated problem with RL i haven't heard articulated before but makes sense is that if youre doing agentic RL and the model is calling lots of external apis or tools, waiting for api returns is a waste of GPU time and resources
 - how does introducing a temporal component to the collected data change the qualitative response of normal agents like Codex, vs just telling it that there is a git history? what about comparing it to just the current content? this feels interesting and important to quantify/benchmark, since it may be enough to have this rather than training to predict output.
 	- do i care about information to action mapping or do i care about a temporal understanding of past work? the thing about judgment + proactive suggestions is that its qualitatively different UX, so doesn't really feel like you can 'lineage' or MVP your way up to it
 	- you dont need a proactive assistant if the goal is reasoning over log history though
@@ -68,5 +69,9 @@
 - if you consider the human 'completion' the advantage towards an unknown reward, does that unify phase 1 and 2/3 training? its reliant on the humans best estimation of the reward, but it prevents the model from reward hacking.
 - did capture miss my write at 2026:08:20T19:53:27.266?
 - good thesis thread / practical thread on phase 1 vs 2/3 thats worth skimming over again https://claude.ai/chat/5019602c-f0fe-40bd-b737-cad6682cd5be
+- one scifi concept that harkens to my explicit vision is the concept of an embedded agent that understands your context and is able to do things for you that would otherwise be slower for you. is next thought prediction the best way to get there? can you take a frontier model and give it full context (the same you'd be giving / training the personal one on) and tell it to take actions to get to some goal faster? its unclear. what would be a small test that would reveal this?
+	- one issue is that models literally cannot do this to a good enough quality bar
+	- another issue is that models could do this to a good enough quality bar, but it'd be too slow to be useful (the test comparing model performance vs latency to human performance vs latency would check this)
+	- another issue is that its good enough and fast but its stupid expensive
 
 
