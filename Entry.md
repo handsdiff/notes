@@ -62,5 +62,6 @@
 - if i run the model with a 'reward' that captures the similarity in what it outputted to what the actual next substantive write was, is that suddenly "much lower signal per flop" than my current token level cross entropy training? that doesn't seem to make much sense. i feel like this 'objective' ablation is one of the first, if not the first, ablation i'd like to run, since it feels so relevant to the 'use of information'
 - lots of conflation between judgment being required for multi agent systems vs solving 'memory' by teaching how to use context not just what context exists
 - one interesting test would be if the LLM predicts your next thought faster than you think of and write it down
+- its still kind of confusing to me how prime intellect has 100m in rev. youre telling me will brown joined because of his public verifiers repo, then they launched lab, and there was demand for lab? and that scaled to 100m in 8 months? is it inference? is it gpu rental? is it skilled labor?
 
 
