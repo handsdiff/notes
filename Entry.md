@@ -43,5 +43,13 @@
 - i think establishing local scaling laws is the best way to describe the goal for the writeup. requires an actual understanding of scaling laws. basically show how loss if a function of data, compute, parameters, perhaps underlying intelligence, etc. extrapolation from established laws can lead to hopefully accurate cost and performance timelines. scaling rate is critical! vs any y intercepts. read chinchilla paper to get good understanding here.
 - cost and latency, not just performance, is important to collect data on for the phase 1 experiment
 - while talking to jakub i think good positioning which well reflects my theses is roughly the following
-	- 
+	- continual learning of judgment/reasoning vs continual learning of facts
+	- z ai founder tweet on how facts seem to be stored in total and reasoning seems to be stored in active
+	- feels like im trying to get continual learning of judgment whereas most continual learners seem to be focusing on continual learning of facts
+	- relates to hardware since memory bandwidth is an issue to the extent that you have active parameters? or is it total parameters? probably worth reviewing
+	- does continual learning of reasoning makes sense? the clearest example is learning how to do something vs learning a fact. there is clearly a difference between these two things. calling learning how to do something judgment or reasoning may be where the issue comes in
+	- this thought seemed crazy to me when i had it but after writing it down it feels more normal / less clear
+	- how to do something vs facts vs what to do given input might all be different things. the first and the third seem similar?
+- it seems like its fine to create the event demarcation we're going for rather than trying to create more synthetic datasets of the longer term goals since the things that are truly important will be done on the spot. hopefully, with the ai filling in those gaps, it allows you to move faster, so there are new gaps to fill, it can fill in more gaps, etc
+- 
 
