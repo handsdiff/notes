@@ -73,5 +73,8 @@
 	- one issue is that models literally cannot do this to a good enough quality bar
 	- another issue is that models could do this to a good enough quality bar, but it'd be too slow to be useful (the test comparing model performance vs latency to human performance vs latency would check this)
 	- another issue is that its good enough and fast but its stupid expensive
+- for the second run
+	- the destination field is still confused. the model seems to have no indication between a terminal command vs a text file edit vs a cli prompt since its all considered 'vscode' (example 65)
+	- 
 
 
