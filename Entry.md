@@ -97,5 +97,6 @@
 - data is the new attention like memecoins rely on data to be useful
 - the loop of incorporating new data into a model is the equivalent of getting attention on a memecoin?
 - on thinking machines and river, is training more or less expensive than sampling / output? why?
+- https://x.com/eliebakouch/status/2090921490527011195?s=20
 
 
