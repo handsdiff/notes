@@ -78,6 +78,6 @@
 	- another issue is that its good enough and fast but its stupid expensive
 - for the second run
 	- the destination field is still confused. the model seems to have no indication between a terminal command vs a text file edit vs a cli prompt since its all considered 'vscode' (example 65)
-	- 
+	- im unhappy with the data quality but unsure if theres any more low hanging fruit. the read events are pretty disgusting. i assumed this would drown in the soup of learning but thats more unclear to me after manually reviewing them
 
 
