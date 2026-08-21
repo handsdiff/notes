@@ -99,5 +99,7 @@
 - the loop of incorporating new data into a model is the equivalent of getting attention on a memecoin?
 - on thinking machines and river, is training more or less expensive than sampling / output? why?
 - https://x.com/eliebakouch/status/2090921490527011195?s=20
+- https://x.com/distributionat/status/2090938996218318880?s=20
+- https://x.com/tinkerapi/status/2090922632955015200?s=20
 
 
