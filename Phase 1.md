@@ -276,7 +276,7 @@ For block $B_k$, compare three conditions:
 2. frozen `gpt-5.6-sol` at `xhigh` reasoning using the same trailing causal information in context;
 3. personalized Qwen3.5-9B-Base checkpoint $\theta_k$, trained only on blocks preceding $B_k$.
 
-The conditions receive the same frozen semantic plan of event IDs, serialized text, destination, semantic cursor context, clipboard state, and target. Model-specific tokenization may differ, but one condition must not receive older or additional semantic information merely because its tokenizer packs differently. Record each generated prediction and, where the interface exposes a valid target likelihood, its per-example pre-update loss; metrics that are not exposed comparably across model interfaces must be reported separately rather than treated as identical.
+The conditions receive the same frozen semantic plan of event IDs, serialized text, destination, semantic cursor context, clipboard state, and target. Model-specific tokenization may differ, but one condition must not receive older or additional semantic information merely because its tokenizer packs differently. Record each generated prediction and, where the interface exposes a valid target likelihood, its per-example pre-update loss; metrics that are not exposed comparably across model interfaces must be reported separately rather than treated as identical. Every attempted generation remains in the primary prediction-quality denominator. A token-limit stop, parse failure, or missing valid final answer is scored as an empty incorrect completion rather than removed; conditional-on-valid quality is reported only as a secondary diagnostic. Preserve the raw stop reason, parse status, generated tokens, and reasoning trace separately.
 
 Only after all examples in $B_k$ have been scored may that newly observed block train the persistent personalized checkpoint. Updating $\theta_k$ once on $B_k$ produces $\theta_{k+1}$ for the next block. Earlier blocks are already represented in the inherited checkpoint and are not replayed by the foundational continual baseline; replay is a separate later policy. The two frozen in-context conditions never train on the personal examples. This is prequential evaluation inside each run:
 
@@ -351,32 +351,34 @@ h_t^{(L)},y_{t,<j}
 \right).
 $$
 
-The behavioral-cloning loss is:
+The behavioral-cloning loss is the micro target-token objective:
 
 $$
 \boxed{
 \mathcal L_{\mathrm{BC}}(\theta;\mathcal D)
 =
--\frac{1}{|\mathcal D|}
-\sum_{(h,y)\in\mathcal D}
-\frac{1}{\sum_j m_j}
-\ell_\theta(y\mid h)
-}.
-$$
-
-This definition is the macro example-average objective: each closed composition episode first produces its own mean target-token negative log-likelihood, and each episode then contributes equally regardless of target length. The experiment also reports micro token NLL,
-
-$$
-\mathcal L_{\mathrm{micro}}(\theta;\mathcal D)
-=
 -\frac{
 \sum_{(h,y)\in\mathcal D}\ell_\theta(y\mid h)
 }{
 \sum_{(h,y)\in\mathcal D}\sum_j m_j
-},
+}
+}.
 $$
 
-which weights longer targets in proportion to their loss-bearing tokens. Every example retains its individual pre-update NLL, and block reports contain both macro example-average and micro target-token averages. The mechanical Tinker overfit reports micro weighted-token NLL as its headline aggregate; it must not be presented as the same statistic as macro example-average loss. Each training run records its actual provider-side reduction and example-sampling policy so that optimization weighting is not inferred from an aggregate evaluation metric.
+Every loss-bearing target token therefore has equal weight and a longer closed composition contributes proportionally more total learning signal. The provider implementation uses equal-size optimizer batches and assigns each target token weight $1/T_{\mathrm{batch}}$, where $T_{\mathrm{batch}}$ is the number of loss-bearing tokens in that optimizer batch. This preserves token-proportional influence while stabilizing gradient scale across updates. Partial optimizer batches are forbidden in the foundational Inkling run.
+
+The experiment also reports macro example-average NLL,
+
+$$
+\mathcal L_{\mathrm{macro}}(\theta;\mathcal D)
+=
+-\frac{1}{|\mathcal D|}
+\sum_{(h,y)\in\mathcal D}
+\frac{1}{\sum_j m_j}
+\ell_\theta(y\mid h),
+$$
+
+which gives each closed episode equal diagnostic weight regardless of length. Every example retains its individual pre-update NLL, and block reports contain both macro example-average and micro target-token averages. Each training run records its actual provider-side reduction, optimizer-batch construction, and example-sampling policy so that optimization weighting is not inferred from an aggregate evaluation metric.
 
 Loss is masked on every model-input token and applied to authored target tokens, every existing-vocabulary token spelling the reserved marker for each grounded paste action, and the single loader-appended EOS token. Read events, earlier human actions, resolved pasted payloads, received messages, external model responses, tool results, destination, initial cursor state, clipboard state, and edit metadata provide input or audit evidence but do not become targets merely because they are available. Model predictions displayed during Phase 1 are excluded from the Phase 1 context as well as from its targets.
 
@@ -506,8 +508,12 @@ procedure UPDATE_PERSONALIZED_QWEN(model_k, scored_blocks, compiled_dataset,
     candidate <- CLONE_TRAINING_STATE(model_k)
 
     for epoch in 1..config.epochs:
-        for datum in DETERMINISTIC_ORDER(datums, epoch, config.seed):
-            loss <- MASKED_TARGET_CROSS_ENTROPY(candidate, datum)
+        ordered <- DETERMINISTIC_ORDER(datums, epoch, config.seed)
+        batches <- EQUAL_COMPLETE_BATCHES(ordered, config.optimizer_batch_examples)
+        for batch in batches:
+            target_tokens <- COUNT_LOSS_BEARING_TOKENS(batch)
+            weights <- ASSIGN_TARGET_WEIGHT(batch, 1 / target_tokens)
+            loss <- MASKED_TARGET_CROSS_ENTROPY(candidate, batch, weights)
             candidate <- OPTIMIZER_STEP(candidate, gradient(loss))
 
     if OPTIMIZATION_FAILED(candidate):
