@@ -86,5 +86,6 @@
 - https://x.com/jietang/status/2090724835496443950?s=20
 - https://twin1.ai/
 - https://x.com/kalomaze/status/2090720845643866137?s=20
+- its unclear to me that i can even perform 'data ablations' with the existing amount of data. for example i could clean up all read data that has information that i know for a fact is erroneous. or i can remove specific urls like twitter or hyperliquid
 
 
