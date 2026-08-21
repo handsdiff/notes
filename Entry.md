@@ -83,5 +83,8 @@
 - thinking machines and prime intellect, personalized models for everyone. frontier models will enable this. more flops per dollar will enable this.
 - https://x.com/jyo_pari/status/2090533060924043465?s=20
 - https://x.com/RichardMCNgo/status/2090511571470655538?s=20
+- https://x.com/jietang/status/2090724835496443950?s=20
+- https://twin1.ai/
+- https://x.com/kalomaze/status/2090720845643866137?s=20
 
 
