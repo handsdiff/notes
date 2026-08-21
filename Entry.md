@@ -93,5 +93,9 @@
 - model launchpad. if you look at the vector of frontier models -> enterprise "sovereign AI" -> personalized models as well as the likening of openrouter to a marketplace and inference providers to market makers and models to tokens, then it feels like the end of that rainbow is a model launchpad where people can spin up and serve models for $2 in under 10 seconds.
 	- reminds me of apps like lovable where you use a chatbot to spin up products, but now you can use the bot to spin up models
 	- aligned with superintelligence narrative
+- openrouter is the easiest way to collect data for large labs (see thinking machines deciding to give free inkling on openrouter for the purposes of data collection)
+- data is the new attention like memecoins rely on data to be useful
+- the loop of incorporating new data into a model is the equivalent of getting attention on a memecoin?
+- 
 
 
