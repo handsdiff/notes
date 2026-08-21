@@ -80,7 +80,7 @@
 	- the destination field is still confused. the model seems to have no indication between a terminal command vs a text file edit vs a cli prompt since its all considered 'vscode' (example 65)
 	- im unhappy with the data quality but unsure if theres any more low hanging fruit. the read events are pretty disgusting. i assumed this would drown in the soup of learning but thats more unclear to me after manually reviewing them
 	- i think the data collection needs improving. its the hard part, but all the algorithmic and productization tricks are downstream of it
-- thinking machines and prime intellect, personalized models for everyone. frontier models will enable this. more flops per dollar will enable this.
+- thinking machines and prime intellect, personalized models for everyone. frontier models will enable this. more flops per dollar will enable this. continually trained models for everyone.
 - https://x.com/jyo_pari/status/2090533060924043465?s=20
 - https://x.com/RichardMCNgo/status/2090511571470655538?s=20
 - https://x.com/jietang/status/2090724835496443950?s=20
