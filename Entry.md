@@ -89,5 +89,7 @@
 - its unclear to me that i can even perform 'data ablations' with the existing amount of data. for example i could clean up all read data that has information that i know for a fact is erroneous. or i can remove specific urls like twitter or hyperliquid
 - jakub uses slack, arc, obsidian, orca (terminals), and codex app
 - while exploring the data, the only path forward, at a meta level description, is to overoptimize for the apps being used, perhaps similar to how cursor optimized for vscode. this is likely worth trying as an ablation
+- likely the case that a problem is valid but solution is lacking. the problem here being the knowledge of when to use certain context in certain scenarios and when not to
+- 
 
 
