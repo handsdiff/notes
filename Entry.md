@@ -101,5 +101,6 @@
 - https://x.com/eliebakouch/status/2090921490527011195?s=20
 - https://x.com/distributionat/status/2090938996218318880?s=20
 - https://x.com/tinkerapi/status/2090922632955015200?s=20
+- the writeup needs to be beautifully presented. people trust beautiful design more than normal design. obviously this is on top of solid content and work, and very technical writing that will impress readers
 
 
