@@ -103,5 +103,7 @@
 - https://x.com/tinkerapi/status/2090922632955015200?s=20
 - the writeup needs to be beautifully presented. people trust beautiful design more than normal design. obviously this is on top of solid content and work, and very technical writing that will impress readers
 - Worth getting more clear and deeper on openrouter. Atallah describes pubsub and engineer -> scientist work as related ideas. Starting from window ai and going to openrouter has so much to learn from starting from early adopters, solving a practical problem for the consumer of the content (model) that leads to the marketplace, etc. that differ / are new to my internalized understanding
+- Webbrain vlm 2 from tinker discord
+- one of my implicit assumptions has been that ‘algorithms improve’ i.e. you can get the same or better results from less data. is this true? whats the evidence? how to invalidate?
 
 
