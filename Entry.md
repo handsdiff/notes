@@ -111,9 +111,7 @@
 - https://tinker-docs.thinkingmachines.ai/tutorials/advanced/rlhf-pipeline/
 - https://transformer-circuits.pub/2026/interference_effectiveness_helpfulness/index.html
 - current pause point
-	- review team work
 	- data cleanliness plan
-	- GTM plan + stopping point
 	- proper human timing benchmarking since thats the point
 
 
