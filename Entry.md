@@ -105,5 +105,8 @@
 - Worth getting more clear and deeper on openrouter. Atallah describes pubsub and engineer -> scientist work as related ideas. Starting from window ai and going to openrouter has so much to learn from starting from early adopters, solving a practical problem for the consumer of the content (model) that leads to the marketplace, etc. that differ / are new to my internalized understanding
 - Webbrain vlm 2 from tinker discord
 - one of my implicit assumptions has been that ‘algorithms improve’ i.e. you can get the same or better results from less data. is this true? whats the evidence? how to invalidate?
+- https://tinker-docs.thinkingmachines.ai/tutorials/advanced/rlhf-pipeline/
+- https://transformer-circuits.pub/2026/interference_effectiveness_helpfulness/index.html
+- 
 
 
