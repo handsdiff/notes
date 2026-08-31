@@ -109,6 +109,10 @@
 	- yes models getting cheaper and faster and smarter. but does that mean they do better with less data? or does smarter here mean the ability to solve more esoteric problems? or work for longer in a way that is considered generally satisfactory?
 - https://tinker-docs.thinkingmachines.ai/tutorials/advanced/rlhf-pipeline/
 - https://transformer-circuits.pub/2026/interference_effectiveness_helpfulness/index.html
-- 
+- current pause point
+	- review team work
+	- data cleanliness plan
+	- GTM plan + stopping point
+	- proper human timing benchmarking since thats the point
 
 
