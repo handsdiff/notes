@@ -107,6 +107,7 @@
 - Webbrain vlm 2 from tinker discord
 - one of my implicit assumptions has been that ‘algorithms improve’ i.e. you can get the same or better results from less data. is this true? whats the evidence? how to invalidate?
 	- yes models getting cheaper and faster and smarter. but does that mean they do better with less data? or does smarter here mean the ability to solve more esoteric problems? or work for longer in a way that is considered generally satisfactory?
+	- if 'algorithms improve' means more parameters, is that a ceiling? or is that a bootstrap rate? what improves bootstrap rate? in context learning and LoRA stand out. how would you actually establish a vector here?
 - https://tinker-docs.thinkingmachines.ai/tutorials/advanced/rlhf-pipeline/
 - https://transformer-circuits.pub/2026/interference_effectiveness_helpfulness/index.html
 - current pause point
