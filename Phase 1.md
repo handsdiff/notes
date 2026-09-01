@@ -52,7 +52,7 @@
 	- is this example just search learned from RL? and intermediate rewards for clicking the correct intermediate links is the equivalent of jensen's EIOS (early indicators of success)?
 - https://huggingface.co/Motif-Technologies/Motif-3 pretraining dataset? base model?
 - historical concern: it felt like focus-time conditioning might be necessary even for offline training because the point at which to sample the model could determine which events receive loss
-	- current resolution: the foundational test deliberately uses causally valid pre-mutation conditioning to test content-prediction capacity offline; focus-time conditioning and the live sampling harness follow only if that simpler test produces a useful signal
+	- current resolution: the foundational test deliberately uses causally valid pre-mutation conditioning to test content-prediction capacity offline; its separate timing analysis projects sampling three seconds after the latest material action, while the router needed to produce a compatible live query remains Phase 2 work
 - important to keep in mind that the original impetus was to collect clean data and see if increased data improves performance, rather than develop a super useful system immediately. applying frontier techniques and algorithms to the data or moving to phase 2 are exploratory ablations whereas the primary purpose initially is to get the work out in the open and allow people to build on it with/without our help
 
 ## Abstract
@@ -63,7 +63,7 @@ Phase 1 builds that stream and applies behavioral cloning to it. Faithful low-le
 
 The immediate foundational test runs offline over a frozen chronological trace. It compares three conditions using the same basic sliding-window history and write query: frozen Qwen3.5-9B-Base, frozen `gpt-5.6-sol` at `xhigh` reasoning using in-context prediction, and a Qwen3.5-9B-Base model updated on preceding examples. The first block is training-only warm-up. Every example in each later scored block is predicted before that block can train the personalized Qwen condition; the terminal scored block receives no update because no later evaluation would use its checkpoint. Chronological blocks are chosen for fast experimental iteration rather than tied to calendar days, and the same developmental trace may be rerun under separately versioned configurations.
 
-A later prospective Phase 1 implementation queries the model automatically when a text field receives focus and shows its predicted write completion for qualitative inspection. Grounded action markers such as paste are rendered by the interface rather than displayed as literal text. Displayed predictions are captured in the raw stream as model-authored read events but excluded from the Phase 1 dataset. That later harness can use fixed daily checkpoints, overnight updates, and historical replay; modeling how displayed predictions change human behavior begins in Phase 2.
+The offline experiment also separates semantic usefulness from latency. Human time begins at the latest observable material READ or completed WRITE and ends at the target's final contributing mutation. A hypothetical model sample is projected three seconds after that material boundary; focus, pointer movement, destination routing, and the target's own typing do not restart the clock. This is a retrospective timing benchmark, not an implemented live router. Selecting the likely application and field at that earlier sample time, displaying the prediction, and modeling how displayed predictions change human behavior begin in Phase 2.
 
 The first goal is deliberately narrow: implement a temporally faithful event collector, construct reliable closed-composition targets, establish that personal history improves next-thought prediction at this operational level, measure how performance changes with context length and continual adaptation, and observe whether repeated updates erase older behavior.
 
@@ -238,7 +238,7 @@ Each collection session remains an immutable independently auditable artifact. P
 
 Cumulative training may use every preceding compatible session even when collection stopped between sessions. Cross-session context is a separate decision: an interrupted or unknown interval makes the observed history incomplete, but it does not make earlier events causally invalid. The corpus therefore preserves earlier eligible events while inserting an explicit structural gap boundary that distinguishes continuous, interrupted, and unknown coverage. This boundary is serialization metadata rather than a third semantic event type. Automatically resetting context at every session would discard potentially useful cross-day history; hard reset versus gap-aware carryover remains a versioned ablation.
 
-The initial offline experiment intentionally predicts write content with destination, semantic cursor context, clipboard state, and causal history already observed. It does not predict where the future write will occur, when the model should intervene, or how the user will react to a suggestion. A later live interface must capture the same query when a text field receives focus; first-mutation conditioning is sufficient to validate the offline task but is too late to serve a live prediction. Train–serve differences between focus and mutation must be measured before that interface is evaluated. Idle-triggered prediction, destination prediction, richer resource identity, true window-isolated capture, audio/video, and learned proactivity are deferred assumption-removal experiments rather than blockers for the foundational comparison.
+The initial offline experiment intentionally predicts write content with destination, semantic cursor context, clipboard state, and causal history already observed. It does not train the content model to predict where the future write will occur or when to intervene. For latency analysis only, the evaluator reconstructs the latest material canonical READ or completed WRITE from raw evidence, starts the human clock at that action, and projects one model sample three seconds later. A later live system must choose the likely application and field using only information available at that projected time, then capture compatible destination/cursor/clipboard conditioning for the content model. That router and live display belong to Phase 2. The current target-onset query is sufficient for the narrower offline content-capacity test but must not be misrepresented as evidence that the live route or query is solved. Richer resource identity, true window-isolated capture, audio/video, and learned proactivity remain deferred assumption-removal experiments rather than blockers for the foundational comparison.
 
 ## 4. Training Paradigm
 
@@ -293,9 +293,9 @@ The same trace may be rerun rapidly while data conversion, context construction,
 
 ### 4.3 Later prospective continual loop
 
-If the foundational comparison shows useful predictive capacity, Phase 1 can test the content predictor in a live continual harness. Live generation then occurs when a text field receives focus and uses the destination, semantic cursor context, clipboard state, and causal history captured for that actual focus-time query. A displayed prediction must be evaluated against the subsequent eligible write using the exact input from which it was generated; later pre-mutation state cannot be substituted into that prediction's score.
+If the foundational comparison shows useful predictive capacity, Phase 2 can place the content predictor behind a live router. After a three-second gap from the latest material action, that router chooses the likely application and field using only preceding tracked behavior. The content model then receives the destination, semantic cursor context, clipboard state, and causal history actually available for that routed query. Focus or query-state changes may refresh or invalidate an in-flight prediction, but they are not the event that retrospectively starts the human clock. A displayed prediction must be evaluated against the subsequent eligible write using the exact routed input from which it was generated; later target-onset state cannot be substituted into its score.
 
-The current offline training examples remain conditioned on the richer pre-mutation observation because focus-time capture has not yet been collected. The prospective harness therefore records paired focus-time and pre-mutation states, measures their drift, and treats this as an explicit train–serve difference. Training directly on focus-time opportunities is a later versioned dataset decision, not something introduced by silently moving timestamps or fields inside the existing examples.
+The current offline training examples remain conditioned on the richer pre-mutation observation because routed sample-time conditioning has not yet been collected. A prospective harness must record the routed query and later pre-mutation state, measure their drift, and treat this as an explicit train–serve difference. Training directly on routed opportunities is a later versioned dataset decision, not something introduced by silently moving timestamps or fields inside the existing examples.
 
 The initial prospective cadence may use one day as a block. Let $\theta_d$ be the personalized model at the beginning of day $d$ and keep its weights fixed while every eligible action that day receives a pre-update score. After the complete day has been scored, training produces:
 
@@ -398,42 +398,41 @@ The objective estimates behavior. It does not assert that the observed action wa
 
 ## 6. Algorithms
 
-### Algorithm 1 (later prospective): Display a prediction when a text field receives focus
+### Algorithm 1: Reconstruct human and model timing for offline evaluation
 
 ```text
-procedure PREDICT_ON_FOCUS(model, causal_event_prefix, focus_observation, config):
-    query <- SERIALIZE_FOCUS_CONDITIONING(focus_observation)
-    plan <- MATERIALIZE_FROZEN_CONTEXT_PLAN(
-        causal_event_prefix,
-        cutoff=focus_observation.captured_at,
-        query=query,
-        config=config.context_plan
-    )
-    h <- ENCODE_EXACT_CONTEXT_PLAN(
-        plan,
-        tokenizer=model.tokenizer,
-        require_all_planned_semantic_content=true
-    )
+procedure RECONSTRUCT_TIMING(target, causal_events, raw_evidence, sample_delay=3s):
+    material_actions <- []
+    for event in causal_events before target.began_at:
+        if event is a canonical READ:
+            material_actions.append(
+                human_boundary=event.raw.last_activity_at,
+                model_available_at=event.ocr_available_at
+            )
+        else if event is a prior closed WRITE:
+            material_actions.append(
+                human_boundary=event.final_contributing_mutation,
+                extended_through=event.confirmed_submission_if_applicable,
+                model_available_at=event.available_at
+            )
 
-    predicted_completion <- GENERATE_WRITE_COMPLETION_UNTIL_EOS(model, h, config)
+    anchor <- material action with the latest human_boundary in the same continuous session
+    human_start <- anchor.human_boundary
+    model_sample <- human_start + sample_delay
+    model_start <- max(model_sample, anchor.model_available_at)
+    human_finish <- target.final_contributing_mutation
 
-    if DESTINATION_CURSOR_OR_CLIPBOARD_CHANGED(focus_observation):
-        RECORD_INVALIDATED_PREDICTION(predicted_completion, reason="query_drift")
-        return no_display
-
-    display_observation <- DISPLAY_WRITE_COMPLETION(predicted_completion)
-    raw_stream.append(MODEL_PREDICTION_DISPLAY_OBSERVATION(
-        query_id=focus_observation.id,
-        content=display_observation.rendered_content,
-        actions=display_observation.grounded_actions,
-        displayed_at=display_observation.time,
-        phase1_eligible=false
-    ))
-
-    return predicted_completion, plan, h, display_observation
+    return human_start, model_sample, model_start, human_finish
 ```
 
-The displayed prediction is later evaluated using the frozen `plan` and `h` returned by this call. A pre-mutation query observed after focus cannot replace them. The display observation remains raw evidence until the semantic reducer processes it; the provisional live stream does not become training authority.
+Focus, pointer movement, application routing, duplicate or suppressed OCR observations, and the target's own mutation sequence do not move `human_start`. A genuinely new canonical READ or a completed prior WRITE does. Semantic usefulness is judged independently of timing. A semantic pass is also a real-time pass only when the target is substantive and
+
+```text
+human_finish - model_start
+    > generation_latency + estimated_review_and_acceptance_time + 1 second.
+```
+
+Long gaps remain visible wall-clock estimates and may include unobserved inactivity; they are not silently capped or converted into stronger semantic evidence. The calculation is retrospective because the present experiment did not run a destination router at `model_sample`.
 
 ### Algorithm 2: Score one chronological block under a common semantic context plan
 
@@ -539,7 +538,7 @@ The completed Run 8 Tinker overfit validates the Qwen packing, causal shift, los
 
 ## 7. Initial Experimental Program
 
-The initial program is an offline, exploratory capacity test over collected chronological data. Pre-update loss where available and generated predictions provide the quantitative and qualitative traces; no live suggestion interface or daily deployment scheduler is required. Rapid reruns are expected while the data, context, optimizer, block size, and evaluation are being developed, with every run versioned and score-before-update ordering preserved. A later prospective harness freezes a credible configuration, displays focus-triggered predictions, and updates on newly arriving data.
+The initial program is an offline, exploratory capacity test over collected chronological data. Pre-update loss where available and generated predictions provide the quantitative and qualitative traces; no live suggestion interface, destination router, or daily deployment scheduler is required. Rapid reruns are expected while the data, context, optimizer, block size, and evaluation are being developed, with every run versioned and score-before-update ordering preserved. A later prospective harness freezes a credible configuration, routes and displays predictions using only state available at sample time, and updates on newly arriving data.
 
 ### Experiment 0: Collector and reconstruction audit
 
@@ -555,11 +554,15 @@ The completed Run 8 Tinker overfit is the final mechanical part of this audit. I
 2. frozen `gpt-5.6-sol` at `xhigh` reasoning using sliding-window in-context prediction;
 3. personalized Qwen3.5-9B-Base, which trains first on the 50-example warm-up block, then scores each remaining block before continuing the preceding checkpoint on only that newly scored block. Every training example is presented once, and the terminal block receives no post-score update because no later evaluation consumes that checkpoint.
 
-Validate the three arms against the same frozen event and serialized-text plan. Record every generated completion, per-example Qwen pre-update loss, both macro example-average and micro target-token aggregates, any genuinely comparable frontier-model score exposed by its interface, latency, cost, and per-application projections. Qwen generations use temperature `0.6` and seed `17` under the frozen sampling contract. The implemented cross-model completion measures are exact match, surrounding-whitespace-normalized exact match, correct-prefix length and target coverage, macro/micro character edit similarity, and paste-action precision and recall. Paired prequential NLL and bits saved remain the controlled primary personalization measures for frozen versus personalized Qwen. Preserve every prediction and exact model-visible context so a holistic usefulness rubric or other semantic evaluation can be established and applied after capture without rerunning providers; such a future rubric is not an execution prerequisite for this developmental run. Inspect predictions directly for an initial capacity signal. The same trace may be rerun for fast, versioned development; these reruns are not fresh prospective evidence. Historical note edits may remain a separate reconstruction diagnostic, but they do not replace the interleaved test.
+Validate the three arms against the same frozen event and serialized-text plan. Record every generated completion, per-example Qwen pre-update loss, both macro example-average and micro target-token aggregates, any genuinely comparable frontier-model score exposed by its interface, latency, cost, and per-application projections. Qwen generations use temperature `0.6` and seed `17` under the frozen sampling contract. The implemented cross-model completion measures are exact match, surrounding-whitespace-normalized exact match, correct-prefix length and target coverage, macro/micro character edit similarity, and paste-action precision and recall. Paired prequential NLL and bits saved remain controlled optimization diagnostics for frozen versus personalized Qwen, not substitutes for prediction usefulness.
+
+Apply two distinct human-facing scores to the preserved generations. **Semantic holy shit** asks only whether the content would have felt like a genuinely valuable prediction of the intended write; it is scored over all substantive targets and is never gated by latency. **Real-time holy shit** additionally requires the timing reconstruction in Algorithm 1 and passes only if generation plus estimated review and acceptance would have completed more than one second before the human's final contributing mutation. The real-time denominator contains substantive examples for which even an ideal zero-latency prediction could clear that savings bar. Long unobserved gaps remain inspectable and must be interpreted as possible inactivity rather than assumed thinking. Preserve every prediction and exact model-visible context so both rubrics can be revised without rerunning providers. The current timing calculation projects latency against existing target-onset generations; it does not claim the still-deferred router would have supplied that destination and cursor state at sample time.
+
+Inspect predictions directly for an initial capacity signal. The same trace may be rerun for fast, versioned development; these reruns are not fresh prospective evidence. Historical note edits may remain a separate reconstruction diagnostic, but they do not replace the interleaved test.
 
 ### Experiment 2: Prospective continual interleaved stream
 
-Only after Experiment 1 produces a signal worth deploying, continue collecting and scoring the interleaved stream prospectively across fixed score-before-update intervals, initially days. Implement focus-time destination/cursor/clipboard capture and display focus-triggered predictions for qualitative inspection while excluding those prediction events from the Phase 1 dataset. Preserve the exact focus-time input and score each displayed prediction against the later eligible write without replacing it with the later pre-mutation query. Record paired focus/pre-mutation state and drift; focus-conditioned training, if needed, becomes a separately versioned dataset rather than a silent modification of the foundational task. Add persistent checkpoint lineage and make replay a separate, explicitly labeled intervention rather than the default update policy. Test whether correctly timed read and write history improves pre-update loss over the current artifact and damaged-history controls.
+Only after Experiment 1 produces a signal worth deploying, continue collecting and scoring the interleaved stream prospectively across fixed score-before-update intervals, initially days. Phase 2 first implements the sample-time destination router and captures the exact routed destination/cursor/clipboard query used for each displayed prediction. Preserve that input and score the display against the later eligible write without replacing it with later target-onset state. Record routing confidence, state drift, invalidation, and acceptance; training directly on routed opportunities, if needed, becomes a separately versioned dataset rather than a silent modification of the foundational task. Add persistent checkpoint lineage and make replay a separate, explicitly labeled intervention rather than the default update policy. Test whether correctly timed read and write history improves pre-update loss over the current artifact and damaged-history controls.
 
 ### Experiment 3: Ablation matrix
 
@@ -585,7 +588,7 @@ After the foundational comparison is stable, ablations use the same chronologica
 
 For the context and open-model conditions, also report adaptation after each update, older-workflow retention, general capability retention, and training cost. Dense-versus-MoE behavior, active and total parameters, memory, and throughput are secondary model-level analyses.
 
-The foundational Phase 1 bar is deliberately provisional: the collector produces an intelligible causal stream, training runs stably, offline sampled predictions sometimes appear relevant, and the three-model comparison produces loss or prediction-quality differences worth investigating. Those results determine whether a live focus-triggered harness, broader ablations, robust baselines, and formal human evaluation are justified.
+The foundational Phase 1 bar is deliberately provisional: the collector produces an intelligible causal stream, training runs stably, offline sampled predictions sometimes appear relevant, and the three-model comparison produces loss or prediction-quality differences worth investigating. Those results determine whether a live routed harness, broader ablations, robust baselines, and formal human evaluation are justified.
 
 ## 8. Implementation Order
 
@@ -614,12 +617,12 @@ The deterministic multi-session assembly, raw-authoritative episode corpus, five
 ### 8.3 Later work, conditional on a useful signal
 
 1. Run the objective, timestamp, context-length, retrieval, reasoning, checkpoint-recency, and model-scaling ablations without changing the frozen event substrate.
-2. Implement focus-time destination/cursor/clipboard capture, refresh or invalidate on query drift, and compare focus-time state with the existing pre-mutation state.
-3. Build the focus-triggered prediction display and preserve displayed predictions as raw observations that remain excluded from Phase 1 contexts and targets.
+2. In Phase 2, implement the sample-time destination router and capture the exact destination/cursor/clipboard query it selects; refresh or invalidate on query drift and compare it with the existing target-onset state.
+3. Build the routed prediction display and preserve displayed predictions as raw observations that remain excluded from Phase 1 contexts and targets.
 4. Only then introduce a prospective score-before-update cadence and persistent checkpoint lineage; add replay only as a separately measured intervention if forgetting or scale justifies it.
-5. Defer modeling suggestion-conditioned human behavior to Phase 2 and destination prediction or learned proactivity until the content predictor and focus-triggered interface establish that they are necessary.
+5. Defer modeling suggestion-conditioned human behavior and learned proactivity until the content predictor and routed interface establish that they are necessary.
 
-No implementation artifact remains missing for the current foundational capacity test. Provider execution and artifact audit are complete; interpretation and prospective confirmation remain. More homogeneous prospective data is required for confirmation rather than for this developmental run. Focus-time capture, live display, daily manifests, and replay remain later requirements rather than blockers for the offline comparison.
+No implementation artifact remains missing for the current foundational capacity test. Provider execution and artifact audit are complete; interpretation and prospective confirmation remain. More homogeneous prospective data is required for confirmation rather than for this developmental run. Sample-time routing, live display, daily manifests, and replay remain later requirements rather than blockers for the offline comparison.
 
 ## 9. Conclusion
 
@@ -627,7 +630,7 @@ Phase 1 asks first whether one person's ordinary computer activity contains enou
 
 The foundational learning rule is simple. A fixed-length suffix of prior Phase 1-eligible READ and WRITE events plus the observed destination, semantic cursor context, and current clipboard state predicts the next human write completion. The target contains authored text and grounded paste actions rather than copied payload tokens, while resolved pasted content remains available to later history. A frozen base Qwen, a frozen frontier model using the same information in context, and an incrementally trained Qwen are compared over chronological blocks. The first block establishes the personalized checkpoint; every example in each subsequent scored block is evaluated before that block continues the checkpoint exactly once, and the terminal block is not trained.
 
-The initial evidence is intentionally lightweight: per-example pre-update losses where available, aggregate and per-application traces, and direct inspection of offline generated predictions. If those results are promising, Phase 1 proceeds to focus-triggered live predictions, persistent score-before-update updates, replay, robust baselines, and formal human evaluation. Displayed predictions are then stored in the raw stream but excluded from Phase 1 learning; modeling the resulting feedback loop begins in Phase 2. If the foundational result is not promising, the auditable event and run lineage should make the failure attributable to collection, write-event construction, context, model capacity, or optimization rather than hidden inside a more complicated deployed system.
+The initial evidence is intentionally lightweight: per-example pre-update losses where available, aggregate and per-application traces, direct inspection of offline generated predictions, and the separate semantic and retrospective real-time scores defined above. If those results are promising, Phase 2 adds sample-time destination routing and live display before persistent prospective updates, replay, robust baselines, or formal human evaluation. Displayed predictions are stored in the raw stream but excluded from Phase 1 learning. If the foundational result is not promising, the auditable event and run lineage should make the failure attributable to collection, write-event construction, context, model capacity, optimization, or latency rather than hidden inside a more complicated deployed system.
 
 ## References
 
