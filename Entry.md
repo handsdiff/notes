@@ -17,7 +17,7 @@
 - how does introducing a temporal component to the collected data change the qualitative response of normal agents like Codex, vs just telling it that there is a git history? what about comparing it to just the current content? this feels interesting and important to quantify/benchmark, since it may be enough to have this rather than training to predict output.
 	- do i care about information to action mapping or do i care about a temporal understanding of past work? the thing about judgment + proactive suggestions is that its qualitatively different UX, so doesn't really feel like you can 'lineage' or MVP your way up to it
 	- you dont need a proactive assistant if the goal is reasoning over log history though
-- continua learning from rich sutton https://www.youtube.com/watch?v=xH7U7w9Qzlo
+- continual learning from rich sutton https://www.youtube.com/watch?v=xH7U7w9Qzlo
 
 - you cannot simultaneously maintain strict causal fidelity if you want to ensure full write blocks. for example if i write a half sentence, then go research something, then finish the sentence. you want the model to predict the half sentence? no. you want the model to predict the full sentence? well then its not maintaining causal fidelity. and what defines if the sentence was full or not. what if i write a full sentence, then do research, then go back and add to the sentence?
 - i would probably like to remove paste action prediction since that does not predict content given a cursor position, its more about where you paste something and what you decide to copy
@@ -132,5 +132,7 @@
 - https://huggingface.co/collections/Qwen/qwen35
 - updated timing to be based off of the last material event before a write, which still doesnt actually capture thinking but is much better than starting the timer when the first character was written
 - holistically, the idea i have in my head is the model suggesting what i'll write given a pause in my activity, which in theory should 'automate' my thinking over time, since the model can in theory digest the read content and analyze it instantly, whereas I would take time to do so. and we're trying to distill that process into the model. it should also suggest something if im in the middle of a write, which its unclear if it will do, but i think it will
+- i dont feel comfortable keeping it on when i type in secrets and im building it and its local... need to handle that
+- 
 
 

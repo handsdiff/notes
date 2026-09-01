@@ -50,3 +50,4 @@
 	- next action prediction as a forcing function for information retrieval feels correct, but perhaps missing the explicit compression aspect? perhaps not
 	- "We train the agent end-to-end in a harness that enables it to use tools over its notes and raw documents" yeah this is what i am insinuating with references to prime intellect PTC
 - "RL without verifiable rewards" from will brown https://www.youtube.com/watch?v=AQv3qRCG6Gw&t=2s probably worth skimming only 20 mins
+- exowill has good writing to express the ideas
