@@ -126,6 +126,7 @@
 - good take "once supported-app data is semantically legible and predictions remain poor, we should move the bottleneck to data quantity, model capacity, or the learning objective"
 - the reasonable middle ground to actual attention tracking is cursor tracking with AX tree resolution
 - https://x.com/tobi/status/2094808564355191249?s=20
+- https://x.com/tobi/status/2094808564355191249?s=20
 - is MoE more sample efficient than dense? why or why not? what are the learning properties of each?
 - https://www.webbrain.one/blog/fine-tuning-lfm25-vl-450m-for-browser-tasks https://huggingface.co/webbrain-one/webbrain-vl-2-450M
 - https://huggingface.co/collections/deepseek-ai/deepseek-v4
@@ -135,6 +136,7 @@
 - i dont feel comfortable keeping it on when i type in secrets and im building it and its local... need to handle that
 - https://arxiv.org/abs/2608.20492
 - https://www.lesswrong.com/users/steve2152
+- https://x.com/giovannicatt3/status/2094815425972539565?s=20
 - 
 
 
