@@ -137,6 +137,7 @@
 - https://arxiv.org/abs/2608.20492
 - https://www.lesswrong.com/users/steve2152
 - https://x.com/giovannicatt3/status/2094815425972539565?s=20
+- trainability benchmarks are missing
 - 
 
 
