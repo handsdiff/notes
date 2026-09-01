@@ -127,5 +127,9 @@
 - the reasonable middle ground to actual attention tracking is cursor tracking with AX tree resolution
 - https://x.com/tobi/status/2094808564355191249?s=20
 - is MoE more sample efficient than dense? why or why not? what are the learning properties of each?
+- https://www.webbrain.one/blog/fine-tuning-lfm25-vl-450m-for-browser-tasks https://huggingface.co/webbrain-one/webbrain-vl-2-450M
+- https://huggingface.co/collections/deepseek-ai/deepseek-v4
+- https://huggingface.co/collections/Qwen/qwen35
+- 
 
 
