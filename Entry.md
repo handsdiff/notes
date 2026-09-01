@@ -125,5 +125,6 @@
 - https://exowill.com/
 - good take "once supported-app data is semantically legible and predictions remain poor, we should move the bottleneck to data quantity, model capacity, or the learning objective"
 - the reasonable middle ground to actual attention tracking is cursor tracking with AX tree resolution
+- is MoE more sample efficient than dense? why or why not? what are the learning properties of each?
 
 
