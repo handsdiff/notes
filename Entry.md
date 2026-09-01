@@ -130,6 +130,7 @@
 - https://www.webbrain.one/blog/fine-tuning-lfm25-vl-450m-for-browser-tasks https://huggingface.co/webbrain-one/webbrain-vl-2-450M
 - https://huggingface.co/collections/deepseek-ai/deepseek-v4
 - https://huggingface.co/collections/Qwen/qwen35
-- 
+- updated timing to be based off of the last material event before a write, which still doesnt actually capture thinking but is much better than starting the timer when the first character was written
+- holistically, the idea i have in my head is the model suggesting what i'll write given a pause in my activity, which in theory should 'automate' my thinking over time, since the model can in theory digest the read content and analyze it instantly, whereas I would take time to do so. and we're trying to distill that process into the model. it should also suggest something if im in the middle of a write, which its unclear if it will do, but i think it will
 
 
