@@ -116,5 +116,7 @@
 - i am starting to feel like there is confusion, due to my lack of self awareness in goals, between sampling to supersede thinking and application of next thought into the computer vs autocompleting given a field and causal history
 - need to get jakub + dylan context when ready to test on it to see if any differences in data cleaning pipeline, training, etc
 - resolved training vs sampling issues by deterministically choosing app + field write destination and keeping model as content learner
+- we probably need 10-30 semantically accurate data points for a model to consider is not noise, regardless of the % of total accuracy it is. which implies we need to 10x the amount of data we have, since current qwen models get 1-2 things right. this assumes that the data is the same distribution, and it doesn't just show the ability to pick out easy prompts. also showing that loss continues to decrease by spending more on NLL graphs is likely necessary to show continual training improvements. also the choice of updating every 50 examples vs any other frequency (every example, or every day i.e. variable number) may impact things
+- 
 
 
