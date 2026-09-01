@@ -113,10 +113,13 @@
 - current pause point
 	- data cleanliness plan
 	- proper human timing benchmarking since thats the point
+- https://x.com/rohan_virani/status/2094499605501165772?s=20
 - i am starting to feel like there is confusion, due to my lack of self awareness in goals, between sampling to supersede thinking and application of next thought into the computer vs autocompleting given a field and causal history
 - need to get jakub + dylan context when ready to test on it to see if any differences in data cleaning pipeline, training, etc
 - resolved training vs sampling issues by deterministically choosing app + field write destination and keeping model as content learner
 - we probably need 10-30 semantically accurate data points for a model to consider is not noise, regardless of the % of total accuracy it is. which implies we need to 10x the amount of data we have, since current qwen models get 1-2 things right. this assumes that the data is the same distribution, and it doesn't just show the ability to pick out easy prompts. also showing that loss continues to decrease by spending more on NLL graphs is likely necessary to show continual training improvements. also the choice of updating every 50 examples vs any other frequency (every example, or every day i.e. variable number) may impact things
 - i wonder if for the purposes of getting something simple working, i should focus on only predicting next prompt, since the associated timing challenges and READ events are much clearer. i would still capture the other data since its relevant, but i would not apply loss to it necessarily. the only other writes i do are in notes and in messages to others. otherwise im prompting an agent with an associated chat history whether thats in the chatgpt app, codex cli, gemini web, claude web, google search, etc
+- https://x.com/MilksandMatcha/status/2052812382137971115?s=20
+- https://exowill.com/
 
 
