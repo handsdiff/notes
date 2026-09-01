@@ -124,5 +124,6 @@
 - https://x.com/MilksandMatcha/status/2052812382137971115?s=20
 - https://exowill.com/
 - good take "once supported-app data is semantically legible and predictions remain poor, we should move the bottleneck to data quantity, model capacity, or the learning objective"
+- the reasonable middle ground to actual attention tracking is cursor tracking with AX tree resolution
 
 
