@@ -134,6 +134,7 @@
 - holistically, the idea i have in my head is the model suggesting what i'll write given a pause in my activity, which in theory should 'automate' my thinking over time, since the model can in theory digest the read content and analyze it instantly, whereas I would take time to do so. and we're trying to distill that process into the model. it should also suggest something if im in the middle of a write, which its unclear if it will do, but i think it will
 - i dont feel comfortable keeping it on when i type in secrets and im building it and its local... need to handle that
 - https://arxiv.org/abs/2608.20492
+- https://www.lesswrong.com/users/steve2152
 - 
 
 
