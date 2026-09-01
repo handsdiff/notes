@@ -123,5 +123,6 @@
 - i wonder if for the purposes of getting something simple working, i should focus on only predicting next prompt, since the associated timing challenges and READ events are much clearer. i would still capture the other data since its relevant, but i would not apply loss to it necessarily. the only other writes i do are in notes and in messages to others. otherwise im prompting an agent with an associated chat history whether thats in the chatgpt app, codex cli, gemini web, claude web, google search, etc
 - https://x.com/MilksandMatcha/status/2052812382137971115?s=20
 - https://exowill.com/
+- good take "once supported-app data is semantically legible and predictions remain poor, we should move the bottleneck to data quantity, model capacity, or the learning objective"
 
 
