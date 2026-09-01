@@ -113,5 +113,7 @@
 - current pause point
 	- data cleanliness plan
 	- proper human timing benchmarking since thats the point
+- i am starting to feel like there is confusion, due to my lack of self awareness in goals, between sampling to supersede thinking and application of next thought into the computer vs autocompleting given a field and causal history
+- need to get jakub + dylan context when ready to test on it to see if any differences in data cleaning pipeline, training, etc
 
 
