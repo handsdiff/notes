@@ -158,4 +158,5 @@
 - i like the phrase "coupled learning" to describe the learning i'm trying to build
 - people use a lot of words to describe making human preferences scalable for the purposes of teaching AI: rubric engineering, reward models from human preferences, synthetic data, etc
 - one core difference between training to predict next write given prior read/write and 'jarvis' is that it will never ask you a clarifying question
+- the other issue is that it does not seem to be able to directly execute on superhuman tasking, although as i type this, it can always prompt a larger language model to do something, so its not necessary for the model itself to be directly able to execute like that
 
