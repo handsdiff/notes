@@ -141,5 +141,15 @@
 - cleaning up read identity then auditing full new work of data pipeline. data collection should still be running. if all good, focus on capturing data then initiating a run tomorrow afternoon for results by meeting thursday, and in the meantime work through entry to gain training intuitions and consolidate thinking perhaps into a writeup, perhaps akin to cursor's 'open problems' content
 - https://www.hyperdimensional.co/p/on-the-loose 
 - i really dont like how theres an instruction in the base model training. it should just be completing next token. base models dont have question answer no? then why does thinking machines recommend using 'roles' in base model training?
+- some notes
+	- agents cannot go 'rogue'. they require initiation and direction from a human. the counterargument is that the agent does things the human did not directly intend. the solution to this is liability, which ensures skin in the game for reckless humans
+	- humans currently seem to accrue assets, but not liabilities, of their agent
+	- either agents need personhood and the right to liberty, or humans must legally accrue the assets and liabilities of the AI they initiate and give direction to
+	- if we cannot rely on social consensus/norms to achieve this, then the most likely way out is close coupling
+	- if liabilities outweigh what the initiator is able to repay, such as '08, then the government will need to print money or increase taxes to handle it
+	- increased decoupling via long runs, lack of feedback, and lost interpretability lead to machine intelligence outcompeting humans on accumulation of resources, power, and control
+	- tight feedback loops (BCIs in the limit, implies heterogeneity + personalization) + mandated interpretability standards + legal liability is the safest combination
+	- long running + lost interpretability + no liability likely leads to succession long term, although in practice there needs to be a lot of compute for this to occur
+	- would future ai civilizations spin up their own currency? what would they use?
 
 
