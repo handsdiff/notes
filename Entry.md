@@ -153,7 +153,7 @@
 	- long running + lost interpretability + no liability likely leads to succession long term, although in practice there needs to be a lot of compute for this to occur
 	- would future ai civilizations spin up their own currency? what would they use to do this?
 - now we basically need to collect data, given the updates from the review this morning, and then review those, after a chunk of normal work. if thats good, we can finalize the versioned pipeline, and initiate training, to see if the new data helps
-- https://x.com/martin_casado/status/2095190791274787274
+- https://frontierharness.org/ codex is the only harness pareto on both cost and speed. supports analyzing how it handles memory/context. the single thread long horizon memory is excellent.
 - probably worth going back into the thinking/notes around how memory management occurs for harnesses, specifically codex, since it seems very relevant
 - i like the phrase "coupled learning" to describe the learning i'm trying to build
 - people use a lot of words to describe making human preferences scalable for the purposes of teaching AI: rubric engineering, reward models from human preferences, synthetic data, etc
