@@ -138,6 +138,6 @@
 - https://www.lesswrong.com/users/steve2152
 - https://x.com/giovannicatt3/status/2094815425972539565?s=20
 - trainability benchmarks are missing
-- 
+- cleaning up read identity then auditing full new work of data pipeline. data collection should still be running. if all good, focus on capturing data then initiating a run tomorrow afternoon for results by meeting thursday, and in the meantime work through entry to gain training intuitions and consolidate thinking perhaps into a writeup, perhaps akin to cursor's 'open problems' content
 
 
