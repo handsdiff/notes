@@ -152,5 +152,6 @@
 	- long running + lost interpretability + no liability likely leads to succession long term, although in practice there needs to be a lot of compute for this to occur
 	- would future ai civilizations spin up their own currency? what would they use to do this?
 - now we basically need to collect data, given the updates from the review this morning, and then review those, after a chunk of normal work. if thats good, we can finalize the versioned pipeline, and initiate training, to see if the new data helps
+- https://x.com/martin_casado/status/2095190791274787274
 - 
 
