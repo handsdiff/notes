@@ -154,4 +154,6 @@
 - now we basically need to collect data, given the updates from the review this morning, and then review those, after a chunk of normal work. if thats good, we can finalize the versioned pipeline, and initiate training, to see if the new data helps
 - https://x.com/martin_casado/status/2095190791274787274
 - probably worth going back into the thinking/notes around how memory management occurs for harnesses, specifically codex, since it seems very relevant
+- i like the phrase "coupled learning" to describe the learning i'm trying to build
+- 
 
