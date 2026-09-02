@@ -14,6 +14,7 @@
 	- considers collecting human data extremely difficult
 	- is RLHF/DPO set up the way it is BECAUSE human data collection is decoupled from training? what if this bottleneck was removed? would you just do SFT?
 	- is the learned reward model from preference data in RLHF essentially equivalent to a rubric in the sense that it makes human preference scalable for training?
+	- well known that LLM feedback is shown to be basically the same as human feedback except way cheaper now
 - how does introducing a temporal component to the collected data change the qualitative response of normal agents like Codex, vs just telling it that there is a git history? what about comparing it to just the current content? this feels interesting and important to quantify/benchmark, since it may be enough to have this rather than training to predict output.
 	- do i care about information to action mapping or do i care about a temporal understanding of past work? the thing about judgment + proactive suggestions is that its qualitatively different UX, so doesn't really feel like you can 'lineage' or MVP your way up to it
 	- you dont need a proactive assistant if the goal is reasoning over log history though
@@ -155,5 +156,5 @@
 - https://x.com/martin_casado/status/2095190791274787274
 - probably worth going back into the thinking/notes around how memory management occurs for harnesses, specifically codex, since it seems very relevant
 - i like the phrase "coupled learning" to describe the learning i'm trying to build
-- people use a lot of words to describe making human preferences scalable for the purposes of teaching AI: rubric engineering, reward models from human preferences, etc
+- people use a lot of words to describe making human preferences scalable for the purposes of teaching AI: rubric engineering, reward models from human preferences, synthetic data, etc
 
