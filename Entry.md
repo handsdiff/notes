@@ -155,5 +155,5 @@
 - https://x.com/martin_casado/status/2095190791274787274
 - probably worth going back into the thinking/notes around how memory management occurs for harnesses, specifically codex, since it seems very relevant
 - i like the phrase "coupled learning" to describe the learning i'm trying to build
-- 
+- people use a lot of words to describe making human preferences scalable for the purposes of teaching AI: rubric engineering, reward models from human preferences, etc
 
