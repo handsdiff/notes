@@ -159,4 +159,5 @@
 - people use a lot of words to describe making human preferences scalable for the purposes of teaching AI: rubric engineering, reward models from human preferences, synthetic data, etc
 - one core difference between training to predict next write given prior read/write and 'jarvis' is that it will never ask you a clarifying question
 - the other issue is that it does not seem to be able to directly execute on superhuman tasking, although as i type this, it can always prompt a larger language model to do something, so its not necessary for the model itself to be directly able to execute like that
+- data is needed. raw data -> useful structure is complicated and time consuming even if intelligence to handle it skyrockets. a well built, provably useful standard would unlock this burden and allow algorithmic tricks and eventual useful consumer apps on top of clean data streams
 
