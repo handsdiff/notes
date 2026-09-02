@@ -152,4 +152,5 @@
 	- long running + lost interpretability + no liability likely leads to succession long term, although in practice there needs to be a lot of compute for this to occur
 	- would future ai civilizations spin up their own currency? what would they use?
 
+in obsidian, writing continuously for a few pauses and corrections for 15-20 seconds but unsure how long the pauses should be so i did my best and then switching here and typing fast and then going back
 
