@@ -146,7 +146,7 @@
 	- humans currently seem to accrue assets, but not liabilities, of their agent
 	- either agents need personhood and the right to liberty, or humans must legally accrue the assets and liabilities of the AI they initiate and give direction to
 	- if we cannot rely on social consensus/norms to achieve this, then the most likely way out is close coupling
-	- if liabilities outweigh what the initiator is able to repay, such as '08, then the government will need to print money or increase taxes to handle it
+	- if liabilities outweigh what the initiator is able to repay, such as '08, then the government will need to print money or increase taxes to handle it.
 	- increased decoupling via long runs, lack of feedback, and lost interpretability lead to machine intelligence outcompeting humans on accumulation of resources, power, and control
 	- tight feedback loops (BCIs in the limit, implies heterogeneity + personalization) + mandated interpretability standards + legal liability is the safest combination
 	- long running + lost interpretability + no liability likely leads to succession long term, although in practice there needs to be a lot of compute for this to occur
