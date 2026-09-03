@@ -159,4 +159,5 @@
 - one core difference between training to predict next write given prior read/write and 'jarvis' is that it will never ask you a clarifying question
 - the other issue is that it does not seem to be able to directly execute on superhuman tasking, although as i type this, it can always prompt a larger language model to do something, so its not necessary for the model itself to be directly able to execute like that
 - data is needed. raw data -> useful structure is complicated and time consuming even if intelligence to handle it skyrockets. a well built, provably useful standard would unlock this burden and allow algorithmic tricks and eventual useful consumer apps on top of clean data streams
+- the lack of content is really bad. still need to go through entry + gain deep training intuitions + update local tasking + output content, getting blocked by continued iteration on data cleanup, although that does seem most important
 
