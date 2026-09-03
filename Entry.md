@@ -176,5 +176,10 @@
 	- "I think we want AI to present hypotheses about the inferred goals for your review." my dad said the same thing, when i was more heavily thinking through the concepts of goal inference / CIRL / assistance games
 	- "zuck's personal superintelligence"
 - https://www.amplifypartners.com/blog-posts/the-user-modeling-wars
+- https://www.engramme.com/index/memory-is-not-search
+- the following steps continue to stand out to me, but also get inflated in my head
+	- cross entropy loss -> semantic similarity or LLM as judge
+	- sliding window context -> agent led PTC on full corpus (RLMs?)
+	- does feel like i need to reimmerse myself in my memory thinking. peaked when i was writing the article on recall to judgment
 - 
 
