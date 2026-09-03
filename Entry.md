@@ -166,5 +166,12 @@
 - https://x.com/viemccoy/status/2089096954257215678?s=20 multi agent people really seem to understand the problem!
 - https://x.com/venturetwins/status/2095203994843086947?s=20 a16z is shilling coast?
 - why is he calling this 'embedded'? https://x.com/gakonst/status/2095462787224871197?s=20
-- 
+- exowill call with jonathan ward https://x.com/j_upward/status/2092317212371759269
+	- nusomi
+	- gwern GA
+	- joindex
+	- littlebird
+	- "Converting this data-limited problem into something compute-limited (without producing slop data) is very much the hard core of the research problem"
+	- belvedir
+	- 
 
