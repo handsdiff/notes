@@ -182,4 +182,7 @@
 	- sliding window context -> agent led PTC on full corpus (RLMs?)
 	- does feel like i need to reimmerse myself in my memory thinking. peaked when i was writing the article on recall to judgment
 - STT models seem to be getting really good, which is positive for being able to seamlessly incorporate audio into events
+	- they fold diarization (determining who is speaking) directly into the model??!
+	- both are closed source
+	- i could easily see speech becoming the dominant way of collecting context, so owning a STT model would be a very powerful position, if we assume the current human advantage is context (per alex atallah's 2024 blog post)
 
