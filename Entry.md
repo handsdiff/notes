@@ -173,5 +173,7 @@
 	- littlebird
 	- "Converting this data-limited problem into something compute-limited (without producing slop data) is very much the hard core of the research problem"
 	- belvedir
-	- 
+	- "I think we want AI to present hypotheses about the inferred goals for your review." my dad said the same thing, when i was more heavily thinking through the concepts of goal inference
+- https://www.amplifypartners.com/blog-posts/the-user-modeling-wars
+- 
 
