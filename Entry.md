@@ -191,5 +191,8 @@
 - can you imagine a model that detects outlier surprise in an audio transcription and asks clarifying questions on it, to improve WER? what is human WER?
 	- human WER is 4-8%, and this model is at 2%. superhuman listening??
 	- this only benchmarks against near field audio, not far field audio. so likely better than it seems.
+- how many tokens of data do we have?
+- test NLL charts are important
+- jonathan was talking about 'in context' NLL which i did not fully understand
 - 
 
