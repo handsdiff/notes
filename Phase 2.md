@@ -12,6 +12,7 @@
 - this will add latency so important to be specific about the full live flow, and how that relates to the equation that determines value
 - that equation being time saved due to good suggestions - time lost to review all suggestions
 - so good / all is a knob obviously. model latency is a knob. 
+- will likely need a way to handle if the model's suggestion is accepted verbatim but then edited (within a closed write). we'd likely want to train on the edited version that is finally used rather than naively considering acceptance as the ceiling for either SFT or DPO/IPO
 
 ## Abstract
 
