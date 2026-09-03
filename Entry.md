@@ -186,4 +186,6 @@
 	- both are closed source
 	- i could easily see speech becoming the dominant way of collecting context, so owning a STT model would be a very powerful position, if we assume the current human advantage is context (per alex atallah's 2024 blog post)
 - overfit test as a method of determining whether there exists learnable signal in the data. i believe thats what i did earlier with the qwen run
+- if the human model can predict the human well, you could pair it with a more typical frontier model to use the prediction from the human model to then more 'normally' help i.e. ask questions for assistance, more akin to something like jarvis or something even more proactive that actively suggests goal reaching activities
+- having a clean data stream of activity is the first step towards a model that can predict multi step turns which is the first step towards prospective learning or proactive assistance or multi agent systems
 
