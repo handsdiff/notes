@@ -181,5 +181,5 @@
 	- cross entropy loss -> semantic similarity or LLM as judge
 	- sliding window context -> agent led PTC on full corpus (RLMs?)
 	- does feel like i need to reimmerse myself in my memory thinking. peaked when i was writing the article on recall to judgment
-- 
+- STT models seem to be getting really good, which is positive for being able to seamlessly incorporate audio into events
 
