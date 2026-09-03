@@ -194,5 +194,7 @@
 - how many tokens of data do we have?
 - test NLL charts are important
 - jonathan was talking about 'in context' NLL which i did not fully understand
+- get the team on the new data collection, take their data. determine the easiest way to do this once, and the easiest way to do this multiple times. potentially test and add their supported apps
+- the AX tree viewport views were the most informative
 - 
 
