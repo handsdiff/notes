@@ -14,7 +14,8 @@
 	- considers collecting human data extremely difficult
 	- is RLHF/DPO set up the way it is BECAUSE human data collection is decoupled from training? what if this bottleneck was removed? would you just do SFT?
 	- is the learned reward model from preference data in RLHF essentially equivalent to a rubric in the sense that it makes human preference scalable for training?
-	- well known that LLM feedback is shown to be basically the same as human feedback except way cheaper now
+		- well known that LLM feedback is shown to be basically the same as human feedback except way cheaper now
+- well known that LLM feedback is shown to be basically the same as human feedback except way cheaper now
 - how does introducing a temporal component to the collected data change the qualitative response of normal agents like Codex, vs just telling it that there is a git history? what about comparing it to just the current content? this feels interesting and important to quantify/benchmark, since it may be enough to have this rather than training to predict output.
 	- do i care about information to action mapping or do i care about a temporal understanding of past work? the thing about judgment + proactive suggestions is that its qualitatively different UX, so doesn't really feel like you can 'lineage' or MVP your way up to it
 	- you dont need a proactive assistant if the goal is reasoning over log history though
@@ -126,7 +127,6 @@
 - https://exowill.com/
 - good take "once supported-app data is semantically legible and predictions remain poor, we should move the bottleneck to data quantity, model capacity, or the learning objective"
 - the reasonable middle ground to actual attention tracking is cursor tracking with AX tree resolution
-- https://x.com/tobi/status/2094808564355191249?s=20
 - is MoE more sample efficient than dense? why or why not? what are the learning properties of each?
 - https://www.webbrain.one/blog/fine-tuning-lfm25-vl-450m-for-browser-tasks https://huggingface.co/webbrain-one/webbrain-vl-2-450M
 - https://huggingface.co/collections/deepseek-ai/deepseek-v4
@@ -159,5 +159,7 @@
 - one core difference between training to predict next write given prior read/write and 'jarvis' is that it will never ask you a clarifying question
 - the other issue is that it does not seem to be able to directly execute on superhuman tasking, although as i type this, it can always prompt a larger language model to do something, so its not necessary for the model itself to be directly able to execute like that
 - data is needed. raw data -> useful structure is complicated and time consuming even if intelligence to handle it skyrockets. a well built, provably useful standard would unlock this burden and allow algorithmic tricks and eventual useful consumer apps on top of clean data streams
+- https://x.com/coreauto/status/2095285888591004017?s=20
+- https://x.com/krishnanrohit/status/2095223723334975595?s=20
 - the lack of content is really bad. still need to go through entry + gain deep training intuitions + update local tasking + output content, getting blocked by continued iteration on data cleanup, although that does seem most important
 
