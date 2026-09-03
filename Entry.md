@@ -162,4 +162,6 @@
 - https://x.com/coreauto/status/2095285888591004017?s=20
 - https://x.com/krishnanrohit/status/2095223723334975595?s=20
 - the lack of content is really bad. still need to go through entry + gain deep training intuitions + update local tasking + output content, getting blocked by continued iteration on data cleanup, although that does seem most important
+- https://x.com/willcb/status/2095420093861949576?s=20
+- https://x.com/viemccoy/status/2089096954257215678?s=20 multi agent p
 
