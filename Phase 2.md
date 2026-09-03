@@ -7,6 +7,11 @@
 #### Unstructured Notes - to be incorporated
 - phase 2 requires only showing samples when confidence exceeds some threshold, likely requires fine tuning
 - very informative and critical reward inference discussion with papers foundational from dragan that i havent come across otherwise https://gemini.google.com/app/4f984ce16e37337a, includes data structure discussion and examples
+- phase 1 model is focused on content prediction. during sampling, we will likely sample when a pause in human activity occurs, derive destination platforms deterministically from historical data, then pass those choices to the model for it to produce the content.
+- the cleanup that occurs during training will need to occur during live inference. so we'd need to track the deterministic scaffolding from prior data and just exclude that, then also perform the OCR cleanup pipeline before sending the cleaned events, in real time, to sampling
+- this will add latency so important to be specific about the full live flow, and how that relates to the equation that determines value
+- that equation being time saved due to good suggestions - time lost to review all suggestions
+- so good / all is a knob obviously. model latency is a knob. 
 
 ## Abstract
 
@@ -51,6 +56,33 @@ $$
 
 This section conditions on the system having chosen to intervene. Section 4.4 defines that choice separately.
 
+### 3.1 Prospective sampling and routing contract
+
+The first prospective harness should preserve the Phase 1 learning object rather than asking one model to solve content, destination, and intervention timing simultaneously. The content policy still predicts **what the person will write**. A separate, deterministic, versioned router chooses **where that prediction is intended to go**, and the external eligibility rule chooses **when it is worth computing a candidate**. Joint destination prediction and a learned intervention policy remain later ablations.
+
+The provisional opportunity rule begins with the latest observable **material action**. A canonical READ or completed prior WRITE can move this boundary because it changes the information or work product available to the person. Pointer movement, focus, application routing, and the target's own physical mutations ordinarily express an intention rather than introduce new material information, so they do not restart the human opportunity clock. The human clock begins at the material boundary. A three-second inactivity delay is only a serving throttle: it makes an opportunity eligible without claiming that thinking began three seconds later.
+
+At the eligible time, a router uses only the preceding personal stream to estimate a distribution over currently supported application-and-field destinations. The initial rule selects one destination deterministically—for example, the highest-probability eligible destination with a fixed tie break—and records the complete distribution and rule version. This bridges a content-only model to a usable interface without spending content-model loss on destination prediction. Sampling several destinations, learning the router, or asking one generative model to predict destination plus content are separate experiments.
+
+The routed query contains exactly the destination, semantic cursor state, clipboard state, and causal READ/WRITE history actually available at sample time. If cursor or field information is unavailable for the selected destination, that absence is explicit; later pre-mutation state must not be substituted retrospectively. A later focus, destination, cursor, selection, clipboard, or material-history change may refresh or invalidate an in-flight candidate. The original routed query remains immutable so proposal quality can be distinguished from routing error and query drift.
+
+The live semantic projector should run incrementally as raw observations arrive:
+
+```text
+raw observations
+-> select and crop the active pane
+-> OCR and reconcile contemporaneous sensors
+-> remove versioned interface scaffolding
+-> consolidate dynamic states and adjacent viewport overlap
+-> update the cached causal READ/WRITE history
+```
+
+Sampling must not replay the offline corpus compiler. When the three-second opportunity becomes eligible, the harness appends the routed destination/cursor/clipboard query to the already-clean cached history, packs the bounded context, and starts generation. OCR is expected to dominate preparation latency; current sequential development replay is roughly 0.7 seconds per selected-pane image, whereas the subsequent semantic transformations should be maintained incrementally. Record `context_ready_at` separately and define actual model start as the later of opportunity eligibility and causal-context readiness. This preserves the distinction between human time, serving policy, sensor latency, model latency, render latency, and review/acceptance time.
+
+Offline cleanup may use a completed session to discover recurring interface text, but a promoted serving rule must be reproducible prospectively. Hindsight-derived scaffolding therefore has to become a frozen, versioned registry available before a deployment epoch, or be recognized from past-only live evidence. Otherwise its use is an explicit train–serve difference rather than silently cleaner training context.
+
+The initial three-second rule is a baseline, not a claim that focus-time, pause-time, or mid-composition sampling is optimal. The harness should retain every eligible opportunity—including invalidated and unshown ones—so later work can compare inactivity thresholds, focus-triggered refresh, mid-write continuation, one-route versus multiple-route generation, and learned proactivity without reconstructing opportunities from target writes after the fact.
+
 A proposal policy $\rho_d$ samples $K$ bounded actions
 
 $$
@@ -88,7 +120,7 @@ $$
 \lambda_{\mathrm{replay}}\mathcal L_{\mathrm{BC}}(\mathcal R_d),
 $$
 
-where exposed examples use $h_t^+$ and unaided examples use their ordinary pre-action histories. Proposal tokens are context and are masked from target loss. Phase 1's temporal collection, daily evaluate-then-update loop, historical replay, and immutable data and model lineage remain unchanged.
+where exposed examples use $h_t^+$ and unaided examples use their ordinary pre-action histories. Proposal tokens are context and are masked from target loss. Phase 1's temporal collection, chronological score-before-update protocol, and immutable data and model lineage continue. Update cadence and any replay remain separately versioned interventions rather than implicit defaults.
 
 This model estimates collaborative human behavior. It learns copying, refinement, synthesis, rejection, and task switching as different responses to different observed histories.
 
@@ -276,9 +308,31 @@ Behavioral replay continues exactly as in Phase 1. Preference replay and reward 
 The Phase 1 event store remains authoritative. Phase 2 adds immutable derived records:
 
 ```text
+SamplingOpportunity {
+  opportunity_id
+  material_anchor_event_id
+  human_clock_started_at
+  eligible_at
+  context_ready_at
+  sampled_at?
+  semantic_projector_version
+  router_version
+  route_distribution
+  destination_selection_rule
+  selected_destination
+  sample_time_cursor_state?
+  sample_time_clipboard_state
+  pre_display_context_event_ids
+  pre_display_context_hash
+  invalidated_at?
+  invalidation_reason?
+  later_human_action_id?
+  later_destination_and_query_drift?
+}
+
 InterventionDecision {
   intervention_id
-  decision_point_id
+  opportunity_id
   pre_display_context_event_ids
   pre_display_context_hash
   eligibility_rule_version
@@ -353,7 +407,8 @@ The full generated slate is retained for audit, but only confirmed rendered cand
 
 ```text
 procedure COACTIVE_INTERACTION(gate, rho_deployed, live_stream, K):
-    h_minus <- FREEZE(BUILD_CONTEXT(events available now))
+    opportunity <- NEXT_ELIGIBLE_ROUTED_OPPORTUNITY(live_stream)
+    h_minus <- FREEZE(BUILD_CONTEXT_AND_QUERY(opportunity))
     decision <- DECIDE_AND_LOG(gate, h_minus)
     SCHEDULE_OUTCOME_MEASUREMENT(decision, live_stream)
 
