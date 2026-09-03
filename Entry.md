@@ -185,4 +185,5 @@
 	- they fold diarization (determining who is speaking) directly into the model??!
 	- both are closed source
 	- i could easily see speech becoming the dominant way of collecting context, so owning a STT model would be a very powerful position, if we assume the current human advantage is context (per alex atallah's 2024 blog post)
+- overfit test as a method of determining whether there exists learnable signal in the data. i believe thats what i did earlier with the qwen run
 
