@@ -15,6 +15,7 @@
 	- is RLHF/DPO set up the way it is BECAUSE human data collection is decoupled from training? what if this bottleneck was removed? would you just do SFT?
 	- is the learned reward model from preference data in RLHF essentially equivalent to a rubric in the sense that it makes human preference scalable for training?
 		- well known that LLM feedback is shown to be basically the same as human feedback except way cheaper now
+	- deduplication helps pretraining performance the most out of any cleanup, according to the FineWeb Dataset work
 	- 
 - how does introducing a temporal component to the collected data change the qualitative response of normal agents like Codex, vs just telling it that there is a git history? what about comparing it to just the current content? this feels interesting and important to quantify/benchmark, since it may be enough to have this rather than training to predict output.
 	- do i care about information to action mapping or do i care about a temporal understanding of past work? the thing about judgment + proactive suggestions is that its qualitatively different UX, so doesn't really feel like you can 'lineage' or MVP your way up to it
