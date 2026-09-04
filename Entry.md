@@ -239,5 +239,7 @@
 - if youre struggling with memory and its getting more expensive, and your flops are underutilized, why not just cache less? i dont understand how cached tokens are offered cheaper if memory is more expensive than compute
 	- flashattention leveraged this?
 - https://x.com/ii_posts/status/2095882226319667700
+- https://x.com/tbpn/status/2095651279792185623
+- https://x.com/giovannicatt3/status/2094815425972539565
 - 
 
