@@ -212,6 +212,9 @@
 	- during this time it still wasnt obvious that LLMs were the dominant NLP solution. AI research in 2021 didnt really focus on LLMs (transformers), more so CNNs, RNNs, LSTMs. transformers were just another method.
 	- anthropic formed from a ton of openai employees in 2021
 	- chatgpt launch 2022
-	- bunch of floundering until deepseek r1 paper early 2025 showed reasoning / chain of thought could work
-	- agents coupling chain of thought with tool calls now dominant, caused cursor to shift priorities in early 2026 moving away from programmer AI pair, which was their original thesis, and more cloud agents
+	- bunch of floundering until deepseek r1 paper early 2025 showed reasoning / chain of thought could work. tbf openai was doing this with their o series with a preview in sep 2024.
+	- openclaw and agents popped off in late 2025
+	- agents coupling chain of thought with tool calls now dominant
+	- caused cursor to shift priorities in early 2026 moving away from programmer AI pair, which was their original thesis, and more cloud agents
+	- memory stock bull market, tons of enterprise AI, tons of training stack businesses, compute markets. extremely competitive open source. attempts at democratizing training tools for any task, (baseten has a good understanding of this from i tweet i read earlier), and the inputs to continued frontier competition (memory, power, flops, data (but maybe less so due to synthetic data which is an early form of RSI))
 
