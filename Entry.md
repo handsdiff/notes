@@ -224,4 +224,6 @@
 	- memory stock bull market, tons of enterprise AI, tons of training stack businesses, compute markets. extremely competitive open source. attempts at democratizing training tools for any task, (baseten has a good understanding of this from i tweet i read earlier), and the inputs to continued frontier competition (memory, power, flops, data (but maybe less so due to synthetic data which is an early form of RSI))
 	- potential candidates from here are agent coordination, continual learning, personal learning, RSI, memory/context, continued training stack democratization
 - just put in the actual work. PUBLIC!!! so lacking on the public
+- "at what NLL is goal inference occurring?"
+- 
 
