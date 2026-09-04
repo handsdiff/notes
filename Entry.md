@@ -129,6 +129,7 @@
 - resolved training vs sampling issues by deterministically choosing app + field write destination and keeping model as content learner
 - we probably need 10-30 semantically accurate data points for a model to consider is not noise, regardless of the % of total accuracy it is. which implies we need to 10x the amount of data we have, since current qwen models get 1-2 things right. this assumes that the data is the same distribution, and it doesn't just show the ability to pick out easy prompts. also showing that loss continues to decrease by spending more on NLL graphs is likely necessary to show continual training improvements. also the choice of updating every 50 examples vs any other frequency (every example, or every day i.e. variable number) may impact things
 - i wonder if for the purposes of getting something simple working, i should focus on only predicting next prompt, since the associated timing challenges and READ events are much clearer. i would still capture the other data since its relevant, but i would not apply loss to it necessarily. the only other writes i do are in notes and in messages to others. otherwise im prompting an agent with an associated chat history whether thats in the chatgpt app, codex cli, gemini web, claude web, google search, etc
+	- because the other READ issue is that messages i previously typed are considered 'read' and that feels weird in terms of most closely mimicking my brains processing of information
 - https://x.com/MilksandMatcha/status/2052812382137971115?s=20
 - https://exowill.com/
 - good take "once supported-app data is semantically legible and predictions remain poor, we should move the bottleneck to data quantity, model capacity, or the learning objective"
@@ -225,5 +226,5 @@
 	- potential candidates from here are agent coordination, continual learning, personal learning, RSI, memory/context, continued training stack democratization
 - just put in the actual work. PUBLIC!!! so lacking on the public
 - "at what NLL is goal inference occurring?"
-- 
+- is my data stream as formulated as next thought prediction too high entropy for prediction? what if the next typing is conditioned on the first word? there is a separate bar between productization usefulness (the goal) and research merit (consolation)
 
