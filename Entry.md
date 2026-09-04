@@ -198,4 +198,20 @@
 - get the team on the new data collection, take their data. determine the easiest way to do this once, and the easiest way to do this multiple times. potentially test and add their supported apps
 - the AX tree viewport views were the most informative
 - this 'bitter lesson' idea of giving the model the goal of next write prediction and it has access to the full corpus of history and letting it write whatever code it wants to properly fetch the data that constructs context to get it to the right answer by slamming RL rollouts keeps popping up in my head so its likely worth getting specific on it once the data is in a place where its time for algorithmic tricks
+- increasing intuitions about what the state of play actually was on the ground in late 2010s to now probably helps ground what is less likely vs more likely to come
+	- very unobvious that LLMs would pop off like this to mostly everyone
+	- dario had an anecdote where he observed computation + data being the main improvement when working under andrew ng at baidu
+	- deep learning was collected / formalized around 2008
+	- deepmind was formed a few years later, elon invested
+	- they did great work showing scalable RL on bounded games
+	- people were scared that google would completely own AI when they bought deepmind and deepmind popped off with their work so they started openai, but it was mostly a research bet at the time, very exploratory, although clearly enough to attract a ton of talented researchers, primarily from google. 2017
+	- openai was basically doing a bunch of random shit
+	- gpt 1 paper 2018 (feels like the pivotal moment)
+	- sutton published bitter lesson in 2019
+	- kaplan published scaling laws in 2020
+	- during this time it still wasnt obvious that LLMs were the dominant NLP solution. AI research in 2021 didnt really focus on LLMs (transformers), more so CNNs, RNNs, LSTMs. transformers were just another method.
+	- anthropic formed from a ton of openai employees in 2021
+	- chatgpt launch 2022
+	- bunch of floundering until deepseek r1 paper early 2025 showed reasoning / chain of thought could work
+	- agents coupling chain of thought with tool calls now dominant, caused cursor to shift priorities in early 2026 moving away from programmer AI pair, which was their original thesis, and more cloud agents
 
