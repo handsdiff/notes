@@ -1,6 +1,9 @@
 
 - coreauto interview discussing continual learning that seems intelligent https://x.com/CoreAutoAI/status/2082937120508067938?s=20
 	- founder says "why am i still prompting codex, why isn't it able to do what i still need to do" as the impetus for the lab
+	- biggest problem for researchers: "I dont have hard enough tasks"
+	- "learn with users, on their data"
+	- ""
 - training vid from openai guy https://www.youtube.com/watch?v=r1qZpYAmqmg
 	- says that non reasoning, human interactivity post training/RLHF has on the order of 100k data examples, 100k training cost on the order of days, and the bottleneck is data and evals
 	- if i do token level cross entropy loss for phase 1, will that delete learned pretraining language abilities? does that same issue apply to RLHF? why or why not?
@@ -235,4 +238,6 @@
 - feels like a big issue is that the 'internal representation' of a conversation thread is completely reconstructed when a new turn is submitted. ideally you'd want the ai to be in the same 'state' as it was when you send it a new message. otherwise you cant trust that the 'activations' behind the production of a good answer remain, causing response inconsistencies. is this intuition backed up with the understanding of how modern attention works from the 3 blue 1 brown video i watched? likely relates to kv cache somewhow. similarly, why is nondeterminism an issue when weights are fixed?
 - if youre struggling with memory and its getting more expensive, and your flops are underutilized, why not just cache less? i dont understand how cached tokens are offered cheaper if memory is more expensive than compute
 	- flashattention leveraged this?
+- https://x.com/ii_posts/status/2095882226319667700
+- 
 
