@@ -233,4 +233,5 @@
 - i want to find the baseten tweet again and the bounded/unbounded tweet again since many of the 'local model' discourse involves bounded tasks, whereas my focus is on what i'd consider an unbounded task? forget the other axis. and local models on unbounded tasks may be invalidated
 - feels like a big issue is that the 'internal representation' of a conversation thread is completely reconstructed when a new turn is submitted. ideally you'd want the ai to be in the same 'state' as it was when you send it a new message. otherwise you cant trust that the 'activations' behind the production of a good answer remain, causing response inconsistencies. is this intuition backed up with the understanding of how modern attention works from the 3 blue 1 brown video i watched? likely relates to kv cache somewhow. similarly, why is nondeterminism an issue when weights are fixed?
 - if youre struggling with memory and its getting more expensive, and your flops are underutilized, why not just cache less? i dont understand how cached tokens are offered cheaper if memory is more expensive than compute
+	- flashattention leveraged this?
 
