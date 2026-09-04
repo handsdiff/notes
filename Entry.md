@@ -16,6 +16,7 @@
 	- is the learned reward model from preference data in RLHF essentially equivalent to a rubric in the sense that it makes human preference scalable for training?
 		- well known that LLM feedback is shown to be basically the same as human feedback except way cheaper now
 	- deduplication helps pretraining performance the most out of any cleanup, according to the FineWeb Dataset work
+	- i think a base model definitely superior to a posttrained model. he directly describes SFT as being done on top of a pretrained model. "Fine tune the LLM with language modeling (next token prediction) of the desired answers"
 	- 
 - how does introducing a temporal component to the collected data change the qualitative response of normal agents like Codex, vs just telling it that there is a git history? what about comparing it to just the current content? this feels interesting and important to quantify/benchmark, since it may be enough to have this rather than training to predict output.
 	- do i care about information to action mapping or do i care about a temporal understanding of past work? the thing about judgment + proactive suggestions is that its qualitatively different UX, so doesn't really feel like you can 'lineage' or MVP your way up to it
