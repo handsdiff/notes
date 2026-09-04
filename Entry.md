@@ -4,6 +4,7 @@
 	- biggest problem for researchers: "I dont have hard enough tasks"
 	- "learn with users, on their data"
 	- "the loop of identifying failure modes and retraining the model has to go through the lab on your behalf"
+	- 
 - training vid from openai guy https://www.youtube.com/watch?v=r1qZpYAmqmg
 	- says that non reasoning, human interactivity post training/RLHF has on the order of 100k data examples, 100k training cost on the order of days, and the bottleneck is data and evals
 	- if i do token level cross entropy loss for phase 1, will that delete learned pretraining language abilities? does that same issue apply to RLHF? why or why not?
@@ -244,5 +245,5 @@
 - https://multiplayer-ai.com/#manifesto "work with the door open"
 - https://www.coreauto.com/blog
 - https://x.com/johnschulman2/status/2095920475516068309?s=20
-- 
+- RL on the emotions of other people?
 
