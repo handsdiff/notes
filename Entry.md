@@ -246,4 +246,7 @@
 - https://www.coreauto.com/blog
 - https://x.com/johnschulman2/status/2095920475516068309?s=20
 - RL on the emotions of other people?
+- https://x.com/gradypb/status/2087584675770282111?s=20
+- https://x.com/gradypb/status/2087923478301212772?s=20
+- 
 
