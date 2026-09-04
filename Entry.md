@@ -21,6 +21,7 @@
 	- says 10k examples good for learning style and instruction following (behavior cloning)
 	- comes down to whether the fine tune dataset has already been modeled in pretraining, and its being refined, or if its new, and its being built from scratch
 	- pure sft causes hallucinations if the LLM didn't know the correct answer and its just blindly mimicking it
+	- shows that in 2020, at least for the task of summarization, SFT underperformed reference summaries but PPO outperformed reference summaries (and scaled better with model size)
 	- 
 - how does introducing a temporal component to the collected data change the qualitative response of normal agents like Codex, vs just telling it that there is a git history? what about comparing it to just the current content? this feels interesting and important to quantify/benchmark, since it may be enough to have this rather than training to predict output.
 	- do i care about information to action mapping or do i care about a temporal understanding of past work? the thing about judgment + proactive suggestions is that its qualitatively different UX, so doesn't really feel like you can 'lineage' or MVP your way up to it
@@ -229,4 +230,5 @@
 - is my data stream as formulated as next thought prediction too high entropy for prediction? what if the next typing is conditioned on the first word? there is a separate bar between productization usefulness (the goal) and research merit (consolation)
 - need to be open to better memory as a productization stepping stone towards applying information to action rather than recalling information well
 - ive previously written about the thesis that the forcing function of a goal determines memory recall and it cannot be decoupled. not sure where in this obsidian it is though
+- i want to find the baseten tweet again and the bounded/unbounded tweet again since many of the 'local model' discourse involves bounded tasks, whereas my focus is on what i'd consider an unbounded task? forget the other axis. and local models on unbounded tasks may be invalidated
 
