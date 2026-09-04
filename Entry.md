@@ -192,7 +192,7 @@
 - can you imagine a model that detects outlier surprise in an audio transcription and asks clarifying questions on it, to improve WER? what is human WER?
 	- human WER is 4-8%, and this model is at 2%. superhuman listening??
 	- this only benchmarks against near field audio, not far field audio. so likely better than it seems.
-- how many tokens of data do we have?
+- how many tokens of data do we have? relates to trainable parameters, eventual attempts at establishing local scaling laws, chinchilla paper seems to suggest 150 tokens per parameter (20:1 when ignoring inference)
 - test NLL charts are important
 - jonathan was talking about 'in context' NLL which i did not fully understand
 - get the team on the new data collection, take their data. determine the easiest way to do this once, and the easiest way to do this multiple times. potentially test and add their supported apps
