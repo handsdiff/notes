@@ -241,5 +241,5 @@
 - https://x.com/ii_posts/status/2095882226319667700
 - https://x.com/tbpn/status/2095651279792185623
 - https://x.com/giovannicatt3/status/2094815425972539565
-- 
+- https://multiplayer-ai.com/#manifesto "work with the door open"
 
