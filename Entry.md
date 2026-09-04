@@ -248,5 +248,5 @@
 - RL on the emotions of other people?
 - https://x.com/gradypb/status/2087584675770282111?s=20
 - https://x.com/gradypb/status/2087923478301212772?s=20
-- 
+- hugely relevant https://x.com/fujikanaeda/status/2095843200435183698?s=20
 
