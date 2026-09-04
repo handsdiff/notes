@@ -242,4 +242,7 @@
 - https://x.com/tbpn/status/2095651279792185623
 - https://x.com/giovannicatt3/status/2094815425972539565
 - https://multiplayer-ai.com/#manifesto "work with the door open"
+- https://www.coreauto.com/blog
+- https://x.com/johnschulman2/status/2095920475516068309?s=20
+- 
 
