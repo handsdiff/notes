@@ -197,5 +197,5 @@
 - jonathan was talking about 'in context' NLL which i did not fully understand
 - get the team on the new data collection, take their data. determine the easiest way to do this once, and the easiest way to do this multiple times. potentially test and add their supported apps
 - the AX tree viewport views were the most informative
-- 
+- this 'bitter lesson' idea of giving the model the goal of next write prediction and it has access to the full corpus of history and letting it write whatever code it wants to properly fetch the data that constructs context to get it to the right answer by slamming RL rollouts keeps popping up in my head so its likely worth getting specific on it once the data is in a place where its time for algorithmic tricks
 
