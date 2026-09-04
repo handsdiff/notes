@@ -227,4 +227,6 @@
 - just put in the actual work. PUBLIC!!! so lacking on the public
 - "at what NLL is goal inference occurring?"
 - is my data stream as formulated as next thought prediction too high entropy for prediction? what if the next typing is conditioned on the first word? there is a separate bar between productization usefulness (the goal) and research merit (consolation)
+- need to be open to better memory as a productization stepping stone towards applying information to action rather than recalling information well
+- ive previously written about the thesis that the forcing function of a goal determines memory recall and it cannot be decoupled. not sure where in this obsidian it is though
 
