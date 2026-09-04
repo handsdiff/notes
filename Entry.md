@@ -218,4 +218,5 @@
 	- caused cursor to shift priorities in early 2026 moving away from programmer AI pair, which was their original thesis, and more cloud agents
 	- memory stock bull market, tons of enterprise AI, tons of training stack businesses, compute markets. extremely competitive open source. attempts at democratizing training tools for any task, (baseten has a good understanding of this from i tweet i read earlier), and the inputs to continued frontier competition (memory, power, flops, data (but maybe less so due to synthetic data which is an early form of RSI))
 	- potential candidates from here are agent coordination, continual learning, personal learning, RSI, memory/context, continued training stack democratization
+- 
 
