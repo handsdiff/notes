@@ -1,10 +1,4 @@
 
-- coreauto interview discussing continual learning that seems intelligent https://x.com/CoreAutoAI/status/2082937120508067938?s=20
-	- founder says "why am i still prompting codex, why isn't it able to do what i still need to do" as the impetus for the lab
-	- biggest problem for researchers: "I dont have hard enough tasks"
-	- "learn with users, on their data"
-	- "the loop of identifying failure modes and retraining the model has to go through the lab on your behalf"
-	- 
 - training vid from openai guy https://www.youtube.com/watch?v=r1qZpYAmqmg
 	- says that non reasoning, human interactivity post training/RLHF has on the order of 100k data examples, 100k training cost on the order of days, and the bottleneck is data and evals
 	- if i do token level cross entropy loss for phase 1, will that delete learned pretraining language abilities? does that same issue apply to RLHF? why or why not?
@@ -32,6 +26,7 @@
 	- do i care about information to action mapping or do i care about a temporal understanding of past work? the thing about judgment + proactive suggestions is that its qualitatively different UX, so doesn't really feel like you can 'lineage' or MVP your way up to it
 	- you dont need a proactive assistant if the goal is reasoning over log history though
 - continual learning from rich sutton https://www.youtube.com/watch?v=xH7U7w9Qzlo
+	- 
 
 - you cannot simultaneously maintain strict causal fidelity if you want to ensure full write blocks. for example if i write a half sentence, then go research something, then finish the sentence. you want the model to predict the half sentence? no. you want the model to predict the full sentence? well then its not maintaining causal fidelity. and what defines if the sentence was full or not. what if i write a full sentence, then do research, then go back and add to the sentence?
 - i would probably like to remove paste action prediction since that does not predict content given a cursor position, its more about where you paste something and what you decide to copy
