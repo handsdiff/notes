@@ -245,5 +245,5 @@
 - https://x.com/gradypb/status/2087923478301212772?s=20
 - hugely relevant https://x.com/fujikanaeda/status/2095843200435183698?s=20
 - applying these exact ideas to speech is quite interesting now with the STT updates. predicting what i'll say in a conversation
-- 
+- seems like the issue with the duplication prevention is that OCR is very lossy, so we often can't actually determine whether something is a repeat or not, so the current logic defaults to showing the whole content again. and if we try to do just relative similarlty to handle ocr issues, then the models are saying (but i havent directly seen this) that it misses genuine content? this should def not be an issue for scrolling scenarios. it may be an issue for dynamic content scenarios, but we care about the final state for those anyways
 
