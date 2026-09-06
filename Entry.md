@@ -21,11 +21,11 @@
 	- comes down to whether the fine tune dataset has already been modeled in pretraining, and its being refined, or if its new, and its being built from scratch
 	- pure sft causes hallucinations if the LLM didn't know the correct answer and its just blindly mimicking it
 	- shows that in 2020, at least for the task of summarization, SFT underperformed reference summaries but PPO outperformed reference summaries (and scaled better with model size)
-	- 
 - how does introducing a temporal component to the collected data change the qualitative response of normal agents like Codex, vs just telling it that there is a git history? what about comparing it to just the current content? this feels interesting and important to quantify/benchmark, since it may be enough to have this rather than training to predict output.
 	- do i care about information to action mapping or do i care about a temporal understanding of past work? the thing about judgment + proactive suggestions is that its qualitatively different UX, so doesn't really feel like you can 'lineage' or MVP your way up to it
 	- you dont need a proactive assistant if the goal is reasoning over log history though
 - continual learning from rich sutton https://www.youtube.com/watch?v=xH7U7w9Qzlo
+	- reminds me of judgment vs recall when they discuss why accumulated in context memory is not continual learning. more specifically, is recall the same thing because it changes the 'activations'? how do 'activations' and 'weights' differ? do 'weight' changes correspond to judgment or do 'activations' changes do?
 	- 
 
 - you cannot simultaneously maintain strict causal fidelity if you want to ensure full write blocks. for example if i write a half sentence, then go research something, then finish the sentence. you want the model to predict the half sentence? no. you want the model to predict the full sentence? well then its not maintaining causal fidelity. and what defines if the sentence was full or not. what if i write a full sentence, then do research, then go back and add to the sentence?
@@ -246,4 +246,5 @@
 - hugely relevant https://x.com/fujikanaeda/status/2095843200435183698?s=20
 - applying these exact ideas to speech is quite interesting now with the STT updates. predicting what i'll say in a conversation
 - seems like the issue with the duplication prevention is that OCR is very lossy, so we often can't actually determine whether something is a repeat or not, so the current logic defaults to showing the whole content again. and if we try to do just relative similarlty to handle ocr issues, then the models are saying (but i havent directly seen this) that it misses genuine content? this should def not be an issue for scrolling scenarios. it may be an issue for dynamic content scenarios, but we care about the final state for those anyways
+- why does sam altman not really care about distillation? at least in public statements? he gave a reason but i forget
 
