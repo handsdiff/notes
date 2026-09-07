@@ -252,5 +252,6 @@
 - https://x.com/merettm/status/2096630018495377464?s=20
 - https://x.com/kliu128/status/2096616468851097811?s=20
 - https://x.com/oneill_c/status/2096643427219972115?s=20
+- https://x.com/kennethnym/status/2096646774366630175?s=20
 - 
 
