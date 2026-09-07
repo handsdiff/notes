@@ -28,14 +28,8 @@
 	- reminds me of judgment vs recall when they discuss why accumulated in context memory is not continual learning. more specifically, is recall the same thing because it changes the 'activations'? how do 'activations' and 'weights' differ? do 'weight' changes correspond to judgment or do 'activations' changes do?
 	- cursor tab and cursor composer continually learn with 'inefficient' continual batch data processing. we also tried to do this with slate.
 	- in some ways one of the bottlenecks for slate was data labeling. we could get a lot on inbound usage but we could not convert that quickly enough into model knowledge, and there are a lot of stages of that pipeline, could definitely involve technical training expertise, or it could be going through the data and ensuring the dataset was built in a way that was actually consistent in its rules and correct, and applying the downstream consequences throughout the codebase (i.e. integrating a protocol, changing how a parameter was understood, etc). this loop was too slow.
-	- 
 
-- you cannot simultaneously maintain strict causal fidelity if you want to ensure full write blocks. for example if i write a half sentence, then go research something, then finish the sentence. you want the model to predict the half sentence? no. you want the model to predict the full sentence? well then its not maintaining causal fidelity. and what defines if the sentence was full or not. what if i write a full sentence, then do research, then go back and add to the sentence?
-- i would probably like to remove paste action prediction since that does not predict content given a cursor position, its more about where you paste something and what you decide to copy
-- its clear that the lack of specific problem leads to indeterminate building which leads to failure
-- just 200 events cost $30. meaning 2000 events will cost $300.
-- it feels like whats closest to my intentions is to predict only long sequences of text input
-- i think combing thru the data will uncover drift in implementation vs my desires, coupled with the increased capture during the debugging, we may be able to run it again and see
+
 - it was supposed to be able to save time for people, but if it cant do that then its not useful
 - https://x.com/trycua/status/2089770780053643397?s=20
 - i need to reread this https://arxiv.org/html/2603.05923v1
