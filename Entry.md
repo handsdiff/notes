@@ -204,5 +204,8 @@
 - how does rich sutton propose setting up rewards or targets for their model?
 - litellm + mai-transcribe-2 combined into coupled to record with laptop anything that goes on in the room or through the computer, runs when rest of the normal collection runs. to see if the audio is transcribed in a clean way and useful for additional context for training
 	- probably can set up a simpler recording test that determines whether mai transcribe 2 is actually useful
-- after cleaning up scoring, understand what cases improved from old to new and which cases regressed from new to old, for both models
+- todos
+	- after cleaning up scoring, understand what cases improved from old to new and which cases regressed from new to old, for both models
+	- i'd also like to run some training runs on this data now that sol and astra have results that are somewhat meaningful
+	- then continue working with the reviewer on the extent to which we can clean up the old data to have a larger corpus of data to train on, given that the progress over the past month only has a max 4 day training run, which feels against initial intuitions around where results would show
 
