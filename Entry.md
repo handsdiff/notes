@@ -23,11 +23,7 @@
 	- shows that in 2020, at least for the task of summarization, SFT underperformed reference summaries but PPO outperformed reference summaries (and scaled better with model size)
 - how does introducing a temporal component to the collected data change the qualitative response of normal agents like Codex, vs just telling it that there is a git history? what about comparing it to just the current content? this feels interesting and important to quantify/benchmark, since it may be enough to have this rather than training to predict output.
 	- do i care about information to action mapping or do i care about a temporal understanding of past work? the thing about judgment + proactive suggestions is that its qualitatively different UX, so doesn't really feel like you can 'lineage' or MVP your way up to it
-	- you dont need a proactive assistant if the goal is reasoning over log history though
-- continual learning from rich sutton https://www.youtube.com/watch?v=xH7U7w9Qzlo
-	- reminds me of judgment vs recall when they discuss why accumulated in context memory is not continual learning. more specifically, is recall the same thing because it changes the 'activations'? how do 'activations' and 'weights' differ? do 'weight' changes correspond to judgment or do 'activations' changes do?
-	- cursor tab and cursor composer continually learn with 'inefficient' continual batch data processing. we also tried to do this with slate.
-	- in some ways one of the bottlenecks for slate was data labeling. we could get a lot on inbound usage but we could not convert that quickly enough into model knowledge, and there are a lot of stages of that pipeline, could definitely involve technical training expertise, or it could be going through the data and ensuring the dataset was built in a way that was actually consistent in its rules and correct, and applying the downstream consequences throughout the codebase (i.e. integrating a protocol, changing how a parameter was understood, etc). this loop was too slow.
+
 
 
 - it was supposed to be able to save time for people, but if it cant do that then its not useful
