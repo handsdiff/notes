@@ -23,9 +23,6 @@
 	- shows that in 2020, at least for the task of summarization, SFT underperformed reference summaries but PPO outperformed reference summaries (and scaled better with model size)
 - how does introducing a temporal component to the collected data change the qualitative response of normal agents like Codex, vs just telling it that there is a git history? what about comparing it to just the current content? this feels interesting and important to quantify/benchmark, since it may be enough to have this rather than training to predict output.
 	- do i care about information to action mapping or do i care about a temporal understanding of past work? the thing about judgment + proactive suggestions is that its qualitatively different UX, so doesn't really feel like you can 'lineage' or MVP your way up to it
-
-
-
 - it was supposed to be able to save time for people, but if it cant do that then its not useful
 - i need to reread this https://arxiv.org/html/2603.05923v1
 - what im attempting to do with the episodic rewrite i.e. focusing on closed substantive writes as loss targets rather than current level of granularity is changing the event demarcation logic to better map my intentions
@@ -47,12 +44,12 @@
 - https://arxiv.org/pdf/2608.17981v1
 - one way to describe the tension with the stated problem its addressing of not needing to provide context, besides the other ones listed in the thesis notes, is that the model is specifically not meant to be prompted via question answer. so you cant really rely on it to have some innate knowledge of everything youre working on. perhaps its more like talking to yourself, and yourself has faster, lower cost information retrieval and usage than you do, but that has not been proven yet. so the feelings around the lack of clarity around this addressing a current enterprise problem costing time or money is still unclear. obviously the vision is that it saves you time, but then you'd want to address people who think they spend a lot of time thinking? or doing rote work during their day to day? which feels widespread but vague rather than acute and deep. imagination vs practicality is the meta challenge.
 - you likely can't sell software. you can sell hardware, or customer service, or network effects.
-- https://pieces.app/
+
 - if i run the model with a 'reward' that captures the similarity in what it outputted to what the actual next substantive write was, is that suddenly "much lower signal per flop" than my current token level cross entropy training? that doesn't seem to make much sense. i feel like this 'objective' ablation is one of the first, if not the first, ablation i'd like to run, since it feels so relevant to the 'use of information'
 - lots of conflation between judgment being required for multi agent systems vs solving 'memory' by teaching how to use context not just what context exists
 - one interesting test would be if the LLM predicts your next thought faster than you think of and write it down
-- its still kind of confusing to me how prime intellect has 100m in rev. youre telling me will brown joined because of his public verifiers repo, then they launched lab, and there was demand for lab? and that scaled to 100m in 8 months? is it inference? is it gpu rental? is it skilled labor? the stated mission was open science, which is what brought the team together. converting the open science mission to revenue is the unclear step
-- similarly, how is thinking machines making money? gpu rental? training? inference?
+
+
 - if you consider the human 'completion' the advantage towards an unknown reward, does that unify phase 1 and 2/3 training? its reliant on the humans best estimation of the reward, but it prevents the model from reward hacking.
 - did capture miss my write at 2026:08:20T19:53:27.266?
 - good thesis thread / practical thread on phase 1 vs 2/3 thats worth skimming over again https://claude.ai/chat/5019602c-f0fe-40bd-b737-cad6682cd5be
