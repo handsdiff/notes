@@ -212,4 +212,7 @@
 - its interesting that rich sutton's solution to statically deployed LLMs is keeping a separate meta weight for each weight that tracks historical updating. it isnt obvious to me this is the most intuitive solution. openai already does great work with updating context in a way that improves the UX of using codex. this is in context continual learning. one issue with in context continual learning along with weight updates is that it'd be unclear who you're talking to / what you're getting, at least in my initial opinion. and even the way to do this is to keep track of how weights are updated and adjust learning rate accordingly? hmm.
 - what information to emphasize and what information to ignore in a given scenario is the essence of judgment. i.e. separating signal from noise.
 - how does rich sutton propose setting up rewards or targets for their model?
+- litellm + mai-transcribe-2 combined into coupled to record with laptop anything that goes on in the room or through the computer, runs when rest of the normal collection runs. to see if the audio is transcribed in a clean way and useful for additional context for training
+	- probably can set up a simpler recording test that determines whether mai transcribe 2 is actually useful
+	- 
 
