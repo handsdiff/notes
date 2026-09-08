@@ -55,26 +55,15 @@
 	- another issue is that models could do this to a good enough quality bar, but it'd be too slow to be useful (the test comparing model performance vs latency to human performance vs latency would check this)
 	- another issue is that its good enough and fast but its stupid expensive
 - thinking machines and prime intellect, personalized models for everyone. frontier models will enable this. more flops per dollar will enable this. continually trained models for everyone.
-- 
+- "computational power and epistemic power aren’t the same thing. What you can know isn’t determined only by what you can compute, it also depends on how you’re allowed to interact with something that knows more than you" "I really like this point. I’ve been thinking a lot about the difference between updating based on RL rewards vs updating based on evidence; I think the former can only be made “rational” if you trust the reward-giver to know more than you and to care about your best interests."
 - 
 - did capture miss my write at 2026:08:20T19:53:27.266?
 - 
-- https://x.com/jyo_pari/status/2090533060924043465?s=20
-- https://x.com/RichardMCNgo/status/2090511571470655538?s=20
-- https://x.com/jietang/status/2090724835496443950?s=20
-- https://twin1.ai/
-- https://x.com/kalomaze/status/2090720845643866137?s=20
-- its unclear to me that i can even perform 'data ablations' with the existing amount of data. for example i could clean up all read data that has information that i know for a fact is erroneous. or i can remove specific urls like twitter or hyperliquid
+
 - jakub uses slack, arc, obsidian, orca (terminals), and codex app
 - dylan uses imessage, slack, arc, notes, claude, codex, cursor, telegram, discord
 - while exploring the data, the only path forward, at a meta level description, is to overoptimize for the apps being used, perhaps similar to how cursor optimized for vscode. this is likely worth trying as an ablation
 - likely the case that a problem is valid but solution is lacking. the problem here being the knowledge of when to use certain context in certain scenarios and when not to
-- model launchpad. if you look at the vector of frontier models -> enterprise "sovereign AI" -> personalized models as well as the likening of openrouter to a marketplace and inference providers to market makers and models to tokens, then it feels like the end of that rainbow is a model launchpad where people can spin up and serve models for $2 in under 10 seconds.
-	- reminds me of apps like lovable where you use a chatbot to spin up products, but now you can use the bot to spin up models
-	- aligned with superintelligence narrative
-- openrouter is the easiest way to collect data for large labs (see thinking machines deciding to give free inkling on openrouter for the purposes of data collection)
-- data is the new attention like memecoins rely on data to be useful
-- the loop of incorporating new data into a model is the equivalent of getting attention on a memecoin?
 - on thinking machines and river, is training more or less expensive than sampling / output? why?
 - https://x.com/eliebakouch/status/2090921490527011195?s=20
 - https://x.com/distributionat/status/2090938996218318880?s=20
