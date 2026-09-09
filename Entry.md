@@ -1,5 +1,6 @@
 
 - https://x.com/dwarkesh_sp/status/2097359573581799481?s=20
+- https://x.com/johnschulman2/status/2097440545853637108?s=20
 - 
 - training vid from openai guy https://www.youtube.com/watch?v=r1qZpYAmqmg
 	- says that non reasoning, human interactivity post training/RLHF has on the order of 100k data examples, 100k training cost on the order of days, and the bottleneck is data and evals
