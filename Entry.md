@@ -248,4 +248,7 @@
 - it does feel like the work on the quality of raw capture is a data quantity flavored work, which is downstream of establishing a vector, which makes sense
 - phase 2 + initial GTM/positioning + writeup of work so far is a good forcing function for this phase of work which is important to keep in mind
 - if we conclude that astra performs better with the more raw the data is, and the review of the existing raw capture is mostly a quantity issue (youtube, meetings, in person, slack, random browser events), then data quantity is the bottleneck, and processing is a relative short term setup for training (or maybe training needs preprocessing while in context does not, which is more likely true. the training on 275 sep 2-6 old/new pipeline would provide information here)
+- hmm, it seems like only 2% of writes in the sep 2-6 data are impacted by data quality.
+- which means we likely dont want to spend time collecting more data at this stage
+- 
 
