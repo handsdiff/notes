@@ -1,7 +1,9 @@
 
 - https://x.com/dwarkesh_sp/status/2097359573581799481?s=20
 - https://x.com/johnschulman2/status/2097440545853637108?s=20
-- 
+- https://x.com/_arohan_/status/2097721502519173525?s=20
+- https://x.com/_arohan_/status/2097705581180235954?s=20
+- Feels like the recent X discussion around navier stokes and training on user data is very relevant. Seeing lots of takes wi
 - training vid from openai guy https://www.youtube.com/watch?v=r1qZpYAmqmg
 	- says that non reasoning, human interactivity post training/RLHF has on the order of 100k data examples, 100k training cost on the order of days, and the bottleneck is data and evals
 	- if i do token level cross entropy loss for phase 1, will that delete learned pretraining language abilities? does that same issue apply to RLHF? why or why not?
