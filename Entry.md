@@ -246,4 +246,5 @@
 - entry bottleneck work through for training and positioning intuitions
 - usermodels discord intro and experimentation work. get in what you put out
 - it does feel like the work on the quality of raw capture is a data quantity flavored work, which is downstream of establishing a vector, which makes sense
+- phase 2 + initial GTM/positioning + writeup of work so far is a good forcing function for this phase of work which is important to keep in mind
 
