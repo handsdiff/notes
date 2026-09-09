@@ -259,4 +259,6 @@
 	- investor update
 	- b3
 	- yida
+- incorporate jonward taxonomy into thinking
+- 
 
