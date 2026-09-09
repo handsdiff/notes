@@ -226,4 +226,5 @@
 	- mention sharing full draft of initial results soon
 	- mention smoke test on training
 	- "Hello to all who read this. I'm Niyant Narang (handsdiff on all socials), funded founder "
+	- catastrophic forgetting as a perceived future bottleneck
 
