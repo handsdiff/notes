@@ -207,7 +207,11 @@
 	- probably can set up a simpler recording test that determines whether mai transcribe 2 is actually useful
 - todos
 	- after cleaning up scoring, understand what cases improved from old to new and which cases regressed from new to old, for both models
+		- astra showing improved performance on less data cleanup would invalidate continued work on data cleanup
+		- it showed slightly decreased performance on data cleanup while sol improved. my hypothesis is that improved capability is hurt by preconceived cleanup notions.
+		- you'd likely need to cleanup significantly for the purposes of training small open source models today. so doesn't necessarily mean don't do the cleanup if astra improves with less cleanup, but definitely indicates a shorter half life on that part of the work than otherwise
 	- i'd also like to run some training runs on this data now that sol and astra have results that are somewhat meaningful
 	- then continue working with the reviewer on the extent to which we can clean up the old data to have a larger corpus of data to train on, given that the progress over the past month only has a max 4 day training run, which feels against initial intuitions around where results would show
 - its actually quite hard to review the outputs post facto. there are likely cases where the models output is actually better than what i typed at the given time. feels like phase 2 would be needed there. since you need to immerse yourself in your state of mind at that time which takes a ton of energy
+- with astra, feels like i'd like to increase data quantity (i.e. add audio), not quality, to see the limits of whats possible to predict, rather than twist and turn to try to get an open source training run to do the prediction even somewhat decently, at least initially
 
