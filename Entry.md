@@ -259,5 +259,4 @@
 	- investor update
 	- b3
 	- yida
-- the implementer 
 
