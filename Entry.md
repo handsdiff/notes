@@ -240,9 +240,10 @@
 	- i should likely be clear about the vectors that have been established. the first step for that would be to run gpt 5.5 on the 275 example corpus, to get a better vector
 	- if the closed source models is a vector, should i find vectors that establish more technical prowess for the purposes of sharing and getting relevant inbound? or should i just post? i can likely show the frontier model performance, and also the overfit tests and early training run data
 	- for that i'd want an actual training run on the two week corpus, but its unclear whether the data pipeline is clean enough for that? thats because i'd want to get a better sense if training performs better on the new data, which requires running it on the 275 dataset, to see if old vs new pipeline training improves?
-- gpt 5.5 on 275 sep 2-6 data -> frontier model vector information
-- training run on old/new pipeline for 275 sep 2-6 data -> data pipeline quality information, given that sol seems to have improved. requires choice of model to train.
+- gpt 5.5 on 275 sep 2-6 data -> frontier model vector information -> improve writeup
+- training run on old/new pipeline for 275 sep 2-6 data -> data pipeline quality information, given that sol seems to have improved. requires choice of model to train. -> improve writeup
+	- if improves -> indication that can run on the two week dataset, so probably worth working through the pipeline update thread i previously paused with the main app conversation
 - entry bottleneck work through for training and positioning intuitions
 - usermodels discord intro and experimentation work. get in what you put out
-- 
+- it does feel like the work on the quality of raw capture is a data quantity flavored work, which is downstream of establishing a vector, which makes sense
 
