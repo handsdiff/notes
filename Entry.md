@@ -250,5 +250,9 @@
 - if we conclude that astra performs better with the more raw the data is, and the review of the existing raw capture is mostly a quantity issue (youtube, meetings, in person, slack, random browser events), then data quantity is the bottleneck, and processing is a relative short term setup for training (or maybe training needs preprocessing while in context does not, which is more likely true. the training on 275 sep 2-6 old/new pipeline would provide information here)
 - hmm, it seems like only 2% of writes in the sep 2-6 data are impacted by data quality.
 - which means we likely dont want to spend time collecting more data at this stage
-- 
+- so astra performed better with less data cleanup, but it also had way more tokens, took longer, and cost more. so benchmarking against equivalent input tokens (which differs time length of prior history) to attempt to normalize a bit
+- this might indicate that you want data cleanup that retains or improves performance while retaining or decreasing cost and latency, which are strict hills to climb
+- this difference between the pipeline best suited for context and best suited for training feels correct, previously unthought of, and useful to quantify
+- i likely want to complete frontier model vector establishment and data construction understanding before i begin training on the dataset, since i likely also want to incorporate the sep 7-8 data into the analysis as well, and i cant do too many things at once.
+- the frontier model work connects to the training work since frontier model capabilities generally lead open source model capabilities on the order of months
 
