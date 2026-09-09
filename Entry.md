@@ -209,5 +209,5 @@
 	- after cleaning up scoring, understand what cases improved from old to new and which cases regressed from new to old, for both models
 	- i'd also like to run some training runs on this data now that sol and astra have results that are somewhat meaningful
 	- then continue working with the reviewer on the extent to which we can clean up the old data to have a larger corpus of data to train on, given that the progress over the past month only has a max 4 day training run, which feels against initial intuitions around where results would show
-- its actually quite hard to review the outputs post facto. there are likely cases where the models output is actually better than what i typed at the given time. feels like phase 2 would be needed there
+- its actually quite hard to review the outputs post facto. there are likely cases where the models output is actually better than what i typed at the given time. feels like phase 2 would be needed there. since you need to immerse yourself in your state of mind at that time which takes a ton of energy
 
