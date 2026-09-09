@@ -228,4 +228,7 @@
 	- "Hello to all who read this. I'm Niyant Narang (handsdiff on all socials), funded founder "
 		- funded founder as identity is a bit hubristic
 	- catastrophic forgetting as a perceived future bottleneck
+- john schulman says its 'improper' to pretrain on user tokens? does this invalidate my approach or is he talking about typical agent traces specifically?
+- astra's performance presumably is within range of the current ceiling so it helps to quantify it
+- 
 
