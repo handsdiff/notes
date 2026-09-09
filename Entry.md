@@ -221,6 +221,7 @@
 	- mention these notes, substack, twitter, linkedin, company homepage, coupled github
 	- emphasis on data collection since 'algorithms' get smarter and cheaper by default
 	- stage of work (perhaps calendar view from ai thread)
-	- astra >> sol, what this implies for the future ()
+	- astra >> sol, what this implies for the future (remember audience is focused on privacy, user owned, etc, so raw performance comes with a caveat)
+	- mention emphasis on publicity, openness (people pay for hardware at the limit, software should be open)
 	- 
 
