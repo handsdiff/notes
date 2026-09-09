@@ -255,4 +255,8 @@
 - this difference between the pipeline best suited for context and best suited for training feels correct, previously unthought of, and useful to quantify
 - i likely want to complete frontier model vector establishment and data construction understanding before i begin training on the dataset, since i likely also want to incorporate the sep 7-8 data into the analysis as well, and i cant do too many things at once.
 - the frontier model work connects to the training work since frontier model capabilities generally lead open source model capabilities on the order of months
+- admin work missing
+	- investor update
+	- b3
+	- yida
 
