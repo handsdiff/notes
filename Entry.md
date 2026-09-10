@@ -274,4 +274,5 @@
 - incorporate jonward taxonomy into thinking
 - i want to run training on the old vs new pipeline to determine whether (1) theres signal in prediction from an open source model, (2) how performance differs between the old and new pipeline (3) if data cleanup performance has a different impact on training than it does on astra context
 - https://vitalik.eth.limo/general/2026/04/02/secure_llms.html
+- tough to step back and think at a higher level with regards to working through this list of positioning while staying focused on initiating the hopefully final runs successfully
 
