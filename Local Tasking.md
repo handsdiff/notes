@@ -8,15 +8,16 @@
 	- feeling a desire to have a separate website for my blogs. self hosted shows commitment. substack gets swallowed into the platform.
 	- many cracked people have personal sites
 
-- prev LBH: By Tuesday I will have a version of the data pipeline whose collected data I am willing to either train on or give to a closed source model to test in context prediction.
-    - failed to invalidate. did initial run in very minimal dataset. holistic overview is that sol is overall better, qwen can definitely be trained. what interests me a lot is that there are 5+ cases where personalized qwen outperforms sol. currently capturing more data and iterating on event construction
-    - main issue was that the write events that were trained on were too low level. moving to a higher level of abstraction for learning.
-- new LBH (from Tuesday): By Friday I will consider the bottleneck to published results a lack of data.
-    - can’t do a writeup on the amount of data I have
-    - the current data pipeline is suboptimal and needs restructuring
-    - the restructuring is basically separating my next thought (new structure) from the fragmented expression of that next thought into a computer (old structure)
-    - worth getting right since its 80% of the valuable work
-    - can collect data in the meantime since its more of a processing issue and less of a collection issue
+- prev LBH: By Tuesday I will consider the bottleneck to published results a lack of data.
+    - astra outperforms sol. data processing shows no signal in accuracy, cost, or latency for astra, improved accuracy while decreasing cost and latency for sol.
+    - i suspect data cleanup impact differs for context than for training
+    - i dont actually think the bottleneck is a lack of data its more just time to get results due to latency associated with training and sampling
+    - invalidated
+- new LBH: The following results will hit over the next 3 days:
+    - gpt 5.5 → 5.6 → 6 will show meaningful monotonic improvement in accuracy
+    - qwen 3.8 27b will show meaningful accuracy and usability (cheap and fast) on either pipeline
+    - the new pipeline will show a meaningful improvement over the old pipeline for training as measured by loss curves and accuracy and cost and latency
+- if all of the above is true, i feel confident the technical report will convert >2 technical partners and >1 technical customer (lots of details here around positioning / GTM in relation to Pareto inference)
 - likely after: publish initial writeup + author public content + implement new landing page with pricing and CTA and call booking ability
 	- the technical public aspect of it is showing 'local scaling laws', open sourcing data collection pipeline. could also offer hosted training for enterprises, etc. lot more ideas here i haven't made explicit yet. blocked by getting a result. probably need to clarify the goal. i do want to show we exist and are technical and can do frontier work. i also want to establish positioning / brand that reflects the beliefs that led to the work while offering something that can be downloaded and used. 
 		- common references to my beliefs from a few months ago feels crucial to avoid allowing lower magnitude information to negatively impact high magnitude beliefs that seem smaller due to forgetting
