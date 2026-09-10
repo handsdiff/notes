@@ -260,4 +260,5 @@
 	- b3
 	- yida
 - incorporate jonward taxonomy into thinking
+- i want to run training on the old vs new pipeline to determine whether (1) theres signal in prediction from an open source model, (2) how performance differs between the old and new pipeline (3) if data cleanup performance has a different impact on training than it does on astra context
 
