@@ -7,9 +7,14 @@
 - https://x.com/alexatallah/status/2097717077352276435?s=20
 - https://x.com/eliebakouch/status/2097931464344015347?s=20
 - https://x.com/_arohan_/status/2098069230826689013?s=20
-- https://x.com/humansand/status/2098115046438215791?s=20
 - https://x.com/teortaxesTex/status/2098055769002258525?s=20
 - 
+- jward discussion / collaboration https://discord.com/channels/1547089652069171210/1547305826115518555
+	-  https://x.com/humansand/status/2098115046438215791?s=20
+	- respond to jward about https://persimmon.humansand.ai/blog/persimmon.html
+	- https://docs.google.com/document/d/1mAyLsqEYJzpCQxXpKE7oiOWSStbUgRGkLVE91x4hua8/edit?pli=1&tab=t.0
+	- https://www.completeskeptic.com/p/the-bitterest-lesson
+	- 
 - Feels like the recent X discussion around navier stokes and training on user data is very relevant. Seeing lots of takes where I feel like I learn something
 - training vid from openai guy https://www.youtube.com/watch?v=r1qZpYAmqmg
 	- says that non reasoning, human interactivity post training/RLHF has on the order of 100k data examples, 100k training cost on the order of days, and the bottleneck is data and evals

@@ -53,3 +53,4 @@
 - exowill has good writing to express the ideas
 - comparable product, user feedback: https://www.reddit.com/r/littlebird/
 - https://www.amplifypartners.com/blog-posts/the-user-modeling-wars similar theses, could amplify
+- "Converting this data-limited problem into something compute-limited (without producing slop data) is very much the hard core of the research problem" jon ward exowill
