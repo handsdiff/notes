@@ -69,5 +69,4 @@
 	- cleaning up the data manually rather than rule based just to initiate the training run in a way thats likeliest to derive signal since we can handle making the pipeline latency positive or removing assumptions after. ideally i'd like to run the additional data thru astra sol and 5.5 as well but if i dont have the credits then i cannot
 		- will need to keep in mind to codify the 'manual' cleanup later, as well as consider how it introduces latency during real time sampling in phase 2
 	- after doing final cleanup, consider whether we can run any tests to establish 'learnability' for cheaper before spending $450 on a full evaluation
-	- 
 
