@@ -37,5 +37,5 @@
 - catastrophic forgetting as a perceived future bottleneck
 - from mercor ceo: how do you eval agent to agent and agent to human social interaction, in the context of making environments closely match real world economically valuable activity. "real to sim gap for agent to agent social interaction"
 - could indicate that best suited for getting clean data pipelines and distributing to customers, while would love to partner with companies that can build secure training recipes to help create value for the customers
-- example pub https://persimmon.humansand.ai/blog/persimmon.html
+- example pub https://persimmon.humansand.ai/blog/persimmon.html https://persimmon.humansand.ai/blog/persimmon-model-card.html
 - 
