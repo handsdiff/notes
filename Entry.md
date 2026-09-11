@@ -58,9 +58,6 @@
 	- https://tinker-docs.thinkingmachines.ai/tutorials/advanced/rlhf-pipeline/
 	- is MoE more sample efficient than dense? why or why not? what are the learning properties of each?
 
-- updated timing to be based off of the last material event before a write, which still doesnt actually capture thinking but is much better than starting the timer when the first character was written
-- holistically, the idea i have in my head is the model suggesting what i'll write given a pause in my activity, which in theory should 'automate' my thinking over time, since the model can in theory digest the read content and analyze it instantly, whereas I would take time to do so. and we're trying to distill that process into the model. it should also suggest something if im in the middle of a write, which its unclear if it will do, but i think it will
-- i dont feel comfortable keeping it on when i type in secrets and im building it and its local... need to handle that
 - https://arxiv.org/abs/2608.20492
 - https://www.lesswrong.com/users/steve2152
 - https://x.com/giovannicatt3/status/2094815425972539565?s=20
