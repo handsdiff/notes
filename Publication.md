@@ -30,6 +30,8 @@
 	- why isn't AI doing this for everything I do digitally?
 	- the first step of obviously prediction, and autocomplete / workflow automation is an easy way of monetizing that, but its really just the tip of the iceberg
 	- labs will want to do this
+	- one core difference between training to predict next write given prior read/write and 'jarvis' is that it will never ask you a clarifying question
+	- can a 'prospective' model (i.e. the user predictive model) be used in tandem with a frontier model to ask clarifying questions?
 - https://x.com/tbpn/status/2095651279792185623
 - https://multiplayer-ai.com/
 - what information to emphasize and what information to ignore in a given scenario is the essence of judgment. i.e. separating signal from noise.
@@ -37,5 +39,10 @@
 - catastrophic forgetting as a perceived future bottleneck
 - from mercor ceo: how do you eval agent to agent and agent to human social interaction, in the context of making environments closely match real world economically valuable activity. "real to sim gap for agent to agent social interaction"
 - could indicate that best suited for getting clean data pipelines and distributing to customers, while would love to partner with companies that can build secure training recipes to help create value for the customers
-- example pub https://persimmon.humansand.ai/blog/persimmon.html https://persimmon.humansand.ai/blog/persimmon-model-card.html
+	- the training takes from jwards doc is interesting because it gives techniques for training on limited data, a lot of which involves reusing the same data, and im only doing a single pass
+		- https://github.com/qlabs-eng/slowrun
+		- https://arxiv.org/abs/2509.14786
+		- "replay based algorithms"
+- example pub https://persimmon.humansand.ai/blog/persimmon.html https://persimmon.humansand.ai/blog/persimmon-model-card.html along with some positioning boundaries
+- https://persimmon.humansand.ai/blog/persimmon-model-card.html#intended-uses would be interesting to see how this fares at prediction when compared to sol / astra
 - 
