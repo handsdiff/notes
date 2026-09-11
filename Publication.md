@@ -5,6 +5,7 @@
 - i think establishing local scaling laws is the best way to describe the goal for the writeup. requires an actual understanding of scaling laws. basically show how loss if a function of data, compute, parameters, perhaps underlying intelligence, etc. extrapolation from established laws can lead to hopefully accurate cost and performance timelines. scaling rate is critical! vs any y intercepts. read chinchilla paper to get good understanding here.
 	- cost and latency, not just performance, is important to collect data on for the phase 1 experiment
 - equation of time saved when successful minus review time for all must be positive for value creation. then the monetary value of that time must exceed the cost associated with generating the product by about 3x for business viability.
+	- this is essentially precision and recall?
 - thinking machines and prime intellect, personalized models for everyone. frontier models will enable this. more flops per dollar will enable this. continually trained models for everyone.
 - we probably need 10-30 semantically accurate data points for a model to consider is not noise, regardless of the % of total accuracy it is. which implies we need to 10x the amount of data we have, since current qwen models get 1-2 things right. this assumes that the data is the same distribution, and it doesn't just show the ability to pick out easy prompts. also showing that loss continues to decrease by spending more on NLL graphs is likely necessary to show continual training improvements. also the choice of updating every 50 examples vs any other frequency (every example, or every day i.e. variable number) may impact things
 - https://x.com/MilksandMatcha/status/2052812382137971115?s=20 technical writing from ant guy
@@ -36,4 +37,5 @@
 - catastrophic forgetting as a perceived future bottleneck
 - from mercor ceo: how do you eval agent to agent and agent to human social interaction, in the context of making environments closely match real world economically valuable activity. "real to sim gap for agent to agent social interaction"
 - could indicate that best suited for getting clean data pipelines and distributing to customers, while would love to partner with companies that can build secure training recipes to help create value for the customers
+- example pub https://persimmon.humansand.ai/blog/persimmon.html
 - 
