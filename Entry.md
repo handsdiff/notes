@@ -80,6 +80,7 @@
 		- how does rich sutton propose setting up rewards or targets for their model?
 	- john schulman says its 'improper' to pretrain on user tokens? does this invalidate my approach or is he talking about typical agent traces specifically?
 	- john schulman says that using a pretraining objective on user data is improper due to high regurgitation risk and that using user traces to construct RL tasks in low regurgitation risk because RL has low memorization abilities. hmmm.
+	- i think if you're training on write events where the corresponding READ event isnt in context (such as capture gaps like videos), you are training the model to hallucinate
 
 - todos
 	- gpt 5.5 on 275 sep 2-6 data -> frontier model vector information -> improve writeup
@@ -87,8 +88,5 @@
 		- if improves -> indication that can run on the two week dataset, so probably worth working through the pipeline update thread i previously paused with the main app conversation
 	- i want to run training on the old vs new pipeline to determine whether (1) theres signal in prediction from an open source model, (2) how performance differs between the old and new pipeline (3) if data cleanup performance has a different impact on training than it does on astra context
 	- cleaning up the data manually rather than rule based just to initiate the training run in a way thats likeliest to derive signal since we can handle making the pipeline latency positive or removing assumptions after. ideally i'd like to run the additional data thru astra sol and 5.5 as well but if i dont have the credits then i cannot
-
-- i think if you're training on write events where the corresponding READ event isnt in context (such as capture gaps like videos), you are training the model to hallucinate
-- from mercor ceo: how do you eval agent to agent and agent to human social interaction, in the context of making environments closely match real world economically valuable activity. "real to sim gap for agent to agent social interaction"
-- "the heuristic we use to determine whether a model is able to effectively learn from a given dataset / how strong the base model needs to be is pass@1 failing but 1-2 rollouts in pass@16 succeeding" "every single rollout in a pass@16 failing is usually hopeless for successful learning"
+	- "the heuristic we use to determine whether a model is able to effectively learn from a given dataset / how strong the base model needs to be is pass@1 failing but 1-2 rollouts in pass@16 succeeding" "every single rollout in a pass@16 failing is usually hopeless for successful learning"
 

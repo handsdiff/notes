@@ -34,4 +34,4 @@
 - what information to emphasize and what information to ignore in a given scenario is the essence of judgment. i.e. separating signal from noise.
 - its actually quite hard to review the outputs post facto. there are likely cases where the models output is actually better than what i typed at the given time. feels like phase 2 would be needed there. since you need to immerse yourself in your state of mind at that time which takes a ton of energy
 - catastrophic forgetting as a perceived future bottleneck
-- 
+- from mercor ceo: how do you eval agent to agent and agent to human social interaction, in the context of making environments closely match real world economically valuable activity. "real to sim gap for agent to agent social interaction"
