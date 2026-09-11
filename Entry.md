@@ -82,9 +82,7 @@
 - jakub uses slack, arc, obsidian, orca (terminals), and codex app
 - dylan uses imessage, slack, arc, notes, claude, codex, cursor, telegram, discord
 - while exploring the data, the only path forward, at a meta level description, is to overoptimize for the apps being used, perhaps similar to how cursor optimized for vscode. this is likely worth trying as an ablation
-- likely the case that a problem is valid but solution is lacking. the problem here being the knowledge of when to use certain context in certain scenarios and when not to
 - on thinking machines and river, is training more or less expensive than sampling / output? why?
-- the writeup needs to be beautifully presented. people trust beautiful design more than normal design. obviously this is on top of solid content and work, and very technical writing that will impress readers
 - Worth getting more clear and deeper on openrouter. Atallah describes pubsub and engineer -> scientist work as related ideas. Starting from window ai and going to openrouter has so much to learn from starting from early adopters, solving a practical problem for the consumer of the content (model) that leads to the marketplace, etc. that differ / are new to my internalized understanding
 - one of my implicit assumptions has been that ‘algorithms improve’ i.e. you can get the same or better results from less data. is this true? whats the evidence? how to invalidate?
 	- yes models getting cheaper and faster and smarter. but does that mean they do better with less data? or does smarter here mean the ability to solve more esoteric problems? or work for longer in a way that is considered generally satisfactory?
@@ -269,10 +267,6 @@
 - this difference between the pipeline best suited for context and best suited for training feels correct, previously unthought of, and useful to quantify
 - i likely want to complete frontier model vector establishment and data construction understanding before i begin training on the dataset, since i likely also want to incorporate the sep 7-8 data into the analysis as well, and i cant do too many things at once.
 - the frontier model work connects to the training work since frontier model capabilities generally lead open source model capabilities on the order of months
-- admin work missing
-	- investor update
-	- b3
-	- yida
 - incorporate jonward taxonomy into thinking
 - i want to run training on the old vs new pipeline to determine whether (1) theres signal in prediction from an open source model, (2) how performance differs between the old and new pipeline (3) if data cleanup performance has a different impact on training than it does on astra context
 - https://vitalik.eth.limo/general/2026/04/02/secure_llms.html
@@ -280,5 +274,7 @@
 - cleaning up the data manually rather than rule based just to initiate the training run in a way thats likeliest to derive signal since we can handle making the pipeline latency positive or removing assumptions after. ideally i'd like to run the additional data thru astra sol and 5.5 as well but if i dont have the credits then i cannot
 - i suspect that, per the current LBH, 5.5 -> 5.6 -> 6 will succeed, and the others will fail
 - the middle ground im missing is showing that subsequent open source model releases are also performing well, i just dont have cheap access to test those as of now like i do with my codex subscription, but i can probably get one from kimi or zhipu
+- i suspect we wont see old + new diff since its too noisy at low success rates, but there is a chance, just like there was with sol
+- the training takes from jwards doc is interesting because it gives techniques for training on limited data, a lot of which involves reusing the same data, and im only doing a single pass
 - 
 
