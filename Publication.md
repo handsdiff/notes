@@ -7,4 +7,4 @@
 - equation of time saved when successful minus review time for all must be positive for value creation. then the monetary value of that time must exceed the cost associated with generating the product by about 3x for business viability.
 - thinking machines and prime intellect, personalized models for everyone. frontier models will enable this. more flops per dollar will enable this. continually trained models for everyone.
 - we probably need 10-30 semantically accurate data points for a model to consider is not noise, regardless of the % of total accuracy it is. which implies we need to 10x the amount of data we have, since current qwen models get 1-2 things right. this assumes that the data is the same distribution, and it doesn't just show the ability to pick out easy prompts. also showing that loss continues to decrease by spending more on NLL graphs is likely necessary to show continual training improvements. also the choice of updating every 50 examples vs any other frequency (every example, or every day i.e. variable number) may impact things
-- 
+- https://x.com/MilksandMatcha/status/2052812382137971115?s=20 technical writing from ant guy

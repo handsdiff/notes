@@ -56,18 +56,8 @@
 		- yes models getting cheaper and faster and smarter. but does that mean they do better with less data? or does smarter here mean the ability to solve more esoteric problems? or work for longer in a way that is considered generally satisfactory?
 		- if 'algorithms improve' means more parameters, is that a ceiling? or is that a bootstrap rate? what improves bootstrap rate? in context learning and LoRA stand out. how would you actually establish a vector here?
 	- https://tinker-docs.thinkingmachines.ai/tutorials/advanced/rlhf-pipeline/
+	- is MoE more sample efficient than dense? why or why not? what are the learning properties of each?
 
-
-- i wonder if for the purposes of getting something simple working, i should focus on only predicting next prompt, since the associated timing challenges and READ events are much clearer. i would still capture the other data since its relevant, but i would not apply loss to it necessarily. the only other writes i do are in notes and in messages to others. otherwise im prompting an agent with an associated chat history whether thats in the chatgpt app, codex cli, gemini web, claude web, google search, etc
-	- because the other READ issue is that messages i previously typed are considered 'read' and that feels weird in terms of most closely mimicking my brains processing of information
-- https://x.com/MilksandMatcha/status/2052812382137971115?s=20
-- https://exowill.com/
-- good take "once supported-app data is semantically legible and predictions remain poor, we should move the bottleneck to data quantity, model capacity, or the learning objective"
-- the reasonable middle ground to actual attention tracking is cursor tracking with AX tree resolution
-- is MoE more sample efficient than dense? why or why not? what are the learning properties of each?
-- https://www.webbrain.one/blog/fine-tuning-lfm25-vl-450m-for-browser-tasks https://huggingface.co/webbrain-one/webbrain-vl-2-450M
-- https://huggingface.co/collections/deepseek-ai/deepseek-v4
-- https://huggingface.co/collections/Qwen/qwen35
 - updated timing to be based off of the last material event before a write, which still doesnt actually capture thinking but is much better than starting the timer when the first character was written
 - holistically, the idea i have in my head is the model suggesting what i'll write given a pause in my activity, which in theory should 'automate' my thinking over time, since the model can in theory digest the read content and analyze it instantly, whereas I would take time to do so. and we're trying to distill that process into the model. it should also suggest something if im in the middle of a write, which its unclear if it will do, but i think it will
 - i dont feel comfortable keeping it on when i type in secrets and im building it and its local... need to handle that
