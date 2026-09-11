@@ -82,18 +82,10 @@
 	- john schulman says that using a pretraining objective on user data is improper due to high regurgitation risk and that using user traces to construct RL tasks in low regurgitation risk because RL has low memorization abilities. hmmm.
 
 - todos
-	- after cleaning up scoring, understand what cases improved from old to new and which cases regressed from new to old, for both models
-		- astra showing improved performance on less data cleanup would invalidate continued work on data cleanup
-		- it showed slightly decreased performance on data cleanup while sol improved. my hypothesis is that improved capability is hurt by preconceived cleanup notions.
-		- you'd likely need to cleanup significantly for the purposes of training small open source models today. so doesn't necessarily mean don't do the cleanup if astra improves with less cleanup, but definitely indicates a shorter half life on that part of the work than otherwise
-	- i'd also like to run some training runs on this data now that sol and astra have results that are somewhat meaningful
-	- then continue working with the reviewer on the extent to which we can clean up the old data to have a larger corpus of data to train on, given that the progress over the past month only has a max 4 day training run, which feels against initial intuitions around where results would show
 	- gpt 5.5 on 275 sep 2-6 data -> frontier model vector information -> improve writeup
 	- training run on old/new pipeline for 275 sep 2-6 data -> data pipeline quality information, given that sol seems to have improved. requires choice of model to train. -> improve writeup
 		- if improves -> indication that can run on the two week dataset, so probably worth working through the pipeline update thread i previously paused with the main app conversation
 	- i want to run training on the old vs new pipeline to determine whether (1) theres signal in prediction from an open source model, (2) how performance differs between the old and new pipeline (3) if data cleanup performance has a different impact on training than it does on astra context
 	- cleaning up the data manually rather than rule based just to initiate the training run in a way thats likeliest to derive signal since we can handle making the pipeline latency positive or removing assumptions after. ideally i'd like to run the additional data thru astra sol and 5.5 as well but if i dont have the credits then i cannot
-	- i suspect that, per the current LBH, 5.5 -> 5.6 -> 6 will succeed, and the others will fail
-	- the middle ground im missing is showing that subsequent open source model releases are also performing well, i just dont have cheap access to test those as of now like i do with my codex subscription, but i can probably get one from kimi or zhipu
-	- i suspect we wont see old + new diff since its too noisy at low success rates, but there is a chance, just like there was with sol
+	
 
