@@ -1,7 +1,7 @@
 
 ### Misc Notes
 - the writeup needs to be beautifully presented. people trust beautiful design more than normal design. obviously this is on top of solid content and work, and very technical writing that will impress readers
-- get some stuff from [[Thesis]]
+- get some stuff from [[Thesis]], combine stuff from [[GTM]]
 - i think establishing local scaling laws is the best way to describe the goal for the writeup. requires an actual understanding of scaling laws. basically show how loss if a function of data, compute, parameters, perhaps underlying intelligence, etc. extrapolation from established laws can lead to hopefully accurate cost and performance timelines. scaling rate is critical! vs any y intercepts. read chinchilla paper to get good understanding here.
 	- cost and latency, not just performance, is important to collect data on for the phase 1 experiment
 - equation of time saved when successful minus review time for all must be positive for value creation. then the monetary value of that time must exceed the cost associated with generating the product by about 3x for business viability.
@@ -28,5 +28,7 @@
 - a simple example from this morning. i picked up a piece of trash in one hand while my other hand was occupied, i looked over to the trash can but it was closed and i had no way of opening it. my girlfriend noticed and opened the trash for me.
 	- why isn't AI doing this for everything I do digitally?
 	- the first step of obviously prediction, and autocomplete / workflow automation is an easy way of monetizing that, but its really just the tip of the iceberg
+	- labs will want to do this
 - https://x.com/tbpn/status/2095651279792185623
+- https://multiplayer-ai.com/
 - 
