@@ -1,5 +1,5 @@
 
-- https://x.com/dwarkesh_sp/status/2097359573581799481?s=20
+
 - https://x.com/johnschulman2/status/2097440545853637108?s=20
 - https://x.com/_arohan_/status/2097721502519173525?s=20
 - https://x.com/_arohan_/status/2097705581180235954?s=20
