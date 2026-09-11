@@ -69,49 +69,13 @@
 		- cross entropy loss -> semantic similarity or LLM as judge
 		- sliding window context -> agent led PTC on full corpus (RLMs?)
 		- does feel like i need to reimmerse myself in my memory thinking. peaked when i was writing the article on recall to judgment
+	- how many tokens of data do we have? relates to trainable parameters, eventual attempts at establishing local scaling laws, chinchilla paper seems to suggest 150 tokens per parameter (20:1 when ignoring inference)
+	- this 'bitter lesson' idea of giving the model the goal of next write prediction and it has access to the full corpus of history and letting it write whatever code it wants to properly fetch the data that constructs context to get it to the right answer by slamming RL rollouts keeps popping up in my head so its likely worth getting specific on it once the data is in a place where its time for algorithmic tricks
+	- feels like a big issue is that the 'internal representation' of a conversation thread is completely reconstructed when a new turn is submitted. ideally you'd want the ai to be in the same 'state' as it was when you send it a new message. otherwise you cant trust that the 'activations' behind the production of a good answer remain, causing response inconsistencies. is this intuition backed up with the understanding of how modern attention works from the 3 blue 1 brown video i watched? likely relates to kv cache somewhow. similarly, why is nondeterminism an issue when weights are fixed?
+	- if youre struggling with memory and its getting more expensive, and your flops are underutilized, why not just cache less? i dont understand how cached tokens are offered cheaper if memory is more expensive than compute
+		- flashattention leveraged this?
 
-- STT models seem to be getting really good, which is positive for being able to seamlessly incorporate audio into events
-	- they fold diarization (determining who is speaking) directly into the model??!
-	- both are closed source
-	- i could easily see speech becoming the dominant way of collecting context, so owning a STT model would be a very powerful position, if we assume the current human advantage is context (per alex atallah's 2024 blog post)
-- can you imagine a model that detects outlier surprise in an audio transcription and asks clarifying questions on it, to improve WER? what is human WER?
-	- human WER is 4-8%, and this model is at 2%. superhuman listening??
-	- this only benchmarks against near field audio, not far field audio. so likely better than it seems.
-- how many tokens of data do we have? relates to trainable parameters, eventual attempts at establishing local scaling laws, chinchilla paper seems to suggest 150 tokens per parameter (20:1 when ignoring inference)
-- test NLL charts are important
-- jonathan was talking about 'in context' NLL which i did not fully understand
-- get the team on the new data collection, take their data. determine the easiest way to do this once, and the easiest way to do this multiple times. potentially test and add their supported apps
-- the AX tree viewport views were the most informative
-- this 'bitter lesson' idea of giving the model the goal of next write prediction and it has access to the full corpus of history and letting it write whatever code it wants to properly fetch the data that constructs context to get it to the right answer by slamming RL rollouts keeps popping up in my head so its likely worth getting specific on it once the data is in a place where its time for algorithmic tricks
-- increasing intuitions about what the state of play actually was on the ground in late 2010s to now probably helps ground what is less likely vs more likely to come
-	- very unobvious that LLMs would pop off like this to mostly everyone
-	- dario had an anecdote where he observed computation + data being the main improvement when working under andrew ng at baidu
-	- deep learning was collected / formalized around 2008
-	- deepmind was formed a few years later, elon invested
-	- they did great work showing scalable RL on bounded games
-	- people were scared that google would completely own AI when they bought deepmind and deepmind popped off with their work so they started openai, but it was mostly a research bet at the time, very exploratory, although clearly enough to attract a ton of talented researchers, primarily from google. 2017
-	- openai was basically doing a bunch of random shit
-	- gpt 1 paper 2018 (feels like the pivotal moment)
-	- sutton published bitter lesson in 2019
-	- kaplan published scaling laws in 2020
-	- during this time it still wasnt obvious that LLMs were the dominant NLP solution. AI research in 2021 didnt really focus on LLMs (transformers), more so CNNs, RNNs, LSTMs. transformers were just another method.
-	- anthropic formed from a ton of openai employees in 2021
-	- chatgpt launch 2022
-	- bunch of floundering until deepseek r1 paper early 2025 showed reasoning / chain of thought could work. tbf openai was doing this with their o series with a preview in sep 2024.
-	- openclaw and agents popped off in late 2025
-	- agents coupling chain of thought with tool calls now dominant
-	- caused cursor to shift priorities in early 2026 moving away from programmer AI pair, which was their original thesis, and more cloud agents
-	- memory stock bull market, tons of enterprise AI, tons of training stack businesses, compute markets. extremely competitive open source. attempts at democratizing training tools for any task, (baseten has a good understanding of this from i tweet i read earlier), and the inputs to continued frontier competition (memory, power, flops, data (but maybe less so due to synthetic data which is an early form of RSI))
-	- potential candidates from here are agent coordination, continual learning, personal learning, RSI, memory/context, continued training stack democratization
-- just put in the actual work. PUBLIC!!! so lacking on the public
-- "at what NLL is goal inference occurring?"
-- is my data stream as formulated as next thought prediction too high entropy for prediction? what if the next typing is conditioned on the first word? there is a separate bar between productization usefulness (the goal) and research merit (consolation)
-- need to be open to better memory as a productization stepping stone towards applying information to action rather than recalling information well
-- ive previously written about the thesis that the forcing function of a goal determines memory recall and it cannot be decoupled. not sure where in this obsidian it is though
-- i want to find the baseten tweet again and the bounded/unbounded tweet again since many of the 'local model' discourse involves bounded tasks, whereas my focus is on what i'd consider an unbounded task? forget the other axis. and local models on unbounded tasks may be invalidated
-- feels like a big issue is that the 'internal representation' of a conversation thread is completely reconstructed when a new turn is submitted. ideally you'd want the ai to be in the same 'state' as it was when you send it a new message. otherwise you cant trust that the 'activations' behind the production of a good answer remain, causing response inconsistencies. is this intuition backed up with the understanding of how modern attention works from the 3 blue 1 brown video i watched? likely relates to kv cache somewhow. similarly, why is nondeterminism an issue when weights are fixed?
-- if youre struggling with memory and its getting more expensive, and your flops are underutilized, why not just cache less? i dont understand how cached tokens are offered cheaper if memory is more expensive than compute
-	- flashattention leveraged this?
+
 - https://x.com/ii_posts/status/2095882226319667700
 - https://x.com/tbpn/status/2095651279792185623
 - https://x.com/giovannicatt3/status/2094815425972539565
