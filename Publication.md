@@ -13,4 +13,10 @@
 - i dont feel comfortable keeping it on when i type in secrets and im building it and its local... need to handle that
 - the other issue is that it does not seem to be able to directly execute on superhuman tasking, although as i type this, it can always prompt a larger language model to do something, so its not necessary for the model itself to be directly able to execute like that
 - data is needed. raw data -> useful structure is complicated and time consuming even if intelligence to handle it skyrockets. a well built, provably useful standard would unlock this burden and allow algorithmic tricks and eventual useful consumer apps on top of clean data streams
+- bibtex example i've seen elsewhere like the scaling laws slowly blog or something https://www.coreauto.com/blog/how-our-data-shaped-neural-architecture-discovery-and-how-automation-can-reshape-the-future
+- https://x.com/viemccoy/status/2089096954257215678?s=20 multi agent people really seem to understand the problem!
+- core automation founders talking about 'why do i have to show up to work and prompt the model? why is the model not already prompting itself like that?' per my thesis
+- "I think we want AI to present hypotheses about the inferred goals for your review." my dad said the same thing, when i was more heavily thinking through the concepts of goal inference / CIRL / assistance games
+- https://www.amplifypartners.com/blog-posts/the-user-modeling-wars
+- https://x.com/venturetwins/status/2095203994843086947?s=20
 - 

@@ -65,22 +65,7 @@
 	- probably worth going back into the thinking/notes around how memory management occurs for harnesses, specifically codex, since it seems very relevant
 		- https://frontierharness.org/ codex is the only harness pareto on both cost and speed. supports analyzing how it handles memory/context. the single thread long horizon memory is excellent.
 
-- the lack of content is really bad. still need to go through entry + gain deep training intuitions + update local tasking + output content, getting blocked by continued iteration on data cleanup, although that does seem most important
-- https://x.com/willcb/status/2095420093861949576?s=20
-- https://x.com/viemccoy/status/2089096954257215678?s=20 multi agent people really seem to understand the problem!
-- https://x.com/venturetwins/status/2095203994843086947?s=20 a16z is shilling coast?
-- why is he calling this 'embedded'? https://x.com/gakonst/status/2095462787224871197?s=20
-- exowill call with jonathan ward https://x.com/j_upward/status/2092317212371759269
-	- nusomi
-	- gwern GA
-	- joindex
-	- littlebird
-	- "Converting this data-limited problem into something compute-limited (without producing slop data) is very much the hard core of the research problem"
-	- belvedir
-	- "I think we want AI to present hypotheses about the inferred goals for your review." my dad said the same thing, when i was more heavily thinking through the concepts of goal inference / CIRL / assistance games
-	- "zuck's personal superintelligence"
-- https://www.amplifypartners.com/blog-posts/the-user-modeling-wars
-- https://www.engramme.com/index/memory-is-not-search
+
 - the following steps continue to stand out to me, but also get inflated in my head
 	- cross entropy loss -> semantic similarity or LLM as judge
 	- sliding window context -> agent led PTC on full corpus (RLMs?)
