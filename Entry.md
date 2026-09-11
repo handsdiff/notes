@@ -62,7 +62,7 @@
 	- i think if you're training on write events where the corresponding READ event isnt in context (such as capture gaps like videos), you are training the model to hallucinate
 
 - todos
-	- gpt 5.5 on 275 sep 2-6 data -> frontier model vector information -> improve writeup
+	- gpt 5.5 on 660 sep 2-10 data -> frontier model vector information -> improve writeup
 	- training run on old/new pipeline for 275 sep 2-6 data -> data pipeline quality information, given that sol seems to have improved. requires choice of model to train. -> improve writeup
 		- if improves -> indication that can run on the two week dataset, so probably worth working through the pipeline update thread i previously paused with the main app conversation
 	- i want to run training on the old vs new pipeline to determine whether (1) theres signal in prediction from an open source model, (2) how performance differs between the old and new pipeline (3) if data cleanup performance has a different impact on training than it does on astra context
