@@ -70,4 +70,5 @@
 	- i want to run training on the old vs new pipeline to determine whether (1) theres signal in prediction from an open source model, (2) how performance differs between the old and new pipeline (3) if data cleanup performance has a different impact on training than it does on astra context
 	- cleaning up the data manually rather than rule based just to initiate the training run in a way thats likeliest to derive signal since we can handle making the pipeline latency positive or removing assumptions after. ideally i'd like to run the additional data thru astra sol and 5.5 as well but if i dont have the credits then i cannot
 	- "the heuristic we use to determine whether a model is able to effectively learn from a given dataset / how strong the base model needs to be is pass@1 failing but 1-2 rollouts in pass@16 succeeding" "every single rollout in a pass@16 failing is usually hopeless for successful learning"
+	- we should test this ^ before initiating a full run
 
