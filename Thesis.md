@@ -37,6 +37,7 @@ The ~\$600B figure is an estimate of the annual global cost to businesses of act
 
 # Misc Notes
 
+- the way i described to jakub earlier was that the unique insight was that next thought prediction was a forcing function for properly learning how to apply information to an action, rather than alternative methods for supplying relevant information
 - https://www.anthropic.com/research/multiagent-systems
 	- data -> personal alignment -> multi agent coordination
 - core idea involves answering the question of where to get rewards by choosing the user's next action. this if works leads to mimicry. which is useful to the extent that it can handle rote tasking on my behalf or unbound rationality via a larger search space. the superhuman part is most recently described as the 'vector' thesis i have which i need to work on a bit more

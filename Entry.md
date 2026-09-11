@@ -1,56 +1,48 @@
 
-- jward discussion / collaboration https://discord.com/channels/1547089652069171210/1547305826115518555
-	-  https://x.com/humansand/status/2098115046438215791?s=20
-	- respond to jward about https://persimmon.humansand.ai/blog/persimmon.html
-	- https://docs.google.com/document/d/1mAyLsqEYJzpCQxXpKE7oiOWSStbUgRGkLVE91x4hua8/edit?pli=1&tab=t.0
-	- https://www.completeskeptic.com/p/the-bitterest-lesson
-	- https://github.com/qlabs-eng/slowrun
-	- https://arxiv.org/abs/2509.14786
-	- 
-- Feels like the recent X discussion around navier stokes and training on user data is very relevant. Seeing lots of takes where I feel like I learn something
-- training vid from openai guy https://www.youtube.com/watch?v=r1qZpYAmqmg
-	- says that non reasoning, human interactivity post training/RLHF has on the order of 100k data examples, 100k training cost on the order of days, and the bottleneck is data and evals
-	- if i do token level cross entropy loss for phase 1, will that delete learned pretraining language abilities? does that same issue apply to RLHF? why or why not?
-	- should we attempt fine tuning a reasoning model rather than a base model? the reasoning core may improve performance
-	- over and over, the bottleneck is data and evals. fine tuning is estimated to take 10k-100k problems, $10k-$100k in spend, and days of training
-	- "there is no reason trying to optimize things for your current level of compute because next year you will have more and that will perform better" internalizing this is important when it comes to the goal of the published results being to establish 'local scaling laws'. what matters is what scales, and the rate of scaling.
-	- seems increasingly obvious that phase 1 is sft and phase 2/3 is rl, which is a classic pipeline
-	- having a hard time internalizing the actual difference between a 'rule based verifier' used for RL that is essentially human preferences, vs some other method of human preference data? i guess a 'rubric' is literally the only way to encode human preference data in a way that is scalable? but this then allows you to do RL? (obviously also need envs to do rollouts, more compute, etc)
-	- stated problem with RL i haven't heard articulated before but makes sense is that if youre doing agentic RL and the model is calling lots of external apis or tools, waiting for api returns is a waste of GPU time and resources
-	- its well established that RLHF (PPO, DPO, etc) can lead to superhuman performance. how does this relate to my lineage of thinking? is the sample from a good SFT model considered applicable to DPO learning if there is a human continuation that is considered better? im just repeating my old opinions from when i researched algorithms and initially wrote up phase 1 and phase 2, but i'd like to increase clarity here. having a clear objective is likely important. or do you just continue doing SFT on the human's result even when exposed to model samples, rather than attempting DPO? why or why not? in theory SFT never allows superhuman performance, but in this scenario it might, may be the issue, since the human is theoretically improving due to the sample? this is a ramble and unformed but seems to be hinting at something. overall it feels like there are unique ways to think about this given that the human is so tightly in the loop and most algorithms and research do not assume that, and i haven't fully cracked those yet
-	- indicates that the humans you collect data from for RLHF are given rubrics?? doesnt this make using LLMs on rubrics much less of a jump?
-	- considers collecting human data extremely difficult
-	- is RLHF/DPO set up the way it is BECAUSE human data collection is decoupled from training? what if this bottleneck was removed? would you just do SFT?
-	- is the learned reward model from preference data in RLHF essentially equivalent to a rubric in the sense that it makes human preference scalable for training?
-		- well known that LLM feedback is shown to be basically the same as human feedback except way cheaper now
-	- deduplication helps pretraining performance the most out of any cleanup, according to the FineWeb Dataset work
-	- i think a base model definitely superior to a posttrained model. he directly describes SFT as being done on top of a pretrained model. "Fine tune the LLM with language modeling (next token prediction) of the desired answers (supervised)"
-	- the problem with alignment is consistently "human data is slow to collect and expensive". could phrase the value prop as "human data is fast to collect and free". relates to the algorithmic questions i have around the extent to which you dont need a reward model if the human is in the loop. hmmmmmmm. relates to the validity of phase 1 model's samples acting as rejection sampling for phase 2 IPO
-	- says 10k examples good for learning style and instruction following (behavior cloning)
-	- comes down to whether the fine tune dataset has already been modeled in pretraining, and its being refined, or if its new, and its being built from scratch
-	- pure sft causes hallucinations if the LLM didn't know the correct answer and its just blindly mimicking it
-	- shows that in 2020, at least for the task of summarization, SFT underperformed reference summaries but PPO outperformed reference summaries (and scaled better with model size)
-- how does introducing a temporal component to the collected data change the qualitative response of normal agents like Codex, vs just telling it that there is a git history? what about comparing it to just the current content? this feels interesting and important to quantify/benchmark, since it may be enough to have this rather than training to predict output.
-	- do i care about information to action mapping or do i care about a temporal understanding of past work? the thing about judgment + proactive suggestions is that its qualitatively different UX, so doesn't really feel like you can 'lineage' or MVP your way up to it
-- it was supposed to be able to save time for people, but if it cant do that then its not useful
-- i need to reread this https://arxiv.org/html/2603.05923v1
-- what im attempting to do with the episodic rewrite i.e. focusing on closed substantive writes as loss targets rather than current level of granularity is changing the event demarcation logic to better map my intentions
-	- what this also does is change whats being learned. we are now doing SFT on something more akin to a cleaned, optimal version of the human data rather than the human data itself. i wonder in which direction this points and what a natural stopping point is. why not just SFT more towards the outcome, if it exists? the reason would be you aren't learning judgment, but you likely still are, its another method of distilling 'superhuman' performance into the model. where you might have to draw a line is things that the human wanted to do but did not. you dont have SFT for that. you might need to train on goal inference SFT from synthetic data directly to achieve further performance here. are you distilling judgment or training a proactive agent? those are two different things. which one is closer to applying next action prediction as a forcing function for end to end context use, as opposed to other startups that seem to be applying made up forcing functions to context use, distilling something else other than the ability to use information to achieve some goal (which i have previously called judgment, and which some other teams are starting to mention as well)
-- the way i described to jakub earlier was that the unique insight was that next thought prediction was a forcing function for properly learning how to apply information to an action, rather than alternative methods for supplying relevant information
-- i think establishing local scaling laws is the best way to describe the goal for the writeup. requires an actual understanding of scaling laws. basically show how loss if a function of data, compute, parameters, perhaps underlying intelligence, etc. extrapolation from established laws can lead to hopefully accurate cost and performance timelines. scaling rate is critical! vs any y intercepts. read chinchilla paper to get good understanding here.
-- cost and latency, not just performance, is important to collect data on for the phase 1 experiment
-- while talking to jakub i think good positioning which well reflects my theses is roughly the following
-	- continual learning of judgment/reasoning vs continual learning of facts
-	- z ai founder tweet on how facts seem to be stored in total and reasoning seems to be stored in active
-	- feels like im trying to get continual learning of judgment whereas most continual learners seem to be focusing on continual learning of facts
-	- relates to hardware since memory bandwidth is an issue to the extent that you have active parameters? or is it total parameters? probably worth reviewing
-	- does continual learning of reasoning makes sense? the clearest example is learning how to do something vs learning a fact. there is clearly a difference between these two things. calling learning how to do something judgment or reasoning may be where the issue comes in
-	- this thought seemed crazy to me when i had it but after writing it down it feels more normal / less clear
-	- how to do something vs facts vs what to do given input might all be different things. the first and the third seem similar?
-- it seems like its fine to create the event demarcation we're going for rather than trying to create more synthetic datasets of the longer term goals since the things that are truly important will be done on the spot. hopefully, with the ai filling in those gaps, it allows you to move faster, so there are new gaps to fill, it can fill in more gaps, etc
-- https://arxiv.org/abs/2608.16072
-- i want cost/latency tracking as well as raw performance tracking on the experiment
-- https://arxiv.org/pdf/2608.17981v1
+- open questions/thoughts likely worth resolving
+	- jward discussion / collaboration https://discord.com/channels/1547089652069171210/1547305826115518555
+		- https://x.com/humansand/status/2098115046438215791?s=20
+		- https://docs.google.com/document/d/1mAyLsqEYJzpCQxXpKE7oiOWSStbUgRGkLVE91x4hua8/edit?pli=1&tab=t.0
+		- https://www.completeskeptic.com/p/the-bitterest-lesson
+		- https://github.com/qlabs-eng/slowrun
+		- https://arxiv.org/abs/2509.14786
+	- training vid from openai guy https://www.youtube.com/watch?v=r1qZpYAmqmg
+		- says that non reasoning, human interactivity post training/RLHF has on the order of 100k data examples, 100k training cost on the order of days, and the bottleneck is data and evals
+		- if i do token level cross entropy loss for phase 1, will that delete learned pretraining language abilities? does that same issue apply to RLHF? why or why not?
+		- should we attempt fine tuning a reasoning model rather than a base model? the reasoning core may improve performance
+		- over and over, the bottleneck is data and evals. fine tuning is estimated to take 10k-100k problems, $10k-$100k in spend, and days of training
+		- "there is no reason trying to optimize things for your current level of compute because next year you will have more and that will perform better" internalizing this is important when it comes to the goal of the published results being to establish 'local scaling laws'. what matters is what scales, and the rate of scaling.
+		- seems increasingly obvious that phase 1 is sft and phase 2/3 is rl, which is a classic pipeline
+		- having a hard time internalizing the actual difference between a 'rule based verifier' used for RL that is essentially human preferences, vs some other method of human preference data? i guess a 'rubric' is literally the only way to encode human preference data in a way that is scalable? but this then allows you to do RL? (obviously also need envs to do rollouts, more compute, etc)
+		- stated problem with RL i haven't heard articulated before but makes sense is that if youre doing agentic RL and the model is calling lots of external apis or tools, waiting for api returns is a waste of GPU time and resources
+		- its well established that RLHF (PPO, DPO, etc) can lead to superhuman performance. how does this relate to my lineage of thinking? is the sample from a good SFT model considered applicable to DPO learning if there is a human continuation that is considered better? im just repeating my old opinions from when i researched algorithms and initially wrote up phase 1 and phase 2, but i'd like to increase clarity here. having a clear objective is likely important. or do you just continue doing SFT on the human's result even when exposed to model samples, rather than attempting DPO? why or why not? in theory SFT never allows superhuman performance, but in this scenario it might, may be the issue, since the human is theoretically improving due to the sample? this is a ramble and unformed but seems to be hinting at something. overall it feels like there are unique ways to think about this given that the human is so tightly in the loop and most algorithms and research do not assume that, and i haven't fully cracked those yet
+		- indicates that the humans you collect data from for RLHF are given rubrics?? doesnt this make using LLMs on rubrics much less of a jump?
+		- considers collecting human data extremely difficult
+		- is RLHF/DPO set up the way it is BECAUSE human data collection is decoupled from training? what if this bottleneck was removed? would you just do SFT?
+		- is the learned reward model from preference data in RLHF essentially equivalent to a rubric in the sense that it makes human preference scalable for training?
+			- well known that LLM feedback is shown to be basically the same as human feedback except way cheaper now
+		- deduplication helps pretraining performance the most out of any cleanup, according to the FineWeb Dataset work
+		- i think a base model definitely superior to a posttrained model. he directly describes SFT as being done on top of a pretrained model. "Fine tune the LLM with language modeling (next token prediction) of the desired answers (supervised)"
+		- the problem with alignment is consistently "human data is slow to collect and expensive". could phrase the value prop as "human data is fast to collect and free". relates to the algorithmic questions i have around the extent to which you dont need a reward model if the human is in the loop. hmmmmmmm. relates to the validity of phase 1 model's samples acting as rejection sampling for phase 2 IPO
+		- says 10k examples good for learning style and instruction following (behavior cloning)
+		- comes down to whether the fine tune dataset has already been modeled in pretraining, and its being refined, or if its new, and its being built from scratch
+		- pure sft causes hallucinations if the LLM didn't know the correct answer and its just blindly mimicking it
+		- shows that in 2020, at least for the task of summarization, SFT underperformed reference summaries but PPO outperformed reference summaries (and scaled better with model size)
+	- how does introducing a temporal component to the collected data change the qualitative response of normal agents like Codex, vs just telling it that there is a git history? what about comparing it to just the current content? this feels interesting and important to quantify/benchmark, since it may be enough to have this rather than training to predict output.
+		- do i care about information to action mapping or do i care about a temporal understanding of past work? the thing about judgment + proactive suggestions is that its qualitatively different UX, so doesn't really feel like you can 'lineage' or MVP your way up to it
+	- i need to reread this https://arxiv.org/html/2603.05923v1
+	- what im attempting to do with the episodic rewrite i.e. focusing on closed substantive writes as loss targets rather than current level of granularity is changing the event demarcation logic to better map my intentions
+		- what this also does is change whats being learned. we are now doing SFT on something more akin to a cleaned, optimal version of the human data rather than the human data itself. i wonder in which direction this points and what a natural stopping point is. why not just SFT more towards the outcome, if it exists? the reason would be you aren't learning judgment, but you likely still are, its another method of distilling 'superhuman' performance into the model. where you might have to draw a line is things that the human wanted to do but did not. you dont have SFT for that. you might need to train on goal inference SFT from synthetic data directly to achieve further performance here. are you distilling judgment or training a proactive agent? those are two different things. which one is closer to applying next action prediction as a forcing function for end to end context use, as opposed to other startups that seem to be applying made up forcing functions to context use, distilling something else other than the ability to use information to achieve some goal (which i have previously called judgment, and which some other teams are starting to mention as well)
+		- it seems like its fine to create the event demarcation we're going for rather than trying to create more synthetic datasets of the longer term goals since the things that are truly important will be done on the spot. hopefully, with the ai filling in those gaps, it allows you to move faster, so there are new gaps to fill, it can fill in more gaps, etc
+	- while talking to jakub i think good positioning which well reflects my theses is roughly the following
+		- continual learning of judgment/reasoning vs continual learning of facts
+		- z ai founder tweet on how facts seem to be stored in total and reasoning seems to be stored in active
+		- feels like im trying to get continual learning of judgment whereas most continual learners seem to be focusing on continual learning of facts
+		- relates to hardware since memory bandwidth is an issue to the extent that you have active parameters? or is it total parameters? probably worth reviewing
+		- does continual learning of reasoning makes sense? the clearest example is learning how to do something vs learning a fact. there is clearly a difference between these two things. calling learning how to do something judgment or reasoning may be where the issue comes in
+		- this thought seemed crazy to me when i had it but after writing it down it feels more normal / less clear
+		- how to do something vs facts vs what to do given input might all be different things. the first and the third seem similar?
+
 - one way to describe the tension with the stated problem its addressing of not needing to provide context, besides the other ones listed in the thesis notes, is that the model is specifically not meant to be prompted via question answer. so you cant really rely on it to have some innate knowledge of everything youre working on. perhaps its more like talking to yourself, and yourself has faster, lower cost information retrieval and usage than you do, but that has not been proven yet. so the feelings around the lack of clarity around this addressing a current enterprise problem costing time or money is still unclear. obviously the vision is that it saves you time, but then you'd want to address people who think they spend a lot of time thinking? or doing rote work during their day to day? which feels widespread but vague rather than acute and deep. imagination vs practicality is the meta challenge.
 - you likely can't sell software. you can sell hardware, or customer service, or network effects.
 
