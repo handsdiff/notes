@@ -8,6 +8,7 @@
 		- https://arxiv.org/abs/2509.14786
 		- one core difference between training to predict next write given prior read/write and 'jarvis' is that it will never ask you a clarifying question
 		- people use a lot of words to describe making human preferences scalable for the purposes of teaching AI: rubric engineering, reward models from human preferences, synthetic data, etc
+		- "replay based algorithms"
 	- training vid from openai guy https://www.youtube.com/watch?v=r1qZpYAmqmg
 		- says that non reasoning, human interactivity post training/RLHF has on the order of 100k data examples, 100k training cost on the order of days, and the bottleneck is data and evals
 		- if i do token level cross entropy loss for phase 1, will that delete learned pretraining language abilities? does that same issue apply to RLHF? why or why not?
