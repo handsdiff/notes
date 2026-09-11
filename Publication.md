@@ -45,4 +45,9 @@
 		- "replay based algorithms"
 - example pub https://persimmon.humansand.ai/blog/persimmon.html https://persimmon.humansand.ai/blog/persimmon-model-card.html along with some positioning boundaries
 - https://persimmon.humansand.ai/blog/persimmon-model-card.html#intended-uses would be interesting to see how this fares at prediction when compared to sol / astra
-- 
+- "there is no reason trying to optimize things for your current level of compute because next year you will have more and that will perform better" internalizing this is important when it comes to the goal of the published results being to establish 'local scaling laws'. what matters is what scales, and the rate of scaling.
+- (probably want to mention phase 2 and future work in the blog) v
+	- its well established that RLHF (PPO, DPO, etc) can lead to superhuman performance. how does this relate to my lineage of thinking? is the sample from a good SFT model considered applicable to DPO learning if there is a human continuation that is considered better? im just repeating my old opinions from when i researched algorithms and initially wrote up phase 1 and phase 2, but i'd like to increase clarity here. having a clear objective is likely important. or do you just continue doing SFT on the human's result even when exposed to model samples, rather than attempting DPO? why or why not? in theory SFT never allows superhuman performance, but in this scenario it might, may be the issue, since the human is theoretically improving due to the sample? this is a ramble and unformed but seems to be hinting at something. overall it feels like there are unique ways to think about this given that the human is so tightly in the loop and most algorithms and research do not assume that, and i haven't fully cracked those yet
+		- "a high-reward oracle raises the group baseline and inverts otherwise positive policy advantages, a failure we term advantage inversion"
+		- i like the phrase "coupled learning" to describe the learning i'm trying to build
+	- is RLHF/DPO set up the way it is BECAUSE human data collection is decoupled from training? what if this bottleneck was removed? would you just do SFT?
