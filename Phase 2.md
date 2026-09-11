@@ -14,6 +14,7 @@
 - so good / all is a knob obviously. model latency is a knob. 
 - will likely need a way to handle if the model's suggestion is accepted verbatim but then edited (within a closed write). we'd likely want to train on the edited version that is finally used rather than naively considering acceptance as the ceiling for either SFT or DPO/IPO
 - resolved training vs sampling issues by deterministically choosing app + field write destination and keeping model as content learner
+- "the heuristic we use to determine whether a model is able to effectively learn from a given dataset / how strong the base model needs to be is pass@1 failing but 1-2 rollouts in pass@16 succeeding" "every single rollout in a pass@16 failing is usually hopeless for successful learning"
 
 ## Abstract
 

@@ -59,6 +59,7 @@
 	- i believe i chose next substantive write prediction since i thought it was more directly economically useful. does more general action prediction result in a higher terminal value or goal inference + proactive assistance?
 	- does multilora allow you to capture value you create even if capture + recipes + weights are all open source?
 	- is judgment distillation the most direct way to help solve heterarchical agent coordination? what about a single 'coworker' like indent? clearly different problems?
+	- i think if you're training on write events where the corresponding READ event isnt in context (such as capture gaps like videos), you are training the model to hallucinate
 
 - todos
 	- gpt 5.5 on 275 sep 2-6 data -> frontier model vector information -> improve writeup
@@ -67,8 +68,4 @@
 	- i want to run training on the old vs new pipeline to determine whether (1) theres signal in prediction from an open source model, (2) how performance differs between the old and new pipeline (3) if data cleanup performance has a different impact on training than it does on astra context
 	- cleaning up the data manually rather than rule based just to initiate the training run in a way thats likeliest to derive signal since we can handle making the pipeline latency positive or removing assumptions after. ideally i'd like to run the additional data thru astra sol and 5.5 as well but if i dont have the credits then i cannot
 		- will need to keep in mind to codify the 'manual' cleanup later, as well as consider how it introduces latency during real time sampling in phase 2
-	- "the heuristic we use to determine whether a model is able to effectively learn from a given dataset / how strong the base model needs to be is pass@1 failing but 1-2 rollouts in pass@16 succeeding" "every single rollout in a pass@16 failing is usually hopeless for successful learning"
-	- we should test this ^ before initiating a full run
-	- jward uses this as a measurement https://medium.com/@dip.patel.ict/bits-per-byte-bpb-a-tokenizer-agnostic-way-to-measure-llms-25dfed3f41af is this what i call prequential bits?
-	- also want to flag this to implementer: i think if you're training on write events where the corresponding READ event isnt in context (such as capture gaps like videos), you are training the model to hallucinate
 
