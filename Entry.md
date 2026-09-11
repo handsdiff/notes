@@ -278,4 +278,7 @@
 - https://vitalik.eth.limo/general/2026/04/02/secure_llms.html
 - tough to step back and think at a higher level with regards to working through this list of positioning while staying focused on initiating the hopefully final runs successfully
 - cleaning up the data manually rather than rule based just to initiate the training run in a way thats likeliest to derive signal since we can handle making the pipeline latency positive or removing assumptions after. ideally i'd like to run the additional data thru astra sol and 5.5 as well but if i dont have the credits then i cannot
+- i suspect that, per the current LBH, 5.5 -> 5.6 -> 6 will succeed, and the others will fail
+- the middle ground im missing is showing that subsequent open source model releases are also performing well, i just dont have cheap access to test those as of now like i do with my codex subscription, but i can probably get one from kimi or zhipu
+- 
 
