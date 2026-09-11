@@ -14,6 +14,8 @@
 	- respond to jward about https://persimmon.humansand.ai/blog/persimmon.html
 	- https://docs.google.com/document/d/1mAyLsqEYJzpCQxXpKE7oiOWSStbUgRGkLVE91x4hua8/edit?pli=1&tab=t.0
 	- https://www.completeskeptic.com/p/the-bitterest-lesson
+	- https://github.com/qlabs-eng/slowrun
+	- https://arxiv.org/abs/2509.14786
 	- 
 - Feels like the recent X discussion around navier stokes and training on user data is very relevant. Seeing lots of takes where I feel like I learn something
 - training vid from openai guy https://www.youtube.com/watch?v=r1qZpYAmqmg
