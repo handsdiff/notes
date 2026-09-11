@@ -19,4 +19,5 @@
 - "I think we want AI to present hypotheses about the inferred goals for your review." my dad said the same thing, when i was more heavily thinking through the concepts of goal inference / CIRL / assistance games
 - https://www.amplifypartners.com/blog-posts/the-user-modeling-wars
 - https://x.com/venturetwins/status/2095203994843086947?s=20
+- overfit test as a method of determining whether there exists learnable signal in the data. i believe thats what i did earlier with the qwen run
 - 

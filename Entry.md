@@ -65,17 +65,16 @@
 	- i really dont like how theres an instruction in the base model training. it should just be completing next token. base models dont have question answer no? then why does thinking machines recommend using 'roles' in base model training?
 	- probably worth going back into the thinking/notes around how memory management occurs for harnesses, specifically codex, since it seems very relevant
 		- https://frontierharness.org/ codex is the only harness pareto on both cost and speed. supports analyzing how it handles memory/context. the single thread long horizon memory is excellent.
+	- the following steps continue to stand out to me, but also get inflated in my head
+		- cross entropy loss -> semantic similarity or LLM as judge
+		- sliding window context -> agent led PTC on full corpus (RLMs?)
+		- does feel like i need to reimmerse myself in my memory thinking. peaked when i was writing the article on recall to judgment
 
-
-- the following steps continue to stand out to me, but also get inflated in my head
-	- cross entropy loss -> semantic similarity or LLM as judge
-	- sliding window context -> agent led PTC on full corpus (RLMs?)
-	- does feel like i need to reimmerse myself in my memory thinking. peaked when i was writing the article on recall to judgment
 - STT models seem to be getting really good, which is positive for being able to seamlessly incorporate audio into events
 	- they fold diarization (determining who is speaking) directly into the model??!
 	- both are closed source
 	- i could easily see speech becoming the dominant way of collecting context, so owning a STT model would be a very powerful position, if we assume the current human advantage is context (per alex atallah's 2024 blog post)
-- overfit test as a method of determining whether there exists learnable signal in the data. i believe thats what i did earlier with the qwen run
+- 
 - if the human model can predict the human well, you could pair it with a more typical frontier model to use the prediction from the human model to then more 'normally' help i.e. ask questions for assistance, more akin to something like jarvis or something even more proactive that actively suggests goal reaching activities
 - having a clean data stream of activity is the first step towards a model that can predict multi step turns which is the first step towards prospective learning or proactive assistance or multi agent systems
 - can you imagine a model that detects outlier surprise in an audio transcription and asks clarifying questions on it, to improve WER? what is human WER?
