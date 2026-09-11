@@ -20,4 +20,6 @@
 - https://www.amplifypartners.com/blog-posts/the-user-modeling-wars
 - https://x.com/venturetwins/status/2095203994843086947?s=20
 - overfit test as a method of determining whether there exists learnable signal in the data. i believe thats what i did earlier with the qwen run
+-  if the human model can predict the human well, you could pair it with a more typical frontier model to use the prediction from the human model to then more 'normally' help i.e. ask questions for assistance, more akin to something like jarvis or something even more proactive that actively suggests goal reaching activities
+- having a clean data stream of activity is the first step towards a model that can predict multi step turns which is the first step towards prospective learning or proactive assistance or multi agent systems
 - 
