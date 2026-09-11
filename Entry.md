@@ -1,6 +1,6 @@
 
 
-- https://x.com/johnschulman2/status/2097440545853637108?s=20
+
 - https://x.com/_arohan_/status/2097721502519173525?s=20
 - https://x.com/_arohan_/status/2097705581180235954?s=20
 - https://x.com/johnschulman2/status/2098093539695771658?s=20
@@ -276,5 +276,5 @@
 - the middle ground im missing is showing that subsequent open source model releases are also performing well, i just dont have cheap access to test those as of now like i do with my codex subscription, but i can probably get one from kimi or zhipu
 - i suspect we wont see old + new diff since its too noisy at low success rates, but there is a chance, just like there was with sol
 - the training takes from jwards doc is interesting because it gives techniques for training on limited data, a lot of which involves reusing the same data, and im only doing a single pass
-- 
+- john schulman says that using a pretraining objective on user data is improper due to high regurgitation risk and that using user traces to construct RL tasks in low regurgitation risk because RL has low memorization abilities. hmmm.
 
