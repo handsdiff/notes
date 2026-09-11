@@ -55,3 +55,4 @@
 - my phases likely relates to jwards taxonomy a bit
 - include number of tokens trained on, jward references this a lot
 - how to elicit goal inference answer from the predictive model?
+- "when to sample" as a big question. the initial plan of gap in user activity may not be good, but it may be best?
