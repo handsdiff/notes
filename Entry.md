@@ -82,6 +82,8 @@
 	- john schulman says that using a pretraining objective on user data is improper due to high regurgitation risk and that using user traces to construct RL tasks in low regurgitation risk because RL has low memorization abilities. hmmm.
 	- i think if you're training on write events where the corresponding READ event isnt in context (such as capture gaps like videos), you are training the model to hallucinate
 	- i believe i chose next substantive write prediction since i thought it was more directly economically useful. does more general action prediction result in a higher terminal value or goal inference + proactive assistance?
+	- does multilora allow you to capture value you create even if capture + recipes + weights are all open source?
+	- is judgment distillation the most direct way to help solve heterarchical agent coordination? what about a single 'coworker' like indent? clearly different problems?
 
 - todos
 	- gpt 5.5 on 275 sep 2-6 data -> frontier model vector information -> improve writeup
