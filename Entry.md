@@ -1,9 +1,4 @@
 
-
-
-- https://x.com/_arohan_/status/2097721502519173525?s=20
-- https://x.com/_arohan_/status/2097705581180235954?s=20
-- https://x.com/johnschulman2/status/2098093539695771658?s=20
 - https://x.com/alexatallah/status/2097717077352276435?s=20
 - https://x.com/eliebakouch/status/2097931464344015347?s=20
 - https://x.com/_arohan_/status/2098069230826689013?s=20
