@@ -11,4 +11,6 @@
 - updated timing to be based off of the last material event before a write, which still doesnt actually capture thinking but is much better than starting the timer when the first character was written
 - holistically, the idea i have in my head is the model suggesting what i'll write given a pause in my activity, which in theory should 'automate' my thinking over time, since the model can in theory digest the read content and analyze it instantly, whereas I would take time to do so. and we're trying to distill that process into the model. it should also suggest something if im in the middle of a write, which its unclear if it will do, but i think it will
 - i dont feel comfortable keeping it on when i type in secrets and im building it and its local... need to handle that
+- the other issue is that it does not seem to be able to directly execute on superhuman tasking, although as i type this, it can always prompt a larger language model to do something, so its not necessary for the model itself to be directly able to execute like that
+- data is needed. raw data -> useful structure is complicated and time consuming even if intelligence to handle it skyrockets. a well built, provably useful standard would unlock this burden and allow algorithmic tricks and eventual useful consumer apps on top of clean data streams
 - 

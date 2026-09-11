@@ -6,6 +6,8 @@
 		- https://www.completeskeptic.com/p/the-bitterest-lesson
 		- https://github.com/qlabs-eng/slowrun
 		- https://arxiv.org/abs/2509.14786
+		- one core difference between training to predict next write given prior read/write and 'jarvis' is that it will never ask you a clarifying question
+		- people use a lot of words to describe making human preferences scalable for the purposes of teaching AI: rubric engineering, reward models from human preferences, synthetic data, etc
 	- training vid from openai guy https://www.youtube.com/watch?v=r1qZpYAmqmg
 		- says that non reasoning, human interactivity post training/RLHF has on the order of 100k data examples, 100k training cost on the order of days, and the bottleneck is data and evals
 		- if i do token level cross entropy loss for phase 1, will that delete learned pretraining language abilities? does that same issue apply to RLHF? why or why not?
@@ -17,6 +19,7 @@
 		- stated problem with RL i haven't heard articulated before but makes sense is that if youre doing agentic RL and the model is calling lots of external apis or tools, waiting for api returns is a waste of GPU time and resources
 		- its well established that RLHF (PPO, DPO, etc) can lead to superhuman performance. how does this relate to my lineage of thinking? is the sample from a good SFT model considered applicable to DPO learning if there is a human continuation that is considered better? im just repeating my old opinions from when i researched algorithms and initially wrote up phase 1 and phase 2, but i'd like to increase clarity here. having a clear objective is likely important. or do you just continue doing SFT on the human's result even when exposed to model samples, rather than attempting DPO? why or why not? in theory SFT never allows superhuman performance, but in this scenario it might, may be the issue, since the human is theoretically improving due to the sample? this is a ramble and unformed but seems to be hinting at something. overall it feels like there are unique ways to think about this given that the human is so tightly in the loop and most algorithms and research do not assume that, and i haven't fully cracked those yet
 			- "a high-reward oracle raises the group baseline and inverts otherwise positive policy advantages, a failure we term advantage inversion"
+			- i like the phrase "coupled learning" to describe the learning i'm trying to build
 		- indicates that the humans you collect data from for RLHF are given rubrics?? doesnt this make using LLMs on rubrics much less of a jump?
 		- considers collecting human data extremely difficult
 		- is RLHF/DPO set up the way it is BECAUSE human data collection is decoupled from training? what if this bottleneck was removed? would you just do SFT?
@@ -59,26 +62,11 @@
 	- https://tinker-docs.thinkingmachines.ai/tutorials/advanced/rlhf-pipeline/
 	- is MoE more sample efficient than dense? why or why not? what are the learning properties of each?
 	- i really dont like how theres an instruction in the base model training. it should just be completing next token. base models dont have question answer no? then why does thinking machines recommend using 'roles' in base model training?
+	- probably worth going back into the thinking/notes around how memory management occurs for harnesses, specifically codex, since it seems very relevant
+		- https://frontierharness.org/ codex is the only harness pareto on both cost and speed. supports analyzing how it handles memory/context. the single thread long horizon memory is excellent.
+	- 
 
 
-- some notes
-	- agents cannot go 'rogue'. they require initiation and direction from a human. the counterargument is that the agent does things the human did not directly intend. the solution to this is liability, which ensures skin in the game for reckless humans
-	- humans currently seem to accrue assets, but not liabilities, of their agent
-	- either agents need personhood and the right to liberty, or humans must legally accrue the assets and liabilities of the AI they initiate and give direction to
-	- if we cannot rely on social consensus/norms to achieve this, then the most likely way out is close coupling
-	- if liabilities outweigh what the initiator is able to repay, such as '08, then the government will need to print money or increase taxes to handle it.
-	- increased decoupling via long runs, lack of feedback, and lost interpretability lead to machine intelligence outcompeting humans on accumulation of resources, power, and control
-	- tight feedback loops (BCIs in the limit, implies heterogeneity + personalization) + mandated interpretability standards + legal liability is the safest combination
-	- long running + lost interpretability + no liability likely leads to succession long term, although in practice there needs to be a lot of compute for this to occur
-	- would future ai civilizations spin up their own currency? what would they use to do this?
-- now we basically need to collect data, given the updates from the review this morning, and then review those, after a chunk of normal work. if thats good, we can finalize the versioned pipeline, and initiate training, to see if the new data helps
-- https://frontierharness.org/ codex is the only harness pareto on both cost and speed. supports analyzing how it handles memory/context. the single thread long horizon memory is excellent.
-- probably worth going back into the thinking/notes around how memory management occurs for harnesses, specifically codex, since it seems very relevant
-- i like the phrase "coupled learning" to describe the learning i'm trying to build
-- people use a lot of words to describe making human preferences scalable for the purposes of teaching AI: rubric engineering, reward models from human preferences, synthetic data, etc
-- one core difference between training to predict next write given prior read/write and 'jarvis' is that it will never ask you a clarifying question
-- the other issue is that it does not seem to be able to directly execute on superhuman tasking, although as i type this, it can always prompt a larger language model to do something, so its not necessary for the model itself to be directly able to execute like that
-- data is needed. raw data -> useful structure is complicated and time consuming even if intelligence to handle it skyrockets. a well built, provably useful standard would unlock this burden and allow algorithmic tricks and eventual useful consumer apps on top of clean data streams
 - https://x.com/coreauto/status/2095285888591004017?s=20
 - https://x.com/krishnanrohit/status/2095223723334975595?s=20
 - the lack of content is really bad. still need to go through entry + gain deep training intuitions + update local tasking + output content, getting blocked by continued iteration on data cleanup, although that does seem most important
