@@ -53,4 +53,5 @@
 	- is RLHF/DPO set up the way it is BECAUSE human data collection is decoupled from training? what if this bottleneck was removed? would you just do SFT?
 	- seems increasingly obvious that phase 1 is sft and phase 2/3 is rl, which is a classic pipeline
 - my phases likely relates to jwards taxonomy a bit
-- 
+- include number of tokens trained on, jward references this a lot
+- how to elicit goal inference answer from the predictive model?
