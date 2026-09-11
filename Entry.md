@@ -1,10 +1,8 @@
 
 - open questions/thoughts likely worth resolving
 	- training vid from openai guy https://www.youtube.com/watch?v=r1qZpYAmqmg
-		- says that non reasoning, human interactivity post training/RLHF has on the order of 100k data examples, 100k training cost on the order of days, and the bottleneck is data and evals
 		- if i do token level cross entropy loss for phase 1, will that delete learned pretraining language abilities? does that same issue apply to RLHF? why or why not?
-		- should we attempt fine tuning a reasoning model rather than a base model? the reasoning core may improve performance
-		- seems increasingly obvious that phase 1 is sft and phase 2/3 is rl, which is a classic pipeline
+		- 
 		- deduplication helps pretraining performance the most out of any cleanup, according to the FineWeb Dataset work
 		- i think a base model definitely superior to a posttrained model. he directly describes SFT as being done on top of a pretrained model. "Fine tune the LLM with language modeling (next token prediction) of the desired answers (supervised)"
 		- the problem with alignment is consistently "human data is slow to collect and expensive". could phrase the value prop as "human data is fast to collect and free". relates to the algorithmic questions i have around the extent to which you dont need a reward model if the human is in the loop. hmmmmmmm. relates to the validity of phase 1 model's samples acting as rejection sampling for phase 2 IPO

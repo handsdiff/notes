@@ -51,3 +51,5 @@
 		- "a high-reward oracle raises the group baseline and inverts otherwise positive policy advantages, a failure we term advantage inversion"
 		- i like the phrase "coupled learning" to describe the learning i'm trying to build
 	- is RLHF/DPO set up the way it is BECAUSE human data collection is decoupled from training? what if this bottleneck was removed? would you just do SFT?
+	- seems increasingly obvious that phase 1 is sft and phase 2/3 is rl, which is a classic pipeline
+	- 
