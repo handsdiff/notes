@@ -16,6 +16,7 @@
 		- having a hard time internalizing the actual difference between a 'rule based verifier' used for RL that is essentially human preferences, vs some other method of human preference data? i guess a 'rubric' is literally the only way to encode human preference data in a way that is scalable? but this then allows you to do RL? (obviously also need envs to do rollouts, more compute, etc)
 		- stated problem with RL i haven't heard articulated before but makes sense is that if youre doing agentic RL and the model is calling lots of external apis or tools, waiting for api returns is a waste of GPU time and resources
 		- its well established that RLHF (PPO, DPO, etc) can lead to superhuman performance. how does this relate to my lineage of thinking? is the sample from a good SFT model considered applicable to DPO learning if there is a human continuation that is considered better? im just repeating my old opinions from when i researched algorithms and initially wrote up phase 1 and phase 2, but i'd like to increase clarity here. having a clear objective is likely important. or do you just continue doing SFT on the human's result even when exposed to model samples, rather than attempting DPO? why or why not? in theory SFT never allows superhuman performance, but in this scenario it might, may be the issue, since the human is theoretically improving due to the sample? this is a ramble and unformed but seems to be hinting at something. overall it feels like there are unique ways to think about this given that the human is so tightly in the loop and most algorithms and research do not assume that, and i haven't fully cracked those yet
+			- "a high-reward oracle raises the group baseline and inverts otherwise positive policy advantages, a failure we term advantage inversion"
 		- indicates that the humans you collect data from for RLHF are given rubrics?? doesnt this make using LLMs on rubrics much less of a jump?
 		- considers collecting human data extremely difficult
 		- is RLHF/DPO set up the way it is BECAUSE human data collection is decoupled from training? what if this bottleneck was removed? would you just do SFT?
@@ -58,7 +59,7 @@
 	- https://tinker-docs.thinkingmachines.ai/tutorials/advanced/rlhf-pipeline/
 	- is MoE more sample efficient than dense? why or why not? what are the learning properties of each?
 
-- https://arxiv.org/abs/2608.20492
+
 - https://www.lesswrong.com/users/steve2152
 - https://x.com/giovannicatt3/status/2094815425972539565?s=20
 - trainability benchmarks are missing
