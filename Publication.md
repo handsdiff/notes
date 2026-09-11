@@ -25,4 +25,7 @@
 - test NLL charts are important
 - jonathan was talking about 'in context' NLL which i did not fully understand
 - "at what NLL is goal inference occurring?"
+- a simple example from this morning. i picked up a piece of trash in one hand while my other hand was occupied, i looked over to the trash can but it was closed and i had no way of opening it. my girlfriend noticed and opened the trash for me.
+	- why isn't AI doing this for everything I do digitally?
+	- the first step of obviously prediction, and autocomplete / workflow automation is an easy way of monetizing that, but its really just the tip of the iceberg
 - 
