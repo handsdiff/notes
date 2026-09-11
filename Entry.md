@@ -58,10 +58,9 @@
 		- if 'algorithms improve' means more parameters, is that a ceiling? or is that a bootstrap rate? what improves bootstrap rate? in context learning and LoRA stand out. how would you actually establish a vector here?
 	- https://tinker-docs.thinkingmachines.ai/tutorials/advanced/rlhf-pipeline/
 	- is MoE more sample efficient than dense? why or why not? what are the learning properties of each?
+	- i really dont like how theres an instruction in the base model training. it should just be completing next token. base models dont have question answer no? then why does thinking machines recommend using 'roles' in base model training?
 
 
-- https://www.hyperdimensional.co/p/on-the-loose 
-- i really dont like how theres an instruction in the base model training. it should just be completing next token. base models dont have question answer no? then why does thinking machines recommend using 'roles' in base model training?
 - some notes
 	- agents cannot go 'rogue'. they require initiation and direction from a human. the counterargument is that the agent does things the human did not directly intend. the solution to this is liability, which ensures skin in the game for reckless humans
 	- humans currently seem to accrue assets, but not liabilities, of their agent
