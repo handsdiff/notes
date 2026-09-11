@@ -46,14 +46,12 @@
 	- if i run the model with a 'reward' that captures the similarity in what it outputted to what the actual next substantive write was, is that suddenly "much lower signal per flop" than my current token level cross entropy training? that doesn't seem to make much sense. i feel like this 'objective' ablation is one of the first, if not the first, ablation i'd like to run, since it feels so relevant to the 'use of information'
 	- lots of conflation between judgment being required for multi agent systems vs solving 'memory' by teaching how to use context not just what context exists
 	- if you consider the human 'completion' the advantage towards an unknown reward, does that unify phase 1 and 2/3 training? its reliant on the humans best estimation of the reward, but it prevents the model from reward hacking.
-- good thesis thread / practical thread on phase 1 vs 2/3 thats worth skimming over again https://claude.ai/chat/5019602c-f0fe-40bd-b737-cad6682cd5be
-- one scifi concept that harkens to my explicit vision is the concept of an embedded agent that understands your context and is able to do things for you that would otherwise be slower for you. is next thought prediction the best way to get there? can you take a frontier model and give it full context (the same you'd be giving / training the personal one on) and tell it to take actions to get to some goal faster? its unclear. what would be a small test that would reveal this?
-	- one issue is that models literally cannot do this to a good enough quality bar
-	- another issue is that models could do this to a good enough quality bar, but it'd be too slow to be useful (the test comparing model performance vs latency to human performance vs latency would check this)
-	- another issue is that its good enough and fast but its stupid expensive
-- thinking machines and prime intellect, personalized models for everyone. frontier models will enable this. more flops per dollar will enable this. continually trained models for everyone.
-- "computational power and epistemic power aren’t the same thing. What you can know isn’t determined only by what you can compute, it also depends on how you’re allowed to interact with something that knows more than you" "I really like this point. I’ve been thinking a lot about the difference between updating based on RL rewards vs updating based on evidence; I think the former can only be made “rational” if you trust the reward-giver to know more than you and to care about your best interests."
-- 
+	- good thesis thread / practical thread on phase 1 vs 2/3 thats worth skimming over again https://claude.ai/chat/5019602c-f0fe-40bd-b737-cad6682cd5be
+	- one scifi concept that harkens to my explicit vision is the concept of an embedded agent that understands your context and is able to do things for you that would otherwise be slower for you. is next thought prediction the best way to get there? can you take a frontier model and give it full context (the same you'd be giving / training the personal one on) and tell it to take actions to get to some goal faster? its unclear. what would be a small test that would reveal this?
+		- one issue is that models literally cannot do this to a good enough quality bar
+		- another issue is that models could do this to a good enough quality bar, but it'd be too slow to be useful (the test comparing model performance vs latency to human performance vs latency would check this)
+		- another issue is that its good enough and fast but its stupid expensive
+
 - did capture miss my write at 2026:08:20T19:53:27.266?
 - 
 
