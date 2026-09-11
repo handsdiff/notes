@@ -58,7 +58,6 @@
 		- how does rich sutton propose setting up rewards or targets for their model?
 	- john schulman says its 'improper' to pretrain on user tokens? does this invalidate my approach or is he talking about typical agent traces specifically?
 	- john schulman says that using a pretraining objective on user data is improper due to high regurgitation risk and that using user traces to construct RL tasks in low regurgitation risk because RL has low memorization abilities. hmmm.
-	- i think if you're training on write events where the corresponding READ event isnt in context (such as capture gaps like videos), you are training the model to hallucinate
 	- i believe i chose next substantive write prediction since i thought it was more directly economically useful. does more general action prediction result in a higher terminal value or goal inference + proactive assistance?
 	- does multilora allow you to capture value you create even if capture + recipes + weights are all open source?
 	- is judgment distillation the most direct way to help solve heterarchical agent coordination? what about a single 'coworker' like indent? clearly different problems?
@@ -72,4 +71,5 @@
 	- "the heuristic we use to determine whether a model is able to effectively learn from a given dataset / how strong the base model needs to be is pass@1 failing but 1-2 rollouts in pass@16 succeeding" "every single rollout in a pass@16 failing is usually hopeless for successful learning"
 	- we should test this ^ before initiating a full run
 	- jward uses this as a measurement https://medium.com/@dip.patel.ict/bits-per-byte-bpb-a-tokenizer-agnostic-way-to-measure-llms-25dfed3f41af is this what i call prequential bits?
+	- also want to flag this to implementer: i think if you're training on write events where the corresponding READ event isnt in context (such as capture gaps like videos), you are training the model to hallucinate
 
