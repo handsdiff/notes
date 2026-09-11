@@ -1,9 +1,4 @@
 
-- https://x.com/alexatallah/status/2097717077352276435?s=20
-- https://x.com/eliebakouch/status/2097931464344015347?s=20
-- https://x.com/_arohan_/status/2098069230826689013?s=20
-- https://x.com/teortaxesTex/status/2098055769002258525?s=20
-- 
 - jward discussion / collaboration https://discord.com/channels/1547089652069171210/1547305826115518555
 	-  https://x.com/humansand/status/2098115046438215791?s=20
 	- respond to jward about https://persimmon.humansand.ai/blog/persimmon.html
