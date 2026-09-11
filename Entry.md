@@ -9,6 +9,7 @@
 		- one core difference between training to predict next write given prior read/write and 'jarvis' is that it will never ask you a clarifying question
 		- people use a lot of words to describe making human preferences scalable for the purposes of teaching AI: rubric engineering, reward models from human preferences, synthetic data, etc
 		- "replay based algorithms"
+		- the training takes from jwards doc is interesting because it gives techniques for training on limited data, a lot of which involves reusing the same data, and im only doing a single pass
 	- training vid from openai guy https://www.youtube.com/watch?v=r1qZpYAmqmg
 		- says that non reasoning, human interactivity post training/RLHF has on the order of 100k data examples, 100k training cost on the order of days, and the bottleneck is data and evals
 		- if i do token level cross entropy loss for phase 1, will that delete learned pretraining language abilities? does that same issue apply to RLHF? why or why not?
@@ -74,23 +75,12 @@
 	- feels like a big issue is that the 'internal representation' of a conversation thread is completely reconstructed when a new turn is submitted. ideally you'd want the ai to be in the same 'state' as it was when you send it a new message. otherwise you cant trust that the 'activations' behind the production of a good answer remain, causing response inconsistencies. is this intuition backed up with the understanding of how modern attention works from the 3 blue 1 brown video i watched? likely relates to kv cache somewhow. similarly, why is nondeterminism an issue when weights are fixed?
 	- if youre struggling with memory and its getting more expensive, and your flops are underutilized, why not just cache less? i dont understand how cached tokens are offered cheaper if memory is more expensive than compute
 		- flashattention leveraged this?
+	- why does sam altman not really care about distillation? at least in public statements? he gave a reason but i forget
+	- its interesting that rich sutton's solution to statically deployed LLMs is keeping a separate meta weight for each weight that tracks historical updating. it isnt obvious to me this is the most intuitive solution. openai already does great work with updating context in a way that improves the UX of using codex. this is in context continual learning. one issue with in context continual learning along with weight updates is that it'd be unclear who you're talking to / what you're getting, at least in my initial opinion. and even the way to do this is to keep track of how weights are updated and adjust learning rate accordingly? hmm.
+		- how does rich sutton propose setting up rewards or targets for their model?
+	- john schulman says its 'improper' to pretrain on user tokens? does this invalidate my approach or is he talking about typical agent traces specifically?
+	- john schulman says that using a pretraining objective on user data is improper due to high regurgitation risk and that using user traces to construct RL tasks in low regurgitation risk because RL has low memorization abilities. hmmm.
 
-- https://x.com/gradypb/status/2087584675770282111?s=20
-- https://x.com/gradypb/status/2087923478301212772?s=20
-- hugely relevant https://x.com/fujikanaeda/status/2095843200435183698?s=20
-- applying these exact ideas to speech is quite interesting now with the STT updates. predicting what i'll say in a conversation
-- seems like the issue with the duplication prevention is that OCR is very lossy, so we often can't actually determine whether something is a repeat or not, so the current logic defaults to showing the whole content again. and if we try to do just relative similarlty to handle ocr issues, then the models are saying (but i havent directly seen this) that it misses genuine content? this should def not be an issue for scrolling scenarios. it may be an issue for dynamic content scenarios, but we care about the final state for those anyways
-- why does sam altman not really care about distillation? at least in public statements? he gave a reason but i forget
-- https://x.com/merettm/status/2096630018495377464?s=20
-- https://x.com/kliu128/status/2096616468851097811?s=20
-- https://x.com/oneill_c/status/2096643427219972115?s=20
-- https://x.com/kennethnym/status/2096646774366630175?s=20
-- core automation people propose the same question i.e. why do i still have to prompt the agent
-- its interesting that rich sutton's solution to statically deployed LLMs is keeping a separate meta weight for each weight that tracks historical updating. it isnt obvious to me this is the most intuitive solution. openai already does great work with updating context in a way that improves the UX of using codex. this is in context continual learning. one issue with in context continual learning along with weight updates is that it'd be unclear who you're talking to / what you're getting, at least in my initial opinion. and even the way to do this is to keep track of how weights are updated and adjust learning rate accordingly? hmm.
-- what information to emphasize and what information to ignore in a given scenario is the essence of judgment. i.e. separating signal from noise.
-- how does rich sutton propose setting up rewards or targets for their model?
-- litellm + mai-transcribe-2 combined into coupled to record with laptop anything that goes on in the room or through the computer, runs when rest of the normal collection runs. to see if the audio is transcribed in a clean way and useful for additional context for training
-	- probably can set up a simpler recording test that determines whether mai transcribe 2 is actually useful
 - todos
 	- after cleaning up scoring, understand what cases improved from old to new and which cases regressed from new to old, for both models
 		- astra showing improved performance on less data cleanup would invalidate continued work on data cleanup
@@ -98,55 +88,12 @@
 		- you'd likely need to cleanup significantly for the purposes of training small open source models today. so doesn't necessarily mean don't do the cleanup if astra improves with less cleanup, but definitely indicates a shorter half life on that part of the work than otherwise
 	- i'd also like to run some training runs on this data now that sol and astra have results that are somewhat meaningful
 	- then continue working with the reviewer on the extent to which we can clean up the old data to have a larger corpus of data to train on, given that the progress over the past month only has a max 4 day training run, which feels against initial intuitions around where results would show
-- its actually quite hard to review the outputs post facto. there are likely cases where the models output is actually better than what i typed at the given time. feels like phase 2 would be needed there. since you need to immerse yourself in your state of mind at that time which takes a ton of energy
-- with astra, feels like i'd like to increase data quantity (i.e. add audio), not quality, to see the limits of whats possible to predict, rather than twist and turn to try to get an open source training run to do the prediction even somewhat decently, at least initially
-- i want to put a banger first message in the usermodels discord
-	- personal website? prob not
-	- should have jakub review the message maybe
-	- mention STT
-	- mention these notes, substack, twitter, linkedin, company homepage, coupled github
-	- emphasis on data collection since 'algorithms' get smarter and cheaper by default
-	- stage of work (perhaps calendar view from ai thread)
-	- astra >> sol, what this implies for the future (remember audience is focused on privacy, user owned, etc, so raw performance comes with a caveat)
-	- mention emphasis on publicity, openness
-	- mention sharing full draft of initial results soon
-	- mention smoke test on training
-	- catastrophic forgetting as a perceived future bottleneck
-	- memory / ptc / learning objective as really interesting paths forward
-- john schulman says its 'improper' to pretrain on user tokens? does this invalidate my approach or is he talking about typical agent traces specifically?
-- astra's performance presumably is within range of the current ceiling so it helps to quantify it
-- is there anything worth doing while we quantify the 
-	- quality of the raw capture
-	- performance of astra on differing amounts of data processing
-- could add audio? kind of in line with my first
-- i think either going through the entry page or generating the usermodels discord message is best
-	- i want to get to a 'stopping point' so my usermodels message is most up to date, but that might never happen? that doesnt feel right since i'll likely do the public writeup and associated GTM foundations after this 'vector' is established.
-	- i should likely be clear about the vectors that have been established. the first step for that would be to run gpt 5.5 on the 275 example corpus, to get a better vector
-	- if the closed source models is a vector, should i find vectors that establish more technical prowess for the purposes of sharing and getting relevant inbound? or should i just post? i can likely show the frontier model performance, and also the overfit tests and early training run data
-	- for that i'd want an actual training run on the two week corpus, but its unclear whether the data pipeline is clean enough for that? thats because i'd want to get a better sense if training performs better on the new data, which requires running it on the 275 dataset, to see if old vs new pipeline training improves?
-- gpt 5.5 on 275 sep 2-6 data -> frontier model vector information -> improve writeup
-- training run on old/new pipeline for 275 sep 2-6 data -> data pipeline quality information, given that sol seems to have improved. requires choice of model to train. -> improve writeup
-	- if improves -> indication that can run on the two week dataset, so probably worth working through the pipeline update thread i previously paused with the main app conversation
-- entry bottleneck work through for training and positioning intuitions
-- usermodels discord intro and experimentation work. get in what you put out
-- it does feel like the work on the quality of raw capture is a data quantity flavored work, which is downstream of establishing a vector, which makes sense
-- phase 2 + initial GTM/positioning + writeup of work so far is a good forcing function for this phase of work which is important to keep in mind
-- if we conclude that astra performs better with the more raw the data is, and the review of the existing raw capture is mostly a quantity issue (youtube, meetings, in person, slack, random browser events), then data quantity is the bottleneck, and processing is a relative short term setup for training (or maybe training needs preprocessing while in context does not, which is more likely true. the training on 275 sep 2-6 old/new pipeline would provide information here)
-- hmm, it seems like only 2% of writes in the sep 2-6 data are impacted by data quality.
-- which means we likely dont want to spend time collecting more data at this stage
-- so astra performed better with less data cleanup, but it also had way more tokens, took longer, and cost more. so benchmarking against equivalent input tokens (which differs time length of prior history) to attempt to normalize a bit
-- this might indicate that you want data cleanup that retains or improves performance while retaining or decreasing cost and latency, which are strict hills to climb
-- this difference between the pipeline best suited for context and best suited for training feels correct, previously unthought of, and useful to quantify
-- i likely want to complete frontier model vector establishment and data construction understanding before i begin training on the dataset, since i likely also want to incorporate the sep 7-8 data into the analysis as well, and i cant do too many things at once.
-- the frontier model work connects to the training work since frontier model capabilities generally lead open source model capabilities on the order of months
-- incorporate jonward taxonomy into thinking
-- i want to run training on the old vs new pipeline to determine whether (1) theres signal in prediction from an open source model, (2) how performance differs between the old and new pipeline (3) if data cleanup performance has a different impact on training than it does on astra context
-- https://vitalik.eth.limo/general/2026/04/02/secure_llms.html
-- tough to step back and think at a higher level with regards to working through this list of positioning while staying focused on initiating the hopefully final runs successfully
-- cleaning up the data manually rather than rule based just to initiate the training run in a way thats likeliest to derive signal since we can handle making the pipeline latency positive or removing assumptions after. ideally i'd like to run the additional data thru astra sol and 5.5 as well but if i dont have the credits then i cannot
-- i suspect that, per the current LBH, 5.5 -> 5.6 -> 6 will succeed, and the others will fail
-- the middle ground im missing is showing that subsequent open source model releases are also performing well, i just dont have cheap access to test those as of now like i do with my codex subscription, but i can probably get one from kimi or zhipu
-- i suspect we wont see old + new diff since its too noisy at low success rates, but there is a chance, just like there was with sol
-- the training takes from jwards doc is interesting because it gives techniques for training on limited data, a lot of which involves reusing the same data, and im only doing a single pass
-- john schulman says that using a pretraining objective on user data is improper due to high regurgitation risk and that using user traces to construct RL tasks in low regurgitation risk because RL has low memorization abilities. hmmm.
+	- gpt 5.5 on 275 sep 2-6 data -> frontier model vector information -> improve writeup
+	- training run on old/new pipeline for 275 sep 2-6 data -> data pipeline quality information, given that sol seems to have improved. requires choice of model to train. -> improve writeup
+		- if improves -> indication that can run on the two week dataset, so probably worth working through the pipeline update thread i previously paused with the main app conversation
+	- i want to run training on the old vs new pipeline to determine whether (1) theres signal in prediction from an open source model, (2) how performance differs between the old and new pipeline (3) if data cleanup performance has a different impact on training than it does on astra context
+	- cleaning up the data manually rather than rule based just to initiate the training run in a way thats likeliest to derive signal since we can handle making the pipeline latency positive or removing assumptions after. ideally i'd like to run the additional data thru astra sol and 5.5 as well but if i dont have the credits then i cannot
+	- i suspect that, per the current LBH, 5.5 -> 5.6 -> 6 will succeed, and the others will fail
+	- the middle ground im missing is showing that subsequent open source model releases are also performing well, i just dont have cheap access to test those as of now like i do with my codex subscription, but i can probably get one from kimi or zhipu
+	- i suspect we wont see old + new diff since its too noisy at low success rates, but there is a chance, just like there was with sol
 
