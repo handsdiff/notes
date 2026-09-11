@@ -90,4 +90,5 @@
 
 - i think if you're training on write events where the corresponding READ event isnt in context (such as capture gaps like videos), you are training the model to hallucinate
 - from mercor ceo: how do you eval agent to agent and agent to human social interaction, in the context of making environments closely match real world economically valuable activity. "real to sim gap for agent to agent social interaction"
+- "the heuristic we use to determine whether a model is able to effectively learn from a given dataset / how strong the base model needs to be is pass@1 failing but 1-2 rollouts in pass@16 succeeding" "every single rollout in a pass@16 failing is usually hopeless for successful learning"
 
