@@ -43,6 +43,10 @@
 		- https://github.com/qlabs-eng/slowrun
 		- https://arxiv.org/abs/2509.14786
 		- "replay based algorithms"
+		- one scifi concept that harkens to my explicit vision is the concept of an embedded agent that understands your context and is able to do things for you that would otherwise be slower for you. is next thought prediction the best way to get there? can you take a frontier model and give it full context (the same you'd be giving / training the personal one on) and tell it to take actions to get to some goal faster? its unclear. what would be a small test that would reveal this?
+			- one issue is that models literally cannot do this to a good enough quality bar
+			- another issue is that models could do this to a good enough quality bar, but it'd be too slow to be useful (the test comparing model performance vs latency to human performance vs latency would check this)
+			- another issue is that its good enough and fast but its stupid expensive
 - example pub https://persimmon.humansand.ai/blog/persimmon.html https://persimmon.humansand.ai/blog/persimmon-model-card.html along with some positioning boundaries
 - https://persimmon.humansand.ai/blog/persimmon-model-card.html#intended-uses would be interesting to see how this fares at prediction when compared to sol / astra
 - "there is no reason trying to optimize things for your current level of compute because next year you will have more and that will perform better" internalizing this is important when it comes to the goal of the published results being to establish 'local scaling laws'. what matters is what scales, and the rate of scaling.
@@ -80,4 +84,5 @@
 	- this thought seemed crazy to me when i had it but after writing it down it feels more normal / less clear
 	- how to do something vs facts vs what to do given input might all be different things. the first and the third seem similar?
 - one impetus was that data was valuable and needed storage and that raw data improved in value over time as model capabilities improved because intelligence goes up, dollars goes down, sample efficiency goes up
-- 
+- lots of conflation between judgment being required for multi agent systems vs solving 'memory' by teaching how to use context not just what context exists that gets resolved once you refocus on how 'memory' is the digestible current explanation towards the growing broader problem
+- if you consider the human 'completion' the advantage towards an unknown reward, does that unify phase 1 and 2/3 training? its reliant on the humans best estimation of the reward, but it prevents the model from reward hacking.
