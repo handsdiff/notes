@@ -68,4 +68,5 @@
 	- "I think that’s why the diminishing returns kick in, because even the world as a whole is not giving you the bits that are useful for tipping you into the next basin of capability."
 	- relates to 'exploration' for models to discover their own bits without humans generating it and curating it for them
 - monocultures (all claudes) are brittle and die when externally stressed
+- the problem with alignment is consistently "human data is slow to collect and expensive". could phrase the value prop as "human data is fast to collect and free". relates to the algorithmic questions i have around the extent to which you dont need a reward model if the human is in the loop. hmmmmmmm. relates to the validity of phase 1 model's samples acting as rejection sampling for phase 2 IPO
 - 
