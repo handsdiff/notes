@@ -60,4 +60,5 @@
 - "signs of life for distilling single human judgment into continually trained LLMs"
 - “Let’s relax on the realism axis a little bit and find some methods that actually work, and then try to get back to realism later after the method matures a little bit.”
 - "if in context learning is so powerful, why do labs train more at all, besides spending their time increasing context window?" the answer to this question reveals boundaries between in context learning and training outside of frontier labs as well
+- "I think your biggest problem is actually just not knowing what the reward function should be for natural data"
 - 
