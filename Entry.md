@@ -33,9 +33,9 @@
 	- put training config somewhere i can share with usermodels discord for review
 - theres an aug 21 pipeline (last trained), a sep 1 pipeline (last reviewed), a sep 10 pipeline (last reproducible) and a currently nonreproducible sep 11 pipeline (hand crafted). we ran sol and astra on sep 1 and sep 10.
 - the model repeated a good understanding of scoring back to me earlier and i need to make sure that i remind them of that phrasing. something about allowing extensions within the same idea i.e. a better way to express the same core intent
-- v4pipeline + qwen3.6 frozen vs trained -> v2 or 3 pipeline + qwen3.6 frozen vs trained
-- v4pipeline + astra xhigh -> v4 pipeline + sol xhigh -> v4pipeline + 5.5 xhigh
+- ## v4pipeline + qwen3.6 frozen vs trained -> v2 or 3 pipeline + qwen3.6 frozen vs trained
+- #### v4pipeline + astra xhigh -> v4 pipeline + sol xhigh -> v4pipeline + 5.5 xhigh
 - v2 or 3 pipeline + astra xhigh -> v2 or 3 pipeline + sol xhigh -> v2 or 3 pipeline + 5.5 xhigh
 - after old/new pipeline training on frozen vs learned, think can do writeup. need to spend a few days consolidating information, unresolved/misunderstood questions, and market positioning. we tested astra vs sol on sep2-6 on v3 pipeline, then cleaned up data for training a bit to get v4 and added 4 days, now confirming results that matter most. hopefully theres non noise accuracy in both raw performance and deltas, as well as improvement trajectory as a function of data, at best with accuracy, but consolation with NLL
-	- the most direct thing would be to attempt to establish a vector between amount of data and holy shit accuracy, which ideally frozen vs trained would uncover
+	- #### the most direct thing would be to attempt to establish a vector between amount of data and holy shit accuracy, which ideally frozen vs trained would uncover
 - havent considered/tried training multiple times on each datapoint (epochs?)
