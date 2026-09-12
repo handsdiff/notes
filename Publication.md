@@ -56,3 +56,4 @@
 - include number of tokens trained on, jward references this a lot
 - how to elicit goal inference answer from the predictive model?
 - "when to sample" as a big question. the initial plan of gap in user activity may not be good, but it may be best?
+- multiplayer work takes up 80% of my time and differing judgment is a prerequisite to successful multiplayer outcomes
