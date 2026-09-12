@@ -62,4 +62,4 @@
 - "if in context learning is so powerful, why do labs train more at all, besides spending their time increasing context window?" the answer to this question reveals boundaries between in context learning and training outside of frontier labs as well
 - "I think your biggest problem is actually just not knowing what the reward function should be for natural data"
 - "do you think taste is solved if you have a trillion token context of your whole life" "it would have to be trained to learn the right update to make from that context"
-- 
+- catastrophic forgetting is only an issue if the business equation is negative as a result. if its a theoretical problem it doesnt matter at this stage
