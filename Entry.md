@@ -52,5 +52,7 @@
 	- currently running preflight and overfit checks on qwen3.8 27b reasoning off and on, and on the MoE qwen. this will determine the model choice for the full run
 	- currently running astra on the 69 example suite to see if the subsequent data cleanliness work improved accuracy at all, before establishing the full 'frontier' vector
 	- i suspect base model would have better long term results but harder to show results initially
-	- i suspect posttrained model would have better short term results but flatline
+	- i suspect posttrained model would have better short term results but 
+
+- theres an aug 21 pipeline (last trained), a sep 1 pipeline (last reviewed), a sep 10 pipeline (last reproducible) and a currently nonreproducible sep 11 pipeline (hand crafted). we ran sol and astra on sep 1 and sep 10.
 
