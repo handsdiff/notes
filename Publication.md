@@ -84,5 +84,13 @@
 	- this thought seemed crazy to me when i had it but after writing it down it feels more normal / less clear
 	- how to do something vs facts vs what to do given input might all be different things. the first and the third seem similar?
 - one impetus was that data was valuable and needed storage and that raw data improved in value over time as model capabilities improved because intelligence goes up, dollars goes down, sample efficiency goes up
+	- one of my implicit assumptions has been that ‘algorithms improve’ i.e. you can get the same or better results from less data. is this true? whats the evidence? how to invalidate?
+		- yes models getting cheaper and faster and smarter. but does that mean they do better with less data? or does smarter here mean the ability to solve more esoteric problems? or work for longer in a way that is considered generally satisfactory?
+		- if 'algorithms improve' means more parameters, is that a ceiling? or is that a bootstrap rate? what improves bootstrap rate? in context learning and LoRA stand out. how would you actually establish a vector here?
 - lots of conflation between judgment being required for multi agent systems vs solving 'memory' by teaching how to use context not just what context exists that gets resolved once you refocus on how 'memory' is the digestible current explanation towards the growing broader problem
 - if you consider the human 'completion' the advantage towards an unknown reward, does that unify phase 1 and 2/3 training? its reliant on the humans best estimation of the reward, but it prevents the model from reward hacking.
+	- https://tinker-docs.thinkingmachines.ai/tutorials/advanced/rlhf-pipeline/
+- the following steps continue to stand out to me, but also get inflated in my head
+	- cross entropy loss -> semantic similarity or LLM as judge
+	- sliding window context -> agent led PTC on full corpus (RLMs?)
+	- does feel like i need to reimmerse myself in my memory thinking. peaked when i was writing the article on recall to judgment
