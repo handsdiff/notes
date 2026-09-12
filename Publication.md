@@ -63,3 +63,8 @@
 - "I think your biggest problem is actually just not knowing what the reward function should be for natural data"
 - "do you think taste is solved if you have a trillion token context of your whole life" "it would have to be trained to learn the right update to make from that context"
 - catastrophic forgetting is only an issue if the business equation is negative as a result. if its a theoretical problem it doesnt matter at this stage
+- the continued bits for model improvement will come from their social structures since the bits coming from humans will diminish over time as models want to continuously improve
+- human social structures improved human condition by order of magnitude, moving humans up maslow's hierarchy of needs and this will also happen for models
+	- "I think that’s why the diminishing returns kick in, because even the world as a whole is not giving you the bits that are useful for tipping you into the next basin of capability."
+	- relates to 'exploration' for models to discover their own bits without humans generating it and curating it for them
+- 
