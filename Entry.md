@@ -55,4 +55,4 @@
 	- i suspect posttrained model would have better short term results but 
 
 - theres an aug 21 pipeline (last trained), a sep 1 pipeline (last reviewed), a sep 10 pipeline (last reproducible) and a currently nonreproducible sep 11 pipeline (hand crafted). we ran sol and astra on sep 1 and sep 10.
-
+- the model repeated a good understanding of scoring back to me earlier and i need to make sure that i remind them of that phrasing. something about allowing extensions within the same idea i.e. a better way to express the same core intent
