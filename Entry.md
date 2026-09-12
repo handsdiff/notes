@@ -38,3 +38,4 @@
 - v2 or 3 pipeline + astra xhigh -> v2 or 3 pipeline + sol xhigh -> v2 or 3 pipeline + 5.5 xhigh
 - after old/new pipeline training on frozen vs learned, think can do writeup. need to spend a few days consolidating information, unresolved/misunderstood questions, and market positioning. we tested astra vs sol on sep2-6 on v3 pipeline, then cleaned up data for training a bit to get v4 and added 4 days, now confirming results that matter most. hopefully theres non noise accuracy in both raw performance and deltas, as well as improvement trajectory as a function of data, at best with accuracy, but consolation with NLL
 	- the most direct thing would be to attempt to establish a vector between amount of data and holy shit accuracy, which ideally frozen vs trained would uncover
+- havent considered/tried training multiple times on each datapoint (epochs?)
