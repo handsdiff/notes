@@ -97,4 +97,5 @@
 	- ^^^ you wont be able to figure this out. imo it strengthens the need for raw data capture (but not necessarily proper data cleanup)
 	- i think cleanup just saves repeated work that a model would otherwise do. kind of like the systems that work unconsciously in the brain such as breathing. the 'preprocessing' is the equivalent of years of evolution. so it can focus on the best responses to actual novel stimulus
 - theres a question as to whether phase 1 training can even produce economically useful results or if it requires phase 2's formulation for improved learning/reasoning. also the question of whether CE loss + sliding window phase 1 differs from sim loss + RLM context phase 1
+- seems like phase 1 -> 2 is how to get from tracking human to super human performance, since you can start to rely on previously un thought of completions to then verify/reward implicitly with extended behavior
 - 
