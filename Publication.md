@@ -58,3 +58,6 @@
 - "when to sample" as a big question. the initial plan of gap in user activity may not be good, but it may be best?
 - multiplayer work takes up 80% of my time and differing judgment is a prerequisite to successful multiplayer outcomes
 - "signs of life for distilling single human judgment into continually trained LLMs"
+- “Let’s relax on the realism axis a little bit and find some methods that actually work, and then try to get back to realism later after the method matures a little bit.”
+- "if in context learning is so powerful, why do labs train more at all, besides spending their time increasing context window?" the answer to this question reveals boundaries between in context learning and training outside of frontier labs as well
+- 
