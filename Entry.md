@@ -46,13 +46,9 @@
 	- i want to run training on the old vs new pipeline to determine whether (1) theres signal in prediction from an open source model, (2) how performance differs between the old and new pipeline (3) if data cleanup performance has a different impact on training than it does on astra context
 	- cleaning up the data manually rather than rule based just to initiate the training run in a way thats likeliest to derive signal since we can handle making the pipeline latency positive or removing assumptions after. ideally i'd like to run the additional data thru astra sol and 5.5 as well but if i dont have the credits then i cannot
 		- will need to keep in mind to codify the 'manual' cleanup later, as well as consider how it introduces latency during real time sampling in phase 2
-	- after doing final cleanup, consider whether we can run any tests to establish 'learnability' for cheaper before spending $450 on a full evaluation
 	- put training config somewhere i can share with usermodels discord for review
-	- follow tinker recipes (100-500 series) for full pipeline of getting the model to be usable, feels like it is related to jwards doc around starting with a 'text completion' API and expanding from there
-	- currently running preflight and overfit checks on qwen3.8 27b reasoning off and on, and on the MoE qwen. this will determine the model choice for the full run
-	- currently running astra on the 69 example suite to see if the subsequent data cleanliness work improved accuracy at all, before establishing the full 'frontier' vector
-	- i suspect base model would have better long term results but harder to show results initially
-	- i suspect posttrained model would have better short term results but 
-
 - theres an aug 21 pipeline (last trained), a sep 1 pipeline (last reviewed), a sep 10 pipeline (last reproducible) and a currently nonreproducible sep 11 pipeline (hand crafted). we ran sol and astra on sep 1 and sep 10.
 - the model repeated a good understanding of scoring back to me earlier and i need to make sure that i remind them of that phrasing. something about allowing extensions within the same idea i.e. a better way to express the same core intent
+- v4pipeline + qwen3.6 frozen vs trained -> v2 or 3 pipeline + qwen3.6 frozen vs trained
+- v4pipeline + astra xhigh -> v4 pipeline + sol xhigh -> v4pipeline + 5.5 xhigh
+- v2 or 3 pipeline + astra xhigh -> v2 or 3 pipeline + sol xhigh -> v2 or 3 pipeline + 5.5 xhigh
