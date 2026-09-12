@@ -96,4 +96,5 @@
 	- does feel like i need to reimmerse myself in my memory thinking. peaked when i was writing the article on recall to judgment
 	- ^^^ you wont be able to figure this out. imo it strengthens the need for raw data capture (but not necessarily proper data cleanup)
 	- i think cleanup just saves repeated work that a model would otherwise do. kind of like the systems that work unconsciously in the brain such as breathing. the 'preprocessing' is the equivalent of years of evolution. so it can focus on the best responses to actual novel stimulus
+- theres a question as to whether phase 1 training can even produce economically useful results or if it requires phase 2's formulation for improved learning/reasoning. also the question of whether CE loss + sliding window phase 1 differs from sim loss + RLM context phase 1
 - 
