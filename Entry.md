@@ -73,5 +73,6 @@
 	- follow tinker recipes (100-500 series) for full pipeline of getting the model to be usable, feels like it is related to jwards doc around starting with a 'text completion' API and expanding from there
 	- currently running preflight and overfit checks on qwen3.8 27b reasoning off and on, and on the MoE qwen. this will determine the model choice for the full run
 	- currently running astra on the 69 example suite to see if the subsequent data cleanliness work improved accuracy at all, before establishing the full 'frontier' vector
-	- 
+	- i suspect base model would have better long term results but harder to show results initially
+	- i suspect posttrained model would have better short term results but flatline
 
