@@ -79,4 +79,5 @@
 	- does continual learning of reasoning makes sense? the clearest example is learning how to do something vs learning a fact. there is clearly a difference between these two things. calling learning how to do something judgment or reasoning may be where the issue comes in
 	- this thought seemed crazy to me when i had it but after writing it down it feels more normal / less clear
 	- how to do something vs facts vs what to do given input might all be different things. the first and the third seem similar?
+- one impetus was that data was valuable and needed storage and that raw data improved in value over time as model capabilities improved because intelligence goes up, dollars goes down, sample efficiency goes up
 - 
