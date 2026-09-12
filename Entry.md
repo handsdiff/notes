@@ -70,4 +70,5 @@
 		- will need to keep in mind to codify the 'manual' cleanup later, as well as consider how it introduces latency during real time sampling in phase 2
 	- after doing final cleanup, consider whether we can run any tests to establish 'learnability' for cheaper before spending $450 on a full evaluation
 	- put training config somewhere i can share with usermodels discord for review
+	- follow tinker recipes (100-500 series) for full pipeline of getting the model to be usable, feels like it is related to jwards doc around starting with a 'text completion' API and expanding from there
 
