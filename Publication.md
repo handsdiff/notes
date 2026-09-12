@@ -37,7 +37,7 @@
 - what information to emphasize and what information to ignore in a given scenario is the essence of judgment. i.e. separating signal from noise.
 - its actually quite hard to review the outputs post facto. there are likely cases where the models output is actually better than what i typed at the given time. feels like phase 2 would be needed there. since you need to immerse yourself in your state of mind at that time which takes a ton of energy
 - catastrophic forgetting as a perceived future bottleneck
-- from mercor ceo: how do you eval agent to agent and agent to human social interaction, in the context of making environments closely match real world economically valuable activity. "real to sim gap for agent to agent social interaction"
+- from mercor ceo: how do you eval agent to agent and agent to human social interaction, in the context of making environments closely match real world economically valuable activity. "real to sim gap for agent to agent social interaction" biggest growth areas alongside ultra long horizon
 - could indicate that best suited for getting clean data pipelines and distributing to customers, while would love to partner with companies that can build secure training recipes to help create value for the customers
 	- the training takes from jwards doc is interesting because it gives techniques for training on limited data, a lot of which involves reusing the same data, and im only doing a single pass
 		- https://github.com/qlabs-eng/slowrun
