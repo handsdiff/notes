@@ -67,4 +67,5 @@
 - human social structures improved human condition by order of magnitude, moving humans up maslow's hierarchy of needs and this will also happen for models
 	- "I think that’s why the diminishing returns kick in, because even the world as a whole is not giving you the bits that are useful for tipping you into the next basin of capability."
 	- relates to 'exploration' for models to discover their own bits without humans generating it and curating it for them
+- monocultures (all claudes) are brittle and die when externally stressed
 - 
