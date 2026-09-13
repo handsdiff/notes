@@ -42,3 +42,6 @@
 - havent considered/tried training multiple times on each datapoint (epochs?)
 - increasingly clear to me that i dont actually care about matching exactly what i say. its more about the expressing the correct underlying intention, ideally in a way thats better than i could either (and ideally both) because its smarter (better expectation of world response) and faster
 
+- we see that qwen 3.6 showed non noisy semantic accuracy on the new pipeline
+- we see that the new pipeline is an improvement over the old pipeline as measured by semantic accuracy, NLL between frozen and trained, rate of learning, and 5.6 performance
+- we see that gpt 6 outperforms gpt 5.6 on both old and new pipelines
