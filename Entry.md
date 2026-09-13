@@ -41,3 +41,4 @@
 	- #### the most direct thing would be to attempt to establish a vector between amount of data and holy shit accuracy, which ideally frozen vs trained would uncover
 - havent considered/tried training multiple times on each datapoint (epochs?)
 - increasingly clear to me that i dont actually care about matching exactly what i say. its more about the expressing the correct underlying intention, ideally in a way thats better than i could either (and ideally both) because its smarter (better expectation of world response) and faster
+
