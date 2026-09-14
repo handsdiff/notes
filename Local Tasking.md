@@ -8,16 +8,12 @@
 	- feeling a desire to have a separate website for my blogs. self hosted shows commitment. substack gets swallowed into the platform.
 	- many cracked people have personal sites
 
-- prev LBH: By Tuesday I will consider the bottleneck to published results a lack of data.
-    - astra outperforms sol. data processing shows no signal in accuracy, cost, or latency for astra, improved accuracy while decreasing cost and latency for sol.
-    - i suspect data cleanup impact differs for context than for training
-    - i dont actually think the bottleneck is a lack of data its more just time to get results due to latency associated with training and sampling
-    - invalidated
-- new LBH: The following results will hit over the next 3 days:
+- prev LBH: The following results will hit over the next 3 days:
     - gpt 5.5 → 5.6 → 6 will show meaningful monotonic improvement in accuracy
     - qwen 3.8 27b will show meaningful accuracy and usability (cheap and fast) on either pipeline
     - the new pipeline will show a meaningful improvement over the old pipeline for training as measured by loss curves and accuracy and cost and latency
-- if all of the above is true, i feel confident the technical report will convert >2 technical partners and >1 technical customer (lots of details here around positioning / GTM in relation to Pareto inference)
+- new LBH: I can have a report rough draft by Thursday.
+    - this incorporates solidifying vision and mission, positioning, result interpretation, and future prioritization, which is why the timeline is Thursday not Tuesday. a failure here would be a lack of clarity or conviction.
 - likely after: publish initial writeup + author public content + implement new landing page with pricing and CTA and call booking ability
 	- the technical public aspect of it is showing 'local scaling laws', open sourcing data collection pipeline. could also offer hosted training for enterprises, etc. lot more ideas here i haven't made explicit yet. blocked by getting a result. probably need to clarify the goal. i do want to show we exist and are technical and can do frontier work. i also want to establish positioning / brand that reflects the beliefs that led to the work while offering something that can be downloaded and used. 
 		- common references to my beliefs from a few months ago feels crucial to avoid allowing lower magnitude information to negatively impact high magnitude beliefs that seem smaller due to forgetting
