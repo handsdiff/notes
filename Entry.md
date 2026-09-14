@@ -50,4 +50,6 @@
 - we see that qwen 3.6 showed non noisy semantic accuracy on the new pipeline
 - we see that the new pipeline is an improvement over the old pipeline as measured by semantic accuracy, NLL between frozen and trained, rate of learning, and 5.6 performance
 - we see that gpt 6 outperforms gpt 5.6 on both old and new pipelines
-- 
+
+- one example positioning could be that you give us your raw screen data under a ZDR policy and we do all the work on the backend (data cleaning, training, UX) it takes to serve you an embedded proactive assistant that helps you complete your goals faster, starting with next write prediction workflow automation. people will pay for this if they feel lost without it i.e. its genuinely excellent at inferring what they're doing in real time and helping them.
+	- started the brainstorm internally with having a product that simply gives you cleaned computer use data given the raw stream, proven by trainability success on raw vs cleaned data, which may be enough, but maybe not
