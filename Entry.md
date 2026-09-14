@@ -55,3 +55,5 @@
 	- started the brainstorm internally with having a product that simply gives you cleaned computer use data given the raw stream, proven by trainability success on raw vs cleaned data, which may be enough, but maybe not
 - "intelligent approve for me"
 - "i also like to say that we will know when proactivity is solved when we dont need to manually ask chatgpt anymore i think in the short term this will look like us hitting yes/no to the models prompting us instead"
+- slope gains are a function of raw materials. raw materials matter more, if youre confident there are at least a few slope gains out there. the list produced by the app thread increases my confidence that there is
+- 
