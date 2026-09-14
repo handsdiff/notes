@@ -15,7 +15,7 @@
 	- feels like a big issue is that the 'internal representation' of a conversation thread is completely reconstructed when a new turn is submitted. ideally you'd want the ai to be in the same 'state' as it was when you send it a new message. otherwise you cant trust that the 'activations' behind the production of a good answer remain, causing response inconsistencies. is this intuition backed up with the understanding of how modern attention works from the 3 blue 1 brown video i watched? likely relates to kv cache somewhow. similarly, why is nondeterminism an issue when weights are fixed?
 	- if youre struggling with memory and its getting more expensive, and your flops are underutilized, why not just cache less? i dont understand how cached tokens are offered cheaper if memory is more expensive than compute
 		- flashattention leveraged this?
-	- john schulman says that using a pretraining objective on user data is improper due to high regurgitation risk and that using user traces to construct RL tasks in low regurgitation risk because RL has low memorization abilities. hmmm.
+
 	- i believe i chose next substantive write prediction since i thought it was more directly economically useful. does more general action prediction result in a higher terminal value or goal inference + proactive assistance?
 	- does multilora allow you to capture value you create even if capture + recipes + weights are all open source?
 	- is judgment distillation the most direct way to help solve heterarchical agent coordination? what about a single 'coworker' like indent? clearly different problems?
