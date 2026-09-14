@@ -58,3 +58,4 @@
 - slope gains are a function of raw materials. raw materials matter more, if youre confident there are at least a few slope gains out there. the list produced by the app thread increases my confidence that there is
 - expanding to team as a prerequisite for expanding to customers? probably not, although maybe to invalidate how different users are
 - https://bryanhpchiang.craft.me/Z2kCWLrfEPF66r
+- establish the horizontal line of usability!!
