@@ -102,4 +102,13 @@
 - respond to jward anywhere unresponded to
 - do we need to compare to memory setups to fairly test product usefulness? when talking to people yesterday, no one actually cares about training (thats research marketing), people care about what it solves for them. didnt really have a branding that worked yet. end state was "an agent that lives on your computer, infers your goals, and helps you get there" but helps you get there was vague. "predict your next sentence" "like emails?" "mostly prompts nowadays" was another, but conflates with "an agent you dont have to prompt", which is direct but bad because it not a Full Agent and that makes it seem like it is
 - study instinct
-- 
+
+
+
+- -> post technical work done, why data cleanup is the core, and how training is REQUIRED to make the product possible (compare against astra latency, memory solutions, etc). inspired by issues explaining it yesterday and how flexing the solution feels dumb as fuck
+	- whats blocking here is deciding which 'problem' to start from that correctly identifies the core work we're doing. it exists, that's why we're doing it, but needs to be clearer
+- -> establish inbound pipelines and positioning inspired by wafer's enterprise GTM or more common prosumer GTM
+- -> establish current usability and everything that goes into that
+- -> post again, update messaging as needed
+- -> do outbound
+- -> this should be a months worth of inbound uptime at this point so no hits by then would be roughly invalidating
