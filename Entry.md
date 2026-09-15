@@ -55,4 +55,6 @@
 - https://bryanhpchiang.craft.me/Z2kCWLrfEPF66r
 - establish the horizontal line of usability!!
 - theres a ton of work to be done that actually puts this model continually trained and serves it for cheap and fast that im likely underestimating because i havent thought it through properly
-	- and that doesnt even i
+	- and that doesnt even include any phase 2 training since its very obvious to me that the humans completion is not actually ground truth
+	- and this likely changes the trend lines towards extreme emotional value and reliance
+	- 
