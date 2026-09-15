@@ -8,26 +8,16 @@
 	- is judgment distillation the most direct way to help solve heterarchical agent coordination? what about a single 'coworker' like indent? clearly different problems?
 
 
-- after old/new pipeline training on frozen vs learned, think can do writeup. need to spend a few days consolidating information, unresolved/misunderstood questions, and market positioning. we tested astra vs sol on sep2-6 on v3 pipeline, then cleaned up data for training a bit to get v4 and added 4 days, now confirming results that matter most. hopefully theres non noise accuracy in both raw performance and deltas, as well as improvement trajectory as a function of data, at best with accuracy, but consolation with NLL
-	- #### the most direct thing would be to attempt to establish a vector between amount of data and holy shit accuracy, which ideally frozen vs trained would uncover
-- havent considered/tried training multiple times on each datapoint (epochs?)
 
 - increasingly clear to me that i dont actually care about matching exactly what i say. its more about the expressing the correct underlying intention, ideally in a way thats better than i could either (and ideally both) because its smarter (better expectation of world response) and faster
-	- latest implementer response is an incredible overview since its so exhaustive. the will brown tweet is good, since it references the properties i hope to achieve with the training (i.e. understand my goals, help me achieve faster since smarter and faster, although he described it differently)
-
-- we see that qwen 3.6 showed non noisy semantic accuracy on the new pipeline
-- we see that the new pipeline is an improvement over the old pipeline as measured by semantic accuracy, NLL between frozen and trained, rate of learning, and 5.6 performance
-- we see that gpt 6 outperforms gpt 5.6 on both old and new pipelines
-
 - one example positioning could be that you give us your raw screen data under a ZDR policy and we do all the work on the backend (data cleaning, training, UX) it takes to serve you an embedded proactive assistant that helps you complete your goals faster, starting with next write prediction workflow automation. people will pay for this if they feel lost without it i.e. its genuinely excellent at inferring what they're doing in real time and helping them.
 	- started the brainstorm internally with having a product that simply gives you cleaned computer use data given the raw stream, proven by trainability success on raw vs cleaned data, which may be enough, but maybe not
 - "intelligent approve for me"
-- "make the decision i would make" in non verifiable domains. the key is "in non verifiable domains". because otherwise you think "wouldnt i want a better decision?". make the best decision in verifiable domains is what frontier AI does.
+- "make the decision i would make" in non verifiable domains (which includes social/multiplayer work). the key is "in non verifiable domains". because otherwise you think "wouldnt i want a better decision?". make the best decision in verifiable domains is what frontier AI does.
 - "i also like to say that we will know when proactivity is solved when we dont need to manually ask chatgpt anymore i think in the short term this will look like us hitting yes/no to the models prompting us instead"
-- slope gains are a function of raw materials. raw materials matter more, if youre confident there are at least a few slope gains out there. the list produced by the app thread increases my confidence that there is
-- expanding to team as a prerequisite for expanding to customers? probably not, although maybe to invalidate how different users are
+	- interrupt handler instead of scheduler
+- slope gains are a function of raw materials. raw materials matter more, if youre confident there are at least a few slope gains out there. the list produced by the app thread increases my confidence that there is. need to collect all this disparate data
 - https://bryanhpchiang.craft.me/Z2kCWLrfEPF66r
-- establish the horizontal line of usability!!
 - theres a ton of work to be done that actually puts this model continually trained and serves it for cheap and fast that im likely underestimating because i havent thought it through properly
 	- and that doesnt even include any phase 2 training since its very obvious to me that the humans completion is not actually ground truth
 	- and this likely changes the trend lines towards extreme emotional value and reliance
