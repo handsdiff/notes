@@ -15,8 +15,7 @@
 - "intelligent approve for me"
 - "make the decision i would make" in non verifiable domains (which includes social/multiplayer work). the key is "in non verifiable domains". because otherwise you think "wouldnt i want a better decision?". make the best decision in verifiable domains is what frontier AI does.
 - "i also like to say that we will know when proactivity is solved when we dont need to manually ask chatgpt anymore i think in the short term this will look like us hitting yes/no to the models prompting us instead"
-	- interrupt handler instead of scheduler
-- slope gains are a function of raw materials. raw materials matter more, if youre confident there are at least a few slope gains out there. the list produced by the app thread increases my confidence that there is. need to collect all this disparate data
+	- similar to "interrupt handler instead of scheduler" tweet from gakonst
 - https://bryanhpchiang.craft.me/Z2kCWLrfEPF66r
 - theres a ton of work to be done that actually puts this model continually trained and serves it for cheap and fast that im likely underestimating because i havent thought it through properly
 	- and that doesnt even include any phase 2 training since its very obvious to me that the humans completion is not actually ground truth
