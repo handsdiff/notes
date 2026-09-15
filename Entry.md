@@ -54,3 +54,5 @@
 - expanding to team as a prerequisite for expanding to customers? probably not, although maybe to invalidate how different users are
 - https://bryanhpchiang.craft.me/Z2kCWLrfEPF66r
 - establish the horizontal line of usability!!
+- theres a ton of work to be done that actually puts this model continually trained and serves it for cheap and fast that im likely underestimating because i havent thought it through properly
+	- and that doesnt even i
