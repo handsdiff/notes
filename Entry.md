@@ -4,26 +4,10 @@
 - Step zero is stepping back from hardcore implementation to re orient at a higher level in terms of positioning and vision and mission and whether the old ideas still make a lot of sense or if cracks point to a thread to pull on
 - http://x.com/jack/status/2099649359017046048
 - open questions/thoughts likely worth resolving
-	- probably worth going back into the thinking/notes around how memory management occurs for harnesses, specifically codex, since it seems very relevant
-		- https://frontierharness.org/ codex is the only harness pareto on both cost and speed. supports analyzing how it handles memory/context. the single thread long horizon memory is excellent.
 	- how many tokens of data do we have? relates to trainable parameters, eventual attempts at establishing local scaling laws, chinchilla paper seems to suggest 150 tokens per parameter (20:1 when ignoring inference)
 	- is judgment distillation the most direct way to help solve heterarchical agent coordination? what about a single 'coworker' like indent? clearly different problems?
-	- 
 
-- todos
-	- gpt 5.5 on 660 sep 2-10 data -> frontier model vector information -> improve writeup
-	- training run on old/new pipeline for 275 sep 2-6 data -> data pipeline quality information, given that sol seems to have improved. requires choice of model to train. -> improve writeup
-		- if improves -> indication that can run on the two week dataset, so probably worth working through the pipeline update thread i previously paused with the main app conversation
-	- i want to run training on the old vs new pipeline to determine whether (1) theres signal in prediction from an open source model, (2) how performance differs between the old and new pipeline (3) if data cleanup performance has a different impact on training than it does on astra context
-	- cleaning up the data manually rather than rule based just to initiate the training run in a way thats likeliest to derive signal since we can handle making the pipeline latency positive or removing assumptions after. ideally i'd like to run the additional data thru astra sol and 5.5 as well but if i dont have the credits then i cannot
-		- will need to keep in mind to codify the 'manual' cleanup later, as well as consider how it introduces latency during real time sampling in phase 2
-	- put training config somewhere i can share with usermodels discord for review
-- theres an aug 21 pipeline (last trained), a sep 1 pipeline (last reviewed), a sep 10 pipeline (last reproducible) and a currently nonreproducible sep 11 pipeline (hand crafted). we ran sol and astra on sep 1 and sep 10.
-- the model repeated a good understanding of scoring back to me earlier and i need to make sure that i remind them of that phrasing. something about allowing extensions within the same idea i.e. a better way to express the same core intent
-- v4pipeline + qwen3.6 frozen vs trained -> v2 or 3 pipeline + qwen3.6 frozen vs trained
-- v4pipeline + astra xhigh
-- v4 pipeline + sol xhigh -> v4pipeline + 5.5 xhigh
-- v2 or 3 pipeline + astra xhigh -> v2 or 3 pipeline + sol xhigh -> v2 or 3 pipeline + 5.5 xhigh
+
 - after old/new pipeline training on frozen vs learned, think can do writeup. need to spend a few days consolidating information, unresolved/misunderstood questions, and market positioning. we tested astra vs sol on sep2-6 on v3 pipeline, then cleaned up data for training a bit to get v4 and added 4 days, now confirming results that matter most. hopefully theres non noise accuracy in both raw performance and deltas, as well as improvement trajectory as a function of data, at best with accuracy, but consolation with NLL
 	- #### the most direct thing would be to attempt to establish a vector between amount of data and holy shit accuracy, which ideally frozen vs trained would uncover
 - havent considered/tried training multiple times on each datapoint (epochs?)
