@@ -15,6 +15,7 @@
 - will likely need a way to handle if the model's suggestion is accepted verbatim but then edited (within a closed write). we'd likely want to train on the edited version that is finally used rather than naively considering acceptance as the ceiling for either SFT or DPO/IPO
 - resolved training vs sampling issues by deterministically choosing app + field write destination and keeping model as content learner
 - "the heuristic we use to determine whether a model is able to effectively learn from a given dataset / how strong the base model needs to be is pass@1 failing but 1-2 rollouts in pass@16 succeeding" "every single rollout in a pass@16 failing is usually hopeless for successful learning"
+- this 'bitter lesson' idea of giving the model the goal of next write prediction and it has access to the full corpus of history and letting it write whatever code it wants to properly fetch the data that constructs context to get it to the right answer by slamming RL rollouts keeps popping up in my head so its likely worth getting specific on it once the data is in a place where its time for algorithmic tricks
 
 ## Abstract
 

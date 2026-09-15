@@ -4,23 +4,11 @@
 - Step zero is stepping back from hardcore implementation to re orient at a higher level in terms of positioning and vision and mission and whether the old ideas still make a lot of sense or if cracks point to a thread to pull on
 - http://x.com/jack/status/2099649359017046048
 - open questions/thoughts likely worth resolving
-	- what im attempting to do with the episodic rewrite i.e. focusing on closed substantive writes as loss targets rather than current level of granularity is changing the event demarcation logic to better map my intentions
-		- what this also does is change whats being learned. we are now doing SFT on something more akin to a cleaned, optimal version of the human data rather than the human data itself. i wonder in which direction this points and what a natural stopping point is. why not just SFT more towards the outcome, if it exists? the reason would be you aren't learning judgment, but you likely still are, its another method of distilling 'superhuman' performance into the model. where you might have to draw a line is things that the human wanted to do but did not. you dont have SFT for that. you might need to train on goal inference SFT from synthetic data directly to achieve further performance here. are you distilling judgment or training a proactive agent? those are two different things. which one is closer to applying next action prediction as a forcing function for end to end context use, as opposed to other startups that seem to be applying made up forcing functions to context use, distilling something else other than the ability to use information to achieve some goal (which i have previously called judgment, and which some other teams are starting to mention as well)
-		- it seems like its fine to create the event demarcation we're going for rather than trying to create more synthetic datasets of the longer term goals since the things that are truly important will be done on the spot. hopefully, with the ai filling in those gaps, it allows you to move faster, so there are new gaps to fill, it can fill in more gaps, etc
-	- if i run the model with a 'reward' that captures the similarity in what it outputted to what the actual next substantive write was, is that suddenly "much lower signal per flop" than my current token level cross entropy training? that doesn't seem to make much sense. i feel like this 'objective' ablation is one of the first, if not the first, ablation i'd like to run, since it feels so relevant to the 'use of information'
-	- is MoE more sample efficient than dense? why or why not? what are the learning properties of each?
 	- probably worth going back into the thinking/notes around how memory management occurs for harnesses, specifically codex, since it seems very relevant
 		- https://frontierharness.org/ codex is the only harness pareto on both cost and speed. supports analyzing how it handles memory/context. the single thread long horizon memory is excellent.
 	- how many tokens of data do we have? relates to trainable parameters, eventual attempts at establishing local scaling laws, chinchilla paper seems to suggest 150 tokens per parameter (20:1 when ignoring inference)
-	- this 'bitter lesson' idea of giving the model the goal of next write prediction and it has access to the full corpus of history and letting it write whatever code it wants to properly fetch the data that constructs context to get it to the right answer by slamming RL rollouts keeps popping up in my head so its likely worth getting specific on it once the data is in a place where its time for algorithmic tricks
-	- feels like a big issue is that the 'internal representation' of a conversation thread is completely reconstructed when a new turn is submitted. ideally you'd want the ai to be in the same 'state' as it was when you send it a new message. otherwise you cant trust that the 'activations' behind the production of a good answer remain, causing response inconsistencies. is this intuition backed up with the understanding of how modern attention works from the 3 blue 1 brown video i watched? likely relates to kv cache somewhow. similarly, why is nondeterminism an issue when weights are fixed?
-	- if youre struggling with memory and its getting more expensive, and your flops are underutilized, why not just cache less? i dont understand how cached tokens are offered cheaper if memory is more expensive than compute
-		- flashattention leveraged this?
-
-	- i believe i chose next substantive write prediction since i thought it was more directly economically useful. does more general action prediction result in a higher terminal value or goal inference + proactive assistance?
-	- does multilora allow you to capture value you create even if capture + recipes + weights are all open source?
 	- is judgment distillation the most direct way to help solve heterarchical agent coordination? what about a single 'coworker' like indent? clearly different problems?
-	- i think if you're training on write events where the corresponding READ event isnt in context (such as capture gaps like videos), you are training the model to hallucinate
+	- 
 
 - todos
 	- gpt 5.5 on 660 sep 2-10 data -> frontier model vector information -> improve writeup
@@ -59,6 +47,10 @@
 - theres a ton of work to be done that actually puts this model continually trained and serves it for cheap and fast that im likely underestimating because i havent thought it through properly
 	- and that doesnt even include any phase 2 training since its very obvious to me that the humans completion is not actually ground truth
 	- and this likely changes the trend lines towards extreme emotional value and reliance
+- respond to jward anywhere unresponded to
+	- i think if you're training on write events where the corresponding READ event isnt in context (such as capture gaps like videos), you are training the model to hallucinate
+- do we need to compare to memory setups to fairly test product usefulness? when talking to people yesterday, no one actually cares about training (thats research marketing), people care about what it solves for them. didnt really have a branding that worked yet. end state was "an agent that lives on your computer, infers your goals, and helps you get there" but helps you get there was vague. "predict your next sentence" "like emails?" "mostly prompts nowadays" was another, but conflates with "an agent you dont have to prompt", which is direct but bad because it not a Full Agent and that makes it seem like it is
+- study instinct
 
 - -> post technical work done, why data cleanup is the core, and how training is REQUIRED to make the product possible (compare against astra latency, memory solutions, etc). inspired by issues explaining it yesterday and how flexing the solution feels dumb as fuck
 	- whats blocking here is deciding which 'problem' to start from that correctly identifies the core work we're doing. it exists, that's why we're doing it, but needs to be clearer
