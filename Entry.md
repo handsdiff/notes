@@ -49,6 +49,7 @@
 - one example positioning could be that you give us your raw screen data under a ZDR policy and we do all the work on the backend (data cleaning, training, UX) it takes to serve you an embedded proactive assistant that helps you complete your goals faster, starting with next write prediction workflow automation. people will pay for this if they feel lost without it i.e. its genuinely excellent at inferring what they're doing in real time and helping them.
 	- started the brainstorm internally with having a product that simply gives you cleaned computer use data given the raw stream, proven by trainability success on raw vs cleaned data, which may be enough, but maybe not
 - "intelligent approve for me"
+- "make the decision i would make" in non verifiable domains. the key is "in non verifiable domains". because otherwise you think "wouldnt i want a better decision?". make the best decision in verifiable domains is what frontier AI does.
 - "i also like to say that we will know when proactivity is solved when we dont need to manually ask chatgpt anymore i think in the short term this will look like us hitting yes/no to the models prompting us instead"
 - slope gains are a function of raw materials. raw materials matter more, if youre confident there are at least a few slope gains out there. the list produced by the app thread increases my confidence that there is
 - expanding to team as a prerequisite for expanding to customers? probably not, although maybe to invalidate how different users are
