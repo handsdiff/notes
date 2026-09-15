@@ -57,4 +57,11 @@
 - theres a ton of work to be done that actually puts this model continually trained and serves it for cheap and fast that im likely underestimating because i havent thought it through properly
 	- and that doesnt even include any phase 2 training since its very obvious to me that the humans completion is not actually ground truth
 	- and this likely changes the trend lines towards extreme emotional value and reliance
-	- 
+
+- -> post technical work done, why data cleanup is the core, and how training is REQUIRED to make the product possible (compare against astra latency, memory solutions, etc). inspired by issues explaining it yesterday and how flexing the solution feels dumb as fuck
+	- whats blocking here is deciding which 'problem' to start from that correctly identifies the core work we're doing. it exists, that's why we're doing it, but needs to be clearer
+- -> establish inbound pipelines and positioning inspired by wafer's enterprise GTM or more common prosumer GTM
+- -> establish current usability and everything that goes into that
+- -> post again, update messaging as needed
+- -> do outbound
+- -> this should be a months worth of inbound uptime at this point so no hits by then would be roughly invalidating
