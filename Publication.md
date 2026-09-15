@@ -99,3 +99,4 @@
 - theres a question as to whether phase 1 training can even produce economically useful results or if it requires phase 2's formulation for improved learning/reasoning. also the question of whether CE loss + sliding window phase 1 differs from sim loss + RLM context phase 1
 - seems like phase 1 -> 2 is how to get from tracking human to super human performance, since you can start to rely on previously un thought of completions to then verify/reward implicitly with extended behavior
 - enterprise inspiration https://www.ycombinator.com/launches/NzG-wafer-cursor-for-cuda
+- respond to jward anywhere unresponded to
