@@ -19,7 +19,7 @@
 	- and that doesnt even include any phase 2 training since its very obvious to me that the humans completion is not actually ground truth
 	- and this likely changes the trend lines towards extreme emotional value and reliance
 	- if you assume intelligence (sample efficiency) trends up and associated cost trends down, this is the worst the trend line will ever be
-- -> post again with phase 2 results / updat, update messaging as needed
+- -> post again with phase 2 results / updated phase 1 results, update messaging as needed
 - -> do outbound
 - -> this should be a months worth of inbound uptime at this point so no hits by then would be roughly invalidating
 
