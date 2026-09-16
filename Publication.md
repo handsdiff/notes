@@ -105,4 +105,4 @@
 - "Our own John Schulman talks with Dwarkesh about where human judgment still matters as models improve and self-improve: teaching them to handle messy real-world tasks, applying taste to what works in the long run, and, above all, specifying what we actually want."
 - increasingly clear to me that i dont actually care about matching exactly what i say. its more about the expressing the correct underlying intention, ideally in a way thats better than i could either (and ideally both) because its smarter (better expectation of world response) and faster
 - "unbounded rationality"
-- 
+- "self forecasting" perhaps because the main issue with forecasting is, forecasting what?
