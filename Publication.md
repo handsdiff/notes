@@ -106,3 +106,4 @@
 - increasingly clear to me that i dont actually care about matching exactly what i say. its more about the expressing the correct underlying intention, ideally in a way thats better than i could either (and ideally both) because its smarter (better expectation of world response) and faster
 - "unbounded rationality"
 - "self forecasting" perhaps because the main issue with forecasting is, forecasting what?
+- this is well written. i'd like my writing to match this clarity https://thinkingmachines.ai/blog/the-future-worth-building-is-human/
