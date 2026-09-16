@@ -27,6 +27,7 @@
 
 - -> post technical work done, why data cleanup is the core, and how training is REQUIRED to make the product possible (compare against astra latency, memory solutions, etc). inspired by issues explaining it yesterday and how flexing the solution feels dumb as fuck
 	- whats blocking here is deciding which 'problem' to start from that correctly identifies the core work we're doing. it exists, that's why we're doing it, but needs to be clearer
+	- similarly, who is the audience? technical researchers for post, enterprises for inbound? does the divergence matter? probably not
 - -> establish inbound pipelines and positioning inspired by wafer's enterprise GTM or more common prosumer GTM
 - -> establish current usability and everything that goes into that
 - -> post again, update messaging as needed
