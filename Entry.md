@@ -3,7 +3,8 @@
 - https://x.com/natolambert/status/2099934317753286776?s=20
 - https://x.com/finkd/status/2099997096896274533?s=20
 - https://x.com/viemccoy/status/2100001628661178393?s=20
-- 
+- https://x.com/lefttailguy/status/2100019985850749102?s=20
+- audio and images compile to text, thought to text. The same pipeline can support once proven 
 - Maybe conclusion is enough signal to post publicly set up inbound and positioning and keep alternating between public writing and posting and further technical work in the manner I was before vacation (more writing frequency). On a technical level the question is whether there’s enough of a foundation to support productized high emotional value and value creation in real use (need to test on myself). Open question is the visions staying power so need to reaffirm roots. Also the framework of addressing the root problem, with felt problems being downstream of the root problem and should not be addressed thinking it’s the core problem being solved, is useful in the context of relating embedded agent to time delivering context and goal specification and review (which people now seem to call alignment and make references about how it’s the best business decision). Will brown tweet is def somewhat relevant: "do the sorts of things reasonable humans would do if our brains were faster and less error-prone and had more working memory"
 - Step zero is stepping back from hardcore implementation to re orient at a higher level in terms of positioning and vision and mission and whether the old ideas still make a lot of sense or if cracks point to a thread to pull on
 - http://x.com/jack/status/2099649359017046048
