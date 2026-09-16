@@ -40,7 +40,5 @@ give users (researchers?) api access to their latest model? seems like the peopl
 
 what are closest solutions for enterprises? any solutions that address removing you as the bottleneck? (the emotional vision of getting suggested what to prompt your 15 agents continuously and its always correct). definite prerequisite is extreme use of agents. semianalysis?
 
-need to clean/process data, train, and eval continuously. can't spend too much time doing it manually like i did for phase 1 since otherwise i cant get anything else done. this is likely a focused effort, it wont happen in the background. and i cant put more work on my plate until its completed. if i dont reuse old checkpoints within 7 days they disappear from Tinker
-
 all the work that goes into actually making this a usable product in phase 2 will make it clear why open core is fine for this. yes you can have a data processing pipeline but training level cleanup, actual training, hosting and serving with high uptime, etc will be super high friction for most people
 

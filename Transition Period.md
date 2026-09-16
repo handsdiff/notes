@@ -3,7 +3,7 @@
 - set up website, landing page, figures, and copy that focus on value prop for heavy parallel agent users. "Coupled learns from your ongoing work to suggest the next prompt you would otherwise have to assemble yourself". figure out waitlist/pricing/influential nodes/initial GTM.
 - phase 1.5 implementation (codify/compress phase 1 into repeatable, deterministic work. establish horizontal timely accuracy line for extreme positive emotions and genuine reliance. establish cost)
 	- codify data construction pipeline
-	- set up triggered overnight training
+	- set up triggered overnight training and evaluation
 	- set up the pipeline that takes the checkpoint from overnight and hosts and serves it somewhere for the app to use
 	- build the UX that queries the hosted model and the structures the underlying request to match training context and displays the output in a way that is copyable
 	- think through how this changes the existing data pipeline, without resorting to a different objective function yet unless additional thinking determines that its required
