@@ -32,7 +32,7 @@ then for positioning: problems this deep manifest in today's practical workflows
 	DPO in phase 2 as a potential solution to the issue around not being a perfect demonstrator, but needs to be quantified (rejection sampling)
 	staying coupled vs autopiloting things
 	most writing will be to agents in the limit
-	open questions as to whether tightly looped SFT is superior to DPO, per the notes in [[Publication]]? again and again, we need some way of 'superhuman' performance elicitation given that the human demonstrator initially being SFTd is suboptimal, and current attempts to sprinkle frontier models onto the dataset pre training will not be sufficient long term imo.
+	open questions as to whether tightly looped SFT is superior to DPO, per the notes in [[Publication]]? again and again, we need some way of 'superhuman' performance elicitation given that the human demonstrator initially being SFTd is suboptimal, and current attempts to sprinkle frontier models onto the dataset pre training will not be sufficient long term imo. the chatgpt thread where i asked it to find inconsistencies flags these.
 
 skill post is technical researchers and positioning / messaging is for target market, ideally enterprise? still havent decided enterprise or prosumer. which one would relate more deeply to problem? the stated problem is more of a meta problem, and the actual problem could be both prosumer or enterprise imo. basically coupled agents for 80% of work (decision making, sociality) and frontier agents or task specific fine tunes for 20% of work (silo'd execution).
 
