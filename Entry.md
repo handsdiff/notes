@@ -16,11 +16,6 @@
 - -> this should be a months worth of inbound uptime at this point so no hits by then would be roughly invalidating
 
 
-- data collection vs full product
-- DPO in phase 2 as a potential solution to the issue around not being a perfect demonstrator, but needs to be quantified (rejection sampling)
-- staying coupled vs autopiloting things
-
-
 Could be as simple as: multi agent systems require heterogeneity to create value. heterogeneity in context is not enough. heterogeneity in weights (judgment) lacks data to bootstrap from. our existing workflows provide a dynamic, continuous data resource for this, in fact the only one. the issue is that capturing data, cleaning data, maintaining data pipelines, training, managing compute, managing inference, and generating actual near term economic value creation to sustain development is a herculean effort. so we're fixing that. here are the results. paint the picture of the world without this and the world with this.
 	(missing dynamism as a requirement, if it is one)
 	one example positioning could be that you give us your raw screen data under a ZDR policy and we do all the work on the backend (data cleaning, training, UX) it takes to serve you an embedded proactive assistant that helps you complete your goals faster, starting with next write prediction workflow automation. people will pay for this if they feel lost without it i.e. its genuinely excellent at inferring what they're doing in real time and helping them.
@@ -29,8 +24,10 @@ Could be as simple as: multi agent systems require heterogeneity to create value
 	"make the decision i would make" in non verifiable domains (which includes social/multiplayer work). the key is "in non verifiable domains". because otherwise you think "wouldnt i want a better decision?". make the best decision in verifiable domains is what frontier AI does.
 	this solves 'social adaptability' aka putting ourselves into the future agent society that will move 100x faster than we can comprehend or participate in
 	"automating thinking" is misaligned with "coupled"?
+	i think i wrote somewhere publicly about judgment being a prerequisite for trust + memes about fiduciary, assets/liabilities, etc
 	
 then for positioning: problems this deep manifest in today's practical workflows. spending time giving agents context, direction, evaluation, and waiting for their responses (basically what people do all day now). at first such a solution would improve the piloting of these agents in a coupled format, before combining both human judgment with the unique benefits of models (faster, smarter) to do this tasking for us. (proactive intervention due to prospective learning from user model). probably go with the narrative that we need to charge high prices to fund getting this into the world, per the prior paragraph. its altruistic and virtuous to pay us to support this effort.
 	(goal inference is missing. its what connects humans self awareness of suboptimal judgment to something that can truly achieve our goals for us faster than we can. i.e SFT vs DPO) (lossy expression of actions towards a goal vs goal itself)
-
-- i think i wrote somewhere publicly about judgment being a prerequisite for trust
+	data collection vs full product
+	DPO in phase 2 as a potential solution to the issue around not being a perfect demonstrator, but needs to be quantified (rejection sampling)
+	staying coupled vs autopiloting things
