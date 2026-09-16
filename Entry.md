@@ -1,6 +1,7 @@
  
 - -> post technical work done, why data cleanup is the core, and how training is REQUIRED to make the product possible (compare against astra latency, memory solutions, etc).
-	- missing piece here is compare against reasonably strong memory benchmark?
+	- missing piece here is compare against reasonably strong memory system?
+	- do we need to compare to memory setups to fairly test product usefulness? when talking to people yesterday, no one actually cares about training (thats research marketing), people care about what it solves for them. didnt really have a branding that worked yet. end state was "an agent that lives on your computer, infers your goals, and helps you get there" but helps you get there was vague. "predict your next sentence" "like emails?" "mostly prompts nowadays" was another, but conflates with "an agent you dont have to prompt", which is direct but bad because it not a Full Agent and that makes it seem like it is
 - -> establish inbound pipelines and positioning inspired by wafer's enterprise GTM or more common prosumer GTM
 - -> establish current usability and everything that goes into that
 	- theres a ton of work to be done that actually puts this model continually trained and serves it for cheap and fast that im likely underestimating because i havent thought it through properly
@@ -8,7 +9,6 @@
 	- and this likely changes the trend lines towards extreme emotional value and reliance
 	- if you assume intelligence (sample efficiency) trends up and associated cost trends down, this is the worst the trend line will ever be
 	- On a technical level the question is whether there’s enough of a foundation to support productized high emotional value and value creation in real use (need to test on myself)
-	- do we need to compare to memory setups to fairly test product usefulness? when talking to people yesterday, no one actually cares about training (thats research marketing), people care about what it solves for them. didnt really have a branding that worked yet. end state was "an agent that lives on your computer, infers your goals, and helps you get there" but helps you get there was vague. "predict your next sentence" "like emails?" "mostly prompts nowadays" was another, but conflates with "an agent you dont have to prompt", which is direct but bad because it not a Full Agent and that makes it seem like it is
 	- need to continuously get the weights, put them on a gpu, serve them. for all users, which requires handling multi lora on a single GPU setup? not sure if any service providers for this / if it is required manually
 - -> post again with phase 2 results / updated phase 1 results, update messaging as needed
 - -> do outbound
