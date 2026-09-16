@@ -42,4 +42,6 @@
 - judgment distillation
 - forcing function for good memory
 - workflow automation
+- data collection vs full product
+- DPO in phase 2 as a solution to the issue around not being a perfect demonstrator, but needs to be quantified
 - 
