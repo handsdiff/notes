@@ -1,6 +1,6 @@
 
 - start report with thesis overview to motivate the why behind the work, painting a story of detailed worlds with/without this technology. then do deep dive into timeline. focus on intricacies of data capture. fully explain data pipeline. explain training config. post results. explain result interpretation. establish 'vectors' and/or 'local scaling laws' that point to this being a foundation for future development and exciting possibility
-- set up website, landing page, figures, and copy that focus on value prop for heavy parallel agent users. "Coupled learns from your ongoing work to suggest the next prompt you would otherwise have to assemble yourself". figure out waitlist/pricing/influential nodes/initial GTM.
+- set up website, landing page, figures, and copy that focus on value prop for heavy parallel agent users. "Coupled learns from your ongoing work to suggest the next prompt you would otherwise have to assemble yourself". figure out waitlist/pricing/influential nodes/initial GTM. "youre the bottleneck to getting more done. specifically, your bounded ability to process information and take action that to the best of your knowledge "
 - phase 1.5 implementation (codify/compress phase 1 into repeatable, deterministic work. establish horizontal timely accuracy line for extreme positive emotions and genuine reliance. establish cost)
 	- codify data construction pipeline
 	- set up triggered overnight training and evaluation
