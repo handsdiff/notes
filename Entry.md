@@ -9,7 +9,6 @@
 - Step zero is stepping back from hardcore implementation to re orient at a higher level in terms of positioning and vision and mission and whether the old ideas still make a lot of sense or if cracks point to a thread to pull on
 - http://x.com/jack/status/2099649359017046048
 - open questions/thoughts likely worth resolving
-	- how many tokens of data do we have? relates to trainable parameters, eventual attempts at establishing local scaling laws, chinchilla paper seems to suggest 150 tokens per parameter (20:1 when ignoring inference)
 	- is judgment distillation the most direct way to help solve heterarchical agent coordination? what about a single 'coworker' like indent? clearly different problems?
 
 
