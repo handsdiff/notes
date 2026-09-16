@@ -1,8 +1,4 @@
  
-- "i also like to say that we will know when proactivity is solved when we dont need to manually ask chatgpt anymore i think in the short term this will look like us hitting yes/no to the models prompting us instead"
-	- similar to "interrupt handler instead of scheduler" tweet from gakonst
-- https://bryanhpchiang.craft.me/Z2kCWLrfEPF66r
-
 - -> post technical work done, why data cleanup is the core, and how training is REQUIRED to make the product possible (compare against astra latency, memory solutions, etc). inspired by issues explaining it yesterday and how flexing the solution feels dumb as fuck
 	- whats blocking here is deciding which 'problem' to start from that correctly identifies the core work we're doing. it exists, that's why we're doing it, but needs to be clearer
 	- similarly, who is the audience? technical researchers for post, enterprises for inbound? does the divergence matter? probably not
@@ -19,13 +15,7 @@
 - -> do outbound
 - -> this should be a months worth of inbound uptime at this point so no hits by then would be roughly invalidating
 
-- multi agent systems needing diversity in both information (inputs) and judgment (response to inputs)
-	- is judgment distillation the most direct way to help solve heterarchical agent coordination?
-- judgment distillation
-- forcing function for good memory
-	- learning the fact vs retrieval ability when necessary (this is also judgment)
-- judgment is literally the use of information to achieve some desired goal (intermediate step is producing the 'right' action given bounded rationality)
-- workflow automation
+
 - data collection vs full product
 - DPO in phase 2 as a potential solution to the issue around not being a perfect demonstrator, but needs to be quantified (rejection sampling)
 - staying coupled vs autopiloting things
