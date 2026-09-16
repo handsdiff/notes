@@ -31,4 +31,4 @@ then for positioning: problems this deep manifest in today's practical workflows
 	DPO in phase 2 as a potential solution to the issue around not being a perfect demonstrator, but needs to be quantified (rejection sampling)
 	staying coupled vs autopiloting things
 
-skill post is technical researchers and positioning / messaging is for target market, ideally enterprise? still havent decided enterprise or prosumer. which one would relate more deeply to problem? the stated problem is more of a meta problem, and the actual problem could be both prosumer or enterprise imo. 
+skill post is technical researchers and positioning / messaging is for target market, ideally enterprise? still havent decided enterprise or prosumer. which one would relate more deeply to problem? the stated problem is more of a meta problem, and the actual problem could be both prosumer or enterprise imo. basically coupled agents for 80% of work (decision making, sociality) and frontier agents or task specific fine tunes for 20% of work (silo'd execution).
