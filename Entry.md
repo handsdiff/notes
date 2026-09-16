@@ -37,3 +37,9 @@
 - -> post again, update messaging as needed
 - -> do outbound
 - -> this should be a months worth of inbound uptime at this point so no hits by then would be roughly invalidating
+
+- multi agent systems needing diversity in both information (inputs) and judgment (response to inputs)
+- judgment distillation
+- forcing function for good memory
+- workflow automation
+- 
