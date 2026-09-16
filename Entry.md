@@ -19,7 +19,7 @@
 	- and that doesnt even include any phase 2 training since its very obvious to me that the humans completion is not actually ground truth
 	- and this likely changes the trend lines towards extreme emotional value and reliance
 	- if you assume intelligence (sample efficiency) trends up and associated cost trends down, this is the worst the trend line will ever be
-- -> post again, update messaging as needed
+- -> post again with phase 2 results / updat, update messaging as needed
 - -> do outbound
 - -> this should be a months worth of inbound uptime at this point so no hits by then would be roughly invalidating
 
@@ -40,6 +40,8 @@
 - we need to separate the technical report and the inbound positioning and messaging. maybe the ordering is wrong. draft inbound positioning and messaging first rather than technical report first.
 	- do we need to compare to memory setups to fairly test product usefulness? when talking to people yesterday, no one actually cares about training (thats research marketing), people care about what it solves for them. didnt really have a branding that worked yet. end state was "an agent that lives on your computer, infers your goals, and helps you get there" but helps you get there was vague. "predict your next sentence" "like emails?" "mostly prompts nowadays" was another, but conflates with "an agent you dont have to prompt", which is direct but bad because it not a Full Agent and that makes it seem like it is
 	- ^^ this is a messaging issue since memory comparison only matters to see if training is not worth it, not to be mentioned in the report which should focus on skill flexing. but if the problem is judgment then memory literally doesn't help.
+
+- how can you have continual weight updating if its an extreme challenge to even support new base models and hardware as it comes out? i guess multi Lora is the solution?
 
 
 Could be as simple as: multi agent systems require heterogeneity to create value. heterogeneity in context is not enough. heterogeneity in weights (judgment) lacks data to bootstrap from. our existing workflows provide a dynamic, continuous data resource for this, in fact the only one. the issue is that capturing data, cleaning data, maintaining data pipelines, training, managing compute, managing inference, and generating actual near term economic value creation to sustain development is a herculean effort. so we're fixing that. here are the results. paint the picture of the world without this and the world with this.
