@@ -1,6 +1,6 @@
 
 - start report with thesis overview to motivate the why behind the work, painting a story of detailed worlds with/without this technology. then do deep dive into timeline. focus on intricacies of data capture. fully explain data pipeline. explain training config. post results. explain result interpretation. establish 'vectors' and/or 'local scaling laws' that point to this being a foundation for future development and exciting possibility
-- set up website, landing page, figures, and copy that focus on 
+- set up website, landing page, figures, and copy that focus on value prop for heavy parallel agent users. "Coupled learns from your ongoing work to suggest the next prompt you would otherwise have to assemble yourself". who 
 - phase 1.5 implementation (codify/compress phase 1 into repeatable, deterministic work. establish horizontal timely accuracy line for extreme positive emotions and genuine reliance. establish cost)
 	- codify data construction pipeline
 	- set up triggered overnight training
