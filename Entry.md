@@ -43,4 +43,5 @@
 Could be as simple as: multi agent systems require heterogeneity to create value. heterogeneity in context is not enough. heterogeneity in weights (judgment) lacks data to bootstrap from. our existing workflows provide a dynamic, continuous data resource for this, in fact the only one. the issue is that capturing data, training, and actual near term economic value creation to sustain development is extremely time consuming and challenging. so we're fixing that. here are the results. paint the picture of the world without this and the world with this.
 	(missing dynamism as a requirement, if it is one)
 
-then for positioning: problems this deep manifest in today's practical workflows. spending time giving agents context, direction, evaluation, and waiting for their responses (basically what people do all day now). at first such a solution would 
+then for positioning: problems this deep manifest in today's practical workflows. spending time giving agents context, direction, evaluation, and waiting for their responses (basically what people do all day now). at first such a solution would improve the piloting of these agents in a coupled format, before combining both human judgment with the unique benefits of models (faster, smarter) to do this tasking for us.
+	(goal inference is missing. its what conne)
