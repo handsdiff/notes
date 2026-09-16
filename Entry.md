@@ -1,7 +1,5 @@
  
 - -> post technical work done, why data cleanup is the core, and how training is REQUIRED to make the product possible (compare against astra latency, memory solutions, etc). inspired by issues explaining it yesterday and how flexing the solution feels dumb as fuck
-	- whats blocking here is deciding which 'problem' to start from that correctly identifies the core work we're doing. it exists, that's why we're doing it, but needs to be clearer
-	- similarly, who is the audience? technical researchers for post, enterprises for inbound? does the divergence matter? probably not
 - -> establish inbound pipelines and positioning inspired by wafer's enterprise GTM or more common prosumer GTM
 - -> establish current usability and everything that goes into that
 	- theres a ton of work to be done that actually puts this model continually trained and serves it for cheap and fast that im likely underestimating because i havent thought it through properly
@@ -31,3 +29,5 @@ then for positioning: problems this deep manifest in today's practical workflows
 	data collection vs full product
 	DPO in phase 2 as a potential solution to the issue around not being a perfect demonstrator, but needs to be quantified (rejection sampling)
 	staying coupled vs autopiloting things
+
+skill post is technical researchers and positioning / messaging is for target market, ideally enterprise? still havent decided enterprise or prosumer. which one would relate more deeply to problem? the stated problem is more of a meta problem, and the actual problem could be both prosumer or enterprise imo. 
