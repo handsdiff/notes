@@ -8,10 +8,6 @@
 - "i also like to say that we will know when proactivity is solved when we dont need to manually ask chatgpt anymore i think in the short term this will look like us hitting yes/no to the models prompting us instead"
 	- similar to "interrupt handler instead of scheduler" tweet from gakonst
 - https://bryanhpchiang.craft.me/Z2kCWLrfEPF66r
-- respond to jward anywhere unresponded to
-	- i think if you're training on write events where the corresponding READ event isnt in context (such as capture gaps like videos), you are training the model to hallucinate
-- do we need to compare to memory setups to fairly test product usefulness? when talking to people yesterday, no one actually cares about training (thats research marketing), people care about what it solves for them. didnt really have a branding that worked yet. end state was "an agent that lives on your computer, infers your goals, and helps you get there" but helps you get there was vague. "predict your next sentence" "like emails?" "mostly prompts nowadays" was another, but conflates with "an agent you dont have to prompt", which is direct but bad because it not a Full Agent and that makes it seem like it is
-- study instinct
 
 - -> post technical work done, why data cleanup is the core, and how training is REQUIRED to make the product possible (compare against astra latency, memory solutions, etc). inspired by issues explaining it yesterday and how flexing the solution feels dumb as fuck
 	- whats blocking here is deciding which 'problem' to start from that correctly identifies the core work we're doing. it exists, that's why we're doing it, but needs to be clearer
@@ -38,4 +34,6 @@
 
 - maintaining a fast high quality data pipeline that scales even with phase 2 DPO is a huge effort that is critical
 
-- we need to separate the technical report and the inbound positioning and messaging. 
+- we need to separate the technical report and the inbound positioning and messaging. maybe the ordering is wrong. draft inbound positioning and messaging first rather than technical report first.
+	- do we need to compare to memory setups to fairly test product usefulness? when talking to people yesterday, no one actually cares about training (thats research marketing), people care about what it solves for them. didnt really have a branding that worked yet. end state was "an agent that lives on your computer, infers your goals, and helps you get there" but helps you get there was vague. "predict your next sentence" "like emails?" "mostly prompts nowadays" was another, but conflates with "an agent you dont have to prompt", which is direct but bad because it not a Full Agent and that makes it seem like it is
+	- ^^ this is a messaging issue since memory comparison only matters to see if training is not worth it, not to be mentioned in the report which should focus on skill flexing. but if the problem is judgment then memory literally doesn't help.
