@@ -5,7 +5,7 @@
 - -> establish inbound pipelines and positioning inspired by common prosumer GTM
 - -> establish current usability and everything that goes into that
 	- theres a ton of work to be done that actually puts this model continually trained and serves it for cheap and fast that im likely underestimating because i havent thought it through properly
-	- and that doesnt even include any phase 2 training since its very obvious to me that the humans completion is not actually ground truth
+	- and that doesnt even include any phase 2 training since its very obvious to me that the humans completion is not actually ground truth. the actual experimental training there comes after product usability
 	- and this likely changes the trend lines towards extreme emotional value and reliance
 	- if you assume intelligence (sample efficiency) trends up and associated cost trends down, this is the worst the trend line will ever be
 	- On a technical level the question is whether there’s enough of a foundation to support productized high emotional value and value creation in real use (need to test on myself)
