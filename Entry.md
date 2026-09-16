@@ -38,4 +38,4 @@ skill post is technical researchers and positioning / messaging is for target ma
 
 give users (researchers?) api access to their latest model? seems like the people that might be most interested in using are the people building it for themselves? i.e. the usermodels discord and their friends and colleagues? or omar shaikh friends/colleagues? aka the stanford NLP lab, thinking machines, etc
 
-apply for thinking machines grant?
+what are closest solutions for enterprises? any solutions that address removing you as the bottleneck? (the emotional vision of getting suggested what to prompt your 15 agents continuously and its always correct). definite prerequisite is extreme use of agents. semianalysis?
