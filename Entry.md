@@ -26,6 +26,7 @@
 	- is judgment distillation the most direct way to help solve heterarchical agent coordination?
 - judgment distillation
 - forcing function for good memory
+	- learning the fact vs retrieval ability when necessary (this is also judgment)
 - workflow automation
 - data collection vs full product
 - DPO in phase 2 as a potential solution to the issue around not being a perfect demonstrator, but needs to be quantified (rejection sampling)
@@ -37,3 +38,9 @@
 - we need to separate the technical report and the inbound positioning and messaging. maybe the ordering is wrong. draft inbound positioning and messaging first rather than technical report first.
 	- do we need to compare to memory setups to fairly test product usefulness? when talking to people yesterday, no one actually cares about training (thats research marketing), people care about what it solves for them. didnt really have a branding that worked yet. end state was "an agent that lives on your computer, infers your goals, and helps you get there" but helps you get there was vague. "predict your next sentence" "like emails?" "mostly prompts nowadays" was another, but conflates with "an agent you dont have to prompt", which is direct but bad because it not a Full Agent and that makes it seem like it is
 	- ^^ this is a messaging issue since memory comparison only matters to see if training is not worth it, not to be mentioned in the report which should focus on skill flexing. but if the problem is judgment then memory literally doesn't help.
+
+
+Could be as simple as: multi agent systems require heterogeneity to create value. heterogeneity in context is not enough. heterogeneity in weights (judgment) lacks data to bootstrap from. our existing workflows provide a dynamic, continuous data resource for this, in fact the only one. the issue is that capturing data, training, and actual near term economic value creation to sustain development is extremely time consuming and challenging. so we're fixing that. here are the results. paint the picture of the world without this and the world with this.
+	(missing dynamism as a requirement, if it is one)
+
+then for positioning: problems this deep manifest in today's practical workflows. spending time giving agents context, direction, evaluation, and waiting for their responses (basically what people do all day now). at first such a solution would 
