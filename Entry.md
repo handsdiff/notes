@@ -38,4 +38,7 @@ Could be as simple as: multi agent systems require heterogeneity to create value
 	"make the decision i would make" in non verifiable domains (which includes social/multiplayer work). the key is "in non verifiable domains". because otherwise you think "wouldnt i want a better decision?". make the best decision in verifiable domains is what frontier AI does.
 
 then for positioning: problems this deep manifest in today's practical workflows. spending time giving agents context, direction, evaluation, and waiting for their responses (basically what people do all day now). at first such a solution would improve the piloting of these agents in a coupled format, before combining both human judgment with the unique benefits of models (faster, smarter) to do this tasking for us. probably go with the narrative that we need to charge high prices to fund getting this into the world, per the prior paragraph. its altruistic and virtuous to pay us to support this effort.
-	(goal inference is missing. its what connects humans self awareness of suboptimal judgment to something that can truly achieve our goals for us faster than we can. i.e SFT vs DPO)
+	(goal inference is missing. its what connects humans self awareness of suboptimal judgment to something that can truly achieve our goals for us faster than we can. i.e SFT vs DPO
+
+
+- data cleanup as initial product similar to wafer optimizing inference for others before internalizing? "we clean your computer use data for retrieval and training"
