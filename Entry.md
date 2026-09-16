@@ -8,9 +8,6 @@
 - "i also like to say that we will know when proactivity is solved when we dont need to manually ask chatgpt anymore i think in the short term this will look like us hitting yes/no to the models prompting us instead"
 	- similar to "interrupt handler instead of scheduler" tweet from gakonst
 - https://bryanhpchiang.craft.me/Z2kCWLrfEPF66r
-- theres a ton of work to be done that actually puts this model continually trained and serves it for cheap and fast that im likely underestimating because i havent thought it through properly
-	- and that doesnt even include any phase 2 training since its very obvious to me that the humans completion is not actually ground truth
-	- and this likely changes the trend lines towards extreme emotional value and reliance
 - respond to jward anywhere unresponded to
 	- i think if you're training on write events where the corresponding READ event isnt in context (such as capture gaps like videos), you are training the model to hallucinate
 - do we need to compare to memory setups to fairly test product usefulness? when talking to people yesterday, no one actually cares about training (thats research marketing), people care about what it solves for them. didnt really have a branding that worked yet. end state was "an agent that lives on your computer, infers your goals, and helps you get there" but helps you get there was vague. "predict your next sentence" "like emails?" "mostly prompts nowadays" was another, but conflates with "an agent you dont have to prompt", which is direct but bad because it not a Full Agent and that makes it seem like it is
@@ -21,6 +18,10 @@
 	- similarly, who is the audience? technical researchers for post, enterprises for inbound? does the divergence matter? probably not
 - -> establish inbound pipelines and positioning inspired by wafer's enterprise GTM or more common prosumer GTM
 - -> establish current usability and everything that goes into that
+	- theres a ton of work to be done that actually puts this model continually trained and serves it for cheap and fast that im likely underestimating because i havent thought it through properly
+	- and that doesnt even include any phase 2 training since its very obvious to me that the humans completion is not actually ground truth
+	- and this likely changes the trend lines towards extreme emotional value and reliance
+	- if you assume intelligence (sample efficiency) trends up and associated cost trends down, this is the worst the trend line will ever be
 - -> post again, update messaging as needed
 - -> do outbound
 - -> this should be a months worth of inbound uptime at this point so no hits by then would be roughly invalidating
