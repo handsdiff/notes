@@ -5,6 +5,7 @@
 	- started the brainstorm internally with having a product that simply gives you cleaned computer use data given the raw stream, proven by trainability success on raw vs cleaned data, which may be enough, but maybe not
 - "intelligent approve for me"
 - "make the decision i would make" in non verifiable domains (which includes social/multiplayer work). the key is "in non verifiable domains". because otherwise you think "wouldnt i want a better decision?". make the best decision in verifiable domains is what frontier AI does.
+- "unbounded rationality"
 - "i also like to say that we will know when proactivity is solved when we dont need to manually ask chatgpt anymore i think in the short term this will look like us hitting yes/no to the models prompting us instead"
 	- similar to "interrupt handler instead of scheduler" tweet from gakonst
 - https://bryanhpchiang.craft.me/Z2kCWLrfEPF66r
@@ -27,6 +28,7 @@
 - judgment distillation
 - forcing function for good memory
 	- learning the fact vs retrieval ability when necessary (this is also judgment)
+- judgment is literally the use of information to achieve some desired goal (intermediate step is producing the 'right' action given bounded rationality)
 - workflow automation
 - data collection vs full product
 - DPO in phase 2 as a potential solution to the issue around not being a perfect demonstrator, but needs to be quantified (rejection sampling)
