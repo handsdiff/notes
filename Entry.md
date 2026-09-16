@@ -1,13 +1,6 @@
  
 - Maybe conclusion is enough signal to post publicly set up inbound and positioning and keep alternating between public writing and posting and further technical work in the manner I was before vacation (more writing frequency). On a technical level the question is whether there’s enough of a foundation to support productized high emotional value and value creation in real use (need to test on myself). Open question is the visions staying power so need to reaffirm roots. Also the framework of addressing the root problem, with felt problems being downstream of the root problem and should not be addressed thinking it’s the core problem being solved, is useful in the context of relating embedded agent to time delivering context and goal specification and review (which people now seem to call alignment and make references about how it’s the best business decision). Will brown tweet is def somewhat relevant: "do the sorts of things reasonable humans would do if our brains were faster and less error-prone and had more working memory"
-- Step zero is stepping back from hardcore implementation to re orient at a higher level in terms of positioning and vision and mission and whether the old ideas still make a lot of sense or if cracks point to a thread to pull on
-- http://x.com/jack/status/2099649359017046048
-- open questions/thoughts likely worth resolving
-	- is judgment distillation the most direct way to help solve heterarchical agent coordination?
 
-
-
-- increasingly clear to me that i dont actually care about matching exactly what i say. its more about the expressing the correct underlying intention, ideally in a way thats better than i could either (and ideally both) because its smarter (better expectation of world response) and faster
 - one example positioning could be that you give us your raw screen data under a ZDR policy and we do all the work on the backend (data cleaning, training, UX) it takes to serve you an embedded proactive assistant that helps you complete your goals faster, starting with next write prediction workflow automation. people will pay for this if they feel lost without it i.e. its genuinely excellent at inferring what they're doing in real time and helping them.
 	- started the brainstorm internally with having a product that simply gives you cleaned computer use data given the raw stream, proven by trainability success on raw vs cleaned data, which may be enough, but maybe not
 - "intelligent approve for me"
@@ -33,11 +26,15 @@
 - -> this should be a months worth of inbound uptime at this point so no hits by then would be roughly invalidating
 
 - multi agent systems needing diversity in both information (inputs) and judgment (response to inputs)
+	- is judgment distillation the most direct way to help solve heterarchical agent coordination?
 - judgment distillation
 - forcing function for good memory
 - workflow automation
 - data collection vs full product
-- DPO in phase 2 as a solution to the issue around not being a perfect demonstrator, but needs to be quantified (rejection sampling)
+- DPO in phase 2 as a potential solution to the issue around not being a perfect demonstrator, but needs to be quantified (rejection sampling)
 - staying coupled vs autopiloting things
 
+
 - maintaining a fast high quality data pipeline that scales even with phase 2 DPO is a huge effort that is critical
+
+- we need to separate the technical report and the inbound positioning and messaging. 
