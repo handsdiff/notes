@@ -1,5 +1,6 @@
  
-- -> post technical work done, why data cleanup is the core, and how training is REQUIRED to make the product possible (compare against astra latency, memory solutions, etc). inspired by issues explaining it yesterday and how flexing the solution feels dumb as fuck
+- -> post technical work done, why data cleanup is the core, and how training is REQUIRED to make the product possible (compare against astra latency, memory solutions, etc).
+	- missing piece here is compare against reasonably strong memory benchmark?
 - -> establish inbound pipelines and positioning inspired by wafer's enterprise GTM or more common prosumer GTM
 - -> establish current usability and everything that goes into that
 	- theres a ton of work to be done that actually puts this model continually trained and serves it for cheap and fast that im likely underestimating because i havent thought it through properly
