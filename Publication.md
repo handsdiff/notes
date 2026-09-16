@@ -99,3 +99,8 @@
 - theres a question as to whether phase 1 training can even produce economically useful results or if it requires phase 2's formulation for improved learning/reasoning. also the question of whether CE loss + sliding window phase 1 differs from sim loss + RLM context phase 1
 - seems like phase 1 -> 2 is how to get from tracking human to super human performance, since you can start to rely on previously un thought of completions to then verify/reward implicitly with extended behavior
 - enterprise inspiration https://www.ycombinator.com/launches/NzG-wafer-cursor-for-cuda
+- audio and images compile to text, thought to text. The same pipeline can support once proven 
+- "Without personalized models designed to amplify your individual capabilities and interests, merging with an off the shelf AI will be one of the strongest forces toward cultural homogenization. We desperately need a science of personalized alignment to prepare us for neurotech."
+- "trust and alignment are quickly becoming the most important capabilities that will differentiate agents and models"
+- "Our own John Schulman talks with Dwarkesh about where human judgment still matters as models improve and self-improve: teaching them to handle messy real-world tasks, applying taste to what works in the long run, and, above all, specifying what we actually want."
+- 
