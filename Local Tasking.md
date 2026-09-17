@@ -8,12 +8,18 @@
 	- feeling a desire to have a separate website for my blogs. self hosted shows commitment. substack gets swallowed into the platform.
 	- many cracked people have personal sites
 
-- prev LBH: The following results will hit over the next 3 days:
-    - gpt 5.5 → 5.6 → 6 will show meaningful monotonic improvement in accuracy
-    - qwen 3.8 27b will show meaningful accuracy and usability (cheap and fast) on either pipeline
-    - the new pipeline will show a meaningful improvement over the old pipeline for training as measured by loss curves and accuracy and cost and latency
-- new LBH: I can have a report rough draft by Thursday.
+- - prev LBH: I can have a report rough draft by Thursday.
     - this incorporates solidifying vision and mission, positioning, result interpretation, and future prioritization, which is why the timeline is Thursday not Tuesday. a failure here would be a lack of clarity or conviction.
+- new LBH: I can publish the report by Monday.
+- high level prio:
+    - productization (establish usability and cost, close usefulness error bounds, productize pipeline)
+        - compress phase 1 pipeline to be automated ← biggest hurdle, up first, likely subsequent LBH
+        - likely post after this automation before UX build with increased data from personal capture since then to better establish usability + vectors
+    - ___ everything below this is dependent on productization results
+    - product post + updated prior results, actual website, messaging, positioning
+    - phase 2 research (superhuman performance) + test on you guys
+    - phase 2 research post + updated prior results
+    - outbound + customer channels
 - likely after: publish initial writeup + author public content + implement new landing page with pricing and CTA and call booking ability
 	- the technical public aspect of it is showing 'local scaling laws', open sourcing data collection pipeline. could also offer hosted training for enterprises, etc. lot more ideas here i haven't made explicit yet. blocked by getting a result. probably need to clarify the goal. i do want to show we exist and are technical and can do frontier work. i also want to establish positioning / brand that reflects the beliefs that led to the work while offering something that can be downloaded and used. 
 		- common references to my beliefs from a few months ago feels crucial to avoid allowing lower magnitude information to negatively impact high magnitude beliefs that seem smaller due to forgetting
