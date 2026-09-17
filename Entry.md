@@ -3,6 +3,7 @@
 - https://x.com/amasad/status/2100045670845763791?s=20
 - https://x.com/VitalikButerin/status/2100388909410885974?s=20
 - https://x.com/harshagundal/status/2100044305536889015?s=20
+- https://x.com/banteg/status/2100619607648121199?s=20
 - Add to post “where does alignment come from?” and how it comes from judgment distillation?
 - -> post technical work done, why data cleanup is the core, and how training is REQUIRED to make the product possible (compare against astra latency, memory solutions, etc).
 	- missing piece here is compare against reasonably strong memory system?
