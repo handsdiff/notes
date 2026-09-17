@@ -45,5 +45,9 @@ skill post is technical researchers and positioning / messaging is for target ma
 
 give users (researchers?) api access to their latest model? seems like the people that might be most interested in using are the people building it for themselves? i.e. the usermodels discord and their friends and colleagues? or omar shaikh friends/colleagues? aka the stanford NLP lab, thinking machines, etc
 
-
 to get myself using the product i should probably just start with astra! that saves a ton of time while still getting usability results calibrated a bit better
+
+---
+
+- per noam brown, math stands out not only because its verifiable, but because its bottlenecked by thinking. relates to the core auto guy's take on kicking a soccer ball vs doing math
+- 
