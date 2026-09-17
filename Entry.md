@@ -49,5 +49,5 @@ to get myself using the product i should probably just start with astra! that sa
 
 ---
 
-- per noam brown, math stands out not only because its verifiable, but because its bottlenecked by thinking. relates to the core auto guy's take on kicking a soccer ball vs doing math
+- per noam brown, math stands out not only because its verifiable, but because its bottlenecked by thinking. relates to the core auto guy's take on kicking a soccer ball vs doing math. maybe this is what is meant by "grindable"?
 - 
