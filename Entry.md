@@ -52,4 +52,4 @@ RSI on what task? still need to define the hill to climb. cleaning up the data l
 ---
 
 - per noam brown, math stands out not only because its verifiable, but because its bottlenecked by thinking. relates to the core auto guy's take on kicking a soccer ball vs doing math. maybe this is what is meant by "grindable"?
-- 
+- what does the linear graph of data vs loss look like? what about the log linear graph of data vs loss? are there more direct ways to get loss vs accuracy relationships? or data vs accuracy relationships? jward's takes are very practical which is grounding
