@@ -47,6 +47,8 @@ give users (researchers?) api access to their latest model? seems like the peopl
 
 to get myself using the product i should probably just start with astra! that saves a ton of time while still getting usability results calibrated a bit better
 
+RSI on what task? still need to define the hill to climb. cleaning up the data leakage is crucial towards leveraging smarter and smarter models, since otherwise there are tons of capture gaps.
+
 ---
 
 - per noam brown, math stands out not only because its verifiable, but because its bottlenecked by thinking. relates to the core auto guy's take on kicking a soccer ball vs doing math. maybe this is what is meant by "grindable"?
