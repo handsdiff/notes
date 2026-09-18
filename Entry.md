@@ -74,6 +74,9 @@ jward msgs
 	- It would be ideal to have some more evidence for the claim of linear scaling of performance. Usually performance scaling is loosely log-linear. I.e. you need exponential increases in data/compute for linear improvements in downstream task performance."
 
 
+
+--- 
+
 slides
 - im not a PhD, i dont have good training intuitions for LLMs. but i know some things. i did RL research and sold a machine learning application in college. i know high quality data is the foundation.
 - came at current work from lots of different angles
