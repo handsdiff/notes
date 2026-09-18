@@ -62,6 +62,8 @@ RSI on what task? still need to define the hill to climb. cleaning up the data l
 	- it would be ideal to have 1-2 concrete examples of the predictions made and the grading.
 	- It would be ideal to have some more evidence for the claim of linear scaling of performance. Usually performance scaling is loosely log-linear. I.e. you need exponential increases in data/compute for linear improvements in downstream task performance."
 
+--- 
+
 todo
 - help spark
 - digest usermodels call, consider followups
