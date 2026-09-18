@@ -57,48 +57,11 @@ RSI on what task? still need to define the hill to climb. cleaning up the data l
 - you might actually need the full product i.e. real time suggestions to improve the slope of learning, once you get to some decent accuracy threshold. because once you start accepting suggestions verbatim, then the grader needs to do less work to match 'same intent but said better' since its from the model already, and the training is now on the more direct completion rather than the best human effort completion, which should over time distill pure judgment. so SFT on this is probably more than fine to start. (seems like PTC + reasoning might still be useful since it isnt mutually exclusive)
 	- writing it out, this is thesis post ideas restated
 
-jward msgs
-- "Very interested in getting to the point where the user model outperforms the zero-shot frontier models"
-	- yep this is the thesis
-- "what latent point in time context would be helpful to give the model so it could better predict the decision I'd make"
-	- yep, my thoughts around using this data set up as a forcing function for allowing models to just cook on the history of data and figure out their own primitives, whether thats novel retrieval algorithms or new ways of composing existing ones. dont care if its 'overfitting' if it improves performance on the task.
-	- basically objective could be CE or semantic similarity, but context instead of simple sliding window could be PTC/RLM, more akin to longnap.
-	- would love to try this but expensive and there seems to be lower hanging fruit
-- "the path forward for hill climbing pivotal decisions is more like data aug or more like RL" + "presenting the decisions made to the model in a more extracted/standardized format"
-	- yeah ive allowed flexibility in grading for now to support this but tons of open questions on how to best use this data on the path from decision repro -> superhuman performance with goal inference as the hopeful bridge
-- "aiming for decision-repro rather than going superhuman"
-- "eager to see steady hill climbing"
 - "my top feedback things on the doc:
 	- it would be ideal to have an exec summary or abstract that communicates the results. (Its a bit tricky since its a blend of position paper and results paper, but getting the takeaway results closer to the top is good). Right now from a quick read it seems like the main quantitative result is the 1/1000th cost of models writing compared to people. But that's not actually your main claim.
 	- it would be ideal to have 1-2 concrete examples of the predictions made and the grading.
 	- It would be ideal to have some more evidence for the claim of linear scaling of performance. Usually performance scaling is loosely log-linear. I.e. you need exponential increases in data/compute for linear improvements in downstream task performance."
 
-
-
---- 
-
-slides
-- im not a PhD, i dont have good training intuitions for LLMs. but i know some things. i did RL research and sold a machine learning application in college. i know high quality data is the foundation.
-- came at current work from lots of different angles
-	- personal alignment / reward functions. claude/codex are given direction by someone else.
-	- im the bottleneck to working faster. hard to process all inbound info.
-	- multi agent systems mode collapse
-	- continual learning? RSI? on what?
-	- really excited to be able to collaborate with you all
-- task construction/training -> capture all read / write, SFT on writes conditioned on prior information. since its continual data, train on block A, evaluate on next block B, then train on block B from checkpoint A to evaluate on block C, etc. can vary how you specify a block. start with token level cross entropy on writes. vision is some sort of intent based similarity that allows for superhuman outputs with agent led context construction, perhaps rejection sampled against human continuations for better training performance.
-- data capture. going to be a bit of a retrospective since its hard to exactly recall my cognitive state at each moment, but theres basically 4 fps screen capture, keyboard and mouse tracking, 1s read/write capture delays. app whitelisting. then we go through a complicated process combining scripts with ai assisted review with the goal of 
-	- capturing attention via mouse position + pane selection
-	- OCR
-	- removing tons of duplicate reads. cleaning up OCR issues (screenshot boundaries)
-	- handling dynamically produced context (ai chats)
-	- consolidating micro writes (human process of input vs input)
-	- managing causality of read/writes, when to keep writes split, etc
-	- basically longest write that happens with no new inbound information, and adjacent reads dont have any duplicate info
-	- attempt to closely match my attention, how i process data, what information im ingesting, and the end state of my ingestion and processing and assembling, not the messy interface between ingesting info (scrolling) and writing (edits, typos, changing screens)
-	- very empirical. i set up something, then look at the data and consider whether 1) it well matches how i viewed my read/write during that time and 2) its clean enough to see training signal
-	- i do think that data is the main bottleneck to work here, since the more data i have, the more i can extract signal from it via various algorithmic tricks which frontier models can help with
-- results
-- primarily need to establish slope of data/params to substantive accuracy along with usable accuracy rate
-- im currently hooking this system up into something usable during my day, to start collecting data on what levels of accuracy feel genuinely wowed
-- this will establish baseline timelines for when this could be a daily driver for me. growing intelligence per dollar and improved time on best utilizing this data should only make this better. there really are so many things that can be tried on top of a worthwhile problem to solve + clean data
-- extremely exciting to me for a model to be able to frontrun my thoughts! lots of downstream implications that i've written about in various places but can always talk about that stuff later.
+- digest usermodels call
+- complete report based on updated findings and jonathan's feedback, along with increased clarity on what the goals of it are
+- while data collection continues, establish usability baseline
