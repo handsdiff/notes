@@ -75,4 +75,6 @@ slides
 	- personal alignment / reward functions. claude/codex are given direction by someone else.
 	- im the bottleneck to working faster. hard to process all inbound info.
 	- multi agent systems mode collapse
-	- 
+	- continual learning? 
+- task construction -> capture all read / write, SFT on writes conditioned on prior information
+- 
