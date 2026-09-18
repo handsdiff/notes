@@ -97,5 +97,5 @@ slides
 - results
 - primarily need to establish slope of data/params to substantive accuracy along with usable accuracy rate
 - im currently hooking this system up into something usable during my day, to start collecting data on what levels of accuracy feel genuinely wowed
-- this will establish baseline timelines for when this could be a daily driver for me. growing intelligence per dollar and improved time on best utilizing this data should only make this better.
+- this will establish baseline timelines for when this could be a daily driver for me. growing intelligence per dollar and improved time on best utilizing this data should only make this better. there really are so many things that can be tried on top of a worthwhile problem to solve + clean data
 - extremely exciting to me for a model to be able to frontrun my thoughts! lots of downstream implications that i've written about in various places but can always talk about that stuff later.
