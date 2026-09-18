@@ -62,6 +62,9 @@ RSI on what task? still need to define the hill to climb. cleaning up the data l
 	- it would be ideal to have 1-2 concrete examples of the predictions made and the grading.
 	- It would be ideal to have some more evidence for the claim of linear scaling of performance. Usually performance scaling is loosely log-linear. I.e. you need exponential increases in data/compute for linear improvements in downstream task performance."
 
-- digest usermodels call
-- complete report based on updated findings and jonathan's feedback, along with increased clarity on what the goals of it are
-- while data collection continues, establish usability baseline
+todo
+- help spark
+- digest usermodels call, consider followups
+- digest latest data results, diving deeper. better understand NLL diffs and completion quality and why (is it in context, is it a reasonable prediction, is it impossible, etc). log linear vs linear slope. 
+- complete report based on updated findings and jonathan's feedback, along with increased clarity on what my goals with it are, and publish
+- while data collection continues, establish usability baseline with astra
