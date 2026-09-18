@@ -56,3 +56,23 @@ RSI on what task? still need to define the hill to climb. cleaning up the data l
 	- more deeply understanding what jward's messaging reveals about his thinking is likely very useful to frame discussion tomorrow. lots of interesting points that resonate with my thinking. maybe write down notes for each internalized message from him
 - you might actually need the full product i.e. real time suggestions to improve the slope of learning, once you get to some decent accuracy threshold. because once you start accepting suggestions verbatim, then the grader needs to do less work to match 'same intent but said better' since its from the model already, and the training is now on the more direct completion rather than the best human effort completion, which should over time distill pure judgment. so SFT on this is probably more than fine to start. (seems like PTC + reasoning might still be useful since it isnt mutually exclusive)
 	- writing it out, this is thesis post ideas restated
+
+jward msgs
+- "Very interested in getting to the point where the user model outperforms the zero-shot frontier models"
+	- yep this is the thesis
+- "what latent point in time context would be helpful to give the model so it could better predict the decision I'd make"
+	- yep, my thoughts around using this data set up as a forcing function for allowing models to just cook on the history of data and figure out their own primitives, whether thats novel retrieval algorithms or new ways of composing existing ones. dont care if its 'overfitting' if it improves performance on the task.
+	- basically objective could be CE or semantic similarity, but context instead of simple sliding window could be PTC/RLM, more akin to longnap.
+	- would love to try this but expensive and there seems to be lower hanging fruit
+- "the path forward for hill climbing pivotal decisions is more like data aug or more like RL" + "presenting the decisions made to the model in a more extracted/standardized format"
+	- yeah ive allowed flexibility in grading for now to support this but tons of open questions on how to best use this data on the path from decision repro -> superhuman performance with goal inference as the hopeful bridge
+- 
+
+
+slides
+- im not a PhD, i dont have good training intuitions. but i know some things. i studied did RL research and sold a machine learning application in college. i know high quality data is the foundation.
+- came at current work from lots of different angles
+	- personal alignment / reward functions. claude/codex are given direction by someone else.
+	- im the bottleneck to working faster. hard to process all inbound info.
+	- multi agent systems mode collapse
+	- 
