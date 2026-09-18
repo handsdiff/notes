@@ -81,7 +81,7 @@ slides
 	- im the bottleneck to working faster. hard to process all inbound info.
 	- multi agent systems mode collapse
 	- continual learning? RSI? on what?
-- task construction -> capture all read / write, SFT on writes conditioned on prior information. since its continual data, train on block A, evaluate on next block B, then train on block B from checkpoint A to evaluate on block C, etc. can vary how you specify a block. start with token level cross entropy on writes. vision is some sort of intent based similarity that allows for superhuman outputs with agent led context construction, perhaps rejection sampled against human continuations for better training performance.
+- task construction/training -> capture all read / write, SFT on writes conditioned on prior information. since its continual data, train on block A, evaluate on next block B, then train on block B from checkpoint A to evaluate on block C, etc. can vary how you specify a block. start with token level cross entropy on writes. vision is some sort of intent based similarity that allows for superhuman outputs with agent led context construction, perhaps rejection sampled against human continuations for better training performance.
 - data capture. going to be a bit of a retrospective since its hard to exactly recall my cognitive state at each moment, but theres basically 4 fps screen capture, keyboard and mouse tracking, 1s read/write capture delays. app whitelisting. then we go through a complicated process combining scripts with ai assisted review with the goal of 
 	- capturing attention via mouse position + pane selection
 	- OCR
@@ -93,6 +93,7 @@ slides
 	- attempt to closely match my attention, how i process data, what information im ingesting, and the end state of my ingestion and processing and assembling, not the messy interface between ingesting info (scrolling) and writing (edits, typos, changing screens)
 	- very empirical. i set up something, then look at the data and consider whether 1) it well matches how i viewed my read/write during that time and 2) its clean enough to see training signal
 	- i do think that data is the main bottleneck to work here, since the more data i have, the more i can extract signal from it via various algorithmic tricks which frontier models can help with
+- results
 - primarily need to establish slope of data/params to substantive accuracy along with usable accuracy rate
 - im currently hooking this system up into something usable during my day, to start collecting data on what levels of accuracy feel genuinely wowed
 - this will establish baseline timelines for when this could be a daily driver for me. growing intelligence per dollar and improved time on best utilizing this data should only make this better.
