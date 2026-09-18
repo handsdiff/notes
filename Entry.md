@@ -81,6 +81,7 @@ slides
 	- im the bottleneck to working faster. hard to process all inbound info.
 	- multi agent systems mode collapse
 	- continual learning? RSI? on what?
+	- really excited to be able to collaborate with you all
 - task construction/training -> capture all read / write, SFT on writes conditioned on prior information. since its continual data, train on block A, evaluate on next block B, then train on block B from checkpoint A to evaluate on block C, etc. can vary how you specify a block. start with token level cross entropy on writes. vision is some sort of intent based similarity that allows for superhuman outputs with agent led context construction, perhaps rejection sampled against human continuations for better training performance.
 - data capture. going to be a bit of a retrospective since its hard to exactly recall my cognitive state at each moment, but theres basically 4 fps screen capture, keyboard and mouse tracking, 1s read/write capture delays. app whitelisting. then we go through a complicated process combining scripts with ai assisted review with the goal of 
 	- capturing attention via mouse position + pane selection
