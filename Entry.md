@@ -1,7 +1,11 @@
 
+- how easy is it to benchmark the performance giving astra or some other frontier model the context but also tools to search over the entire corpus of history? i.e. the reasoning becomes more 'agentic'. right now astra seems to be reasoning 'blind' i.e. pure thinking, no ability to iterate between posterior updates and new bits of information. basically the intentions of the training vision but benchmarked on existing frontier model
+	- the ideal though is doing this but introducing some concept of learning/improvement over time. what might this look like? hmm.
+	- 
+- hmm should i benchmark astra low on the dataset, then use that for live? might be pareto. could save credits depending on how its reasoning plays out
+
 Todo
 - while data collection continues, establish usability baseline with astra in live product. may require pipeline compression, but can probably get away with being lax if resultant accuracy over time matches historical
-- hmm should i benchmark astra low on the dataset, then use that for live? might be pareto. also saves credits
 - Usability
 	- suggestion display UX, sampling timing decision, destination choice decision
 	- data capture updates
