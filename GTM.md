@@ -1,4 +1,5 @@
 
+- [[Relevant Events]]
 - https://x.com/alexshander03/status/2087418185079468485?s=20 judgment labs founder who indicates understanding of same problem
 - https://linqapp.com/ messaging app used by noscroll
 - https://x.com/davidsenra/status/2087539603024789569 silicon valley comms person
@@ -54,3 +55,126 @@
 - comparable product, user feedback: https://www.reddit.com/r/littlebird/
 - https://www.amplifypartners.com/blog-posts/the-user-modeling-wars similar theses, could amplify
 - "Converting this data-limited problem into something compute-limited (without producing slop data) is very much the hard core of the research problem" jon ward exowill
+
+### Misc Notes
+- the writeup needs to be beautifully presented. people trust beautiful design more than normal design. obviously this is on top of solid content and work, and very technical writing that will impress readers
+- get some stuff from [[Thesis]], combine stuff from [[GTM]]
+- i think establishing local scaling laws is the best way to describe the goal for the writeup. requires an actual understanding of scaling laws. basically show how loss if a function of data, compute, parameters, perhaps underlying intelligence, etc. extrapolation from established laws can lead to hopefully accurate cost and performance timelines. scaling rate is critical! vs any y intercepts. read chinchilla paper to get good understanding here.
+	- cost and latency, not just performance, is important to collect data on for the phase 1 experiment
+- equation of time saved when successful minus review time for all must be positive for value creation. then the monetary value of that time must exceed the cost associated with generating the product by about 3x for business viability.
+	- this is essentially precision and recall?
+- thinking machines and prime intellect, personalized models for everyone. frontier models will enable this. more flops per dollar will enable this. continually trained models for everyone.
+- we probably need 10-30 semantically accurate data points for a model to consider is not noise, regardless of the % of total accuracy it is. which implies we need to 10x the amount of data we have, since current qwen models get 1-2 things right. this assumes that the data is the same distribution, and it doesn't just show the ability to pick out easy prompts. also showing that loss continues to decrease by spending more on NLL graphs is likely necessary to show continual training improvements. also the choice of updating every 50 examples vs any other frequency (every example, or every day i.e. variable number) may impact things
+- https://x.com/MilksandMatcha/status/2052812382137971115?s=20 technical writing from ant guy
+- updated timing to be based off of the last material event before a write, which still doesnt actually capture thinking but is much better than starting the timer when the first character was written
+- holistically, the idea i have in my head is the model suggesting what i'll write given a pause in my activity, which in theory should 'automate' my thinking over time, since the model can in theory digest the read content and analyze it instantly, whereas I would take time to do so. and we're trying to distill that process into the model. it should also suggest something if im in the middle of a write, which its unclear if it will do, but i think it will
+- i dont feel comfortable keeping it on when i type in secrets and im building it and its local... need to handle that
+- the other issue is that it does not seem to be able to directly execute on superhuman tasking, although as i type this, it can always prompt a larger language model to do something, so its not necessary for the model itself to be directly able to execute like that
+- data is needed. raw data -> useful structure is complicated and time consuming even if intelligence to handle it skyrockets. a well built, provably useful standard would unlock this burden and allow algorithmic tricks and eventual useful consumer apps on top of clean data streams
+- bibtex example i've seen elsewhere like the scaling laws slowly blog or something https://www.coreauto.com/blog/how-our-data-shaped-neural-architecture-discovery-and-how-automation-can-reshape-the-future
+- https://x.com/viemccoy/status/2089096954257215678?s=20 multi agent people really seem to understand the problem!
+- core automation founders talking about 'why do i have to show up to work and prompt the model? why is the model not already prompting itself like that?' per my thesis
+- "I think we want AI to present hypotheses about the inferred goals for your review." my dad said the same thing, when i was more heavily thinking through the concepts of goal inference / CIRL / assistance games
+- https://www.amplifypartners.com/blog-posts/the-user-modeling-wars
+- https://x.com/venturetwins/status/2095203994843086947?s=20
+- overfit test as a method of determining whether there exists learnable signal in the data. i believe thats what i did earlier with the qwen run
+-  if the human model can predict the human well, you could pair it with a more typical frontier model to use the prediction from the human model to then more 'normally' help i.e. ask questions for assistance, more akin to something like jarvis or something even more proactive that actively suggests goal reaching activities
+- having a clean data stream of activity is the first step towards a model that can predict multi step turns which is the first step towards prospective learning or proactive assistance or multi agent systems
+- test NLL charts are important
+- jonathan was talking about 'in context' NLL which i did not fully understand
+- "at what NLL is goal inference occurring?"
+- a simple example from this morning. i picked up a piece of trash in one hand while my other hand was occupied, i looked over to the trash can but it was closed and i had no way of opening it. my girlfriend noticed and opened the trash for me.
+	- why isn't AI doing this for everything I do digitally?
+	- the first step of obviously prediction, and autocomplete / workflow automation is an easy way of monetizing that, but its really just the tip of the iceberg
+	- labs will want to do this
+	- one core difference between training to predict next write given prior read/write and 'jarvis' is that it will never ask you a clarifying question
+	- can a 'prospective' model (i.e. the user predictive model) be used in tandem with a frontier model to ask clarifying questions?
+- https://x.com/tbpn/status/2095651279792185623
+- https://multiplayer-ai.com/
+- what information to emphasize and what information to ignore in a given scenario is the essence of judgment. i.e. separating signal from noise.
+- its actually quite hard to review the outputs post facto. there are likely cases where the models output is actually better than what i typed at the given time. feels like phase 2 would be needed there. since you need to immerse yourself in your state of mind at that time which takes a ton of energy
+- catastrophic forgetting as a perceived future bottleneck
+- from mercor ceo: how do you eval agent to agent and agent to human social interaction, in the context of making environments closely match real world economically valuable activity. "real to sim gap for agent to agent social interaction" biggest growth areas alongside ultra long horizon
+- could indicate that best suited for getting clean data pipelines and distributing to customers, while would love to partner with companies that can build secure training recipes to help create value for the customers
+	- the training takes from jwards doc is interesting because it gives techniques for training on limited data, a lot of which involves reusing the same data, and im only doing a single pass
+		- https://github.com/qlabs-eng/slowrun
+		- https://arxiv.org/abs/2509.14786
+		- "replay based algorithms"
+		- one scifi concept that harkens to my explicit vision is the concept of an embedded agent that understands your context and is able to do things for you that would otherwise be slower for you. is next thought prediction the best way to get there? can you take a frontier model and give it full context (the same you'd be giving / training the personal one on) and tell it to take actions to get to some goal faster? its unclear. what would be a small test that would reveal this?
+			- one issue is that models literally cannot do this to a good enough quality bar
+			- another issue is that models could do this to a good enough quality bar, but it'd be too slow to be useful (the test comparing model performance vs latency to human performance vs latency would check this)
+			- another issue is that its good enough and fast but its stupid expensive
+- example pub https://persimmon.humansand.ai/blog/persimmon.html https://persimmon.humansand.ai/blog/persimmon-model-card.html along with some positioning boundaries
+- https://persimmon.humansand.ai/blog/persimmon-model-card.html#intended-uses would be interesting to see how this fares at prediction when compared to sol / astra
+- "there is no reason trying to optimize things for your current level of compute because next year you will have more and that will perform better" internalizing this is important when it comes to the goal of the published results being to establish 'local scaling laws'. what matters is what scales, and the rate of scaling.
+- (probably want to mention phase 2 and future work in the blog) v
+	- its well established that RLHF (PPO, DPO, etc) can lead to superhuman performance. how does this relate to my lineage of thinking? is the sample from a good SFT model considered applicable to DPO learning if there is a human continuation that is considered better? im just repeating my old opinions from when i researched algorithms and initially wrote up phase 1 and phase 2, but i'd like to increase clarity here. having a clear objective is likely important. or do you just continue doing SFT on the human's result even when exposed to model samples, rather than attempting DPO? why or why not? in theory SFT never allows superhuman performance, but in this scenario it might, may be the issue, since the human is theoretically improving due to the sample? this is a ramble and unformed but seems to be hinting at something. overall it feels like there are unique ways to think about this given that the human is so tightly in the loop and most algorithms and research do not assume that, and i haven't fully cracked those yet
+		- "a high-reward oracle raises the group baseline and inverts otherwise positive policy advantages, a failure we term advantage inversion"
+		- i like the phrase "coupled learning" to describe the learning i'm trying to build
+	- is RLHF/DPO set up the way it is BECAUSE human data collection is decoupled from training? what if this bottleneck was removed? would you just do SFT?
+	- seems increasingly obvious that phase 1 is sft and phase 2/3 is rl, which is a classic pipeline
+- my phases likely relates to jwards taxonomy a bit
+- include number of tokens trained on, jward references this a lot
+- how to elicit goal inference answer from the predictive model?
+- "when to sample" as a big question. the initial plan of gap in user activity may not be good, but it may be best?
+- multiplayer work takes up 80% of my time and differing judgment is a prerequisite to successful multiplayer outcomes
+- "signs of life for distilling single human judgment into continually trained LLMs"
+- “Let’s relax on the realism axis a little bit and find some methods that actually work, and then try to get back to realism later after the method matures a little bit.”
+- "if in context learning is so powerful, why do labs train more at all, besides spending their time increasing context window?" the answer to this question reveals boundaries between in context learning and training outside of frontier labs as well
+- "I think your biggest problem is actually just not knowing what the reward function should be for natural data"
+- "do you think taste is solved if you have a trillion token context of your whole life" "it would have to be trained to learn the right update to make from that context"
+- catastrophic forgetting is only an issue if the business equation is negative as a result. if its a theoretical problem it doesnt matter at this stage
+- the continued bits for model improvement will come from their social structures since the bits coming from humans will diminish over time as models want to continuously improve
+- human social structures improved human condition by order of magnitude, moving humans up maslow's hierarchy of needs and this will also happen for models
+	- "I think that’s why the diminishing returns kick in, because even the world as a whole is not giving you the bits that are useful for tipping you into the next basin of capability."
+	- relates to 'exploration' for models to discover their own bits without humans generating it and curating it for them
+- monocultures (all claudes) are brittle and die when externally stressed
+- the problem with alignment is consistently "human data is slow to collect and expensive". could phrase the value prop as "human data is fast to collect and free". relates to the algorithmic questions i have around the extent to which you dont need a reward model if the human is in the loop. hmmmmmmm. relates to the validity of phase 1 model's samples acting as rejection sampling for phase 2 IPO
+- if the goal is to reduce time spent thinking, the argument would be that context collection + goal specification / iteration is a tangible slice of that time that is rapidly growing and costing money. what jward calls "prompt rewriting" and "loop manager" are good specifications as well.
+	- one way to describe the tension with the stated problem its addressing of not needing to provide context, besides the other ones listed in the thesis notes, is that the model is specifically not meant to be prompted via question answer. so you cant really rely on it to have some innate knowledge of everything youre working on. perhaps its more like talking to yourself, and yourself has faster, lower cost information retrieval and usage than you do, but that has not been proven yet. so the feelings around the lack of clarity around this addressing a current enterprise problem costing time or money is still unclear. obviously the vision is that it saves you time, but then you'd want to address people who think they spend a lot of time thinking? or doing rote work during their day to day? which feels widespread but vague rather than acute and deep. imagination vs practicality is the meta challenge.
+- while talking to jakub i think good positioning which well reflects my theses is roughly the following
+	- continual learning of judgment/reasoning vs continual learning of facts
+	- z ai founder tweet on how facts seem to be stored in total and reasoning seems to be stored in active
+	- feels like im trying to get continual learning of judgment whereas most continual learners seem to be focusing on continual learning of facts
+	- relates to hardware since memory bandwidth is an issue to the extent that you have active parameters? or is it total parameters? probably worth reviewing
+	- does continual learning of reasoning makes sense? the clearest example is learning how to do something vs learning a fact. there is clearly a difference between these two things. calling learning how to do something judgment or reasoning may be where the issue comes in
+	- this thought seemed crazy to me when i had it but after writing it down it feels more normal / less clear
+	- how to do something vs facts vs what to do given input might all be different things. the first and the third seem similar?
+- one impetus was that data was valuable and needed storage and that raw data improved in value over time as model capabilities improved because intelligence goes up, dollars goes down, sample efficiency goes up
+	- one of my implicit assumptions has been that ‘algorithms improve’ i.e. you can get the same or better results from less data. is this true? whats the evidence? how to invalidate?
+		- yes models getting cheaper and faster and smarter. but does that mean they do better with less data? or does smarter here mean the ability to solve more esoteric problems? or work for longer in a way that is considered generally satisfactory?
+		- if 'algorithms improve' means more parameters, is that a ceiling? or is that a bootstrap rate? what improves bootstrap rate? in context learning and LoRA stand out. how would you actually establish a vector here?
+- lots of conflation between judgment being required for multi agent systems vs solving 'memory' by teaching how to use context not just what context exists that gets resolved once you refocus on how 'memory' is the digestible current explanation towards the growing broader problem
+- if you consider the human 'completion' the advantage towards an unknown reward, does that unify phase 1 and 2/3 training? its reliant on the humans best estimation of the reward, but it prevents the model from reward hacking.
+	- https://tinker-docs.thinkingmachines.ai/tutorials/advanced/rlhf-pipeline/
+- the following steps continue to stand out to me, but also get inflated in my head
+	- cross entropy loss -> semantic similarity or LLM as judge
+	- sliding window context -> agent led PTC on full corpus (RLMs?)
+	- does feel like i need to reimmerse myself in my memory thinking. peaked when i was writing the article on recall to judgment
+	- ^^^ you wont be able to figure this out. imo it strengthens the need for raw data capture (but not necessarily proper data cleanup)
+	- i think cleanup just saves repeated work that a model would otherwise do. kind of like the systems that work unconsciously in the brain such as breathing. the 'preprocessing' is the equivalent of years of evolution. so it can focus on the best responses to actual novel stimulus
+- theres a question as to whether phase 1 training can even produce economically useful results or if it requires phase 2's formulation for improved learning/reasoning. also the question of whether CE loss + sliding window phase 1 differs from sim loss + RLM context phase 1
+- seems like phase 1 -> 2 is how to get from tracking human to super human performance, since you can start to rely on previously un thought of completions to then verify/reward implicitly with extended behavior
+- enterprise inspiration https://www.ycombinator.com/launches/NzG-wafer-cursor-for-cuda
+- audio and images compile to text, thought to text. The same pipeline can support once proven 
+- "Without personalized models designed to amplify your individual capabilities and interests, merging with an off the shelf AI will be one of the strongest forces toward cultural homogenization. We desperately need a science of personalized alignment to prepare us for neurotech."
+- "trust and alignment are quickly becoming the most important capabilities that will differentiate agents and models"
+- "Our own John Schulman talks with Dwarkesh about where human judgment still matters as models improve and self-improve: teaching them to handle messy real-world tasks, applying taste to what works in the long run, and, above all, specifying what we actually want."
+- increasingly clear to me that i dont actually care about matching exactly what i say. its more about the expressing the correct underlying intention, ideally in a way thats better than i could either (and ideally both) because its smarter (better expectation of world response) and faster
+- "unbounded rationality"
+- "self forecasting" perhaps because the main issue with forecasting is, forecasting what?
+- this is well written. i'd like my writing to match this clarity https://thinkingmachines.ai/blog/the-future-worth-building-is-human/
+
+### Transition Period
+- start report with thesis overview to motivate the why behind the work, painting a story of detailed worlds with/without this technology. then do deep dive into timeline. focus on intricacies of data capture. fully explain data pipeline. explain training config. post results. explain result interpretation. establish 'vectors' and/or 'local scaling laws' that point to this being a foundation for future development and exciting possibility. foundation of all context ingestion (image, audio, even thought). if this works, what does that look like?
+- set up website, landing page, figures, and copy that focus on value prop for heavy parallel agent users. "Coupled learns from your ongoing work to suggest the next prompt you would otherwise have to assemble yourself". figure out waitlist/pricing/influential nodes/initial GTM. "youre the bottleneck to getting more done. specifically, your bounded ability to process information and take action that to the best of your knowledge best achieves your goals. we unbound that." "your next prompt is predictable" "explain less. get better results." "the next thing you write and where you write it are very tractable predictions when conditioned on your prior context"
+- phase 1.5 implementation (codify/compress phase 1 into repeatable, deterministic work. establish horizontal timely accuracy line for extreme positive emotions and genuine reliance. establish cost. decrease error bounds on vectors.)
+	- codify data construction pipeline
+	- set up triggered overnight training and evaluation
+	- set up the pipeline that takes the checkpoint from overnight and hosts and serves it somewhere for the app to use
+	- build the UX that queries the hosted model and the structures the underlying request to match training context and displays the output in a way that is copyable
+	- think through how this changes the existing data pipeline, without resorting to a different objective function yet unless additional thinking determines that its required
+- then, phase 2. does rejection sampling / preference training improve timely accuracy and initiate goal inference?
+
+
+Do I need to clean up the repo before pushing out the report? Phase 1.5 implementation starts with repo cleanup. Likely doesnt matter. What matters? Putting out impressive content, primarily. That was basically the goal of the past few weeks of work. That's why it's likely so novel to decide whats next. Maybe I scope down to focusing on putting out impressive technical content here, given that I'd likely rush the process of putting out content I'm proud of which would likely be net negative overall if the initial goal was putting out impressive technical content. Then, focus on setting up website and whatnot. This might feel bad since if I'm going to put up the website, I'd want the waitlist to be up with the technical content. hmmm. i could skip setting up inbound via a website or anything like this, and instead focus on the technical content with some simple inbound like email or whatnot, and then do phase 1.5? Maybe instinct ai website or exowill website is inspiration instead of the typical landing pages im thinking of

@@ -1,3 +1,4 @@
+# Phase 1 (completed sep 19, published sep 21)
 
 *Continual next-action learning from personal read–write streams*
 
