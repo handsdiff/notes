@@ -77,4 +77,7 @@ todo
 - by Mon morning: digested data / understood results + post out + using product live.
 
 Opens
-- goodalexander tweet on crypto, why is it going up
+- goodalexander tweet on crypto, why is it going up so much
+- Independent calcs of inference numbers. Why not profitable, what’s the vector with scale, if it’s for sure possible, slam GTM don’t be profitable
+- Deep understanding of how inference works, how hardware works
+- Recognize if no vectors or poor understanding or edge then allocate time differently
