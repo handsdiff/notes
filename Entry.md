@@ -30,3 +30,6 @@ alex
 - when we spin up a second GPU, we are not parallelizing.
 - 1 uncached long context nukes -> 2 uncached long context nuke
 - if we parallelize, then we can handle 2x the long context for the same performance
+- if normal parallelism is profitable, then jakub and dylan do that, alex researches for juice
+- otherwise, alex research is for viability
+- downstream of this is whether the research direction (market dynamics) is viable
