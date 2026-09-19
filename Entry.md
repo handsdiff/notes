@@ -68,7 +68,6 @@ RSI on what task? still need to define the hill to climb. cleaning up the data l
 --- 
 
 todo
-- help spark
 - digest usermodels call, consider followups
 - digest latest data results, diving deeper. better understand NLL diffs and completion quality and why (is it in context, is it a reasonable prediction, is it impossible, etc). log linear vs linear slope. 
 	- consider jev?
