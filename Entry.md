@@ -11,9 +11,3 @@ Todo
 	- data capture updates
 	- data construction pipeline compression for live usage that mimics training
 	- overnight training, hosting, serving
-
-Opens
-- Independent calcs of inference numbers. Why not profitable, what’s the vector with scale, if it’s for sure possible, slam GTM don’t be profitable
-- Deep understanding of how inference works, how hardware works
-- Recognize if no vectors or poor understanding or edge then allocate time differently
-- how is it like a market? are market analogies valid?
