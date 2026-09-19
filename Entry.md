@@ -75,4 +75,3 @@ Opens
 - Deep understanding of how inference works, how hardware works
 - Recognize if no vectors or poor understanding or edge then allocate time differently
 - how is it like a market? are market analogies valid?
-- 
