@@ -22,4 +22,5 @@ alex
 - gpu vs instance
 - margins with a node?
 - parallel forward passes defines an 'instance'? why does GPU scale not push margins then? prefill vs decode disaggregation
+- instance is not tensor or pipeline parallelized
 - 
