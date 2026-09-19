@@ -4,6 +4,9 @@
 - https://x.com/VitalikButerin/status/2100388909410885974?s=20
 - https://x.com/harshagundal/status/2100044305536889015?s=20
 - https://x.com/banteg/status/2100619607648121199?s=20
+- https://x.com/banteg/status/2100672798888984683?s=20
+- https://x.com/teortaxesTex/status/2100703805088129111?s=20
+- https://x.com/hypersoren/status/2100710579946004893?s=20
 - Add to post “where does alignment come from?” and how it comes from judgment distillation?
 - -> post technical work done, why data cleanup is the core, and how training is REQUIRED to make the product possible (compare against astra latency, memory solutions, etc).
 	- missing piece here is compare against reasonably strong memory system?
@@ -72,3 +75,6 @@ todo
 - complete report based on updated findings and jonathan's feedback, along with increased clarity on what my goals with it are, and publish
 - while data collection continues, establish usability baseline with astra. may require pipeline compression, but can probably get away with being lax if resultant accuracy over time matches historical
 - by Mon morning: digested data / understood results + post out + using product live.
+
+Opens
+- goodalexander tweet on crypto, why is it going up
