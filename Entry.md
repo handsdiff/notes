@@ -11,3 +11,5 @@ Todo
 	- data capture updates
 	- data construction pipeline compression for live usage that mimics training
 	- overnight training, hosting, serving
+
+- 
