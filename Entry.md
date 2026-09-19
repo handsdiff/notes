@@ -23,4 +23,10 @@ alex
 - margins with a node?
 - parallel forward passes defines an 'instance'? why does GPU scale not push margins then? prefill vs decode disaggregation
 - instance is not tensor or pipeline parallelized
-- 
+- prefill is compute bound if not cached.
+- decode is memory bound.
+- if 5.3 flash on a node, prefill is parallelized so can focus on decode
+- uncached long context is the worst
+- when we spin up a second GPU, we are not parallelizing.
+- 1 uncached long context nukes -> 2 uncached long context nuke
+- if we parallelize, then we can handle 2x the long context for the same performance
