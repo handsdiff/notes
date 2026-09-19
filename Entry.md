@@ -18,3 +18,7 @@ Opens
 - Recognize if no vectors or poor understanding or edge then allocate time differently
 - how is it like a market? are market analogies valid?
 
+alex
+- gpu vs instance
+- margins with a node?
+- 
