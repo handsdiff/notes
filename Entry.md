@@ -68,8 +68,7 @@ RSI on what task? still need to define the hill to climb. cleaning up the data l
 --- 
 
 todo
-- while data collection continues, establish usability baseline with astra. may require pipeline compression, but can probably get away with being lax if resultant accuracy over time matches historical
-- by Mon morning: digested data / understood results + post out + using product live.
+- while data collection continues, establish usability baseline with astra in live product. may require pipeline compression, but can probably get away with being lax if resultant accuracy over time matches historical
 
 Opens
 - Independent calcs of inference numbers. Why not profitable, what’s the vector with scale, if it’s for sure possible, slam GTM don’t be profitable
