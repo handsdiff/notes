@@ -68,7 +68,6 @@ RSI on what task? still need to define the hill to climb. cleaning up the data l
 --- 
 
 todo
-- digest latest data results, diving deeper. better understand NLL diffs and completion quality and why (is it in context, is it a reasonable prediction, is it impossible, etc). log linear vs linear slope. 
 - complete report based on updated findings and jonathan's feedback, along with increased clarity on what my goals with it are, and publish
 - while data collection continues, establish usability baseline with astra. may require pipeline compression, but can probably get away with being lax if resultant accuracy over time matches historical
 - by Mon morning: digested data / understood results + post out + using product live.
