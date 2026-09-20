@@ -13,4 +13,3 @@ Todo
 	- overnight training, hosting, serving
 
 - Email Jessy Lin about work
-- Ad
