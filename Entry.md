@@ -14,3 +14,6 @@ Todo
 
 - Email Jessy Lin about work
 - should never predict paste
+
+- frontier model is too slow to even consider accuracy well
+- 
