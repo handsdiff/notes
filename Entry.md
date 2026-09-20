@@ -16,4 +16,5 @@ Todo
 - should never predict paste
 
 - frontier model is too slow to even consider accuracy well
-- 
+- trying to juice more out of training
+- testing the app but its with opus so its like what am i even doing. the accuracy is useless but its honestly mostly a timing issue so that requires thinking.
