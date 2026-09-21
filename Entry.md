@@ -28,3 +28,5 @@ Todo
 
 - im out of astra and fable, any other frontier models are terrible, but i dont want to pay per token with the personalized model since i think the harness is slop
 - out of fable now too
+
+prices should be used to equate GTM bottleneck to product bottleneck.
