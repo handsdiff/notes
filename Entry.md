@@ -18,3 +18,10 @@ Todo
 - frontier model is too slow to even consider accuracy well
 - trying to juice more out of training
 - testing the app but its with opus so its like what am i even doing. the accuracy is useless but its honestly mostly a timing issue so that requires thinking.
+
+- pilot is slow but sometimes the speed is fine if i could get a sense of accuracy
+- sampling timing needs work
+- accuracy isnt good enough
+- i cant really make the frontier model faster so the only path forward seems to be making the trained model more accurate
+- was having perplexity blowups which seems to result from OOD forcing
+- attempting a variant of OPSD + SFT where i get the model to produce the right intent with privileged information then SFT from the base content with no special info to its privileged-conditioned completion
