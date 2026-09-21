@@ -30,3 +30,8 @@ Todo
 - out of fable now too
 
 prices should be used to equate GTM bottleneck to product bottleneck.
+
+
+- credit accounting
+- current state of batching? how much does this move the needle?
+- automated GPU prod deployment pipeline
