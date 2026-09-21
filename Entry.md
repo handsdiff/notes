@@ -25,3 +25,6 @@ Todo
 - i cant really make the frontier model faster so the only path forward seems to be making the trained model more accurate
 - was having perplexity blowups which seems to result from OOD forcing
 - attempting a variant of OPSD + SFT where i get the model to produce the right intent with privileged information then SFT from the base content with no special info to its privileged-conditioned completion
+
+- im out of astra and fable, any other frontier models are terrible, but i dont want to pay per token with the personalized model since i think the harness is slop
+- 
