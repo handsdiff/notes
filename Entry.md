@@ -35,3 +35,6 @@ prices should be used to equate GTM bottleneck to product bottleneck.
 - credit accounting
 - current state of batching? how much does this move the needle?
 - automated GPU prod deployment pipeline
+
+- want to codify the GPU rollout rules somewhere
+- want to loop back to the further juicing options, still understanding batch rate impacts, benchmarking on further load (maybe more than 15 is ok too?)
