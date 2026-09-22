@@ -38,3 +38,7 @@ prices should be used to equate GTM bottleneck to product bottleneck.
 
 - want to codify the GPU rollout rules somewhere
 - want to loop back to the further juicing options, still understanding batch rate impacts, benchmarking on further load (maybe more than 15 is ok too? 20? 30?)
+
+cache hit rate is a function of memory available (more memory = more users stored)
+the more your cache is overloaded the more eviction youre doing the more compute youre using on prefill instead of decode
+seems like most people solve this easily then focus on decode performance (speculative decoding)
